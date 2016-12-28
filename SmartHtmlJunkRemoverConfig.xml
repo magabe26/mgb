@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<SMARTHTMLJUNK_REMOVER>
+
+
+ <CONFIG WHAT_TO_DO ="nil" REMOVE_THIS ="nil" REPLACE_THIS ="wedddd" WITH_THIS ="ddcccc"> replacing ...</CONFIG>
+
+  <CONFIG WHAT_TO_DO ="remove_regex" REMOVE_THIS ="[&lt;][B]\s{1,12}[&gt;]" REPLACE_THIS ="nil" WITH_THIS ="nil"> removing regs ...</CONFIG>
+
+  <CONFIG WHAT_TO_DO ="remove_normal" REMOVE_THIS ="sssssss" REPLACE_THIS ="nil" WITH_THIS ="nil"> removing nornal methods.... ...</CONFIG>
+
+</SMARTHTMLJUNK_REMOVER>
