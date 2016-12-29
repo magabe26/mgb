@@ -2,11 +2,11 @@
 
 <SMARTHTMLJUNK_REMOVER>
 
+<CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&amp;" REPLACE_THIS ="nil" WITH_THIS ="nil"> REMOVE_NORMAL : Removing &amp; , a xml special character, its found ASCEE 2016  TAQWA.... ...</CONFIG>
 
  <CONFIG WHAT_TO_DO ="nil" REMOVE_THIS ="nil" REPLACE_THIS ="wedddd" WITH_THIS ="ddcccc"> replacing ...</CONFIG>
 
   <CONFIG WHAT_TO_DO ="remove_regex" REMOVE_THIS ="[&lt;][B]\s{1,12}[&gt;]" REPLACE_THIS ="nil" WITH_THIS ="nil"> removing regs ...</CONFIG>
 
-  <CONFIG WHAT_TO_DO ="remove_normal" REMOVE_THIS ="sssssss" REPLACE_THIS ="nil" WITH_THIS ="nil"> removing nornal methods.... ...</CONFIG>
-
+  
 </SMARTHTMLJUNK_REMOVER>
