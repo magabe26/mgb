@@ -7,6 +7,32 @@
 <CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&amp;" REPLACE_THIS ="nil" WITH_THIS ="nil"> REMOVE_NORMAL : Removing &amp; , a xml special character, its found ASCEE 2016  TAQWA.... ...</CONFIG>
 
  <CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&quot;2.&quot;" REPLACE_THIS ="nil" WITH_THIS ="nil"> REMOVE_NORMAL : Removing from scee2016 results</CONFIG>
+<CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&lt;TD  &gt; &lt;A HREF&quot;indexfiles\index_a.htm&quot;&gt;A &lt;/A&gt;&lt;/TD&gt;" REPLACE_THIS ="nil" WITH_THIS ="nil"> REMOVE_NORMAL </CONFIG>
+<CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&lt;TD  &gt; &lt;A HREF&quot;indexfiles\index_b.htm&quot;&gt;B &lt;/A&gt;&lt;/TD&gt;" REPLACE_THIS ="nil" WITH_THIS ="nil"> REMOVE_NORMAL </CONFIG>
+<CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&lt;TD  &gt; &lt;A HREF&quot;indexfiles\index_c.htm&quot;&gt;C &lt;/A&gt;&lt;/TD&gt;" REPLACE_THIS ="nil" WITH_THIS ="nil"> REMOVE_NORMAL </CONFIG>
+<CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&lt;TD  &gt; &lt;A HREF&quot;indexfiles\index_d.htm&quot;&gt;D &lt;/A&gt;&lt;/TD&gt;" REPLACE_THIS ="nil" WITH_THIS ="nil"> REMOVE_NORMAL </CONFIG>
+<CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&lt;TD  &gt; &lt;A HREF&quot;indexfiles\index_e.htm&quot;&gt;E &lt;/A&gt;&lt;/TD&gt;" REPLACE_THIS ="nil" WITH_THIS ="nil"> REMOVE_NORMAL </CONFIG>
+<CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&lt;TD  &gt; &lt;A HREF&quot;indexfiles\index_f.htm&quot;&gt;F &lt;/A&gt;&lt;/TD&gt;" REPLACE_THIS ="nil" WITH_THIS ="nil"> REMOVE_NORMAL </CONFIG>
+<CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&lt;TD  &gt; &lt;A HREF&quot;indexfiles\index_g.htm&quot;&gt;G &lt;/A&gt;&lt;/TD&gt;" REPLACE_THIS ="nil" WITH_THIS ="nil"> REMOVE_NORMAL </CONFIG>
+<CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&lt;TD  &gt; &lt;A HREF&quot;indexfiles\index_h.htm&quot;&gt;H &lt;/A&gt;&lt;/TD&gt;" REPLACE_THIS ="nil" WITH_THIS ="nil"> REMOVE_NORMAL </CONFIG>
+<CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&lt;TD  &gt; &lt;A HREF&quot;indexfiles\index_i.htm&quot;&gt;I &lt;/A&gt;&lt;/TD&gt;" REPLACE_THIS ="nil" WITH_THIS ="nil"> REMOVE_NORMAL </CONFIG>
+<CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&lt;TD  &gt; &lt;A HREF&quot;indexfiles\index_j.htm&quot;&gt;J &lt;/A&gt;&lt;/TD&gt;" REPLACE_THIS ="nil" WITH_THIS ="nil"> REMOVE_NORMAL </CONFIG>
+<CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&lt;TD  &gt; &lt;A HREF&quot;indexfiles\index_k.htm&quot;&gt;K &lt;/A&gt;&lt;/TD&gt;" REPLACE_THIS ="nil" WITH_THIS ="nil"> REMOVE_NORMAL </CONFIG>
+<CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&lt;TD  &gt; &lt;A HREF&quot;indexfiles\index_l.htm&quot;&gt;L &lt;/A&gt;&lt;/TD&gt;" REPLACE_THIS ="nil" WITH_THIS ="nil"> REMOVE_NORMAL </CONFIG>
+<CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&lt;TD  &gt; &lt;A HREF&quot;indexfiles\index_m.htm&quot;&gt;M &lt;/A&gt;&lt;/TD&gt;" REPLACE_THIS ="nil" WITH_THIS ="nil"> REMOVE_NORMAL </CONFIG>
+<CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&lt;TD  &gt; &lt;A HREF&quot;indexfiles\index_n.htm&quot;&gt;N &lt;/A&gt;&lt;/TD&gt;" REPLACE_THIS ="nil" WITH_THIS ="nil"> REMOVE_NORMAL </CONFIG>
+<CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&lt;TD  &gt; &lt;A HREF&quot;indexfiles\index_o.htm&quot;&gt;O &lt;/A&gt;&lt;/TD&gt;" REPLACE_THIS ="nil" WITH_THIS ="nil"> REMOVE_NORMAL </CONFIG>
+<CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&lt;TD  &gt; &lt;A HREF&quot;indexfiles\index_p.htm&quot;&gt;P &lt;/A&gt;&lt;/TD&gt;" REPLACE_THIS ="nil" WITH_THIS ="nil"> REMOVE_NORMAL </CONFIG>
+<CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&lt;TD  &gt; &lt;A HREF&quot;indexfiles\index_q.htm&quot;&gt;Q &lt;/A&gt;&lt;/TD&gt;" REPLACE_THIS ="nil" WITH_THIS ="nil"> REMOVE_NORMAL </CONFIG>
+<CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&lt;TD  &gt; &lt;A HREF&quot;indexfiles\index_r.htm&quot;&gt;R &lt;/A&gt;&lt;/TD&gt;" REPLACE_THIS ="nil" WITH_THIS ="nil"> REMOVE_NORMAL </CONFIG>
+<CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&lt;TD  &gt; &lt;A HREF&quot;indexfiles\index_s.htm&quot;&gt;S &lt;/A&gt;&lt;/TD&gt;" REPLACE_THIS ="nil" WITH_THIS ="nil"> REMOVE_NORMAL </CONFIG>
+<CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&lt;TD  &gt; &lt;A HREF&quot;indexfiles\index_t.htm&quot;&gt;T &lt;/A&gt;&lt;/TD&gt;" REPLACE_THIS ="nil" WITH_THIS ="nil"> REMOVE_NORMAL </CONFIG>
+<CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&lt;TD  &gt; &lt;A HREF&quot;indexfiles\index_u.htm&quot;&gt;U &lt;/A&gt;&lt;/TD&gt;" REPLACE_THIS ="nil" WITH_THIS ="nil"> REMOVE_NORMAL </CONFIG>
+<CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&lt;TD  &gt; &lt;A HREF&quot;indexfiles\index_v.htm&quot;&gt;V &lt;/A&gt;&lt;/TD&gt;" REPLACE_THIS ="nil" WITH_THIS ="nil"> REMOVE_NORMAL </CONFIG>
+<CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&lt;TD  &gt; &lt;A HREF&quot;indexfiles\index_w.htm&quot;&gt;W &lt;/A&gt;&lt;/TD&gt;" REPLACE_THIS ="nil" WITH_THIS ="nil"> REMOVE_NORMAL </CONFIG>
+<CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&lt;TD  &gt; &lt;A HREF&quot;indexfiles\index_x.htm&quot;&gt;X &lt;/A&gt;&lt;/TD&gt;" REPLACE_THIS ="nil" WITH_THIS ="nil"> REMOVE_NORMAL </CONFIG>
+<CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&lt;TD  &gt; &lt;A HREF&quot;indexfiles\index_y.htm&quot;&gt;Y &lt;/A&gt;&lt;/TD&gt;" REPLACE_THIS ="nil" WITH_THIS ="nil"> REMOVE_NORMAL </CONFIG>
+<CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&lt;TD  &gt; &lt;A HREF&quot;indexfiles\index_z.htm&quot;&gt;Z &lt;/A&gt;&lt;/TD&gt;" REPLACE_THIS ="nil" WITH_THIS ="nil"> REMOVE_NORMAL </CONFIG>
 
  <CONFIG WHAT_TO_DO ="nil" REMOVE_THIS ="nil" REPLACE_THIS ="wedddd" WITH_THIS ="ddcccc"> replacing ...</CONFIG>
 
