@@ -6,6 +6,8 @@
 <CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&lt;TABLE BORDER CELLSPACING=0  WIDTH=&quot;70%&quot; BGCOLOR=&quot;LIGHTYELLOW&quot;" REPLACE_THIS ="nil" WITH_THIS ="nil"> REMOVE_NORMAL : Removing this to fix ranking and performance parsing.. ...</CONFIG>
 <CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&amp;" REPLACE_THIS ="nil" WITH_THIS ="nil"> REMOVE_NORMAL : Removing &amp; , a xml special character, its found ASCEE 2016  TAQWA.... ...</CONFIG>
 
+ <CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&quot;2.&quot;" REPLACE_THIS ="nil" WITH_THIS ="nil"> REMOVE_NORMAL : Removing from scee2016 results</CONFIG>
+
  <CONFIG WHAT_TO_DO ="nil" REMOVE_THIS ="nil" REPLACE_THIS ="wedddd" WITH_THIS ="ddcccc"> replacing ...</CONFIG>
 
   <CONFIG WHAT_TO_DO ="remove_regex" REMOVE_THIS ="[&lt;][B]\s{1,12}[&gt;]" REPLACE_THIS ="nil" WITH_THIS ="nil"> removing regs ...</CONFIG>
