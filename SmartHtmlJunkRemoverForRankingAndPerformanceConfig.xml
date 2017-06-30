@@ -10,5 +10,7 @@
 
   <CONFIG WHAT_TO_DO ="remove_regex" REMOVE_THIS ="[&lt;][B]\s{1,12}[&gt;]" REPLACE_THIS ="nil" WITH_THIS ="nil"> removing regs ...</CONFIG>
 
+ CONFIG WHAT_TO_DO ="nil" REMOVE_THIS ="nil" REPLACE_THIS ="&lt;/H4&gt;" WITH_THIS ="&lt;/SUMMARY&gt;"> replacing &lt;/H4&gt; with &lt;/SUMMARY&gt; in scee 2008 individual results...</CONFIG>
+ 
 
 </SMARTHTMLJUNK_REMOVER_FORRANKINGANDPERFORMANCE>
