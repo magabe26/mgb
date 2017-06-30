@@ -34,7 +34,7 @@
 <CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&lt;TD  &gt; &lt;A HREF&quot;indexfiles\index_y.htm&quot;&gt;Y &lt;/A&gt;&lt;/TD&gt;" REPLACE_THIS ="nil" WITH_THIS ="nil"> REMOVE_NORMAL </CONFIG>
 <CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&lt;TD  &gt; &lt;A HREF&quot;indexfiles\index_z.htm&quot;&gt;Z &lt;/A&gt;&lt;/TD&gt;" REPLACE_THIS ="nil" WITH_THIS ="nil"> REMOVE_NORMAL </CONFIG>
 
- <CONFIG WHAT_TO_DO ="nil" REMOVE_THIS ="nil" REPLACE_THIS ="&lt;H4&gt;" WITH_THIS ="&lt;SUMMARY&gt;"> replacing &lt;H4&gt; with &lt;/SUMMARY&gt; in scee 2008 individual results...</CONFIG>
+ <CONFIG WHAT_TO_DO ="nil" REMOVE_THIS ="nil" REPLACE_THIS ="&lt;H4&gt;" WITH_THIS ="&lt;SUMMARY&gt;"> replacing &lt;H4&gt; with &lt;SUMMARY&gt; in scee 2008 individual results...</CONFIG>
 
 <CONFIG WHAT_TO_DO ="nil" REMOVE_THIS ="nil" REPLACE_THIS ="&lt;/H4&gt;" WITH_THIS ="&lt;/SUMMARY&gt;"> replacing &lt;/H4&gt; with &lt;/SUMMARY&gt; in scee 2008 individual results...</CONFIG>
  
