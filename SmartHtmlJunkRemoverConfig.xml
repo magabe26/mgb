@@ -40,6 +40,8 @@
  
 <CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="Press to View Rankings" REPLACE_THIS ="nil" WITH_THIS ="nil"> REMOVE_NORMAL ,  View  to View Rankings ,from Ascee 2006 </CONFIG>
 
+<CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="Press to View Statistics" REPLACE_THIS ="nil" WITH_THIS ="nil"> REMOVE_NORMAL , View to View Statistics ,from Scee 2006 </CONFIG>
+ 
  <CONFIG WHAT_TO_DO ="nil" REMOVE_THIS ="nil" REPLACE_THIS ="wedddd" WITH_THIS ="ddcccc"> replacing ...</CONFIG>
 
   <CONFIG WHAT_TO_DO ="remove_regex" REMOVE_THIS ="[&lt;][B]\s{1,12}[&gt;]" REPLACE_THIS ="nil" WITH_THIS ="nil"> removing regs ...</CONFIG>
