@@ -1,14 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <APPS>
+
  <APP>
-  <A HREF="http://192.168.43.158/primary/2013/psle/results/psle.htm">ZeMGame FROM NET</A>
- </APP>
- <APP>
-  <A HREF="http://192.168.43.158/primary/2013/psle/results/psle.htm">ZeMGame</A>
+  <A HREF="https://play.google.com/store/apps/details?id=com.magabe.zemgame">ZeMGame</A>
  </APP>
 
-<APP>
- <A HREF="http://192.168.43.158/primary/2013/psle/results/psle.htm">n3cta - ASCEE AND SCEE</A>
-</APP>
 
 </APPS>
