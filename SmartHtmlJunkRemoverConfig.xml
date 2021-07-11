@@ -49,7 +49,8 @@
   
  
  
- <CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&lt;TR&gt;                           &lt;/TR&gt;" REPLACE_THIS ="nil" WITH_THIS ="nil"> THIS MUST BE AT THE END</CONFIG>
+<CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&lt;TR&gt;                           &lt;/TR&gt;" REPLACE_THIS ="nil" WITH_THIS ="nil"> THIS MUST BE AT THE END</CONFIG>
+<CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="<!-- Global site tag (gtag.js) - Google Analytics -->" REPLACE_THIS ="nil" WITH_THIS ="nil"> REMOVE_NORMAL </CONFIG>
 
  
 </SMARTHTMLJUNK_REMOVER>
