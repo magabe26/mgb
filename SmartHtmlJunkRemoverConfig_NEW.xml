@@ -43,11 +43,17 @@
 <CONFIG WHAT_TO_DO ="REMOVE_REGEX" REMOVE_THIS ="[&lt;][B]\s{1,12}[&gt;]" REPLACE_THIS ="NIL" WITH_THIS ="NIL"> removing regs ...</CONFIG>
 <CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&lt;!-- Global site tag (gtag.js) - Google Analytics --&gt;" REPLACE_THIS ="nil" WITH_THIS ="nil"> REMOVE_NORMAL :&lt;!-- Global site tag (gtag.js) - Google Analytics --&gt; </CONFIG>
 
- <CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&lt;!-- End Global site tag --&gt;" REPLACE_THIS ="nil" WITH_THIS ="nil"> REMOVE_NORMAL </CONFIG>
+<CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&lt;!-- End Global site tag --&gt;" REPLACE_THIS ="nil" WITH_THIS ="nil"> REMOVE_NORMAL </CONFIG>
+
 <CONFIG WHAT_TO_DO ="remove_regex" REMOVE_THIS ="&lt;html&gt;" REPLACE_THIS ="nil" WITH_THIS ="nil"> patching html tags</CONFIG>
 <CONFIG WHAT_TO_DO ="remove_regex" REMOVE_THIS ="&lt;/html&gt;" REPLACE_THIS ="nil" WITH_THIS ="nil"> patching html tags</CONFIG>
  <CONFIG WHAT_TO_DO ="nil" REMOVE_THIS ="nil" REPLACE_THIS ="&lt;body&gt;" WITH_THIS ="&lt;html&gt;&lt;body&gt;"> patching body</CONFIG>
  <CONFIG WHAT_TO_DO ="nil" REMOVE_THIS ="nil" REPLACE_THIS ="&lt;/body&gt;" WITH_THIS ="&lt;/body&gt;&lt;/html&gt;"> patching body</CONFIG>
+ 
+ <CONFIG WHAT_TO_DO ="remove_regex" REMOVE_THIS ="&lt;HTML&gt;" REPLACE_THIS ="nil" WITH_THIS ="nil"> patching html tags</CONFIG>
+<CONFIG WHAT_TO_DO ="remove_regex" REMOVE_THIS ="&lt;/HTML&gt;" REPLACE_THIS ="nil" WITH_THIS ="nil"> patching html tags</CONFIG>
+ <CONFIG WHAT_TO_DO ="nil" REMOVE_THIS ="nil" REPLACE_THIS ="&lt;BODY&gt;" WITH_THIS ="&lt;HTML&gt;&lt;BODY&gt;"> patching body</CONFIG>
+ <CONFIG WHAT_TO_DO ="nil" REMOVE_THIS ="nil" REPLACE_THIS ="&lt;/BODY&gt;" WITH_THIS ="&lt;/BODY&gt;&lt;/HTML&gt;"> patching body</CONFIG>
  
 <CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&lt;TR&gt;                           &lt;/TR&gt;" REPLACE_THIS ="NIL" WITH_THIS ="NIL"> THIS MUST BE AT THE END</CONFIG>
 
