@@ -1,6 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 
 <SMARTHTMLJUNK_REMOVER>
- 
+ <CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="<!-- Global site tag (gtag.js) - Google Analytics -->" REPLACE_THIS ="nil" WITH_THIS ="nil"> REMOVE_NORMAL </CONFIG>
+
  
 </SMARTHTMLJUNK_REMOVER>
