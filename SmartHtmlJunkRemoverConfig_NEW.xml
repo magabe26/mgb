@@ -43,7 +43,7 @@
 <CONFIG WHAT_TO_DO ="REMOVE_REGEX" REMOVE_THIS ="[&lt;][B]\s{1,12}[&gt;]" REPLACE_THIS ="NIL" WITH_THIS ="NIL"> removing regs ...</CONFIG>
 <CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&lt;!-- Global site tag (gtag.js) - Google Analytics --&gt;" REPLACE_THIS ="nil" WITH_THIS ="nil"> REMOVE_NORMAL :&lt;!-- Global site tag (gtag.js) - Google Analytics --&gt; </CONFIG>
 <CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&lt;!-- End Global site tag --&gt;" REPLACE_THIS ="nil" WITH_THIS ="nil"> REMOVE_NORMAL </CONFIG>
-<CONFIG WHAT_TO_DO ="nil" REMOVE_THIS ="nil" REPLACE_THIS ="&lt;TABLE &quot; 4&quot; P" WITH_THIS ="&lt;TABLE"> FIXING TABLE TAG, 2021</CONFIG>
+<CONFIG WHAT_TO_DO ="nil" REMOVE_THIS ="nil" REPLACE_THIS ="&lt;TABLE \&quot; 4\&quot; P" WITH_THIS ="&lt;TABLE"> FIXING TABLE TAG, 2021</CONFIG>
  
 <CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&lt;TR&gt;                           &lt;/TR&gt;" REPLACE_THIS ="NIL" WITH_THIS ="NIL"> THIS MUST BE AT THE END</CONFIG>
 
