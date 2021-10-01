@@ -6,7 +6,6 @@
 <CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&lt;TABLE BORDER CELLSPACING=0  WIDTH=&quot;70%&quot; BGCOLOR=&quot;LIGHTYELLOW&quot;" REPLACE_THIS ="NIL" WITH_THIS ="NIL"> ....... Removing this to fix ranking and performance parsing.. ...</CONFIG>
 <CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&amp;" REPLACE_THIS ="NIL" WITH_THIS ="NIL"> REMOVE_NORMAL : Removing &amp; , a xml special character.... ...</CONFIG>
 <CONFIG WHAT_TO_DO ="REMOVE_REGEX" REMOVE_THIS ="[&lt;][B]\s{1,12}[&gt;]" REPLACE_THIS ="NIL" WITH_THIS ="NIL"> removing regs ...</CONFIG>
-<CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&lt;!-- Global site tag (gtag.js) - Google Analytics --&gt;" REPLACE_THIS ="nil" WITH_THIS ="nil"> REMOVE_NORMAL :&lt;!-- Global site tag (gtag.js) - Google Analytics --&gt; </CONFIG>
 
 
 </SMARTHTMLJUNK_REMOVER_FORRANKINGANDPERFORMANCE>
