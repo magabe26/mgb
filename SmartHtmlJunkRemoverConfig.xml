@@ -48,7 +48,7 @@
 
  <CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&lt;!-- Global site tag (gtag.js) - Google Analytics --&gt;" REPLACE_THIS ="nil" WITH_THIS ="nil"> REMOVE_NORMAL :&lt;!-- Global site tag (gtag.js) - Google Analytics --&gt; </CONFIG>
  
-  <CONFIG WHAT_TO_DO ="nil" REMOVE_THIS ="nil" REPLACE_THIS ="&lt;TABLE \&quot; 4\&quot; P &gt;" WITH_THIS ="&lt;TABLE &gt;"> FIXING TABLE TAG, 2021</CONFIG>
+  <CONFIG WHAT_TO_DO ="nil" REMOVE_THIS ="nil" REPLACE_THIS ="&lt;TABLE &quot; 4&quot; P &gt;" WITH_THIS ="&lt;TABLE &gt;"> FIXING TABLE TAG, 2021</CONFIG>
  
 <CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&lt;TR&gt;                           &lt;/TR&gt;" REPLACE_THIS ="nil" WITH_THIS ="nil"> THIS MUST BE AT THE END</CONFIG>
 
