@@ -50,9 +50,8 @@
 <CONFIG WHAT_TO_DO ="REPLACE" REMOVE_THIS ="NIL" REPLACE_THIS ="&lt;TABLE  &gt;" WITH_THIS ="&lt;TABLE&gt;"> replacing &lt;TABLE  &gt; with &lt;TABLE&gt;</CONFIG>
 <CONFIG WHAT_TO_DO ="REPLACE" REMOVE_THIS ="NIL" REPLACE_THIS ="&lt;TABLE &gt;" WITH_THIS ="&lt;TABLE&gt;"> replacing &lt;TABLE &gt; with &lt;TABLE&gt;</CONFIG>
 <CONFIG WHAT_TO_DO ="REPLACE" REMOVE_THIS ="NIL" REPLACE_THIS ="&lt;TABLE 0 &gt;" WITH_THIS ="&lt;TABLE&gt;"> replacing &lt;TABLE 0 &gt; with &lt;TABLE&gt;</CONFIG>
-<CONFIG WHAT_TO_DO ="REPLACE" REMOVE_THIS ="NIL" REPLACE_THIS ="&lt;TD &gt;" WITH_THIS ="&lt;TD&gt;"> replacing &lt;TD &gt; with &lt;TD&gt;</CONFIG>
-<CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&lt;TABLE&gt; &lt;TR &gt;&lt;TD&gt;&lt;/TD&gt;&lt;/TR&gt; &lt;/TABLE&gt;" REPLACE_THIS ="nil" WITH_THIS ="nil"> REMOVE_NORMAL, empty table </CONFIG>
-<CONFIG WHAT_TO_DO ="REMOVE_REGEX" REMOVE_THIS ="(DIVISION PERFORMANCE SUMMARY)\s?(&lt;TABLE&gt;(\s?&lt;TR&gt;\s?(\s?&lt;TD&gt;\s?[A-Z0-9]{1,3}\s?&lt;/TD&gt;\s?){6,6}\s?&lt;/TR&gt;\s?){4,4}&lt;/TABLE&gt;)" REPLACE_THIS ="NIL" WITH_THIS ="NIL">removing division performance summary table</CONFIG>
+<CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&lt;TABLE&gt; &lt;TR &gt;&lt;TD &gt;&lt;/TD&gt;&lt;/TR&gt; &lt;/TABLE&gt;" REPLACE_THIS ="nil" WITH_THIS ="nil"> REMOVE_NORMAL, empty table </CONFIG>
+<CONFIG WHAT_TO_DO ="REMOVE_REGEX" REMOVE_THIS ="(DIVISION PERFORMANCE SUMMARY)\s?(&lt;TABLE&gt;(\s?&lt;TR&gt;\s?(\s?&lt;TD\s?&gt;\s?[A-Z0-9]{1,3}\s?&lt;/TD&gt;\s?){6,6}\s?&lt;/TR&gt;\s?){4,4}&lt;/TABLE&gt;)" REPLACE_THIS ="NIL" WITH_THIS ="NIL">removing division performance summary table</CONFIG>
  
 <CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&lt;TR&gt;                           &lt;/TR&gt;" REPLACE_THIS ="NIL" WITH_THIS ="NIL"> THIS MUST BE AT THE END</CONFIG>
 
