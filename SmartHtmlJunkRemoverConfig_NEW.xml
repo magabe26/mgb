@@ -47,7 +47,7 @@
 <CONFIG WHAT_TO_DO ="REPLACE" REMOVE_THIS ="NIL" REPLACE_THIS ="&quot;" WITH_THIS ="&apos;"> replacing double quotes with single quote</CONFIG>
 <CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&lt;P &apos;RIGHT&apos;&gt;" REPLACE_THIS ="NIL" WITH_THIS ="NIL">REMOVE_NORMAL: &lt;P &apos;RIGHT&apos;&gt;,FIXING TABLE TAG, 2021</CONFIG> 
 <CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&apos; 4&apos; P" REPLACE_THIS ="NIL" WITH_THIS ="NIL">REMOVE_NORMAL: &apos; 4&apos; P,FIXING TABLE TAG, 2021</CONFIG> 
-<CONFIG WHAT_TO_DO ="REMOVE_REGEX" REMOVE_THIS ="(DIVISION PERFORMANCE SUMMARY)\s?((&lt;TABLE\s?\d?\s?&gt;)(\s?(&lt;TR&gt;)[A-Z|0-9]{1,3}(&lt;/TR&gt;)\s?){4,4}(&lt;/TABLE\s?&gt;))" REPLACE_THIS ="NIL" WITH_THIS ="NIL">removing division performance summary it is fucking u my app's logics...</CONFIG>
+<CONFIG WHAT_TO_DO ="REMOVE_REGEX" REMOVE_THIS ="(DIVISION PERFORMANCE SUMMARY)\s?((&lt;TABLE\s?\d?\s?&gt;)(\s?(&lt;TR&gt;)(\s?&lt;TD&gt;\s?[A-Z|0-9]{1,3}\s?&lt;/TD&gt;\s?)(&lt;/TR&gt;)\s?){4,4}(&lt;/TABLE\s?&gt;))" REPLACE_THIS ="NIL" WITH_THIS ="NIL">removing division performance summary it is fucking u my app's logics...</CONFIG>
  
 <CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&lt;TR&gt;                           &lt;/TR&gt;" REPLACE_THIS ="NIL" WITH_THIS ="NIL"> THIS MUST BE AT THE END</CONFIG>
 
