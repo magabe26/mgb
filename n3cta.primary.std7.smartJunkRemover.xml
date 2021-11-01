@@ -5,5 +5,5 @@
 <CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&lt;!-- Global site tag (gtag.js) - Google Analytics --&gt;" REPLACE_THIS ="nil" WITH_THIS ="nil"> REMOVE_NORMAL :&lt;!-- Global site tag (gtag.js) - Google Analytics --&gt; </CONFIG>
 <CONFIG WHAT_TO_DO ="REMOVE_REGEX" REMOVE_THIS ="[0-9]{11}" REPLACE_THIS ="NIL" WITH_THIS ="NIL">Removing pre no, that destroy data intergrity..</CONFIG>
 <CONFIG WHAT_TO_DO ="REMOVE_REGEX" REMOVE_THIS ="(&lt;TD\s?&gt;\s?&lt;/TD&gt;)" REPLACE_THIS ="NIL" WITH_THIS ="NIL">Removing pre no tags, that destroy data intergrity..</CONFIG>
- 
+<CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&lt;TD  &gt;&lt;/TD&gt;" REPLACE_THIS ="nil" WITH_THIS ="nil"> </CONFIG>
 </SMARTHTMLJUNK_REMOVER>
