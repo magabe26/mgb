@@ -2,6 +2,6 @@
 
 <SMARTHTMLJUNK_REMOVER>
 <CONFIG WHAT_TO_DO ="REMOVE_NORMAL" REMOVE_THIS ="&lt;!-- Global site tag (gtag.js) - Google Analytics --&gt;" REPLACE_THIS ="nil" WITH_THIS ="nil"> REMOVE_NORMAL :&lt;!-- Global site tag (gtag.js) - Google Analytics --&gt; </CONFIG>
-<CONFIG WHAT_TO_DO ="REMOVE_REGEX" REMOVE_THIS ="(&lt;TD\s&gt;)([0-9]+)(&lt;/TD&gt;)" REPLACE_THIS ="NIL" WITH_THIS ="NIL">removing pre no</CONFIG>
+<CONFIG WHAT_TO_DO ="REMOVE_REGEX" REMOVE_THIS ="(&lt;TD\s&gt;)([0-9]+)(&lt;/TD&gt;)" REPLACE_THIS ="NIL" WITH_THIS ="NIL">removing pre no, that destroy data intergrity</CONFIG>
  
 </SMARTHTMLJUNK_REMOVER>
