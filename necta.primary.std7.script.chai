@@ -1,4 +1,4 @@
-def runScript(input) {
+def runScript(string input) {
     var output = input;
 
 
