@@ -52,7 +52,7 @@ def removeResultTableHeader(string html) {
     var output = html;
     var resultHeaderData = spaceOptional().seq(tdElementWithString).seq(spaceOptional()).repeat(4,-1);
 	var headerTr = openTr.seq(spaceOptional()).seq(resultHeaderData).seq(spaceOptional()).seq(closeTr);
-	var match = headerTr.firstStringMatch(input,0);
+	var match = headerTr.firstStringMatch(html,0);
 	if(strContains(match,"SUBJECTS",false) || strContains(match,"SEX",false)){
 	  output = headerTr.removeFrom(output,0,-1);
 	}
