@@ -48,11 +48,23 @@ def removeMadarajaYaUfauluData(html)
  return madarajaYaUfauluTableRows().removeFrom(output,0,-1);
 }
 
+def removeResultTableHeader(string html) {
+    var output = html;
+    var resultHeaderData = spaceOptional().seq(tdElementWithString).seq(spaceOptional()).repeat(4,-1);
+	var headerTr = openTr.seq(spaceOptional()).seq(resultHeaderData).seq(spaceOptional()).seq(closeTr);
+	var match = headerTr.firstStringMatch(input,0);
+	if(strContains(match,"SUBJECTS",false) || strContains(match,"SEX",false)){
+	  output = headerTr.removeFrom(output,0,-1);
+	}
+    return output;
+}
+
 
 /*  add filter logic inside this function  */
 def filterHtml(string html) {
 
     var output = removeMadarajaYaUfauluData(html);
+	output = removeResultTableHeader(output);
 
 
     return output;
