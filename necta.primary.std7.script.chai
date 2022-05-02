@@ -22,7 +22,7 @@ global openTd = openTag("td");
 global closeTd = closeTag("td");
 global allowedTdString = letter().oR(chaR('.')).oR(chaR('_')).oR(chaR('-')).oR(space());
 global tdElementWithChar = openTd.seq(spaceOptional()).seq(letter().repeat(1,-1)).seq(spaceOptional()).seq(closeTd);
-global tdElementWithDigit = openTd.seq(spaceOptional()).seq(digit().repeat(1,-1)).seq(spaceOptional()).seq(closeTd);
+global tdElementWithDigit = openTd.seq(spaceOptional()).seq(digit().plus()).seq(spaceOptional()).seq(closeTd);
 global tdElementWithString = openTd.seq(spaceOptional()).seq(allowedTdString.repeat(1,-1).seq(allowedTdString.plus())).seq(spaceOptional()).seq(closeTd);
 
 
@@ -32,8 +32,7 @@ def madarajaYaUfauluTableRows()
  var tdataWithChar = spaceOptional().seq(tdElementWithChar).seq(spaceOptional()).plus();
  var tdata = tdataWithDigit.oR(tdataWithChar);
  var row = openTr.seq(spaceOptional()).seq(tdElementWithString).seq(spaceOptional()).seq(tdata).seq(spaceOptional()).seq(closeTr);
- return row
- //return spaceOptional().seq(row).seq(spaceOptional()).plus();
+ return spaceOptional().seq(row).seq(spaceOptional()).plus();
 }
 
 def getMadarajaYaUfauluTableRows(html)
@@ -43,6 +42,9 @@ def getMadarajaYaUfauluTableRows(html)
 
 def removeMadarajaYaUfauluData(html)
 {
+if(!strContains(html,"MADARAJA YA UFAULU WA UJUMLA",false)){
+	  return html;
+}
  var output = stR("MADARAJA YA UFAULU WA UJUMLA",false).removeFrom(html,0,-1);
  var openTableTag = chaR('<').seq(spaceOptional()).seq(stR("table",false)).seq(any(chaR('>'),"").star()).seq(chaR('>'));
  output = openTableTag.removeFrom(output,0,-1);
