@@ -30,7 +30,7 @@ def madarajaYaUfauluTableRows()
 {
  var tdataWithDigit = tdElementWithDigit.seq(spaceOptional()).plus();
  var tdataWithChar = tdElementWithChar.seq(spaceOptional()).plus();
- var tdata = tdataWithDigit.oR(tdataWithChar).plus();
+ var tdata = tdataWithDigit.oR(tdataWithChar);
  var row = openTr.seq(spaceOptional()).seq(tdElementWithString).seq(spaceOptional()).seq(tdata).seq(spaceOptional()).seq(closeTr);	
  return spaceOptional().seq(row).seq(spaceOptional()).repeat(4,-1);
 }
