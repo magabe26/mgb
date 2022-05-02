@@ -1,7 +1,66 @@
-def runScript(string input) {
+/**
+ * Copyright 2022 - MagabeLab (Tanzania). All Rights Reserved.
+ * Author Edwin Magabe    edyma24@gmail.com
+ */
+
+
+
+def openTag(string tag)
+{
+  return chaR('<').seq(spaceOptional()).seq(stR(tag,false)).seq(spaceOptional()).seq(chaR('>'));
+}
+
+def closeTag(string tag)
+{
+  return chaR('<').seq(spaceOptional()).seq(chaR('/')).seq(spaceOptional()).seq(stR(tag,false)).seq(spaceOptional()).seq(chaR('>'));
+}
+
+/* -------------- Global variables  ---------------*/
+global openTr = openTag("tr");
+global closeTr = closeTag("tr");
+global openTd = openTag("td");
+global closeTd = closeTag("td");
+global allowedTdString = letter().oR(chaR('.')).oR(chaR('_')).oR(chaR('-')).oR(space());
+global tdElementWithChar = openTd.seq(spaceOptional()).seq(letter().repeat(1,-1)).seq(spaceOptional()).seq(closeTd);
+global tdElementWithDigit = openTd.seq(spaceOptional()).seq(digit().repeat(1,-1)).seq(spaceOptional()).seq(closeTd);
+global tdElementWithString = openTd.seq(spaceOptional()).seq(allowedTdString.repeat(1,-1).seq(allowedTdString.plus())).seq(spaceOptional()).seq(closeTd);
+
+
+def madarajaYaUfauluTableRows()
+{
+ var tdataWithDigit = tdElementWithDigit.seq(spaceOptional()).repeat(5,-1);
+ var tdataWithChar = tdElementWithChar.seq(spaceOptional()).repeat(5,-1);
+ var tdata = tdataWithDigit.oR(tdataWithChar);
+ var row = openTr.seq(spaceOptional()).seq(tdElementWithString).seq(spaceOptional()).seq(tdata).seq(spaceOptional()).seq(closeTr);	
+ return spaceOptional().seq(row).seq(spaceOptional()).repeat(4,-1);
+}
+
+def getMadarajaYaUfauluTableRows(html)
+{
+ return madarajaYaUfauluTableRows().firstStringMatch(html,0);
+}
+
+def removeMadarajaYaUfauluData(html)
+{
+ var output = stR("MADARAJA YA UFAULU WA UJUMLA",false).removeFrom(html,0,-1);
+ var openTableTag = chaR('<').seq(spaceOptional()).seq(stR("table",false)).seq(any(chaR('>'),"").star()).seq(chaR('>'));
+ output = openTableTag.removeFrom(output,0,-1);
+ return madarajaYaUfauluTableRows().removeFrom(output,0,-1);
+}
+
+
+/*  add filter logic inside this function  */
+def filterHtml(string html) {
+
+    var output = removeMadarajaYaUfauluData(html);
+
+
+    return output;
+}
+
+
+def runTest(string input) {
     var output = input;
-
-
 
 
     return output;
