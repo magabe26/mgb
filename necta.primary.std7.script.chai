@@ -32,7 +32,8 @@ def madarajaYaUfauluTableRows()
  var tdataWithChar = spaceOptional().seq(tdElementWithChar).seq(spaceOptional()).plus();
  var tdata = tdataWithDigit.oR(tdataWithChar);
  var row = openTr.seq(spaceOptional()).seq(tdElementWithString).seq(spaceOptional()).seq(tdata).seq(spaceOptional()).seq(closeTr);
- return spaceOptional().seq(row).seq(spaceOptional()).plus();
+ return row
+ //return spaceOptional().seq(row).seq(spaceOptional()).plus();
 }
 
 def getMadarajaYaUfauluTableRows(html)
