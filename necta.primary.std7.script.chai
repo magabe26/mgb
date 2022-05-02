@@ -28,11 +28,11 @@ global tdElementWithString = openTd.seq(spaceOptional()).seq(allowedTdString.rep
 
 def madarajaYaUfauluTableRows()
 {
- var tdataWithDigit = tdElementWithDigit.seq(spaceOptional()).plus();
- var tdataWithChar = tdElementWithChar.seq(spaceOptional()).plus();
+ var tdataWithDigit = spaceOptional().seq(tdElementWithDigit).seq(spaceOptional()).plus();
+ var tdataWithChar = spaceOptional().seq(tdElementWithChar).seq(spaceOptional()).plus();
  var tdata = tdataWithDigit.oR(tdataWithChar);
- var row = openTr.seq(spaceOptional()).seq(tdElementWithString).seq(spaceOptional()).seq(tdata).seq(spaceOptional()).seq(closeTr);	
- return spaceOptional().seq(row).seq(spaceOptional()).repeat(4,-1);
+ var row = openTr.seq(spaceOptional()).seq(tdElementWithString).seq(spaceOptional()).seq(tdata).seq(spaceOptional()).seq(closeTr);
+ return spaceOptional().seq(row).seq(spaceOptional()).plus();
 }
 
 def getMadarajaYaUfauluTableRows(html)
@@ -73,7 +73,7 @@ def filterHtml(string html) {
 
 def runTest(string input) {
     var output = input;
-
+output =  stringarrayToString(madarajaYaUfauluTableRows().allStringMatches(input,0));
 
     return output;
 }
