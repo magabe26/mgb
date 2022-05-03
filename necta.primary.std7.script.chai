@@ -41,10 +41,20 @@ def getMadarajaYaUfauluTableRows(html)
 
 def removeMadarajaYaUfauluData(html)
 {
- var output = stR("MADARAJA YA UFAULU WA UJUMLA",false).removeFrom(html,0,-1);
+ //using this technique  bcoz removeFrom is very slow
+ var output = html;
+ 
+ var match = stR("MADARAJA YA UFAULU WA UJUMLA",false).firstStringMatch(output,0);
+ output = strRemove(output,match,true);
+ 
  var openTableTag = chaR('<').seq(spaceOptional()).seq(stR("table",false)).seq(any(chaR('>'),"").star()).seq(chaR('>'));
- output = openTableTag.removeFrom(output,0,-1);
- return madarajaYaUfauluTableRows().removeFrom(output,0,-1);
+ match = openTableTag.firstStringMatch(output,0);
+ output = strRemove(output,match,true);
+ 
+ match = madarajaYaUfauluTableRows().firstStringMatch(output,0);
+ output = strRemove(output,match,true);
+ 
+ return output;
 }
 
 def removeResultTableHeader(string html) {
@@ -54,9 +64,9 @@ if((!strContains(html,"SUBJECTS",false)) && (!strContains(html,"SEX",false))){
 	var output = html;
     var resultHeaderData = spaceOptional().seq(tdElementWithString).seq(spaceOptional()).repeat(4,-1);
 	var headerTr = openTr.seq(spaceOptional()).seq(resultHeaderData).seq(spaceOptional()).seq(closeTr);
-	var match = headerTr.firstStringMatch(html,0); 
+	var match = headerTr.firstStringMatch(output,0); 
 	if(strContains(match,"SUBJECTS",false) || strContains(match,"SEX",false)){
-	     output = strRemove(html,match,true);  //fast
+	     output = strRemove(output,match,true);  //fast
 	}
 	return output;
 }
@@ -64,7 +74,9 @@ if((!strContains(html,"SUBJECTS",false)) && (!strContains(html,"SEX",false))){
 
 /*  add filter logic inside this function  */
 def filterHtml(string html) {
-    var output = removeMadarajaYaUfauluData(html);
+    var output = html;
+    
+	output = removeMadarajaYaUfauluData(output);
 	output = removeResultTableHeader(output);
 
 
@@ -74,7 +86,7 @@ def filterHtml(string html) {
 
 def runTest(string input) {
     var output = input;
-    output =  stringarrayToString(madarajaYaUfauluTableRows().allStringMatches(input,0));
+    output =  madarajaYaUfauluTableRows().firstStringMatch(input,0);
 
     return output;
 }
