@@ -41,11 +41,11 @@ def getMadarajaYaUfauluTableRows(html)
 
 def removeMadarajaYaUfauluData(html)
 {
- //using this technique  bcoz removeFrom is very slow
+ //using this technique  bcoz removeFrom is very slow , strRemove is faster
  var output = html;
  
  var match = stR("MADARAJA YA UFAULU WA UJUMLA",false).firstStringMatch(output,0);
- output = strRemove(output,match,true);
+ output = strRemove(output,match,true); 
  
  var openTableTag = chaR('<').seq(spaceOptional()).seq(stR("table",false)).seq(any(chaR('>'),"").star()).seq(chaR('>'));
  match = openTableTag.firstStringMatch(output,0);
@@ -68,7 +68,7 @@ if((!strContains(html,"SUBJECTS",false)) && (!strContains(html,"SEX",false))){
 	var headerTr = openTr.seq(spaceOptional()).seq(resultHeaderData).seq(spaceOptional()).seq(closeTr);
 	var match = headerTr.firstStringMatch(output,0); 
 	if(strContains(match,"SUBJECTS",false) || strContains(match,"SEX",false)){
-	     output = strRemove(output,match,true);  //fast
+	     output = strRemove(output,match,true);  
 	}
 	return output;
 }
