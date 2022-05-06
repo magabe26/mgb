@@ -1,6 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <APPS>
-  
+  <APP>
+  <A HREF="#">----------------APLIKESHENI NYINGINE--------------------------------------</A>
+ </APP>
  <APP>
   <A HREF="https://play.google.com/store/apps/details?id=com.magabe.n3cta.matokeo.ya.form4.na.form6">MATOKEO:: KIDATO CHA 4 NA 6</A>
  </APP>
@@ -26,24 +28,12 @@
  </APP>
   
  <APP>
-  <A HREF="#">Google ( How to clear app data and cache on android )</A>
+  <A HREF="#">Google ( How to clear </A>
  </APP>
    <APP>
-  <A HREF="#">-----------------------------------------------------------------------------------------------</A>
+  <A HREF="#">app data and </A>
  </APP>
   <APP>
-  <A HREF="#">Namba ya simu iliyokuwa yangu</A>
- </APP>
-   <APP>
-  <A HREF="#">ambayo imekuwa hardcoded kwenye app hii</A>
- </APP>
-   <APP>
-  <A HREF="#">si yangu tena, amepewa mtu mwingine,</A>
- </APP>
-    <APP>
-  <A HREF="#">usitume kitu chochote kwenda namba hiyo</A>
- </APP>
-   <APP>
-  <A HREF="#">***Kuweni makini kwenye kuchangua mitandao ya simu***</A>
+  <A HREF="#">cache on android )</A>
  </APP>
 </APPS>
