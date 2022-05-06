@@ -92,7 +92,7 @@ def updateMenu(string input){
 }
 
 def runTest(string input) {
-   var output = html;
+   var output = input;
     
 	output = removeMadarajaYaUfauluData(output);
 	output = removeResultTableHeader(output);
