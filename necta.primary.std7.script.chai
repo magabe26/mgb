@@ -42,19 +42,15 @@ def getMadarajaYaUfauluTableRows(html)
 def removeMadarajaYaUfauluData(html)
 {
  //using this technique  bcoz removeFrom is very slow , strRemove is faster
- var output = html;
- 
- var match = stR("MADARAJA YA UFAULU WA UJUMLA",false).firstStringMatch(output,0);
- output = strRemove(output,match,true); 
+ var match = stR("MADARAJA YA UFAULU WA UJUMLA",false).firstStringMatch(html,0);
+ var output = strRemove(output,match,true); 
  
  var openTableTag = chaR('<').seq(spaceOptional()).seq(stR("table",false)).seq(any(chaR('>'),"").star()).seq(chaR('>'));
  match = openTableTag.firstStringMatch(output,0);
  output = strRemove(output,match,true);
  
  match = madarajaYaUfauluTableRows().firstStringMatch(output,0);
- output = strRemove(output,match,true);
- 
- return output;
+ return strRemove(output,match,true);
 }
 
 def removeResultTableHeader(string html) {
