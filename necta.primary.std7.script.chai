@@ -34,6 +34,14 @@ def madarajaYaUfauluTableRows()
  return spaceOptional().seq(row).seq(spaceOptional()).plus();
 }
 
+def madarajaYaUfauluTableRow()
+{
+ var tdataWithDigit = spaceOptional().seq(tdElementWithDigit).seq(spaceOptional()).plus();
+ var tdataWithChar = spaceOptional().seq(tdElementWithChar).seq(spaceOptional()).plus();
+ var tdata = tdataWithDigit.oR(tdataWithChar);
+ return openTr.seq(spaceOptional()).seq(tdElementWithString).seq(spaceOptional()).seq(tdata).seq(spaceOptional()).seq(closeTr);
+}
+
 def getMadarajaYaUfauluTableRows(html)
 {
  return madarajaYaUfauluTableRows().firstStringMatch(html,0);
@@ -42,15 +50,28 @@ def getMadarajaYaUfauluTableRows(html)
 def removeMadarajaYaUfauluData(html)
 {
  //using this technique  bcoz removeFrom is very slow , strRemove is faster
- var match = stR("MADARAJA YA UFAULU WA UJUMLA",false).firstStringMatch(html,0);
- var output = strRemove(html,match,true); 
+ var output = html;
+ 
+ var match = stR("MADARAJA YA UFAULU WA UJUMLA",false).firstStringMatch(output,0);
+ output = strRemove(output,match,true); 
  
  var openTableTag = chaR('<').seq(spaceOptional()).seq(stR("table",false)).seq(any(chaR('>'),"").star()).seq(chaR('>'));
  match = openTableTag.firstStringMatch(output,0);
  output = strRemove(output,match,true);
  
- match = madarajaYaUfauluTableRows().firstStringMatch(output,0);
- return strRemove(output,match,true);
+ var row1 = madarajaYaUfauluTableRow().firstStringMatch(output,0);
+ output = strRemove(output,row1,true);
+ 
+ var row2 = madarajaYaUfauluTableRow().firstStringMatch(output,0);
+ output = strRemove(output,row2,true);
+ 
+ var row3 = madarajaYaUfauluTableRow().firstStringMatch(output,0);
+ output = strRemove(output,row3,true);
+ 
+ var row4 = madarajaYaUfauluTableRow().firstStringMatch(output,0);
+ output = strRemove(output,row4,true);
+ 
+ return output;
 }
 
 def removeResultTableHeader(string html) {
