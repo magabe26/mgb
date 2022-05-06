@@ -92,8 +92,11 @@ def updateMenu(string input){
 }
 
 def runTest(string input) {
-    var output = input;
-    output =  madarajaYaUfauluTableRows().firstStringMatch(input,0);
+   var output = html;
+    
+	output = removeMadarajaYaUfauluData(output);
+	output = removeResultTableHeader(output);
+
 
     return output;
 }
