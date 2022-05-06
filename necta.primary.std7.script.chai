@@ -43,7 +43,7 @@ def removeMadarajaYaUfauluData(html)
 {
  //using this technique  bcoz removeFrom is very slow , strRemove is faster
  var match = stR("MADARAJA YA UFAULU WA UJUMLA",false).firstStringMatch(html,0);
- var output = strRemove(output,match,true); 
+ var output = strRemove(html,match,true); 
  
  var openTableTag = chaR('<').seq(spaceOptional()).seq(stR("table",false)).seq(any(chaR('>'),"").star()).seq(chaR('>'));
  match = openTableTag.firstStringMatch(output,0);
