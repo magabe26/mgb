@@ -85,10 +85,25 @@ def filterHtml(string html) {
     return output;
 }
 
+def updateMenu(string input){
+   var output = input;
+
+
+
+  return output;
+}
 
 def runTest(string input) {
-    var output = input;
-    output =  madarajaYaUfauluTableRows().firstStringMatch(input,0);
-
+   global output = "";
+   var urlsParser  =  stR("https://onlinesys.necta.go.tz/",false).seq(any(chaR('"'),"").plus());
+   var urls = urlsParser.allStringMatches(input,0);
+  // urls = reverseStringArray(urls):
+   
+   def fn(url){
+   var year = digit().plus().firstStringMatch(url,0);
+      output = append(output, year);
+   }
+   
+   forEachString(urls , fn);
     return output;
 }
