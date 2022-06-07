@@ -144,7 +144,7 @@ def string::getTag(string t)
 {
   	var closeTag = "</".append(t).append(">");
 	var tag = Tag(false,-1,-1,"");
-		var len = closeTag.length();
+	var len = closeTag.length();
         var firstIndex = this.indexOf("<".append(t),0,false);
         if(firstIndex != -1){
 		   var lastIndex = this.indexOf(closeTag,firstIndex + 1 , false);
@@ -153,7 +153,7 @@ def string::getTag(string t)
 		   var value = this.mid(firstIndex,n);;
 		   tag = Tag(true,firstIndex,n,value);
 		   }
-		}
+	  }
     return tag;
 }
 
@@ -247,18 +247,18 @@ def filterHtml(string html) {
 	} else {
 	    /* A fast and advanced  method */
 		
-        output = output.remove("MADARAJA YA UFAULU WA UJUMLA",false);
+                output = output.remove("MADARAJA YA UFAULU WA UJUMLA",false);
 		
 		//remove all unwanted tr tags
-		 while(true){
+	   while(true){
 	       var tag = output.getTag("tr");
-		   var tr = tag.value;
+	       var tr = tag.value;
 		   if(tr.contains("JINSI",false) ||
 		      tr.contains("WASICHANA",false) ||
-			  tr.contains("WAVULANA",false) ||
-			  tr.contains("JUMLA",false) ||
-			  tr.contains("SEX",false)){
-		   	  output = output.removeAtPosition(tag.index,tag.length);
+		      tr.contains("WAVULANA",false) ||
+		      tr.contains("JUMLA",false) ||
+		      tr.contains("SEX",false)){
+		   output = output.removeAtPosition(tag.index,tag.length);
 		   } else {
 		     break;
 		   }
