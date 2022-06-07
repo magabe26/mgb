@@ -3,6 +3,166 @@
  * Author Edwin Magabe    edyma24@gmail.com
  */
 
+/* --------------  extensions  ---------------*/
+
+def getScriptRunnerVersion()
+{
+  try{
+    return scriptRunnerVersion();
+  } catch{
+    return 1;
+  }
+}
+
+def boolToString(bool b)
+{
+  return b ? "true" : "false";
+}
+
+
+def string::indexOf(string s, int start, bool caseSensitive)
+{
+  return strIndexOf(this,s,start,caseSensitive);
+}
+
+def string::contains(string s, bool caseSensitive)
+{
+  return strContains(this,s,caseSensitive);
+}
+
+def string::remove(string s,bool caseSensitive)
+{
+  return strRemove(this,s,caseSensitive);
+}
+
+def string::right(int n)
+{
+  return strRight(this,n);
+}
+
+def string::left(int n)
+{
+  return strLeft(this,n);
+}
+
+def string::mid(int position,int n)
+{
+  return strMid(this,position,n);
+}
+
+def string::length()
+{
+  return strLength(this);
+}
+
+def string::replace(string before, string after,bool caseSensitive)
+{
+  return strReplace(this,before,after,caseSensitive);
+}
+
+def string::replaceAtPosition(int position,int n, string after)
+{
+  return strReplaceAtPosition(this,position,n,after);
+}
+
+def string::startsWith(string str, bool caseSensitive)
+{
+  return strStartsWith(this,str,caseSensitive);
+}
+
+def string::endsWith(string str, bool caseSensitive)
+{
+  return strEndsWith(this,str,caseSensitive);
+}
+
+def string::truncate(int position)
+{
+  return strTruncate(this,position);
+}
+
+def string::compare(string other, bool caseSensitive)
+{
+  return strCompare(this,other,caseSensitive);
+}
+
+def string::split(string sep)
+{
+  return strSplit(this,sep);
+}
+
+def string::append(string str)
+{
+  return strAppend(this,str);
+}
+
+def string::prepend(string str)
+{
+  return strPrepend(this,str);
+}
+
+def string::isLower()
+{
+  return strIsLower(this);
+}
+
+def string::isUpper()
+{
+  return strIsUpper(this);
+}
+
+def string::isEmpty()
+{
+  return strIsEmpty(this);
+}
+
+def string::simplified()
+{
+  return strSimplified(this);
+}
+
+def string::removeAtPosition(int position,int length)
+{
+  return strRemoveAtPosition(this,position,length);
+}
+
+class Tag {
+	def Tag(bool valid,int index,int length, string value)
+	{
+		this.valid = valid;	
+		this.index = index;
+		this.length = length;
+		this.value = value;
+	}
+   var valid;
+
+   var index;
+   var length;
+   var value;
+};
+
+def string::getTag(string t)
+{
+  	var closeTag = "</".append(t).append(">");
+	var tag = Tag(false,-1,-1,"");
+		var len = closeTag.length();
+        var firstIndex = this.indexOf("<".append(t),0,false);
+        if(firstIndex != -1){
+		   var lastIndex = this.indexOf(closeTag,firstIndex + 1 , false);
+		   if(lastIndex != -1) {
+		   var n = (lastIndex - firstIndex) + len;
+		   var value = this.mid(firstIndex,n);;
+		   tag = Tag(true,firstIndex,n,value);
+		   }
+		}
+    return tag;
+}
+
+/* -------------------------------------------------*/
+
+
+
+
+
 
 def openTag(string tag)
 {
@@ -77,23 +237,68 @@ if((!strContains(html,"SUBJECTS",false)) && (!strContains(html,"SEX",false))){
 /*  add filter logic inside this function  */
 def filterHtml(string html) {
     var output = html;
-    
-	output = removeMadarajaYaUfauluData(output);
-	output = removeResultTableHeader(output);
+	
+    var version = getScriptRunnerVersion();
+	if(version == 1) {
+	    /* A very slow and not effective method */
+		
+		output = removeMadarajaYaUfauluData(output);
+		output = removeResultTableHeader(output);	
+	} else {
+	    /* A fast and advanced  method */
+		
+        output = output.remove("MADARAJA YA UFAULU WA UJUMLA",false);
+		
+		//remove all unwanted tr tags
+		 while(true){
+	       var tag = output.getTag("tr");
+		   var tr = tag.value;
+		   if(tr.contains("JINSI",false) ||
+		      tr.contains("WASICHANA",false) ||
+			  tr.contains("WAVULANA",false) ||
+			  tr.contains("JUMLA",false) ||
+			  tr.contains("SEX",false)){
+		   	  output = output.removeAtPosition(tag.index,tag.length);
+		   } else {
+		     break;
+		   }
+	    }		
+	}
 
 
     return output;
 }
 
 def updateMenu(string input){
-   var output = input;
+  var output = input;
 
   return output;
 }
 
 def runTest(string input) {
-   var output = input;
+    var  output = input;
     
+    //var output =  boolToString("chura".contains("ra",true));
+	//var output =  to_string("chura".indexOf("ra",4,true));
+    //var output =  "chura".remove("ra",true);
+	//var output =  "chura".right(2);
+   //var output =  "chura".left(2);
+   //var output =  "chura".mid(2,2);
+    //var output =  to_string("chura".length());
+   //var output =  "chura".replace("ur","XX",true);
+   //var output =  "chura".replaceAtPosition(2,2, "xxx");
+   //var output =  boolToString("chura".startsWith("chv", true));
+   // var output =  boolToString("chura".endsWith("ra",false));
+   //var output =  to_string("chura".compare("CHURA",true));
+    //var output =  stringarrayToString("chura".split("u"));
+   //var output =  "qwee".append("XX");
+    //var output =  "qwee".prepend("XX");
+   // var output =  boolToString("qwee".isLower());
+   //var output =  boolToString("qwee".isUpper());
+   //var output =  boolToString("".isEmpty());
+   //var output =  "   ccvvv   ".simplified();
+   //var output = to_string(getScriptRunnerVersion());
+
 
     return output;
 }
