@@ -250,9 +250,9 @@ def filterHtml(string html) {
 		  output = output.remove("MADARAJA YA UFAULU WA UJUMLA",false);
 
 		  //remove open table tag
-		  var firstIndex = this.indexOf("<table",0,false);
+		  var firstIndex = output.indexOf("<table",0,false);
 		  if(firstIndex != -1){
-			var lastIndex = this.indexOf(">",firstIndex + 1 , false);
+			var lastIndex = output.indexOf(">",firstIndex + 1 , false);
 			if(lastIndex != -1) {
 			   var len = (lastIndex - firstIndex) + 1;
 			   output = output.removeAtPosition(firstIndex,len);
