@@ -245,11 +245,21 @@ def filterHtml(string html) {
 		output = removeMadarajaYaUfauluData(output);
 		output = removeResultTableHeader(output);	
 	} else {
-	    /* A fast and advanced  method */
+	 /* A fast and advanced  method */
 		
-                output = output.remove("MADARAJA YA UFAULU WA UJUMLA",false);
+          output = output.remove("MADARAJA YA UFAULU WA UJUMLA",false);
 		
-		//remove all unwanted tr tags
+	  //remove open table tag
+	  var firstIndex = this.indexOf("<table",0,false);
+          if(firstIndex != -1){
+		var lastIndex = this.indexOf(">",firstIndex + 1 , false);
+		if(lastIndex != -1) {
+		   var len = (lastIndex - firstIndex) + 1;
+		   output = output.removeAtPosition(firstIndex,len);
+		 }
+	    }
+		
+	  //remove all unwanted tr tags
 	   while(true){
 	       var tag = output.getTag("tr");
 	       var tr = tag.value;
