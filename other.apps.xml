@@ -1,9 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <APPS>
-  <APP>
+  
+ <APP>
   <A HREF="#">                  APLIKESHENI NYINGINE               </A>
  </APP>
- <APP>
+ 
+  <APP>
   <A HREF="https://play.google.com/store/apps/details?id=com.magabe.n3cta.matokeo.ya.form4.na.form6">MATOKEO:: KIDATO CHA 4 NA 6</A>
  </APP>
   
@@ -18,12 +20,7 @@
  <APP>
   <A HREF="#"></A>
  </APP>
-  <APP>
-  <A HREF="#"></A>
- </APP>
-  <APP>
-  <A HREF="#"></A>
- </APP>
+ 
  <APP>
   <A HREF="https://magabelab-tz.web.app">Tembelea Magabe Lab</A>
  </APP>
