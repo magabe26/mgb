@@ -340,7 +340,7 @@ def getGenderWisePerformanceData(string html){
 	}
 			
   json = json.append("]");
-  var empty = (json.length() == 4);
+  var empty = (json.length() == 2);
   if(empty){
 		json = "";
 	}
