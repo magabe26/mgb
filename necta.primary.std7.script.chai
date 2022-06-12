@@ -367,6 +367,21 @@ def onShareViaSms(string  phoneNumber, string  resultsShared){
 }
 
 
+def onAppStarted()
+{
+
+
+}
+
+
+def onAppExited(int status)
+{
+
+
+}
+
+
+
 def runTest(string input) {
     var  output = input;
     
