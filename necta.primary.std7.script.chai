@@ -353,6 +353,20 @@ def getGenderWisePerformanceData(string html){
 }
 
 
+
+def onUrlVisited(string  url){
+
+
+}
+
+
+def onShareViaSms(string  phoneNumber, string  resultsShared){
+
+
+
+}
+
+
 def runTest(string input) {
     var  output = input;
     
