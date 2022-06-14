@@ -380,7 +380,11 @@ def onAppExited(int status)
 
 }
 
+def onStudentResultsOpened(string name, string no, string schoolName,string average, string year,string results)
+{
 
+
+}
 
 def runTest(string input) {
     var  output = input;
@@ -406,7 +410,14 @@ def runTest(string input) {
    //var output =  "   ccvvv   ".simplified();
    //var output = to_string(getScriptRunnerVersion());
 
-    output  = getGenderWisePerformanceData(output);
-    
+    //output  = getGenderWisePerformanceData(output);
+	//output = get("http://localhost/dashboard/");
+    //openPage("http://localhost/dashboard/");
+	//output = stringarrayToString(getIpAddresses());
+	
+	var url = "https://local/2021/new";
+	output = addLinkToMenuXML("chuts",url,"");
+	output = removeLinkFromMenuXML(url,output);
+	
     return output;
 }
