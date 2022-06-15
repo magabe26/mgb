@@ -134,7 +134,6 @@ class Tag {
 		this.value = value;
 	}
    var valid;
-
    var index;
    var length;
    var value;
@@ -149,9 +148,9 @@ def string::getTag(string t)
         if(firstIndex != -1){
 		   var lastIndex = this.indexOf(closeTag,firstIndex + 1 , false);
 		   if(lastIndex != -1) {
-		   var n = (lastIndex - firstIndex) + len;
-		   var value = this.mid(firstIndex,n);;
-		   tag = Tag(true,firstIndex,n,value);
+			   var n = (lastIndex - firstIndex) + len;
+			   var value = this.mid(firstIndex,n);;
+			   tag = Tag(true,firstIndex,n,value);
 		   }
 	  }
     return tag;
@@ -176,7 +175,7 @@ def string::removeOpenTag(string t)
 		   var len = (lastIndex - firstIndex) + 1;
 		   this = this.removeAtPosition(firstIndex,len);
 		 }
-		}
+	}
 }
 
 // Only use this function on a small atring
