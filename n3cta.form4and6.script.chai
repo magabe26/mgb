@@ -170,7 +170,8 @@ def filterHtml(string html) {
 
 def moveMenuToTop(string menu, string type,string year , int loop) {
      var tmp = menu;
-	 var menuTag = Tag(false,-1,-1,"");
+     var menuTag = Tag(false,-1,-1,"");
+     
      for(var i = 0; i <= loop; ++i){
 	  var tag =  tmp.getTag("RESULTS");
 	  if(tag.valid){
@@ -190,9 +191,9 @@ def moveMenuToTop(string menu, string type,string year , int loop) {
 	   var s = "<NECTA_RESULTS>";
 	   var i = menu.indexOf(s,0,false);
 	   if(i != -1){
-	   	   menu = menu.remove(menuTag.value,true);
-		   //append to top
-           menu = menu.replaceAtPosition(i + s.length() ,1, menuTag.value.append("<"))
+	      menu = menu.remove(menuTag.value,true);
+	      //append to top
+              menu = menu.replaceAtPosition(i + s.length() ,1, menuTag.value.append("<"))
 	   }
 	}
 
