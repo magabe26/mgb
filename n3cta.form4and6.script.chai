@@ -168,8 +168,42 @@ def filterHtml(string html) {
     return output;
 }
 
+def moveMenuToTop(string menu, string type,string year , int loop) {
+     var tmp = menu;
+	 var menuTag = Tag(false,-1,-1,"");
+     for(var i = 0; i <= loop; ++i){
+	  var tag =  tmp.getTag("RESULTS");
+	  if(tag.valid){
+	      var identifier = type.append(" ").append(year);
+	      if(tag.value.contains(identifier,false)){
+		  	menuTag = tag;
+		    break;
+		  } else{
+		  	tmp = tmp.removeAtPosition(tag.index,tag.length);
+		  }
+	  } else {
+	   break;
+	  }
+	 }
+	
+	if(menuTag.valid){
+	   var s = "<NECTA_RESULTS>";
+	   var i = menu.indexOf(s,0,false);
+	   if(i != -1){
+	   	   menu = menu.remove(menuTag.value,true);
+		   //append to top
+           menu = menu.replaceAtPosition(i + s.length() ,1, menuTag.value.append("<"))
+	   }
+	}
+
+    return menu;
+}
+
 def updateMenu(string input){
   var output = input;
+  
+  //put latest release to top
+  output = moveMenuToTop(output,"ACSEE","2022",3);
 
   return output;
 }
