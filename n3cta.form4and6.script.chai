@@ -203,7 +203,7 @@ def updateMenu(string input){
   var output = input;
   
   //put latest release to top
-  output = moveMenuToTop(output,"ACSEE","2022",3);
+  output = moveMenuToTop(output,"ACSEE","2022",2);
 
   return output;
 }
