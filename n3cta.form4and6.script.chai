@@ -157,6 +157,34 @@ def string::getTag(string t)
     return tag;
 }
 
+def openTag(string tag)
+{
+  return chaR('<').seq(spaceOptional()).seq(stR(tag,false)).seq(spaceOptional()).seq(chaR('>'));
+}
+
+def closeTag(string tag)
+{
+  return chaR('<').seq(spaceOptional()).seq(chaR('/')).seq(spaceOptional()).seq(stR(tag,false)).seq(spaceOptional()).seq(chaR('>'));
+}
+
+def string::removeOpenTag(string t)
+{
+      var firstIndex = this.indexOf("<".append(t),0,false);
+	  if(firstIndex != -1){
+		var lastIndex = this.indexOf(">",firstIndex + 1 , false);
+		if(lastIndex != -1) {
+		   var len = (lastIndex - firstIndex) + 1;
+		   this = this.removeAtPosition(firstIndex,len);
+		 }
+	}
+}
+
+// Only use this function on a small atring
+def string::removeCloseTag(string t)
+{
+     this = closeTag(t).removeFrom(this,0,-1);
+}
+
 /* -------------------------------------------------*/
 
 
@@ -170,8 +198,7 @@ def filterHtml(string html) {
 
 def moveMenuToTop(string menu, string type,string year , int loop) {
      var tmp = menu;
-     var menuTag = Tag(false,-1,-1,"");
-     
+	 var menuTag = Tag(false,-1,-1,"");
      for(var i = 0; i <= loop; ++i){
 	  var tag =  tmp.getTag("RESULTS");
 	  if(tag.valid){
@@ -191,9 +218,9 @@ def moveMenuToTop(string menu, string type,string year , int loop) {
 	   var s = "<NECTA_RESULTS>";
 	   var i = menu.indexOf(s,0,false);
 	   if(i != -1){
-	      menu = menu.remove(menuTag.value,true);
-	      //append to top
-              menu = menu.replaceAtPosition(i + s.length() ,1, menuTag.value.append("<"))
+	   	   menu = menu.remove(menuTag.value,true);
+		   //append to top
+           menu = menu.replaceAtPosition(i + s.length() ,1, menuTag.value.append("<"))
 	   }
 	}
 
@@ -233,6 +260,74 @@ def onAppExited(int status)
 {
 
 
+}
+
+	
+def getGenderWisePerformanceTableContent(string html) {
+   while (true) {
+      var table = html.getTag("table");
+      if (table.valid) {
+         var content = table.value;
+         if (content.contains("SEX", false) &&
+            content.contains("F", false) &&
+            content.contains("M", false) &&
+            (!content.contains("CNO", false))) {
+            return content;
+         } else {
+            html = html.removeAtPosition(table.index, table.length);
+         }
+      } else {
+          return "";
+      }
+   }
+}
+
+def getGenderWisePerformanceData(string html){
+  var content = getGenderWisePerformanceTableContent(html);
+  var json = "[";
+  while(true){
+	   var tag = content.getTag("tr");
+	   if(!tag.valid){
+	     break;
+	   }
+	   var tr = tag.value;
+		  var index = 0;
+		  var item = "{";
+		  while(true){
+			  var tdTag = tr.getTag("td");
+			  if(tdTag.valid){
+			    var text = tdTag.value.removeOpenTag("td").removeCloseTag("td").trim();
+				item = item.append("\"_").append(to_string(index)).append("\":\"").append(text).append("\"");
+				item = item.append(",");
+				tr = tr.removeAtPosition(tdTag.index,tdTag.length);
+			  } else {
+				break;
+			  }
+			  index = index + 1;
+		  }
+		  if(item.endsWith(",",true)){
+		   item = item.mid(0,item.length() - 1);
+		  }
+		  item = item.append("}");
+		  var empty = (item.length() == 2);
+		  if(!empty){
+		    json = json.append(item);
+			json = json.append(",");
+		  }
+		  content = content.removeAtPosition(tag.index,tag.length);
+	}
+	
+  if( json.endsWith(",",true)){
+	json = json.mid(0, json.length() - 1);
+    }
+	
+  json = json.append("]");
+  var empty = (json.length() == 2);
+  if(empty){
+	 json = "";
+	}
+	
+  return json;
 }
 
 def runTest(string input) {
