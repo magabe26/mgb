@@ -307,6 +307,9 @@ def getGenderWisePerformanceData(string html){
   var json = "[";
   while(true){
 	   var tag = html.getTag("tr");
+	   if(!tag.valid){
+	     break;
+	   }
 	   var tr = tag.value;
 	   if(tr.contains("JINSI",false) ||
 		  tr.contains("WASICHANA",false) ||
