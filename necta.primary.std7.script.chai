@@ -393,7 +393,7 @@ def onShareViaSms(string  phoneNumber, string  resultsShared){
 def onAppStarted()
 {
 
-   //setTimer(55,1000*5);
+   setTimer(55,1000*5);
    
 }
 
@@ -421,8 +421,8 @@ def onCustomDialogClosed(int requestCode,string pressedButton,string answer)
 def onTimeOut(int timerCode)
 {
 
-  //showToastMessage(to_string(timerCode));
-  //requestCustomDialog(123,"fa::info","pakuwa from script","my pp","acha","tembelea","https://www.google.com",0.8,0.80,true);
+  showToastMessage(to_string(timerCode));
+  requestCustomDialog(123,"fa::info","pakuwa from script","my pp","acha","tembelea","https://www.google.com",0.8,0.80,true);
 
 }
 
