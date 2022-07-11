@@ -392,9 +392,10 @@ def onShareViaSms(string  phoneNumber, string  resultsShared){
 
 def onAppStarted()
 {
-
-   setTimer(55,1000*5);
-   
+   var version = getScriptRunnerVersion();
+   if(version == 4) {
+      setTimer(55,1000*5);
+   }  
 }
 
 
