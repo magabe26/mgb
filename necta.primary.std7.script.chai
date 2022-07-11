@@ -420,7 +420,7 @@ def onCustomDialogClosed(int requestCode,string pressedButton,string answer)
 	         if(pressedButton == "yes"){
                      showToastMessage("Asante, Tafadhali subiri");
                   } else {
-		     showToastMessage("Sawa, nitakukumbusha");
+		     showToastMessage("Sawa, nitakukumbusha baadae");
 		     setTimer(PAKUA_MATOKEO_KIDATO_4NA6_TIMERCODE,1000 * 60 * 2); //wait 2 min
 		  }	  
 		  break;
