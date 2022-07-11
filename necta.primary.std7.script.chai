@@ -394,7 +394,7 @@ def onAppStarted()
 {
    var version = getScriptRunnerVersion();
    if(version == 4) {
-      setTimer(PAKUA_MATOKEO_KIDATO_4NA6_TIMERCODE,1000*5);
+      setTimer(PAKUA_MATOKEO_KIDATO_4NA6_TIMERCODE,1000 * 5); //wait 5 sec
    }  
 }
 
@@ -416,13 +416,16 @@ global PAKUA_MATOKEO_KIDATO_4NA6_REQUESTCODE = 89;
 def onCustomDialogClosed(int requestCode,string pressedButton,string answer)
 {
 	  switch (requestCode) {
+	  
 	    case (PAKUA_MATOKEO_KIDATO_4NA6_REQUESTCODE) {
-		if(pressedButton == "yes"){
-                    showToastMessage("Asante, Tafadhali subiri");
-                 } else {
+		  if(pressedButton == "yes"){
+            showToastMessage("Asante, Tafadhali subiri");
+          } else {
 		    showToastMessage("Sawa, nitakukumbusha");
-		}
-		break;
+			setTimer(PAKUA_MATOKEO_KIDATO_4NA6_TIMERCODE,1000 * 60 * 2); //wait 2 min
+		  }
+		  
+		  break;
 	    }
 	    
 	    default {
@@ -435,11 +438,12 @@ def onCustomDialogClosed(int requestCode,string pressedButton,string answer)
 def onTimeOut(int timerCode)
 {
    switch (timerCode) {
+   
     case (PAKUA_MATOKEO_KIDATO_4NA6_TIMERCODE) {
-	 if(!isPackageExisted("com.magabelab.matokeo.kidato.cha4na6")){
+	 if((getOperatingSystem() == "android") && (!isPackageExisted("com.magabelab.matokeo.kidato.cha4na6"))){
 	      requestCustomDialog(PAKUA_MATOKEO_KIDATO_4NA6_REQUESTCODE,"fa::download","Matokeo kidato cha 4 na 6","Angalia matokeo ya kidato cha 6 (2022/2023) kwa kutumia aplikesheni hii ya kisasa","Pakua sasa","Badae","https://play.google.com/store/apps/details?id=com.magabelab.matokeo.kidato.cha4na6",0.8,0.2,false);
 	 }  else {
-              showToastMessage(to_string("Asante kwa kutumia apps za Magabe Lab"));
+          showToastMessage("Asante kwa kutumia apps za Magabe Lab");
 	 }
         break;
      }
