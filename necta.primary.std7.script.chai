@@ -415,28 +415,41 @@ global PAKUA_MATOKEO_KIDATO_4NA6_REQUESTCODE = 89;
 /* pressedButton = no or yes */
 def onCustomDialogClosed(int requestCode,string pressedButton,string answer)
 {
-      if((pressedButton == "yes") && (requestCode == PAKUA_MATOKEO_KIDATO_4NA6_REQUESTCODE) ){
-        showToastMessage(to_string("Asante, Tafadhali subiri"));
-      } 
+	  switch (requestCode) {
+	    case (PAKUA_MATOKEO_KIDATO_4NA6_REQUESTCODE) {
+		if(pressedButton == "yes"){
+                    showToastMessage("Asante, Tafadhali subiri");
+                 } else {
+		    showToastMessage("Sawa, nitakukumbusha");
+		}
+		break;
+	    }
+	    
+	    default {
+		break;
+	    }
+	}
+      
 }
 
 def onTimeOut(int timerCode)
 {
-    switch(timerCode){
-      case PAKUA_MATOKEO_KIDATO_4NA6_TIMERCODE:
-      if(!isPackageExisted("com.magabelab.matokeo.kidato.cha4na6")){
-           requestCustomDialog(PAKUA_MATOKEO_KIDATO_4NA6_REQUESTCODE,"fa::download","Matokeo kidato cha 4 na 6","Angalia matokeo ya kidato cha 6 (2022/2023) kwa kutumia aplikesheni hii ya kisasa","Pakua sasa","Badae","https://play.google.com/store/apps/details?id=com.magabelab.matokeo.kidato.cha4na6",0.8,0.2,false);
-      }  else {
-         showToastMessage(to_string("Asante kwa kutumia apps za magabe lab"));
-      }
-      break;
-      
-      default:
-      break
+   switch (timerCode) {
+    case (PAKUA_MATOKEO_KIDATO_4NA6_TIMERCODE) {
+	 if(!isPackageExisted("com.magabelab.matokeo.kidato.cha4na6")){
+	      requestCustomDialog(PAKUA_MATOKEO_KIDATO_4NA6_REQUESTCODE,"fa::download","Matokeo kidato cha 4 na 6","Angalia matokeo ya kidato cha 6 (2022/2023) kwa kutumia aplikesheni hii ya kisasa","Pakua sasa","Badae","https://play.google.com/store/apps/details?id=com.magabelab.matokeo.kidato.cha4na6",0.8,0.2,false);
+	 }  else {
+              showToastMessage(to_string("Asante kwa kutumia apps za magabe lab"));
+	 }
+        break;
+     }
+    
+    default {
+        break;
     }
- 
+    
+  }
   
-
 }
 
 def runTest(string input) {
