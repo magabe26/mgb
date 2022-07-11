@@ -249,10 +249,13 @@ def onShareViaSms(string  phoneNumber, string  resultsShared){
 }
 
 
+global PAKUA_MATOKEO_LA7_TIMERCODE = 32;
 def onAppStarted()
 {
-
-
+   var version = getScriptRunnerVersion();
+   if(version == 4) {
+      setTimer(PAKUA_MATOKEO_LA7_TIMERCODE,1000 * 5); //wait 5 sec
+   }  
 }
 
 
@@ -329,6 +332,69 @@ def getGenderWisePerformanceData(string html){
 	
   return json;
 }
+
+def getNectaCSEEMenuUrl()
+{
+   return "https://www.necta.go.tz/csee_results";
+}
+
+
+def getNectaACSEEMenuUrl()
+{
+  return "https://www.necta.go.tz/acsee_results";
+}
+
+//TODO detect type of results first
+def getNectaResultLinks(string html){
+    var links = [];
+    //links.push_back("");
+
+    return links;
+}
+
+global PAKUA_MATOKEO_LA7_REQUESTCODE = 89;
+
+/* pressedButton = no or yes */
+def onCustomDialogClosed(int requestCode,string pressedButton,string answer)
+{
+	  switch (requestCode) {	  
+	    case (PAKUA_MATOKEO_LA7_REQUESTCODE) {
+	         if(pressedButton == "yes"){
+                     showToastMessage("Asante, Tafadhali subiri");
+                  } else {
+		     showToastMessage("Sawa, nitakukumbusha");
+		     setTimer(PAKUA_MATOKEO_LA7_TIMERCODE,1000 * 60 * 2); //wait 2 min
+		  }	  
+		  break;
+	    }
+	    
+	    default {
+		break;
+	    }
+	}
+      
+}
+
+def onTimeOut(int timerCode)
+{
+   switch (timerCode) {
+    case (PAKUA_MATOKEO_LA7_TIMERCODE) {
+	 if((getOperatingSystem() == "android") && (!isPackageExisted("com.magabe.n3cta.matokeo.ya.darasa.la.saba"))){
+	      requestCustomDialog(PAKUA_MATOKEO_LA7_REQUESTCODE,"fa::download","Matokeo ya darasa la 7","Angalia matokeo ya darasa la 7 kwa kutumia aplikesheni hii ya kisasa","Pakua sasa","Badae","https://play.google.com/store/apps/details?id=com.magabe.n3cta.matokeo.ya.darasa.la.saba",0.8,0.2,false);
+	 }  else {
+          showToastMessage("Asante kwa kutumia apps za Magabe Lab");
+	 }
+        break;
+     }
+    
+    default {
+        break;
+    }
+    
+  }
+  
+}
+
 
 def runTest(string input) {
      var  output = input;
