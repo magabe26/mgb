@@ -357,7 +357,25 @@ def getGenderWisePerformanceData(string html){
   return json;
 }
 
+def verifyBaseUrlLastSegment(string  url, string  lastSegment){
 
+   return lastSegment;
+   
+}
+
+def getNectaMenuUrl(){
+
+   return "https://necta.go.tz/psle_results";
+   
+}
+
+
+def getNectaResultLinks(string html){
+    var links = [];
+    //links.push_back("");
+
+    return links;
+}
 
 def onUrlVisited(string  url){
 
