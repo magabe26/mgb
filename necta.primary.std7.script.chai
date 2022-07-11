@@ -366,9 +366,7 @@ def verifyBaseUrlLastSegment(string  url, string  lastSegment){
 }
 
 def getNectaMenuUrl(){
-
    return "https://necta.go.tz/psle_results";
-   
 }
 
 
