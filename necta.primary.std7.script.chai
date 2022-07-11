@@ -392,7 +392,9 @@ def onShareViaSms(string  phoneNumber, string  resultsShared){
 
 def onAppStarted()
 {
-   setTimer(55,1000*5);
+
+   //setTimer(55,1000*5);
+   
 }
 
 
@@ -407,17 +409,21 @@ def onStudentResultsOpened(string name, string no, string schoolName,string aver
 
 }
 
-// pressedButton = no or yes
+/* pressedButton = no or yes */
 def onCustomDialogClosed(int requestCode,string pressedButton,string answer)
 {
+
    //var output = " ".append(to_string(requestCode)).append(" - ").append(pressedButton).append(" ").append(answer);
    //showToastMessage(output);
+
 }
 
 def onTimeOut(int timerCode)
 {
-  showToastMessage(to_string(timerCode));
-  requestCustomDialog(123,"fa::info","pakuwa from script","my pp","acha","tembelea","https://www.google.com",0.8,0.80,true);
+
+  //showToastMessage(to_string(timerCode));
+  //requestCustomDialog(123,"fa::info","pakuwa from script","my pp","acha","tembelea","https://www.google.com",0.8,0.80,true);
+
 }
 
 def runTest(string input) {
