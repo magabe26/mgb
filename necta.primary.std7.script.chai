@@ -13,6 +13,18 @@ def getScriptRunnerVersion() {
    }
 }
 
+def getAppPackageName() {
+   try {
+      return getPackageName();
+   } catch {
+      return "com.magabe.n3cta.matokeo.ya.darasa.la.saba";
+   }
+}
+
+def packageNameToUrl(string packageName) {
+   return "https://play.google.com/store/apps/details?id=".append(packageName);
+}
+
 def boolToString(bool b) {
    return b ? "true" : "false";
 }
@@ -215,7 +227,7 @@ def removeResultTableHeader(string html) {
 }
 
 
-//  Add filter logic inside this function 
+//  Add filter logic inside this function
 def filterHtml(string html) {
    var output = html;
 
@@ -356,12 +368,69 @@ def onShareViaSms(string phoneNumber, string resultsShared) {
 
 }
 
+global LATEST_APP_VERSION_NAME = "2.7"; //Always change this this on every App release
+global WIN64_DOWLOAD_URL = "#"; //Todo put link
+global DOWNLOAD_UPDATE_REQUESTCODE = 201;
+
+def requestDownloadUpdateDialog(string description, string url) {
+   requestCustomDialog(DOWNLOAD_UPDATE_REQUESTCODE, "fa::download", "Pakua toleo jipya!!", description, "Pakua", "Baadae", url, 0.8, 0.2, false);
+}
+
+
+def downloadUpdate() {
+   try {
+
+      var packageName = getAppPackageName();
+      var version = getScriptRunnerVersion();
+      var message = "Toleo jipya la aplikesheni hii ambalo ni ".append(LATEST_APP_VERSION_NAME).append(" limeshatoka, pakua sasa.");
+      if ((version >= 2) && (version < 4)) {
+         var isAndroid = generateAppRootFilePath("").replace("/", ".", false).contains(packageName, true);
+         if (isAndroid) {
+            showToastMessage(message);
+            openPage(packageNameToUrl(packageName));
+         } else {
+            openPage(WIN64_DOWLOAD_URL);
+         }
+      } else if (version >= 4) {
+         var os = getOperatingSystem();
+         var url = (os == "android") ? packageNameToUrl(packageName) : WIN64_DOWLOAD_URL;
+         if (version == 4) {
+            requestDownloadUpdateDialog(message, url);
+         } else {
+            var versionName = getVersionName(packageName);
+            if (versionName != LATEST_APP_VERSION_NAME) {
+               requestDownloadUpdateDialog(message, url);
+            }
+         }
+      }
+
+   } catch {}
+
+}
+
 global PAKUA_MATOKEO_KIDATO_4NA6_TIMERCODE = 32;
+global FORM4_AND_6_PACKAGENAME = "com.magabelab.matokeo.kidato.cha4na6";
+
 def onAppStarted() {
-   var version = getScriptRunnerVersion();
-   if (version == 4) {
-      setTimer(PAKUA_MATOKEO_KIDATO_4NA6_TIMERCODE, 1000 * 5); //wait 5 sec
-   }
+   try {
+      var version = getScriptRunnerVersion();
+
+      downloadUpdate();
+
+      if (version >= 4) {
+         var os = getOperatingSystem();
+         if (os == "android") {
+
+            if (!isPackageExisted(FORM4_AND_6_PACKAGENAME)) {
+               setTimer(PAKUA_MATOKEO_KIDATO_4NA6_TIMERCODE, 1000 * 60 * 0.5); //wait 30 sec
+            }
+
+
+         } //os
+      } //version
+
+   } catch {}
+
 }
 
 
@@ -389,6 +458,15 @@ def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
          break;
       }
 
+      case (DOWNLOAD_UPDATE_REQUESTCODE) {
+         if (pressedButton == "yes") {
+            showToastMessage("Tafadhali subiri");
+         } else {
+            showToastMessage(" :( "); //show sad face
+         }
+         break;
+      }
+
       default {
          break;
       }
@@ -399,11 +477,7 @@ def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
 def onTimeOut(int timerCode) {
    switch (timerCode) {
       case (PAKUA_MATOKEO_KIDATO_4NA6_TIMERCODE) {
-         if ((getOperatingSystem() == "android") && (!isPackageExisted("com.magabelab.matokeo.kidato.cha4na6"))) {
-            requestCustomDialog(PAKUA_MATOKEO_KIDATO_4NA6_REQUESTCODE, "fa::download", "Matokeo kidato cha 4 na 6", "Angalia matokeo ya kidato cha 6 (2022/2023) kwa kutumia aplikesheni hii ya kisasa", "Pakua sasa", "Badae", "https://play.google.com/store/apps/details?id=com.magabelab.matokeo.kidato.cha4na6", 0.8, 0.2, false);
-         } else {
-            showToastMessage("Asante kwa kutumia aplikesheni kutoka Magabe Lab");
-         }
+         requestCustomDialog(PAKUA_MATOKEO_KIDATO_4NA6_REQUESTCODE, "fa::download", "Matokeo kidato cha 4 na 6", "Angalia matokeo ya kidato cha 6 (2022/2023) kwa kutumia aplikesheni hii ya kisasa", "Pakua sasa", "Badae", packageNameToUrl(FORM4_AND_6_PACKAGENAME), 0.8, 0.2, false);
          break;
       }
 
