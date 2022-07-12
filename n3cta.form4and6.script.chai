@@ -229,7 +229,7 @@ def onShareViaSms(string phoneNumber, string resultsShared) {
 
 }
 
-global LATEST_APP_VERSION_NAME = "3.6"; //Always change this this on every App release
+global LATEST_APP_VERSION_NAME = "3.5"; //Always change this this on every App release
 global WIN64_DOWLOAD_URL = "#"; //Todo put link
 global DOWNLOAD_UPDATE_REQUESTCODE = 201;
 
@@ -284,7 +284,7 @@ def onAppStarted() {
          if (os == "android") {
 
             if (!isPackageExisted(LA7_PACKAGENAME)) {
-               setTimer(PAKUA_MATOKEO_LA7_TIMERCODE, 1000 * 60 * 1); //wait 1 min
+               setTimer(PAKUA_MATOKEO_LA7_TIMERCODE, 1000 * 60 * 0.5); //wait 30 sec
             }
 
 
