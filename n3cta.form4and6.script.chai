@@ -5,134 +5,122 @@
 
 /* --------------  extensions  ---------------*/
 
-def getScriptRunnerVersion()
-{
-  try{
-    return scriptRunnerVersion();
-  } catch{
-    return 1;
-  }
+def getScriptRunnerVersion() {
+   try {
+      return scriptRunnerVersion();
+   } catch {
+      return 1;
+   }
 }
 
-def boolToString(bool b)
-{
-  return b ? "true" : "false";
+def getAppPackageName() {
+   try {
+      return getPackageName();
+   } catch {
+      return "com.magabelab.matokeo.kidato.cha4na6";
+   }
+}
+
+def packageNameToUrl(string packageName) {
+   return "https://play.google.com/store/apps/details?id=".append(packageName);
+}
+
+def boolToString(bool b) {
+   return b ? "true" : "false";
 }
 
 
-def string::indexOf(string s, int start, bool caseSensitive)
-{
-  return strIndexOf(this,s,start,caseSensitive);
+def string::indexOf(string s, int start, bool caseSensitive) {
+   return strIndexOf(this, s, start, caseSensitive);
 }
 
-def string::contains(string s, bool caseSensitive)
-{
-  return strContains(this,s,caseSensitive);
+def string::contains(string s, bool caseSensitive) {
+   return strContains(this, s, caseSensitive);
 }
 
-def string::remove(string s,bool caseSensitive)
-{
-  return strRemove(this,s,caseSensitive);
+def string::remove(string s, bool caseSensitive) {
+   return strRemove(this, s, caseSensitive);
 }
 
-def string::right(int n)
-{
-  return strRight(this,n);
+def string::right(int n) {
+   return strRight(this, n);
 }
 
-def string::left(int n)
-{
-  return strLeft(this,n);
+def string::left(int n) {
+   return strLeft(this, n);
 }
 
-def string::mid(int position,int n)
-{
-  return strMid(this,position,n);
+def string::mid(int position, int n) {
+   return strMid(this, position, n);
 }
 
-def string::length()
-{
-  return strLength(this);
+def string::length() {
+   return strLength(this);
 }
 
-def string::replace(string before, string after,bool caseSensitive)
-{
-  return strReplace(this,before,after,caseSensitive);
+def string::replace(string before, string after, bool caseSensitive) {
+   return strReplace(this, before, after, caseSensitive);
 }
 
-def string::replaceAtPosition(int position,int n, string after)
-{
-  return strReplaceAtPosition(this,position,n,after);
+def string::replaceAtPosition(int position, int n, string after) {
+   return strReplaceAtPosition(this, position, n, after);
 }
 
-def string::startsWith(string str, bool caseSensitive)
-{
-  return strStartsWith(this,str,caseSensitive);
+def string::startsWith(string str, bool caseSensitive) {
+   return strStartsWith(this, str, caseSensitive);
 }
 
-def string::endsWith(string str, bool caseSensitive)
-{
-  return strEndsWith(this,str,caseSensitive);
+def string::endsWith(string str, bool caseSensitive) {
+   return strEndsWith(this, str, caseSensitive);
 }
 
-def string::truncate(int position)
-{
-  return strTruncate(this,position);
+def string::truncate(int position) {
+   return strTruncate(this, position);
 }
 
-def string::compare(string other, bool caseSensitive)
-{
-  return strCompare(this,other,caseSensitive);
+def string::compare(string other, bool caseSensitive) {
+   return strCompare(this, other, caseSensitive);
 }
 
-def string::split(string sep)
-{
-  return strSplit(this,sep);
+def string::split(string sep) {
+   return strSplit(this, sep);
 }
 
-def string::append(string str)
-{
-  return strAppend(this,str);
+def string::append(string str) {
+   return strAppend(this, str);
 }
 
-def string::prepend(string str)
-{
-  return strPrepend(this,str);
+def string::prepend(string str) {
+   return strPrepend(this, str);
 }
 
-def string::isLower()
-{
-  return strIsLower(this);
+def string::isLower() {
+   return strIsLower(this);
 }
 
-def string::isUpper()
-{
-  return strIsUpper(this);
+def string::isUpper() {
+   return strIsUpper(this);
 }
 
-def string::isEmpty()
-{
-  return strIsEmpty(this);
+def string::isEmpty() {
+   return strIsEmpty(this);
 }
 
-def string::simplified()
-{
-  return strSimplified(this);
+def string::simplified() {
+   return strSimplified(this);
 }
 
-def string::removeAtPosition(int position,int length)
-{
-  return strRemoveAtPosition(this,position,length);
+def string::removeAtPosition(int position, int length) {
+   return strRemoveAtPosition(this, position, length);
 }
 
 class Tag {
-        def Tag(bool valid,int index,int length, string value)
-        {
-                this.valid = valid;
-                this.index = index;
-                this.length = length;
-                this.value = value;
-        }
+   def Tag(bool valid, int index, int length, string value) {
+      this.valid = valid;
+      this.index = index;
+      this.length = length;
+      this.value = value;
+   }
    var valid;
 
    var index;
@@ -140,49 +128,44 @@ class Tag {
    var value;
 };
 
-def string::getTag(string t)
-{
-        var closeTag = "</".append(t).append(">");
-        var tag = Tag(false,-1,-1,"");
-        var len = closeTag.length();
-        var firstIndex = this.indexOf("<".append(t),0,false);
-        if(firstIndex != -1){
-                   var lastIndex = this.indexOf(closeTag,firstIndex + 1 , false);
-                   if(lastIndex != -1) {
-                   var n = (lastIndex - firstIndex) + len;
-                   var value = this.mid(firstIndex,n);;
-                   tag = Tag(true,firstIndex,n,value);
-                   }
-          }
-    return tag;
+def string::getTag(string t) {
+   var closeTag = "</".append(t).append(">");
+   var tag = Tag(false, -1, -1, "");
+   var len = closeTag.length();
+   var firstIndex = this.indexOf("<".append(t), 0, false);
+   if (firstIndex != -1) {
+      var lastIndex = this.indexOf(closeTag, firstIndex + 1, false);
+      if (lastIndex != -1) {
+         var n = (lastIndex - firstIndex) + len;
+         var value = this.mid(firstIndex, n);;
+         tag = Tag(true, firstIndex, n, value);
+      }
+   }
+   return tag;
 }
 
-def openTag(string tag)
-{
-  return chaR('<').seq(spaceOptional()).seq(stR(tag,false)).seq(spaceOptional()).seq(chaR('>'));
+def openTag(string tag) {
+   return chaR('<').seq(spaceOptional()).seq(stR(tag, false)).seq(spaceOptional()).seq(chaR('>'));
 }
 
-def closeTag(string tag)
-{
-  return chaR('<').seq(spaceOptional()).seq(chaR('/')).seq(spaceOptional()).seq(stR(tag,false)).seq(spaceOptional()).seq(chaR('>'));
+def closeTag(string tag) {
+   return chaR('<').seq(spaceOptional()).seq(chaR('/')).seq(spaceOptional()).seq(stR(tag, false)).seq(spaceOptional()).seq(chaR('>'));
 }
 
-def string::removeOpenTag(string t)
-{
-      var firstIndex = this.indexOf("<".append(t),0,false);
-	  if(firstIndex != -1){
-		var lastIndex = this.indexOf(">",firstIndex + 1 , false);
-		if(lastIndex != -1) {
-		   var len = (lastIndex - firstIndex) + 1;
-		   this = this.removeAtPosition(firstIndex,len);
-		 }
-	}
+def string::removeOpenTag(string t) {
+   var firstIndex = this.indexOf("<".append(t), 0, false);
+   if (firstIndex != -1) {
+      var lastIndex = this.indexOf(">", firstIndex + 1, false);
+      if (lastIndex != -1) {
+         var len = (lastIndex - firstIndex) + 1;
+         this = this.removeAtPosition(firstIndex, len);
+      }
+   }
 }
 
 // Only use this function on a small atring
-def string::removeCloseTag(string t)
-{
-     this = closeTag(t).removeFrom(this,0,-1);
+def string::removeCloseTag(string t) {
+   this = closeTag(t).removeFrom(this, 0, -1);
 }
 
 /* -------------------------------------------------*/
@@ -190,82 +173,136 @@ def string::removeCloseTag(string t)
 
 /*  add filter logic inside this function  */
 def filterHtml(string html) {
-    var output = html;
+   var output = html;
 
 
-    return output;
+   return output;
 }
 
-def moveMenuToTop(string menu, string type,string year , int loop) {
-     var tmp = menu;
-	 var menuTag = Tag(false,-1,-1,"");
-     for(var i = 0; i <= loop; ++i){
-	  var tag =  tmp.getTag("RESULTS");
-	  if(tag.valid){
-	      var identifier = type.append(" ").append(year);
-	      if(tag.value.contains(identifier,false)){
-		  	menuTag = tag;
-		    break;
-		  } else{
-		  	tmp = tmp.removeAtPosition(tag.index,tag.length);
-		  }
-	  } else {
-	   break;
-	  }
-	 }
-	
-	if(menuTag.valid){
-	   var s = "<NECTA_RESULTS>";
-	   var i = menu.indexOf(s,0,false);
-	   if(i != -1){
-	   	   menu = menu.remove(menuTag.value,true);
-		   //append to top
-           menu = menu.replaceAtPosition(i + s.length() ,1, menuTag.value.append("<"))
-	   }
-	}
+def moveMenuToTop(string menu, string type, string year, int loop) {
+   var tmp = menu;
+   var menuTag = Tag(false, -1, -1, "");
+   for (var i = 0; i <= loop; ++i) {
+      var tag = tmp.getTag("RESULTS");
+      if (tag.valid) {
+         var identifier = type.append(" ").append(year);
+         if (tag.value.contains(identifier, false)) {
+            menuTag = tag;
+            break;
+         } else {
+            tmp = tmp.removeAtPosition(tag.index, tag.length);
+         }
+      } else {
+         break;
+      }
+   }
 
-    return menu;
+   if (menuTag.valid) {
+      var s = "<NECTA_RESULTS>";
+      var i = menu.indexOf(s, 0, false);
+      if (i != -1) {
+         menu = menu.remove(menuTag.value, true);
+         //append to top
+         menu = menu.replaceAtPosition(i + s.length(), 1, menuTag.value.append("<"))
+      }
+   }
+
+   return menu;
 }
 
-def updateMenu(string input){
-  var output = input;
-  
-  //put latest release to top
-  output = moveMenuToTop(output,"ACSEE","2022",2);
+def updateMenu(string input) {
+   var output = input;
 
-  return output;
+   //put latest release to top
+   output = moveMenuToTop(output, "ACSEE", "2022", 2);
+
+   return output;
 }
 
-def onUrlVisited(string  url){
+def onUrlVisited(string url) {
 
 
 }
 
 
-def onShareViaSms(string  phoneNumber, string  resultsShared){
+def onShareViaSms(string phoneNumber, string resultsShared) {
 
 
+}
+
+global LATEST_APP_VERSION_NAME = "3.5"; //Always change this this on every App release
+global WIN64_DOWLOAD_URL = "#"; //Todo put link
+global DOWNLOAD_UPDATE_REQUESTCODE = 201;
+
+def requestDownloadUpdateDialog(string description, string url) {
+   requestCustomDialog(DOWNLOAD_UPDATE_REQUESTCODE, "fa::download", "Pakua toleo jipya!!", description, "Pakua", "Baadae", url, 0.8, 0.2, false);
+}
+
+
+def downloadUpdate() {
+   try {
+
+      var packageName = getAppPackageName();
+      var version = getScriptRunnerVersion();
+      var message = "Toleo jipya la aplikesheni hii ambalo ni ".append(LATEST_APP_VERSION_NAME).append(" limeshatoka, pakua sasa.");
+      if ((version >= 2) && (version < 4)) {
+         var isAndroid = generateAppRootFilePath("").replace("/", ".", false).contains(packageName, true);
+         if (isAndroid) {
+            showToastMessage(message);
+            openPage(packageNameToUrl(packageName));
+         } else {
+            openPage(WIN64_DOWLOAD_URL);
+         }
+      } else if (version >= 4) {
+         var os = getOperatingSystem();
+         var url = (os == "android") ? packageNameToUrl(packageName) : WIN64_DOWLOAD_URL;
+         if (version == 4) {
+            requestDownloadUpdateDialog(message, url);
+         } else {
+            var versionName = getVersionName(packageName);
+            if (versionName != LATEST_APP_VERSION_NAME) {
+               requestDownloadUpdateDialog(message, url);
+            }
+         }
+      }
+
+   } catch {}
 
 }
 
 
 global PAKUA_MATOKEO_LA7_TIMERCODE = 32;
-def onAppStarted()
-{
-   var version = getScriptRunnerVersion();
-   if(version == 4) {
-      setTimer(PAKUA_MATOKEO_LA7_TIMERCODE,1000 * 5); //wait 5 sec
-   }  
+global LA7_PACKAGENAME = "com.magabe.n3cta.matokeo.ya.darasa.la.saba";
+
+def onAppStarted() {
+   try {
+      var version = getScriptRunnerVersion();
+
+      downloadUpdate();
+
+      if (version >= 4) {
+         var os = getOperatingSystem();
+         if (os == "android") {
+
+            if (!isPackageExisted(LA7_PACKAGENAME)) {
+               setTimer(PAKUA_MATOKEO_LA7_TIMERCODE, 1000 * 5); //wait 5 sec
+            }
+
+
+         } //os
+      } //version
+
+   } catch {}
+
 }
 
 
-def onAppExited(int status)
-{
+def onAppExited(int status) {
 
 
 }
 
-	
+
 def getGenderWisePerformanceTableContent(string html) {
    while (true) {
       var table = html.getTag("table");
@@ -280,150 +317,151 @@ def getGenderWisePerformanceTableContent(string html) {
             html = html.removeAtPosition(table.index, table.length);
          }
       } else {
-          return "";
+         return "";
       }
    }
 }
 
-def getGenderWisePerformanceData(string html){
-  var content = getGenderWisePerformanceTableContent(html);
-  var json = "[";
-  while(true){
-	   var tag = content.getTag("tr");
-	   if(!tag.valid){
-	     break;
-	   }
-	   var tr = tag.value;
-		  var index = 0;
-		  var item = "{";
-		  while(true){
-			  var tdTag = tr.getTag("td");
-			  if(tdTag.valid){
-			    var text = tdTag.value.removeOpenTag("td").removeCloseTag("td").trim();
-				item = item.append("\"_").append(to_string(index)).append("\":\"").append(text).append("\"");
-				item = item.append(",");
-				tr = tr.removeAtPosition(tdTag.index,tdTag.length);
-			  } else {
-				break;
-			  }
-			  index = index + 1;
-		  }
-		  if(item.endsWith(",",true)){
-		   item = item.mid(0,item.length() - 1);
-		  }
-		  item = item.append("}");
-		  var empty = (item.length() == 2);
-		  if(!empty){
-		    json = json.append(item);
-			json = json.append(",");
-		  }
-		  content = content.removeAtPosition(tag.index,tag.length);
-	}
-	
-  if( json.endsWith(",",true)){
-	json = json.mid(0, json.length() - 1);
-    }
-	
-  json = json.append("]");
-  var empty = (json.length() == 2);
-  if(empty){
-	 json = "";
-	}
-	
-  return json;
+def getGenderWisePerformanceData(string html) {
+   var content = getGenderWisePerformanceTableContent(html);
+   var json = "[";
+   while (true) {
+      var tag = content.getTag("tr");
+      if (!tag.valid) {
+         break;
+      }
+      var tr = tag.value;
+      var index = 0;
+      var item = "{";
+      while (true) {
+         var tdTag = tr.getTag("td");
+         if (tdTag.valid) {
+            var text = tdTag.value.removeOpenTag("td").removeCloseTag("td").trim();
+            item = item.append("\"_").append(to_string(index)).append("\":\"").append(text).append("\"");
+            item = item.append(",");
+            tr = tr.removeAtPosition(tdTag.index, tdTag.length);
+         } else {
+            break;
+         }
+         index = index + 1;
+      }
+      if (item.endsWith(",", true)) {
+         item = item.mid(0, item.length() - 1);
+      }
+      item = item.append("}");
+      var empty = (item.length() == 2);
+      if (!empty) {
+         json = json.append(item);
+         json = json.append(",");
+      }
+      content = content.removeAtPosition(tag.index, tag.length);
+   }
+
+   if (json.endsWith(",", true)) {
+      json = json.mid(0, json.length() - 1);
+   }
+
+   json = json.append("]");
+   var empty = (json.length() == 2);
+   if (empty) {
+      json = "";
+   }
+
+   return json;
 }
 
-def getNectaCSEEMenuUrl()
-{
+def getNectaCSEEMenuUrl() {
    return "https://www.necta.go.tz/csee_results";
 }
 
 
-def getNectaACSEEMenuUrl()
-{
-  return "https://www.necta.go.tz/acsee_results";
+def getNectaACSEEMenuUrl() {
+   return "https://www.necta.go.tz/acsee_results";
 }
 
 //TODO detect type of results first
-def getNectaResultLinks(string html){
-    var links = [];
-    //links.push_back("");
+def getNectaResultLinks(string html) {
+   var links = [];
+   //links.push_back("");
 
-    return links;
+   return links;
 }
 
 global PAKUA_MATOKEO_LA7_REQUESTCODE = 89;
 
 /* pressedButton = no or yes */
-def onCustomDialogClosed(int requestCode,string pressedButton,string answer)
-{
-	  switch (requestCode) {	  
-	    case (PAKUA_MATOKEO_LA7_REQUESTCODE) {
-	         if(pressedButton == "yes"){
-                     showToastMessage("Asante, Tafadhali subiri");
-                  } else {
-		     showToastMessage("Sawa, nitakukumbusha");
-		     setTimer(PAKUA_MATOKEO_LA7_TIMERCODE,1000 * 60 * 2); //wait 2 min
-		  }	  
-		  break;
-	    }
-	    
-	    default {
-		break;
-	    }
-	}
-      
+def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
+   switch (requestCode) {
+      case (PAKUA_MATOKEO_LA7_REQUESTCODE) {
+         if (pressedButton == "yes") {
+            showToastMessage("Tafadhali subiri");
+         } else {
+            showToastMessage("Sawa, nitakukumbusha baadae");
+            setTimer(PAKUA_MATOKEO_LA7_TIMERCODE, 1000 * 60 * 1.5); //wait 1.5 min
+         }
+         break;
+      }
+
+      case (DOWNLOAD_UPDATE_REQUESTCODE) {
+         if (pressedButton == "yes") {
+            showToastMessage("Tafadhali subiri");
+         } else {
+            showToastMessage(" :( "); //show sad face
+         }
+         break;
+      }
+
+      default {
+         break;
+      }
+   }
+
 }
 
-def onTimeOut(int timerCode)
-{
+def onTimeOut(int timerCode) {
    switch (timerCode) {
-    case (PAKUA_MATOKEO_LA7_TIMERCODE) {
-	 if((getOperatingSystem() == "android") && (!isPackageExisted("com.magabe.n3cta.matokeo.ya.darasa.la.saba"))){
-	      requestCustomDialog(PAKUA_MATOKEO_LA7_REQUESTCODE,"fa::download","Matokeo ya darasa la 7","Angalia matokeo ya darasa la 7 kwa kutumia aplikesheni hii ya kisasa","Pakua sasa","Badae","https://play.google.com/store/apps/details?id=com.magabe.n3cta.matokeo.ya.darasa.la.saba",0.8,0.2,false);
-	 }  else {
-          showToastMessage("Asante kwa kutumia apps za Magabe Lab");
-	 }
-        break;
-     }
-    
-    default {
-        break;
-    }
-    
-  }
-  
+      case (PAKUA_MATOKEO_LA7_TIMERCODE) {
+         requestCustomDialog(PAKUA_MATOKEO_LA7_REQUESTCODE, "fa::download", "Matokeo ya darasa la 7", "Angalia matokeo ya darasa la 7 kwa kutumia aplikesheni hii ya kisasa", "Pakua sasa", "Baadae", packageNameToUrl(LA7_PACKAGENAME), 0.8, 0.2, false);
+         break;
+      }
+
+      default {
+         break;
+      }
+
+   }
+
 }
 
 
 def runTest(string input) {
-     var  output = input;
+   var output = input;
 
-     //var output =  boolToString("chura".contains("ra",true));
-     //var output =  to_string("chura".indexOf("ra",4,true));
-     //var output =  "chura".remove("ra",true);
-     //var output =  "chura".right(2);
-     //var output =  "chura".left(2);
-     //var output =  "chura".mid(2,2);
-     //var output =  to_string("chura".length());
-     //var output =  "chura".replace("ur","XX",true);
-     //var output =  "chura".replaceAtPosition(2,2, "xxx");
-     //var output =  boolToString("chura".startsWith("chv", true));
-     //var output =  boolToString("chura".endsWith("ra",false));
-     //var output =  to_string("chura".compare("CHURA",true));
-     //var output =  stringarrayToString("chura".split("u"));
-     //var output =  "qwee".append("XX");
-     //var output =  "qwee".prepend("XX");
-     //var output =  boolToString("qwee".isLower());
-     //var output =  boolToString("qwee".isUpper());
-     //var output =  boolToString("".isEmpty());
-     //var output =  "   ccvvv   ".simplified();
-     //var output = to_string(getScriptRunnerVersion());
+   //var output =  boolToString("chura".contains("ra",true));
+   //var output =  to_string("chura".indexOf("ra",4,true));
+   //var output =  "chura".remove("ra",true);
+   //var output =  "chura".right(2);
+   //var output =  "chura".left(2);
+   //var output =  "chura".mid(2,2);
+   //var output =  to_string("chura".length());
+   //var output =  "chura".replace("ur","XX",true);
+   //var output =  "chura".replaceAtPosition(2,2, "xxx");
+   //var output =  boolToString("chura".startsWith("chv", true));
+   //var output =  boolToString("chura".endsWith("ra",false));
+   //var output =  to_string("chura".compare("CHURA",true));
+   //var output =  stringarrayToString("chura".split("u"));
+   //var output =  "qwee".append("XX");
+   //var output =  "qwee".prepend("XX");
+   //var output =  boolToString("qwee".isLower());
+   //var output =  boolToString("qwee".isUpper());
+   //var output =  boolToString("".isEmpty());
+   //var output =  "   ccvvv   ".simplified();
+   //var output = to_string(getScriptRunnerVersion());
 
-      //var output  boolToString(saveData("ip2","45.55.5.41"));
-      //var output = getData("ip2");
-      //updateData("ip2","no-ip");
-      //var output = getData("ip2");
+   //var output  boolToString(saveData("ip2","45.55.5.41"));
+   //var output = getData("ip2");
+   //updateData("ip2","no-ip");
+   //var output = getData("ip2");
 
-      return output;
+   return output;
 }
