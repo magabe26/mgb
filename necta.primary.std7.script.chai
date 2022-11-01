@@ -256,10 +256,10 @@ def filterHtml(string html) {
       while (true) {
          var tag = output.getTag("tr");
          var tr = tag.value;
-		 var isResultsTableHeader = tr.contains("SEX", false);
-		 if (isResultsTableHeader && (version < 6)) {  //version less than 6 remove table header by default
-		     break;
-		 }
+         var isResultsTableHeader = tr.contains("SEX", false);
+	 if (isResultsTableHeader && (version < 6)) {  //version less than 6 remove table header by default
+            break;
+	 }
          if (tr.contains("JINSI", false) ||
             tr.contains("WASICHANA", false) ||
             tr.contains("WAVULANA", false) ||
