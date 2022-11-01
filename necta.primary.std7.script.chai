@@ -256,11 +256,15 @@ def filterHtml(string html) {
       while (true) {
          var tag = output.getTag("tr");
          var tr = tag.value;
+		 var isResultsTableHeader = tr.contains("SEX", false);
+		 if (isResultsTableHeader && (version < 6)) {  //version less than 6 remove table header by default
+		     break;
+		 }
          if (tr.contains("JINSI", false) ||
             tr.contains("WASICHANA", false) ||
             tr.contains("WAVULANA", false) ||
             tr.contains("JUMLA", false) ||
-            tr.contains("SEX", false)) {
+            isResultsTableHeader ) {
             output = output.removeAtPosition(tag.index, tag.length);
          } else {
             break;
@@ -368,7 +372,7 @@ def onShareViaSms(string phoneNumber, string resultsShared) {
 
 }
 
-global LATEST_APP_VERSION_NAME = "2.7"; //Always change this this on every App release
+global LATEST_APP_VERSION_NAME = "2.6"; //Always change this this on every App release
 global WIN64_DOWLOAD_URL = "#"; //Todo put link
 global DOWNLOAD_UPDATE_REQUESTCODE = 201;
 
