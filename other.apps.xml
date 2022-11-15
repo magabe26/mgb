@@ -1,5 +1,17 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <APPS>
+<APP>
+  <A HREF="https://t.me/somakidijitali">Tembelea chaneli ya telegram </A>
+ </APP>
+ 
+ <APP>
+  <A HREF="https://soma-kidijitali.web.app">Tembelea mfumo wa soma kidijitali </A>
+ </APP>
+
+<APP>
+  <A HREF="#"></A>
+ </APP>
+
   <APP>
   <A HREF="https://www.mediafire.com/file/jys521pe83866fr/Matokeo-La7-v2.5-win-x64.exe/file">PAKUA YA PC v2.5(Win x64)</A>
  </APP>
@@ -16,11 +28,4 @@
   <A HREF="#"></A>
  </APP>
 
- <APP>
-  <A HREF="https://t.me/somakidijitali">Tembelea chaneli ya telegram </A>
- </APP>
- 
- <APP>
-  <A HREF="https://soma-kidijitali.web.app">Tembelea mfumo wa soma kidijitali </A>
- </APP>
 </APPS>
