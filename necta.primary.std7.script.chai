@@ -167,6 +167,14 @@ def string::removeCloseTag(string t) {
    this = closeTag(t).removeFrom(this, 0, -1);
 }
 
+def string::removeRegex(string regex) {
+   this = strRemoveRegex(this, regex);
+}
+
+def string::replaceRegex(string regex, string replacement) {
+   this = strReplaceRegex(this, regex, replacement);
+}
+
 /* -------------------------------------------------*/
 
 
@@ -227,6 +235,20 @@ def removeResultTableHeader(string html) {
 }
 
 
+def beforeHtmlJunkRemover(string html) {
+
+
+}
+
+def confirmHtmlJunkRemoval(string info) {
+   if (info.contains("PREM", false)) {
+      return false;
+   } else {
+      return true;
+   }
+}
+
+
 //  Add filter logic inside this function
 def filterHtml(string html) {
    var output = html;
@@ -257,14 +279,14 @@ def filterHtml(string html) {
          var tag = output.getTag("tr");
          var tr = tag.value;
          var isResultsTableHeader = tr.contains("SEX", false);
-	 if (isResultsTableHeader && (version < 6)) {  //version less than 6 remove table header by default
+         if (isResultsTableHeader && (version < 6)) { //version less than 6 remove table header by default
             break;
-	 }
+         }
          if (tr.contains("JINSI", false) ||
             tr.contains("WASICHANA", false) ||
             tr.contains("WAVULANA", false) ||
             tr.contains("JUMLA", false) ||
-            isResultsTableHeader ) {
+            isResultsTableHeader) {
             output = output.removeAtPosition(tag.index, tag.length);
          } else {
             break;
@@ -278,6 +300,46 @@ def filterHtml(string html) {
 
    return output;
 }
+
+def getTdNodeTagNameForResults(int tdIndex, int tdCount) {
+   if (tdCount == 4) {
+      switch (tdIndex) {
+         case (0) {
+            return "CNO";
+         }
+         case (1) {
+            return "SEX";
+         }
+         case (2) {
+            return "CANDIDATE_NAME";
+         }
+         case (3) {
+            return "DETAILED_SUBJECTS";
+         }
+      }
+
+   } else if (tdCount == 5) {
+      switch (tdIndex) {
+         case (0) {
+            return "CNO";
+         }
+         case (1) {
+            return "PREM_NO";
+         }
+         case (2) {
+            return "SEX";
+         }
+         case (3) {
+            return "CANDIDATE_NAME";
+         }
+         case (4) {
+            return "DETAILED_SUBJECTS";
+         }
+      }
+   }
+   return "";
+}
+
 
 def updateMenu(string menu) {
    var output = menu;
@@ -481,7 +543,7 @@ def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
 def onTimeOut(int timerCode) {
    switch (timerCode) {
       case (PAKUA_MATOKEO_KIDATO_4NA6_TIMERCODE) {
-         requestCustomDialog(PAKUA_MATOKEO_KIDATO_4NA6_REQUESTCODE, "fa::download", "Matokeo kidato cha 4 na 6", "Angalia matokeo ya kidato cha 6 kwa kutumia aplikesheni hii ya kisasa", "Pakua sasa", "Badae", packageNameToUrl(FORM4_AND_6_PACKAGENAME), 0.8, 0.2, false);
+         requestCustomDialog(PAKUA_MATOKEO_KIDATO_4NA6_REQUESTCODE, "fa::download", "Matokeo kidato cha 4 na 6", "Angalia matokeo ya kidato cha 6 (2022/2023) kwa kutumia aplikesheni hii ya kisasa", "Pakua sasa", "Badae", packageNameToUrl(FORM4_AND_6_PACKAGENAME), 0.8, 0.2, false);
          break;
       }
 
