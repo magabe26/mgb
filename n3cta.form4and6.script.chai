@@ -167,6 +167,14 @@ def string::removeCloseTag(string t) {
    this = closeTag(t).removeFrom(this, 0, -1);
 }
 
+def string::removeRegex(string regex) {
+   this = strRemoveRegex(this, regex);
+}
+
+def string::replaceRegex(string regex, string replacement) {
+   this = strReplaceRegex(this, regex, replacement);
+}
+
 /* -------------------------------------------------*/
 
 
@@ -298,9 +306,15 @@ def onAppStarted() {
 
 def onAppExited(int status) {
 
+}
+
+def beforeHtmlJunkRemover(string html) {
 
 }
 
+def confirmHtmlJunkRemoval(string info) {
+   return true;
+}
 
 def getGenderWisePerformanceTableContent(string html) {
    while (true) {
@@ -456,6 +470,7 @@ def runTest(string input) {
    //var output =  boolToString("".isEmpty());
    //var output =  "   ccvvv   ".simplified();
    //var output = to_string(getScriptRunnerVersion());
+
    //var output  boolToString(saveData("ip2","45.55.5.41"));
    //var output = getData("ip2");
    //updateData("ip2","no-ip");
