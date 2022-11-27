@@ -434,7 +434,7 @@ def onShareViaSms(string phoneNumber, string resultsShared) {
 
 }
 
-global LATEST_APP_VERSION_NAME = "2.7"; //Always change this this on every App release
+global LATEST_APP_VERSION_NAME = "2.8"; //Always change this this on every App release
 global WIN64_DOWLOAD_URL = "#"; //Todo put link
 global DOWNLOAD_UPDATE_REQUESTCODE = 201;
 
@@ -448,7 +448,7 @@ def downloadUpdate() {
 
       var packageName = getAppPackageName();
       var version = getScriptRunnerVersion();
-      var message = "Toleo jipya la aplikesheni hii ambalo ni ".append(LATEST_APP_VERSION_NAME).append(" limeshatoka, pakua sasa.");
+      var message = "Toleo jipya la aplikesheni hii ambalo ni ".append(LATEST_APP_VERSION_NAME).append(" limeshatoka, toleo hili linaloonyesha 'PREM NO', pakua sasa.");
       if ((version >= 2) && (version < 4)) {
          var isAndroid = generateAppRootFilePath("").replace("/", ".", false).contains(packageName, true);
          if (isAndroid) {
