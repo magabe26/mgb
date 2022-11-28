@@ -248,6 +248,9 @@ def confirmHtmlJunkRemoval(string info) {
    }
 }
 
+def getPremNoName(){
+  return "PREM NO";
+}
 
 //  Add filter logic inside this function
 def filterHtml(string html) {
@@ -301,7 +304,49 @@ def filterHtml(string html) {
    return output;
 }
 
+//used by version 2.8
 def getTdNodeTagNameForResults(int tdIndex, int tdCount) {
+   if (tdCount == 4) {
+      switch (tdIndex) {
+         case (0) {
+            return "CNO";
+         }
+         case (1) {
+            return "SEX";
+         }
+         case (2) {
+            return "CANDIDATE_NAME";
+         }
+         case (3) {
+            return "DETAILED_SUBJECTS";
+         }
+      }
+
+   } else if (tdCount == 5) {
+      switch (tdIndex) {
+         case (0) {
+            return "CNO";
+         }
+         case (1) {
+            return "PREM_NO";
+         }
+         case (2) {
+            return "SEX";
+         }
+         case (3) {
+            return "CANDIDATE_NAME";
+         }
+         case (4) {
+            return "DETAILED_SUBJECTS";
+         }
+      }
+   }
+   return "";
+}
+
+
+//used by version 2.9 and above
+def getTdNodeTagNameForResults(int tdIndex, int tdCount, string tagText) {
    if (tdCount == 4) {
       switch (tdIndex) {
          case (0) {
@@ -448,7 +493,7 @@ def downloadUpdate() {
 
       var packageName = getAppPackageName();
       var version = getScriptRunnerVersion();
-      var message = "Toleo jipya la aplikesheni hii ambalo ni ".append(LATEST_APP_VERSION_NAME).append(" limeshatoka, toleo hili linaonyesha 'PREM NO', pakua sasa.");
+      var message = "Toleo jipya la aplikesheni hii ambalo ni ".append(LATEST_APP_VERSION_NAME).append(" limeshatoka, pakua sasa.");
       if ((version >= 2) && (version < 4)) {
          var isAndroid = generateAppRootFilePath("").replace("/", ".", false).contains(packageName, true);
          if (isAndroid) {
@@ -506,6 +551,11 @@ def onAppExited(int status) {
 }
 
 def onStudentResultsOpened(string name, string no, string schoolName, string average, string year, string results) {
+
+}
+
+/* info is in json format*/
+def onCandidateResultsClicked(string info) {
 
 }
 
