@@ -495,7 +495,7 @@ global WIN64_DOWLOAD_URL = "#"; //Todo put link
 global DOWNLOAD_UPDATE_REQUESTCODE = 201;
 
 def requestDownloadUpdateDialog(string description, string url) {
-   requestCustomDialog(DOWNLOAD_UPDATE_REQUESTCODE, "fa::download", "Pakua toleo jipya!!", description, "Pakua", "Baadae", url, 0.8, 0.4, false);
+   requestCustomDialog(DOWNLOAD_UPDATE_REQUESTCODE, "fa::download", "Pakua toleo jipya!!", description, "Pakua", "Baadae", url, 0.8, 0.3, false);
 }
 
 
@@ -504,7 +504,7 @@ def downloadUpdate() {
 
       var packageName = getAppPackageName();
       var version = getScriptRunnerVersion();
-      var message = "Toleo jipya la aplikesheni hii ambalo ni ".append(LATEST_APP_VERSION_NAME).append(" limeshatoka. Toleo hili lina muonekano bora, pakua sasa pia Usisahau kui-rate aplikesheni hii ili iwafikie watu wengi.");
+      var message = "Toleo jipya la aplikesheni hii ambalo ni ".append(LATEST_APP_VERSION_NAME).append(" limeshatoka. Toleo hili lina muonekano bora. Pakua sasa na pia usisahau kui-rate aplikesheni hii ili iwafikie watu wengi.");
       if ((version >= 2) && (version < 4)) {
          var isAndroid = generateAppRootFilePath("").replace("/", ".", false).contains(packageName, true);
          if (isAndroid) {
