@@ -449,11 +449,8 @@ def getGenderWisePerformanceData(string html) {
 }
 
 def verifyBaseUrlLastSegment(string url, string lastSegment) {
-   if (url.contains("onlinesys.necta.go.tz", false)) {
+   
       return lastSegment;
-   } else {
-      return "";
-   }
 }
 
 def getNectaMenuUrl() {
