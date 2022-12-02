@@ -287,16 +287,7 @@ def filterHtml(string html) {
 	  //
 	  output = removeOpenTag(output, "<font", ">");
 	  
-var candidates = output.getTag("CANDIDATES");
- if (candidates.valid) {
-     if (candidates.value.contains("JINSI", false) ||
-            candidates.value.contains("WASICHANA", false) ||
-            candidates.value.contains("WAVULANA", false) ||
-            candidates.value.contains("JUMLA", false)) {
-            output = output.removeAtPosition(candidates.index, candidates.length);
-         }
 
-	  }
 
       //remove all unwanted tr tags
       while (true) {
