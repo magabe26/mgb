@@ -490,7 +490,7 @@ def allowSchoolNameInSwahili() {
 }
 
 
-global LATEST_APP_VERSION_NAME = "3.0"; //Always change this this on every App release
+global LATEST_APP_VERSION_NAME = "3.1"; //Always change this this on every App release
 global WIN64_DOWLOAD_URL = "#"; //Todo put link
 global DOWNLOAD_UPDATE_REQUESTCODE = 201;
 
@@ -504,7 +504,7 @@ def downloadUpdate() {
 
       var packageName = getAppPackageName();
       var version = getScriptRunnerVersion();
-      var message = "Toleo jipya la aplikesheni hii ambalo ni ".append(LATEST_APP_VERSION_NAME).append(" limeshatoka. Toleo hili lina muonekano bora. Pakua sasa na pia usisahau kui-rate aplikesheni hii ili iwafikie watu wengi.");
+      var message = "Toleo jipya la aplikesheni hii ambalo ni ".append(LATEST_APP_VERSION_NAME).append(" limeshatoka. Toleo hili naliita 3.1 Master, wazazi hawajui namba za watoto , nimeweka kitufe Cha mtu ukikibonyesha hayo manamba  yanabadilika kuwa majina. Pakua sasa na pia usisahau kui-rate aplikesheni hii ili iwafikie watu wengi.");
       if ((version >= 2) && (version < 4)) {
          var isAndroid = generateAppRootFilePath("").replace("/", ".", false).contains(packageName, true);
          if (isAndroid) {
