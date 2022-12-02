@@ -252,6 +252,20 @@ def getPremNoName(){
   return "PREM NO";
 }
 
+def removeOpenTag(string output,string start,string end){
+ 
+      var firstIndex = output.indexOf(start, 0, false);
+      if (firstIndex != -1) {
+         var lastIndex = output.indexOf(end, firstIndex + 1, false);
+         if (lastIndex != -1) {
+            var len = (lastIndex - firstIndex) + 1;
+            return output.removeAtPosition(firstIndex, len);
+         }
+      }
+return output;
+}
+
+
 //  Add filter logic inside this function
 def filterHtml(string html) {
    var output = html;
@@ -268,14 +282,21 @@ def filterHtml(string html) {
       output = output.remove("MADARAJA YA UFAULU WA UJUMLA", false);
 
       //remove open table tag
-      var firstIndex = output.indexOf("<table", 0, false);
-      if (firstIndex != -1) {
-         var lastIndex = output.indexOf(">", firstIndex + 1, false);
-         if (lastIndex != -1) {
-            var len = (lastIndex - firstIndex) + 1;
-            output = output.removeAtPosition(firstIndex, len);
+      output = removeOpenTag(output, "<table", ">");
+	  
+	  //
+	  output = removeOpenTag(output, "<font", ">");
+	  
+var candidates = output.getTag("CANDIDATES");
+ if (candidates.valid) {
+     if (candidates.value.contains("JINSI", false) ||
+            candidates.value.contains("WASICHANA", false) ||
+            candidates.value.contains("WAVULANA", false) ||
+            candidates.value.contains("JUMLA", false)) {
+            output = output.removeAtPosition(candidates.index, candidates.length);
          }
-      }
+
+	  }
 
       //remove all unwanted tr tags
       while (true) {
@@ -394,7 +415,6 @@ def updateMenu(string menu) {
 
 
 def getGenderWisePerformanceData(string html) {
-
    var json = "[";
    while (true) {
       var tag = html.getTag("tr");
@@ -449,8 +469,11 @@ def getGenderWisePerformanceData(string html) {
 }
 
 def verifyBaseUrlLastSegment(string url, string lastSegment) {
-   
+   if (url.contains("onlinesys.necta.go.tz", false)) {
       return lastSegment;
+   } else {
+      return "";
+   }
 }
 
 def getNectaMenuUrl() {
@@ -492,7 +515,7 @@ global WIN64_DOWLOAD_URL = "#"; //Todo put link
 global DOWNLOAD_UPDATE_REQUESTCODE = 201;
 
 def requestDownloadUpdateDialog(string description, string url) {
-   requestCustomDialog(DOWNLOAD_UPDATE_REQUESTCODE, "fa::download", "Pakua toleo jipya!!", description, "Pakua", "Baadae", url, 0.8, 0.4, false);
+   requestCustomDialog(DOWNLOAD_UPDATE_REQUESTCODE, "fa::download", "Pakua toleo jipya!!", description, "Pakua", "Baadae", url, 0.8, 0.2, false);
 }
 
 
@@ -501,7 +524,7 @@ def downloadUpdate() {
 
       var packageName = getAppPackageName();
       var version = getScriptRunnerVersion();
-      var message = "Toleo jipya la aplikesheni hii ambalo ni ".append(LATEST_APP_VERSION_NAME).append(" limeshatoka. Toleo hili naliita 3.1 Master, wazazi hawajui namba za watoto , nimeweka kitufe Cha mtu ukikibonyesha hayo manamba  yanabadilika kuwa majina. Pakua sasa na pia usisahau kui-rate aplikesheni hii ili iwafikie watu wengi.");
+      var message = "Toleo jipya la aplikesheni hii ambalo ni ".append(LATEST_APP_VERSION_NAME).append(" limeshatoka. Toleo hili lina muonekano bora, pakua sasa.");
       if ((version >= 2) && (version < 4)) {
          var isAndroid = generateAppRootFilePath("").replace("/", ".", false).contains(packageName, true);
          if (isAndroid) {
