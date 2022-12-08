@@ -609,16 +609,17 @@ def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
       
         case (13101989) {
 	if (pressedButton == "yes") {
-            showToastMessage("Asante!!");
+            //showToastMessage("Asante!!");
+         if (answer.simplified() == "1") {
+            openPage("https://drive.google.com/file/d/1eqfO27YJck9rGJ7CzF4BQGMNgYykqq8t/view?usp=drivesdk");
+         }
          } else {
             showToastMessage(" :( "); //show sad face
          }
          if (answer.simplified() == "emagabe") {
             openPage("https://t.me/edwinMagabePicha");
          }
-        if (answer.simplified() == "1") {
-            openPage("https://drive.google.com/file/d/1eqfO27YJck9rGJ7CzF4BQGMNgYykqq8t/view?usp=drivesdk");
-         }
+        
  
          break;
       }
