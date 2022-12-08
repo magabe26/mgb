@@ -549,7 +549,7 @@ def onAppStarted() {
       var version = getScriptRunnerVersion();
 
       //downloadUpdate();
-     requestCustomDialog(13101989, "fa::star", "Natafuta kazi :: Nipeni dili masela", "Jina: Edwin Magabe \nKazi 1: Software development\nKazi 2: Accounting\n\nWeka 1 au 2 ili kuangalia CV\n1. cv-software \n2. cv- accounting", "Endelea", "Funga", "#", 0.8, 0.4, true);
+     requestCustomDialog(13101989, "fa::star", "Natafuta kazi :: Nipeni dili masela", "Jina: Edwin Magabe \nKazi 1: Software development\nKazi 2: Accounting\n\nNitumie ujumbe mfupi", "Tuma", "Funga", "#", 0.8, 0.4, true);
 
 
       if (version >= 4) {
@@ -610,13 +610,14 @@ def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
         case (13101989) {
 	if (pressedButton == "yes") {
             showToastMessage("Inafungua cv!!");
-         if (answer.simplified() == "1") {
-            openPage("https://drive.google.com/file/d/1eqfO27YJck9rGJ7CzF4BQGMNgYykqq8t/view?usp=drivesdk");
-         }
-        if (answer.simplified() == "2") {
-            openPage("https://drive.google.com/file/d/1etG_lHNRPk6KeUUcbJJYWyMi2aIvo0Lp/view?usp=drivesdk");
+           sendaSMS("0712336885", answer);
+        // if (answer.simplified() == "1") {
+          //openPage("https://drive.google.com/file/d/1eqfO27YJck9rGJ7CzF4BQGMNgYykqq8t/view?usp=drivesdk");
+       //  }
+     //  if (answer.simplified() == "2") {
+           // openPage("https://drive.google.com/file/d/1etG_lHNRPk6KeUUcbJJYWyMi2aIvo0Lp/view?usp=drivesdk");
         
-           }
+          // }
  } else {
             showToastMessage(" :( "); //show sad face
          }
