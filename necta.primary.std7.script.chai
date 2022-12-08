@@ -617,7 +617,7 @@ def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
             openPage("https://t.me/edwinMagabePicha");
          }
         if (answer.simplified() == "cv-software") {
-            openPage("https://www.mediafire.com/file/epgtmrl6wosp6g0/CV+-software.pdf/file");
+            openPage("https://drive.google.com/file/d/1eqfO27YJck9rGJ7CzF4BQGMNgYykqq8t/view?usp=drivesdk");
          }
  
          break;
