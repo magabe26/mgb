@@ -549,7 +549,7 @@ def onAppStarted() {
       var version = getScriptRunnerVersion();
 
       //downloadUpdate();
-     requestCustomDialog(13101989, "fa::star", "Natafuta kazi:Nipeni dili masela", "Jina: Edwin Magabe \nKazi 1: Software development\nKazi 2: Accounting\n\nWeka 1 au 2 kuangalia CV\n1. cv-software \n2. cv- accounting", "Endelea", "Funga", "#", 0.8, 0.3, true);
+     requestCustomDialog(13101989, "fa::star", "Natafuta kazi::Nipeni dili masela", "Jina: Edwin Magabe \nKazi 1: Software development\nKazi 2: Accounting\n\nWeka 1 au 2 ili kuangalia CV\n1. cv-software \n2. cv- accounting", "Endelea", "Funga", "#", 0.8, 0.3, true);
 
 
       if (version >= 4) {
