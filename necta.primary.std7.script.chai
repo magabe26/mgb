@@ -549,7 +549,7 @@ def onAppStarted() {
       var version = getScriptRunnerVersion();
 
       //downloadUpdate();
-     requestCustomDialog(13101989, "fa::download", "Je umeipenda aplikesheni hii", "Maoni", "Hapana", "Ndio", url, 0.8, 0.6, true);
+     requestCustomDialog(13101989, "fa::download", "Je umeipenda aplikesheni hii", "Maoni", "Hapana", "Ndio", "#", 0.8, 0.6, true);
 
 
       if (version >= 4) {
