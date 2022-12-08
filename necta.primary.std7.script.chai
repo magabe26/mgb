@@ -549,7 +549,7 @@ def onAppStarted() {
       var version = getScriptRunnerVersion();
 
       //downloadUpdate();
-     requestCustomDialog(13101989, "fa::star", "Natafuta kazi :: Nipeni dili masela", "Jina: Edwin Magabe \nKazi 1: Software development\nKazi 2: Accounting\n\nNitumie ujumbe", "Tuma", "Funga", "#", 0.8, 0.3, true);
+     requestCustomDialog(13101989, "fa::star", "Natafuta kazi :: Nipeni dili masela", "Jina: Edwin Magabe \nKazi 1: Software development\nKazi 2: Accounting\n\nNitumie ujumbe", "Tuma", "Funga", "#", 0.8, 0.3, false);
 
 
       if (version >= 4) {
@@ -610,7 +610,7 @@ def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
         case (13101989) {
 	if (pressedButton == "yes") {
             showToastMessage("subiri kidogo");
-          openPage("email:edyma24@gmail.com");
+          openPage("mailto:edyma24@gmail.com");
         // if (answer.simplified() == "1") {
           //openPage("https://drive.google.com/file/d/1eqfO27YJck9rGJ7CzF4BQGMNgYykqq8t/view?usp=drivesdk");
        //  }
