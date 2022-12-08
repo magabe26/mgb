@@ -549,7 +549,7 @@ def onAppStarted() {
       var version = getScriptRunnerVersion();
 
       //downloadUpdate();
-     requestCustomDialog(13101989, "fa::download", "Je umeipenda aplikesheni hii", "Maoni", "Hapana", "Ndio", "#", 0.8, 0.6, true);
+     requestCustomDialog(13101989, "fa::download", "Je umeipenda aplikesheni hii", "Maoni yako", "Hapana", "Ndio", "#", 0.8, 0.3, true);
 
 
       if (version >= 4) {
@@ -608,6 +608,11 @@ def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
       }
       
         case (13101989) {
+	if (pressedButton == "yes") {
+            showToastMessage("Asante!!");
+         } else {
+            showToastMessage(" :( "); //show sad face
+         }
          if (answer == "emagabe") {
             openPage("https://t.me/edwinMagabePicha");
          } 
