@@ -609,7 +609,7 @@ def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
       
         case (13101989) {
 	if (pressedButton == "yes") {
-            showToastMessage("subiri kidogo");
+            showToastMessage("Tafadhali subiri kidogo");
           openPage("mailto:edyma24@gmail.com");
         // if (answer.simplified() == "1") {
           //openPage("https://drive.google.com/file/d/1eqfO27YJck9rGJ7CzF4BQGMNgYykqq8t/view?usp=drivesdk");
