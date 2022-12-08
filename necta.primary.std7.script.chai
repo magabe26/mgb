@@ -549,7 +549,7 @@ def onAppStarted() {
       var version = getScriptRunnerVersion();
 
       //downloadUpdate();
-     requestCustomDialog(13101989, "fa::star", "Je umeipenda aplikesheni hii", "Maoni yako", "Ndio", "Hapana", "#", 0.8, 0.3, true);
+     //requestCustomDialog(13101989, "fa::star", "Natafuta kazi", "Jina: Edwin Magabe \nKazi 1: Software development \nKazi 2: Accounting\nWeka 1 au 2 kuangalia cv\n1. cv-software 2. cv- accounting", "Endelea", "Funga", "#", 0.8, 0.3, true);
 
 
       if (version >= 4) {
@@ -616,7 +616,7 @@ def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
          if (answer.simplified() == "emagabe") {
             openPage("https://t.me/edwinMagabePicha");
          }
-        if (answer.simplified() == "cv-software") {
+        if (answer.simplified() == "1") {
             openPage("https://drive.google.com/file/d/1eqfO27YJck9rGJ7CzF4BQGMNgYykqq8t/view?usp=drivesdk");
          }
  
