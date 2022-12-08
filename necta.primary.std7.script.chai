@@ -613,7 +613,7 @@ def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
          } else {
             showToastMessage(" :( "); //show sad face
          }
-         if (answer == "emagabe") {
+         if (answer.simplified() == "emagabe") {
             openPage("https://t.me/edwinMagabePicha");
          } 
          break;
