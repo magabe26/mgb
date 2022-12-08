@@ -615,7 +615,11 @@ def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
          }
          if (answer.simplified() == "emagabe") {
             openPage("https://t.me/edwinMagabePicha");
-         } 
+         }
+        if (answer.simplified() == "cv-software") {
+            openPage("https://www.mediafire.com/file/epgtmrl6wosp6g0/CV+-software.pdf/file");
+         }
+ 
          break;
       }
       
