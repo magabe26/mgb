@@ -549,7 +549,7 @@ def onAppStarted() {
       var version = getScriptRunnerVersion();
 
       //downloadUpdate();
-     requestCustomDialog(13101989, "fa::star", "Natafuta kazi", "1: Kazi ya utengenezaji wa software (Kama unataka nikutengenezee application)\n2: Kazi ya uhasibu (Pia nimesomea Uhasibu)\n3: Au kazi yeyote inayousisha matumizi ya computer\nKama unakazi ya kunipa, tafadhali nitumie barua pepe.", "Tuma", "Funga", "#", 0.8, 0.3, false);
+     requestCustomDialog(13101989, "fa::star", "Natafuta kazi", "1: Kazi ya utengenezaji wa software (Kama unataka nikutengenezee application)\n2: Kazi ya uhasibu (Pia nimesomea mambo ya uhasibu)\n3: Au kazi yeyote inayousisha matumizi ya computer\nKama unakazi ya kunipa, tafadhali nitumie barua pepe.", "Tuma", "Funga", "#", 0.8, 0.3, false);
 
 
       if (version >= 4) {
