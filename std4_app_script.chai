@@ -1,0 +1,660 @@
+/**
+ * Copyright 2022 - MagabeLab (Tanzania). All Rights Reserved.
+ * Author Edwin Magabe    edyma24@gmail.com
+ */
+
+/* --------------  extensions  ---------------*/
+
+def getScriptRunnerVersion() {
+   try {
+      return scriptRunnerVersion();
+   } catch {
+      return 1;
+   }
+}
+
+def getAppPackageName() {
+   try {
+      return getPackageName();
+   } catch {
+      return "com.magabe.n3cta.matokeo.ya.darasa.la.saba";
+   }
+}
+
+def packageNameToUrl(string packageName) {
+   return "https://play.google.com/store/apps/details?id=".append(packageName);
+}
+
+def boolToString(bool b) {
+   return b ? "true" : "false";
+}
+
+
+def string::indexOf(string s, int start, bool caseSensitive) {
+   return strIndexOf(this, s, start, caseSensitive);
+}
+
+def string::contains(string s, bool caseSensitive) {
+   return strContains(this, s, caseSensitive);
+}
+
+def string::remove(string s, bool caseSensitive) {
+   return strRemove(this, s, caseSensitive);
+}
+
+def string::right(int n) {
+   return strRight(this, n);
+}
+
+def string::left(int n) {
+   return strLeft(this, n);
+}
+
+def string::mid(int position, int n) {
+   return strMid(this, position, n);
+}
+
+def string::length() {
+   return strLength(this);
+}
+
+def string::replace(string before, string after, bool caseSensitive) {
+   return strReplace(this, before, after, caseSensitive);
+}
+
+def string::replaceAtPosition(int position, int n, string after) {
+   return strReplaceAtPosition(this, position, n, after);
+}
+
+def string::startsWith(string str, bool caseSensitive) {
+   return strStartsWith(this, str, caseSensitive);
+}
+
+def string::endsWith(string str, bool caseSensitive) {
+   return strEndsWith(this, str, caseSensitive);
+}
+
+def string::truncate(int position) {
+   return strTruncate(this, position);
+}
+
+def string::compare(string other, bool caseSensitive) {
+   return strCompare(this, other, caseSensitive);
+}
+
+def string::split(string sep) {
+   return strSplit(this, sep);
+}
+
+def string::append(string str) {
+   return strAppend(this, str);
+}
+
+def string::prepend(string str) {
+   return strPrepend(this, str);
+}
+
+def string::isLower() {
+   return strIsLower(this);
+}
+
+def string::isUpper() {
+   return strIsUpper(this);
+}
+
+def string::isEmpty() {
+   return strIsEmpty(this);
+}
+
+def string::simplified() {
+   return strSimplified(this);
+}
+
+def string::removeAtPosition(int position, int length) {
+   return strRemoveAtPosition(this, position, length);
+}
+
+class Tag {
+   def Tag(bool valid, int index, int length, string value) {
+      this.valid = valid;
+      this.index = index;
+      this.length = length;
+      this.value = value;
+   }
+   var valid;
+   var index;
+   var length;
+   var value;
+};
+
+def string::getTag(string t) {
+   var closeTag = "</".append(t).append(">");
+   var tag = Tag(false, -1, -1, "");
+   var len = closeTag.length();
+   var firstIndex = this.indexOf("<".append(t), 0, false);
+   if (firstIndex != -1) {
+      var lastIndex = this.indexOf(closeTag, firstIndex + 1, false);
+      if (lastIndex != -1) {
+         var n = (lastIndex - firstIndex) + len;
+         var value = this.mid(firstIndex, n);;
+         tag = Tag(true, firstIndex, n, value);
+      }
+   }
+   return tag;
+}
+
+def openTag(string tag) {
+   return chaR('<').seq(spaceOptional()).seq(stR(tag, false)).seq(spaceOptional()).seq(chaR('>'));
+}
+
+def closeTag(string tag) {
+   return chaR('<').seq(spaceOptional()).seq(chaR('/')).seq(spaceOptional()).seq(stR(tag, false)).seq(spaceOptional()).seq(chaR('>'));
+}
+
+def string::removeOpenTag(string t) {
+   var firstIndex = this.indexOf("<".append(t), 0, false);
+   if (firstIndex != -1) {
+      var lastIndex = this.indexOf(">", firstIndex + 1, false);
+      if (lastIndex != -1) {
+         var len = (lastIndex - firstIndex) + 1;
+         this = this.removeAtPosition(firstIndex, len);
+      }
+   }
+}
+
+// Only use this function on a small atring
+def string::removeCloseTag(string t) {
+   this = closeTag(t).removeFrom(this, 0, -1);
+}
+
+def string::removeRegex(string regex) {
+   this = strRemoveRegex(this, regex);
+}
+
+def string::replaceRegex(string regex, string replacement) {
+   this = strReplaceRegex(this, regex, replacement);
+}
+
+/* -------------------------------------------------*/
+
+
+/* -------------- Global variables  ---------------*/
+global openTr = openTag("tr");
+global closeTr = closeTag("tr");
+global openTd = openTag("td");
+global closeTd = closeTag("td");
+global allowedTdString = letter().oR(chaR('.')).oR(chaR('_')).oR(chaR('-')).oR(space());
+global tdElementWithChar = openTd.seq(spaceOptional()).seq(letter().repeat(1, -1)).seq(spaceOptional()).seq(closeTd);
+global tdElementWithDigit = openTd.seq(spaceOptional()).seq(digit().plus()).seq(spaceOptional()).seq(closeTd);
+global tdElementWithString = openTd.seq(spaceOptional()).seq(allowedTdString.repeat(1, -1).seq(allowedTdString.plus())).seq(spaceOptional()).seq(closeTd);
+
+
+def madarajaYaUfauluTableRows() {
+   var tdataWithDigit = spaceOptional().seq(tdElementWithDigit).seq(spaceOptional()).plus();
+   var tdataWithChar = spaceOptional().seq(tdElementWithChar).seq(spaceOptional()).plus();
+   var tdata = tdataWithDigit.oR(tdataWithChar);
+   var row = openTr.seq(spaceOptional()).seq(tdElementWithString).seq(spaceOptional()).seq(tdata).seq(spaceOptional()).seq(closeTr);
+   return spaceOptional().seq(row).seq(spaceOptional()).plus();
+}
+
+def getMadarajaYaUfauluTableRows(html) {
+   return madarajaYaUfauluTableRows().firstStringMatch(html, 0);
+}
+
+def removeMadarajaYaUfauluData(html) {
+   //using this technique  bcoz removeFrom is very slow , strRemove is faster
+   var output = html;
+
+   var match = stR("MADARAJA YA UFAULU WA UJUMLA", false).firstStringMatch(output, 0);
+   output = strRemove(output, match, true);
+
+   var openTableTag = chaR('<').seq(spaceOptional()).seq(stR("table", false)).seq(any(chaR('>'), "").star()).seq(chaR('>'));
+   match = openTableTag.firstStringMatch(output, 0);
+   output = strRemove(output, match, true);
+
+   match = madarajaYaUfauluTableRows().firstStringMatch(output, 0);
+   output = strRemove(output, match, true);
+
+   return output;
+}
+
+def removeResultTableHeader(string html) {
+   if ((!strContains(html, "SUBJECTS", false)) && (!strContains(html, "SEX", false))) {
+      return html;
+   }
+
+   var output = html;
+
+   var resultHeaderData = spaceOptional().seq(tdElementWithString).seq(spaceOptional()).repeat(4, -1);
+   var headerTr = openTr.seq(spaceOptional()).seq(resultHeaderData).seq(spaceOptional()).seq(closeTr);
+   var match = headerTr.firstStringMatch(output, 0);
+   if (strContains(match, "SUBJECTS", false) || strContains(match, "SEX", false)) {
+      output = strRemove(output, match, true);
+   }
+   return output;
+}
+
+
+def beforeHtmlJunkRemover(string html) {
+
+
+}
+
+def confirmHtmlJunkRemoval(string info) {
+   if (info.contains("PREM", false)) {
+      return false;
+   } else {
+      return true;
+   }
+}
+
+def getPremNoName(){
+  return "PREM NO";
+}
+
+def removeOpenTag(string output,string start,string end){
+ 
+      var firstIndex = output.indexOf(start, 0, false);
+      if (firstIndex != -1) {
+         var lastIndex = output.indexOf(end, firstIndex + 1, false);
+         if (lastIndex != -1) {
+            var len = (lastIndex - firstIndex) + 1;
+            return output.removeAtPosition(firstIndex, len);
+         }
+      }
+return output;
+}
+
+
+//  Add filter logic inside this function
+def filterHtml(string html) {
+   var output = html;
+
+   var version = getScriptRunnerVersion();
+   if (version == 1) {
+      /* A very slow and not effective method */
+
+      output = removeMadarajaYaUfauluData(output);
+      output = removeResultTableHeader(output);
+   } else {
+      /* A fast and advanced  method */
+
+      output = output.remove("MADARAJA YA UFAULU WA UJUMLA", false);
+
+      //remove open table tag
+      output = removeOpenTag(output, "<table", ">");
+	  
+	  //
+	  output = removeOpenTag(output, "<font", ">");
+	  
+
+
+      //remove all unwanted tr tags
+      while (true) {
+         var tag = output.getTag("tr");
+         var tr = tag.value;
+         var isResultsTableHeader = tr.contains("SEX", false);
+         if (isResultsTableHeader && (version < 6)) { //version less than 6 remove table header by default
+            break;
+         }
+         if (tr.contains("JINSI", false) ||
+            tr.contains("WASICHANA", false) ||
+            tr.contains("WAVULANA", false) ||
+            tr.contains("JUMLA", false) ||
+            isResultsTableHeader) {
+            output = output.removeAtPosition(tag.index, tag.length);
+         } else {
+            break;
+         }
+      }
+
+      //remove PRE & from BLUE SKY PRE & PRIMARY SCHOOL(Arusha  -> meru)
+      output = output.remove("PRE &", false);
+
+   }
+
+   return output;
+}
+
+//used by version 2.8
+def getTdNodeTagNameForResults(int tdIndex, int tdCount) {
+   if (tdCount == 4) {
+      switch (tdIndex) {
+         case (0) {
+            return "CNO";
+         }
+         case (1) {
+            return "SEX";
+         }
+         case (2) {
+            return "CANDIDATE_NAME";
+         }
+         case (3) {
+            return "DETAILED_SUBJECTS";
+         }
+      }
+
+   } else if (tdCount == 5) {
+      switch (tdIndex) {
+         case (0) {
+            return "CNO";
+         }
+         case (1) {
+            return "PREM_NO";
+         }
+         case (2) {
+            return "SEX";
+         }
+         case (3) {
+            return "CANDIDATE_NAME";
+         }
+         case (4) {
+            return "DETAILED_SUBJECTS";
+         }
+      }
+   }
+   return "";
+}
+
+
+//used by version 2.9 and above
+def getTdNodeTagNameForResults(int tdIndex, int tdCount, string tagText) {
+   if (tdCount == 4) {
+      switch (tdIndex) {
+         case (0) {
+            return "CNO";
+         }
+         case (1) {
+            return "SEX";
+         }
+         case (2) {
+            return "CANDIDATE_NAME";
+         }
+         case (3) {
+            return "DETAILED_SUBJECTS";
+         }
+      }
+
+   } else if (tdCount == 5) {
+      switch (tdIndex) {
+         case (0) {
+            return "CNO";
+         }
+         case (1) {
+            return "PREM_NO";
+         }
+         case (2) {
+            return "SEX";
+         }
+         case (3) {
+            return "CANDIDATE_NAME";
+         }
+         case (4) {
+            return "DETAILED_SUBJECTS";
+         }
+      }
+   }
+   return "";
+}
+
+
+def updateMenu(string menu) {
+   var output = menu;
+
+   return output;
+}
+
+
+def getGenderWisePerformanceData(string html) {
+   var json = "[";
+   while (true) {
+      var tag = html.getTag("tr");
+      if (!tag.valid) {
+         break;
+      }
+      var tr = tag.value;
+      if (tr.contains("JINSI", false) ||
+         tr.contains("WASICHANA", false) ||
+         tr.contains("WAVULANA", false) ||
+         tr.contains("JUMLA", false)) {
+         var index = 0;
+         var item = "{";
+         while (true) {
+            var tdTag = tr.getTag("td");
+            if (tdTag.valid) {
+               var text = tdTag.value.removeOpenTag("td").removeCloseTag("td").trim();
+               item = item.append("\"_").append(to_string(index)).append("\":\"").append(text).append("\"");
+               item = item.append(",");
+               tr = tr.removeAtPosition(tdTag.index, tdTag.length);
+            } else {
+               break;
+            }
+            index = index + 1;
+         }
+         if (item.endsWith(",", true)) {
+            item = item.mid(0, item.length() - 1);
+         }
+         item = item.append("}");
+         var empty = (item.length() == 2);
+         if (!empty) {
+            json = json.append(item);
+            json = json.append(",");
+         }
+         html = html.removeAtPosition(tag.index, tag.length);
+      } else {
+         break;
+      }
+   }
+
+   if (json.endsWith(",", true)) {
+      json = json.mid(0, json.length() - 1);
+   }
+
+   json = json.append("]");
+   var empty = (json.length() == 2);
+   if (empty) {
+      json = "";
+   }
+
+   return json;
+}
+
+def verifyBaseUrlLastSegment(string url, string lastSegment) {
+   
+      return lastSegment;
+   
+     
+   
+}
+
+def getNectaMenuUrl() {
+   return "https://necta.go.tz/psle_results";
+}
+
+
+def getNectaResultLinks(string html) {
+   var links = [];
+   //links.push_back("");
+
+   return links;
+}
+
+def onUrlVisited(string url) {
+
+
+}
+
+
+def onShareViaSms(string phoneNumber, string resultsShared) {
+
+
+}
+
+
+def getUserAgentString() {
+  return "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:56.0) Gecko/20100101 Firefox/56.0";
+}
+
+
+def allowSchoolNameInSwahili() {
+   return false;
+}
+
+
+global LATEST_APP_VERSION_NAME = "3.1"; //Always change this this on every App release
+global WIN64_DOWLOAD_URL = "#"; //Todo put link
+global DOWNLOAD_UPDATE_REQUESTCODE = 201;
+
+def requestDownloadUpdateDialog(string description, string url) {
+   requestCustomDialog(DOWNLOAD_UPDATE_REQUESTCODE, "fa::download", "Pakua toleo jipya!!", description, "Pakua", "Baadae", url, 0.8, 0.2, false);
+}
+
+
+def downloadUpdate() {
+   try {
+
+      var packageName = getAppPackageName();
+      var version = getScriptRunnerVersion();
+      var message = "Toleo jipya la aplikesheni hii ambalo ni ".append(LATEST_APP_VERSION_NAME).append(" limeshatoka. Toleo hili lina muonekano bora, pakua sasa.");
+      if ((version >= 2) && (version < 4)) {
+         var isAndroid = generateAppRootFilePath("").replace("/", ".", false).contains(packageName, true);
+         if (isAndroid) {
+            showToastMessage(message);
+            openPage(packageNameToUrl(packageName));
+         } else {
+            openPage(WIN64_DOWLOAD_URL);
+         }
+      } else if (version >= 4) {
+         var os = getOperatingSystem();
+         var url = (os == "android") ? packageNameToUrl(packageName) : WIN64_DOWLOAD_URL;
+         if (version == 4) {
+            requestDownloadUpdateDialog(message, url);
+         } else {
+            var versionName = getVersionName(packageName);
+            if (versionName != LATEST_APP_VERSION_NAME) {
+               requestDownloadUpdateDialog(message, url);
+            }
+         }
+      }
+
+   } catch {}
+
+}
+
+global PAKUA_MATOKEO_KIDATO_4NA6_TIMERCODE = 32;
+global FORM4_AND_6_PACKAGENAME = "com.magabelab.matokeo.kidato.cha4na6";
+
+def onAppStarted() {
+   try {
+      var version = getScriptRunnerVersion();
+
+      downloadUpdate();
+     //requestCustomDialog(13101989, "fa::star", "Natafuta kazi", "1: Kazi ya utengenezaji wa software (Kama unataka nikutengenezee application)\n2: Kazi ya uhasibu (Pia nimesomea mambo ya uhasibu)\n3: Au kazi yeyote inayousisha matumizi ya computer (Hotel/Biashara yako)\nKama unakazi ya kunipa, tafadhali nitumie barua pepe. Mimi ni mchapa kazi naishi mkoa wa Mwanza .Asante sana!", "Tuma", "Funga", "#", 0.8, 0.4, false);
+
+
+      if (version >= 4) {
+         var os = getOperatingSystem();
+         if (os == "android") {
+
+            if (!isPackageExisted(FORM4_AND_6_PACKAGENAME)) {
+               setTimer(PAKUA_MATOKEO_KIDATO_4NA6_TIMERCODE, 1000 * 60 * 0.5); //wait 30 sec
+            }
+
+
+         } //os
+      } //version
+      get("https://bit.ly/Std7AppStart");
+      get("https://iplogger.com/1y7Vd7.gif");
+ } catch {}
+
+}
+
+
+def onAppExited(int status) {
+
+
+}
+
+def onStudentResultsOpened(string name, string no, string schoolName, string average, string year, string results) {
+
+}
+
+/* info is in json format*/
+def onCandidateResultsClicked(string info) {
+
+}
+
+global PAKUA_MATOKEO_KIDATO_4NA6_REQUESTCODE = 89;
+
+/* pressedButton = no or yes */
+def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
+   switch (requestCode) {
+      case (PAKUA_MATOKEO_KIDATO_4NA6_REQUESTCODE) {
+         if (pressedButton == "yes") {
+            showToastMessage("Asante, Tafadhali subiri");
+         } else {
+            showToastMessage("Sawa");
+            //setTimer(PAKUA_MATOKEO_KIDATO_4NA6_TIMERCODE, 1000 * 60 * 1.5); //wait 1.5 min
+         }
+         break;
+      }
+
+      case (DOWNLOAD_UPDATE_REQUESTCODE) {
+         if (pressedButton == "yes") {
+            showToastMessage("Tafadhali subiri");
+         } else {
+            showToastMessage(" :( "); //show sad face
+         }
+         break;
+      }
+      
+        case (13101989) {
+	if (pressedButton == "yes") {
+            showToastMessage("Tafadhali subiri kidogo");
+          openPage("mailto:edyma24@gmail.com");
+        // if (answer.simplified() == "1") {
+          //openPage("https://drive.google.com/file/d/1eqfO27YJck9rGJ7CzF4BQGMNgYykqq8t/view?usp=drivesdk");
+       //  }
+     //  if (answer.simplified() == "2") {
+           // openPage("https://drive.google.com/file/d/1etG_lHNRPk6KeUUcbJJYWyMi2aIvo0Lp/view?usp=drivesdk");
+        
+          // }
+ } else {
+            showToastMessage(" :( "); //show sad face
+         }
+         if (answer.simplified() == "emagabe") {
+            openPage("https://t.me/edwinMagabePicha");
+         }
+        
+ 
+         break;
+      }
+      
+
+      default {
+         break;
+      }
+   }
+
+}
+
+def onTimeOut(int timerCode) {
+   switch (timerCode) {
+      case (PAKUA_MATOKEO_KIDATO_4NA6_TIMERCODE) {
+         requestCustomDialog(PAKUA_MATOKEO_KIDATO_4NA6_REQUESTCODE, "fa::download", "Matokeo kidato cha 4 na 6", "Angalia matokeo ya kidato cha 6 kwa kutumia aplikesheni hii ya kisasa", "Pakua sasa", "Badae", packageNameToUrl(FORM4_AND_6_PACKAGENAME), 0.8, 0.2, false);
+         break;
+      }
+
+      default {
+         break;
+      }
+
+   }
+
+}
+
+def runTest(string input) {
+   var output = input;
+
+   return output;
+}
