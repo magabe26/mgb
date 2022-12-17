@@ -17,7 +17,7 @@ def getAppPackageName() {
    try {
       return getPackageName();
    } catch {
-      return "com.magabe.n3cta.matokeo.ya.darasa.la.saba";
+      return "com.magabelab.matokeo.ya.darasa.la.nne";
    }
 }
 
@@ -178,63 +178,6 @@ def string::replaceRegex(string regex, string replacement) {
 /* -------------------------------------------------*/
 
 
-/* -------------- Global variables  ---------------*/
-global openTr = openTag("tr");
-global closeTr = closeTag("tr");
-global openTd = openTag("td");
-global closeTd = closeTag("td");
-global allowedTdString = letter().oR(chaR('.')).oR(chaR('_')).oR(chaR('-')).oR(space());
-global tdElementWithChar = openTd.seq(spaceOptional()).seq(letter().repeat(1, -1)).seq(spaceOptional()).seq(closeTd);
-global tdElementWithDigit = openTd.seq(spaceOptional()).seq(digit().plus()).seq(spaceOptional()).seq(closeTd);
-global tdElementWithString = openTd.seq(spaceOptional()).seq(allowedTdString.repeat(1, -1).seq(allowedTdString.plus())).seq(spaceOptional()).seq(closeTd);
-
-
-def madarajaYaUfauluTableRows() {
-   var tdataWithDigit = spaceOptional().seq(tdElementWithDigit).seq(spaceOptional()).plus();
-   var tdataWithChar = spaceOptional().seq(tdElementWithChar).seq(spaceOptional()).plus();
-   var tdata = tdataWithDigit.oR(tdataWithChar);
-   var row = openTr.seq(spaceOptional()).seq(tdElementWithString).seq(spaceOptional()).seq(tdata).seq(spaceOptional()).seq(closeTr);
-   return spaceOptional().seq(row).seq(spaceOptional()).plus();
-}
-
-def getMadarajaYaUfauluTableRows(html) {
-   return madarajaYaUfauluTableRows().firstStringMatch(html, 0);
-}
-
-def removeMadarajaYaUfauluData(html) {
-   //using this technique  bcoz removeFrom is very slow , strRemove is faster
-   var output = html;
-
-   var match = stR("MADARAJA YA UFAULU WA UJUMLA", false).firstStringMatch(output, 0);
-   output = strRemove(output, match, true);
-
-   var openTableTag = chaR('<').seq(spaceOptional()).seq(stR("table", false)).seq(any(chaR('>'), "").star()).seq(chaR('>'));
-   match = openTableTag.firstStringMatch(output, 0);
-   output = strRemove(output, match, true);
-
-   match = madarajaYaUfauluTableRows().firstStringMatch(output, 0);
-   output = strRemove(output, match, true);
-
-   return output;
-}
-
-def removeResultTableHeader(string html) {
-   if ((!strContains(html, "SUBJECTS", false)) && (!strContains(html, "SEX", false))) {
-      return html;
-   }
-
-   var output = html;
-
-   var resultHeaderData = spaceOptional().seq(tdElementWithString).seq(spaceOptional()).repeat(4, -1);
-   var headerTr = openTr.seq(spaceOptional()).seq(resultHeaderData).seq(spaceOptional()).seq(closeTr);
-   var match = headerTr.firstStringMatch(output, 0);
-   if (strContains(match, "SUBJECTS", false) || strContains(match, "SEX", false)) {
-      output = strRemove(output, match, true);
-   }
-   return output;
-}
-
-
 def beforeHtmlJunkRemover(string html) {
 
 
@@ -248,21 +191,21 @@ def confirmHtmlJunkRemoval(string info) {
    }
 }
 
-def getPremNoName(){
-  return "PREM NO";
+def getPremNoName() {
+   return "PREM NO";
 }
 
-def removeOpenTag(string output,string start,string end){
- 
-      var firstIndex = output.indexOf(start, 0, false);
-      if (firstIndex != -1) {
-         var lastIndex = output.indexOf(end, firstIndex + 1, false);
-         if (lastIndex != -1) {
-            var len = (lastIndex - firstIndex) + 1;
-            return output.removeAtPosition(firstIndex, len);
-         }
+def removeOpenTag(string output, string start, string end) {
+
+   var firstIndex = output.indexOf(start, 0, false);
+   if (firstIndex != -1) {
+      var lastIndex = output.indexOf(end, firstIndex + 1, false);
+      if (lastIndex != -1) {
+         var len = (lastIndex - firstIndex) + 1;
+         return output.removeAtPosition(firstIndex, len);
       }
-return output;
+   }
+   return output;
 }
 
 
@@ -270,48 +213,38 @@ return output;
 def filterHtml(string html) {
    var output = html;
 
-   var version = getScriptRunnerVersion();
-   if (version == 1) {
-      /* A very slow and not effective method */
+   /* A fast and advanced  method */
 
-      output = removeMadarajaYaUfauluData(output);
-      output = removeResultTableHeader(output);
-   } else {
-      /* A fast and advanced  method */
+   output = output.remove("MADARAJA YA UFAULU WA UJUMLA", false);
 
-      output = output.remove("MADARAJA YA UFAULU WA UJUMLA", false);
+   //remove open table tag
+   output = removeOpenTag(output, "<table", ">");
 
-      //remove open table tag
-      output = removeOpenTag(output, "<table", ">");
-	  
-	  //
-	  output = removeOpenTag(output, "<font", ">");
-	  
+   output = removeOpenTag(output, "<font", ">");
 
 
-      //remove all unwanted tr tags
-      while (true) {
-         var tag = output.getTag("tr");
-         var tr = tag.value;
-         var isResultsTableHeader = tr.contains("SEX", false);
-         if (isResultsTableHeader && (version < 6)) { //version less than 6 remove table header by default
-            break;
-         }
-         if (tr.contains("JINSI", false) ||
-            tr.contains("WASICHANA", false) ||
-            tr.contains("WAVULANA", false) ||
-            tr.contains("JUMLA", false) ||
-            isResultsTableHeader) {
-            output = output.removeAtPosition(tag.index, tag.length);
-         } else {
-            break;
-         }
+   //remove all unwanted tr tags
+   while (true) {
+      var tag = output.getTag("tr");
+      var tr = tag.value;
+      var isResultsTableHeader = tr.contains("SEX", false);
+      if (isResultsTableHeader && (version < 6)) { //version less than 6 remove table header by default
+         break;
       }
-
-      //remove PRE & from BLUE SKY PRE & PRIMARY SCHOOL(Arusha  -> meru)
-      output = output.remove("PRE &", false);
-
+      if (tr.contains("JINSI", false) ||
+         tr.contains("WASICHANA", false) ||
+         tr.contains("WAVULANA", false) ||
+         tr.contains("JUMLA", false) ||
+         isResultsTableHeader) {
+         output = output.removeAtPosition(tag.index, tag.length);
+      } else {
+         break;
+      }
    }
+
+   //remove PRE & from BLUE SKY PRE & PRIMARY SCHOOL(Arusha  -> meru)
+   output = output.remove("PRE &", false);
+
 
    return output;
 }
@@ -460,15 +393,11 @@ def getGenderWisePerformanceData(string html) {
 }
 
 def verifyBaseUrlLastSegment(string url, string lastSegment) {
-   
-      return lastSegment;
-   
-     
-   
+   return lastSegment;
 }
 
 def getNectaMenuUrl() {
-   return "https://necta.go.tz/psle_results";
+   return "https://necta.go.tz/sfna_results";
 }
 
 
@@ -492,7 +421,7 @@ def onShareViaSms(string phoneNumber, string resultsShared) {
 
 
 def getUserAgentString() {
-  return "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:56.0) Gecko/20100101 Firefox/56.0";
+   return "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:56.0) Gecko/20100101 Firefox/56.0";
 }
 
 
@@ -501,7 +430,7 @@ def allowSchoolNameInSwahili() {
 }
 
 
-global LATEST_APP_VERSION_NAME = "3.1"; //Always change this this on every App release
+global LATEST_APP_VERSION_NAME = "0.1"; //Always change this this on every App release
 global WIN64_DOWLOAD_URL = "#"; //Todo put link
 global DOWNLOAD_UPDATE_REQUESTCODE = 201;
 
@@ -515,7 +444,7 @@ def downloadUpdate() {
 
       var packageName = getAppPackageName();
       var version = getScriptRunnerVersion();
-      var message = "Toleo jipya la aplikesheni hii ambalo ni ".append(LATEST_APP_VERSION_NAME).append(" limeshatoka. Toleo hili lina muonekano bora, pakua sasa.");
+      var message = "Toleo jipya la aplikesheni hii ambalo ni ".append(LATEST_APP_VERSION_NAME).append(" limeshatoka. Toleo hili lina muonekano bora, pakua sasa na pia usisahau ku-rate aplikesheni hii, Asante.");
       if ((version >= 2) && (version < 4)) {
          var isAndroid = generateAppRootFilePath("").replace("/", ".", false).contains(packageName, true);
          if (isAndroid) {
@@ -549,8 +478,6 @@ def onAppStarted() {
       var version = getScriptRunnerVersion();
 
       downloadUpdate();
-     //requestCustomDialog(13101989, "fa::star", "Natafuta kazi", "1: Kazi ya utengenezaji wa software (Kama unataka nikutengenezee application)\n2: Kazi ya uhasibu (Pia nimesomea mambo ya uhasibu)\n3: Au kazi yeyote inayousisha matumizi ya computer (Hotel/Biashara yako)\nKama unakazi ya kunipa, tafadhali nitumie barua pepe. Mimi ni mchapa kazi naishi mkoa wa Mwanza .Asante sana!", "Tuma", "Funga", "#", 0.8, 0.4, false);
-
 
       if (version >= 4) {
          var os = getOperatingSystem();
@@ -563,9 +490,8 @@ def onAppStarted() {
 
          } //os
       } //version
-      get("https://bit.ly/Std7AppStart");
-      get("https://iplogger.com/1y7Vd7.gif");
- } catch {}
+
+   } catch {}
 
 }
 
@@ -593,8 +519,8 @@ def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
          if (pressedButton == "yes") {
             showToastMessage("Asante, Tafadhali subiri");
          } else {
-            showToastMessage("Sawa");
-            //setTimer(PAKUA_MATOKEO_KIDATO_4NA6_TIMERCODE, 1000 * 60 * 1.5); //wait 1.5 min
+            showToastMessage("Sawa, nitakukumbusha baadae");
+            setTimer(PAKUA_MATOKEO_KIDATO_4NA6_TIMERCODE, 1000 * 60 * 1.5); //wait 1.5 min
          }
          break;
       }
@@ -607,29 +533,6 @@ def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
          }
          break;
       }
-      
-        case (13101989) {
-	if (pressedButton == "yes") {
-            showToastMessage("Tafadhali subiri kidogo");
-          openPage("mailto:edyma24@gmail.com");
-        // if (answer.simplified() == "1") {
-          //openPage("https://drive.google.com/file/d/1eqfO27YJck9rGJ7CzF4BQGMNgYykqq8t/view?usp=drivesdk");
-       //  }
-     //  if (answer.simplified() == "2") {
-           // openPage("https://drive.google.com/file/d/1etG_lHNRPk6KeUUcbJJYWyMi2aIvo0Lp/view?usp=drivesdk");
-        
-          // }
- } else {
-            showToastMessage(" :( "); //show sad face
-         }
-         if (answer.simplified() == "emagabe") {
-            openPage("https://t.me/edwinMagabePicha");
-         }
-        
- 
-         break;
-      }
-      
 
       default {
          break;
