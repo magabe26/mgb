@@ -191,10 +191,6 @@ def confirmHtmlJunkRemoval(string info) {
    }
 }
 
-def getPremNoName() {
-   return "PREM NO";
-}
-
 def removeOpenTag(string output, string start, string end) {
 
    var firstIndex = output.indexOf(start, 0, false);
@@ -213,34 +209,36 @@ def removeOpenTag(string output, string start, string end) {
 def filterHtml(string html) {
    var output = html;
 
-   /* A fast and advanced  method */
-
    output = output.remove("MADARAJA YA UFAULU WA UJUMLA", false);
 
    //remove open table tag
    output = removeOpenTag(output, "<table", ">");
-
    output = removeOpenTag(output, "<font", ">");
+   output = output.remove("<table classtbl>",false);
 
 
    //remove all unwanted tr tags
    while (true) {
       var tag = output.getTag("tr");
       var tr = tag.value;
-      var isResultsTableHeader = tr.contains("SEX", false);
-      if (isResultsTableHeader && (version < 6)) { //version less than 6 remove table header by default
-         break;
-      }
+     
       if (tr.contains("JINSI", false) ||
-         tr.contains("WASICHANA", false) ||
-         tr.contains("WAVULANA", false) ||
+	     tr.contains("REFERRED", false) ||
+         tr.contains("WAS", false) ||
+         tr.contains("WAV", false) ||
          tr.contains("JUMLA", false) ||
-         isResultsTableHeader) {
+		 tr.contains("WALIOSAJILIWA", false) ||
+		 tr.contains("GREDI", false)) {
          output = output.removeAtPosition(tag.index, tag.length);
+		 if(tr.contains("MASOMO", false)){ //last unwanted tr
+		 break;
+		 }
       } else {
          break;
       }
    }
+   
+    output =  modifyCandidateDetails("CANDIDATES", output, "Kiswahili", "Hisabati", "English");
 
    //remove PRE & from BLUE SKY PRE & PRIMARY SCHOOL(Arusha  -> meru)
    output = output.remove("PRE &", false);
@@ -249,50 +247,8 @@ def filterHtml(string html) {
    return output;
 }
 
-//used by version 2.8
-def getTdNodeTagNameForResults(int tdIndex, int tdCount) {
-   if (tdCount == 4) {
-      switch (tdIndex) {
-         case (0) {
-            return "CNO";
-         }
-         case (1) {
-            return "SEX";
-         }
-         case (2) {
-            return "CANDIDATE_NAME";
-         }
-         case (3) {
-            return "DETAILED_SUBJECTS";
-         }
-      }
-
-   } else if (tdCount == 5) {
-      switch (tdIndex) {
-         case (0) {
-            return "CNO";
-         }
-         case (1) {
-            return "PREM_NO";
-         }
-         case (2) {
-            return "SEX";
-         }
-         case (3) {
-            return "CANDIDATE_NAME";
-         }
-         case (4) {
-            return "DETAILED_SUBJECTS";
-         }
-      }
-   }
-   return "";
-}
-
-
-//used by version 2.9 and above
 def getTdNodeTagNameForResults(int tdIndex, int tdCount, string tagText) {
-   if (tdCount == 4) {
+   
       switch (tdIndex) {
          case (0) {
             return "CNO";
@@ -305,28 +261,12 @@ def getTdNodeTagNameForResults(int tdIndex, int tdCount, string tagText) {
          }
          case (3) {
             return "DETAILED_SUBJECTS";
-         }
-      }
-
-   } else if (tdCount == 5) {
-      switch (tdIndex) {
-         case (0) {
-            return "CNO";
-         }
-         case (1) {
-            return "PREM_NO";
-         }
-         case (2) {
-            return "SEX";
-         }
-         case (3) {
-            return "CANDIDATE_NAME";
          }
          case (4) {
-            return "DETAILED_SUBJECTS";
+            return "AVERAGE";
          }
       }
-   }
+   
    return "";
 }
 
