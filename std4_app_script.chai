@@ -215,6 +215,7 @@ def filterHtml(string html) {
    output = removeOpenTag(output, "<table", ">");
    output = removeOpenTag(output, "<font", ">");
 
+   var summaryTag = Tag(false, -1, -1, "");
 
    //remove all unwanted tr tags
    while (true) {
@@ -228,13 +229,25 @@ def filterHtml(string html) {
          tr.contains("JUMLA", false) ||
          tr.contains("WALIOSAJILIWA", false) ||
          tr.contains("GREDI", false)) {
+         if (tr.contains("WALIOSAJILIWA", false)) {
+            summaryTag = tag;
+         }
          output = output.removeAtPosition(tag.index, tag.length);
-         if (tr.contains("MASOMO", false)) { //last unwanted tr
+         if (tr.contains("MASOMO", false)) { //the last unwanted tr
             break;
          }
       } else {
          break;
       }
+   }
+
+   if (summaryTag.valid) {
+      var summary = removeOpenTag(summaryTag.value, "<td", ">");
+      summary = summary.remove("</td>", false)
+      summary = summary.replace("<tr>", "<SUMMARY>", false)
+      summary = summary.replace("</tr>", " </SUMMARY>", false)
+      summary = summary.append("<CANDIDATES>");
+      output = output.replace("<CANDIDATES>", summary, false);
    }
 
    output = modifyCandidateDetails("CANDIDATES", output, "Kiswahili", "Hisabati", "English");
