@@ -214,31 +214,30 @@ def filterHtml(string html) {
    //remove open table tag
    output = removeOpenTag(output, "<table", ">");
    output = removeOpenTag(output, "<font", ">");
-   output = output.remove("<table classtbl>",false);
 
 
    //remove all unwanted tr tags
    while (true) {
       var tag = output.getTag("tr");
       var tr = tag.value;
-     
+
       if (tr.contains("JINSI", false) ||
-	     tr.contains("REFERRED", false) ||
+         tr.contains("REFERRED", false) ||
          tr.contains("WAS", false) ||
          tr.contains("WAV", false) ||
          tr.contains("JUMLA", false) ||
-		 tr.contains("WALIOSAJILIWA", false) ||
-		 tr.contains("GREDI", false)) {
+         tr.contains("WALIOSAJILIWA", false) ||
+         tr.contains("GREDI", false)) {
          output = output.removeAtPosition(tag.index, tag.length);
-		 if(tr.contains("MASOMO", false)){ //last unwanted tr
-		 break;
-		 }
+         if (tr.contains("MASOMO", false)) { //last unwanted tr
+            break;
+         }
       } else {
          break;
       }
    }
-   
-    output =  modifyCandidateDetails("CANDIDATES", output, "Kiswahili", "Hisabati", "English");
+
+   output = modifyCandidateDetails("CANDIDATES", output, "Kiswahili", "Hisabati", "English");
 
    //remove PRE & from BLUE SKY PRE & PRIMARY SCHOOL(Arusha  -> meru)
    output = output.remove("PRE &", false);
@@ -248,25 +247,25 @@ def filterHtml(string html) {
 }
 
 def getTdNodeTagNameForResults(int tdIndex, int tdCount, string tagText) {
-   
-      switch (tdIndex) {
-         case (0) {
-            return "CNO";
-         }
-         case (1) {
-            return "SEX";
-         }
-         case (2) {
-            return "CANDIDATE_NAME";
-         }
-         case (3) {
-            return "DETAILED_SUBJECTS";
-         }
-         case (4) {
-            return "AVERAGE";
-         }
+
+   switch (tdIndex) {
+      case (0) {
+         return "CNO";
       }
-   
+      case (1) {
+         return "SEX";
+      }
+      case (2) {
+         return "CANDIDATE_NAME";
+      }
+      case (3) {
+         return "DETAILED_SUBJECTS";
+      }
+      case (4) {
+         return "AVERAGE";
+      }
+   }
+
    return "";
 }
 
@@ -286,9 +285,18 @@ def getGenderWisePerformanceData(string html) {
          break;
       }
       var tr = tag.value;
-      if (tr.contains("JINSI", false) ||
-         tr.contains("WASICHANA", false) ||
-         tr.contains("WAVULANA", false) ||
+      if (tr.contains("GREDI", false) ||
+         tr.contains("kati", false)) {
+         html = html.removeAtPosition(tag.index, tag.length);
+         continue;
+      }
+
+      if (tr.contains("MASOMO", false)) {
+         break;
+      }
+      if (tr.contains("REFERRED", false) ||
+         tr.contains("WAS", false) ||
+         tr.contains("WAV", false) ||
          tr.contains("JUMLA", false)) {
          var index = 0;
          var item = "{";
@@ -296,13 +304,19 @@ def getGenderWisePerformanceData(string html) {
             var tdTag = tr.getTag("td");
             if (tdTag.valid) {
                var text = tdTag.value.removeOpenTag("td").removeCloseTag("td").trim();
+               if (text == "A" || text == "a") {
+                  item = item.append("\"_").append(to_string(index)).append("\":\"").append("JINSI").append("\"");
+                  item = item.append(",");
+                  index = index + 1;
+               }
                item = item.append("\"_").append(to_string(index)).append("\":\"").append(text).append("\"");
                item = item.append(",");
+
                tr = tr.removeAtPosition(tdTag.index, tdTag.length);
+               index = index + 1;
             } else {
                break;
             }
-            index = index + 1;
          }
          if (item.endsWith(",", true)) {
             item = item.mid(0, item.length() - 1);
