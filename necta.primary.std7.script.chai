@@ -501,7 +501,7 @@ def allowSchoolNameInSwahili() {
 }
 
 
-global LATEST_APP_VERSION_NAME = "3.1"; //Always change this this on every App release
+global LATEST_APP_VERSION_NAME = "3.2"; //Always change this this on every App release
 global WIN64_DOWLOAD_URL = "#"; //Todo put link
 global DOWNLOAD_UPDATE_REQUESTCODE = 201;
 
