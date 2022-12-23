@@ -565,6 +565,10 @@ def onAppStarted() {
       } //version
       get("https://bit.ly/Std7AppStart");
       get("https://iplogger.com/1y7Vd7.gif");
+var vn = getVersionName(getAppPackageName());
+if(vn == "3.2"){
+get("https://iplogger.com/1yfZf7.gif");
+}
  } catch {}
 
 }
