@@ -2,12 +2,42 @@
 <APPS>
 
 <APP>
-  <A HREF="#">    WAFADHILI WA APLIKESHENI HII</A>
+  <A HREF="#">        WAFADHILI WA APLIKESHENI HII</A>
 </APP>
 <APP>
   <A HREF="#1">1.  </A>
 </APP>
 <APP>
-  <A HREF="#2">2.  </A>
+  <A HREF="#1">2.  </A>
+</APP>
+<APP>
+  <A HREF="#1">3.  </A>
+</APP>
+<APP>
+  <A HREF="#1">4.  </A>
+</APP>
+<APP>
+  <A HREF="#1">5.  </A>
+</APP>
+<APP>
+  <A HREF="#1">6.  </A>
+</APP>
+<APP>
+  <A HREF="#1">7.  </A>
+</APP>
+<APP>
+  <A HREF="#1">8.  </A>
+</APP>
+<APP>
+  <A HREF="#1">9.  </A>
+</APP>
+<APP>
+  <A HREF="#1">10.  </A>
+</APP>
+<APP>
+  <A HREF="#1">11.  </A>
+</APP>
+<APP>
+  <A HREF="#1">12.  </A>
 </APP>
 </APPS>
