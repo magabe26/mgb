@@ -247,6 +247,16 @@ def filterHtml(string html) {
       summary = summary.replace("<tr>", "<SUMMARY>", false)
       summary = summary.replace("</tr>", " </SUMMARY>", false)
       summary = summary.append("<CANDIDATES>");
+
+      //remove junk in summary for year 2017
+      var i1 = summary.indexOf("<td", 0, false);
+      var i2 = summary.indexOf("</SUMMARY>", 0, false);
+      if (i1 != -1 && i2 != -1) {
+         var i3 = summary.indexOf("<th", i1, false);
+         if (i3 != -1) {
+            summary = summary.removeAtPosition(i1, i2 - i1);
+         }
+      }
       output = output.replace("<CANDIDATES>", summary, false);
    }
 
@@ -341,6 +351,10 @@ def getGenderWisePerformanceData(string html) {
             json = json.append(",");
          }
          html = html.removeAtPosition(tag.index, tag.length);
+
+         if (tr.contains("JUMLA", false)) {
+            break;
+         }
       } else {
          break;
       }
