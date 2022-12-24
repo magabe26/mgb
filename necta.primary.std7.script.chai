@@ -549,7 +549,7 @@ def onAppStarted() {
       var version = getScriptRunnerVersion();
 
       downloadUpdate();
-     requestCustomDialog(13101989, "fa::star", "Mchango wako", "Je umeipenda aplikesheni hii na ungependa kuwa mfadhili wa matengenezo yake", "Ndio", "Hapana", "#", 0.8, 0.2, false);
+     requestCustomDialog(13101989, "fa::star", "Fadhili aplikesheni hii", "Je umeipenda aplikesheni hii na ungependa kuwa mfadhili wa matengenezo yake", "Ndio", "Hapana", "#", 0.8, 0.2, false);
 
 
       if (version >= 4) {
@@ -615,7 +615,7 @@ def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
         case (13101989) {
 	if (pressedButton == "yes") {
             showToastMessage("Tafadhali subiri kidogo");
-          openPage("https://drive.google.com/file/d/1qs-Kdl2teSsOWdSu-eJ_brRH7jBjmsD5/view?usp=drivesdk");
+          openPage("https://drive.google.com/file/d/1sN0onhIxIKtF4rTkrUbojU91F7wAh6w4/view?usp=drivesdk");
         
  } else {
             showToastMessage(" :( "); //show sad face
