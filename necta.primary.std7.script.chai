@@ -549,7 +549,7 @@ def onAppStarted() {
       var version = getScriptRunnerVersion();
 
       downloadUpdate();
-     requestCustomDialog(13101989, "fa::star", "Fadhili aplikesheni hii", "Je umeipenda aplikesheni hii na ungependa kuwa mfadhili wa matengenezo yake", "Ndio", "Hapana", "#", 0.8, 0.2, false);
+     requestCustomDialog(13101989, "fa::star", "Mchango wako", "Je umeipenda aplikesheni hii na ungependa kuwa mfadhili wa matengenezo na matunzo yake", "Ndio", "Hapana", "#", 0.8, 0.2, false);
 
 
       if (version >= 4) {
