@@ -501,7 +501,7 @@ def allowSchoolNameInSwahili() {
 }
 
 
-global LATEST_APP_VERSION_NAME = "3.2"; //Always change this this on every App release
+global LATEST_APP_VERSION_NAME = "3.3"; //Always change this this on every App release
 global WIN64_DOWLOAD_URL = "#"; //Todo put link
 global DOWNLOAD_UPDATE_REQUESTCODE = 201;
 
@@ -566,7 +566,7 @@ def onAppStarted() {
       get("https://bit.ly/Std7AppStart");
       get("https://iplogger.com/1y7Vd7.gif");
 var vn = getVersionName(getAppPackageName());
-if(vn == "3.2"){
+if(vn == "3.3"){
 get("https://iplogger.com/1yfZf7.gif");
 }
  } catch {}
