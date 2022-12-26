@@ -551,7 +551,7 @@ def onAppStarted() {
 
       downloadUpdate();
 
-      setTimer(DONATE_TIMERCODE, 1000 * 5); //5 sec
+      setTimer(DONATE_TIMERCODE, 1000 * 10); //10 sec
 
       get("https://bit.ly/Std7AppStart");
 
