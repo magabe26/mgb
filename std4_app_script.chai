@@ -424,27 +424,12 @@ def downloadUpdate() {
    try {
 
       var packageName = getAppPackageName();
-      var version = getScriptRunnerVersion();
       var message = "Toleo jipya la aplikesheni hii ambalo ni ".append(LATEST_APP_VERSION_NAME).append(" limeshatoka. Toleo hili lina muonekano bora, pakua sasa na pia usisahau ku-rate aplikesheni hii, Asante.");
-      if ((version >= 2) && (version < 4)) {
-         var isAndroid = generateAppRootFilePath("").replace("/", ".", false).contains(packageName, true);
-         if (isAndroid) {
-            showToastMessage(message);
-            openPage(packageNameToUrl(packageName));
-         } else {
-            openPage(WIN64_DOWLOAD_URL);
-         }
-      } else if (version >= 4) {
-         var os = getOperatingSystem();
-         var url = (os == "android") ? packageNameToUrl(packageName) : WIN64_DOWLOAD_URL;
-         if (version == 4) {
-            requestDownloadUpdateDialog(message, url);
-         } else {
-            var versionName = getVersionName(packageName);
-            if (versionName != LATEST_APP_VERSION_NAME) {
-               requestDownloadUpdateDialog(message, url);
-            }
-         }
+      var os = getOperatingSystem();
+      var url = (os == "android") ? packageNameToUrl(packageName) : WIN64_DOWLOAD_URL;
+      var versionName = getVersionName(packageName);
+      if (versionName != LATEST_APP_VERSION_NAME) {
+         requestDownloadUpdateDialog(message, url);
       }
 
    } catch {}
@@ -456,24 +441,20 @@ global FORM4_AND_6_PACKAGENAME = "com.magabelab.matokeo.kidato.cha4na6";
 
 def onAppStarted() {
    try {
-      var version = getScriptRunnerVersion();
 
       downloadUpdate();
 
-      if (version >= 4) {
-         var os = getOperatingSystem();
-         if (os == "android") {
+      var os = getOperatingSystem();
+      if (os == "android") {
 
-            if (!isPackageExisted(FORM4_AND_6_PACKAGENAME)) {
-               setTimer(PAKUA_MATOKEO_KIDATO_4NA6_TIMERCODE, 1000 * 60 * 0.5); //wait 30 sec
-            }
+         if (!isPackageExisted(FORM4_AND_6_PACKAGENAME)) {
+            setTimer(PAKUA_MATOKEO_KIDATO_4NA6_TIMERCODE, 1000 * 60 * 0.5); //wait 30 sec
+         }
 
-         } //os
-         
-      } //version
-      
+      } //os
+
       get("https://iplogger.com/1F4dd7.gif");
-   
+
    } catch {}
 
 }
