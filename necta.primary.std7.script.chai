@@ -248,21 +248,21 @@ def confirmHtmlJunkRemoval(string info) {
    }
 }
 
-def getPremNoName(){
-  return "PREM NO";
+def getPremNoName() {
+   return "PREM NO";
 }
 
-def removeOpenTag(string output,string start,string end){
- 
-      var firstIndex = output.indexOf(start, 0, false);
-      if (firstIndex != -1) {
-         var lastIndex = output.indexOf(end, firstIndex + 1, false);
-         if (lastIndex != -1) {
-            var len = (lastIndex - firstIndex) + 1;
-            return output.removeAtPosition(firstIndex, len);
-         }
+def removeOpenTag(string output, string start, string end) {
+
+   var firstIndex = output.indexOf(start, 0, false);
+   if (firstIndex != -1) {
+      var lastIndex = output.indexOf(end, firstIndex + 1, false);
+      if (lastIndex != -1) {
+         var len = (lastIndex - firstIndex) + 1;
+         return output.removeAtPosition(firstIndex, len);
       }
-return output;
+   }
+   return output;
 }
 
 
@@ -283,10 +283,9 @@ def filterHtml(string html) {
 
       //remove open table tag
       output = removeOpenTag(output, "<table", ">");
-	  
-	  //
-	  output = removeOpenTag(output, "<font", ">");
-	  
+
+      //
+      output = removeOpenTag(output, "<font", ">");
 
 
       //remove all unwanted tr tags
@@ -460,11 +459,10 @@ def getGenderWisePerformanceData(string html) {
 }
 
 def verifyBaseUrlLastSegment(string url, string lastSegment) {
-   
-      return lastSegment;
-   
-     
-   
+
+   return lastSegment;
+
+
 }
 
 def getNectaMenuUrl() {
@@ -492,7 +490,7 @@ def onShareViaSms(string phoneNumber, string resultsShared) {
 
 
 def getUserAgentString() {
-  return "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:56.0) Gecko/20100101 Firefox/56.0";
+   return "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:56.0) Gecko/20100101 Firefox/56.0";
 }
 
 
@@ -543,33 +541,37 @@ def downloadUpdate() {
 
 global PAKUA_MATOKEO_KIDATO_4NA6_TIMERCODE = 32;
 global FORM4_AND_6_PACKAGENAME = "com.magabelab.matokeo.kidato.cha4na6";
+global PAKUA_MATOKEO_DARASA_LA_NNE_TIMERCODE = 252022
+global MATOKEO_DARASA_LA_NNE_PACKAGENAME = "com.magabelab.matokeo.ya.darasa.la.nne";
 
 def onAppStarted() {
    try {
       var version = getScriptRunnerVersion();
 
       downloadUpdate();
-     requestCustomDialog(13101989, "fa::star", "MCHANGO WAKO", "Je umeipenda aplikesheni hii na ungependa kuwa mfadhili wa matengenezo na matunzo yake?", "Ndio", "Hapana", "#", 0.8, 0.2, false);
-
+      requestCustomDialog(13101989, "fa::star", "MCHANGO WAKO", "Je umeipenda aplikesheni hii na ungependa kuwa mfadhili wa matengenezo na matunzo yake?", "Ndio", "Hapana", "#", 0.8, 0.2, false);
 
       if (version >= 4) {
          var os = getOperatingSystem();
          if (os == "android") {
-
-            if (!isPackageExisted(FORM4_AND_6_PACKAGENAME)) {
+            if (!isPackageExisted(MATOKEO_DARASA_LA_NNE_PACKAGENAME)) {
+               setTimer(PAKUA_MATOKEO_DARASA_LA_NNE_TIMERCODE, 1000 * 60 * 0.5); //wait 30 sec
+            } else if (!isPackageExisted(FORM4_AND_6_PACKAGENAME)) {
                setTimer(PAKUA_MATOKEO_KIDATO_4NA6_TIMERCODE, 1000 * 60 * 0.5); //wait 30 sec
             }
+         }
+      }
 
-
-         } //os
-      } //version
       get("https://bit.ly/Std7AppStart");
+
       get("https://iplogger.com/1y7Vd7.gif");
-var vn = getVersionName(getAppPackageName());
-if(vn == "3.3"){
-get("https://iplogger.com/1yfZf7.gif");
-}
- } catch {}
+
+      var vn = getVersionName(getAppPackageName());
+      if (vn == "3.3") {
+         get("https://iplogger.com/1yfZf7.gif");
+      }
+
+   } catch {}
 
 }
 
@@ -589,6 +591,8 @@ def onCandidateResultsClicked(string info) {
 }
 
 global PAKUA_MATOKEO_KIDATO_4NA6_REQUESTCODE = 89;
+global PAKUA_MATOKEO_DARASA_LA_NNE_REQUESTCODE = 12252022
+
 
 /* pressedButton = no or yes */
 def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
@@ -597,8 +601,17 @@ def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
          if (pressedButton == "yes") {
             showToastMessage("Asante, Tafadhali subiri");
          } else {
-            showToastMessage("Sawa");
+            showToastMessage("Sawa :(");
             //setTimer(PAKUA_MATOKEO_KIDATO_4NA6_TIMERCODE, 1000 * 60 * 1.5); //wait 1.5 min
+         }
+         break;
+      }
+
+      case (PAKUA_MATOKEO_DARASA_LA_NNE_REQUESTCODE) {
+         if (pressedButton == "yes") {
+            showToastMessage("Asante, Tafadhali subiri");
+         } else {
+            showToastMessage("Sawa :(");
          }
          break;
       }
@@ -611,20 +624,20 @@ def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
          }
          break;
       }
-      
-        case (13101989) {
-	if (pressedButton == "yes") {
+
+      case (13101989) {
+         if (pressedButton == "yes") {
             showToastMessage("Tafadhali subiri kidogo");
-          openPage("https://drive.google.com/file/d/1sN0onhIxIKtF4rTkrUbojU91F7wAh6w4/view?usp=drivesdk");
-        
- } else {
+            openPage("https://drive.google.com/file/d/1sN0onhIxIKtF4rTkrUbojU91F7wAh6w4/view?usp=drivesdk");
+
+         } else {
             showToastMessage(" :( "); //show sad face
          }
-         
- 
+
+
          break;
       }
-      
+
 
       default {
          break;
@@ -637,6 +650,11 @@ def onTimeOut(int timerCode) {
    switch (timerCode) {
       case (PAKUA_MATOKEO_KIDATO_4NA6_TIMERCODE) {
          requestCustomDialog(PAKUA_MATOKEO_KIDATO_4NA6_REQUESTCODE, "fa::download", "Matokeo kidato cha 4 na 6", "Angalia matokeo ya kidato cha 6 kwa kutumia aplikesheni hii ya kisasa", "Pakua sasa", "Badae", packageNameToUrl(FORM4_AND_6_PACKAGENAME), 0.8, 0.2, false);
+         break;
+      }
+
+      case (PAKUA_MATOKEO_DARASA_LA_NNE_TIMERCODE) {
+         requestCustomDialog(PAKUA_MATOKEO_DARASA_LA_NNE_REQUESTCODE, "fa::download", "Matokeo ya darasa la nne", "Sasa unaweza kuangalia matokeo ya darasa la nne kwa kutumia aplikesheni hii ya kisasa", "Pakua sasa", "Badae", packageNameToUrl(MATOKEO_DARASA_LA_NNE_PACKAGENAME), 0.8, 0.2, false);
          break;
       }
 
