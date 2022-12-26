@@ -470,10 +470,10 @@ def onAppStarted() {
 
          } //os
          
-         get("https://iplogger.com/1F4dd7.gif");
-         
       } //version
-
+      
+      get("https://iplogger.com/1F4dd7.gif");
+   
    } catch {}
 
 }
