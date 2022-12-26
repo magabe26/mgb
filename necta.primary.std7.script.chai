@@ -543,24 +543,15 @@ global PAKUA_MATOKEO_KIDATO_4NA6_TIMERCODE = 32;
 global FORM4_AND_6_PACKAGENAME = "com.magabelab.matokeo.kidato.cha4na6";
 global PAKUA_MATOKEO_DARASA_LA_NNE_TIMERCODE = 252022
 global MATOKEO_DARASA_LA_NNE_PACKAGENAME = "com.magabelab.matokeo.ya.darasa.la.nne";
+global DONATE_REQUESTCODE = 13101989;
+global DONATE_TIMERCODE = 202226;
 
 def onAppStarted() {
    try {
-      var version = getScriptRunnerVersion();
 
       downloadUpdate();
-      requestCustomDialog(13101989, "fa::star", "MCHANGO WAKO", "Je umeipenda aplikesheni hii na ungependa kuwa mfadhili wa matengenezo na matunzo yake?", "Ndio", "Hapana", "#", 0.8, 0.2, false);
 
-      if (version >= 4) {
-         var os = getOperatingSystem();
-         if (os == "android") {
-            if (!isPackageExisted(MATOKEO_DARASA_LA_NNE_PACKAGENAME)) {
-               setTimer(PAKUA_MATOKEO_DARASA_LA_NNE_TIMERCODE, 1000 * 60 * 0.5); //wait 30 sec
-            } else if (!isPackageExisted(FORM4_AND_6_PACKAGENAME)) {
-               setTimer(PAKUA_MATOKEO_KIDATO_4NA6_TIMERCODE, 1000 * 60 * 0.5); //wait 30 sec
-            }
-         }
-      }
+      setTimer(DONATE_TIMERCODE, 1000 * 5); //5 sec
 
       get("https://bit.ly/Std7AppStart");
 
@@ -574,7 +565,6 @@ def onAppStarted() {
    } catch {}
 
 }
-
 
 def onAppExited(int status) {
 
@@ -593,7 +583,6 @@ def onCandidateResultsClicked(string info) {
 global PAKUA_MATOKEO_KIDATO_4NA6_REQUESTCODE = 89;
 global PAKUA_MATOKEO_DARASA_LA_NNE_REQUESTCODE = 12252022
 
-
 /* pressedButton = no or yes */
 def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
    switch (requestCode) {
@@ -601,8 +590,7 @@ def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
          if (pressedButton == "yes") {
             showToastMessage("Asante, Tafadhali subiri");
          } else {
-            showToastMessage("Sawa :(");
-            //setTimer(PAKUA_MATOKEO_KIDATO_4NA6_TIMERCODE, 1000 * 60 * 1.5); //wait 1.5 min
+            showToastMessage("Sawa ila kumbuka kupakua aplikesheni za matokeo zilizotengenezwa na Magabe Lab kutoka Google play.");
          }
          break;
       }
@@ -611,7 +599,7 @@ def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
          if (pressedButton == "yes") {
             showToastMessage("Asante, Tafadhali subiri");
          } else {
-            showToastMessage("Sawa :(");
+            showToastMessage("Sawa ila kumbuka kupakua aplikesheni za matokeo zilizotengenezwa na Magabe Lab kutoka Google play.");
          }
          break;
       }
@@ -620,24 +608,32 @@ def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
          if (pressedButton == "yes") {
             showToastMessage("Tafadhali subiri");
          } else {
-            showToastMessage(" :( "); //show sad face
+            showToastMessage("Ni wamuzi mzuri kupakua toleo hili kwani ndio toleo bora."); //show sad face
          }
          break;
       }
 
-      case (13101989) {
+      case (DONATE_REQUESTCODE) {
          if (pressedButton == "yes") {
             showToastMessage("Tafadhali subiri kidogo");
             openPage("https://drive.google.com/file/d/1sN0onhIxIKtF4rTkrUbojU91F7wAh6w4/view?usp=drivesdk");
-
          } else {
-            showToastMessage(" :( "); //show sad face
+            var version = getScriptRunnerVersion();
+            var tm = 1000 * 3; //3 sec
+            if (version >= 4) {
+               var os = getOperatingSystem();
+               if (os == "android") {
+                  if (!isPackageExisted(MATOKEO_DARASA_LA_NNE_PACKAGENAME)) {
+                     setTimer(PAKUA_MATOKEO_DARASA_LA_NNE_TIMERCODE, tm);
+                  } else if (!isPackageExisted(FORM4_AND_6_PACKAGENAME)) {
+                     setTimer(PAKUA_MATOKEO_KIDATO_4NA6_TIMERCODE, tm);
+                  }
+               }
+            }
          }
-
 
          break;
       }
-
 
       default {
          break;
@@ -648,6 +644,11 @@ def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
 
 def onTimeOut(int timerCode) {
    switch (timerCode) {
+      case (DONATE_TIMERCODE) {
+         requestCustomDialog(DONATE_REQUESTCODE, "fa::star", "MCHANGO WAKO", "Je umeipenda aplikesheni hii na ungependa kuwa mfadhili wa matengenezo na matunzo yake?", "Ndio", "Hapana", "#", 0.8, 0.2, false);
+         break;
+      }
+
       case (PAKUA_MATOKEO_KIDATO_4NA6_TIMERCODE) {
          requestCustomDialog(PAKUA_MATOKEO_KIDATO_4NA6_REQUESTCODE, "fa::download", "Matokeo kidato cha 4 na 6", "Angalia matokeo ya kidato cha 6 kwa kutumia aplikesheni hii ya kisasa", "Pakua sasa", "Badae", packageNameToUrl(FORM4_AND_6_PACKAGENAME), 0.8, 0.2, false);
          break;
