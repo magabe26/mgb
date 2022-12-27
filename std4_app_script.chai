@@ -248,7 +248,7 @@ def filterHtml(string html) {
       summary = summary.replace("</tr>", " </SUMMARY>", false)
       summary = summary.append("<CANDIDATES>");
 
-     
+
       output = output.replace("<CANDIDATES>", summary, false);
    }
 
@@ -306,11 +306,11 @@ def getGenderWisePerformanceData(string html) {
          continue;
       }
 
-      if (tr.contains("MASOMO", false) || 
-	      tr.contains("English", false) ||
-		  tr.contains("Kiswahili", false) ||
-		  tr.contains("Hisabati", false) ||
-		  tr.contains("Sayansi", false)) {
+      if (tr.contains("MASOMO", false) ||
+         tr.contains("English", false) ||
+         tr.contains("Kiswahili", false) ||
+         tr.contains("Hisabati", false) ||
+         tr.contains("Sayansi", false)) {
          break;
       }
       if (tr.contains("REFERRED", false) ||
