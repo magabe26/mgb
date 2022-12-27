@@ -205,6 +205,51 @@ def removeOpenTag(string output, string start, string end) {
 }
 
 
+def fixFor2018ResultsAndBelow(string html) {
+   var output = html;
+   var tr = output.getTag("tr");
+   if (tr.valid) {
+      var td = tr.value.getTag("td");
+      if (td.valid) {
+         if (td.value.contains("WALIOSAJILIWA", false)) {
+            var index = output.indexOf("</td></tr>", tr.index, false);
+            if (index != -1) {
+               output = output.replaceAtPosition(tr.index, index + 10 - tr.index, "<tr>" + td.value + "</tr>");
+            }
+         }
+      }
+   }
+   return output;
+}
+
+def removeGradeTrFor2018ResultsAndBelow(string html) {
+   var output = html;
+   while (true) {
+      var tag = output.getTag("tr");
+      if (!tag.valid) {
+         break;
+      }
+      var tr = tag.value;
+      var tdTag = tr.getTag("td");
+      if (tdTag.valid) {
+         var text = tdTag.value.removeOpenTag("td").removeCloseTag("td").trim();
+         if (text == "A" || text == "a" ||
+            text == "B" || text == "b" ||
+            text == "C" || text == "c" ||
+            text == "D" || text == "d" ||
+            text.contains("REFERRED", false) ||
+            text.contains("MWANAFUNZI", false)) {
+            output = output.removeAtPosition(tag.index, tag.length);
+         } else {
+            break;
+         }
+      } else {
+         break;
+      }
+   }
+   return output;
+}
+
 //  Add filter logic inside this function
 def filterHtml(string html) {
    var output = html;
@@ -214,6 +259,7 @@ def filterHtml(string html) {
    //remove open table tag
    output = removeOpenTag(output, "<table", ">");
    output = removeOpenTag(output, "<font", ">");
+   output = fixFor2018ResultsAndBelow(output);
 
    var summaryTag = Tag(false, -1, -1, "");
 
@@ -248,7 +294,6 @@ def filterHtml(string html) {
       summary = summary.replace("</tr>", " </SUMMARY>", false)
       summary = summary.append("<CANDIDATES>");
 
-
       output = output.replace("<CANDIDATES>", summary, false);
    }
 
@@ -257,6 +302,7 @@ def filterHtml(string html) {
    //remove PRE & from BLUE SKY PRE & PRIMARY SCHOOL(Arusha  -> meru)
    output = output.remove("PRE &", false);
 
+   output = removeGradeTrFor2018ResultsAndBelow(output);
 
    return output;
 }
