@@ -338,8 +338,95 @@ def updateMenu(string menu) {
 }
 
 
+def getGenderWisePerformanceDataFor2018ResultsAndBelow(string html) {
+   var output = html;
+   var titleTag = output.getTag("H1");
+   if (titleTag.valid) {
+      var title = titleTag.value;
+      var year = getYear(title, "");
+      if (year > 2018) {
+         return "";
+      }
+   } else {
+      return "";
+   }
+
+   var json = "[{\"_0\":\"GREDI\",\"_1\":\"WAS\",\"_2\":\"WAV\",\"_3\":\"JUMLA\"},";
+   var index = 0;
+   while (true) {
+      var tag = output.getTag("tr");
+      if (!tag.valid) {
+         break;
+      }
+      var tr = tag.value;
+      if (tr.contains("WALIOSAJILIWA", false) ||
+         tr.contains("GREDI", false) ||
+         tr.contains("WAS.", false)) {
+         output = output.removeAtPosition(tag.index, tag.length);
+         continue;
+      }
+      var tdTag = tr.getTag("td");
+      if (tdTag.valid) {
+         var text = tdTag.value.removeOpenTag("td").removeCloseTag("td").trim();
+         if (text == "A" || text == "a" ||
+            text == "B" || text == "b" ||
+            text == "C" || text == "c" ||
+            text == "D" || text == "d" ||
+            text.contains("REFERRED", false)) {
+            var index = 0;
+            var item = "{";
+            while (true) {
+               var tdTag = tr.getTag("td");
+               if (tdTag.valid) {
+                  var text = tdTag.value.removeOpenTag("td").removeCloseTag("td").trim();
+                  item = item.append("\"_").append(to_string(index)).append("\":\"").append(text).append("\"");
+                  item = item.append(",");
+                  tr = tr.removeAtPosition(tdTag.index, tdTag.length);
+                  index = index + 1;
+               } else {
+                  break;
+               }
+            }
+            if (item.endsWith(",", true)) {
+               item = item.mid(0, item.length() - 1);
+            }
+            item = item.append("}");
+            var empty = (item.length() == 2);
+            if (!empty) {
+               json = json.append(item);
+               json = json.append(",");
+            }
+            output = output.removeAtPosition(tag.index, tag.length);
+
+         } else {
+            break;
+         }
+      } else {
+         break;
+      }
+   }
+   if (json.endsWith(",", true)) {
+      json = json.mid(0, json.length() - 1);
+   }
+
+   json = json.append("]");
+   var empty = (json.length() == 68);
+   if (empty) {
+      json = "";
+   }
+   return json;
+}
+
+
 def getGenderWisePerformanceData(string html) {
-   var json = "[";
+   var json = getGenderWisePerformanceDataFor2018ResultsAndBelow(html);
+
+   if (!json.isEmpty()) {
+      return json;
+   } else {
+      json = "[";
+   }
+
    while (true) {
       var tag = html.getTag("tr");
       if (!tag.valid) {
