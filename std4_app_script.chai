@@ -285,10 +285,8 @@ def filterHtml(string html) {
       var title = titleTag.value;
       year = getYear(title, "");
    }
-
-   output = output.remove("MADARAJA YA UFAULU WA UJUMLA", false);
-
-   //remove open table tag
+   
+   //Remove open table tag
    output = removeOpenTag(output, "<table", ">");
    output = removeOpenTag(output, "<font", ">");
    output = fixFor2018ResultsAndBelow(output);
