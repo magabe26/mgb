@@ -127,11 +127,11 @@ class Tag {
    var value;
 };
 
-def string::getTag(string t) {
+def string::getTag(string t, int start) {
    var closeTag = "</".append(t).append(">");
    var tag = Tag(false, -1, -1, "");
    var len = closeTag.length();
-   var firstIndex = this.indexOf("<".append(t), 0, false);
+   var firstIndex = this.indexOf("<".append(t), start, false);
    if (firstIndex != -1) {
       var lastIndex = this.indexOf(closeTag, firstIndex + 1, false);
       if (lastIndex != -1) {
@@ -192,7 +192,6 @@ def confirmHtmlJunkRemoval(string info) {
 }
 
 def removeOpenTag(string output, string start, string end) {
-
    var firstIndex = output.indexOf(start, 0, false);
    if (firstIndex != -1) {
       var lastIndex = output.indexOf(end, firstIndex + 1, false);
@@ -207,9 +206,9 @@ def removeOpenTag(string output, string start, string end) {
 
 def fixFor2018ResultsAndBelow(string html) {
    var output = html;
-   var tr = output.getTag("tr");
+   var tr = output.getTag("tr", 0);
    if (tr.valid) {
-      var td = tr.value.getTag("td");
+      var td = tr.value.getTag("td", 0);
       if (td.valid) {
          if (td.value.contains("WALIOSAJILIWA", false)) {
             var index = output.indexOf("</td></tr>", tr.index, false);
@@ -225,12 +224,12 @@ def fixFor2018ResultsAndBelow(string html) {
 def removeGradeTrFor2018ResultsAndBelow(string html) {
    var output = html;
    while (true) {
-      var tag = output.getTag("tr");
+      var tag = output.getTag("tr", 0);
       if (!tag.valid) {
          break;
       }
       var tr = tag.value;
-      var tdTag = tr.getTag("td");
+      var tdTag = tr.getTag("td", 0);
       if (tdTag.valid) {
          var text = tdTag.value.removeOpenTag("td").removeCloseTag("td").trim();
          if (text == "A" || text == "a" ||
@@ -250,9 +249,42 @@ def removeGradeTrFor2018ResultsAndBelow(string html) {
    return output;
 }
 
+def runMoreOlderResultFix(string html) {
+   var output = html;
+   //Fix summary
+   var i1 = output.indexOf("</H3>", 0, false);
+   if (i1 != -1) {
+      var i2 = output.indexOf("<CANDIDATES>", 0, false);
+      if (i2 != -1) {
+         var start = i1 + 5;
+         var len = i2 - start;
+         var summary = output.mid(start, len);
+         var isSummary = summary.contains("WALIOSAJILIWA", false);
+         if (isSummary) {
+            output = output.replaceAtPosition(start, len, "<SUMMARY>" + summary + "</SUMMARY>");
+         }
+      }
+   }
+   //Remove header tr
+   var headerTag = output.getTag("tr", 0);
+   if (headerTag.valid) {
+      if (headerTag.value.contains("CAND.", false)) {
+         output = output.removeAtPosition(headerTag.index, headerTag.length);
+      }
+   }
+   return output;
+}
+
+
 //  Add filter logic inside this function
 def filterHtml(string html) {
    var output = html;
+   var year = 0;
+   var titleTag = output.getTag("H1", 0);
+   if (titleTag.valid) {
+      var title = titleTag.value;
+      year = getYear(title, "");
+   }
 
    output = output.remove("MADARAJA YA UFAULU WA UJUMLA", false);
 
@@ -265,7 +297,7 @@ def filterHtml(string html) {
 
    //remove all unwanted tr tags
    while (true) {
-      var tag = output.getTag("tr");
+      var tag = output.getTag("tr", 0);
       var tr = tag.value;
 
       if (tr.contains("JINSI", false) ||
@@ -293,19 +325,31 @@ def filterHtml(string html) {
       summary = summary.replace("<tr>", "<SUMMARY>", false)
       summary = summary.replace("</tr>", " </SUMMARY>", false)
       summary = summary.append("<CANDIDATES>");
-
       output = output.replace("<CANDIDATES>", summary, false);
+   }
+
+   //Fix year 2016 results
+   if (year == 2016) {
+      output = runMoreOlderResultFix(html);
+   }
+
+   //Remove all , in candidate tag that may cause modifyCandidateDetails to fail
+   var candidateTag = output.getTag("CANDIDATES", 0);
+   if (candidateTag.valid) {
+      var cleaned = candidateTag.value.remove(",", false);
+      output = output.replaceAtPosition(candidateTag.index, candidateTag.length, cleaned);
    }
 
    output = modifyCandidateDetails("CANDIDATES", output, "Kiswahili", "Hisabati", "English");
 
-   //remove PRE & from BLUE SKY PRE & PRIMARY SCHOOL(Arusha  -> meru)
+   //Remove PRE & from BLUE SKY PRE & PRIMARY SCHOOL(Arusha  -> meru)
    output = output.remove("PRE &", false);
 
    output = removeGradeTrFor2018ResultsAndBelow(output);
 
    return output;
 }
+
 
 def getTdNodeTagNameForResults(int tdIndex, int tdCount, string tagText) {
 
@@ -340,10 +384,11 @@ def updateMenu(string menu) {
 
 def getGenderWisePerformanceDataFor2018ResultsAndBelow(string html) {
    var output = html;
-   var titleTag = output.getTag("H1");
+   var titleTag = output.getTag("H1", 0);
+   var year = 0;
    if (titleTag.valid) {
       var title = titleTag.value;
-      var year = getYear(title, "");
+      year = getYear(title, "");
       if (year > 2018) {
          return "";
       }
@@ -351,10 +396,10 @@ def getGenderWisePerformanceDataFor2018ResultsAndBelow(string html) {
       return "";
    }
 
-   var json = "[{\"_0\":\"GREDI\",\"_1\":\"WAS\",\"_2\":\"WAV\",\"_3\":\"JUMLA\"},";
+   var json = year != 2016 ? "[{\"_0\":\"GREDI\",\"_1\":\"WAS\",\"_2\":\"WAV\",\"_3\":\"JUMLA\"}," : "[";
    var index = 0;
    while (true) {
-      var tag = output.getTag("tr");
+      var tag = output.getTag("tr", 0);
       if (!tag.valid) {
          break;
       }
@@ -365,7 +410,7 @@ def getGenderWisePerformanceDataFor2018ResultsAndBelow(string html) {
          output = output.removeAtPosition(tag.index, tag.length);
          continue;
       }
-      var tdTag = tr.getTag("td");
+      var tdTag = tr.getTag("td", 0);
       if (tdTag.valid) {
          var text = tdTag.value.removeOpenTag("td").removeCloseTag("td").trim();
          if (text == "A" || text == "a" ||
@@ -376,7 +421,7 @@ def getGenderWisePerformanceDataFor2018ResultsAndBelow(string html) {
             var index = 0;
             var item = "{";
             while (true) {
-               var tdTag = tr.getTag("td");
+               var tdTag = tr.getTag("td", 0);
                if (tdTag.valid) {
                   var text = tdTag.value.removeOpenTag("td").removeCloseTag("td").trim();
                   item = item.append("\"_").append(to_string(index)).append("\":\"").append(text).append("\"");
@@ -428,7 +473,7 @@ def getGenderWisePerformanceData(string html) {
    }
 
    while (true) {
-      var tag = html.getTag("tr");
+      var tag = html.getTag("tr", 0);
       if (!tag.valid) {
          break;
       }
@@ -453,7 +498,7 @@ def getGenderWisePerformanceData(string html) {
          var index = 0;
          var item = "{";
          while (true) {
-            var tdTag = tr.getTag("td");
+            var tdTag = tr.getTag("td", 0);
             if (tdTag.valid) {
                var text = tdTag.value.removeOpenTag("td").removeCloseTag("td").trim();
                if (text == "A" || text == "a") {
@@ -503,11 +548,11 @@ def getGenderWisePerformanceData(string html) {
 }
 
 def verifyBaseUrlLastSegment(string url, string lastSegment) {
-  var year = getYear(url,"");
-  if(year <= 2016) {
-   return "";
+   var year = getYear(url, "");
+   if (year <= 2015) {
+      return "";
    } else {
-   return lastSegment;
+      return lastSegment;
    }
 }
 
