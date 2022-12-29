@@ -275,6 +275,75 @@ def runMoreOlderResultFix(string html) {
    return output;
 }
 
+def isSFNAPage(string html) {
+   return html.contains("reg_", false) && html.contains("<REGIONS>", false);
+}
+
+def isRegionPage(string html) {
+   return html.contains("distr_", false) && html.contains("<DISTRICTS>", false);
+}
+
+def isDistrictPage(string html) {
+   return html.contains(".htm", false) && html.contains("<SCHOOLS>", false);
+}
+
+def cleanSFNAPage(string html) {
+   var output = html;
+   if (isSFNAPage(output)) {
+      var pos = 0;
+      var tag = output.getTag("td", pos);
+      while (tag.valid) {
+         if (tag.value.contains("reg_.htm", false)) {
+            output = output.removeAtPosition(tag.index, tag.length);
+         }
+         pos = tag.index + tag.length;
+         tag = output.getTag("td", pos);
+      }
+   }
+   if (output.contains("reg_.htm", false)) {
+      output = cleanSFNAPage(output);
+   }
+   return output;
+}
+
+
+def cleanRegionPage(string html) {
+   var output = html;
+   if (isRegionPage(output)) {
+      var pos = 0;
+      var tag = output.getTag("td", pos);
+      while (tag.valid) {
+         if (tag.value.contains("distr_.htm", false)) {
+            output = output.removeAtPosition(tag.index, tag.length);
+         }
+         pos = tag.index + tag.length;
+         tag = output.getTag("td", pos);
+      }
+   }
+   if (output.contains("distr_.htm", false)) {
+      output = cleanRegionPage(output);
+   }
+   return output;
+}
+
+def cleanDistrictPage(string html) {
+   var output = html;
+   if (isDistrictPage(output)) {
+      var pos = 0;
+      var tag = output.getTag("td", pos);
+      while (tag.valid) {
+         if (tag.value.contains("\".htm\"", false)) {
+            output = output.removeAtPosition(tag.index, tag.length);
+         }
+         pos = tag.index + tag.length;
+         tag = output.getTag("td", pos);
+      }
+   }
+   if (output.contains("\".htm\"", false)) {
+      output = cleanDistrictPage(output);
+   }
+   return output;
+}
 
 //  Add filter logic inside this function
 def filterHtml(string html) {
@@ -285,7 +354,7 @@ def filterHtml(string html) {
       var title = titleTag.value;
       year = getYear(title, "");
    }
-   
+
    //Remove open table tag
    output = removeOpenTag(output, "<table", ">");
    output = removeOpenTag(output, "<font", ">");
@@ -331,7 +400,7 @@ def filterHtml(string html) {
       output = runMoreOlderResultFix(html);
    }
 
-   //Remove all , in candidate tag that may cause modifyCandidateDetails to fail
+   //Remove all , in candidate tags that may cause modifyCandidateDetails to fail
    var candidateTag = output.getTag("CANDIDATES", 0);
    if (candidateTag.valid) {
       var cleaned = candidateTag.value.remove(",", false);
@@ -344,6 +413,11 @@ def filterHtml(string html) {
    output = output.remove("PRE &", false);
 
    output = removeGradeTrFor2018ResultsAndBelow(output);
+
+   output = cleanSFNAPage(output);
+   output = cleanRegionPage(output);
+   output = cleanDistrictPage(output);
+
 
    return output;
 }
