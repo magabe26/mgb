@@ -662,12 +662,12 @@ def allowSchoolNameInSwahili() {
 }
 
 
-global LATEST_APP_VERSION_NAME = "0.1"; //Always change this this on every App release
+global LATEST_APP_VERSION_NAME = "0.2"; //Always change this this on every App release
 global WIN64_DOWLOAD_URL = "#"; //Todo put link
 global DOWNLOAD_UPDATE_REQUESTCODE = 201;
 
 def requestDownloadUpdateDialog(string description, string url) {
-   requestCustomDialog(DOWNLOAD_UPDATE_REQUESTCODE, "fa::download", "Pakua toleo jipya!!", description, "Pakua", "Baadae", url, 0.8, 0.2, false);
+   requestCustomDialog(DOWNLOAD_UPDATE_REQUESTCODE, "fa::download", "Pakua toleo jipya!!", description, "Pakua", "Baadae", url, 0.8, 0.3, false);
 }
 
 
