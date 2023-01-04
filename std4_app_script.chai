@@ -177,6 +177,10 @@ def string::replaceRegex(string regex, string replacement) {
 
 /* -------------------------------------------------*/
 
+def getPremNoName(){
+  return "PREM NO";
+}
+
 
 def beforeHtmlJunkRemover(string html) {
 
