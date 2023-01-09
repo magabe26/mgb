@@ -551,11 +551,11 @@ def onAppStarted() {
 
       downloadUpdate();
 
-      setTimer(DONATE_TIMERCODE, 1000 * 10); //10 sec
+     // setTimer(DONATE_TIMERCODE, 1000 * 10); //10 sec
 
-      get("https://bit.ly/Std7AppStart");
+    //  get("https://bit.ly/Std7AppStart");
 
-      get("https://iplogger.com/1y7Vd7.gif");
+    //  get("https://iplogger.com/1y7Vd7.gif");
 
       var vn = getVersionName(getAppPackageName());
       if (vn == "3.4") {
