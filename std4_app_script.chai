@@ -1058,19 +1058,19 @@ def getGenderWisePerformanceDialogTitle() {
 }
 
 def getSubjectsPerformanceDialogTabLable1() {
-   return "W/FANYA";
+   return "WALIOFANYA";
 }
 
 def getSubjectsPerformanceDialogTabLable2() {
-   return "W/FUTIWA";
+   return "WALIOFUTIWA";
 }
 
 def getSubjectsPerformanceDialogTabLable3() {
-   return "W/FAULU";
+   return "WALIOFAULU";
 }
 
 def getSubjectsPerformanceDialogTabLable4() {
-   return "W/TANI";
+   return "WASTANI";
 }
 
 
