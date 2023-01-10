@@ -127,11 +127,11 @@ class Tag {
    var value;
 };
 
-def string::getTag(string t) {
+def string::getTag(string t, int start) {
    var closeTag = "</".append(t).append(">");
    var tag = Tag(false, -1, -1, "");
    var len = closeTag.length();
-   var firstIndex = this.indexOf("<".append(t), 0, false);
+   var firstIndex = this.indexOf("<".append(t), start, false);
    if (firstIndex != -1) {
       var lastIndex = this.indexOf(closeTag, firstIndex + 1, false);
       if (lastIndex != -1) {
@@ -290,7 +290,7 @@ def filterHtml(string html) {
 
       //remove all unwanted tr tags
       while (true) {
-         var tag = output.getTag("tr");
+         var tag = output.getTag("tr", 0);
          var tr = tag.value;
          var isResultsTableHeader = tr.contains("SEX", false);
          if (isResultsTableHeader && (version < 6)) { //version less than 6 remove table header by default
@@ -407,7 +407,7 @@ def updateMenu(string menu) {
 def getGenderWisePerformanceData(string html) {
    var json = "[";
    while (true) {
-      var tag = html.getTag("tr");
+      var tag = html.getTag("tr", 0);
       if (!tag.valid) {
          break;
       }
@@ -419,7 +419,7 @@ def getGenderWisePerformanceData(string html) {
          var index = 0;
          var item = "{";
          while (true) {
-            var tdTag = tr.getTag("td");
+            var tdTag = tr.getTag("td", 0);
             if (tdTag.valid) {
                var text = tdTag.value.removeOpenTag("td").removeCloseTag("td").trim();
                item = item.append("\"_").append(to_string(index)).append("\":\"").append(text).append("\"");
@@ -551,11 +551,11 @@ def onAppStarted() {
 
       downloadUpdate();
 
-     // setTimer(DONATE_TIMERCODE, 1000 * 10); //10 sec
+      // setTimer(DONATE_TIMERCODE, 1000 * 10); //10 sec
 
-    //  get("https://bit.ly/Std7AppStart");
+      //  get("https://bit.ly/Std7AppStart");
 
-    //  get("https://iplogger.com/1y7Vd7.gif");
+      //  get("https://iplogger.com/1y7Vd7.gif");
 
       var vn = getVersionName(getAppPackageName());
       if (vn == "3.4") {
@@ -665,6 +665,142 @@ def onTimeOut(int timerCode) {
 
    }
 
+}
+
+def removeAllTags(string tag, string html) {
+   var output = html;
+   var open = "<".append(tag);
+   var close = "</".append(tag).append(">");
+   var i = output.indexOf(open, 0, false);
+   while (i != -1) {
+      output = removeOpenTag(output, open, ">");
+      output = output.remove(close, false);
+      i = output.indexOf(open, 0, false);
+   }
+   return output;
+}
+
+def removeColors(string html) {
+   var output = html;
+   var i1 = output.indexOf("\"#", 0, false);
+   if (i1 != -1) {
+      var i2 = output.indexOf("\"", i1 + 1, false);
+      if (i2 != -1) {
+         output = output.removeAtPosition(i1, i2 - i1 + 1);
+      }
+   }
+
+   if (output.contains("\"#", false)) {
+      output = removeColors(output);
+   }
+   return output;
+}
+
+def getSubjectsPerformanceData(string html) {
+   var input = removeAllTags("span", html);
+   input = removeColors(input);
+   input = removeAllTags("p", input);
+   var i1 = input.indexOf("<td >UFAULU", 0, false);
+   if (i1 != -1) {
+      var i2 = input.indexOf("</CANDIDATES>", 0, false);
+      if (i2 != -1) {
+         input = input.mid(i1, i2 - i1);
+         input = input.remove("WA MASOMO KATIKA MAKUNDI YA UMAHIRI", false); //so that i can replace the apropriate tokeb
+         input = input.replace("UMAHIRI</TD>", "UMAHIRI</TD></TR>", false);
+
+      } else {
+         return "";
+      }
+   } else {
+      return "";
+   }
+
+
+   var json = "[";
+   var trPos = 0;
+   var trTag = input.getTag("tr", trPos);
+   while (trTag.valid) {
+      var tr = trTag.value;
+      var item = "{";
+      var tdPos = 0;
+      var tdTag = tr.getTag("td", tdPos);
+      var index = 0;
+      while (tdTag.valid) {
+         var td = tdTag.value;
+         var text = td.removeOpenTag("td").removeCloseTag("td").trim();
+         if (text.length() == 5 && text.contains("NAMBA", false)) {
+            text = "#";
+         }
+         item = item.append("\"_").append(to_string(index)).append("\":\"").append(text).append("\"");
+         item = item.append(",");
+
+         index = index + 1;
+         tdPos = tdTag.index + tdTag.length;
+         tdTag = tr.getTag("td", tdPos);
+      }
+      if (item.endsWith(",", true)) {
+         item = item.mid(0, item.length() - 1);
+      }
+      item = item.append("}");
+      var empty = (item.length() == 2);
+      if (!empty) {
+         json = json.append(item);
+         json = json.append(",");
+      }
+      trPos = trTag.index + trTag.length;
+      trTag = input.getTag("tr", trPos);
+   }
+
+
+   if (json.endsWith(",", true)) {
+      json = json.mid(0, json.length() - 1);
+   }
+
+   json = json.append("]");
+
+   return json;
+}
+
+def getSubjectsPerformanceDialogTitle() {
+   return "UFAULU WA MASOMO KATIKA MAKUNDI";
+}
+
+def getGenderWisePerformanceDialogTitle() {
+   return "MADARAJA YA UFAULU WA UJUMLA";
+}
+
+def getSubjectsPerformanceDialogTabLable1() {
+   return "WALIOFANYA";
+}
+
+def getSubjectsPerformanceDialogTabLable2() {
+   return "WALIOFUTIWA";
+}
+
+def getSubjectsPerformanceDialogTabLable3() {
+   return "WALIOFAULU";
+}
+
+def getSubjectsPerformanceDialogTabLable4() {
+   return "WASTANI";
+}
+
+
+def onDisplayPSLE(string title, string url) {
+   log(title.append("---").append(url));
+}
+
+def onDisplayRegion(string regionName, string title, string url) {
+
+
+}
+
+def onDisplayDistrict(string districtName, string title, string url) {
+
+}
+
+def onDisplaySchool(string schoolName, string title, string url) {
+   log(schoolName.append("---").append(title).append("---").append(url));
 }
 
 def runTest(string input) {
