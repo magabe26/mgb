@@ -1058,7 +1058,7 @@ def getGenderWisePerformanceDialogTitle() {
 }
 
 def getSubjectsPerformanceDialogTabLable1() {
-   return "W/SAJILIWA";
+   return "W/FANYA";
 }
 
 def getSubjectsPerformanceDialogTabLable2() {
