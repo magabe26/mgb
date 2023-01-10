@@ -1050,7 +1050,7 @@ def getSubjectsPerformanceData(string html) {
 }
 
 def getSubjectsPerformanceDialogTitle() {
-   return "UFAULU WA MASOMO KTK MAKUNDI YA UMAHIRI";
+   return "UFAULU WA MASOMO KATIKA MAKUNDI";
 }
 
 def getGenderWisePerformanceDialogTitle() {
@@ -1070,7 +1070,7 @@ def getSubjectsPerformanceDialogTabLable3() {
 }
 
 def getSubjectsPerformanceDialogTabLable4() {
-   return "WASTANI";
+   return "W/TANI";
 }
 
 
