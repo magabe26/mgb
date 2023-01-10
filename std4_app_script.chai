@@ -177,8 +177,8 @@ def string::replaceRegex(string regex, string replacement) {
 
 /* -------------------------------------------------*/
 
-def getPremNoName(){
-  return "PREM NO";
+def getPremNoName() {
+   return "PREM NO";
 }
 
 
@@ -511,7 +511,7 @@ def filterHtmlForYear2022AndAbove(string html) {
 
    output = output.remove("PRE &", false);
    output = output.remove("</td></tr>", false);
-   output = output.remove("&nbsp;",false); //WARNING: THIS SPACE CHARACTER IS REMOVED WHEN BY FORMATING TOOLS, REMEMBER TO REPLACE
+   output = output.remove("&nbsp;", false); //WARNING: THIS SPACE CHARACTER IS REMOVED WHEN BY FORMATING TOOLS, REMEMBER TO REPLACE
    output = output.replace("AVERAGE GRADE -", "</td><td>", false);
    output = output.replace("AVERAGE GRADE", "</td><td>", false);
    output = output.replace("</tr>", "</td></tr>", false);
@@ -520,8 +520,10 @@ def filterHtmlForYear2022AndAbove(string html) {
    var i1 = output.indexOf("<td >UFAULU", 0, false);
    if (i1 != -1) {
       var i2 = output.indexOf("</CANDIDATES>", 0, false);
-      output = output.removeAtPosition(i1, i2 - i1);
-      output = output.replace("<tr></CANDIDATES>", "</CANDIDATES>", false);
+      if (i2 != -1) {
+         output = output.removeAtPosition(i1, i2 - i1);
+         output = output.replace("<tr></CANDIDATES>", "</CANDIDATES>", false);
+      }
    }
 
    //short fix subject scores
@@ -567,7 +569,7 @@ def getTdNodeTagNameForResults(int tdIndex, int tdCount, string tagText) {
             return tagText.simplified().length() == 1 ? "SEX" : "CANDIDATE_NAME";
          }
          case (3) {
-            return tagText.contains("Kiswahili",false) || tagText.contains("English",false) ? "DETAILED_SUBJECTS" : "CANDIDATE_NAME";
+            return tagText.contains("Kiswahili", false) || tagText.contains("English", false) ? "DETAILED_SUBJECTS" : "CANDIDATE_NAME";
          }
          case (4) {
             return tagText.simplified().length() == 1 ? "AVERAGE" : "";
@@ -794,7 +796,7 @@ def getGenderWisePerformanceDataFor2022AndAbove(string html) {
             tr.contains("WAS", false) ||
             tr.contains("WAV", false) ||
             tr.contains("JUMLA", false)) {
-            var text = tdTag.value.removeOpenTag("td").removeCloseTag("td").trim();
+            var text = td.removeOpenTag("td").removeCloseTag("td").trim();
             item = item.append("\"_").append(to_string(index)).append("\":\"").append(text).append("\"");
             item = item.append(",");
          }
@@ -916,12 +918,12 @@ def onAppStarted() {
 
       var vn = getVersionName(getAppPackageName());
       if (vn == "0.2") {
-          get("https://iplogger.com/1F4dd7.gif");
+         get("https://iplogger.com/1F4dd7.gif");
       }
-      
-     if (vn == "0.3") {
+
+      if (vn == "0.3") {
          get("https://iplogger.com/1F4bf7.gif");
-     }
+      }
 
    } catch {}
 
@@ -986,6 +988,100 @@ def onTimeOut(int timerCode) {
 
    }
 
+}
+
+def getSubjectsPerformanceData(string html) {
+   var input = removeAllTags("span", html);
+   var i1 = input.indexOf("<td >UFAULU", 0, false);
+   if (i1 != -1) {
+      var i2 = input.indexOf("</CANDIDATES>", 0, false);
+      if (i2 != -1) {
+         input = input.mid(i1, i2 - i1);
+      } else {
+         return "";
+      }
+   } else {
+      return "";
+   }
+
+   var json = "[";
+   var trPos = 0;
+   var trTag = input.getTag("tr", trPos);
+   while (trTag.valid) {
+      var tr = trTag.value;
+      var item = "{";
+      var tdPos = 0;
+      var tdTag = tr.getTag("td", tdPos);
+      var index = 0;
+      while (tdTag.valid) {
+         var td = tdTag.value;
+         var text = td.removeOpenTag("td").removeCloseTag("td").trim();
+         item = item.append("\"_").append(to_string(index)).append("\":\"").append(text).append("\"");
+         item = item.append(",");
+
+         index = index + 1;
+         tdPos = tdTag.index + tdTag.length;
+         tdTag = tr.getTag("td", tdPos);
+      }
+      if (item.endsWith(",", true)) {
+         item = item.mid(0, item.length() - 1);
+      }
+      item = item.append("}");
+      var empty = (item.length() == 2);
+      if (!empty) {
+         json = json.append(item);
+         json = json.append(",");
+      }
+      trPos = trTag.index + trTag.length;
+      trTag = input.getTag("tr", trPos);
+   }
+
+
+   if (json.endsWith(",", true)) {
+      json = json.mid(0, json.length() - 1);
+   }
+
+   json = json.append("]");
+
+   return json;
+}
+
+def getSubjectsPerformanceDialogTitle() {
+   return "UFAULU WA MASOMO KATIKA MAKUNDI YA UMAHIRI";
+}
+
+def getGenderWisePerformanceDialogTitle() {
+   return "MADARAJA YA UFAULU WA UJUMLA";
+}
+
+def getSubjectsPerformanceDialogTabLable1() {
+   return "WALIOSAJILIWA";
+}
+
+def getSubjectsPerformanceDialogTabLable2() {
+   return "WALIOFAULU";
+}
+
+def getSubjectsPerformanceDialogTabLable3() {
+   return "WASTANI";
+}
+
+
+def onDisplaySFNA(string title, string url) {
+   log(title.append("---").append(url));
+}
+
+def onDisplayRegion(string regionName, string title, string url) {
+
+
+}
+
+def onDisplayDistrict(string districtName, string title, string url) {
+
+}
+
+def onDisplaySchool(string schoolName, string title, string url) {
+   log(schoolName.append("---").append(title).append("---").append(url));
 }
 
 def runTest(string input) {
