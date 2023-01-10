@@ -1016,6 +1016,9 @@ def getSubjectsPerformanceData(string html) {
       while (tdTag.valid) {
          var td = tdTag.value;
          var text = td.removeOpenTag("td").removeCloseTag("td").trim();
+		 if(text.length() == 5 && text.contains("NAMBA",false)){
+		    text = "#";
+		 }
          item = item.append("\"_").append(to_string(index)).append("\":\"").append(text).append("\"");
          item = item.append(",");
 
@@ -1055,14 +1058,18 @@ def getGenderWisePerformanceDialogTitle() {
 }
 
 def getSubjectsPerformanceDialogTabLable1() {
-   return "WALIOSAJILIWA";
+   return "W/SAJILIWA";
 }
 
 def getSubjectsPerformanceDialogTabLable2() {
-   return "WALIOFAULU";
+   return "W/FUTIWA";
 }
 
 def getSubjectsPerformanceDialogTabLable3() {
+   return "W/FAULU";
+}
+
+def getSubjectsPerformanceDialogTabLable4() {
    return "WASTANI";
 }
 
