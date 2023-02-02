@@ -182,6 +182,8 @@ def string::replaceRegex(string regex, string replacement) {
 def filterHtml(string html) {
    var output = html;
 
+   output = output.replace("results\\s","results/s",false);
+   output = output.replace("results\\p","results/p",false);
 
    return output;
 }
@@ -221,7 +223,7 @@ def updateMenu(string input) {
    var output = input;
 
    //put latest release to top
-   output = moveMenuToTop(output, "ACSEE", "2022", 2);
+   output = moveMenuToTop(output, "CSEE", "2022", 2);
 
    return output;
 }
