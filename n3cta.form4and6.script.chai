@@ -231,7 +231,8 @@ def fixRankingAndPerformanceDataForLatestResults(string html) {
          //Fixing Examimantion Centre Subjects Performance Xml Data
          if (table.value.contains("CODE", false)) {
             var tmp = table.value;
-            tmp = tmp.replace("</TR>", "<TD >-</TD></TR>", false);
+            tmp = tmp.replace("(", "</TD><TD>", false);
+            tmp = tmp.remove(")",false);
             output = output.replace(table.value, tmp, false);
          }
          table = output.getTag("table", pos);
