@@ -233,6 +233,7 @@ def fixRankingAndPerformanceDataForLatestResults(string html) {
             var tmp = table.value;
             tmp = tmp.replace("(", "</TD><TD>", false);
             tmp = tmp.remove(")",false);
+            tmp = tmp.remove("Grade",false);
             output = output.replace(table.value, tmp, false);
          }
          table = output.getTag("table", pos);
