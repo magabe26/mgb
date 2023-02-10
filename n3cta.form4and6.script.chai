@@ -550,7 +550,6 @@ def runTest(string input) {
    //var output =  boolToString("qwee".isLower());
    //var output =  boolToString("qwee".isUpper());
    //var output =  boolToString("".isEmpty());
-   //var output =  "   ccvvv   ".simplified();
    //var output = to_string(getScriptRunnerVersion());
 
    //var output  boolToString(saveData("ip2","45.55.5.41"));
