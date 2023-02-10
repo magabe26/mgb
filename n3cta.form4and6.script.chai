@@ -532,26 +532,6 @@ def onTimeOut(int timerCode) {
 def runTest(string input) {
    var output = input;
 
-   //var output =  boolToString("chura".contains("ra",true));
-   //var output =  to_string("chura".indexOf("ra",4,true));
-   //var output =  "chura".remove("ra",true);
-   //var output =  "chura".right(2);
-   //var output =  "chura".left(2);
-   //var output =  "chura".mid(2,2);
-   //var output =  to_string("chura".length());
-   //var output =  "chura".replace("ur","XX",true);
-   //var output =  "chura".replaceAtPosition(2,2, "xxx");
-   //var output =  boolToString("chura".startsWith("chv", true));
-   //var output =  boolToString("chura".endsWith("ra",false));
-   //var output =  to_string("chura".compare("CHURA",true));
-   //var output =  stringarrayToString("chura".split("u"));
-   //var output =  "qwee".append("XX");
-   //var output =  "qwee".prepend("XX");
-   //var output =  boolToString("qwee".isLower());
-   //var output =  boolToString("qwee".isUpper());
-   //var output =  boolToString("".isEmpty());
-   //var output = to_string(getScriptRunnerVersion());
-
    //var output  boolToString(saveData("ip2","45.55.5.41"));
    //var output = getData("ip2");
    //updateData("ip2","no-ip");
