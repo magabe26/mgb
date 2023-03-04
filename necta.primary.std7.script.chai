@@ -623,6 +623,10 @@ def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
             showToastMessage("Tafadhali subiri");
          } else {
             showToastMessage("Ni wamuzi mzuri kupakua toleo hili kwani ndio toleo bora."); //show sad face
+            var os = getOperatingSystem();
+            if(os == "android"){
+               quit();
+             }
          }
          break;
       }
