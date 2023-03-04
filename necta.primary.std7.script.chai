@@ -842,6 +842,7 @@ def onLoadingAd() {
 
 def onAdLoaded() {
    showToastMessage("Ad Loaded !");
+   showAd();
 }
 
 def onFailedToLoadAd(string error) {
