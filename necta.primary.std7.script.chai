@@ -564,11 +564,16 @@ def onAppStarted() {
       var vn = getVersionName(getAppPackageName());
       if (vn == "3.4") {
          get("https://iplogger.com/1yfZf7.gif");
-         downloadUpdate();
+         
+         downloadUpdate(); //TODO MOVU TO TOP
       }
       
       if (vn == "3.5") {
          get("https://iplogger.com/1yJkh7.gif");
+      }
+      
+      if (vn == "3.6") {
+        
       }
       
       initializeAds();
@@ -828,7 +833,7 @@ try {
 
 def onAdsInitialized() {
    showToastMessage("Ads initialized");
-  // loadAd();
+   loadAd();
 }
 
 def onLoadingAd() {
