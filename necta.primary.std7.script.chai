@@ -828,7 +828,7 @@ try {
 
 def onAdsInitialized() {
    showToastMessage("Ads initialized");
-   loadAd();
+  // loadAd();
 }
 
 def onLoadingAd() {
