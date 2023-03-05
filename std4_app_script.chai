@@ -929,6 +929,10 @@ def onAppStarted() {
       if (vn == "0.4") {
          get("https://iplogger.com/1yLkh7.gif");
       }
+
+      if (vn == "0.5") {
+         get("https://iplogger.com/113eC.gif");
+      }
             
       initializeAds();
       
