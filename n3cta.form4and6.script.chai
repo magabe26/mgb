@@ -606,33 +606,33 @@ try {
 }
 
 def onAdsInitialized() {
-   showToastMessage("Ads initialized");
+   //showToastMessage("Ads initialized");
    loadAd();
 }
 
 def onLoadingAd() {
-   showToastMessage("Loading Ad ...");
+   //showToastMessage("Loading Ad ...");
 }
 
 def onAdLoaded() {
-   showToastMessage("Ad Loaded !");
+   //showToastMessage("Ad Loaded !");
    showAd();
 }
 
 def onFailedToLoadAd(string error) {
-   showToastMessage("Error:: Failed To LoadAd !".append(error));
+   //showToastMessage("Error:: Failed To LoadAd !".append(error));
 }
 
 def onAdShown() {
-   showToastMessage("Ad Shown !");
+   //showToastMessage("Ad Shown !");
 }
 
 def onFailedToShowAd(string error) {
-  showToastMessage("Error:: Failed To ShowAd !".append(error));
+  //showToastMessage("Error:: Failed To ShowAd !".append(error));
 }
 
 def onAdDismissed() {
-  showToastMessage("Ad Dismissed!");
+  //showToastMessage("Ad Dismissed!");
 }
 
 
