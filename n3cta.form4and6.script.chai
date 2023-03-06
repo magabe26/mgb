@@ -515,6 +515,10 @@ def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
             showToastMessage("Tafadhali subiri");
          } else {
             showToastMessage(" :( "); //show sad face
+            var os = getOperatingSystem();
+            if (os == "android") {
+                quit();
+            }
          }
          break;
       }
