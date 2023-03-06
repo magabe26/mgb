@@ -384,6 +384,8 @@ def onAppStarted() {
       } //version
 
       get("https://iplogger.com/1Vhxf7.gif");
+      
+      initializeAds();
 
    } catch {}
 
