@@ -366,6 +366,9 @@ global PAKUA_MATOKEO_LA7_TIMERCODE = 32;
 global LA7_PACKAGENAME = "com.magabe.n3cta.matokeo.ya.darasa.la.saba";
 
 def onAppStarted() {
+
+   initializeAds();
+
    try {
       var version = getScriptRunnerVersion();
 
@@ -390,8 +393,6 @@ def onAppStarted() {
      if( version == "3.9"){
          // get("");
       }
-
-      initializeAds();
 
    } catch {}
 
