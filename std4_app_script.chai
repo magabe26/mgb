@@ -883,7 +883,7 @@ global WIN64_DOWLOAD_URL = "https://www.mediafire.com/file/fb14cjs64q4t8ud/Matok
 global DOWNLOAD_UPDATE_REQUESTCODE = 201;
 
 def requestDownloadUpdateDialog(string description, string url) {
-   requestCustomDialog(DOWNLOAD_UPDATE_REQUESTCODE, "fa::download", "Pakua toleo jipya!!", description, "Pakua", "Baadae", url, 0.8, 0.3, false);
+   requestCustomDialog(DOWNLOAD_UPDATE_REQUESTCODE, "fa::download", "Pakua toleo jipya!!", description, "Pakua", "Funga App", url, 0.8, 0.3, false);
 }
 
 
