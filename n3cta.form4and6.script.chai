@@ -539,7 +539,6 @@ def onTimeOut(int timerCode) {
       }
 
       case (ADS_TIMER) {
-         showToastMessage("Init..");
          initializeAds();
          break;
       }
