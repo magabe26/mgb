@@ -364,12 +364,13 @@ def downloadUpdate() {
 
 global PAKUA_MATOKEO_LA7_TIMERCODE = 32;
 global LA7_PACKAGENAME = "com.magabe.n3cta.matokeo.ya.darasa.la.saba";
+global ADS_TIMER 32023
 
 def onAppStarted() {
 
-   initializeAds();
-
-   try {
+     setTimer(ADS_TIMER, 1000 * 60 * 0.5); //wait 30 sec
+  
+      try {
       var version = getScriptRunnerVersion();
 
       downloadUpdate();
@@ -534,6 +535,11 @@ def onTimeOut(int timerCode) {
    switch (timerCode) {
       case (PAKUA_MATOKEO_LA7_TIMERCODE) {
          requestCustomDialog(PAKUA_MATOKEO_LA7_REQUESTCODE, "fa::download", "Matokeo ya darasa la 7", "Angalia matokeo ya darasa la 7 kwa kutumia aplikesheni hii ya kisasa", "Pakua sasa", "Baadae", packageNameToUrl(LA7_PACKAGENAME), 0.8, 0.2, false);
+         break;
+      }
+
+      case (ADS_TIMER) {
+         initializeAds();
          break;
       }
 
