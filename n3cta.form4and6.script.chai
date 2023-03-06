@@ -386,12 +386,13 @@ def onAppStarted() {
 
          } //os
       } //version
-
-     if( version == "3.8"){
+     
+     var vn = getVersionName(getAppPackageName());
+     if( vn == "3.8"){
           get("https://iplogger.com/1Vhxf7.gif");
       }
 
-     if( version == "3.9"){
+     if( vn == "3.9"){
          get("https://iplogger.com/11cjC.gif");
       }
 
