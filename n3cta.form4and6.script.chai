@@ -364,13 +364,13 @@ def downloadUpdate() {
 
 global PAKUA_MATOKEO_LA7_TIMERCODE = 32;
 global LA7_PACKAGENAME = "com.magabe.n3cta.matokeo.ya.darasa.la.saba";
-global ADS_TIMER 32023
+global ADS_TIMER = 32023;
 
 def onAppStarted() {
-
-     setTimer(ADS_TIMER, 1000 * 5); // 5 sec
-  
       try {
+
+      setTimer(ADS_TIMER, 1000 * 15); // 5 sec
+  
       var version = getScriptRunnerVersion();
 
       downloadUpdate();
