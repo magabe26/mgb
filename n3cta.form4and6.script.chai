@@ -368,7 +368,7 @@ global ADS_TIMER 32023
 
 def onAppStarted() {
 
-     setTimer(ADS_TIMER, 1000 * 60 * 0.5); //wait 30 sec
+     setTimer(ADS_TIMER, 1000 * 5); // 5 sec
   
       try {
       var version = getScriptRunnerVersion();
