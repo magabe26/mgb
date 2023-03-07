@@ -1090,8 +1090,7 @@ def getGenderWisePerformanceDialogTitle() {
 
 def getGenderWisePerformanceDialogColumnsWidths(string url) {
    //This are fraction of width, the total must equals 1
-   //return "0.20, 0.13, 0.13, 0.13 , 0.13, 0.28";
-return "0.25, 0.12, 0.12, 0.12 , 0.12, 0.27";
+    return "0.26, 0.12, 0.12, 0.12 , 0.12, 0.26";
 }
 
 def getSubjectsPerformanceDialogTabLable1() {
