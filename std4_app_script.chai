@@ -596,9 +596,6 @@ def updateMenu(string menu) {
 }
 
 def formatGender(string input) {
-     if(currentResultYear < 2019){
-       return input;
-     }
      var json = input;
      if(!json.contains("WASICHANA",false)) {
         json = json.replace("WAS","WASICHANA",false);
@@ -700,6 +697,10 @@ def getGenderWisePerformanceData(string html) {
       var title = titleTag.value;
       year = getYear(title, "");
       currentResultYear = year;
+   }
+
+   if (year <= 2016) {
+      return "";
    }
 
    if (year >= 2022) {
@@ -1097,7 +1098,11 @@ def getGenderWisePerformanceDialogTitle() {
 
 def getGenderWisePerformanceDialogColumnsWidths(string url) {
    //This are fraction of width, the total must equals 1
-    return "0.28, 0.12, 0.12, 0.12 , 0.12, 0.24";
+     if(currentResultYear >= 2019){
+       return "0.28, 0.12, 0.12, 0.12 , 0.12, 0.24";
+     }else {
+        return "0.32, 0.22, 0.22, 0.22 , 0, 0";
+     }
 }
 
 def getSubjectsPerformanceDialogTabLable1() {
