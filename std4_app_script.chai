@@ -181,6 +181,8 @@ def string::equals(string other, bool caseSensitive) {
 
 /* -------------------------------------------------*/
 
+global currentResultYear = 0;
+
 def getPremNoName() {
    return "PREM NO";
 }
@@ -593,6 +595,9 @@ def updateMenu(string menu) {
 }
 
 def formatGender(string input) {
+     if(currentResultYear < 2019){
+       return input;
+     }
      var json = input;
      if(!json.contains("WASICHANA",false)) {
         json = json.replace("WAS","WASICHANA",false);
@@ -1124,7 +1129,7 @@ def onDisplayDistrict(string districtName, string title, string url) {
 }
 
 def onDisplaySchool(string schoolName, string title, string url) {
-   log(schoolName.append("---").append(title).append("---").append(url));
+   currentResultYear = getYear(schoolName,title);
 }
 
 //Ads
