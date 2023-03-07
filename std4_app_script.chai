@@ -666,6 +666,7 @@ def getGenderWisePerformanceDataFor2018ResultsAndBelow(string html) {
    }
 
    json = json.append("]");
+   json = json.replace("JINSI","GREDI",false);
    var empty = (json.length() == 68);
    if (empty) {
       json = "";
@@ -762,6 +763,7 @@ def getGenderWisePerformanceData(string html) {
    }
 
    json = json.append("]");
+   json = json.replace("JINSI","GREDI",false);
    var empty = (json.length() == 2);
    if (empty) {
       json = "";
@@ -827,6 +829,7 @@ def getGenderWisePerformanceDataFor2022AndAbove(string html) {
    }
 
    json = json.append("]");
+   json = json.replace("JINSI","GREDI",false);
    var empty = (json.length() == 2);
    if (empty) {
       json = "";
