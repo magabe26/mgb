@@ -1101,7 +1101,7 @@ def getGenderWisePerformanceDialogColumnsWidths(string url) {
      if(currentResultYear >= 2019){
        return "0.28, 0.12, 0.12, 0.12 , 0.12, 0.24";
      }else {
-        return "0.32, 0.22, 0.22, 0.22 , 0, 0";
+        return "0.24, 0.27, 0.27, 0.22 , 0, 0";
      }
 }
 
