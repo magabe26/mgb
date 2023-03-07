@@ -454,6 +454,7 @@ def getGenderWisePerformanceData(string html) {
    }
 
    json = json.append("]");
+   json = json.replace("JINSI","GREDI",false);
    var empty = (json.length() == 2);
    if (empty) {
       json = "";
