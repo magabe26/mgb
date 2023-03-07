@@ -363,6 +363,7 @@ def filterHtml(string html) {
    if (titleTag.valid) {
       var title = titleTag.value;
       year = getYear(title, "");
+      currentResultYear = year;
    }
 
 
