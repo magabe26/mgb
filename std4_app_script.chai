@@ -698,6 +698,7 @@ def getGenderWisePerformanceData(string html) {
    if (titleTag.valid) {
       var title = titleTag.value;
       year = getYear(title, "");
+      currentResultYear = year;
    }
 
    if (year >= 2022) {
