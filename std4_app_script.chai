@@ -592,6 +592,16 @@ def updateMenu(string menu) {
    return output;
 }
 
+def formatGender(string input) {
+     var json = input;
+     if(!json.contains("WASICHANA",false)) {
+        json = json.replace("WAS","WASICHANA",false);
+     }
+     if(!json.contains("WAVULANA",false)) {
+        json = json.replace("WAV","WAVULANA",false);
+     }
+     return json;
+}
 
 def getGenderWisePerformanceDataFor2018ResultsAndBelow(string html) {
    var output = html;
