@@ -549,7 +549,7 @@ def downloadUpdate() {
 
 global PAKUA_MATOKEO_KIDATO_4NA6_TIMERCODE = 32;
 global FORM4_AND_6_PACKAGENAME = "com.magabelab.matokeo.kidato.cha4na6";
-global PAKUA_MATOKEO_DARASA_LA_NNE_TIMERCODE = 252022
+global PAKUA_MATOKEO_DARASA_LA_NNE_TIMERCODE = 252022;
 global MATOKEO_DARASA_LA_NNE_PACKAGENAME = "com.magabelab.matokeo.ya.darasa.la.nne";
 global DONATE_REQUESTCODE = 13101989;
 global DONATE_TIMERCODE = 202226;
@@ -599,7 +599,7 @@ def onCandidateResultsClicked(string info) {
 }
 
 global PAKUA_MATOKEO_KIDATO_4NA6_REQUESTCODE = 89;
-global PAKUA_MATOKEO_DARASA_LA_NNE_REQUESTCODE = 12252022
+global PAKUA_MATOKEO_DARASA_LA_NNE_REQUESTCODE = 12252022;
 
 /* pressedButton = no or yes */
 def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
