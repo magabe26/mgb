@@ -879,7 +879,7 @@ def onAdDismissed() {
 
 def showOrLoadAd() {
    if(adsInitialized){
-      if(adLoaded()){
+      if(adLoaded()){ showToastMessage("true");
         showAd();
       } else {
         loadAd();
