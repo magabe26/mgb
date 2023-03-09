@@ -907,7 +907,7 @@ def allowSchoolNameInSwahili() {
 
 
 global LATEST_APP_VERSION_NAME = "0.5"; //Always change this this on every App release
-global WIN64_DOWLOAD_URL = "https://www.mediafire.com/file/fb14cjs64q4t8ud/Matokeo_la4.V0.4_%2528Win_x64%2529_Installer.exe/file"; 
+global WIN64_DOWLOAD_URL = "https://www.mediafire.com/file/4zlaw7s3zy2iusk/Matokeo+La4+v0.5+WinX64+Installer.exe/file"; 
 global DOWNLOAD_UPDATE_REQUESTCODE = 201;
 
 def requestDownloadUpdateDialog(string description, string url) {
