@@ -322,7 +322,7 @@ def onShareViaSms(string phoneNumber, string resultsShared) {
 }
 
 global LATEST_APP_VERSION_NAME = "3.9"; //Always change this this on every App release
-global WIN64_DOWLOAD_URL = "https://www.mediafire.com/file/n8x4gxhod2cpv03/Matokeo_Kidato4na6.V3.8_%2528Win_x64%2529_Installer.exe/file";
+global WIN64_DOWLOAD_URL = "https://www.mediafire.com/file/ozi6ss2hz4mp6gk/Matokeo+Kidato4na6+v3.9++WinX64+Installer.exe/file";
 global DOWNLOAD_UPDATE_REQUESTCODE = 201;
 
 def requestDownloadUpdateDialog(string description, string url) {
