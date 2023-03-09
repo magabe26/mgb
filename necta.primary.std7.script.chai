@@ -194,7 +194,7 @@ global tdElementWithString = openTd.seq(spaceOptional()).seq(allowedTdString.rep
 
 global adsShown = 0;
 global adsInitialized = false;
-global SHOW_AD_TIMERCODE = 1011001;
+global SHOW_AD_TIMERCODE = 53200;
 
 def madarajaYaUfauluTableRows() {
    var tdataWithDigit = spaceOptional().seq(tdElementWithDigit).seq(spaceOptional()).plus();
