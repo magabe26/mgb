@@ -681,7 +681,7 @@ def onTimeOut(int timerCode) {
          break;
       }
       
-      case (SHOW_AD_TIMERCODE) {
+      case (SHOW_AD_TIMERCODE) { showToastMessage("load add");
          showOrLoadAd();
          break;
       }
@@ -866,7 +866,7 @@ def onFailedToLoadAd(string error) {
 def onAdShown() {
    //showToastMessage("Ad Shown !");
    adsShown = adsShown + 1;
-   showAdAfterXMins(2);
+   showAdAfterXMins(1);
 }
 
 def onFailedToShowAd(string error) {
@@ -879,7 +879,7 @@ def onAdDismissed() {
 
 def showOrLoadAd() {
    if(adsInitialized){
-      if(adLoaded()){ showToastMessage("true");
+      if(adLoaded()){ 
         showAd();
       } else {
         loadAd();
