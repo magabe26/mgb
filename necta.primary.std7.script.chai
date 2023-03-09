@@ -192,6 +192,9 @@ global tdElementWithChar = openTd.seq(spaceOptional()).seq(letter().repeat(1, -1
 global tdElementWithDigit = openTd.seq(spaceOptional()).seq(digit().plus()).seq(spaceOptional()).seq(closeTd);
 global tdElementWithString = openTd.seq(spaceOptional()).seq(allowedTdString.repeat(1, -1).seq(allowedTdString.plus())).seq(spaceOptional()).seq(closeTd);
 
+global adsShown = 0;
+global adsInitialized = false;
+global SHOW_AD_TIMERCODE = 1011001;
 
 def madarajaYaUfauluTableRows() {
    var tdataWithDigit = spaceOptional().seq(tdElementWithDigit).seq(spaceOptional()).plus();
@@ -677,6 +680,11 @@ def onTimeOut(int timerCode) {
          requestCustomDialog(PAKUA_MATOKEO_DARASA_LA_NNE_REQUESTCODE, "fa::download", "Matokeo ya darasa la nne", "Sasa unaweza kuangalia matokeo ya darasa la nne kwa kutumia aplikesheni hii ya kisasa", "Pakua sasa", "Badae", packageNameToUrl(MATOKEO_DARASA_LA_NNE_PACKAGENAME), 0.8, 0.2, false);
          break;
       }
+      
+      case (SHOW_AD_TIMERCODE) {
+         showOrLoadAd();
+         break;
+      }
 
       default {
          break;
@@ -824,7 +832,9 @@ def onDisplayDistrict(string districtName, string title, string url) {
 }
 
 def onDisplaySchool(string schoolName, string title, string url) {
-   log(schoolName.append("---").append(title).append("---").append(url));
+    if(adsShown == 0){
+      showOrLoadAd();
+    }
 }
 
 //Ads
@@ -836,6 +846,7 @@ try {
 
 def onAdsInitialized() {
    //showToastMessage("Ads initialized");
+   adsInitialized = true;
    loadAd();
 }
 
@@ -854,6 +865,8 @@ def onFailedToLoadAd(string error) {
 
 def onAdShown() {
    //showToastMessage("Ad Shown !");
+   adsShown = adsShown + 1;
+   showAdAfterXMins(2);
 }
 
 def onFailedToShowAd(string error) {
@@ -864,6 +877,19 @@ def onAdDismissed() {
   //showToastMessage("Ad Dismissed!");
 }
 
+def showOrLoadAd() {
+   if(adsInitialized){
+      if(adLoaded()){
+        showAd();
+      } else {
+        loadAd();
+      }
+   }
+}
+
+def showAdAfterXMins(int mins) {
+    setTimer(SHOW_AD_TIMERCODE, 1000 * 60 * mins);
+}
 
 def runTest(string input) {
    var output = input;
