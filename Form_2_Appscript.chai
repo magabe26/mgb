@@ -1,0 +1,637 @@
+/**
+ * Copyright 2022 - MagabeLab (Tanzania). All Rights Reserved.
+ * Author Edwin Magabe    edyma24@gmail.com
+ */
+
+/* --------------  extensions  ---------------*/
+
+def getScriptRunnerVersion() {
+   try {
+      return scriptRunnerVersion();
+   } catch {
+      return 1;
+   }
+}
+
+def getAppPackageName() {
+   try {
+      return getPackageName();
+   } catch {
+      return "com.magabelab.matokeo.ya.kidato.cha.pili";
+   }
+}
+
+def packageNameToUrl(string packageName) {
+   return "https://play.google.com/store/apps/details?id=".append(packageName);
+}
+
+def boolToString(bool b) {
+   return b ? "true" : "false";
+}
+
+
+def string::indexOf(string s, int start, bool caseSensitive) {
+   return strIndexOf(this, s, start, caseSensitive);
+}
+
+def string::contains(string s, bool caseSensitive) {
+   return strContains(this, s, caseSensitive);
+}
+
+def string::remove(string s, bool caseSensitive) {
+   return strRemove(this, s, caseSensitive);
+}
+
+def string::right(int n) {
+   return strRight(this, n);
+}
+
+def string::left(int n) {
+   return strLeft(this, n);
+}
+
+def string::mid(int position, int n) {
+   return strMid(this, position, n);
+}
+
+def string::length() {
+   return strLength(this);
+}
+
+def string::replace(string before, string after, bool caseSensitive) {
+   return strReplace(this, before, after, caseSensitive);
+}
+
+def string::replaceAtPosition(int position, int n, string after) {
+   return strReplaceAtPosition(this, position, n, after);
+}
+
+def string::startsWith(string str, bool caseSensitive) {
+   return strStartsWith(this, str, caseSensitive);
+}
+
+def string::endsWith(string str, bool caseSensitive) {
+   return strEndsWith(this, str, caseSensitive);
+}
+
+def string::truncate(int position) {
+   return strTruncate(this, position);
+}
+
+def string::compare(string other, bool caseSensitive) {
+   return strCompare(this, other, caseSensitive);
+}
+
+def string::split(string sep) {
+   return strSplit(this, sep);
+}
+
+def string::append(string str) {
+   return strAppend(this, str);
+}
+
+def string::prepend(string str) {
+   return strPrepend(this, str);
+}
+
+def string::isLower() {
+   return strIsLower(this);
+}
+
+def string::isUpper() {
+   return strIsUpper(this);
+}
+
+def string::isEmpty() {
+   return strIsEmpty(this);
+}
+
+def string::simplified() {
+   return strSimplified(this);
+}
+
+def string::removeAtPosition(int position, int length) {
+   return strRemoveAtPosition(this, position, length);
+}
+
+class Tag {
+   def Tag(bool valid, int index, int length, string value) {
+      this.valid = valid;
+      this.index = index;
+      this.length = length;
+      this.value = value;
+   }
+   var valid;
+   var index;
+   var length;
+   var value;
+};
+
+def string::getTag(string t, int start) {
+   var closeTag = "</".append(t).append(">");
+   var tag = Tag(false, -1, -1, "");
+   var len = closeTag.length();
+   var firstIndex = this.indexOf("<".append(t), start, false);
+   if (firstIndex != -1) {
+      var lastIndex = this.indexOf(closeTag, firstIndex + 1, false);
+      if (lastIndex != -1) {
+         var n = (lastIndex - firstIndex) + len;
+         var value = this.mid(firstIndex, n);;
+         tag = Tag(true, firstIndex, n, value);
+      }
+   }
+   return tag;
+}
+
+def openTag(string tag) {
+   return chaR('<').seq(spaceOptional()).seq(stR(tag, false)).seq(spaceOptional()).seq(chaR('>'));
+}
+
+def closeTag(string tag) {
+   return chaR('<').seq(spaceOptional()).seq(chaR('/')).seq(spaceOptional()).seq(stR(tag, false)).seq(spaceOptional()).seq(chaR('>'));
+}
+
+def string::removeOpenTag(string t) {
+   var firstIndex = this.indexOf("<".append(t), 0, false);
+   if (firstIndex != -1) {
+      var lastIndex = this.indexOf(">", firstIndex + 1, false);
+      if (lastIndex != -1) {
+         var len = (lastIndex - firstIndex) + 1;
+         this = this.removeAtPosition(firstIndex, len);
+      }
+   }
+}
+
+// Only use this function on a small atring
+def string::removeCloseTag(string t) {
+   this = closeTag(t).removeFrom(this, 0, -1);
+}
+
+def string::removeRegex(string regex) {
+   this = strRemoveRegex(this, regex);
+}
+
+def string::replaceRegex(string regex, string replacement) {
+   this = strReplaceRegex(this, regex, replacement);
+}
+
+def string::equals(string other, bool caseSensitive) {
+   return this.length() == other.length() && strContains(this, other, caseSensitive);
+}
+
+/* -------------------------------------------------*/
+
+def removeSubString(string output, string start, string end) {
+   var firstIndex = output.indexOf(start, 0, false);
+   if (firstIndex != -1) {
+      var lastIndex = output.indexOf(end, firstIndex + 1, false);
+      if (lastIndex != -1) {
+         var len = (lastIndex - firstIndex) + 1;
+         return output.removeAtPosition(firstIndex, len);
+      }
+   }
+   return output;
+}
+
+def removeAllTags(string tag, string html) {
+   var output = html;
+   var open = "<".append(tag);
+   var close = "</".append(tag).append(">");
+   var i = output.indexOf(open, 0, false);
+   while (i != -1) {
+      output = removeOpenTag(output, open, ">");
+      output = output.remove(close, false);
+      i = output.indexOf(open, 0, false);
+   }
+   return output;
+}
+
+
+/*Fix for CSEE 2022 and may be above*/
+def fixRankingAndPerformanceDataForLatestResults(string html) {
+   var output = html;
+   if (output.contains("EXAMINATION CENTRE OVERALL PERFORMANCE", false)) {
+      output = output.remove("<TR></TR>", false);
+
+      //Remove font and color
+      output = removeSubString(output, "<font", ">");
+      while (output.contains("'#", false)) {
+         output = removeSubString(output, "'#", "'");
+      }
+
+      //Remove unwanted table tags
+      var pos = 0;
+      var table = output.getTag("table", pos);
+      while (table.valid) {
+         if (table.value.contains("EXAMINATION CENTRE OVERALL PERFORMANCE", false) ||
+            table.value.contains("EXAMINATION CENTRE DIVISION PERFORMANCE", false) ||
+            table.value.contains("EXAMINATION CENTRE SUBJECTS PERFORMANCE", false)) {
+            output = output.removeAtPosition(table.index, table.length);
+            pos = table.index + 6;
+         } else {
+            pos = table.index + table.length;
+         }
+
+         //Fixing Examimantion Centre Subjects Performance Xml Data
+         if (table.value.contains("CODE", false)) {
+            var tmp = table.value;
+            tmp = tmp.replace("(", "</TD><TD>", false);
+            tmp = tmp.remove(")",false);
+            tmp = tmp.remove("Grade",false);
+            output = output.replace(table.value, tmp, false);
+         }
+         table = output.getTag("table", pos);
+      }
+   }
+   return output;
+}
+
+
+/*  add filter logic inside this function  */
+def filterHtml(string html) {
+   var output = html;
+
+   var year = 0;
+   var title = "";
+   var isACSEE = false;
+   var isCSEE = false;
+   var titleTag = output.getTag("H1", 0);
+   if (titleTag.valid) {
+      title = titleTag.value;
+      year = getYear(title, "");
+      isACSEE = title.contains("ACSEE", false);
+      isCSEE = !isACSEE && title.contains("CSEE", false)
+   }
+
+   output = output.replace("results\\s", "results/s", false);
+   output = output.replace("results\\p", "results/p", false);
+   output = fixRankingAndPerformanceDataForLatestResults(output);
+
+   return output;
+}
+
+def moveMenuToTop(string menu, string type, string year, int loop) {
+   var tmp = menu;
+   var menuTag = Tag(false, -1, -1, "");
+   for (var i = 0; i <= loop; ++i) {
+      var tag = tmp.getTag("RESULTS", 0);
+      if (tag.valid) {
+         var identifier = type.append(" ").append(year);
+         if (tag.value.contains(identifier, false)) {
+            menuTag = tag;
+            break;
+         } else {
+            tmp = tmp.removeAtPosition(tag.index, tag.length);
+         }
+      } else {
+         break;
+      }
+   }
+
+   if (menuTag.valid) {
+      var s = "<NECTA_RESULTS>";
+      var i = menu.indexOf(s, 0, false);
+      if (i != -1) {
+         menu = menu.remove(menuTag.value, true);
+         //append to top
+         menu = menu.replaceAtPosition(i + s.length(), 1, menuTag.value.append("<"))
+      }
+   }
+
+   return menu;
+}
+
+def updateMenu(string input) {
+   var output = input;
+
+   //put latest release to top
+   output = moveMenuToTop(output, "CSEE", "2022", 2);
+
+   return output;
+}
+
+def onUrlVisited(string url) {
+
+
+}
+
+
+def onShareViaSms(string phoneNumber, string resultsShared) {
+
+
+}
+
+global LATEST_APP_VERSION_NAME = "0.1"; //Always change this this on every App release
+global WIN64_DOWLOAD_URL = "https://www.mediafire.com/file/ozi6ss2hz4mp6gk/Matokeo+Kidato4na6+v3.9++WinX64+Installer.exe/file";
+global DOWNLOAD_UPDATE_REQUESTCODE = 201;
+
+def requestDownloadUpdateDialog(string description, string url) {
+   requestCustomDialog(DOWNLOAD_UPDATE_REQUESTCODE, "fa::download", "Pakua toleo jipya!!", description, "Pakua", "Funga App", url, 0.8, 0.2, false);
+}
+
+
+def downloadUpdate() {
+   try {
+
+      var packageName = getAppPackageName();
+      var version = getScriptRunnerVersion();
+      var message = "Toleo jipya la aplikesheni hii ambalo ni ".append(LATEST_APP_VERSION_NAME).append(" limeshatoka, pakua sasa.");
+       var os = getOperatingSystem();
+         var url = (os == "android") ? packageNameToUrl(packageName) : WIN64_DOWLOAD_URL;
+         if (version == 4) {
+            requestDownloadUpdateDialog(message, url);
+         } else {
+            var versionName = getVersionName(packageName);
+            if (versionName != LATEST_APP_VERSION_NAME) {
+               requestDownloadUpdateDialog(message, url);
+            }
+         }
+
+   } catch {}
+
+}
+
+
+global PAKUA_MATOKEO_LA7_TIMERCODE = 32;
+global LA7_PACKAGENAME = "com.magabe.n3cta.matokeo.ya.darasa.la.saba";
+global ADS_TIMER = 32023;
+
+def onAppStarted() {
+      try {
+
+      setTimer(ADS_TIMER, 1000 * 15); // 5 sec
+  
+      var version = getScriptRunnerVersion();
+
+      downloadUpdate();
+
+         var os = getOperatingSystem();
+         if (os == "android") {
+
+            if (!isPackageExisted(LA7_PACKAGENAME)) {
+               setTimer(PAKUA_MATOKEO_LA7_TIMERCODE, 1000 * 60 * 0.5); //wait 30 sec
+            }
+         } //os
+         
+     var vn = getVersionName(getAppPackageName());
+     if( vn == "0.1"){
+     
+      }
+   
+   } catch {}
+
+}
+
+
+def onAppExited(int status) {
+
+}
+
+def beforeHtmlJunkRemover(string html) {
+
+}
+
+def confirmHtmlJunkRemoval(string info) {
+   return true;
+}
+
+def getGenderWisePerformanceTableContent(string html) {
+   while (true) {
+      var table = html.getTag("table", 0);
+      if (table.valid) {
+         var content = table.value;
+         if (content.contains("SEX", false) &&
+            content.contains("F", false) &&
+            content.contains("M", false) &&
+            (!content.contains("CNO", false))) {
+            return content;
+         } else {
+            html = html.removeAtPosition(table.index, table.length);
+         }
+      } else {
+         return "";
+      }
+   }
+}
+
+def getGenderWisePerformanceData(string html) {
+   var content = getGenderWisePerformanceTableContent(html);
+   var json = "[";
+   while (true) {
+      var tag = content.getTag("tr", 0);
+      if (!tag.valid) {
+         break;
+      }
+      var tr = tag.value;
+      var index = 0;
+      var item = "{";
+      while (true) {
+         var tdTag = tr.getTag("td", 0);
+         if (tdTag.valid) {
+            var text = tdTag.value.removeOpenTag("td").removeCloseTag("td").trim();
+            item = item.append("\"_").append(to_string(index)).append("\":\"").append(text).append("\"");
+            item = item.append(",");
+            tr = tr.removeAtPosition(tdTag.index, tdTag.length);
+         } else {
+            break;
+         }
+         index = index + 1;
+      }
+      if (item.endsWith(",", true)) {
+         item = item.mid(0, item.length() - 1);
+      }
+      item = item.append("}");
+      var empty = (item.length() == 2);
+      if (!empty) {
+         json = json.append(item);
+         json = json.append(",");
+      }
+      content = content.removeAtPosition(tag.index, tag.length);
+   }
+
+   if (json.endsWith(",", true)) {
+      json = json.mid(0, json.length() - 1);
+   }
+
+   json = json.append("]");
+   var empty = (json.length() == 2);
+   if (empty) {
+      json = "";
+   }
+
+   return json;
+}
+
+def getNectaCSEEMenuUrl() {
+   return "https://www.necta.go.tz/csee_results";
+}
+
+
+def getNectaMenuUrl() {
+   return "https://www.necta.go.tz/ftsee_results";
+}
+
+//TODO detect type of results first
+def getNectaResultLinks(string html) {
+   var links = [];
+   //links.push_back("");
+
+   return links;
+}
+
+global PAKUA_MATOKEO_LA7_REQUESTCODE = 89;
+
+/* pressedButton = no or yes */
+def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
+   switch (requestCode) {
+      case (PAKUA_MATOKEO_LA7_REQUESTCODE) {
+         if (pressedButton == "yes") {
+            showToastMessage("Tafadhali subiri");
+         } else {
+            showToastMessage("Sawa, nitakukumbusha baadae");
+            setTimer(PAKUA_MATOKEO_LA7_TIMERCODE, 1000 * 60 * 1.5); //wait 1.5 min
+         }
+         break;
+      }
+
+      case (DOWNLOAD_UPDATE_REQUESTCODE) {
+         if (pressedButton == "yes") {
+            showToastMessage("Tafadhali subiri");
+         } else {
+            showToastMessage(" :( "); //show sad face
+            var os = getOperatingSystem();
+            if (os == "android") {
+                quit();
+            }
+         }
+         break;
+      }
+
+      default {
+         break;
+      }
+   }
+
+}
+
+def onTimeOut(int timerCode) {
+   switch (timerCode) {
+      case (PAKUA_MATOKEO_LA7_TIMERCODE) {
+         requestCustomDialog(PAKUA_MATOKEO_LA7_REQUESTCODE, "fa::download", "Matokeo ya darasa la 7", "Angalia matokeo ya darasa la 7 kwa kutumia aplikesheni hii ya kisasa", "Pakua sasa", "Baadae", packageNameToUrl(LA7_PACKAGENAME), 0.8, 0.2, false);
+         break;
+      }
+
+      case (ADS_TIMER) {
+         initializeAds();
+         break;
+      }
+
+      default {
+         break;
+      }
+
+   }
+
+}
+
+global currentSchool = "";
+global currentResultYear = 0;
+global currentResultType = "";
+
+def onSchoolResultsOpened(string info) {
+    //log("School results opened ---> ".append(info));
+
+    currentResultType = info.contains("ACSEE", false) ? "ACSEE": "";
+        if(currentResultType.isEmpty()){
+          currentResultType = info.contains("CSEE", false) ? "CSEE": "";
+        }
+
+        currentResultYear = getYear(info, "");
+
+        currentSchool = info.remove(to_string(currentResultYear),false).remove(currentResultType,false).remove("_",false).trim();
+
+   //log("CurrentResultYear == ".append(to_string(currentResultYear)));
+   //log("CurrentResultType == ".append(currentResultType));
+   //log("CurrentSchool == ".append(currentSchool));
+}
+
+def onCandidateResultOpened(string info) {
+  //log("Candidate result opened ---> ".append(info));
+}
+
+
+def getRegRankTitle()
+{
+   if(currentResultType.equals("CSEE",false)){
+      if(currentResultYear >= 2022){
+          return "GRADE";
+           }else{
+                  return "REG/RANK";
+           }
+   }else {
+      return "REG/RANK";
+
+   }
+}
+
+def getNatRankTitle()
+{
+   if(currentResultType.equals("CSEE",false)){
+      if(currentResultYear >= 2022){
+          return "CLEVEL";
+           }else{
+                    return "NAT/RANK";
+           }
+   }else {
+        return "NAT/RANK";
+   }
+}
+
+//Ads
+def initializeAds() {
+try {
+      initAds("ca-app-pub-2466182993358829/9308229364");
+    } catch {}
+}
+
+def onAdsInitialized() {
+   //showToastMessage("Ads initialized");
+   loadAd();
+}
+
+def onLoadingAd() {
+   //showToastMessage("Loading Ad ...");
+}
+
+def onAdLoaded() {
+   //showToastMessage("Ad Loaded !");
+   showAd();
+}
+
+def onFailedToLoadAd(string error) {
+   //showToastMessage("Error:: Failed To LoadAd !".append(error));
+}
+
+def onAdShown() {
+   //showToastMessage("Ad Shown !");
+}
+
+def onFailedToShowAd(string error) {
+  //showToastMessage("Error:: Failed To ShowAd !".append(error));
+}
+
+def onAdDismissed() {
+  //showToastMessage("Ad Dismissed!");
+}
+
+
+def runTest(string input) {
+   var output = input;
+
+   //var output  boolToString(saveData("ip2","45.55.5.41"));
+   //var output = getData("ip2");
+   //updateData("ip2","no-ip");
+   //var output = getData("ip2");
+
+   return output;
+}
