@@ -288,7 +288,7 @@ def filterHtml(string html) {
 
 
 def getAppTitle(){
-    return "Form 2";
+    return "FORM 2";
 }
 
 def getTdNodeTagNameForResults(int tdIndex, int tdCount, string tagText) {
@@ -388,7 +388,7 @@ def onShareViaSms(string phoneNumber, string resultsShared) {
 }
 
 global LATEST_APP_VERSION_NAME = "0.1"; //Always change this this on every App release
-global WIN64_DOWLOAD_URL = "https://www.mediafire.com/file/ozi6ss2hz4mp6gk/Matokeo+Kidato4na6+v3.9++WinX64+Installer.exe/file";
+global WIN64_DOWLOAD_URL = "https://www.mediafire.com/file/i9k7rgg8l254yhq/Matokeo_Cha2_v0.1_WinX64_Installer.exe/file";
 global DOWNLOAD_UPDATE_REQUESTCODE = 201;
 
 def requestDownloadUpdateDialog(string description, string url) {
