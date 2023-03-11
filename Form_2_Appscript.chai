@@ -186,7 +186,7 @@ def removeSubString(string output, string start, string end) {
    if (firstIndex != -1) {
       var lastIndex = output.indexOf(end, firstIndex + 1, false);
       if (lastIndex != -1) {
-         var len = (lastIndex - firstIndex) + 1;
+         var len = (lastIndex - firstIndex) + end.length();
          return output.removeAtPosition(firstIndex, len);
       }
    }
@@ -207,67 +207,113 @@ def removeAllTags(string tag, string html) {
 }
 
 
-/*Fix for CSEE 2022 and may be above*/
-def fixRankingAndPerformanceDataForLatestResults(string html) {
+/*  add filter logic inside this function  */
+def filterHtml(string html) {
    var output = html;
-   if (output.contains("EXAMINATION CENTRE OVERALL PERFORMANCE", false)) {
-      output = output.remove("<TR></TR>", false);
+   var year = 0;
+   var title = "";
+   var titleTag = output.getTag("H3", 0);
+   if (titleTag.valid) {
+      title = removeSubString(titleTag.value, "<span", "</span>");
+      title = title.replace("<h3>", "<H3>", false).replace("</h3>", "</H3>", false);
+      year = getYear(title, "");
+   }
 
-      //Remove font and color
-      output = removeSubString(output, "<font", ">");
-      while (output.contains("'#", false)) {
-         output = removeSubString(output, "'#", "'");
-      }
-
-      //Remove unwanted table tags
-      var pos = 0;
-      var table = output.getTag("table", pos);
-      while (table.valid) {
-         if (table.value.contains("EXAMINATION CENTRE OVERALL PERFORMANCE", false) ||
-            table.value.contains("EXAMINATION CENTRE DIVISION PERFORMANCE", false) ||
-            table.value.contains("EXAMINATION CENTRE SUBJECTS PERFORMANCE", false)) {
-            output = output.removeAtPosition(table.index, table.length);
-            pos = table.index + 6;
-         } else {
-            pos = table.index + table.length;
-         }
-
-         //Fixing Examimantion Centre Subjects Performance Xml Data
-         if (table.value.contains("CODE", false)) {
-            var tmp = table.value;
-            tmp = tmp.replace("(", "</TD><TD>", false);
-            tmp = tmp.remove(")",false);
-            tmp = tmp.remove("Grade",false);
-            output = output.replace(table.value, tmp, false);
-         }
-         table = output.getTag("table", pos);
+   var isMainResultsPage = false;
+   var startMark = "<div class\"main\">";
+   var i1 = output.indexOf(startMark, 0, false);
+   if (i1 != -1) {
+      var i2 = output.indexOf("</body>", i1, false);
+      if (i2 != -1) {
+         var start = i1 + startMark.length();
+         output = output.mid(start, i2 - start);
+         output = output.replace("<div><a", "<TD><A", false);
+         output = output.replace("</a></div>", "</A></TD>", false);
+         output = "<H2>NATIONAL EXAMINATIONS COUNCIL OF TANZANIA</H2>".append(title).append(output);
+         output = output.replace("results\\s", "results/s", false);
+         output = output.replace("results\\p", "results/p", false);
+         isMainResultsPage = true;
       }
    }
+
+   if (!isMainResultsPage) {
+      output = output.remove("<font  size>", false);
+      output = output.remove("<p >", false);
+      output = output.remove("<p>", false);
+      output = output.remove("</p>", false);
+      output = output.remove("<b>", false);
+      output = output.remove("</b>", false);
+      output = output.remove("<tbody>", false);
+      output = output.remove("</tbody>", false);
+      var h1 = output.getTag("h1", 0).value.replace("h1", "TITLE", false);
+      var h2 = output.getTag("h2", 0).value.replace("h2", "COUNCIL", false);
+      var h3 = output.getTag("h3", 0).value.replace("h3", "SCHOOL", false);
+
+      var pos = 0;
+      var tag = output.getTag("table", pos);
+      while (tag.valid) {
+         var table = tag.value;
+         if (table.contains("CNO", false) &&
+            table.contains("SEX", false) &&
+            table.contains("CANDIDATE NAME", false)) {
+            output = table;
+            break;
+         }
+         pos = tag.index + tag.length;
+         tag = output.getTag("table", pos);
+      }
+
+      output = strToUpper(output);
+      output = output.replace("</TR>", "</TR><TR>", false);
+      output = output.replace("<TR><TR>", "<TR>", false);
+      pos = 0;
+      tag = output.getTag("tr", pos);
+      while (tag.valid) {
+         var tr = tag.value;
+         if (tr.contains("CNO", false) &&
+            tr.contains("SEX", false) &&
+            tr.contains("CANDIDATE NAME", false)) {
+            output = output.removeAtPosition(tag.index, tag.length);
+            break;
+         }
+         pos = tag.index + tag.length;
+         tag = output.getTag("tr", pos);
+      }
+
+      output = "<BODY>".append(h2).append(h1).append(h3).append(output).append("</BODY>");
+   }
+
    return output;
 }
 
 
-/*  add filter logic inside this function  */
-def filterHtml(string html) {
-   var output = html;
-
-   var year = 0;
-   var title = "";
-   var isACSEE = false;
-   var isCSEE = false;
-   var titleTag = output.getTag("H1", 0);
-   if (titleTag.valid) {
-      title = titleTag.value;
-      year = getYear(title, "");
-      isACSEE = title.contains("ACSEE", false);
-      isCSEE = !isACSEE && title.contains("CSEE", false)
+def getTdNodeTagNameForResults(int tdIndex, int tdCount, string tagText) {
+   switch (tdIndex) {
+      case (0) {
+         return "CNO";
+      }
+      case (1) {
+         return "PREM_NO";
+      }
+      case (2) {
+         return "CANDIDATE_NAME";
+      }
+      case (3) {
+         return "SEX";
+      }
+      case (4) {
+         return "AGGT";
+      }
+      case (5) {
+         return "DIV";
+      }
+      case (6) {
+         return "DETAILED_SUBJECTS";
+      }
+      default {
+         return "";
+      }
    }
-
-   output = output.replace("results\\s", "results/s", false);
-   output = output.replace("results\\p", "results/p", false);
-   output = fixRankingAndPerformanceDataForLatestResults(output);
-
-   return output;
 }
 
 def moveMenuToTop(string menu, string type, string year, int loop) {
@@ -301,6 +347,10 @@ def moveMenuToTop(string menu, string type, string year, int loop) {
    return menu;
 }
 
+def getPremNoName() {
+   return "PREM NO";
+}
+
 def updateMenu(string input) {
    var output = input;
 
@@ -309,6 +359,18 @@ def updateMenu(string input) {
 
    return output;
 }
+
+
+def getGenderWisePerformanceDialogTitle() {
+   return "DIVISION PERFORMANCE SUMMARY";
+}
+
+
+def getGenderWisePerformanceDialogColumnsWidths() {
+   //This are fraction of width, the total must equals 1
+   return "0.30, 0.14, 0.14, 0.14 , 0.14, 0.14";
+}
+
 
 def onUrlVisited(string url) {
 
@@ -336,16 +398,12 @@ def downloadUpdate() {
       var packageName = getAppPackageName();
       var version = getScriptRunnerVersion();
       var message = "Toleo jipya la aplikesheni hii ambalo ni ".append(LATEST_APP_VERSION_NAME).append(" limeshatoka, pakua sasa.");
-       var os = getOperatingSystem();
-         var url = (os == "android") ? packageNameToUrl(packageName) : WIN64_DOWLOAD_URL;
-         if (version == 4) {
-            requestDownloadUpdateDialog(message, url);
-         } else {
-            var versionName = getVersionName(packageName);
-            if (versionName != LATEST_APP_VERSION_NAME) {
-               requestDownloadUpdateDialog(message, url);
-            }
-         }
+      var os = getOperatingSystem();
+      var url = (os == "android") ? packageNameToUrl(packageName) : WIN64_DOWLOAD_URL;
+      var versionName = getVersionName(packageName);
+      if (versionName != LATEST_APP_VERSION_NAME) {
+         requestDownloadUpdateDialog(message, url);
+      }
 
    } catch {}
 
@@ -357,27 +415,27 @@ global LA7_PACKAGENAME = "com.magabe.n3cta.matokeo.ya.darasa.la.saba";
 global ADS_TIMER = 32023;
 
 def onAppStarted() {
-      try {
+   try {
 
       setTimer(ADS_TIMER, 1000 * 15); // 5 sec
-  
+
       var version = getScriptRunnerVersion();
 
       downloadUpdate();
 
-         var os = getOperatingSystem();
-         if (os == "android") {
+      var os = getOperatingSystem();
+      if (os == "android") {
 
-            if (!isPackageExisted(LA7_PACKAGENAME)) {
-               setTimer(PAKUA_MATOKEO_LA7_TIMERCODE, 1000 * 60 * 0.5); //wait 30 sec
-            }
-         } //os
-         
-     var vn = getVersionName(getAppPackageName());
-     if( vn == "0.1"){
-     
+         if (!isPackageExisted(LA7_PACKAGENAME)) {
+            setTimer(PAKUA_MATOKEO_LA7_TIMERCODE, 1000 * 60 * 0.5); //wait 30 sec
+         }
+      } //os
+
+      var vn = getVersionName(getAppPackageName());
+      if (vn == "0.1") {
+
       }
-   
+
    } catch {}
 
 }
@@ -395,27 +453,21 @@ def confirmHtmlJunkRemoval(string info) {
    return true;
 }
 
-def getGenderWisePerformanceTableContent(string html) {
-   while (true) {
-      var table = html.getTag("table", 0);
-      if (table.valid) {
-         var content = table.value;
-         if (content.contains("SEX", false) &&
-            content.contains("F", false) &&
-            content.contains("M", false) &&
-            (!content.contains("CNO", false))) {
-            return content;
-         } else {
-            html = html.removeAtPosition(table.index, table.length);
-         }
-      } else {
-         return "";
-      }
-   }
-}
 
 def getGenderWisePerformanceData(string html) {
-   var content = getGenderWisePerformanceTableContent(html);
+   var content = html.remove("<font  size>", false);
+   content = content.remove("<p >", false);
+   content = content.remove("<p>", false);
+   content = content.remove("</p>", false);
+   content = content.remove("<b>", false);
+   content = content.remove("</b>", false);
+
+   content = content.getTag("table", 0).value; //Its the first table
+
+   if (!content.contains("SEX", false)) {
+      return "";
+   }
+
    var json = "[";
    while (true) {
       var tag = content.getTag("tr", 0);
@@ -462,8 +514,81 @@ def getGenderWisePerformanceData(string html) {
    return json;
 }
 
-def getNectaCSEEMenuUrl() {
-   return "https://www.necta.go.tz/csee_results";
+
+def getGeneralRankingAndPerformanceData(string html) {
+   var output = html.remove("<font  size>", false);
+   output = output.remove("<p >", false);
+   output = output.remove("<p>", false);
+   output = output.remove("</p>", false);
+   output = output.remove("<b>", false);
+   output = output.remove("</b>", false);
+   output = output.remove("<p \"RIGHT\">", false);
+   output = output.remove("", false);
+
+   var index = output.indexOf("<td >EXAMINATION CENTRE RANKING</td>", 0, false);
+   output = output.right(output.length() - index);
+   output = removeSubString(output, "<div", "</html>");
+
+   while (output.contains("<span", false)) {
+      output = removeSubString(output, "<span", ">");
+   }
+   output = output.remove("</span>", false);
+
+   while (output.contains("style", false)) {
+      output = removeSubString(output, "style", "\"");
+   }
+
+   while (output.contains("font", false)) {
+      output = removeSubString(output, "font", "\"");
+   }
+
+   output = output.remove("<TR></TR>", false);
+
+   //Remove font and color
+   output = removeSubString(output, "<font", ">");
+   while (output.contains("'#", false)) {
+      output = removeSubString(output, "'#", "'");
+   }
+
+   //Remove unwanted table tags
+   var pos = 0;
+   var table = output.getTag("table", pos);
+   while (table.valid) {
+      if (table.value.contains("EXAMINATION CENTRE OVERALL PERFORMANCE", false) ||
+         table.value.contains("EXAMINATION CENTRE DIVISION PERFORMANCE", false) ||
+         table.value.contains("EXAMINATION CENTRE SUBJECTS PERFORMANCE", false)) {
+         output = output.removeAtPosition(table.index, table.length);
+         pos = table.index + 6;
+      } else {
+         pos = table.index + table.length;
+      }
+
+      //Fixing Examimantion Centre Subjects Performance Xml Data
+      if (table.value.contains("CODE", false)) {
+         var tmp = table.value;
+         tmp = tmp.replace("(", "</TD><TD>", false);
+         tmp = tmp.remove(")", false);
+         tmp = tmp.remove("Grade", false);
+         output = output.replace(table.value, tmp, false);
+      }
+      table = output.getTag("table", pos);
+   }
+
+   var tbody = "";
+   var tbodyPos = 0;
+   var tag = output.getTag("tbody", tbodyPos);
+   while (tag.valid) {
+      tbody = tbody.append(tag.value);
+      tbodyPos = tag.index + tag.length;
+      tag = output.getTag("tbody", tbodyPos);
+   }
+
+   output = tbody;
+   output = output.replace("tbody", "table", false);
+   output = strToUpper(output);
+
+   return output;
+
 }
 
 
@@ -501,7 +626,7 @@ def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
             showToastMessage(" :( "); //show sad face
             var os = getOperatingSystem();
             if (os == "android") {
-                quit();
+               quit();
             }
          }
          break;
@@ -536,62 +661,43 @@ def onTimeOut(int timerCode) {
 
 global currentSchool = "";
 global currentResultYear = 0;
-global currentResultType = "";
 
 def onSchoolResultsOpened(string info) {
-    //log("School results opened ---> ".append(info));
+   log("School results opened ---> ".append(info));
 
-    currentResultType = info.contains("ACSEE", false) ? "ACSEE": "";
-        if(currentResultType.isEmpty()){
-          currentResultType = info.contains("CSEE", false) ? "CSEE": "";
-        }
+   currentResultYear = getYear(info, "");
+   currentSchool = info.remove(to_string(currentResultYear), false).remove("_", false).trim();
 
-        currentResultYear = getYear(info, "");
-
-        currentSchool = info.remove(to_string(currentResultYear),false).remove(currentResultType,false).remove("_",false).trim();
-
-   //log("CurrentResultYear == ".append(to_string(currentResultYear)));
-   //log("CurrentResultType == ".append(currentResultType));
-   //log("CurrentSchool == ".append(currentSchool));
+   log("CurrentResultYear == ".append(to_string(currentResultYear)));
+   log("CurrentSchool == ".append(currentSchool));
 }
 
 def onCandidateResultOpened(string info) {
-  //log("Candidate result opened ---> ".append(info));
+   //log("Candidate result opened ---> ".append(info));
 }
 
 
-def getRegRankTitle()
-{
-   if(currentResultType.equals("CSEE",false)){
-      if(currentResultYear >= 2022){
-          return "GRADE";
-           }else{
-                  return "REG/RANK";
-           }
-   }else {
+def getRegRankTitle() {
+   if (currentResultYear >= 2022) {
+      return "GRADE";
+   } else {
       return "REG/RANK";
-
    }
 }
 
-def getNatRankTitle()
-{
-   if(currentResultType.equals("CSEE",false)){
-      if(currentResultYear >= 2022){
-          return "CLEVEL";
-           }else{
-                    return "NAT/RANK";
-           }
-   }else {
-        return "NAT/RANK";
+def getNatRankTitle() {
+   if (currentResultYear >= 2022) {
+      return "CLEVEL";
+   } else {
+      return "NAT/RANK";
    }
 }
 
 //Ads
 def initializeAds() {
-try {
+   try {
       initAds("ca-app-pub-2466182993358829/9308229364");
-    } catch {}
+   } catch {}
 }
 
 def onAdsInitialized() {
@@ -617,11 +723,11 @@ def onAdShown() {
 }
 
 def onFailedToShowAd(string error) {
-  //showToastMessage("Error:: Failed To ShowAd !".append(error));
+   //showToastMessage("Error:: Failed To ShowAd !".append(error));
 }
 
 def onAdDismissed() {
-  //showToastMessage("Ad Dismissed!");
+   //showToastMessage("Ad Dismissed!");
 }
 
 
