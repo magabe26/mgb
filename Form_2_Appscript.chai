@@ -279,7 +279,7 @@ def filterHtml(string html) {
          pos = tag.index + tag.length;
          tag = output.getTag("tr", pos);
       }
-
+      output = output.replace("REFERRED", "0", false);
       output = "<BODY>".append(h2).append(h1).append(h3).append(output).append("</BODY>");
    }
 
