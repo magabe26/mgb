@@ -449,14 +449,6 @@ def onAppExited(int status) {
 
 }
 
-def beforeHtmlJunkRemover(string html) {
-
-}
-
-def confirmHtmlJunkRemoval(string info) {
-   return true;
-}
-
 
 def getGenderWisePerformanceData(string html) {
    var content = html.remove("<font  size>", false);
@@ -597,7 +589,7 @@ def getGeneralRankingAndPerformanceData(string html) {
 
 
 def getNectaMenuUrl() {
-   return "";
+   return "#";
 }
 
 //TODO detect type of results first
@@ -700,8 +692,7 @@ def getNatRankTitle() {
 //Ads
 def initializeAds() {
    try {
-      //initAds("ca-app-pub-2466182993358829/9247948798");
-       initAds("ca-app-pub-3940256099942544/1033173712"); //test ad
+      initAds("ca-app-pub-2466182993358829/9247948798");
    } catch {}
 }
 
