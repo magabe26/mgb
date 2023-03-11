@@ -700,7 +700,8 @@ def getNatRankTitle() {
 //Ads
 def initializeAds() {
    try {
-      initAds("ca-app-pub-2466182993358829/9247948798");
+      //initAds("ca-app-pub-2466182993358829/9247948798");
+       initAds("ca-app-pub-3940256099942544/1033173712"); //test ad
    } catch {}
 }
 
