@@ -287,6 +287,10 @@ def filterHtml(string html) {
 }
 
 
+def getAppTitle(){
+    return "Form 2";
+}
+
 def getTdNodeTagNameForResults(int tdIndex, int tdCount, string tagText) {
    switch (tdIndex) {
       case (0) {
@@ -593,7 +597,7 @@ def getGeneralRankingAndPerformanceData(string html) {
 
 
 def getNectaMenuUrl() {
-   return "https://www.necta.go.tz/ftsee_results";
+   return "";
 }
 
 //TODO detect type of results first
