@@ -387,7 +387,7 @@ def onShareViaSms(string phoneNumber, string resultsShared) {
 
 }
 
-global LATEST_APP_VERSION_NAME = "0.1"; //Always change this this on every App release
+global LATEST_APP_VERSION_NAME = "0.2"; //Always change this this on every App release
 global WIN64_DOWLOAD_URL = "https://www.mediafire.com/file/i9k7rgg8l254yhq/Matokeo_Cha2_v0.1_WinX64_Installer.exe/file";
 global DOWNLOAD_UPDATE_REQUESTCODE = 201;
 
@@ -582,9 +582,9 @@ def getGeneralRankingAndPerformanceData(string html) {
    output = tbody;
    output = output.replace("tbody", "table", false);
    output = strToUpper(output);
-
+   output = output.replace("SATISFACTORY", "SATIS FACTORY", false); //make it fit in a column 
+  
    return output;
-
 }
 
 
