@@ -427,13 +427,12 @@ def onAppStarted() {
 
       downloadUpdate();
 
-      var os = getOperatingSystem();
-      if (os == "android") {
-
-         if (!isPackageExisted(LA7_PACKAGENAME)) {
-            setTimer(PAKUA_MATOKEO_LA7_TIMERCODE, 1000 * 60 * 0.5); //wait 30 sec
-         }
-      } //os
+      //var os = getOperatingSystem();
+      //if (os == "android") {
+      //   if (!isPackageExisted(LA7_PACKAGENAME)) {
+      //      setTimer(PAKUA_MATOKEO_LA7_TIMERCODE, 1000 * 60 * 0.5); //wait 30 sec
+      //   }
+      //}
 
       var vn = getVersionName(getAppPackageName());
       if (vn == "0.2") {
