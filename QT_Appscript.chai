@@ -1,0 +1,442 @@
+/**
+ * Copyright 2022 - MagabeLab (Tanzania). All Rights Reserved.
+ * Author Edwin Magabe    edyma24@gmail.com
+ */
+
+/* --------------  extensions  ---------------*/
+
+def getScriptRunnerVersion() {
+   try {
+      return scriptRunnerVersion();
+   } catch {
+      return 1;
+   }
+}
+
+def getAppPackageName() {
+   try {
+      return getPackageName();
+   } catch {
+      return "com.magabelab.matokeo.ya.darasa.la.nne";
+   }
+}
+
+def packageNameToUrl(string packageName) {
+   return "https://play.google.com/store/apps/details?id=".append(packageName);
+}
+
+def boolToString(bool b) {
+   return b ? "true" : "false";
+}
+
+
+def string::indexOf(string s, int start, bool caseSensitive) {
+   return strIndexOf(this, s, start, caseSensitive);
+}
+
+def string::contains(string s, bool caseSensitive) {
+   return strContains(this, s, caseSensitive);
+}
+
+def string::remove(string s, bool caseSensitive) {
+   return strRemove(this, s, caseSensitive);
+}
+
+def string::right(int n) {
+   return strRight(this, n);
+}
+
+def string::left(int n) {
+   return strLeft(this, n);
+}
+
+def string::mid(int position, int n) {
+   return strMid(this, position, n);
+}
+
+def string::length() {
+   return strLength(this);
+}
+
+def string::replace(string before, string after, bool caseSensitive) {
+   return strReplace(this, before, after, caseSensitive);
+}
+
+def string::replaceAtPosition(int position, int n, string after) {
+   return strReplaceAtPosition(this, position, n, after);
+}
+
+def string::startsWith(string str, bool caseSensitive) {
+   return strStartsWith(this, str, caseSensitive);
+}
+
+def string::endsWith(string str, bool caseSensitive) {
+   return strEndsWith(this, str, caseSensitive);
+}
+
+def string::truncate(int position) {
+   return strTruncate(this, position);
+}
+
+def string::compare(string other, bool caseSensitive) {
+   return strCompare(this, other, caseSensitive);
+}
+
+def string::split(string sep) {
+   return strSplit(this, sep);
+}
+
+def string::append(string str) {
+   return strAppend(this, str);
+}
+
+def string::prepend(string str) {
+   return strPrepend(this, str);
+}
+
+def string::isLower() {
+   return strIsLower(this);
+}
+
+def string::isUpper() {
+   return strIsUpper(this);
+}
+
+def string::isEmpty() {
+   return strIsEmpty(this);
+}
+
+def string::simplified() {
+   return strSimplified(this);
+}
+
+def string::removeAtPosition(int position, int length) {
+   return strRemoveAtPosition(this, position, length);
+}
+
+class Tag {
+   def Tag(bool valid, int index, int length, string value) {
+      this.valid = valid;
+      this.index = index;
+      this.length = length;
+      this.value = value;
+   }
+   var valid;
+   var index;
+   var length;
+   var value;
+};
+
+def string::getTag(string t, int start) {
+   var closeTag = "</".append(t).append(">");
+   var tag = Tag(false, -1, -1, "");
+   var len = closeTag.length();
+   var firstIndex = this.indexOf("<".append(t), start, false);
+   if (firstIndex != -1) {
+      var lastIndex = this.indexOf(closeTag, firstIndex + 1, false);
+      if (lastIndex != -1) {
+         var n = (lastIndex - firstIndex) + len;
+         var value = this.mid(firstIndex, n);;
+         tag = Tag(true, firstIndex, n, value);
+      }
+   }
+   return tag;
+}
+
+def openTag(string tag) {
+   return chaR('<').seq(spaceOptional()).seq(stR(tag, false)).seq(spaceOptional()).seq(chaR('>'));
+}
+
+def closeTag(string tag) {
+   return chaR('<').seq(spaceOptional()).seq(chaR('/')).seq(spaceOptional()).seq(stR(tag, false)).seq(spaceOptional()).seq(chaR('>'));
+}
+
+def string::removeOpenTag(string t) {
+   var firstIndex = this.indexOf("<".append(t), 0, false);
+   if (firstIndex != -1) {
+      var lastIndex = this.indexOf(">", firstIndex + 1, false);
+      if (lastIndex != -1) {
+         var len = (lastIndex - firstIndex) + 1;
+         this = this.removeAtPosition(firstIndex, len);
+      }
+   }
+}
+
+// Only use this function on a small atring
+def string::removeCloseTag(string t) {
+   this = closeTag(t).removeFrom(this, 0, -1);
+}
+
+def string::removeRegex(string regex) {
+   this = strRemoveRegex(this, regex);
+}
+
+def string::replaceRegex(string regex, string replacement) {
+   this = strReplaceRegex(this, regex, replacement);
+}
+
+def string::equals(string other, bool caseSensitive) {
+   return this.length() == other.length() && strContains(this, other, caseSensitive);
+}
+
+/* -------------------------------------------------*/
+
+global adsShown = 0;
+global adsInitialized = false;
+global SHOW_AD_TIMERCODE = 1011001;
+
+
+//  Add filter logic inside this function
+def filterHtml(string html) {
+   var output = html;
+
+   return output;
+}
+
+
+def updateMenu(string menu) {
+   var output = menu;
+
+   return output;
+}
+
+
+def getNectaMenuUrl() {
+   return "#";
+}
+
+
+def getNectaResultLinks(string html) {
+   var links = [];
+   //links.push_back("");
+
+   return links;
+}
+
+def onUrlVisited(string url) {
+
+
+}
+
+
+def onShareViaSms(string phoneNumber, string resultsShared) {
+
+
+}
+
+
+def getUserAgentString() {
+   return "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:56.0) Gecko/20100101 Firefox/56.0";
+}
+
+
+def allowSchoolNameInSwahili() {
+   return false;
+}
+
+
+global LATEST_APP_VERSION_NAME = "0.1"; //Always change this this on every App release
+global WIN64_DOWLOAD_URL = "https://www.mediafire.com/file/4zlaw7s3zy2iusk/Matokeo+La4+v0.5+WinX64+Installer.exe/file";
+global DOWNLOAD_UPDATE_REQUESTCODE = 201;
+
+def requestDownloadUpdateDialog(string description, string url) {
+   requestCustomDialog(DOWNLOAD_UPDATE_REQUESTCODE, "fa::download", "Pakua toleo jipya!!", description, "Pakua", "Funga App", url, 0.8, 0.3, false);
+}
+
+
+def downloadUpdate() {
+   try {
+
+      var packageName = getAppPackageName();
+      var message = "Toleo jipya la aplikesheni hii ambalo ni ".append(LATEST_APP_VERSION_NAME).append(" limeshatoka. Toleo hili linaonyesha taarifa ya ufaulu wa masomo katika makundi. Pakua sasa na pia usisahau ku-rate aplikesheni hii, Asante.");
+      var os = getOperatingSystem();
+      var url = (os == "android") ? packageNameToUrl(packageName) : WIN64_DOWLOAD_URL;
+      var versionName = getVersionName(packageName);
+      if (versionName != LATEST_APP_VERSION_NAME) {
+         requestDownloadUpdateDialog(message, url);
+      }
+
+   } catch {}
+
+}
+
+global PAKUA_MATOKEO_KIDATO_4NA6_TIMERCODE = 32;
+global FORM4_AND_6_PACKAGENAME = "com.magabelab.matokeo.kidato.cha4na6";
+
+def onAppStarted() {
+   try {
+
+      downloadUpdate();
+
+      var vn = getVersionName(getAppPackageName());
+      if (vn == "0.1") {
+
+      }
+
+      initializeAds();
+	  
+	  log("----found url = ".append(getResultJsonDataUsingYear(2022)));
+
+   } catch {}
+
+}
+
+
+def onAppExited(int status) {
+
+
+}
+
+
+global PAKUA_MATOKEO_KIDATO_4NA6_REQUESTCODE = 89;
+
+/* pressedButton = no or yes */
+def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
+   switch (requestCode) {
+      case (PAKUA_MATOKEO_KIDATO_4NA6_REQUESTCODE) {
+         if (pressedButton == "yes") {
+            showToastMessage("Asante, Tafadhali subiri");
+         } else {
+            showToastMessage("Sawa, nitakukumbusha baadae");
+            setTimer(PAKUA_MATOKEO_KIDATO_4NA6_TIMERCODE, 1000 * 60 * 1.5); //wait 1.5 min
+         }
+         break;
+      }
+
+      case (DOWNLOAD_UPDATE_REQUESTCODE) {
+         if (pressedButton == "yes") {
+            showToastMessage("Tafadhali subiri");
+         } else {
+            showToastMessage(" :( "); //show sad face
+            var os = getOperatingSystem();
+            if (os == "android") {
+                quit();
+             }
+         }
+         break;
+      }
+
+      default {
+         break;
+      }
+   }
+
+}
+
+def onTimeOut(int timerCode) {
+   switch (timerCode) {
+      case (PAKUA_MATOKEO_KIDATO_4NA6_TIMERCODE) {
+         requestCustomDialog(PAKUA_MATOKEO_KIDATO_4NA6_REQUESTCODE, "fa::download", "Matokeo kidato cha 4 na 6", "Angalia matokeo ya kidato cha 6 kwa kutumia aplikesheni hii ya kisasa", "Pakua sasa", "Badae", packageNameToUrl(FORM4_AND_6_PACKAGENAME), 0.8, 0.2, false);
+         break;
+      }
+
+      case (SHOW_AD_TIMERCODE) {
+         showOrLoadAd();
+         break;
+      }
+
+      default {
+         break;
+      }
+
+   }
+
+}
+
+
+def onDisplaySchool(string json,int year) {
+   if(adsShown == 0){
+      showOrLoadAd();
+   }
+}
+
+def onCandidateResultClicked(string json,int year) {
+    log(json);
+}
+
+def getFallbackJson(string resultsData, int year){
+    showToastMessage("Warning: getFallbackJson called for year = ".append(to_string(year)));
+	
+    return "";
+}
+
+//parser
+def onParseStarted(string url, int year) {
+  //log("onParseStarted: year = ".append(to_string(year)).append(", url = ").append(url));
+}  
+
+def onParseError(string error, int position,string url, int year) {
+ // var str = "onParseError: error = ".append(error).append(", position = ").append(to_string(position)).append(", year = ").append(to_string(year)).append(", url = ").append(url);
+  //log(str);
+}
+
+def onParseCompleted(int position,string url, int year) {
+  //log("onParseCompleted: position =".append(to_string(position)).append(", year = ").append(to_string(year)).append(", url = ").append(url));
+}
+
+//returns double whitch represent a fraction of parsed data length
+//  to be reached, in order to consider a parse as a success
+def getAcceptableParseCompletion(string url, int year) {
+    return 0.75;
+}
+
+//Ads
+def initializeAds() {
+try {
+      initAds("ca-app-pub-2466182993358829/8819992826");
+    } catch {}
+}
+
+def onAdsInitialized() {
+   //showToastMessage("Ads initialized");
+   adsInitialized = true;
+   loadAd();
+}
+
+def onLoadingAd() {
+   //showToastMessage("Loading Ad ...");
+}
+
+def onAdLoaded() {
+   //showToastMessage("Ad Loaded !");
+   showAd();
+}
+
+def onFailedToLoadAd(string error) {
+   //showToastMessage("Error:: Failed To LoadAd !".append(error));
+}
+
+def onAdShown() {
+   //showToastMessage("Ad Shown !");
+   adsShown = adsShown + 1;
+   showAdAfterXMins(2);
+}
+
+def onFailedToShowAd(string error) {
+  //showToastMessage("Error:: Failed To ShowAd !".append(error));
+}
+
+def onAdDismissed() {
+  //showToastMessage("Ad Dismissed!");
+}
+
+def showOrLoadAd() {
+   if(adsInitialized){
+      if(adLoaded()){
+        showAd();
+      } else {
+        loadAd();
+      }
+   }
+}
+
+def showAdAfterXMins(int mins) {
+   var delay = 1000 * 60 * mins;
+   setTimer(SHOW_AD_TIMERCODE, delay);
+}
+
+def runTest(string input) {
+   var output = input;
+
+   return output;
+}
