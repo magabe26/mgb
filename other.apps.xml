@@ -2,29 +2,29 @@
 <APPS>
   
 <APP>
-  <A HREF="#"> -- APLIKESHENI MPYA IMETOKA --</A>
+  <A HREF="#"> -- APLIKESHENI MPYA ZIMETOKA --</A>
 </APP> 
   
 <APP>
-  <A HREF="#">Hii ni aplikesheni ya kisasa</A>
+  <A HREF="#">Hizi ni aplikesheni za kisasa</A>
 </APP>
   
 <APP>
-  <A HREF="#">ya kuangalia matokeo ya kidato cha pili</A>
+  <A HREF="#">Pakua sasa</A>
 </APP>  
   
 <APP>
-  <A HREF="#">[Form Two (FTNA)]</A>
+  <A HREF="https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.qt">Matokeo ya QT</A>
 </APP>  
   
 <APP>
-  <A HREF="#">Unaweza kupakua aplikesheni hii</A>
+  <A HREF="https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.kidato.cha.pili">Matokeo ya kidato cha pili</A>
 </APP>  
-  
-<APP>
-  <A HREF="https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.kidato.cha.pili">hapa</A>
+
+ <APP>
+  <A HREF="https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.kidato.cha.pili">[Form Two (FTNA)]</A>
 </APP>  
-  
+
 <APP>
   <A HREF="#"></A>
 </APP>
