@@ -1,3 +1,22 @@
 [
-
+   {
+      "appName": "Matokeo ya darasa la 4",
+      "appUrl": "https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.darasa.la.nne"
+   },
+   {
+      "appName": "Matokeo ya darasa la 7",
+      "appUrl": "https://play.google.com/store/apps/details?id=com.magabe.n3cta.matokeo.ya.darasa.la.saba"
+   },
+   {
+      "appName": "Doctor Magic",
+      "appUrl": "https://play.google.com/store/apps/details?id=com.magabelab.doctormagic"
+   },
+   {
+      "appName": "ZeMGame",
+      "appUrl": "https://play.google.com/store/apps/details?id=com.magabe.zemgame"
+   },
+   {
+      "appName": "YAMA for STD7",
+      "appUrl": "https://play.google.com/store/apps/details?id=com.magabelab.std7results"
+   }
 ]
