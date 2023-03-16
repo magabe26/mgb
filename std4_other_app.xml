@@ -1,6 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <APPS>
-   
+
+ <APP>
+  <A HREF="#"> -- APLIKESHENI MPYA ZIMETOKA --</A>
+</APP>
+
 <APP>
   <A HREF="#">Hizi ni aplikesheni za kisasa</A>
 </APP>
