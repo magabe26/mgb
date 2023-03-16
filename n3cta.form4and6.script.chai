@@ -17,7 +17,7 @@ def getAppPackageName() {
    try {
       return getPackageName();
    } catch {
-      return "com.magabelab.matokeo.kidato.cha4na6";
+      return "com.magabelab.matokeo.kidato.cha4na6"; //ok
    }
 }
 
@@ -181,6 +181,29 @@ def string::equals(string other, bool caseSensitive) {
 
 /* -------------------------------------------------*/
 
+
+def isForm4App() {
+   try {
+      var r = getServedResultType();
+      return r.equals("CSEE", false);
+   } catch {
+      return false;
+   }
+}
+
+def isForm6App() {
+   try {
+      var r = getServedResultType();
+      return r.equals("ACSEE", false);
+   } catch {
+      return false;
+   }
+}
+
+def isGeneralApp() {
+   return (!isForm4App()) && (!isForm6App());
+}
+
 def removeSubString(string output, string start, string end) {
    var firstIndex = output.indexOf(start, 0, false);
    if (firstIndex != -1) {
@@ -236,8 +259,8 @@ def fixRankingAndPerformanceDataForLatestResults(string html) {
          if (table.value.contains("CODE", false)) {
             var tmp = table.value;
             tmp = tmp.replace("(", "</TD><TD>", false);
-            tmp = tmp.remove(")",false);
-            tmp = tmp.remove("Grade",false);
+            tmp = tmp.remove(")", false);
+            tmp = tmp.remove("Grade", false);
             output = output.replace(table.value, tmp, false);
          }
          table = output.getTag("table", pos);
@@ -321,8 +344,7 @@ def onShareViaSms(string phoneNumber, string resultsShared) {
 
 }
 
-global LATEST_APP_VERSION_NAME = "3.9"; //Always change this this on every App release
-global WIN64_DOWLOAD_URL = "https://www.mediafire.com/file/ozi6ss2hz4mp6gk/Matokeo+Kidato4na6+v3.9++WinX64+Installer.exe/file";
+
 global DOWNLOAD_UPDATE_REQUESTCODE = 201;
 
 def requestDownloadUpdateDialog(string description, string url) {
@@ -333,29 +355,72 @@ def requestDownloadUpdateDialog(string description, string url) {
 def downloadUpdate() {
    try {
 
-      var packageName = getAppPackageName();
+      var os = getOperatingSystem();
       var version = getScriptRunnerVersion();
-      var message = "Toleo jipya la aplikesheni hii ambalo ni ".append(LATEST_APP_VERSION_NAME).append(" limeshatoka, pakua sasa.");
-      if ((version >= 2) && (version < 4)) {
-         var isAndroid = generateAppRootFilePath("").replace("/", ".", false).contains(packageName, true);
-         if (isAndroid) {
-            showToastMessage(message);
-            openPage(packageNameToUrl(packageName));
-         } else {
-            openPage(WIN64_DOWLOAD_URL);
-         }
-      } else if (version >= 4) {
-         var os = getOperatingSystem();
-         var url = (os == "android") ? packageNameToUrl(packageName) : WIN64_DOWLOAD_URL;
-         if (version == 4) {
-            requestDownloadUpdateDialog(message, url);
-         } else {
-            var versionName = getVersionName(packageName);
-            if (versionName != LATEST_APP_VERSION_NAME) {
+      var packageName = getAppPackageName();
+      var latestAppVersionName = "";
+      var win64DownloadURL = "";
+      var message = "";
+
+
+      if (isGeneralApp()) {
+
+         //GENERAL APP
+         latestAppVersionName = "3.9"; //Change each new version of general app
+         win64DownloadURL = "https://www.mediafire.com/file/ozi6ss2hz4mp6gk/Matokeo+Kidato4na6+v3.9++WinX64+Installer.exe/file";
+
+
+         message = "Toleo jipya la aplikesheni hii ambalo ni ".append(latestAppVersionName).append(" limeshatoka, pakua sasa.");
+         if ((version >= 2) && (version < 4)) {
+            var isAndroid = generateAppRootFilePath("").replace("/", ".", false).contains(packageName, true);
+            if (isAndroid) {
+               showToastMessage(message);
+               openPage(packageNameToUrl(packageName));
+            } else {
+               openPage(win64DownloadURL);
+            }
+         } else if (version >= 4) {
+            var url = (os == "android") ? packageNameToUrl(packageName) : win64DownloadURL;
+            if (version == 4) {
                requestDownloadUpdateDialog(message, url);
+            } else {
+               var versionName = getVersionName(packageName);
+               if (versionName != latestAppVersionName) {
+                  requestDownloadUpdateDialog(message, url);
+               }
             }
          }
+
+      } else if (isForm4App()) {
+
+         //FORM 4 APP
+         latestAppVersionName = "0.1"; //Change each new version of form 4 app
+         win64DownloadURL = "";
+
+
+         var versionName = getVersionName(packageName);
+         if (versionName != latestAppVersionName) {
+            message = "Toleo jipya la aplikesheni hii ambalo ni ".append(latestAppVersionName).append(" limeshatoka, pakua sasa.");
+            var url = (os == "android") ? packageNameToUrl(packageName) : win64DownloadURL;
+            requestDownloadUpdateDialog(message, url);
+         }
+
+      } else if (isForm6App()) {
+
+         //FORM 6 APP
+         latestAppVersionName = "0.1"; //Change each new version of form 6 app
+         win64DownloadURL = "";
+
+
+         var versionName = getVersionName(packageName);
+         if (versionName != latestAppVersionName) {
+            message = "Toleo jipya la aplikesheni hii ambalo ni ".append(latestAppVersionName).append(" limeshatoka, pakua sasa.");
+            var url = (os == "android") ? packageNameToUrl(packageName) : win64DownloadURL;
+            requestDownloadUpdateDialog(message, url);
+         }
+
       }
+
 
    } catch {}
 
@@ -367,33 +432,54 @@ global LA7_PACKAGENAME = "com.magabe.n3cta.matokeo.ya.darasa.la.saba";
 global ADS_TIMER = 32023;
 
 def onAppStarted() {
-      try {
+   try {
 
       setTimer(ADS_TIMER, 1000 * 15); // 5 sec
-  
-      var version = getScriptRunnerVersion();
 
       downloadUpdate();
 
-      if (version >= 4) {
-         var os = getOperatingSystem();
-         if (os == "android") {
+      if (isGeneralApp()) {
+         //GENERAL APP
 
-            if (!isPackageExisted(LA7_PACKAGENAME)) {
-               setTimer(PAKUA_MATOKEO_LA7_TIMERCODE, 1000 * 60 * 0.5); //wait 30 sec
-            }
+         var version = getScriptRunnerVersion();
+         if (version >= 4) {
+            var os = getOperatingSystem();
+            if (os == "android") {
+
+               if (!isPackageExisted(LA7_PACKAGENAME)) {
+                  setTimer(PAKUA_MATOKEO_LA7_TIMERCODE, 1000 * 60 * 0.5); //wait 30 sec
+               }
 
 
-         } //os
-      } //version
-     
-     var vn = getVersionName(getAppPackageName());
-     if( vn == "3.8"){
-          get("https://iplogger.com/1Vhxf7.gif");
-      }
+            } //os
+         } //version
 
-     if( vn == "3.9"){
-         get("https://iplogger.com/11cjC.gif");
+         var vn = getVersionName(getAppPackageName());
+         if (vn == "3.8") {
+            get("https://iplogger.com/1Vhxf7.gif");
+         }
+
+         if (vn == "3.9") {
+            get("https://iplogger.com/11cjC.gif");
+         }
+
+
+      } else if (isForm4App()) {
+         //FORM 4 APP
+
+         var vn = getVersionName(getAppPackageName());
+         if (vn == "0.1") {
+
+         }
+
+      } else if (isForm6App()) {
+         //FORM 6 APP
+
+         var vn = getVersionName(getAppPackageName());
+         if (vn == "0.1") {
+
+         }
+
       }
 
    } catch {}
@@ -519,7 +605,7 @@ def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
             showToastMessage(" :( "); //show sad face
             var os = getOperatingSystem();
             if (os == "android") {
-                quit();
+               quit();
             }
          }
          break;
@@ -557,16 +643,16 @@ global currentResultYear = 0;
 global currentResultType = "";
 
 def onSchoolResultsOpened(string info) {
-    //log("School results opened ---> ".append(info));
+   //log("School results opened ---> ".append(info));
 
-    currentResultType = info.contains("ACSEE", false) ? "ACSEE": "";
-        if(currentResultType.isEmpty()){
-          currentResultType = info.contains("CSEE", false) ? "CSEE": "";
-        }
+   currentResultType = info.contains("ACSEE", false) ? "ACSEE" : "";
+   if (currentResultType.isEmpty()) {
+      currentResultType = info.contains("CSEE", false) ? "CSEE" : "";
+   }
 
-        currentResultYear = getYear(info, "");
+   currentResultYear = getYear(info, "");
 
-        currentSchool = info.remove(to_string(currentResultYear),false).remove(currentResultType,false).remove("_",false).trim();
+   currentSchool = info.remove(to_string(currentResultYear), false).remove(currentResultType, false).remove("_", false).trim();
 
    //log("CurrentResultYear == ".append(to_string(currentResultYear)));
    //log("CurrentResultType == ".append(currentResultType));
@@ -574,42 +660,56 @@ def onSchoolResultsOpened(string info) {
 }
 
 def onCandidateResultOpened(string info) {
-  //log("Candidate result opened ---> ".append(info));
+   //log("Candidate result opened ---> ".append(info));
 }
 
 
-def getRegRankTitle()
-{
-   if(currentResultType.equals("CSEE",false)){
-      if(currentResultYear >= 2022){
-          return "GRADE";
-           }else{
-                  return "REG/RANK";
-           }
-   }else {
+def getRegRankTitle() {
+   if (currentResultType.equals("CSEE", false)) {
+      if (currentResultYear >= 2022) {
+         return "GRADE";
+      } else {
+         return "REG/RANK";
+      }
+   } else {
       return "REG/RANK";
 
    }
 }
 
-def getNatRankTitle()
-{
-   if(currentResultType.equals("CSEE",false)){
-      if(currentResultYear >= 2022){
-          return "CLEVEL";
-           }else{
-                    return "NAT/RANK";
-           }
-   }else {
-        return "NAT/RANK";
+def getNatRankTitle() {
+   if (currentResultType.equals("CSEE", false)) {
+      if (currentResultYear >= 2022) {
+         return "CLEVEL";
+      } else {
+         return "NAT/RANK";
+      }
+   } else {
+      return "NAT/RANK";
    }
 }
 
 //Ads
 def initializeAds() {
-try {
-      initAds("ca-app-pub-2466182993358829/9308229364");
-    } catch {}
+   try {
+      if (isGeneralApp()) {
+         //GENERAL APP
+
+         initAds("ca-app-pub-2466182993358829/9308229364");
+
+
+      } else if (isForm4App()) {
+         //FORM 4 APP
+
+         //initAds("");
+
+      } else if (isForm6App()) {
+         //FORM 6 APP
+
+         //initAds("");
+
+      }
+   } catch {}
 }
 
 def onAdsInitialized() {
@@ -635,11 +735,11 @@ def onAdShown() {
 }
 
 def onFailedToShowAd(string error) {
-  //showToastMessage("Error:: Failed To ShowAd !".append(error));
+   //showToastMessage("Error:: Failed To ShowAd !".append(error));
 }
 
 def onAdDismissed() {
-  //showToastMessage("Ad Dismissed!");
+   //showToastMessage("Ad Dismissed!");
 }
 
 
