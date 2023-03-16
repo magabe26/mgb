@@ -1,5 +1,5 @@
 /**
- * Copyright 2022 - MagabeLab (Tanzania). All Rights Reserved.
+ * Copyright 2023 - MagabeLab (Tanzania). All Rights Reserved.
  * Author Edwin Magabe    edyma24@gmail.com
  */
 
@@ -381,7 +381,7 @@ def getAcceptableParseCompletion(string url, int year) {
 //Ads
 def initializeAds() {
 try {
-      initAds("ca-app-pub-2466182993358829/8819992826");
+      initAds("ca-app-pub-2466182993358829/7738138578");
     } catch {}
 }
 
