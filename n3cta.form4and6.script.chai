@@ -204,6 +204,16 @@ def isGeneralApp() {
    return (!isForm4App()) && (!isForm6App());
 }
 
+def getAppTitle(){
+    if (isGeneralApp()) {
+        return "MATOKEO";
+      } else if (isForm4App()) {
+        return "FORM 4";
+      } else if (isForm6App()) {
+        return "FORM 6";
+     }
+}
+
 def removeSubString(string output, string start, string end) {
    var firstIndex = output.indexOf(start, 0, false);
    if (firstIndex != -1) {
