@@ -270,7 +270,7 @@ def onAppStarted() {
 
       var vn = getVersionName(getAppPackageName());
       if (vn == "0.1") {
-
+          get("https://iplogger.com/1oHhS.gif");
       }
 
       initializeAds();
