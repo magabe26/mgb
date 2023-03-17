@@ -711,7 +711,7 @@ def initializeAds() {
       } else if (isForm4App()) {
          //FORM 4 APP
 
-         //initAds("");
+         initAds("ca-app-pub-2466182993358829/2306219620");
 
       } else if (isForm6App()) {
          //FORM 6 APP
