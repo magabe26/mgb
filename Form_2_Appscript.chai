@@ -351,7 +351,7 @@ def moveMenuToTop(string menu, string type, string year, int loop) {
    return menu;
 }
 
-def removeMenu(string menu, string year, int loop) {  
+def removeMenuItem(string menu, string year, int loop) {  
   var pos = 0;
   for (var i = 0; i <= loop; ++i) {
       var tag = menu.getTag("RESULTS", pos);
@@ -377,7 +377,7 @@ def getPremNoName() {
 def updateMenu(string input) {
    var output = input;
 
-   output= removeMenu(output,"2021,3);
+   output= removeMenuItem(output,"2021",3);
    
 
    return output;
