@@ -352,11 +352,15 @@ def moveMenuToTop(string menu, string type, string year, int loop) {
 }
 
 def removeMenu(string menu, string year, int loop) {  
-   for (var i = 0; i <= loop; ++i) {
-      var tag = menu.getTag("RESULTS", 0);
+  var pos = 0;
+  for (var i = 0; i <= loop; ++i) {
+      var tag = menu.getTag("RESULTS", pos);
       if (tag.valid) { 
          if (tag.value.contains(year, false)) {                      
-            menu = menu.removeAtPosition(tag.index, tag.length);
+           menu = menu.removeAtPosition(tag.index, tag.length);
+           pos = tag.index;
+         }else {
+           pos = tag.index + tag.length;
          }
       } else {
          break;
