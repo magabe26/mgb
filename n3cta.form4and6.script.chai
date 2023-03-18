@@ -419,7 +419,7 @@ def downloadUpdate() {
 
          //FORM 6 APP
          latestAppVersionName = "0.1"; //Change each new version of form 6 app
-         win64DownloadURL = "";
+         win64DownloadURL = "https://www.mediafire.com/file/bg5qweeazo0fknj/Matokeo+Cha6+v0.1+WinX64+Installer.exe/file";
 
 
          var versionName = getVersionName(packageName);
