@@ -320,7 +320,7 @@ def getTdNodeTagNameForResults(int tdIndex, int tdCount, string tagText) {
    }
 }
 
-def moveMenuToTop(string menu, string year, int loop) {
+def moveMenuItemToTop(string menu, string year, int loop) {
    var tmp = menu;
    var menuTag = Tag(false, -1, -1, "");
    for (var i = 0; i <= loop; ++i) {
