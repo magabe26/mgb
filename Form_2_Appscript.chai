@@ -378,7 +378,7 @@ def updateMenu(string input) {
    var output = input;
 
    output= removeMenuItem(output,"2021",3);
-   //output= removeMenuItem(output,"2020",3)
+   output= removeMenuItem(output,"2020",3)
 
    return output;
 }
