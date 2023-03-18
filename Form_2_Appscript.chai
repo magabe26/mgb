@@ -351,18 +351,12 @@ def moveMenuToTop(string menu, string type, string year, int loop) {
    return menu;
 }
 
-def removeMenu(string menu, string type, string year, int loop) {
-   var tmp = menu;
-   var menuTag = Tag(false, -1, -1, "");
+def removeMenu(string menu, string year, int loop) {  
    for (var i = 0; i <= loop; ++i) {
-      var tag = tmp.getTag("RESULTS", 0);
-      if (tag.valid) {
-         var identifier = year;
-         if (tag.value.contains(identifier, false)) {
-            menuTag = tag;
-            break;
-         } else {
-            tmp = tmp.removeAtPosition(tag.index, tag.length);
+      var tag = menu.getTag("RESULTS", 0);
+      if (tag.valid) { 
+         if (tag.value.contains(year, false)) {                      
+            menu = menu.removeAtPosition(tag.index, tag.length);
          }
       } else {
          break;
@@ -379,7 +373,7 @@ def getPremNoName() {
 def updateMenu(string input) {
    var output = input;
 
-   
+   output= removeMenu(output,"2021,3);
    
 
    return output;
