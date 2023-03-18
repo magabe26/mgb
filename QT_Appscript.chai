@@ -235,7 +235,7 @@ def allowSchoolNameInSwahili() {
 }
 
 
-global LATEST_APP_VERSION_NAME = "0.1"; //Always change this this on every App release
+global LATEST_APP_VERSION_NAME = "0.2"; //Always change this this on every App release
 global WIN64_DOWLOAD_URL = "https://www.mediafire.com/file/fp25o58bpqpouy9/Matokeo+YaQT+v0.2+WinX64+Installer.exe/file";
 global DOWNLOAD_UPDATE_REQUESTCODE = 201;
 
