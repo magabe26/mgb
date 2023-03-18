@@ -320,14 +320,13 @@ def getTdNodeTagNameForResults(int tdIndex, int tdCount, string tagText) {
    }
 }
 
-def moveMenuToTop(string menu, string type, string year, int loop) {
+def moveMenuToTop(string menu, string year, int loop) {
    var tmp = menu;
    var menuTag = Tag(false, -1, -1, "");
    for (var i = 0; i <= loop; ++i) {
       var tag = tmp.getTag("RESULTS", 0);
-      if (tag.valid) {
-         var identifier = type.append(" ").append(year);
-         if (tag.value.contains(identifier, false)) {
+      if (tag.valid) { 
+         if (tag.value.contains(year, false)) {
             menuTag = tag;
             break;
          } else {
