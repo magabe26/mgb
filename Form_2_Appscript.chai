@@ -588,7 +588,7 @@ def getGeneralRankingAndPerformanceData(string html) {
 
 
 def getNectaMenuUrl() {
-   return "#";
+   return "https://necta.go.tz/ftsee_results";
 }
 
 //TODO detect type of results first
