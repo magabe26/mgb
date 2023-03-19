@@ -509,6 +509,7 @@ def getResultAbsoluteLinks(string html){
 	return resultLinks;
 } 
 
+
 def getNectaResultLinks(string html) {
     var links = getResultAbsoluteLinks(html);
 	var menuLinks = [];
@@ -524,6 +525,8 @@ def getNectaResultLinks(string html) {
 	}
 	return menuLinks;
 }
+
+
 def onUrlVisited(string url) {
 
 
