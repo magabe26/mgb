@@ -1,5 +1,5 @@
 /**
- * Copyright 2023 - MagabeLab (Tanzania). All Rights Reserved.
+ * Copyright 2022-2023 MagabeLab (Tanzania). All Rights Reserved.
  * Author Edwin Magabe    edyma24@gmail.com
  */
 
@@ -245,7 +245,7 @@ def getNectaResultLinks(string html) {
 		var year = getYear("",link);
 		if(year != 0){
 		  var yearTag = "<year>".append(to_string(year)).append("</year>");
-		  var aTag = "<a HREF=\"".append(link).append("\"></a>")
+		  var aTag = "<a HREF=\"".append(link).append("\"></a>");
           var linkTag = "<link>".append(yearTag).append(aTag).append("</link>");
 		  menuLinks.push_back(linkTag);
 		}
