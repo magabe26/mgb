@@ -337,8 +337,6 @@ def moveMenuToTop(string menu, string type, string year, int loop) {
 def updateMenu(string input) {
    var output = input;
 
-   //put latest release to top
-   output = moveMenuToTop(output, "CSEE", "2022", 2);
 
    return output;
 }
