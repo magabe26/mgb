@@ -700,6 +700,14 @@ def onSchoolResultsOpened(string info) {
       currentResultType = info.contains("CSEE", false) ? "CSEE" : "";
    }
 
+    if (currentResultType.isEmpty()) {
+      if (isForm4App()) {
+         currentResultType = "CSEE";
+      } else if (isForm6App()) {
+         currentResultType = "ACSEE";
+      }
+   }
+
    currentResultYear = getYear(info, "");
 
    currentSchool = info.remove(to_string(currentResultYear), false).remove(currentResultType, false).remove("_", false).trim();
