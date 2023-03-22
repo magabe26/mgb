@@ -395,8 +395,32 @@ def getGenderWisePerformanceDialogColumnsWidths() {
 
 
 def onUrlVisited(string url) {
+	if(url.startsWith("#",false)){
+	    var cmd = "";
+		var argv = []; 
+		var i = 0;
+		var initVars = fun[i,cmd,argv](string s){
+		    if(i == 0){
+			   cmd = s.remove("#",false);
+		    }
+		 
+		    if(i > 0){
+		       argv.push_back(s);
+		    }
+		    ++i;
+		};
+		
+		var arr = url.split(";");
+		forEachString(arr,initVars);
+		
+		onExecuteCommand(cmd,argv,argv.size());
+	}
+		
+}
 
-
+//argv is vector of strings whitch represents a list of command argurments
+def onExecuteCommand(cmd,argv,argc){
+  
 }
 
 
