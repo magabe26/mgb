@@ -314,8 +314,7 @@ def filterHtml(string html) {
          }
       }
 
-      //remove PRE & from BLUE SKY PRE & PRIMARY SCHOOL(Arusha  -> meru)
-      output = output.remove("PRE &", false);
+      output = output.replace("&","AND", false);
 
    }
 
