@@ -272,6 +272,28 @@ def removeOpenTag(string output, string start, string end) {
    return output;
 }
 
+def separateGradeSectionInSummary(string input){
+    var output = input;
+	var i1 = input.indexOf("DARAJA",0,false);
+	if(i1 != -1){
+	   var i2 = input.indexOf(")",i1,false);
+	   if(i2 != -1){
+	     var gradeStr = input.mid(i1,i2-i1+1);
+		 var i3 = gradeStr.indexOf("(",0,false);
+		 if(i3 != -1){
+		   var valid = (gradeStr.left(i3).remove("DARAJA",false).simplified().length() == 1);
+		   if(valid){
+		      var tmp = gradeStr;
+			  tmp = tmp.replace("DARAJA",", DARAJA :",false);
+			  output = output.replace(gradeStr,tmp,false);
+		   }
+
+		 }
+	   }
+	}
+	return output;
+}
+
 
 //  Add filter logic inside this function
 def filterHtml(string html) {
@@ -315,7 +337,7 @@ def filterHtml(string html) {
       }
 
       output = output.replace("&","AND", false);
-
+      output = separateGradeSectionInSummary(output);
    }
 
    return output;
