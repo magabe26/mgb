@@ -1,0 +1,114 @@
+
+def getResultsFiles(){
+    var appPath = getAppRootPath();
+	var files = getFiles(appPath);
+	var schools = []
+	var fn = fun[schools](string file){
+		 var tmp = file;
+		 var year = getYear(tmp,"");
+		 tmp = tmp.remove(to_string(year),false).simplified();
+		if(tmp.startsWith("_PSLE__",false)){
+		   schools.push_back(file);
+		}
+	};
+	forEachString(files,fn);
+	return schools;
+}
+
+def getSchoolNo(string input){
+	  var no = "";
+	  var i = 0;
+	  var fn = fun[i,no](string str){
+		 if(i == 1){
+		    no = str.remove("_",false).remove(".mgb",false).simplified();
+		 }
+		++i;
+	   };
+	  var arr = input.split("-");
+	  forEachString(arr,fn);
+	  return no;
+}
+
+def getResultFile(string schoolName) {
+     var year = getYear(schoolName,"");
+	 var no = getSchoolNo(schoolName);
+	 if(year == 0 || no.isEmpty()){
+	   return "";
+	 }
+    var files = getResultsFiles();
+	for(var i = 0; i < files.size(); ++i){
+	    var file = files[i];
+	    var n = getSchoolNo(file);
+		var y = getYear(file,"");
+		if(y == year && n == no){
+		   return file;
+		}
+	}
+	return "";
+}
+
+def getResultFilePath(string schoolName) {
+    var file = getResultFile(schoolName);
+	if(!file.isEmpty()){
+	  return getAppRootPath().append("/").append(file);
+	}else{
+	  return "";
+	}
+}
+
+def getResultOpenCount(string path){
+    var count = getData(path)
+	if(count.isEmpty()){
+	   return 0;
+	}else{
+	   return to_int(count);
+	}
+}
+
+def setResultOpenCount(string path,int count){
+    var exists = (!getData(path).isEmpty());
+	if(exists){
+	   updateData(path,to_string(count));
+	}else{	 
+       saveData(path,to_string(count));
+	}
+}
+
+def increamentResultOpenCount(string path){
+    var count = getResultOpenCount(path);
+	setResultOpenCount(path,++count);
+}
+
+def clearResultOpenCount() {
+	setResultOpenCount(path,0);
+}
+
+def clearAllResultOpenCount() {
+    var files = getResultsFiles();
+	for(var i = 0; i < files.size(); ++i){
+	  var path = getAppRootPath().append("/").append(files[i]);
+	  clearResultOpenCount(path);
+	}
+}
+
+def getSchoolName(string input){
+   var y = getYear(input,"");
+   var n = getSchoolNo(input);
+   var r = getAppRootPath().append("/");
+   var tmp = input.remove(r,false)
+   tmp = tmp.remove("PSLE",false);
+   tmp = tmp.replace("_"," ",false);
+   tmp = tmp.remove("-",false);
+   tmp = tmp.remove(to_string(y),false);
+   tmp = tmp.remove(n,false);
+   tmp = tmp.remove(".mgb",false);
+   return tmp.simplified();
+}
+
+
+def requestAddPointDialog(string path){
+    var school = getSchoolName(path);
+	var year = getYear(path,"");
+    requestCustomDialog(99890, "fa::star", "POINTI ZIMEKWISHA", " ILI KUANGALIA MATOKEO YA ".append(school).append(" MWAKA ").append(to_string(year)).append(" , ANGALIA TANGAZO ILI KUONGEZA POINTI"), "Angalia", "Baadae", "#", 1, 1, false);
+}
+
