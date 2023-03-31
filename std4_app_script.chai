@@ -519,7 +519,6 @@ def filterHtmlForYear2022AndAbove(string html) {
       }
    }
 
-   output = output.remove("PRE &", false);
    output = output.remove("</td></tr>", false);
    output = output.remove("&nbsp;", false); //WARNING: THIS SPACE CHARACTER IS REMOVED WHEN BY FORMATING TOOLS, REMEMBER TO REPLACE
    output = output.replace("AVERAGE GRADE -", "</td><td>", false);
