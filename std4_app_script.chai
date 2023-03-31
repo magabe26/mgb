@@ -429,8 +429,7 @@ def filterHtml(string html) {
 
    output = modifyCandidateDetails("CANDIDATES", output, "Kiswahili", "Hisabati", "English");
 
-   //Remove PRE & from BLUE SKY PRE & PRIMARY SCHOOL(Arusha  -> meru)
-   output = output.remove("PRE &", false);
+   output = output.replace("&","AND", false);
 
    output = removeGradeTrFor2018ResultsAndBelow(output);
 
@@ -540,6 +539,7 @@ def filterHtmlForYear2022AndAbove(string html) {
    //short fix subject scores
    output = output.replace("- A", "- A;", false).replace("- B", "- B;", false).replace("- C", "- C;", false).replace("- D", "- D;", false).replace("- E", "- E;", false).replace("- F", "- F;", false);
 
+   output = output.replace("&","AND", false);
 
    return output;
 }
