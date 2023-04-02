@@ -181,6 +181,37 @@ def string::equals(string other, bool caseSensitive) {
 
 /* -------------------------------------------------*/
 
+def getLocale(){
+    var locale = getData("locale")
+	if(locale.isEmpty()){
+	   return "en";
+	}else{
+	   return locale;
+	}
+}
+
+def setLocale(string locale){
+    var exists = (!getData("locale").isEmpty());
+	if(exists){
+	   updateData("locale",locale);
+	}else{	 
+       saveData("locale",locale);
+	}
+}
+
+def onChangeLocaleCommand(cmd,argv,argc){
+    if(cmd.equals("setLocale",false)){
+	   if(argc == 1){
+	      var locale = argv[0];
+	      setLocale(locale);
+		  if(locale == "sw"){
+		     showToastMessage("Sawa majina ya shule yatasomeka kwa lugha ya Kiswahili");
+		  }else {
+		     showToastMessage("Sawa majina ya shule yatasomeka kwa lugha ya Kiingereza");
+		  }
+	   }
+	}
+}
 
 /* -------------- Global variables  ---------------*/
 global openTr = openTag("tr");
@@ -574,7 +605,7 @@ def onUrlVisited(string url) {
 
 //argv is vector of strings whitch represents a list of command argurments
 def onExecuteCommand(cmd,argv,argc){
-  
+  onChangeLocaleCommand(cmd,argv,argc);
 }
 
 
@@ -590,8 +621,10 @@ def getUserAgentString() {
 }
 
 
+
+
 def allowSchoolNameInSwahili() {
-   return false;
+   return getLocale() == "en" ? false : true;
 }
 
 
