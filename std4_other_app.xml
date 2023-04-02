@@ -2,28 +2,16 @@
 <APPS>
 
 <APP>
-  <A HREF="#"> -- APLIKESHENI MPYA ZIMETOKA --</A>
+  <A HREF="#">Jina la shule lisomekeje?</A>
 </APP>
-
+ 
 <APP>
-  <A HREF="#">Hizi ni aplikesheni za kisasa</A>
+  <A HREF="#setLocale;sw">(a) SHULE YA MSINGI ABC</A>
 </APP>
-  
+ 
 <APP>
-  <A HREF="#">Pakua sasa</A>
-</APP>  
-  
-<APP>
-  <A HREF="https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.qt">Matokeo ya QT</A>
-</APP>  
-  
-<APP>
-  <A HREF="https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.kidato.cha.pili">Matokeo ya kidato cha pili</A>
-</APP>  
-
-<APP>
-  <A HREF="https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.kidato.cha.pili">[Form Two (FTNA)]</A>
-</APP>  
+  <A HREF="#setLocale;en">(b) ABC PRIMARY SCHOOL</A>
+</APP> 
 
 <APP>
   <A HREF="#"></A>
@@ -44,7 +32,11 @@
 <APP>
   <A HREF="#"></A>
 </APP>  
- 
+
+<APP>
+  <A HREF="#"></A>
+</APP>
+
 <APP>
   <A HREF="https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.darasa.la.nne">Tafadhali rate aplikesheni hii hapa</A>
 </APP>
@@ -70,19 +62,11 @@
 </APP>
   
 <APP>
+  <A HREF="#"></A>
+</APP>
+
+<APP>
   <A HREF="https://play.google.com/store/apps/developer?id=Magabe+Lab">ANGALIA APLIKESHENI ZOTE HAPA</A>
 </APP>
- 
-<APP>
-  <A HREF="#">Kama aplikesheni ya matokeo</A>
-</APP>
- 
-<APP>
-  <A HREF="#">unayoitafuta haipatikani</A>
-</APP>
- 
-<APP>
-  <A HREF="#">Usikonde kwani bado inatengenezwa</A>
-</APP> 
 
 </APPS>
