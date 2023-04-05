@@ -1,5 +1,5 @@
 /**
- * Copyright 2022 - MagabeLab (Tanzania). All Rights Reserved.
+ * Copyright 2022-2023 , MagabeLab (Tanzania). All Rights Reserved.
  * Author Edwin Magabe    edyma24@gmail.com
  */
 
@@ -182,7 +182,7 @@ def string::equals(string other, bool caseSensitive) {
 /* -------------------------------------------------*/
 
 def getLocale() {
-   var locale = getData("locale")
+   var locale = getData("locale");
    if (locale.isEmpty()) {
       return "en";
    } else {
