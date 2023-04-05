@@ -291,7 +291,6 @@ def getPremNoName() {
 }
 
 def removeOpenTag(string output, string start, string end) {
-
    var firstIndex = output.indexOf(start, 0, false);
    if (firstIndex != -1) {
       var lastIndex = output.indexOf(end, firstIndex + 1, false);
@@ -333,20 +332,15 @@ def filterHtml(string html) {
    var version = getScriptRunnerVersion();
    if (version == 1) {
       /* A very slow and not effective method */
-
+      
       output = removeMadarajaYaUfauluData(output);
       output = removeResultTableHeader(output);
    } else {
       /* A fast and advanced  method */
 
       output = output.remove("MADARAJA YA UFAULU WA UJUMLA", false);
-
-      //remove open table tag
       output = removeOpenTag(output, "<table", ">");
-
-      //
       output = removeOpenTag(output, "<font", ">");
-
 
       //remove all unwanted tr tags
       while (true) {
@@ -519,10 +513,7 @@ def getGenderWisePerformanceData(string html) {
 }
 
 def verifyBaseUrlLastSegment(string url, string lastSegment) {
-
    return lastSegment;
-
-
 }
 
 def getNectaMenuUrl() {
@@ -588,19 +579,15 @@ def onUrlVisited(string url) {
          if (i == 0) {
             cmd = s.remove("#", false);
          }
-
          if (i > 0) {
             argv.push_back(s);
          }
          ++i;
       };
-
       var arr = url.split(";");
       forEachString(arr, initVars);
-
       onExecuteCommand(cmd, argv, argv.size());
    }
-
 }
 
 //argv is vector of strings whitch represents a list of command argurments
@@ -610,7 +597,6 @@ def onExecuteCommand(cmd, argv, argc) {
 
 
 def onShareViaSms(string phoneNumber, string resultsShared) {
-
 
 }
 
@@ -679,21 +665,18 @@ def onAppStarted() {
 
       // setTimer(DONATE_TIMERCODE, 1000 * 10); //10 sec
 
-      //  get("https://bit.ly/Std7AppStart");
-
-      //  get("https://iplogger.com/1y7Vd7.gif");
-
       var vn = getVersionName(getAppPackageName());
-      if (vn == "3.4") {
-         get("https://iplogger.com/1yfZf7.gif");
-      }
-
+      
       if (vn == "3.5") {
          get("https://iplogger.com/1yJkh7.gif");
       }
 
       if (vn == "3.7") {
          get("https://iplogger.com/11CwC.gif");
+      }
+      
+      if (vn == "3.8") {
+         //get("https://iplogger.com/1yfZf7.gif");
       }
 
       initializeAds();
