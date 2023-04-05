@@ -181,36 +181,36 @@ def string::equals(string other, bool caseSensitive) {
 
 /* -------------------------------------------------*/
 
-def getLocale(){
-    var locale = getData("locale")
-	if(locale.isEmpty()){
-	   return "en";
-	}else{
-	   return locale;
-	}
+def getLocale() {
+   var locale = getData("locale")
+   if (locale.isEmpty()) {
+      return "en";
+   } else {
+      return locale;
+   }
 }
 
-def setLocale(string locale){
-    var exists = (!getData("locale").isEmpty());
-	if(exists){
-	   updateData("locale",locale);
-	}else{	 
-       saveData("locale",locale);
-	}
+def setLocale(string locale) {
+   var exists = (!getData("locale").isEmpty());
+   if (exists) {
+      updateData("locale", locale);
+   } else {
+      saveData("locale", locale);
+   }
 }
 
-def onChangeLocaleCommand(cmd,argv,argc){
-    if(cmd.equals("setLocale",false)){
-	   if(argc == 1){
-	      var locale = argv[0];
-	      setLocale(locale);
-		  if(locale == "sw"){
-		     showToastMessage("Sawa majina ya shule yatasomeka kwa lugha ya Kiswahili");
-		  }else {
-		     showToastMessage("Sawa majina ya shule yatasomeka kwa lugha ya Kiingereza");
-		  }
-	   }
-	}
+def onChangeLocaleCommand(cmd, argv, argc) {
+   if (cmd.equals("setLocale", false)) {
+      if (argc == 1) {
+         var locale = argv[0];
+         setLocale(locale);
+         if (locale == "sw") {
+            showToastMessage("Sawa majina ya shule yatasomeka kwa lugha ya Kiswahili");
+         } else {
+            showToastMessage("Sawa majina ya shule yatasomeka kwa lugha ya Kiingereza");
+         }
+      }
+   }
 }
 
 /* -------------- Global variables  ---------------*/
@@ -303,26 +303,26 @@ def removeOpenTag(string output, string start, string end) {
    return output;
 }
 
-def separateGradeSectionInSummary(string input){
-    var output = input;
-	var i1 = input.indexOf("DARAJA",0,false);
-	if(i1 != -1){
-	   var i2 = input.indexOf(")",i1,false);
-	   if(i2 != -1){
-	     var gradeStr = input.mid(i1,i2-i1+1);
-		 var i3 = gradeStr.indexOf("(",0,false);
-		 if(i3 != -1){
-		   var valid = (gradeStr.left(i3).remove("DARAJA",false).simplified().length() == 1);
-		   if(valid){
-		      var tmp = gradeStr;
-			  tmp = tmp.replace("DARAJA",", DARAJA :",false);
-			  output = output.replace(gradeStr,tmp,false);
-		   }
+def separateGradeSectionInSummary(string input) {
+   var output = input;
+   var i1 = input.indexOf("DARAJA", 0, false);
+   if (i1 != -1) {
+      var i2 = input.indexOf(")", i1, false);
+      if (i2 != -1) {
+         var gradeStr = input.mid(i1, i2 - i1 + 1);
+         var i3 = gradeStr.indexOf("(", 0, false);
+         if (i3 != -1) {
+            var valid = (gradeStr.left(i3).remove("DARAJA", false).simplified().length() == 1);
+            if (valid) {
+               var tmp = gradeStr;
+               tmp = tmp.replace("DARAJA", ", DARAJA :", false);
+               output = output.replace(gradeStr, tmp, false);
+            }
 
-		 }
-	   }
-	}
-	return output;
+         }
+      }
+   }
+   return output;
 }
 
 
@@ -367,7 +367,7 @@ def filterHtml(string html) {
          }
       }
 
-      output = output.replace("&","AND", false);
+      output = output.replace("&", "AND", false);
       output = separateGradeSectionInSummary(output);
    }
 
@@ -509,7 +509,7 @@ def getGenderWisePerformanceData(string html) {
    }
 
    json = json.append("]");
-   json = json.replace("JINSI","GREDI",false);
+   json = json.replace("JINSI", "GREDI", false);
    var empty = (json.length() == 2);
    if (empty) {
       json = "";
@@ -529,85 +529,84 @@ def getNectaMenuUrl() {
    return "https://necta.go.tz/psle_results";
 }
 
-def getAbsoluteLinks(string html){
-	var output = html.replace("'","\"",false);
-	var pos = 0;
-	var links = [];
-	var i1 = output.indexOf("http",pos,false);
-	while(i1 != -1){
-	     var i2 = output.indexOf("\"",i1,false);
-		 if(i2 != -1){
-		 	pos = i2;
-		    var link = output.mid(i1,i2 - i1);
-			links.push_back(link);
-		 }else{
-		    pos = i1;
-		 }
-		 i1 = output.indexOf("http",pos,false);
-	}
-	return links;
-} 
+def getAbsoluteLinks(string html) {
+   var output = html.replace("'", "\"", false);
+   var pos = 0;
+   var links = [];
+   var i1 = output.indexOf("http", pos, false);
+   while (i1 != -1) {
+      var i2 = output.indexOf("\"", i1, false);
+      if (i2 != -1) {
+         pos = i2;
+         var link = output.mid(i1, i2 - i1);
+         links.push_back(link);
+      } else {
+         pos = i1;
+      }
+      i1 = output.indexOf("http", pos, false);
+   }
+   return links;
+}
 
 
-def getResultAbsoluteLinks(string html){
-	var links = getAbsoluteLinks(html);
-	var resultLinks = [];
-	for(var i = 0; i < links.size(); ++i){
-	    var link = links[i].simplified();
-		if(link.endsWith(".htm",false)){
-			resultLinks.push_back(link);
-		}
-	}
-	return resultLinks;
-} 
+def getResultAbsoluteLinks(string html) {
+   var links = getAbsoluteLinks(html);
+   var resultLinks = [];
+   for (var i = 0; i < links.size(); ++i) {
+      var link = links[i].simplified();
+      if (link.endsWith(".htm", false)) {
+         resultLinks.push_back(link);
+      }
+   }
+   return resultLinks;
+}
 
 
 def getNectaResultLinks(string html) {
-    var links = getResultAbsoluteLinks(html);
-	var menuLinks = [];
-	for(var i = 0; i < links.size(); ++i){
-	    var link = links[i];
-		var year = getYear("",link);
-		if(year != 0){
-		  var yearTag = "<year>".append(to_string(year)).append("</year>");
-		  var aTag = "<a HREF=\"".append(link).append("\"></a>");
-          var linkTag = "<link>".append(yearTag).append(aTag).append("</link>");
-		  menuLinks.push_back(linkTag);
-		}
-	}
-	return menuLinks;
+   var links = getResultAbsoluteLinks(html);
+   var menuLinks = [];
+   for (var i = 0; i < links.size(); ++i) {
+      var link = links[i];
+      var year = getYear("", link);
+      if (year != 0) {
+         var yearTag = "<year>".append(to_string(year)).append("</year>");
+         var aTag = "<a HREF=\"".append(link).append("\"></a>");
+         var linkTag = "<link>".append(yearTag).append(aTag).append("</link>");
+         menuLinks.push_back(linkTag);
+      }
+   }
+   return menuLinks;
 }
 
 
 def onUrlVisited(string url) {
-	if(url.startsWith("#",false)){
-	    var cmd = "";
-		var argv = []; 
-		var i = 0;
-		var initVars = fun[i,cmd,argv](string s){
-		    if(i == 0){
-			   cmd = s.remove("#",false);
-		    }
-		 
-		    if(i > 0){
-		       argv.push_back(s);
-		    }
-		    ++i;
-		};
-		
-		var arr = url.split(";");
-		forEachString(arr,initVars);
-		
-		onExecuteCommand(cmd,argv,argv.size());
-	}
-		
+   if (url.startsWith("#", false)) {
+      var cmd = "";
+      var argv = [];
+      var i = 0;
+      var initVars = fun[i, cmd, argv](string s) {
+         if (i == 0) {
+            cmd = s.remove("#", false);
+         }
+
+         if (i > 0) {
+            argv.push_back(s);
+         }
+         ++i;
+      };
+
+      var arr = url.split(";");
+      forEachString(arr, initVars);
+
+      onExecuteCommand(cmd, argv, argv.size());
+   }
+
 }
 
 //argv is vector of strings whitch represents a list of command argurments
-def onExecuteCommand(cmd,argv,argc){
-  onChangeLocaleCommand(cmd,argv,argc);
+def onExecuteCommand(cmd, argv, argc) {
+   onChangeLocaleCommand(cmd, argv, argc);
 }
-
 
 
 def onShareViaSms(string phoneNumber, string resultsShared) {
@@ -619,8 +618,6 @@ def onShareViaSms(string phoneNumber, string resultsShared) {
 def getUserAgentString() {
    return "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:56.0) Gecko/20100101 Firefox/56.0";
 }
-
-
 
 
 def allowSchoolNameInSwahili() {
@@ -678,7 +675,7 @@ global DONATE_TIMERCODE = 202226;
 def onAppStarted() {
    try {
 
-       downloadUpdate();
+      downloadUpdate();
 
       // setTimer(DONATE_TIMERCODE, 1000 * 10); //10 sec
 
@@ -688,19 +685,19 @@ def onAppStarted() {
 
       var vn = getVersionName(getAppPackageName());
       if (vn == "3.4") {
-         get("https://iplogger.com/1yfZf7.gif");             
+         get("https://iplogger.com/1yfZf7.gif");
       }
-      
+
       if (vn == "3.5") {
          get("https://iplogger.com/1yJkh7.gif");
       }
-      
+
       if (vn == "3.7") {
          get("https://iplogger.com/11CwC.gif");
       }
-      
+
       initializeAds();
-      
+
    } catch {}
 
 }
@@ -749,9 +746,9 @@ def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
          } else {
             showToastMessage("Ni wamuzi mzuri kupakua toleo hili kwani ndio toleo bora."); //show sad face
             var os = getOperatingSystem();
-            if(os == "android"){
+            if (os == "android") {
                quit();
-             }
+            }
          }
          break;
       }
@@ -801,8 +798,8 @@ def onTimeOut(int timerCode) {
          requestCustomDialog(PAKUA_MATOKEO_DARASA_LA_NNE_REQUESTCODE, "fa::download", "Matokeo ya darasa la nne", "Sasa unaweza kuangalia matokeo ya darasa la nne kwa kutumia aplikesheni hii ya kisasa", "Pakua sasa", "Badae", packageNameToUrl(MATOKEO_DARASA_LA_NNE_PACKAGENAME), 0.8, 0.2, false);
          break;
       }
-      
-      case (SHOW_AD_TIMERCODE) { 
+
+      case (SHOW_AD_TIMERCODE) {
          showOrLoadAd();
          break;
       }
@@ -953,16 +950,32 @@ def onDisplayDistrict(string districtName, string title, string url) {
 }
 
 def onDisplaySchool(string schoolName, string title, string url) {
-    if(adsShown == 0){
+   if (adsShown == 0) {
       showOrLoadAd();
-    }
+   }
+}
+
+def getOtherAppsPageTitle() {
+   return "TAARIFA";
+}
+
+def getOtherAppsDelegateSpacing() {
+   return 0;
+}
+
+def onGetNewImageUrl(string previousImageUrl) {
+   return "";
+}
+
+def beforeDisplayResults(string displayName, int year, string url, string xml) {
+   return xml;
 }
 
 //Ads
 def initializeAds() {
-try {
-      initAds("ca-app-pub-2466182993358829/9469350192"); 
-    } catch {}
+   try {
+      initAds("ca-app-pub-2466182993358829/9469350192");
+   } catch {}
 }
 
 def onAdsInitialized() {
@@ -991,26 +1004,26 @@ def onAdShown() {
 }
 
 def onFailedToShowAd(string error) {
-  //showToastMessage("Error:: Failed To ShowAd !".append(error));
+   //showToastMessage("Error:: Failed To ShowAd !".append(error));
 }
 
 def onAdDismissed() {
-  //showToastMessage("Ad Dismissed!");
+   //showToastMessage("Ad Dismissed!");
 }
 
 def showOrLoadAd() {
-   if(adsInitialized){
-      if(adLoaded()){ 
-        showAd();
+   if (adsInitialized) {
+      if (adLoaded()) {
+         showAd();
       } else {
-        loadAd();
+         loadAd();
       }
    }
 }
 
 def showAdAfterXMins(int mins) {
-    var delay = 1000 * 60 * mins;
-    setTimer(SHOW_AD_TIMERCODE, delay);
+   var delay = 1000 * 60 * mins;
+   setTimer(SHOW_AD_TIMERCODE, delay);
 }
 
 def runTest(string input) {
