@@ -57,7 +57,7 @@
       <BG_COLOR>gray</BG_COLOR>
       <ICON>fa::globe</ICON>
       <ICON_COLOR>white</ICON_COLOR>
-      <BOLD_TEXT>0</BOLD_TEXT>
+      <BOLD_TEXT>1</BOLD_TEXT>
    </APP>
    <APP>
       <A HREF="#" />
@@ -82,6 +82,6 @@
       <BG_COLOR>white</BG_COLOR>
       <ICON>fa::android</ICON>
       <ICON_COLOR>green</ICON_COLOR>
-      <BOLD_TEXT>0</BOLD_TEXT>
+      <BOLD_TEXT>1</BOLD_TEXT>
    </APP>
 </APPS>
