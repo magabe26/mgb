@@ -44,6 +44,11 @@
   
 <APP>
   <A HREF="https://www.mediafire.com/file/rurfteyasd1wz7l/Matokeo+La4+v0.6+WinX64+Installer.exe/file">Pakua Aplikesheni hii kwa ajiri ya PC yako hapa</A>
+  <COLOR>black</COLOR>
+	 <BG_COLOR>green</BG_COLOR>
+  <ICON>fa::windowrestore</ICON>
+  <ICON_COLOR>white</ICON_COLOR>
+	 <BOLD_TEXT>0</BOLD_TEXT>
 </APP>
 
 <APP>
@@ -56,6 +61,11 @@
 
 <APP>
   <A HREF="https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.darasa.la.nne">Tafadhali rate aplikesheni hii hapa</A>
+  <COLOR>green</COLOR>
+	 <BG_COLOR>gray</BG_COLOR>
+  <ICON>fa::globe</ICON>
+  <ICON_COLOR>white</ICON_COLOR>
+	 <BOLD_TEXT>0</BOLD_TEXT>
 </APP>
 
  <APP>
@@ -64,6 +74,11 @@
 
 <APP>
   <A HREF="https://soma-kidijitali.web.app/">Tembelea tovuti ya Soma Kidijitali</A>
+  <COLOR>green</COLOR>
+	 <BG_COLOR>yellow</BG_COLOR>
+  <ICON>fa::thumbsup</ICON>
+  <ICON_COLOR>blue</ICON_COLOR>
+	 <BOLD_TEXT>0</BOLD_TEXT>
 </APP> 
  
 <APP>
@@ -76,6 +91,11 @@
 
 <APP>
   <A HREF="https://play.google.com/store/apps/developer?id=Magabe+Lab">ANGALIA APLIKESHENI ZOTE HAPA</A>
+  <COLOR>blue</COLOR>
+	 <BG_COLOR>white</BG_COLOR>
+  <ICON>fa::android</ICON>
+  <ICON_COLOR>green</ICON_COLOR>
+	 <BOLD_TEXT>0</BOLD_TEXT>
 </APP>
 
 </APPS>
