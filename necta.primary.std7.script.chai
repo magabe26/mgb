@@ -205,9 +205,9 @@ def onChangeLocaleCommand(cmd, argv, argc) {
          var locale = argv[0];
          setLocale(locale);
          if (locale == "sw") {
-           requestCustomDialog(421, "fa::gear", "MPANGILIO UMEBADILISHWA", "Sasa majina ya shule yatasomeka kwa lugha ya Kiswahili", "Sawa", "", "#", 0.8, 0.1, false);
+           requestCustomDialog(421, "fa::gear", "MPANGILIO UMEBADILISHWA", "Sasa majina ya shule yatasomeka kwa lugha ya Kiswahili", "Sawa", "", "#", 0.8, 0.2, false);
          } else {
-           requestCustomDialog(421, "fa::gear", "MPANGILIO UMEBADILISHWA", "Sasa majina ya shule yatasomeka kwa lugha ya Kiingereza", "Sawa", "", "#", 0.8, 0.1, false);
+           requestCustomDialog(421, "fa::gear", "MPANGILIO UMEBADILISHWA", "Sasa majina ya shule yatasomeka kwa lugha ya Kiingereza", "Sawa", "", "#", 0.8, 0.2, false);
          }
       }
    }
