@@ -182,36 +182,36 @@ def string::equals(string other, bool caseSensitive) {
 /* -------------------------------------------------*/
 
 
-def getLocale(){
-    var locale = getData("locale")
-	if(locale.isEmpty()){
-	   return "en";
-	}else{
-	   return locale;
-	}
+def getLocale() {
+   var locale = getData("locale")
+   if (locale.isEmpty()) {
+      return "en";
+   } else {
+      return locale;
+   }
 }
 
-def setLocale(string locale){
-    var exists = (!getData("locale").isEmpty());
-	if(exists){
-	   updateData("locale",locale);
-	}else{	 
-       saveData("locale",locale);
-	}
+def setLocale(string locale) {
+   var exists = (!getData("locale").isEmpty());
+   if (exists) {
+      updateData("locale", locale);
+   } else {
+      saveData("locale", locale);
+   }
 }
 
-def onChangeLocaleCommand(cmd,argv,argc){
-    if(cmd.equals("setLocale",false)){
-	   if(argc == 1){
-	      var locale = argv[0];
-	      setLocale(locale);
-		  if(locale == "sw"){
-		     showToastMessage("Sawa majina ya shule yatasomeka kwa lugha ya Kiswahili");
-		  }else {
-		     showToastMessage("Sawa majina ya shule yatasomeka kwa lugha ya Kiingereza");
-		  }
-	   }
-	}
+def onChangeLocaleCommand(cmd, argv, argc) {
+   if (cmd.equals("setLocale", false)) {
+      if (argc == 1) {
+         var locale = argv[0];
+         setLocale(locale);
+         if (locale == "sw") {
+           requestCustomDialog(421, "fa::gear", "MPANGILIO UMEBADILISHWA", "Sasa majina ya shule yatasomeka kwa lugha ya Kiswahili", "Sawa", "", "#", 0.8, 0.2, false);
+         } else {
+           requestCustomDialog(421, "fa::gear", "MPANGILIO UMEBADILISHWA", "Sasa majina ya shule yatasomeka kwa lugha ya Kiingereza", "Sawa", "", "#", 0.8, 0.2, false);
+         }
+      }
+   }
 }
 
 global currentResultYear = 0;
@@ -462,7 +462,7 @@ def filterHtml(string html) {
 
    output = modifyCandidateDetails("CANDIDATES", output, "Kiswahili", "Hisabati", "English");
 
-   output = output.replace("&","AND", false);
+   output = output.replace("&", "AND", false);
 
    output = removeGradeTrFor2018ResultsAndBelow(output);
 
@@ -487,26 +487,26 @@ def removeAllTags(string tag, string html) {
    return output;
 }
 
-def separateGradeSectionInSummary(string input){
-    var output = input;
-	var i1 = input.indexOf("DARAJA",0,false);
-	if(i1 != -1){
-	   var i2 = input.indexOf(")",i1,false);
-	   if(i2 != -1){
-	     var gradeStr = input.mid(i1,i2-i1+1);
-		 var i3 = gradeStr.indexOf("(",0,false);
-		 if(i3 != -1){
-		   var valid = (gradeStr.left(i3).remove("DARAJA",false).simplified().length() == 1);
-		   if(valid){
-		      var tmp = gradeStr;
-			  tmp = tmp.replace("DARAJA",", DARAJA :",false);
-			  output = output.replace(gradeStr,tmp,false);
-		   }
+def separateGradeSectionInSummary(string input) {
+   var output = input;
+   var i1 = input.indexOf("DARAJA", 0, false);
+   if (i1 != -1) {
+      var i2 = input.indexOf(")", i1, false);
+      if (i2 != -1) {
+         var gradeStr = input.mid(i1, i2 - i1 + 1);
+         var i3 = gradeStr.indexOf("(", 0, false);
+         if (i3 != -1) {
+            var valid = (gradeStr.left(i3).remove("DARAJA", false).simplified().length() == 1);
+            if (valid) {
+               var tmp = gradeStr;
+               tmp = tmp.replace("DARAJA", ", DARAJA :", false);
+               output = output.replace(gradeStr, tmp, false);
+            }
 
-		 }
-	   }
-	}
-	return output;
+         }
+      }
+   }
+   return output;
 }
 
 
@@ -595,7 +595,7 @@ def filterHtmlForYear2022AndAbove(string html) {
    //short fix subject scores
    output = output.replace("- A", "- A;", false).replace("- B", "- B;", false).replace("- C", "- C;", false).replace("- D", "- D;", false).replace("- E", "- E;", false).replace("- F", "- F;", false);
 
-   output = output.replace("&","AND", false);
+   output = output.replace("&", "AND", false);
 
    return output;
 }
@@ -656,14 +656,14 @@ def updateMenu(string menu) {
 }
 
 def formatGender(string input) {
-     var json = input;
-     if(!json.contains("WASICHANA",false)) {
-        json = json.replace("WAS","WASICHANA",false);
-     }
-     if(!json.contains("WAVULANA",false)) {
-        json = json.replace("WAV","WAVULANA",false);
-     }
-     return json;
+   var json = input;
+   if (!json.contains("WASICHANA", false)) {
+      json = json.replace("WAS", "WASICHANA", false);
+   }
+   if (!json.contains("WAVULANA", false)) {
+      json = json.replace("WAV", "WAVULANA", false);
+   }
+   return json;
 }
 
 def getGenderWisePerformanceDataFor2018ResultsAndBelow(string html) {
@@ -739,7 +739,7 @@ def getGenderWisePerformanceDataFor2018ResultsAndBelow(string html) {
    }
 
    json = json.append("]");
-   json = json.replace("JINSI","GREDI",false);
+   json = json.replace("JINSI", "GREDI", false);
    json = formatGender(json);
    var empty = (json.length() == 68);
    if (empty) {
@@ -842,7 +842,7 @@ def getGenderWisePerformanceData(string html) {
    }
 
    json = json.append("]");
-   json = json.replace("JINSI","GREDI",false);
+   json = json.replace("JINSI", "GREDI", false);
    json = formatGender(json);
    var empty = (json.length() == 2);
    if (empty) {
@@ -909,7 +909,7 @@ def getGenderWisePerformanceDataFor2022AndAbove(string html) {
    }
 
    json = json.append("]");
-   json = json.replace("JINSI","GREDI",false);
+   json = json.replace("JINSI", "GREDI", false);
    json = formatGender(json);
    var empty = (json.length() == 2);
    if (empty) {
@@ -933,82 +933,82 @@ def getNectaMenuUrl() {
 }
 
 
-def getAbsoluteLinks(string html){
-	var output = html.replace("'","\"",false);
-	var pos = 0;
-	var links = [];
-	var i1 = output.indexOf("http",pos,false);
-	while(i1 != -1){
-	     var i2 = output.indexOf("\"",i1,false);
-		 if(i2 != -1){
-		 	pos = i2;
-		    var link = output.mid(i1,i2 - i1);
-			links.push_back(link);
-		 }else{
-		    pos = i1;
-		 }
-		 i1 = output.indexOf("http",pos,false);
-	}
-	return links;
-} 
+def getAbsoluteLinks(string html) {
+   var output = html.replace("'", "\"", false);
+   var pos = 0;
+   var links = [];
+   var i1 = output.indexOf("http", pos, false);
+   while (i1 != -1) {
+      var i2 = output.indexOf("\"", i1, false);
+      if (i2 != -1) {
+         pos = i2;
+         var link = output.mid(i1, i2 - i1);
+         links.push_back(link);
+      } else {
+         pos = i1;
+      }
+      i1 = output.indexOf("http", pos, false);
+   }
+   return links;
+}
 
 
-def getResultAbsoluteLinks(string html){
-	var links = getAbsoluteLinks(html);
-	var resultLinks = [];
-	for(var i = 0; i < links.size(); ++i){
-	    var link = links[i].simplified();
-		if(link.endsWith(".htm",false)){
-			resultLinks.push_back(link);
-		}
-	}
-	return resultLinks;
-} 
+def getResultAbsoluteLinks(string html) {
+   var links = getAbsoluteLinks(html);
+   var resultLinks = [];
+   for (var i = 0; i < links.size(); ++i) {
+      var link = links[i].simplified();
+      if (link.endsWith(".htm", false)) {
+         resultLinks.push_back(link);
+      }
+   }
+   return resultLinks;
+}
 
 def getNectaResultLinks(string html) {
-    var links = getResultAbsoluteLinks(html);
-	var menuLinks = [];
-	for(var i = 0; i < links.size(); ++i){
-	    var link = links[i];
-		var year = getYear("",link);
-		if(year != 0){
-		  var yearTag = "<year>".append(to_string(year)).append("</year>");
-		  var aTag = "<a HREF=\"".append(link).append("\"></a>");
-          var linkTag = "<link>".append(yearTag).append(aTag).append("</link>");
-		  menuLinks.push_back(linkTag);
-		}
-	}
-	return menuLinks;
+   var links = getResultAbsoluteLinks(html);
+   var menuLinks = [];
+   for (var i = 0; i < links.size(); ++i) {
+      var link = links[i];
+      var year = getYear("", link);
+      if (year != 0) {
+         var yearTag = "<year>".append(to_string(year)).append("</year>");
+         var aTag = "<a HREF=\"".append(link).append("\"></a>");
+         var linkTag = "<link>".append(yearTag).append(aTag).append("</link>");
+         menuLinks.push_back(linkTag);
+      }
+   }
+   return menuLinks;
 }
 
 
 def onUrlVisited(string url) {
-	if(url.startsWith("#",false)){
-	    var cmd = "";
-		var argv = []; 
-		var i = 0;
-		var initVars = fun[i,cmd,argv](string s){
-		    if(i == 0){
-			   cmd = s.remove("#",false);
-		    }
-		 
-		    if(i > 0){
-		       argv.push_back(s);
-		    }
-		    ++i;
-		};
-		
-		var arr = url.split(";");
-		forEachString(arr,initVars);
-		
-		onExecuteCommand(cmd,argv,argv.size());
-	}
-		
+   if (url.startsWith("#", false)) {
+      var cmd = "";
+      var argv = [];
+      var i = 0;
+      var initVars = fun[i, cmd, argv](string s) {
+         if (i == 0) {
+            cmd = s.remove("#", false);
+         }
+
+         if (i > 0) {
+            argv.push_back(s);
+         }
+         ++i;
+      };
+
+      var arr = url.split(";");
+      forEachString(arr, initVars);
+
+      onExecuteCommand(cmd, argv, argv.size());
+   }
+
 }
 
 //argv is vector of strings whitch represents a list of command argurments
-def onExecuteCommand(cmd,argv,argc){
-  onChangeLocaleCommand(cmd,argv,argc);
+def onExecuteCommand(cmd, argv, argc) {
+   onChangeLocaleCommand(cmd, argv, argc);
 }
 
 
@@ -1029,7 +1029,7 @@ def allowSchoolNameInSwahili() {
 
 
 global LATEST_APP_VERSION_NAME = "0.6"; //Always change this this on every App release
-global WIN64_DOWLOAD_URL = "https://www.mediafire.com/file/rurfteyasd1wz7l/Matokeo+La4+v0.6+WinX64+Installer.exe/file"; 
+global WIN64_DOWLOAD_URL = "https://www.mediafire.com/file/rurfteyasd1wz7l/Matokeo+La4+v0.6+WinX64+Installer.exe/file";
 global DOWNLOAD_UPDATE_REQUESTCODE = 201;
 
 def requestDownloadUpdateDialog(string description, string url) {
@@ -1064,18 +1064,14 @@ def onAppStarted() {
       var os = getOperatingSystem();
       if (os == "android") {
 
-       //  if (!isPackageExisted(FORM4_AND_6_PACKAGENAME)) {
-           // setTimer(PAKUA_MATOKEO_KIDATO_4NA6_TIMERCODE, 1000 * 60 * 0.5); //wait 30 sec
-       //  }
+         //  if (!isPackageExisted(FORM4_AND_6_PACKAGENAME)) {
+         // setTimer(PAKUA_MATOKEO_KIDATO_4NA6_TIMERCODE, 1000 * 60 * 0.5); //wait 30 sec
+         //  }
 
       } //os
 
       var vn = getVersionName(getAppPackageName());
 
-      if (vn == "0.3") {
-         get("https://iplogger.com/1F4bf7.gif");
-      }
-       
       if (vn == "0.4") {
          get("https://iplogger.com/1yLkh7.gif");
       }
@@ -1083,9 +1079,13 @@ def onAppStarted() {
       if (vn == "0.6") {
          get("https://iplogger.com/113eC.gif");
       }
-            
+	  
+	  if (vn == "0.7") {
+         //get("https://iplogger.com/1F4bf7.gif");
+      }
+
       initializeAds();
-      
+
    } catch {}
 
 }
@@ -1127,8 +1127,8 @@ def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
             showToastMessage(" :( "); //show sad face
             var os = getOperatingSystem();
             if (os == "android") {
-                quit();
-             }
+               quit();
+            }
          }
          break;
       }
@@ -1146,7 +1146,7 @@ def onTimeOut(int timerCode) {
          requestCustomDialog(PAKUA_MATOKEO_KIDATO_4NA6_REQUESTCODE, "fa::download", "Matokeo kidato cha 4 na 6", "Angalia matokeo ya kidato cha 6 kwa kutumia aplikesheni hii ya kisasa", "Pakua sasa", "Badae", packageNameToUrl(FORM4_AND_6_PACKAGENAME), 0.8, 0.2, false);
          break;
       }
-      
+
       case (SHOW_AD_TIMERCODE) {
          showOrLoadAd();
          break;
@@ -1186,9 +1186,9 @@ def getSubjectsPerformanceData(string html) {
       while (tdTag.valid) {
          var td = tdTag.value;
          var text = td.removeOpenTag("td").removeCloseTag("td").trim();
-		 if(text.length() == 5 && text.contains("NAMBA",false)){
-		    text = "#";
-		 }
+         if (text.length() == 5 && text.contains("NAMBA", false)) {
+            text = "#";
+         }
          item = item.append("\"_").append(to_string(index)).append("\":\"").append(text).append("\"");
          item = item.append(",");
 
@@ -1229,11 +1229,11 @@ def getGenderWisePerformanceDialogTitle() {
 
 def getGenderWisePerformanceDialogColumnsWidths(string url) {
    //This are fraction of width, the total must equals 1
-     if(currentResultYear >= 2019){
-       return "0.28, 0.12, 0.12, 0.12 , 0.12, 0.24";
-     }else {
-        return "0.24, 0.27, 0.27, 0.22 , 0, 0";
-     }
+   if (currentResultYear >= 2019) {
+      return "0.28, 0.12, 0.12, 0.12 , 0.12, 0.24";
+   } else {
+      return "0.24, 0.27, 0.27, 0.22 , 0, 0";
+   }
 }
 
 def getSubjectsPerformanceDialogTabLable1() {
@@ -1267,17 +1267,33 @@ def onDisplayDistrict(string districtName, string title, string url) {
 }
 
 def onDisplaySchool(string schoolName, string title, string url) {
-   currentResultYear = getYear(schoolName,title);
-   if(adsShown == 0){
+   currentResultYear = getYear(schoolName, title);
+   if (adsShown == 0) {
       showOrLoadAd();
    }
 }
 
+def getOtherAppsPageTitle() {
+   return "TAARIFA";
+}
+
+def getOtherAppsDelegateSpacing() {
+   return 0;
+}
+
+def onGetNewImageUrl(string previousImageUrl) {
+   return "";
+}
+
+def beforeDisplayResults(string displayName, int year, string url, string xml) {
+   return xml;
+}
+
 //Ads
 def initializeAds() {
-try {
+   try {
       initAds("ca-app-pub-2466182993358829/8819992826");
-    } catch {}
+   } catch {}
 }
 
 def onAdsInitialized() {
@@ -1306,26 +1322,26 @@ def onAdShown() {
 }
 
 def onFailedToShowAd(string error) {
-  //showToastMessage("Error:: Failed To ShowAd !".append(error));
+   //showToastMessage("Error:: Failed To ShowAd !".append(error));
 }
 
 def onAdDismissed() {
-  //showToastMessage("Ad Dismissed!");
+   //showToastMessage("Ad Dismissed!");
 }
 
 def showOrLoadAd() {
-   if(adsInitialized){
-      if(adLoaded()){
-        showAd();
+   if (adsInitialized) {
+      if (adLoaded()) {
+         showAd();
       } else {
-        loadAd();
+         loadAd();
       }
    }
 }
 
 def showAdAfterXMins(int mins) {
    var delay = 1000 * 60 * mins;
-   setTimer(SHOW_AD_TIMERCODE, delay);   
+   setTimer(SHOW_AD_TIMERCODE, delay);
 }
 
 def runTest(string input) {
