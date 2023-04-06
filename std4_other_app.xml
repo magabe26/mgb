@@ -68,7 +68,7 @@
       <BG_COLOR>yellow</BG_COLOR>
       <ICON>fa::globe</ICON>
       <ICON_COLOR>blue</ICON_COLOR>
-      <BOLD_TEXT>0</BOLD_TEXT>
+      <BOLD_TEXT>1</BOLD_TEXT>
    </APP>
    <APP>
       <A HREF="#" />
