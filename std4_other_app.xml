@@ -55,7 +55,7 @@
       <A HREF="https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.darasa.la.nne">Tafadhali rate aplikesheni hii hapa</A>
       <COLOR>blue</COLOR>
       <BG_COLOR>gray</BG_COLOR>
-      <ICON>fa::globe</ICON>
+      <ICON>fa::thumbsup</ICON>
       <ICON_COLOR>white</ICON_COLOR>
       <BOLD_TEXT>1</BOLD_TEXT>
    </APP>
@@ -66,7 +66,7 @@
       <A HREF="https://soma-kidijitali.web.app/">Tembelea tovuti ya Soma Kidijitali</A>
       <COLOR>green</COLOR>
       <BG_COLOR>yellow</BG_COLOR>
-      <ICON>fa::thumbsup</ICON>
+      <ICON>fa::globe</ICON>
       <ICON_COLOR>blue</ICON_COLOR>
       <BOLD_TEXT>0</BOLD_TEXT>
    </APP>
