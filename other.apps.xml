@@ -3,8 +3,7 @@
    <APP>
       <ENABLE_IMAGE>1</ENABLE_IMAGE>
       <IMAGE_URL>https://www.crossed-flag-pins.com/animated-flag-gif/gifs/Tanzania_240-animated-flag-gifs.gif</IMAGE_URL>
-      <BG_COLOR>white</BG_COLOR>
-      <IMAGE_WIDTH_FRACTION>0.8</IMAGE_WIDTH_FRACTION>
+      <IMAGE_WIDTH_FRACTION>1</IMAGE_WIDTH_FRACTION>
       <IMAGE_HEIGHT_FRACTION>0.2</IMAGE_HEIGHT_FRACTION>
    </APP>
    <APP>
