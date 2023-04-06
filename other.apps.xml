@@ -59,7 +59,7 @@
    </APP>
    <APP>
       <A HREF="https://play.google.com/store/apps/details?id=com.magabe.n3cta.matokeo.ya.darasa.la.saba">Tafadhali rate aplikesheni hii hapa</A>
-      <COLOR>green</COLOR>
+      <COLOR>blue</COLOR>
       <BG_COLOR>gray</BG_COLOR>
       <ICON>fa::globe</ICON>
       <ICON_COLOR>white</ICON_COLOR>
@@ -70,7 +70,7 @@
    </APP>
    <APP>
       <A HREF="https://soma-kidijitali.web.app/">Tembelea tovuti ya Soma Kidijitali</A>
-      <COLOR>blue</COLOR>
+      <COLOR>green</COLOR>
       <BG_COLOR>yellow</BG_COLOR>
       <ICON>fa::thumbsup</ICON>
       <ICON_COLOR>blue</ICON_COLOR>
