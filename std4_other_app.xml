@@ -1,17 +1,34 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <APPS>
 
-<APP>
-  <A HREF="#">Jina la shule lisomekeje?</A>
-</APP>
- 
-<APP>
-  <A HREF="#setLocale;sw">(a) SHULE YA MSINGI TZ</A>
-</APP>
- 
-<APP>
-  <A HREF="#setLocale;en">(b) TZ PRIMARY SCHOOL</A>
-</APP> 
+ <APP>
+      <BG_COLOR>white</BG_COLOR>
+      <ENABLE_IMAGE>1</ENABLE_IMAGE>
+      <IMAGE_URL>https://www.crossed-flag-pins.com/animated-flag-gif/gifs/Tanzania_240-animated-flag-gifs.gif</IMAGE_URL>
+      <IMAGE_WIDTH_FRACTION>1</IMAGE_WIDTH_FRACTION>
+      <IMAGE_HEIGHT_FRACTION>0.25</IMAGE_HEIGHT_FRACTION>
+   </APP>
+   <APP>
+      <A HREF="#">Jina la shule lisomekeje?</A>
+      <ICON_COLOR>red</ICON_COLOR>
+      <BOLD_TEXT>1</BOLD_TEXT>
+   </APP>
+   <APP>
+      <A HREF="#setLocale;sw">(a) SHULE YA MSINGI TZ</A>
+      <COLOR>green</COLOR>
+      <BG_COLOR>white</BG_COLOR>
+      <ICON>fa::handoright</ICON>
+      <ICON_COLOR>cyan</ICON_COLOR>
+      <BOLD_TEXT>1</BOLD_TEXT>
+   </APP>
+   <APP>
+      <A HREF="#setLocale;en">(b) TZ PRIMARY SCHOOL</A>
+      <COLOR>blue</COLOR>
+      <BG_COLOR>white</BG_COLOR>
+      <ICON>fa::handoright</ICON>
+      <ICON_COLOR>yellow</ICON_COLOR>
+      <BOLD_TEXT>1</BOLD_TEXT>
+   </APP>
 
 <APP>
   <A HREF="#"></A>
