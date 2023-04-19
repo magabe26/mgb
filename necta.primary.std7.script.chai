@@ -954,6 +954,38 @@ def beforeDisplayResults(string displayName, int year, string url, string xml) {
    return xml;
 }
 
+def beforeDisplayGenderWisePerformance(string url,string json) {
+    return json;
+}
+
+def beforeDisplaySubjectsPerformance(string url,string json) {
+    return json;
+}
+
+def beforeDisplayOtherAppsPage(string xml){
+    return xml;
+}
+
+def beforeDisplayPSLEPage(string title, string url, string xml){
+  return xml;
+}
+
+def beforeDisplayRegionPage(string title, string url, string xml){
+  return xml;
+}
+
+def beforeDisplayDistrictPage(string title, string url, string xml){
+  return xml;
+}
+
+def beforeDisplayMenuPage(string xml){
+  return xml;
+}
+
+def beforeDisplayHistoryPage(string xml){
+  return xml;
+}
+
 //Ads
 def initializeAds() {
    try {
