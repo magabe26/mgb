@@ -442,6 +442,27 @@ def getAcceptableParseCompletion(string url, int year) {
     return 0.75;
 }
 
+def getOtherAppsPageTitle() {
+   return "INFORMATION";
+}
+
+def getOtherAppsDelegateSpacing() {
+   return 0;
+}
+
+def onGetNewImageUrl(string previousImageUrl) {
+   return "";
+}
+
+def beforeDisplayOtherAppsPage(string xml){
+   return xml;
+}
+
+
+def beforeDisplayMenuPage(string xml){
+  return xml;
+}
+
 //Ads
 def initializeAds() {
 try {
