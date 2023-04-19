@@ -667,7 +667,7 @@ def onAppStarted() {
 
       var vn = getVersionName(getAppPackageName());
       
-      if (vn == "3.5") {
+      if (vn == "3.9") {
          get("https://iplogger.com/1yJkh7.gif");
       }
 
