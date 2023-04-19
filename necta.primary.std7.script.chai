@@ -611,7 +611,7 @@ def allowSchoolNameInSwahili() {
 }
 
 
-global LATEST_APP_VERSION_NAME = "3.8"; //Always change this this on every App release
+global LATEST_APP_VERSION_NAME = "3.9"; //Always change this this on every App release
 global WIN64_DOWLOAD_URL = "https://www.mediafire.com/file/zzaa2z2d55ppjbz/Matokeo+La7+v3.8+WinX64+Installer.exe/file";
 global DOWNLOAD_UPDATE_REQUESTCODE = 201;
 
