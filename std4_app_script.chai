@@ -214,6 +214,33 @@ def onChangeLocaleCommand(cmd, argv, argc) {
    }
 }
 
+def getFailureIdentifier() {
+   var fid = getData("FailureIdentifier");
+   if (fid.isEmpty()) {
+      return "REFERRED";
+   } else {
+      return fid;
+   }
+}
+
+def setFailureIdentifier(string fid) {
+   var exists = (!getData("FailureIdentifier").isEmpty());
+   if (exists) {
+      updateData("FailureIdentifier", fid);
+   } else {
+      saveData("FailureIdentifier", fid);
+   }
+}
+
+def onChangeFailureIdentifierCommand(cmd, argv, argc) {
+   if (cmd.equals("changeFailureIdentifier", false)) {
+      if (argc == 1) {
+         var fid = argv[0];
+         setFailureIdentifier(fid);
+      }
+   }
+}
+
 global currentResultYear = 0;
 
 global adsShown = 0;
@@ -1009,6 +1036,7 @@ def onUrlVisited(string url) {
 //argv is vector of strings whitch represents a list of command argurments
 def onExecuteCommand(cmd, argv, argc) {
    onChangeLocaleCommand(cmd, argv, argc);
+   onChangeFailureIdentifierCommand(cmd, argv, argc);
 }
 
 
@@ -1285,8 +1313,73 @@ def onGetNewImageUrl(string previousImageUrl) {
    return "";
 }
 
+def changeFailureIdentifier(string input){
+   var fid = getFailureIdentifier();
+   if(!fid.equals("REFERRED",false)){
+     input = input.replace("REFERRED",fid,false);
+   }
+   return input;
+}
+
 def beforeDisplayResults(string displayName, int year, string url, string xml) {
+    var output = xml;
+	
+	output = changeFailureIdentifier(output);
+	
+	return output;
+}
+
+def beforeDisplayGenderWisePerformance(string url,string json) {
+    var output = json;
+	
+	output = changeFailureIdentifier(output);
+	
+	return output;
+}
+
+def beforeDisplaySubjectsPerformance(string url,string json) {
+  return json;
+}
+
+def updateFailureIdentifierMenu(string xml){
+    var output = xml;
+	var tag = output.getTag("SELECT_TEXT",0);
+	var value = tag.value;
+	if(value.removeOpenTag("SELECT_TEXT").removeCloseTag("SELECT_TEXT").trim().equals("REFERRED",false)){
+	   value = tag.value;
+	   var tmp = changeFailureIdentifier(value);
+	   output = output.replace(tag.value,tmp,false);
+	}
+	return output;
+}
+
+
+def beforeDisplayOtherAppsPage(string xml){
+    var output = xml;
+	
+	output = updateFailureIdentifierMenu(output);
+	
+	return output;
+}
+
+def beforeDisplaySFNAPage(string title, string url, string xml){
    return xml;
+}
+
+def beforeDisplayRegionPage(string title, string url, string xml){
+  return xml;
+}
+
+def beforeDisplayDistrictPage(string title, string url, string xml){
+  return xml;
+}
+
+def beforeDisplayMenuPage(string xml){
+  return xml;
+}
+
+def beforeDisplayHistoryPage(string xml){
+  return xml;
 }
 
 //Ads
