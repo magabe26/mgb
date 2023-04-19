@@ -35,7 +35,7 @@
       <A HREF="#" />
    </APP>
    <APP>
-    <A HREF="#changeFailureIdentifier">Kitambulisho cha kushindwa mtihani:</A>
+    <A HREF="#changeFailureIdentifier">Kitambulisho cha kushindwa:</A>
     <ICON>fa::cube</ICON>
     <ICON_COLOR>green</ICON_COLOR>
 	<COLOR>green</COLOR>
