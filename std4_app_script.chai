@@ -1100,7 +1100,7 @@ def onAppStarted() {
 
       var vn = getVersionName(getAppPackageName());
 
-      if (vn == "0.4") {
+      if (vn == "0.8") {
          get("https://iplogger.com/1yLkh7.gif");
       }
 
