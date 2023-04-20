@@ -398,7 +398,7 @@ def downloadUpdate() {
 
          //GENERAL APP
          latestAppVersionName = "4.1"; //Change each new version of general app
-         win64DownloadURL = "https://www.mediafire.com/file/ozi6ss2hz4mp6gk/Matokeo+Kidato4na6+v3.9++WinX64+Installer.exe/file";
+         win64DownloadURL = "https://www.mediafire.com/file/bd4biw183wbmc5h/Matokeo+Form4na6+v4.1+WinX64+Installer.exe/file";
 
 
          message = "Toleo jipya la aplikesheni hii ambalo ni ".append(latestAppVersionName).append(" limeshatoka, pakua sasa.");
