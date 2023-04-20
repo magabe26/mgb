@@ -486,7 +486,7 @@ def onAppStarted() {
          } //version
 
          var vn = getVersionName(getAppPackageName());
-         if (vn == "3.8") {
+         if (vn == "4.0") {
             get("https://iplogger.com/1Vhxf7.gif");
          }
 
