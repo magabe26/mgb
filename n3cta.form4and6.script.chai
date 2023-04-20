@@ -397,7 +397,7 @@ def downloadUpdate() {
       if (isGeneralApp()) {
 
          //GENERAL APP
-         latestAppVersionName = "3.9"; //Change each new version of general app
+         latestAppVersionName = "4.1"; //Change each new version of general app
          win64DownloadURL = "https://www.mediafire.com/file/ozi6ss2hz4mp6gk/Matokeo+Kidato4na6+v3.9++WinX64+Installer.exe/file";
 
 
@@ -486,7 +486,7 @@ def onAppStarted() {
          } //version
 
          var vn = getVersionName(getAppPackageName());
-         if (vn == "4.0") {
+         if (vn == "4.1") {
             get("https://iplogger.com/1Vhxf7.gif");
          }
 
