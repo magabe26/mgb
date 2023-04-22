@@ -397,7 +397,7 @@ def downloadUpdate() {
       if (isGeneralApp()) {
 
          //GENERAL APP
-         latestAppVersionName = "4.1"; //Change each new version of general app
+         latestAppVersionName = "4.2"; //Change each new version of general app
          win64DownloadURL = "https://www.mediafire.com/file/0o0n4y2defu9qoz/Matokeo+Form4na6+v4.2+WinX64+Installer.exe/file";
 
 
