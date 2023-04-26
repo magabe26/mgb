@@ -425,7 +425,7 @@ def downloadUpdate() {
       } else if (isForm4App()) {
 
          //FORM 4 APP
-         latestAppVersionName = "0.1"; //Change each new version of form 4 app
+         latestAppVersionName = "0.2"; //Change each new version of form 4 app
          win64DownloadURL = "https://www.mediafire.com/file/vcxjefkalov269e/Matokeo+Cha4+v0.2+WinX64+Installer.exe/file";
 
 
