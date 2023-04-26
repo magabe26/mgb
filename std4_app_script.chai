@@ -447,13 +447,13 @@ def filterHtml(string html) {
       var tag = output.getTag("tr", 0);
       var tr = tag.value;
 
-      if (tr.contains("JINSI", false) ||
+      if ((!tr.contains("KISWAHILI",false)) && (tr.contains("JINSI", false) ||
          tr.contains("REFERRED", false) ||
          tr.contains("WAS", false) ||
          tr.contains("WAV", false) ||
          tr.contains("JUMLA", false) ||
          tr.contains("WALIOSAJILIWA", false) ||
-         tr.contains("GREDI", false)) {
+         tr.contains("GREDI", false))) {
          if (tr.contains("WALIOSAJILIWA", false)) {
             summaryTag = tag;
          }
@@ -591,12 +591,12 @@ def filterHtmlForYear2022AndAbove(string html) {
       var tag = output.getTag("tr", 0);
       var tr = tag.value;
       var isResultsTableHeader = tr.contains("SEX", false);
-      if (tr.contains("JINSI", false) ||
+      if ((!tr.contains("KISWAHILI",false)) && (tr.contains("JINSI", false) ||
          tr.contains("REFERRED", false) ||
          tr.contains("WAS", false) ||
          tr.contains("WAV", false) ||
          tr.contains("JUMLA", false) ||
-         isResultsTableHeader) {
+         isResultsTableHeader)) {
          output = output.removeAtPosition(tag.index, tag.length);
       } else {
          break;
