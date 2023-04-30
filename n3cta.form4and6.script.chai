@@ -591,12 +591,14 @@ def getGenderWisePerformanceData(string html) {
    json = json.append("]");
    
    json = json.replace("SEX", "DIVISION", false);
-   if(!json.contains("FEMALE",false)){
-     json = json.replace("F", "FEMALE", false);
-    }
+   //Start with Male first 
    if(!json.contains("MALE",false)){
      json = json.replace("M", "MALE", false);
     }
+   if(!json.contains("FEMALE",false)){
+     json = json.replace("F", "FEMALE", false);
+    }
+   json = json.replace("T", "TOTAL", false);
 
    var empty = (json.length() == 2);
    if (empty) {
