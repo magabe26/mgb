@@ -430,7 +430,7 @@ def onShareViaSms(string phoneNumber, string resultsShared) {
 }
 
 global LATEST_APP_VERSION_NAME = "0.3"; //Always change this this on every App release
-global WIN64_DOWLOAD_URL = "https://www.mediafire.com/file/mzwe8i3d3tu50em/Matokeo+Cha2+v0.3+WinX64+Installer.exe/file";
+global WIN64_DOWLOAD_URL = "https://www.mediafire.com/file/j1kw7r82vndgnek/Matokeo+Cha2+v0.4+WinX64+Installer.exe/file";
 global DOWNLOAD_UPDATE_REQUESTCODE = 201;
 
 def requestDownloadUpdateDialog(string description, string url) {
@@ -477,7 +477,7 @@ def onAppStarted() {
       //}
 
       var vn = getVersionName(getAppPackageName());
-      if (vn == "0.3") {
+      if (vn == "0.4") {
           get("https://iplogger.com/1QYkz7.gif");
       }
 
