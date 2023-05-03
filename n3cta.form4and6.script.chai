@@ -398,7 +398,7 @@ def downloadUpdate() {
 
          //GENERAL APP
          latestAppVersionName = "4.2"; //Change each new version of general app
-         win64DownloadURL = "https://www.mediafire.com/file/0o0n4y2defu9qoz/Matokeo+Form4na6+v4.2+WinX64+Installer.exe/file";
+         win64DownloadURL = "https://www.mediafire.com/file/179x1nps494989k/Matokeo+Form4na6+v4.3+WinX64+Installer.exe/file";
 
 
          message = "Toleo jipya la aplikesheni hii ambalo ni ".append(latestAppVersionName).append(" limeshatoka, pakua sasa.");
@@ -486,7 +486,7 @@ def onAppStarted() {
          } //version
 
          var vn = getVersionName(getAppPackageName());
-         if (vn == "4.1") {
+         if (vn == "4.3") {
             get("https://iplogger.com/1Vhxf7.gif");
          }
 
