@@ -499,7 +499,7 @@ def onAppStarted() {
          //FORM 4 APP
 
          var vn = getVersionName(getAppPackageName());
-         if (vn == "0.2") {
+         if (vn == "0.3") {
              get("https://iplogger.com/13APa7.gif");
          }
 
