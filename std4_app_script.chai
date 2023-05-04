@@ -1104,7 +1104,7 @@ def onAppStarted() {
          get("https://iplogger.com/1yLkh7.gif");
       }
 
-      if (vn == "0.6") {
+      if (vn == "1.0") {
          get("https://iplogger.com/113eC.gif");
       }
      
