@@ -1055,7 +1055,7 @@ def beforeDisplayDistrictPage(string title, string url, string xml){
 def beforeDisplayMenuPage(string xml) {
    var output = xml;
 
-   output = putAdsToMenu(output,"https://www.crossed-flag-pins.com/animated-flag-gif/gifs/Tanzania_240-animated-flag-gifs.gif","#",0.85,0.52,true);
+   //output = putAdsToMenu(output,"","#",0.85,0.52,true);
    //output = putAdsToMenu(output, "", "#", 0.85, 0.52, false);
    
    return output;
