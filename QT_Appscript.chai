@@ -448,6 +448,28 @@ def onTimeOut(int timerCode) {
          break;
       }
 
+      case (SAVE_IMAGE_FOR_OFFLINE_TIMERCODE) {
+         if (!imageToBeSaved.isEmpty()) {
+            var name = "";
+            var list = [];
+            var fn = fun[list](string s) {
+               list.push_back(s);
+            };
+
+            var arr = imageToBeSaved.split("/");
+            forEachString(arr, fn);
+
+            name = list[list.size() - 1];
+
+            var saveImagePath = generateAppRootFilePath(name);
+            if (saveImage(imageToBeSaved, saveImagePath, -1)) {
+               saveData(imageToBeSaved, saveImagePath);
+            }
+            imageToBeSaved = "";
+         }
+         break;
+      }
+
       default {
          break;
       }
