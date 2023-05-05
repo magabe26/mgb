@@ -1468,8 +1468,8 @@ def beforeDisplayDistrictPage(string title, string url, string xml){
 def beforeDisplayMenuPage(string xml) {
    var output = xml;
 
-   output = putAdsToMenu(output,"https://raw.githubusercontent.com/magabe26/mgb/master/tangaza3.gif","#showAdvertiseWithUsDialog", 0.85, 0.48, false);
-   output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/magabelab1.gif", "#", 0.85, 0.38, false);
+   output = putAdsToMenu(output,"https://raw.githubusercontent.com/magabe26/mgb/master/tangaza3.gif","#showAdvertiseWithUsDialog", 0.85, 0.40, false);
+   output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/magabelab1.gif", "#", 0.85, 0.30, false);
    
    return output;
 }
