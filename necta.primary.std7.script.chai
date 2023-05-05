@@ -1021,7 +1021,7 @@ def getOtherAppsDelegateSpacing() {
 }
 
 def onGetNewImageUrl(string previousImageUrl) {
-   return "";
+   return getOfflineImagePath(previousImageUrl);
 }
 
 def beforeDisplayResults(string displayName, int year, string url, string xml) {
