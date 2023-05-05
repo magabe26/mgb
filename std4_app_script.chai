@@ -1383,7 +1383,7 @@ def getOtherAppsDelegateSpacing() {
 }
 
 def onGetNewImageUrl(string previousImageUrl) {
-   return "";
+   return getOfflineImagePath(previousImageUrl);
 }
 
 def changeFailureIdentifier(string input){
