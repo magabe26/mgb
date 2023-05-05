@@ -234,7 +234,6 @@ def getOfflineImagePath(string imageUrl) {
    return path;
 }
 
-
 def putAdsToMenu(string xml, string imageUrl, string redirectUrl, double wf, double hf, bool showFirst) {
    var end = stR("</RESULTS>", false);
    var list = stR("<RESULTS>", false).seq(any(end, "").plus()).seq(end).allStringMatches(xml, 0);
@@ -864,7 +863,6 @@ def onTimeOut(int timerCode) {
 
             var saveImagePath = generateAppRootFilePath(name);
             if (saveImage(img, saveImagePath, -1)) {
-
                var previous = getData(img);
                if (previous.isEmpty()) {
                   saveData(img, saveImagePath);
