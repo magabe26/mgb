@@ -1256,7 +1256,6 @@ def onTimeOut(int timerCode) {
 
             var saveImagePath = generateAppRootFilePath(name);
             if (saveImage(img, saveImagePath, -1)) {
-
                var previous = getData(img);
                if (previous.isEmpty()) {
                   saveData(img, saveImagePath);
