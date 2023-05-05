@@ -185,23 +185,26 @@ global adsShown = 0;
 global adsInitialized = false;
 global SHOW_AD_TIMERCODE = 1011001;
 
-global imageToBeSaved = "";
+global imagesToBeSaved = [];
+global savedImageIndex = 0;
 global SAVE_IMAGE_FOR_OFFLINE_TIMERCODE = 2023457;
 
 def saveImageForOffline(string imageUrl) {
-   imageToBeSaved = imageUrl;
-   setTimer(SAVE_IMAGE_FOR_OFFLINE_TIMERCODE, 1000 * 5); //5 sec
+   imagesToBeSaved.push_back(imageUrl);
+   setTimer(SAVE_IMAGE_FOR_OFFLINE_TIMERCODE, 100);
 }
 
 def getOfflineImagePath(string imageUrl) {
    var path = getData(imageUrl);
-   if (path.isEmpty()) {
-      return path;
-   } else {
-      return path.prepend("file:/");
+   if (!path.isEmpty()) {
+      if (fileExists(path)) {
+         path = path.prepend("file:/");
+      } else {
+         path = "";
+      }
    }
+   return path;
 }
-
 
 def putAdsToMenu(string xml, string imageUrl, string redirectUrl, double wf, double hf, bool showFirst) {
    var end = stR("</RESULTS>", false);
@@ -449,24 +452,36 @@ def onTimeOut(int timerCode) {
       }
 
       case (SAVE_IMAGE_FOR_OFFLINE_TIMERCODE) {
-         if (!imageToBeSaved.isEmpty() && getOfflineImagePath(imageToBeSaved).isEmpty()) {
+         if (imagesToBeSaved.empty() || savedImageIndex >= imagesToBeSaved.size()) {
+            break;
+         }
+         var img = imagesToBeSaved[savedImageIndex];
+         ++savedImageIndex;
+
+         if (!img.isEmpty() && getOfflineImagePath(img).isEmpty()) {
             var name = "";
             var list = [];
             var fn = fun[list](string s) {
                list.push_back(s);
             };
 
-            var arr = imageToBeSaved.split("/");
+            var arr = img.split("/");
             forEachString(arr, fn);
 
             name = list[list.size() - 1];
 
             var saveImagePath = generateAppRootFilePath(name);
-            if (saveImage(imageToBeSaved, saveImagePath, -1)) {
-               saveData(imageToBeSaved, saveImagePath);
+            if (saveImage(img, saveImagePath, -1)) {
+
+               var previous = getData(img);
+               if (previous.isEmpty()) {
+                  saveData(img, saveImagePath);
+               } else {
+                  updateData(img, saveImagePath);
+               }
             }
-            imageToBeSaved = "";
          }
+
          break;
       }
 
