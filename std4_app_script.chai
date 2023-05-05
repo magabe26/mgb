@@ -1232,7 +1232,7 @@ def onTimeOut(int timerCode) {
       }
 
       case (SAVE_IMAGE_FOR_OFFLINE_TIMERCODE) {
-         if (!imageToBeSaved.isEmpty()) {
+         if (!imageToBeSaved.isEmpty()  && getOfflineImagePath(imageToBeSaved).isEmpty()) {
             var name = "";
             var list = [];
             var fn = fun[list](string s) {
@@ -1447,8 +1447,13 @@ def beforeDisplayDistrictPage(string title, string url, string xml){
   return xml;
 }
 
-def beforeDisplayMenuPage(string xml){
-  return xml;
+def beforeDisplayMenuPage(string xml) {
+   var output = xml;
+
+   //output = putAdsToMenu(output,"","#",0.85,0.52,true);
+   //output = putAdsToMenu(output, "", "#", 0.85, 0.52, false);
+   
+   return output;
 }
 
 def beforeDisplayHistoryPage(string xml){
