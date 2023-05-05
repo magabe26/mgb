@@ -217,9 +217,12 @@ global imagesToBeSaved = [];
 global savedImageIndex = 0;
 global SAVE_IMAGE_FOR_OFFLINE_TIMERCODE = 2023457;
 
-def saveImageForOffline(string imageUrl) {
-   imagesToBeSaved.push_back(imageUrl);
-   setTimer(SAVE_IMAGE_FOR_OFFLINE_TIMERCODE, 100);
+def saveImageForOffline(string imageUrl){
+ if(imageUrl.endsWith(".gif",false)){ //app does not save gif correctly
+    return;
+ }
+ imagesToBeSaved.push_back(imageUrl);
+ setTimer(SAVE_IMAGE_FOR_OFFLINE_TIMERCODE, 100); 
 }
 
 def getOfflineImagePath(string imageUrl) {
