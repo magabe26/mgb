@@ -840,7 +840,7 @@ def onTimeOut(int timerCode) {
       }
 
       case (SAVE_IMAGE_FOR_OFFLINE_TIMERCODE) {
-         if (!imageToBeSaved.isEmpty()) {
+         if (!imageToBeSaved.isEmpty() && getOfflineImagePath(imageToBeSaved).isEmpty()) {
             var name = "";
             var list = [];
             var fn = fun[list](string s) {
