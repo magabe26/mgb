@@ -1092,7 +1092,7 @@ def beforeDisplayMenuPage(string xml) {
    var output = xml;
 
    output = putAdsToMenu(output,"https://raw.githubusercontent.com/magabe26/mgb/master/tangaza3.gif","#showAdvertiseWithUsDialog", 0.85, 0.38, false);
-   output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/magabelab1.gif", "#", 0.85, 0.28, false);
+   output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/magabelab1.gif", "#visitMagabeLab", 0.85, 0.28, false);
    
    return output;
 }
