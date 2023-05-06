@@ -243,6 +243,14 @@ def putAdsToMenu(string xml, string imageUrl, string redirectUrl, double wf, dou
    return output;
 }
 
+global EMAIL_US_REQUEST_CODE = 706033328;
+
+def onShowAdvertiseWithUsDialogCommand(cmd, argv, argc) {
+   if (cmd.equals("showAdvertiseWithUsDialog", false)) {
+       requestCustomDialog(EMAIL_US_REQUEST_CODE, "fa::vcardo", " TANGAZA", "Taganza katika aplikesheni hii. Tangaza <font color='green'><u>shule</u></font>, <font color='yellow'><u>stationery</u></font>, <font color='cyan'><u>kitabu</u></font> n.k  kwa kutumia mfumo wa picha. Kwa maelezo zaidi tutumie barua pepe.", "Tuma", "<font color='white'>Baadae</font> ", "#emailUs", 0.8, 0.3, false);
+   }
+}
+
 //  Add filter logic inside this function
 def filterHtml(string html) {
    var output = html;
@@ -336,7 +344,7 @@ def onUrlVisited(string url) {
 
 //argv is vector of strings whitch represents a list of command argurments
 def onExecuteCommand(cmd,argv,argc){
-  
+  onShowAdvertiseWithUsDialogCommand(cmd, argv, argc);
 }
 
 
@@ -433,6 +441,16 @@ def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
              }
          }
          break;
+      }
+
+     case (EMAIL_US_REQUEST_CODE) {
+	 if (pressedButton == "yes") {
+            showToastMessage("Asante, Tafadhali subiri");
+	    openPage("mailto:magabelab.tz@gmail.com");
+         } else {
+            showToastMessage("Sawa!");
+         }
+	break;
       }
 
       default {
@@ -552,7 +570,7 @@ def beforeDisplayMenuPage(string xml) {
    var output = xml;
 
    output = putAdsToMenu(output,"https://raw.githubusercontent.com/magabe26/mgb/master/tangaza3.gif","#showAdvertiseWithUsDialog", 0.85, 0.45, false);
-   output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/magabelab1.gif", "#", 0.85, 0.35, false);
+   output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/magabelab1.gif", "#visitMagabeLab", 0.85, 0.35, false);
    
    return output;
 }
