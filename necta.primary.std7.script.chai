@@ -275,7 +275,7 @@ global EMAIL_US_REQUEST_CODE = 706033328;
 
 def onShowAdvertiseWithUsDialogCommand(cmd, argv, argc) {
    if (cmd.equals("showAdvertiseWithUsDialog", false)) {
-       requestCustomDialog(EMAIL_US_REQUEST_CODE, "fa::vcardo", " TANGAZA", "Taganza katika aplikesheni hii. Tangaza <font color='green'><u>shule</u></font>, <font color='yellow'><u>stationery</u></font>, <font color='cyan'><u>kitabu</u></font> n.k  kwa kutumia mfumo wa picha. Kwa maelezo zaidi, tutumie barua pepe.", "Tuma", "<font color='white'>Baadae</font> ", "#emailUs", 0.8, 0.3, false);
+       requestCustomDialog(EMAIL_US_REQUEST_CODE, "fa::vcardo", " TANGAZA", "Taganza katika aplikesheni hii. Tangaza <font color='green'><u>shule</u></font>, <font color='yellow'><u>stationery</u></font>, <font color='cyan'><u>kitabu</u></font> n.k  kwa kutumia mfumo wa picha. Kwa maelezo zaidi tutumie barua pepe.", "Tuma", "<font color='white'>Baadae</font> ", "#emailUs", 0.8, 0.3, false);
    }
 }
 
