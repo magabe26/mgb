@@ -1232,7 +1232,7 @@ def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
       case (EMAIL_US_REQUEST_CODE) {
 	 if (pressedButton == "yes") {
             showToastMessage("Asante, Tafadhali subiri");
-            openPage("mailto:/magabelab.tz@gmail.com");
+            openPage("mailto:magabelab.tz@gmail.com");
          } else {
             showToastMessage("Sawa!");
          }
