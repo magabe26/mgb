@@ -279,6 +279,14 @@ def onShowAdvertiseWithUsDialogCommand(cmd, argv, argc) {
    }
 }
 
+global VISIT_MAGABE_LAB_REQUEST_CODE = 320230506;
+
+def onVisitMagabeLabCommand(cmd, argv, argc) {
+   if (cmd.equals("visitMagabeLab", false)) {
+       requestCustomDialog(VISIT_MAGABE_LAB_REQUEST_CODE, "fa::rocket", " TUTEMBELEE", "<font color='cyan'>Tembelea tovuti yetu.</font>", "Sawa", "<font color='white'>Baadae</font> ", "#visitMagabeLab", 0.8, 0.15, false);
+   }
+}
+
 /* -------------- Global variables  ---------------*/
 global openTr = openTag("tr");
 global closeTr = closeTag("tr");
@@ -660,6 +668,7 @@ def onUrlVisited(string url) {
 def onExecuteCommand(cmd, argv, argc) {
    onChangeLocaleCommand(cmd, argv, argc);
    onShowAdvertiseWithUsDialogCommand(cmd, argv, argc);
+   onVisitMagabeLabCommand(cmd, argv, argc);
 }
 
 
@@ -833,6 +842,16 @@ def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
             showToastMessage("Sawa!");
          }
 	     break;
+      }
+
+     case (VISIT_MAGABE_LAB_REQUEST_CODE) {
+	 if (pressedButton == "yes") {
+            showToastMessage("Asante, Tafadhali subiri");
+	    openPage("https://magabelab-tz.web.app");
+         } else {
+            showToastMessage("Sawa!");
+         }
+	 break;
       }
 
       default {
