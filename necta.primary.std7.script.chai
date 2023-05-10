@@ -847,7 +847,7 @@ global WIN64_DOWLOAD_URL = "https://www.mediafire.com/file/z2tkzsnk9m15hfk/Matok
 global DOWNLOAD_UPDATE_REQUESTCODE = 201;
 
 def requestDownloadUpdateDialog(string description, string url) {
-   requestCustomDialog(DOWNLOAD_UPDATE_REQUESTCODE, "fa::download", "Pakua toleo jipya!!", description, "Pakua", "Funga App", url, 0.8, 0.3, false);
+   requestCustomDialog(DOWNLOAD_UPDATE_REQUESTCODE, "fa::download", "Pakua toleo jipya!!", description, "Pakua", "Funga App", url, 0.8, 0.3, true);
 }
 
 
@@ -1229,7 +1229,8 @@ def onDisplayDistrict(string districtName, string title, string url) {
 def onDisplaySchool(string schoolName, string title, string url) {
    if (adsShown == 0) {
       showOrLoadAd();
-   }
+   }      playVideo("http://192.168.43.1/testvideo.mp4");
+
 }
 
 def getOtherAppsPageTitle() {
