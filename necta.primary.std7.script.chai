@@ -283,7 +283,7 @@ def setDefaultLoadingImage() {
 
 //------------------
 
-
+//Note put a ad in middle makes the app slow to load
 def putAdsImpl(string xml, string imageUrl, string redirectUrl, double wf, double hf, string adLocation, string rootTagName, string childTagName, string urlAttributeName, string wrapperTagName) {
    var end = stR("</" + childTagName + ">", false);
    var list = stR("<" + childTagName + ">", false).seq(any(end, "").plus()).seq(end).allStringMatches(xml, 0);
@@ -299,16 +299,19 @@ def putAdsImpl(string xml, string imageUrl, string redirectUrl, double wf, doubl
       ad = "<".append(childTagName).append(">").append("<A ").append(urlAttributeName).append("=\"").append(redirectUrl).append("\"></A>").append(bgColor).append(enableImage).append(imageURL).append(imageWidthFraction).append(imageHeightFraction).append("</").append(childTagName).append(">");
    }
 
-   var itemCount = 0;
-   var countFn = fun[itemCount](string s) {
-      ++itemCount;
-      return s;
-   }
-   html_tag("A").replaceInMapped(xml, countFn, 0, -1);
-
    var middlePosition = 0;
-   if (itemCount > 1) {
-      middlePosition = to_int(itemCount / 2);
+   if (adLocation.equals("middle", false)) {
+      var itemCount = 0;
+      var countFn = fun[itemCount](string s) {
+         ++itemCount;
+         return s;
+      }
+
+      html_tag("A").replaceInMapped(xml, countFn, 0, -1);
+
+      if (itemCount > 1) {
+         middlePosition = to_int(itemCount / 2);
+      }
    }
 
    var output = "<?xml version='1.0' encoding='UTF-8'?><".append(rootTagName).append(">");
