@@ -182,6 +182,7 @@ def string::equals(string other, bool caseSensitive) {
 /* ----------------------extensions---------------------------*/
 
 //------------------
+global MINI_APP_VERSION_THAT_CAN_SHOW_IMAGES = 4.0
 
 def getVersionNameAsDouble() {
    return to_double(getVersionName(getAppPackageName()));
@@ -366,7 +367,7 @@ global EMAIL_US_REQUEST_CODE = 706033328;
 
 def onShowAdvertiseWithUsDialogCommand(cmd, argv, argc) {
    if (cmd.equals("showAdvertiseWithUsDialog", false)) {
-      requestCustomDialog(EMAIL_US_REQUEST_CODE, "fa::vcardo", " TANGAZA", "Taganza katika aplikesheni hii. Tangaza <font color='green'><u>shule</u></font>, <font color='yellow'><u>stationery</u></font>, <font color='cyan'><u>kitabu</u></font> n.k  kwa kutumia mfumo wa picha. Kwa maelezo zaidi tutumie barua pepe.", "Tuma", "<font color='white'>Baadae</font> ", "#emailUs", 0.8, 0.3, false);
+      requestCustomDialog(EMAIL_US_REQUEST_CODE, "fa::vcardo", " TANGAZA", "Taganza katika aplikesheni hii. Tangaza <font color='green'><u>shule</u></font>, <font color='yellow'><u>stationery</u></font>, <font color='cyan'><u>kitabu</u></font> n.k  kwa kutumia mfumo wa picha au video. Kwa maelezo zaidi tutumie barua pepe.", "Tuma", "<font color='white'>Baadae</font> ", "#emailUs", 0.8, 0.3, false);
    }
 }
 
@@ -384,15 +385,15 @@ def onVisitMagabeLabCommand(cmd, argv, argc) {
 
 class _VideoPlayerStatus {
    def _VideoPlayerStatus() {
-      this.NoMedia = 0;
-      this.Loading = 1;
-      this.Loaded = 2;
-      this.Buffering = 3;
+      this.UnknownStatus = 0;
+      this.NoMedia = 1;
+      this.Loading = 2;
+      this.Loaded = 3;
       this.Stalled = 4;
-      this.Buffered = 5;
-      this.EndOfMedia = 6;
-      this.InvalidMedia = 7;
-      this.UnknownStatus = 8;
+      this.Buffering = 5;
+      this.Buffered = 6;
+      this.EndOfMedia = 7;
+      this.InvalidMedia = 8;
    }
    var NoMedia;
    var Loading;
@@ -409,9 +410,9 @@ global VideoPlayerStatus = _VideoPlayerStatus();
 
 class _VideoPlayerPlaybackState {
    def _VideoPlayerPlaybackState() {
-      this.PlayingState = 0;
-      this.PausedState = 1;
-      this.StoppedState = 2;
+      this.StoppedState = 0;
+      this.PlayingState = 1;
+      this.PausedState = 2;
    }
    var PlayingState;
    var PausedState;
@@ -1039,9 +1040,9 @@ def onTimeOut(int timerCode) {
       }
 
       case (SAVE_IMAGE_FOR_OFFLINE_TIMERCODE) {
-	  if(getVersionNameAsDouble() < 4.1){
-     return;
-  }
+         if (getVersionNameAsDouble() < MINI_APP_VERSION_THAT_CAN_SHOW_IMAGES) {
+            return;
+         }
          if (imagesToBeSaved.empty() || savedImageIndex >= imagesToBeSaved.size()) {
             break;
          }
@@ -1229,7 +1230,11 @@ def onDisplayDistrict(string districtName, string title, string url) {
 def onDisplaySchool(string schoolName, string title, string url) {
    if (adsShown == 0) {
       showOrLoadAd();
-   }      playVideo("http://192.168.43.1/testvideo.mp4");
+   }
+
+
+   playVideo("http://192.168.43.1/testvideo.mp4");
+
 
 }
 
@@ -1257,15 +1262,23 @@ def beforeDisplaySubjectsPerformance(string url, string json) {
    return json;
 }
 
-def beforeDisplayOtherAppsPage(string xml) {
-   saveOtherAppsPageImages(xml);
-   return xml;
+def beforeDisplayMenuPage(string xml) {
+   if (getVersionNameAsDouble() < MINI_APP_VERSION_THAT_CAN_SHOW_IMAGES) {
+      return xml;
+   }
+   var output = xml;
+   var w = 0.85;
+
+   output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/tangaza3.gif", "#showAdvertiseWithUsDialog", w, 0.3, "top");
+   output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/magabelab1.gif", "#showAdvertiseWithUsDialog", w, 0.22, "bottom");
+
+   return output;
 }
 
 def beforeDisplayPSLEPage(string title, string url, string xml) {
-  if(getVersionNameAsDouble() < 4.1){
-     return xml;
-  }
+   if (getVersionNameAsDouble() < MINI_APP_VERSION_THAT_CAN_SHOW_IMAGES) {
+      return xml;
+   }
    var output = xml;
    var w = 0.85;
 
@@ -1276,22 +1289,22 @@ def beforeDisplayPSLEPage(string title, string url, string xml) {
 }
 
 def beforeDisplayRegionPage(string title, string url, string xml) {
-if(getVersionNameAsDouble() < 4.1){
-     return xml;
-  }
+   if (getVersionNameAsDouble() < MINI_APP_VERSION_THAT_CAN_SHOW_IMAGES) {
+      return xml;
+   }
    var output = xml;
    var w = 0.85;
 
-   output = putAdsToRegionPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/tangaza2.gif", "#showAdvertiseWithUsDialog", w, 0.80, "bottom");
+   output = putAdsToRegionPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/tangaza2.gif", "#showAdvertiseWithUsDialog", w, 0.40, "bottom");
    output = putAdsToRegionPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/magabelab1.gif", "#visitMagabeLab", w, 0.20, "bottom");
 
    return output;
 }
 
 def beforeDisplayDistrictPage(string title, string url, string xml) {
-if(getVersionNameAsDouble() < 4.1){
-     return xml;
-  }
+   if (getVersionNameAsDouble() < MINI_APP_VERSION_THAT_CAN_SHOW_IMAGES) {
+      return xml;
+   }
    var output = xml;
    var w = 0.85;
 
@@ -1301,25 +1314,10 @@ if(getVersionNameAsDouble() < 4.1){
    return output;
 }
 
-
-def beforeDisplayMenuPage(string xml) {
-if(getVersionNameAsDouble() < 4.1){
-     return xml;
-  }
-   var output = xml;
-   var w = 0.85;
-
-   output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/tangaza3.gif", "#showAdvertiseWithUsDialog", w, 0.35, "top");
-   output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/magabelab1.gif", "#showAdvertiseWithUsDialog", w, 0.50, "bottom");
-
-   return output;
-}
-
-
 def beforeDisplayHistoryPage(string xml) {
-if(getVersionNameAsDouble() < 4.1){
-     return xml;
-  }
+   if (getVersionNameAsDouble() < MINI_APP_VERSION_THAT_CAN_SHOW_IMAGES) {
+      return xml;
+   }
    var output = xml;
    var w = 0.85;
 
@@ -1329,6 +1327,12 @@ if(getVersionNameAsDouble() < 4.1){
    return output;
 }
 
+def beforeDisplayOtherAppsPage(string xml) {
+
+   saveOtherAppsPageImages(xml);
+
+   return xml;
+}
 
 //Ads
 def initializeAds() {
@@ -1389,7 +1393,7 @@ def showAdAfterXMins(int mins) {
 def onVideoDialogOpened(string videoUrl, string videoDescription, string redirectUrl) {
    //setVideoPlayerLoadingIndicator("https://raw.githubusercontent.com/magabe26/mgb/master/magabelab1.gif");
    //setVideoThumbnail("https://raw.githubusercontent.com/magabe26/mgb/master/magabelab1.gif")
-   
+
    videoPlayerPlay();
 }
 
@@ -1398,7 +1402,11 @@ def onVideoDialogClosed(string videoUrl, string videoDescription, string redirec
 }
 
 def isVideoDialogCloseDisabled(string videoUrl, double position, double duration, bool errorOccured) {
-   return position / duration < 0.8;
+   if (duration == 0) {
+      return false;
+   } else {
+      return position / duration < 0.8;
+   }
 }
 
 def isVideoSeekForwardDisabled(string videoUrl, double position, double duration) {
@@ -1504,56 +1512,62 @@ def onVideoPlayerVolumeChanged(string videoUrl, double volume) {
 }
 
 def onVideoPlayerError(string videoUrl, int errorCode, string error) {
+   closeVideoDialog();
 
-   switch (error) {
+   var errorDisplay = "";
+
+   switch (errorCode) {
 
       case (VideoPlayerError.NoError) {
-         log("VideoPlayerError.NoError");
+         errorDisplay = "VideoPlayerError.NoError";
 
          break;
       }
 
       case (VideoPlayerError.ResourceError) {
-         log("VideoPlayerError.ResourceError");
+         errorDisplay = "VideoPlayerError.ResourceError";
 
          break;
       }
 
       case (VideoPlayerError.FormatError) {
-         log("VideoPlayerError.FormatError");
+         errorDisplay = "VideoPlayerError.FormatError";
 
          break;
       }
 
       case (VideoPlayerError.NetworkError) {
-         log("VideoPlayerError.NetworkError");
+         errorDisplay = "VideoPlayerError.NetworkError";
 
          break;
       }
 
       case (VideoPlayerError.AccessDenied) {
-         log("VideoPlayerError.AccessDenied");
+         errorDisplay = "VideoPlayerError.AccessDenied";
 
          break;
       }
 
-
       case (VideoPlayerError.ServiceMissing) {
-         log("VideoPlayerError.ServiceMissing");
+         errorDisplay = "VideoPlayerError.ServiceMissing";
          break;
       }
 
       default {
          break;
       }
-
    }
+
+   requestCustomDialog(100520231, "fa::close", "<font color='red'>Imeshindwa kuonyesha</font>", errorDisplay, "Sawa", "", "#", 0.8, 0.2, false);
 }
 
 
 def isVideoDialogMinimizeDisabled(string videoUrl, double position, double duration, bool errorOccured) {
-   return position / duration < 0.2;
-
+   if (duration == 0) {
+      return false;
+   } else {
+      return position / duration < 0.2;
+   }
 }
 
 
