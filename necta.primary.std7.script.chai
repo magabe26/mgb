@@ -1039,6 +1039,9 @@ def onTimeOut(int timerCode) {
       }
 
       case (SAVE_IMAGE_FOR_OFFLINE_TIMERCODE) {
+	  if(getVersionNameAsDouble() < 4.1){
+     return;
+  }
          if (imagesToBeSaved.empty() || savedImageIndex >= imagesToBeSaved.size()) {
             break;
          }
@@ -1259,6 +1262,9 @@ def beforeDisplayOtherAppsPage(string xml) {
 }
 
 def beforeDisplayPSLEPage(string title, string url, string xml) {
+  if(getVersionNameAsDouble() < 4.1){
+     return xml;
+  }
    var output = xml;
    var w = 0.85;
 
@@ -1269,6 +1275,9 @@ def beforeDisplayPSLEPage(string title, string url, string xml) {
 }
 
 def beforeDisplayRegionPage(string title, string url, string xml) {
+if(getVersionNameAsDouble() < 4.1){
+     return xml;
+  }
    var output = xml;
    var w = 0.85;
 
@@ -1279,6 +1288,9 @@ def beforeDisplayRegionPage(string title, string url, string xml) {
 }
 
 def beforeDisplayDistrictPage(string title, string url, string xml) {
+if(getVersionNameAsDouble() < 4.1){
+     return xml;
+  }
    var output = xml;
    var w = 0.85;
 
@@ -1290,6 +1302,9 @@ def beforeDisplayDistrictPage(string title, string url, string xml) {
 
 
 def beforeDisplayMenuPage(string xml) {
+if(getVersionNameAsDouble() < 4.1){
+     return xml;
+  }
    var output = xml;
    var w = 0.85;
 
@@ -1301,6 +1316,9 @@ def beforeDisplayMenuPage(string xml) {
 
 
 def beforeDisplayHistoryPage(string xml) {
+if(getVersionNameAsDouble() < 4.1){
+     return xml;
+  }
    var output = xml;
    var w = 0.85;
 
