@@ -283,10 +283,10 @@ def setDefaultLoadingImage() {
 
 //------------------
 
-//Note put a ad in middle makes the app slow to load
 def putAdsImpl(string xml, string imageUrl, string redirectUrl, double wf, double hf, string adLocation, string rootTagName, string childTagName, string urlAttributeName, string wrapperTagName) {
-   var end = stR("</" + childTagName + ">", false);
-   var list = stR("<" + childTagName + ">", false).seq(any(end, "").plus()).seq(end).allStringMatches(xml, 0);
+   if ((!adLocation.equals("top", false)) && (!adLocation.equals("middle", false)) && (!adLocation.equals("bottom", false))) {
+      return xml;
+   }
 
    var ad = "";
    if (!imageUrl.isEmpty()) {
@@ -297,51 +297,47 @@ def putAdsImpl(string xml, string imageUrl, string redirectUrl, double wf, doubl
       var imageWidthFraction = "<IMAGE_WIDTH_FRACTION>".append(to_string(wf)).append("</IMAGE_WIDTH_FRACTION>");
       var imageHeightFraction = "<IMAGE_HEIGHT_FRACTION>".append(to_string(hf)).append("</IMAGE_HEIGHT_FRACTION>");
       ad = "<".append(childTagName).append(">").append("<A ").append(urlAttributeName).append("=\"").append(redirectUrl).append("\"></A>").append(bgColor).append(enableImage).append(imageURL).append(imageWidthFraction).append(imageHeightFraction).append("</").append(childTagName).append(">");
-   }
-
-   var middlePosition = 0;
-   if (adLocation.equals("middle", false)) {
-      var itemCount = 0;
-      var countFn = fun[itemCount](string s) {
-         ++itemCount;
-         return s;
-      }
-
-      html_tag("A").replaceInMapped(xml, countFn, 0, -1);
-
-      if (itemCount > 1) {
-         middlePosition = to_int(itemCount / 2);
-      }
-   }
-
-   var output = "<?xml version='1.0' encoding='UTF-8'?><".append(rootTagName).append(">");
-   if (!wrapperTagName.isEmpty) {
-      output = "<?xml version='1.0' encoding='UTF-8'?>".append("<" + wrapperTagName + ">").append("<" + rootTagName + ">");
-   }
-   var i = 0;
-   var fn = fun[output, i, ad, adLocation, middlePosition](string menuItem) {
-      if ((i == 0) && (adLocation.equals("top", false))) {
-         output = output.append(ad);
-      }
-      if ((i == middlePosition) && (adLocation.equals("middle", false))) {
-         output = output.append(ad);
-      }
-      output = output.append(menuItem);
-      ++i;
-   }
-   forEachString(list, fn);
-
-   if (adLocation.equals("bottom", false)) {
-      output = output.append(ad);
-   }
-
-   if (wrapperTagName.isEmpty) {
-      output = output.append("</").append(rootTagName).append(">");
    } else {
-      output = output.append("</" + rootTagName + ">").append("</" + wrapperTagName + ">");
+      return xml;
    }
 
-   return output;
+   if (adLocation.equals("middle", false)) {
+      var count = 0;
+      var i = xml.indexOf(urlAttributeName, 0, false);
+      while (i != -1) {
+         ++count;
+         i = xml.indexOf(urlAttributeName, i + urlAttributeName.length(), false);
+         if (count == 10000) { //we dont want to freeze ui do we?
+            return xml;
+         }
+      }
+
+      if (count > 1) {
+         var middleItem = count / 2;
+         var n = 0
+         var fn = fun[n, middleItem, ad](string s) {
+            var replace = (n == middleItem) ? (s + ad) : s;
+            ++n;
+            return replace;
+         };
+
+         return html_tag(childTagName).replaceInMapped(xml, fn, 0, -1);
+      }
+   }
+   var topLocation = adLocation.equals("top", false);
+   var tag = (topLocation ? "<" : "</") + rootTagName + ">";
+   var i = xml.indexOf(tag, 0, false);
+   if (i != -1) {
+      var startChunk = xml.left(i);
+      var endChunk = xml.mid(i + tag.length(), -1);
+      if (topLocation) {
+         return startChunk + tag + ad + endChunk;
+      } else {
+         return startChunk + ad + tag + endChunk;
+      }
+   }
+
+   return xml;
 }
 
 def putAdsToMenu(string xml, string imageUrl, string redirectUrl, double wf, double hf, string adLocation) {
@@ -1236,9 +1232,6 @@ def onDisplaySchool(string schoolName, string title, string url) {
    }
 
 
-   playVideo("http://192.168.43.1/testvideo.mp4");
-
-
 }
 
 def getOtherAppsPageTitle() {
@@ -1272,8 +1265,8 @@ def beforeDisplayMenuPage(string xml) {
    var output = xml;
    var w = 0.85;
 
-   output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/tangaza3.gif", "#showAdvertiseWithUsDialog", w, 0.3, "top");
-   output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/magabelab1.gif", "#showAdvertiseWithUsDialog", w, 0.22, "bottom");
+   output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/tangaza3.gif", "#showAdvertiseWithUsDialog", w, 0.3, "middle");
+   output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/magabelab1.gif", "#visitMagabeLab", w, 0.22, "bottom");
 
    return output;
 }
