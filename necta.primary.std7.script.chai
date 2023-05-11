@@ -902,7 +902,7 @@ def onAppStarted() {
          get("https://iplogger.com/1yJkh7.gif");
       }
 
-      if (vn == "3.7") {
+      if (vn == "4.0") {
          get("https://iplogger.com/11CwC.gif");
       }
 
