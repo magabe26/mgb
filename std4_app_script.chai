@@ -1301,7 +1301,7 @@ def allowSchoolNameInSwahili() {
 }
 
 
-global LATEST_APP_VERSION_NAME = "1.0"; //Always change this this on every App release
+global LATEST_APP_VERSION_NAME = "1.1"; //Always change this this on every App release
 global WIN64_DOWLOAD_URL = "https://www.mediafire.com/file/vfrcot27x58nso1/Matokeo+La4+v1.0+WinX64+Installer.exe/file";
 global DOWNLOAD_UPDATE_REQUESTCODE = 201;
 
@@ -1353,7 +1353,7 @@ def onAppStarted() {
          get("https://iplogger.com/113eC.gif");
       }
 
-      if (vn == "0.7") {
+      if (vn == "1.1") {
          get("https://iplogger.com/1F4bf7.gif");
       }
 
