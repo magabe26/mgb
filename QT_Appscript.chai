@@ -17,7 +17,7 @@ def getAppPackageName() {
    try {
       return getPackageName();
    } catch {
-      return "com.magabelab.matokeo.ya.darasa.la.nne";
+      return "com.magabelab.matokeo.ya.qt";
    }
 }
 
@@ -180,27 +180,30 @@ def string::equals(string other, bool caseSensitive) {
 }
 
 /* -------------------------------------------------*/
+//------------------
 
-global adsShown = 0;
-global adsInitialized = false;
-global SHOW_AD_TIMERCODE = 1011001;
+global MINI_APP_VERSION_THAT_CAN_SHOW_IMAGES = 0.4
+
+def getVersionNameAsDouble() {
+   return to_double(getVersionName(getAppPackageName()));
+}
+
+//------------------
 
 global imagesToBeSaved = [];
 global savedImageIndex = 0;
 global SAVE_IMAGE_FOR_OFFLINE_TIMERCODE = 2023457;
 
-def saveImageForOffline(string imageUrl){
- if(imageUrl.endsWith(".gif",false)){ //app does not save gif correctly
-    return;
- }
- imagesToBeSaved.push_back(imageUrl);
- setTimer(SAVE_IMAGE_FOR_OFFLINE_TIMERCODE, 100); 
+
+def saveImageForOffline(string imageUrl) {
+   imagesToBeSaved.push_back(imageUrl);
+   setTimer(SAVE_IMAGE_FOR_OFFLINE_TIMERCODE, 100);
 }
 
 def getOfflineImagePath(string imageUrl) {
    var path = getData(imageUrl);
    if (!path.isEmpty()) {
-      if (fileExists(path)) {
+      if (fileExists(path) && (getFileSize(path) > 0)) {
          path = path.prepend("file:/");
       } else {
          path = "";
@@ -209,9 +212,105 @@ def getOfflineImagePath(string imageUrl) {
    return path;
 }
 
-def putAdsToMenu(string xml, string imageUrl, string redirectUrl, double wf, double hf, bool showFirst) {
-   var end = stR("</RESULTS>", false);
-   var list = stR("<RESULTS>", false).seq(any(end, "").plus()).seq(end).allStringMatches(xml, 0);
+def saveOtherAppsPageImages(string xml) {
+   var fn = fun[](string url) {
+      if (url.endsWith(".gif", false) || url.endsWith(".png", false) || url.endsWith(".jpg", false)) {
+         saveImageForOffline(url);
+      }
+      return url;
+   }
+   var end = chaR('"').oR(chaR('\'')).oR(chaR('<'));
+   stR("http", false).seq(any(end, "#<>").plus()).replaceInMapped(xml, fn, 0, -1);
+}
+
+//------------------
+
+def setLoadingImage(string url) {
+   var path = getOfflineImagePath(url).remove("file:/", false);
+   if (!path.isEmpty()) {
+      var key = "images/loading.gif";
+      if (!saveData(key, path)) {
+         updateData(key, path);
+      }
+      loadingIndicatorImageChanged();
+   } else {
+      saveImageForOffline(url);
+   }
+}
+
+def setDefaultLoadingImage() {
+   var key = "images/loading.gif";
+   if (!saveData(key, "")) {
+      updateData(key, "");
+   }
+   loadingIndicatorImageChanged();
+}
+
+//----------------
+
+class _VideoPlayerStatus {
+   def _VideoPlayerStatus() {
+      this.UnknownStatus = 0;
+      this.NoMedia = 1;
+      this.Loading = 2;
+      this.Loaded = 3;
+      this.Stalled = 4;
+      this.Buffering = 5;
+      this.Buffered = 6;
+      this.EndOfMedia = 7;
+      this.InvalidMedia = 8;
+   }
+   var NoMedia;
+   var Loading;
+   var Loaded;
+   var Buffering;
+   var Stalled;
+   var Buffered;
+   var EndOfMedia;
+   var InvalidMedia;
+   var UnknownStatus;
+};
+global VideoPlayerStatus = _VideoPlayerStatus();
+
+
+class _VideoPlayerPlaybackState {
+   def _VideoPlayerPlaybackState() {
+      this.StoppedState = 0;
+      this.PlayingState = 1;
+      this.PausedState = 2;
+   }
+   var PlayingState;
+   var PausedState;
+   var StoppedState;
+};
+global VideoPlayerPlaybackState = _VideoPlayerPlaybackState();
+
+
+class _VideoPlayerError {
+   def _VideoPlayerError() {
+      this.NoError = 0;
+      this.ResourceError = 1;
+      this.FormatError = 2;
+      this.NetworkError = 3;
+      this.AccessDenied = 4;
+      this.ServiceMissing = 5;
+   }
+   var NoError;
+   var ResourceError;
+   var FormatError;
+   var NetworkError;
+   var AccessDenied;
+   var ServiceMissing;
+};
+
+global VideoPlayerError = _VideoPlayerError();
+
+//------------------
+
+def putAdsImpl(string xml, string imageUrl, string redirectUrl, double wf, double hf, string adLocation, string rootTagName, string childTagName, string urlAttributeName, string wrapperTagName) {
+   if ((!adLocation.equals("top", false)) && (!adLocation.equals("middle", false)) && (!adLocation.equals("bottom", false))) {
+      return xml;
+   }
 
    var ad = "";
    if (!imageUrl.isEmpty()) {
@@ -221,43 +320,79 @@ def putAdsToMenu(string xml, string imageUrl, string redirectUrl, double wf, dou
       var imageURL = "<IMAGE_URL>".append(imageUrl).append("</IMAGE_URL>");
       var imageWidthFraction = "<IMAGE_WIDTH_FRACTION>".append(to_string(wf)).append("</IMAGE_WIDTH_FRACTION>");
       var imageHeightFraction = "<IMAGE_HEIGHT_FRACTION>".append(to_string(hf)).append("</IMAGE_HEIGHT_FRACTION>");
-      ad = "<RESULTS><A HREF=\"".append(redirectUrl).append("\"></A>").append(bgColor).append(enableImage).append(imageURL).append(imageWidthFraction).append(imageHeightFraction).append("</RESULTS>");
+      ad = "<".append(childTagName).append(">").append("<A ").append(urlAttributeName).append("=\"").append(redirectUrl).append("\"></A>").append(bgColor).append(enableImage).append(imageURL).append(imageWidthFraction).append(imageHeightFraction).append("</").append(childTagName).append(">");
+   } else {
+      return xml;
    }
 
-   var output = "<?xml version='1.0' encoding='UTF-8'?><NECTA_RESULTS>";
-   var i = 0;
-   var fn = fun[output, i, ad, showFirst](string menuItem) {
-      if (i == 0 && showFirst) {
-         output = output.append(ad);
+   if (adLocation.equals("middle", false)) {
+      var count = 0;
+      var i = xml.indexOf(urlAttributeName, 0, false);
+      while (i != -1) {
+         ++count;
+         i = xml.indexOf(urlAttributeName, i + urlAttributeName.length(), false);
+         if (count == 10000) { //we dont want to freeze ui do we?
+            return xml;
+         }
       }
-      output = output.append(menuItem);
-      ++i;
-   }
-   forEachString(list, fn);
 
-   if (!showFirst) {
-      output = output.append(ad);
-   }
-   output = output.append("</NECTA_RESULTS>");
+      if (count > 1) {
+         var middleItem = count / 2;
+         var n = 0
+         var fn = fun[n, middleItem, ad](string s) {
+            var replace = (n == middleItem) ? (s + ad) : s;
+            ++n;
+            return replace;
+         };
 
-   return output;
+         return html_tag(childTagName).replaceInMapped(xml, fn, 0, -1);
+      }
+   }
+   var topLocation = adLocation.equals("top", false);
+   var tag = (topLocation ? "<" : "</") + rootTagName + ">";
+   var i = xml.indexOf(tag, 0, false);
+   if (i != -1) {
+      var startChunk = xml.left(i);
+      var endChunk = xml.mid(i + tag.length(), -1);
+      if (topLocation) {
+         return startChunk + tag + ad + endChunk;
+      } else {
+         return startChunk + ad + tag + endChunk;
+      }
+   }
+
+   return xml;
 }
+
+def putAdsToMenu(string xml, string imageUrl, string redirectUrl, double wf, double hf, string adLocation) {
+   return putAdsImpl(xml, imageUrl, redirectUrl, wf, hf, adLocation, "NECTA_RESULTS", "RESULTS", "HREF", "");
+}
+
+//------------------
 
 global EMAIL_US_REQUEST_CODE = 706033328;
 
 def onShowAdvertiseWithUsDialogCommand(cmd, argv, argc) {
    if (cmd.equals("showAdvertiseWithUsDialog", false)) {
-       requestCustomDialog(EMAIL_US_REQUEST_CODE, "fa::vcardo", " TANGAZA", "Taganza katika aplikesheni hii. Tangaza <font color='green'><u>shule</u></font>, <font color='yellow'><u>stationery</u></font>, <font color='cyan'><u>kitabu</u></font> n.k  kwa kutumia mfumo wa picha. Kwa maelezo zaidi tutumie barua pepe.", "Tuma", "<font color='white'>Baadae</font> ", "#emailUs", 0.8, 0.3, false);
+      requestCustomDialog(EMAIL_US_REQUEST_CODE, "fa::vcardo", " TANGAZA", "Taganza katika aplikesheni hii. Tangaza <font color='green'><u>shule</u></font>, <font color='yellow'><u>stationery</u></font>, <font color='cyan'><u>kitabu</u></font> n.k  kwa kutumia mfumo wa picha. Kwa maelezo zaidi tutumie barua pepe.", "Tuma", "<font color='white'>Baadae</font> ", "#emailUs", 0.8, 0.3, false);
    }
 }
+
+//------------------
 
 global VISIT_MAGABE_LAB_REQUEST_CODE = 320230506;
 
 def onVisitMagabeLabCommand(cmd, argv, argc) {
    if (cmd.equals("visitMagabeLab", false)) {
-       requestCustomDialog(VISIT_MAGABE_LAB_REQUEST_CODE, "fa::rocket", " TUTEMBELEE", "<font color='cyan'>Tembelea tovuti yetu.</font>", "Sawa", "<font color='white'>Baadae</font> ", "#visitMagabeLab", 0.8, 0.15, false);
+      requestCustomDialog(VISIT_MAGABE_LAB_REQUEST_CODE, "fa::rocket", " TUTEMBELEE", "<font color='cyan'>Tembelea tovuti yetu.</font>", "Sawa", "<font color='white'>Baadae</font> ", "#visitMagabeLab", 0.8, 0.15, false);
    }
 }
+
+//------------------
+
+global adsShown = 0;
+global adsInitialized = false;
+global SHOW_AD_TIMERCODE = 1011001;
 
 //  Add filter logic inside this function
 def filterHtml(string html) {
@@ -278,82 +413,82 @@ def getNectaMenuUrl() {
    return "https://necta.go.tz/qt_results";
 }
 
-def getAbsoluteLinks(string html){
-	var output = html.replace("'","\"",false);
-	var pos = 0;
-	var links = [];
-	var i1 = output.indexOf("http",pos,false);
-	while(i1 != -1){
-	     var i2 = output.indexOf("\"",i1,false);
-		 if(i2 != -1){
-		 	pos = i2;
-		    var link = output.mid(i1,i2 - i1);
-			links.push_back(link);
-		 }else{
-		    pos = i1;
-		 }
-		 i1 = output.indexOf("http",pos,false);
-	}
-	return links;
-} 
+def getAbsoluteLinks(string html) {
+   var output = html.replace("'", "\"", false);
+   var pos = 0;
+   var links = [];
+   var i1 = output.indexOf("http", pos, false);
+   while (i1 != -1) {
+      var i2 = output.indexOf("\"", i1, false);
+      if (i2 != -1) {
+         pos = i2;
+         var link = output.mid(i1, i2 - i1);
+         links.push_back(link);
+      } else {
+         pos = i1;
+      }
+      i1 = output.indexOf("http", pos, false);
+   }
+   return links;
+}
 
 
-def getResultAbsoluteLinks(string html){
-	var links = getAbsoluteLinks(html);
-	var resultLinks = [];
-	for(var i = 0; i < links.size(); ++i){
-	    var link = links[i].simplified();
-		if(link.endsWith(".htm",false)){
-			resultLinks.push_back(link);
-		}
-	}
-	return resultLinks;
-} 
+def getResultAbsoluteLinks(string html) {
+   var links = getAbsoluteLinks(html);
+   var resultLinks = [];
+   for (var i = 0; i < links.size(); ++i) {
+      var link = links[i].simplified();
+      if (link.endsWith(".htm", false)) {
+         resultLinks.push_back(link);
+      }
+   }
+   return resultLinks;
+}
 
 def getNectaResultLinks(string html) {
-    var links = getResultAbsoluteLinks(html);
-	var menuLinks = [];
-	for(var i = 0; i < links.size(); ++i){
-	    var link = links[i];
-		var year = getYear("",link);
-		if(year != 0){
-		  var yearTag = "<year>".append(to_string(year)).append("</year>");
-		  var aTag = "<a HREF=\"".append(link).append("\"></a>");
-          var linkTag = "<link>".append(yearTag).append(aTag).append("</link>");
-		  menuLinks.push_back(linkTag);
-		}
-	}
-	return menuLinks;
+   var links = getResultAbsoluteLinks(html);
+   var menuLinks = [];
+   for (var i = 0; i < links.size(); ++i) {
+      var link = links[i];
+      var year = getYear("", link);
+      if (year != 0) {
+         var yearTag = "<year>".append(to_string(year)).append("</year>");
+         var aTag = "<a HREF=\"".append(link).append("\"></a>");
+         var linkTag = "<link>".append(yearTag).append(aTag).append("</link>");
+         menuLinks.push_back(linkTag);
+      }
+   }
+   return menuLinks;
 }
 
 def onUrlVisited(string url) {
-	if(url.startsWith("#",false)){
-	    var cmd = "";
-		var argv = []; 
-		var i = 0;
-		var initVars = fun[i,cmd,argv](string s){
-		    if(i == 0){
-			   cmd = s.remove("#",false);
-		    }
-		 
-		    if(i > 0){
-		       argv.push_back(s);
-		    }
-		    ++i;
-		};
-		
-		var arr = url.split(";");
-		forEachString(arr,initVars);
-		
-		onExecuteCommand(cmd,argv,argv.size());
-	}
-		
+   if (url.startsWith("#", false)) {
+      var cmd = "";
+      var argv = [];
+      var i = 0;
+      var initVars = fun[i, cmd, argv](string s) {
+         if (i == 0) {
+            cmd = s.remove("#", false);
+         }
+
+         if (i > 0) {
+            argv.push_back(s);
+         }
+         ++i;
+      };
+
+      var arr = url.split(";");
+      forEachString(arr, initVars);
+
+      onExecuteCommand(cmd, argv, argv.size());
+   }
+
 }
 
 //argv is vector of strings whitch represents a list of command argurments
-def onExecuteCommand(cmd,argv,argc){
-  onShowAdvertiseWithUsDialogCommand(cmd, argv, argc);
-  onVisitMagabeLabCommand(cmd, argv, argc);
+def onExecuteCommand(cmd, argv, argc) {
+   onShowAdvertiseWithUsDialogCommand(cmd, argv, argc);
+   onVisitMagabeLabCommand(cmd, argv, argc);
 }
 
 
@@ -408,11 +543,11 @@ def onAppStarted() {
 
       var vn = getVersionName(getAppPackageName());
       if (vn == "0.3") {
-          get("https://iplogger.com/1oHhS.gif");
+         get("https://iplogger.com/1oHhS.gif");
       }
 
       initializeAds();
-	  
+
    } catch {}
 
 }
@@ -446,30 +581,30 @@ def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
             showToastMessage(" :( "); //show sad face
             var os = getOperatingSystem();
             if (os == "android") {
-                quit();
-             }
+               quit();
+            }
          }
          break;
       }
 
-     case (EMAIL_US_REQUEST_CODE) {
-	 if (pressedButton == "yes") {
+      case (EMAIL_US_REQUEST_CODE) {
+         if (pressedButton == "yes") {
             showToastMessage("Asante, Tafadhali subiri");
-	    openPage("mailto:magabelab.tz@gmail.com");
+            openPage("mailto:magabelab.tz@gmail.com");
          } else {
             showToastMessage("Sawa!");
          }
-	break;
+         break;
       }
 
-     case (VISIT_MAGABE_LAB_REQUEST_CODE) {
-	 if (pressedButton == "yes") {
+      case (VISIT_MAGABE_LAB_REQUEST_CODE) {
+         if (pressedButton == "yes") {
             showToastMessage("Asante, Tafadhali subiri");
-	    openPage("https://magabelab-tz.web.app");
+            openPage("https://magabelab-tz.web.app");
          } else {
             showToastMessage("Sawa!");
          }
-	break;
+         break;
       }
 
       default {
@@ -492,6 +627,9 @@ def onTimeOut(int timerCode) {
       }
 
       case (SAVE_IMAGE_FOR_OFFLINE_TIMERCODE) {
+         if (getVersionNameAsDouble() < MINI_APP_VERSION_THAT_CAN_SHOW_IMAGES) {
+            return;
+         }
          if (imagesToBeSaved.empty() || savedImageIndex >= imagesToBeSaved.size()) {
             break;
          }
@@ -512,12 +650,10 @@ def onTimeOut(int timerCode) {
 
             var saveImagePath = generateAppRootFilePath(name);
             if (saveImage(img, saveImagePath, -1)) {
-               var previous = getData(img);
-               if (previous.isEmpty()) {
-                  saveData(img, saveImagePath);
-               } else {
+               if (!saveData(img, saveImagePath)) {
                   updateData(img, saveImagePath);
                }
+               onImageSaved(img, saveImagePath);
             }
          }
 
@@ -533,40 +669,48 @@ def onTimeOut(int timerCode) {
 }
 
 
-def onDisplaySchool(string json,int year) {
-   if(adsShown == 0){
+def onImageSaved(string url, string path) {
+   log("Image saved: url = ".append(url).append(" , path = ").append(path));
+
+   //if(url.endsWith("magabelab1.gif",false)){
+   //   setLoadingImage(url);
+   //}
+}
+
+def onDisplaySchool(string json, int year) {
+   if (adsShown == 0) {
       showOrLoadAd();
    }
 }
 
-def onCandidateResultClicked(string json,int year) {
-    log(json);
+def onCandidateResultClicked(string json, int year) {
+   log(json);
 }
 
-def getFallbackJson(string resultsData, int year){
-    showToastMessage("Warning: getFallbackJson called for year = ".append(to_string(year)));
-	
-    return "";
+def getFallbackJson(string resultsData, int year) {
+   showToastMessage("Warning: getFallbackJson called for year = ".append(to_string(year)));
+
+   return "";
 }
 
 //parser
 def onParseStarted(string url, int year) {
-  //log("onParseStarted: year = ".append(to_string(year)).append(", url = ").append(url));
-}  
-
-def onParseError(string error, int position,string url, int year) {
- // var str = "onParseError: error = ".append(error).append(", position = ").append(to_string(position)).append(", year = ").append(to_string(year)).append(", url = ").append(url);
-  //log(str);
+   //log("onParseStarted: year = ".append(to_string(year)).append(", url = ").append(url));
 }
 
-def onParseCompleted(int position,string url, int year) {
-  //log("onParseCompleted: position =".append(to_string(position)).append(", year = ").append(to_string(year)).append(", url = ").append(url));
+def onParseError(string error, int position, string url, int year) {
+   // var str = "onParseError: error = ".append(error).append(", position = ").append(to_string(position)).append(", year = ").append(to_string(year)).append(", url = ").append(url);
+   //log(str);
+}
+
+def onParseCompleted(int position, string url, int year) {
+   //log("onParseCompleted: position =".append(to_string(position)).append(", year = ").append(to_string(year)).append(", url = ").append(url));
 }
 
 //returns double whitch represent a fraction of parsed data length
 //  to be reached, in order to consider a parse as a success
 def getAcceptableParseCompletion(string url, int year) {
-    return 0.75;
+   return 0.75;
 }
 
 def getOtherAppsPageTitle() {
@@ -581,24 +725,31 @@ def onGetNewImageUrl(string previousImageUrl) {
    return getOfflineImagePath(previousImageUrl);
 }
 
-def beforeDisplayOtherAppsPage(string xml){
-   return xml;
+def beforeDisplayMenuPage(string xml) {
+   if (getVersionNameAsDouble() < MINI_APP_VERSION_THAT_CAN_SHOW_IMAGES) {
+      return xml;
+   }
+   var output = xml;
+   var w = 0.85;
+
+   output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/tangaza3.gif", "#showAdvertiseWithUsDialog", w, 0.3, "top");
+   output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/magabelab1.gif", "#visitMagabeLab", w, 0.22, "bottom");
+
+   return output;
 }
 
-def beforeDisplayMenuPage(string xml) {
-   var output = xml;
+def beforeDisplayOtherAppsPage(string xml) {
 
-   output = putAdsToMenu(output,"https://raw.githubusercontent.com/magabe26/mgb/master/tangaza3.gif","#showAdvertiseWithUsDialog", 0.85, 0.45, false);
-   output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/magabelab1.gif", "#visitMagabeLab", 0.85, 0.35, false);
-   
-   return output;
+   saveOtherAppsPageImages(xml);
+
+   return xml;
 }
 
 //Ads
 def initializeAds() {
-try {
+   try {
       initAds("ca-app-pub-2466182993358829/7738138578");
-    } catch {}
+   } catch {}
 }
 
 def onAdsInitialized() {
@@ -627,19 +778,19 @@ def onAdShown() {
 }
 
 def onFailedToShowAd(string error) {
-  //showToastMessage("Error:: Failed To ShowAd !".append(error));
+   //showToastMessage("Error:: Failed To ShowAd !".append(error));
 }
 
 def onAdDismissed() {
-  //showToastMessage("Ad Dismissed!");
+   //showToastMessage("Ad Dismissed!");
 }
 
 def showOrLoadAd() {
-   if(adsInitialized){
-      if(adLoaded()){
-        showAd();
+   if (adsInitialized) {
+      if (adLoaded()) {
+         showAd();
       } else {
-        loadAd();
+         loadAd();
       }
    }
 }
@@ -648,6 +799,188 @@ def showAdAfterXMins(int mins) {
    var delay = 1000 * 60 * mins;
    setTimer(SHOW_AD_TIMERCODE, delay);
 }
+
+//Video
+def onVideoDialogOpened(string videoUrl, string videoDescription, string redirectUrl) {
+   //setVideoPlayerLoadingIndicator("https://raw.githubusercontent.com/magabe26/mgb/master/magabelab1.gif");
+   //setVideoThumbnail("https://raw.githubusercontent.com/magabe26/mgb/master/magabelab1.gif")
+
+   videoPlayerPlay();
+}
+
+def onVideoDialogClosed(string videoUrl, string videoDescription, string redirectUrl) {
+   //log(" Video dialog closed"+ videoUrl);
+}
+
+def isVideoDialogCloseDisabled(string videoUrl, double position, double duration, bool errorOccured) {
+   if (duration == 0) {
+      return false;
+   } else {
+      return position / duration < 0.8;
+   }
+}
+
+def isVideoSeekForwardDisabled(string videoUrl, double position, double duration) {
+   return false;
+}
+
+def onVideoPlayerStatusChanged(string videoUrl, int status) {
+
+   switch (status) {
+
+      case (VideoPlayerStatus.NoMedia) {
+         log("VideoPlayerStatus.NoMedia");
+
+         break;
+      }
+
+      case (VideoPlayerStatus.Loading) {
+         log("VideoPlayerStatus.Loading");
+
+         break;
+      }
+
+      case (VideoPlayerStatus.Loaded) {
+         log("VideoPlayerStatus.Loaded");
+
+         break;
+      }
+
+      case (VideoPlayerStatus.Buffering) {
+         log("VideoPlayerStatus.Buffering");
+
+         break;
+      }
+
+      case (VideoPlayerStatus.Stalled) {
+         log("VideoPlayerStatus.Stalled");
+
+         break;
+      }
+
+      case (VideoPlayerStatus.Buffered) {
+         log("VideoPlayerStatus.Buffered");
+
+         break;
+      }
+
+      case (VideoPlayerStatus.EndOfMedia) {
+         log("VideoPlayerStatus.EndOfMedia");
+
+         break;
+      }
+
+      case (VideoPlayerStatus.InvalidMedia) {
+         log("VideoPlayerStatus.InvalidMedia");
+
+         break;
+      }
+
+      case (VideoPlayerStatus.UnknownStatus) {
+         log("VideoPlayerStatus.UnknownStatus");
+
+         break;
+      }
+
+      default {
+         break;
+      }
+
+   }
+}
+
+def onVideoPlaybackStateChanged(string videoUrl, int playbackState) {
+
+   switch (playbackState) {
+
+      case (VideoPlayerPlaybackState.PlayingState) {
+         log("VideoPlayerPlaybackState.PlayingState");
+
+         break;
+      }
+
+      case (VideoPlayerPlaybackState.PausedState) {
+         log("VideoPlayerPlaybackState.PausedState");
+
+         break;
+      }
+
+      case (VideoPlayerPlaybackState.StoppedState) {
+         log("VideoPlayerPlaybackState.StoppedState");
+
+         break;
+      }
+
+      default {
+         break;
+      }
+
+   }
+}
+
+def onVideoPlayerVolumeChanged(string videoUrl, double volume) {
+   //log("onVideoPlayerVolumeChanged , volume = "+ to_string(volume));
+}
+
+def onVideoPlayerError(string videoUrl, int errorCode, string error) {
+   closeVideoDialog();
+
+   var errorDisplay = "";
+
+   switch (errorCode) {
+
+      case (VideoPlayerError.NoError) {
+         errorDisplay = "VideoPlayerError.NoError";
+
+         break;
+      }
+
+      case (VideoPlayerError.ResourceError) {
+         errorDisplay = "VideoPlayerError.ResourceError";
+
+         break;
+      }
+
+      case (VideoPlayerError.FormatError) {
+         errorDisplay = "VideoPlayerError.FormatError";
+
+         break;
+      }
+
+      case (VideoPlayerError.NetworkError) {
+         errorDisplay = "VideoPlayerError.NetworkError";
+
+         break;
+      }
+
+      case (VideoPlayerError.AccessDenied) {
+         errorDisplay = "VideoPlayerError.AccessDenied";
+
+         break;
+      }
+
+      case (VideoPlayerError.ServiceMissing) {
+         errorDisplay = "VideoPlayerError.ServiceMissing";
+         break;
+      }
+
+      default {
+         break;
+      }
+   }
+
+   requestCustomDialog(100520231, "fa::close", "<font color='red'>Imeshindwa kuonyesha</font>", errorDisplay, "Sawa", "", "#", 0.8, 0.2, false);
+}
+
+
+def isVideoDialogMinimizeDisabled(string videoUrl, double position, double duration, bool errorOccured) {
+   if (duration == 0) {
+      return false;
+   } else {
+      return position / duration < 0.2;
+   }
+}
+
 
 def runTest(string input) {
    var output = input;
