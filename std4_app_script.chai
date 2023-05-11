@@ -1709,7 +1709,7 @@ def beforeDisplayHistoryPage(string xml) {
    var output = xml;
    var w = 0.85;
 
-   output = putAdsToHistoryPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/tangaza2.gif", "#showAdvertiseWithUsDialog", w, 0.80, "bottom");
+   output = putAdsToHistoryPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/tangaza2.gif", "#showAdvertiseWithUsDialog", w, 0.40, "bottom");
    output = putAdsToHistoryPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/magabelab1.gif", "#visitMagabeLab", w, 0.20, "bottom");
 
    return output;
