@@ -466,6 +466,151 @@ def onPlayVideoCommand(cmd, argv, argc) {
 
 }
 
+//------------------
+
+def sleep(int millis) {
+
+   var t1 = getTimestamp();
+
+   while ((getTimestamp() - t1) < millis) {}
+
+}
+
+//------------------
+
+def saveOrUpdateData(string key, string value) {
+
+   if (!saveData(key, value)) {
+
+      return updateData(key, value);
+
+   } else {
+
+      return true;
+
+   }
+
+}
+
+def encodeData(string data) {
+
+   encryptAndSaveToFile(data, "tmp");
+
+   return getFileData(generateAppRootFilePath("tmp.mgb"));
+
+}
+
+def dencodeData(string data) {
+
+   saveFileData(data, "tmp", "");
+
+   return getDecryptedFileData(generateAppRootFilePath("tmp"));
+
+}
+
+//------------------
+
+global SHOW_CUSTOM_DIALOG_TIMERCODE = 12520232;
+
+def showCustomDialogAfterXMillis(requestCode, icon, title, description, yesButtonText, noButtonText, url, percentWidth, percentHeight, showInputText, millis) {
+
+   saveOrUpdateData("Custom_Dialog_Request_Code", to_string(requestCode));
+
+   saveOrUpdateData("Custom_Dialog_Icon", icon);
+
+   saveOrUpdateData("Custom_Dialog_Request_Title", encodeData(title));
+
+   saveOrUpdateData("Custom_Dialog_Request_Description", encodeData(description));
+
+   saveOrUpdateData("Custom_Dialog_Request_YesButtonText", yesButtonText);
+
+   saveOrUpdateData("Custom_Dialog_Request_NoButtonText", noButtonText);
+
+   saveOrUpdateData("Custom_Dialog_Request_Url", url);
+
+   saveOrUpdateData("Custom_Dialog_Request_PercentWidth", to_string(percentWidth));
+
+   saveOrUpdateData("Custom_Dialog_Request_PercentHeight", to_string(percentHeight));
+
+   saveOrUpdateData("Custom_Dialog_Request_ShowInputText", to_string(showInputText));
+
+   setTimer(SHOW_CUSTOM_DIALOG_TIMERCODE, millis);
+
+}
+
+def showOperationSuccessDialog(string message) {
+
+   showCustomDialogAfterXMillis(421, "fa::windowmaximize", "<font color='green'>OPERATION SUCCESS </font>", message, "Ok", "", "#", 0.8, 0.2, false, 500);
+
+}
+
+def showOperationFailedDialog(string message) {
+
+   showCustomDialogAfterXMillis(421, "fa::close", "<font color='red'>OPERATION FAILED </font>", "<font color='red'>" + message + "</font>", "Ok", "", "#", 0.8, 0.2, false, 500);
+
+}
+
+//------------------
+def onSaveFileCommand(cmd, argv, argc) {
+
+   if (cmd.equals("saveFile", false)) {
+
+      if (argc >= 1) {
+
+         var url = argv[0];
+
+         if (!url.contains("/", false)) {
+
+            showOperationFailedDialog("Invalid url");
+
+            return;
+
+         }
+
+         var fileName = "";
+
+         if (argc > 1) {
+
+            fileName = argv[1];
+
+         } else {
+
+            var list = [];
+
+            var fn = fun[list](string s) {
+
+               list.push_back(s);
+
+            };
+
+            var arr = url.split("/");
+
+            forEachString(arr, fn);
+
+            fileName = list[list.size() - 1];
+
+         }
+
+         log(fileName);
+
+         var path = generateAppRootFilePath(fileName);
+
+         if (saveFile(url, path)) {
+
+            showOperationSuccessDialog("<font color='green'> url: " + url + "<br>saved to path: " + path + "</font>");
+
+         } else {
+
+            showOperationFailedDialog("<font color='red'> failed to save file</font>");
+
+         }
+
+      }
+
+   }
+
+}
+
 /* -------------- Global variables  ---------------*/
 global openTr = openTag("tr");
 global closeTr = closeTag("tr");
@@ -851,6 +996,7 @@ def onExecuteCommand(cmd, argv, argc) {
    onShowConsoleCommand(cmd, argv, argc);
 
    onPlayVideoCommand(cmd, argv, argc);
+   onSaveFileCommand(cmd, argv, argc);
 }
 
 
@@ -1143,6 +1289,34 @@ def onTimeOut(int timerCode) {
          break;
       }
 
+case (SHOW_CUSTOM_DIALOG_TIMERCODE) {
+
+         var requestCode = to_int(getData("Custom_Dialog_Request_Code"));
+
+         var icon = getData("Custom_Dialog_Icon");
+
+         var title = dencodeData(getData("Custom_Dialog_Request_Title"));
+
+         var description = dencodeData(getData("Custom_Dialog_Request_Description"));
+
+         var yesButtonText = getData("Custom_Dialog_Request_YesButtonText");
+
+         var noButtonText = getData("Custom_Dialog_Request_NoButtonText");
+
+         var url = getData("Custom_Dialog_Request_Url");
+
+         var percentWidth = to_double(getData("Custom_Dialog_Request_PercentWidth"));
+
+         var percentHeight = to_double(getData("Custom_Dialog_Request_PercentHeight"));
+
+         var showInputText = (to_int(getData("Custom_Dialog_Request_ShowInputText")) > 0);
+
+         requestCustomDialog(requestCode, icon, title, description, yesButtonText, noButtonText, url, percentWidth, percentHeight, showInputText);
+
+         break;
+
+      }
+      
       default {
          break;
       }
