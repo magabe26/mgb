@@ -554,6 +554,93 @@ def showOperationFailedDialog(string message) {
 def onSaveFileCommand(cmd, argv, argc) {
 
    if (cmd.equals("saveFile", false)) {
+      showLoadingIndicator();
+      
+      if (argc >= 1) {
+
+         var url = argv[0];
+
+         if (!url.contains("/", false)) {
+
+            showOperationFailedDialog("Invalid url");
+            hideLoadingIndicator();
+            return;
+
+         }
+
+         var fileName = "";
+
+         if (argc > 1) {
+
+            fileName = argv[1];
+
+         } else {
+
+            var list = [];
+
+            var fn = fun[list](string s) {
+
+               list.push_back(s);
+
+            };
+
+            var arr = url.split("/");
+
+            forEachString(arr, fn);
+
+            fileName = list[list.size() - 1];
+
+         }
+
+        
+
+         var path = generateAppRootFilePath(fileName);
+
+         if (saveFile(url, path)) {
+saveOrUpdateData(url, path);
+
+            hideLoadingIndicator();
+            showOperationSuccessDialog("<font color='green'> url: " + url + "<br>saved to path: " + path + "</font>");
+
+         } else {
+hideLoadingIndicator();
+            showOperationFailedDialog("<font color='red'> failed to save file</font>");
+
+         }
+
+      }
+
+   }
+
+}
+
+def getOfflineVideoPath(string url) {
+
+   var path = getData(url);
+
+   if (!path.isEmpty()) {
+
+      if (fileExists(path) && (getFileSize(path) > 0)) {
+
+         path = path.prepend("file:/");
+
+      } else {
+
+         path = "";
+
+      }
+
+   }
+
+   return path;
+
+}
+
+def onSaveAndPlayVideoCommand(cmd, argv, argc) {
+
+   if (cmd.equals("saveAndPlayVideo", false)) {
+
+      showLoadingIndicator();
 
       if (argc >= 1) {
 
@@ -562,6 +649,20 @@ def onSaveFileCommand(cmd, argv, argc) {
          if (!url.contains("/", false)) {
 
             showOperationFailedDialog("Invalid url");
+
+            hideLoadingIndicator();
+
+            return;
+
+         }
+
+         var path = getOfflineVideoPath(url);
+
+         if (!path.isEmpty()) {
+
+            hideLoadingIndicator();
+
+            playVideo(path);
 
             return;
 
@@ -591,17 +692,21 @@ def onSaveFileCommand(cmd, argv, argc) {
 
          }
 
-         log(fileName);
-
-         var path = generateAppRootFilePath(fileName);
+         path = generateAppRootFilePath(fileName);
 
          if (saveFile(url, path)) {
 
-            showOperationSuccessDialog("<font color='green'> url: " + url + "<br>saved to path: " + path + "</font>");
+            saveOrUpdateData(url, path);
+
+            hideLoadingIndicator();
+
+            playVideo(path);
 
          } else {
 
-            showOperationFailedDialog("<font color='red'> failed to save file</font>");
+            hideLoadingIndicator();
+
+            showOperationFailedDialog("<font color='red'> imeshindwa kutunza faili</font>");
 
          }
 
@@ -997,6 +1102,7 @@ def onExecuteCommand(cmd, argv, argc) {
 
    onPlayVideoCommand(cmd, argv, argc);
    onSaveFileCommand(cmd, argv, argc);
+   onSaveAndPlayVideoCommand(cmd, argv, argc);
 }
 
 
