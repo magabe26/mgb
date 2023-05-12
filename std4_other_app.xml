@@ -116,7 +116,7 @@
     <A HREF="#showConsole"></A>
     <COLOR>blue</COLOR>
     <BG_COLOR>white</BG_COLOR>
-    <ICON>fa::cogs</ICON>
+    <ICON>fa::windowmaximize</ICON>
     <ICON_COLOR>black</ICON_COLOR>
     <BOLD_TEXT>1</BOLD_TEXT>
 </APP>
