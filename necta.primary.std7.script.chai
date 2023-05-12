@@ -540,13 +540,13 @@ def showCustomDialogAfterXMillis(requestCode, icon, title, description, yesButto
 
 def showOperationSuccessDialog(string message) {
 
-   showCustomDialogAfterXMillis(421, "fa::windowmaximize", "<font color='green'>OPERATION SUCCESS </font>", message, "Ok", "", "#", 0.8, 0.2, false, 500);
+   showCustomDialogAfterXMillis(421, "fa::smileo", "<font color='white'>OPERATION SUCCESS </font>", message, "Ok", "", "#", 0.8, 0.2, false, 500);
 
 }
 
 def showOperationFailedDialog(string message) {
 
-   showCustomDialogAfterXMillis(421, "fa::close", "<font color='red'>OPERATION FAILED </font>", "<font color='red'>" + message + "</font>", "Ok", "", "#", 0.8, 0.2, false, 500);
+   showCustomDialogAfterXMillis(421, "fa::close", "<font color='white'>OPERATION FAILED </font>", "<font color='red'>" + message + "</font>", "Ok", "", "#", 0.8, 0.2, false, 500);
 
 }
 
