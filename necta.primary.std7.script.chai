@@ -700,7 +700,7 @@ def onSaveAndPlayVideoCommand(cmd, argv, argc) {
 pasteToClipboard(path);
             hideLoadingIndicator();
 
-            playVideo(path);
+            playVideo(url);
 
          } else {
 
