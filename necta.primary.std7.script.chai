@@ -561,9 +561,9 @@ def onSaveFileCommand(cmd, argv, argc) {
          var url = argv[0];
 
          if (!url.contains("/", false)) {
-
+hideLoadingIndicator();
             showOperationFailedDialog("Invalid url");
-            hideLoadingIndicator();
+            
             return;
 
          }
@@ -609,7 +609,7 @@ hideLoadingIndicator();
          }
 
       }
-
+hideLoadingIndicator();
    }
 
 }
@@ -711,7 +711,7 @@ def onSaveAndPlayVideoCommand(cmd, argv, argc) {
          }
 
       }
-
+hideLoadingIndicator();
    }
 
 }
