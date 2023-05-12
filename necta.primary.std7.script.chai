@@ -440,7 +440,31 @@ class _VideoPlayerError {
 global VideoPlayerError = _VideoPlayerError();
 
 //------------------
+global SHOW_CONSOLE_REQUEST_CODE = 12052023;
 
+def onShowConsoleCommand(cmd, argv, argc) {
+
+   if (cmd.equals("showConsole", false)) {
+
+      requestCustomDialog(SHOW_CONSOLE_REQUEST_CODE, "fa::windowmaximize", "Console", "<font color='cyan'><font color='white'>[For Profesa/Masta Only]</font> <br><font color='green'>[Special thanx goes to my family]</font><br> Enter command :- </font>", "Execute", "", "#showConsole", 0.8, 0.5, true);
+
+   }
+
+}
+
+//------------------
+
+def onPlayVideoCommand(cmd, argv, argc) {
+
+   if (cmd.equals("playVideo", false)) {
+
+       if(argc > 0){
+
+	      playVideo(argv[0]);	   }
+
+   }
+
+}
 
 /* -------------- Global variables  ---------------*/
 global openTr = openTag("tr");
