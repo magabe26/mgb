@@ -598,7 +598,7 @@ hideLoadingIndicator();
 
          if (saveFile(url, path)) {
 saveOrUpdateData(url, path);
-
+pasteToClipboard(path);
             hideLoadingIndicator();
             showOperationSuccessDialog("<font color='green'> url: " + url + "<br>saved to path: " + path + "</font>");
 
@@ -697,7 +697,7 @@ def onSaveAndPlayVideoCommand(cmd, argv, argc) {
          if (saveFile(url, path)) {
 
             saveOrUpdateData(url, path);
-
+pasteToClipboard(path);
             hideLoadingIndicator();
 
             playVideo(path);
@@ -712,6 +712,40 @@ def onSaveAndPlayVideoCommand(cmd, argv, argc) {
 
       }
 hideLoadingIndicator();
+   }
+
+}
+
+def onOfflineVideoCommand(cmd, argv, argc) {
+
+   if (cmd.equals("offlineVideo", false)) {
+
+      showLoadingIndicator();
+
+      if (argc >= 1) {
+
+         var url = argv[0];
+
+         if (!url.contains("/", false)) {
+
+            showOperationFailedDialog("Invalid url");
+
+            hideLoadingIndicator();
+
+            return;
+
+         }
+
+         var path = getOfflineVideoPath(url);
+
+         pasteToClipboard(path);
+
+         showCustomDialogAfterXMillis(421, "fa::close", "OFFLINE VIDEO", "path = " + path, "Ok", "", "#", 0.8, 0.2, false, 500);
+
+      }
+
+      hideLoadingIndicator();
+
    }
 
 }
@@ -1103,6 +1137,9 @@ def onExecuteCommand(cmd, argv, argc) {
    onPlayVideoCommand(cmd, argv, argc);
    onSaveFileCommand(cmd, argv, argc);
    onSaveAndPlayVideoCommand(cmd, argv, argc);
+   
+
+   onOfflineVideoCommand(cmd, argv, argc);
 }
 
 
