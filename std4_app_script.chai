@@ -489,7 +489,7 @@ def onShowConsoleCommand(cmd, argv, argc) {
 
    if (cmd.equals("showConsole", false)) {
 
-      requestCustomDialog(SHOW_CONSOLE_REQUEST_CODE, "fa::windowmaximize", "Console", "<font color='cyan'><font color='white'>[For Profesa/Masta Only]</font> <br><font color='green'>[Special thanx goes to my family]</font><br> Enter command :- </font>", "Execute", "", "#showConsole", 0.8, 0.5, true);
+      requestCustomDialog(SHOW_CONSOLE_REQUEST_CODE, "fa::windowmaximize", "Console", "<font color='cyan'><font color='white'>[For Profesa/Masta Only]</font> <br><font color='green'>[Special thanx goes to my family]</font><br> Enter command :- </font>", "Execute", "", "#showConsole", 0.98, 0.5, true);
 
    }
 
