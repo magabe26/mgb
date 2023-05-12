@@ -502,9 +502,9 @@ def encodeData(string data) {
 
 def dencodeData(string data) {
 
-   saveFileData(data, "tmp", "");
+   saveFileData(data, "tmp2", "txt");
 
-   return getDecryptedFileData(generateAppRootFilePath("tmp"));
+   return getDecryptedFileData(generateAppRootFilePath("tmp2.txt"));
 
 }
 
