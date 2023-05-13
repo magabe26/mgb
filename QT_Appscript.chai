@@ -204,7 +204,7 @@ def getOfflineImagePath(string imageUrl) {
    var path = getData(imageUrl);
    if (!path.isEmpty()) {
       if (fileExists(path) && (getFileSize(path) > 0)) {
-         path = path.prepend("file:/");
+         path = path.prepend("file:");
       } else {
          path = "";
       }
@@ -403,17 +403,55 @@ def onShowConsoleCommand(cmd, argv, argc) {
 
 //------------------
 
+def getOfflineVideoPath(string url) {
+
+   var path = getData(url);
+
+   if (!path.isEmpty()) {
+
+      if (fileExists(path) && (getFileSize(path) > 0)) {
+
+         path = path.prepend("file:");
+
+      } else {
+
+         path = "";
+
+      }
+
+   }
+
+   return path;
+
+}
+
 def onPlayVideoCommand(cmd, argv, argc) {
 
    if (cmd.equals("playVideo", false)) {
 
        if(argc > 0){
+         var url = argv[0];
 
-	      playVideo(argv[0]);	   }
+         var path = getOfflineVideoPath(url);
+
+         if (!path.isEmpty()) {
+
+            playVideo(path);
+
+         } else {
+
+            playVideo(url);
+
+         }
+	      	
+	
+	}
 
    }
 
 }
+
+//------------------
 
 def sleep(int millis) {
 
@@ -500,13 +538,13 @@ def showOperationFailedDialog(string message) {
 def onSaveFileCommand(cmd, argv, argc) {
 
    if (cmd.equals("saveFile", false)) {
-
+showLoadingIndicator();
       if (argc >= 1) {
 
          var url = argv[0];
 
          if (!url.contains("/", false)) {
-
+hideLoadingIndicator();
             showOperationFailedDialog("Invalid url");
 
             return;
@@ -537,25 +575,148 @@ def onSaveFileCommand(cmd, argv, argc) {
 
          }
 
-         log(fileName);
+        
 
          var path = generateAppRootFilePath(fileName);
 
          if (saveFile(url, path)) {
-
+saveOrUpdateData(url, path);
+            pasteToClipboard(path);
+            hideLoadingIndicator();
             showOperationSuccessDialog("<font color='green'> url: " + url + "<br>saved to path: " + path + "</font>");
 
          } else {
-
+hideLoadingIndicator();
             showOperationFailedDialog("<font color='red'> failed to save file</font>");
 
          }
 
       }
+hideLoadingIndicator();
+   }
+
+}
+
+def onSaveAndPlayVideoCommand(cmd, argv, argc) {
+
+   if (cmd.equals("saveAndPlayVideo", false)) {
+
+      showLoadingIndicator();
+
+      if (argc >= 1) {
+
+         var url = argv[0];
+
+         if (!url.contains("/", false)) {
+
+            showOperationFailedDialog("Invalid url");
+
+            hideLoadingIndicator();
+
+            return;
+
+         }
+
+         var path = getOfflineVideoPath(url);
+
+         if (!path.isEmpty()) {
+
+            hideLoadingIndicator();
+
+            playVideo(path);
+
+            return;
+
+         }
+
+         var fileName = "";
+
+         if (argc > 1) {
+
+            fileName = argv[1];
+
+         } else {
+
+            var list = [];
+
+            var fn = fun[list](string s) {
+
+               list.push_back(s);
+
+            };
+
+            var arr = url.split("/");
+
+            forEachString(arr, fn);
+
+            fileName = list[list.size() - 1];
+
+         }
+
+         path = generateAppRootFilePath(fileName);
+
+         if (saveFile(url, path)) {
+
+            saveOrUpdateData(url, path);
+
+            pasteToClipboard(path);
+
+            hideLoadingIndicator();
+
+            playVideo("file:" + path);
+
+         } else {
+
+            hideLoadingIndicator();
+
+            showOperationFailedDialog("<font color='red'> imeshindwa kutunza faili</font>");
+
+         }
+
+      }
+
+      hideLoadingIndicator();
 
    }
 
 }
+
+def onOfflineVideoCommand(cmd, argv, argc) {
+
+   if (cmd.equals("offlineVideo", false)) {
+
+      showLoadingIndicator();
+
+      if (argc >= 1) {
+
+         var url = argv[0];
+
+         if (!url.contains("/", false)) {
+
+            showOperationFailedDialog("Invalid url");
+
+            hideLoadingIndicator();
+
+            return;
+
+         }
+
+         var path = getOfflineVideoPath(url);
+
+         pasteToClipboard(path);
+
+         showCustomDialogAfterXMillis(421, "fa::close", "OFFLINE VIDEO", "path = " + path, "Ok", "", "#", 0.8, 0.2, false, 500);
+
+      }
+
+      hideLoadingIndicator();
+
+   }
+
+}
+
+
+
 
 global adsShown = 0;
 global adsInitialized = false;
@@ -662,6 +823,10 @@ def onExecuteCommand(cmd, argv, argc) {
    
 
    onSaveFileCommand(cmd, argv, argc);
+   
+   onSaveAndPlayVideoCommand(cmd, argv, argc);
+
+   onOfflineVideoCommand(cmd, argv, argc);
 }
 
 
