@@ -459,8 +459,21 @@ def onPlayVideoCommand(cmd, argv, argc) {
    if (cmd.equals("playVideo", false)) {
 
        if(argc > 0){
+         var url = argv[0];
 
-	      playVideo(argv[0]);	   }
+         var path = getOfflineVideoPath(url);
+
+         if (!path.isEmpty()) {
+
+            playVideo(path);
+
+         } else {
+
+            playVideo(url);
+
+         }
+	      	 
+	}
 
    }
 
