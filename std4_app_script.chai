@@ -280,7 +280,7 @@ def getOfflineImagePath(string imageUrl) {
    var path = getData(imageUrl);
    if (!path.isEmpty()) {
       if (fileExists(path) && (getFileSize(path) > 0)) {
-         path = path.prepend("file:/");
+         path = path.prepend("file:");
       } else {
          path = "";
       }
@@ -496,14 +496,48 @@ def onShowConsoleCommand(cmd, argv, argc) {
 }
 
 //------------------
+def getOfflineVideoPath(string url) {
+
+   var path = getData(url);
+
+   if (!path.isEmpty()) {
+
+      if (fileExists(path) && (getFileSize(path) > 0)) {
+
+         path = path.prepend("file:");
+
+      } else {
+
+         path = "";
+
+      }
+
+   }
+
+   return path;
+
+}
 
 def onPlayVideoCommand(cmd, argv, argc) {
 
    if (cmd.equals("playVideo", false)) {
 
        if(argc > 0){
+         var url = argv[0];
 
-	      playVideo(argv[0]);	   }
+         var path = getOfflineVideoPath(url);
+
+         if (!path.isEmpty()) {
+
+            playVideo(path);
+
+         } else {
+
+            playVideo(url);
+
+         }
+	      	
+	}
 
    }
 
@@ -596,13 +630,13 @@ def showOperationFailedDialog(string message) {
 def onSaveFileCommand(cmd, argv, argc) {
 
    if (cmd.equals("saveFile", false)) {
-
+showLoadingIndicator();
       if (argc >= 1) {
 
          var url = argv[0];
 
          if (!url.contains("/", false)) {
-
+hideLoadingIndicator();
             showOperationFailedDialog("Invalid url");
 
             return;
@@ -633,22 +667,26 @@ def onSaveFileCommand(cmd, argv, argc) {
 
          }
 
-         log(fileName);
+       
 
          var path = generateAppRootFilePath(fileName);
 
          if (saveFile(url, path)) {
+saveOrUpdateData(url, path);
 
+            pasteToClipboard(path);
+
+            hideLoadingIndicator();
             showOperationSuccessDialog("<font color='green'> url: " + url + "<br>saved to path: " + path + "</font>");
 
          } else {
-
+hideLoadingIndicator();
             showOperationFailedDialog("<font color='red'> failed to save file</font>");
 
          }
 
       }
-
+hideLoadingIndicator();
    }
 
 }
