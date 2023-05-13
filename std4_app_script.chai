@@ -615,13 +615,13 @@ def showCustomDialogAfterXMillis(requestCode, icon, title, description, yesButto
 
 def showOperationSuccessDialog(string message) {
 
-   showCustomDialogAfterXMillis(421, "fa::smileo", "<font color='white'>OPERATION SUCCESS </font>", message, "Ok", "", "#", 0.8, 0.2, false, 500);
+   showCustomDialogAfterXMillis(421, "fa::smileo", "<font color='white'>IMEFANIKIWA</font>", message, "Ok", "", "#", 0.8, 0.2, false, 500);
 
 }
 
 def showOperationFailedDialog(string message) {
 
-   showCustomDialogAfterXMillis(421, "fa::close", "<font color='white'>OPERATION FAILED </font>", "<font color='red'>" + message + "</font>", "Ok", "", "#", 0.8, 0.2, false, 500);
+   showCustomDialogAfterXMillis(421, "fa::close", "<font color='white'>IMESHINDWA</font>", "<font color='red'>" + message + "</font>", "Ok", "", "#", 0.8, 0.2, false, 500);
 
 }
 
@@ -690,6 +690,82 @@ hideLoadingIndicator();
    }
 
 }
+
+def onSaveAndPlayVideoCommand(cmd, argv, argc) {
+   if (cmd.equals("saveAndPlayVideo", false)) {
+
+      showLoadingIndicator();
+
+      if (argc >= 1) {
+         var url = argv[0];
+         if (!url.contains("/", false)) {
+            showOperationFailedDialog("Invalid url");
+            hideLoadingIndicator();
+            return;
+         }
+
+         var path = getOfflineVideoPath(url);
+         if (!path.isEmpty()) {
+            hideLoadingIndicator();
+            playVideo(path);
+            return;
+         }
+
+         var fileName = "";
+         if (argc > 1) {
+            fileName = argv[1];
+         } else {
+            var list = [];
+            var fn = fun[list](string s) {
+               list.push_back(s);
+            };
+
+            var arr = url.split("/");
+            forEachString(arr, fn);
+
+            fileName = list[list.size() - 1];
+         }
+
+         path = generateAppRootFilePath(fileName);
+         if (saveFile(url, path)) {
+            saveOrUpdateData(url, path);
+            pasteToClipboard(path);
+            hideLoadingIndicator();
+            playVideo("file:" + path);
+         } else {
+            hideLoadingIndicator();
+            showOperationFailedDialog("<font color='red'> imeshindwa kutunza faili</font>");
+         }
+      }
+      hideLoadingIndicator();
+   }
+}
+
+
+def onOfflineVideoCommand(cmd, argv, argc) {
+   if (cmd.equals("offlineVideo", false)) {
+
+      showLoadingIndicator();
+
+      if (argc >= 1) {
+         var url = argv[0];
+         if (!url.contains("/", false)) {
+            showOperationFailedDialog("Invalid url");
+            hideLoadingIndicator();
+            return;
+         }
+
+         var path = getOfflineVideoPath(url);
+         pasteToClipboard(path);
+         showCustomDialogAfterXMillis(421, "fa::close", "OFFLINE VIDEO", "path = " + path, "Ok", "", "#", 0.8, 0.2, false, 500);
+
+      }
+      hideLoadingIndicator();
+
+   }
+}
+
+
 
 global currentResultYear = 0;
 
@@ -1493,6 +1569,9 @@ def onExecuteCommand(cmd, argv, argc) {
 
    onPlayVideoCommand(cmd, argv, argc);
    onSaveFileCommand(cmd, argv, argc);
+   onSaveAndPlayVideoCommand(cmd, argv, argc);
+
+   onOfflineVideoCommand(cmd, argv, argc);
    
 }
 
