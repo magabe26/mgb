@@ -622,7 +622,7 @@ def getOfflineVideoPath(string url) {
 
       if (fileExists(path) && (getFileSize(path) > 0)) {
 
-         path = path.prepend("file:/");
+         path = path.prepend("file:");
 
       } else {
 
