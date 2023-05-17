@@ -1,1 +1,1 @@
-magabe26/mgb/necta.primary.std7.script.chai,magabe26/mgb/necta.primary.std7.xml
+magabe26/mgb/necta.primary.std7.script.chai,magabe26/mgb/necta.primary.std7.xml,magabe26/mgb/matokeo-scripts.txt
