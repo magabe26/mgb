@@ -26,4 +26,4 @@ magabe26/mgb/Form_2_Appscript.chai,
 magabe26/mgb/Form_2_Menu.xml,
 magabe26/mgb/Form_2_Redirection.xml,
 magabe26/mgb/other features.chai,
-magabe26/mgb/README.md
+magabe26/mgb/README.md,magabe26/mgb/matokeo-scripts.txt
