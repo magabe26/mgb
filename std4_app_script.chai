@@ -559,8 +559,8 @@ def showCustomDialogAfterXMillis(requestCode, icon, title, description, yesButto
    saveOrUpdateData("Custom_Dialog_Icon", icon);
    saveOrUpdateData("Custom_Dialog_Request_Title", encodeData(title));
    saveOrUpdateData("Custom_Dialog_Request_Description", encodeData(description));
-   saveOrUpdateData("Custom_Dialog_Request_YesButtonText", yesButtonText);
-   saveOrUpdateData("Custom_Dialog_Request_NoButtonText", noButtonText);
+   saveOrUpdateData("Custom_Dialog_Request_YesButtonText", encodeData(yesButtonText));
+   saveOrUpdateData("Custom_Dialog_Request_NoButtonText", encodeData(noButtonText));
    saveOrUpdateData("Custom_Dialog_Request_Url", url);
    saveOrUpdateData("Custom_Dialog_Request_PercentWidth", to_string(percentWidth));
    saveOrUpdateData("Custom_Dialog_Request_PercentHeight", to_string(percentHeight));
@@ -1719,8 +1719,8 @@ def onTimeOut(int timerCode) {
          var icon = getData("Custom_Dialog_Icon");
          var title = decodeData(getData("Custom_Dialog_Request_Title"));
          var description = decodeData(getData("Custom_Dialog_Request_Description"));
-         var yesButtonText = getData("Custom_Dialog_Request_YesButtonText");
-         var noButtonText = getData("Custom_Dialog_Request_NoButtonText");
+         var yesButtonText = decodeData(getData("Custom_Dialog_Request_YesButtonText"));
+         var noButtonText = decodeData(getData("Custom_Dialog_Request_NoButtonText"));
          var url = getData("Custom_Dialog_Request_Url");
          var percentWidth = to_double(getData("Custom_Dialog_Request_PercentWidth"));
          var percentHeight = to_double(getData("Custom_Dialog_Request_PercentHeight"));
