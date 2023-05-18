@@ -3,7 +3,7 @@
  * Author Edwin Magabe    edyma24@gmail.com
  */
 
-/* --------------  extensions  ---------------*/
+//------------------
 
 def getScriptRunnerVersion() {
    try {
@@ -25,10 +25,58 @@ def packageNameToUrl(string packageName) {
    return "https://play.google.com/store/apps/details?id=".append(packageName);
 }
 
+//------------------
+
+global MINI_APP_VERSION_THAT_CAN_SHOW_IMAGES = 1.1
+
+def getVersionNameAsDouble() {
+   return to_double(getVersionName(getAppPackageName()));
+}
+
+//------------------
+
 def boolToString(bool b) {
    return b ? "true" : "false";
 }
 
+//------------------
+
+def saveOrUpdateData(string key, string value) {
+   if (!saveData(key, value)) {
+      return updateData(key, value);
+   } else {
+      return true;
+   }
+}
+
+//------------------
+
+def openTag(string tag) {
+   return chaR('<').seq(spaceOptional()).seq(stR(tag, false)).seq(spaceOptional()).seq(chaR('>'));
+}
+
+def closeTag(string tag) {
+   return chaR('<').seq(spaceOptional()).seq(chaR('/')).seq(spaceOptional()).seq(stR(tag, false)).seq(spaceOptional()).seq(chaR('>'));
+}
+
+//------------------
+
+class Tag {
+   def Tag(bool valid, int index, int length, string value) {
+      this.valid = valid;
+      this.index = index;
+      this.length = length;
+      this.value = value;
+   }
+   var valid;
+   var index;
+   var length;
+   var value;
+};
+
+//------------------
+
+/* -------------- string extensions  ---------------*/
 
 def string::indexOf(string s, int start, bool caseSensitive) {
    return strIndexOf(this, s, start, caseSensitive);
@@ -114,19 +162,6 @@ def string::removeAtPosition(int position, int length) {
    return strRemoveAtPosition(this, position, length);
 }
 
-class Tag {
-   def Tag(bool valid, int index, int length, string value) {
-      this.valid = valid;
-      this.index = index;
-      this.length = length;
-      this.value = value;
-   }
-   var valid;
-   var index;
-   var length;
-   var value;
-};
-
 def string::getTag(string t, int start) {
    var closeTag = "</".append(t).append(">");
    var tag = Tag(false, -1, -1, "");
@@ -141,14 +176,6 @@ def string::getTag(string t, int start) {
       }
    }
    return tag;
-}
-
-def openTag(string tag) {
-   return chaR('<').seq(spaceOptional()).seq(stR(tag, false)).seq(spaceOptional()).seq(chaR('>'));
-}
-
-def closeTag(string tag) {
-   return chaR('<').seq(spaceOptional()).seq(chaR('/')).seq(spaceOptional()).seq(stR(tag, false)).seq(spaceOptional()).seq(chaR('>'));
 }
 
 def string::removeOpenTag(string t) {
@@ -181,15 +208,6 @@ def string::equals(string other, bool caseSensitive) {
 
 /* -------------------------------------------------*/
 
-
-//------------------
-
-global MINI_APP_VERSION_THAT_CAN_SHOW_IMAGES = 1.1
-
-def getVersionNameAsDouble() {
-   return to_double(getVersionName(getAppPackageName()));
-}
-
 //------------------
 
 def getLocale() {
@@ -202,12 +220,7 @@ def getLocale() {
 }
 
 def setLocale(string locale) {
-   var exists = (!getData("locale").isEmpty());
-   if (exists) {
-      updateData("locale", locale);
-   } else {
-      saveData("locale", locale);
-   }
+   saveOrUpdateData("locale", locale);
 }
 
 def onChangeLocaleCommand(cmd, argv, argc) {
@@ -236,12 +249,7 @@ def getFailureIdentifier() {
 }
 
 def setFailureIdentifier(string fid) {
-   var exists = (!getData("FailureIdentifier").isEmpty());
-   if (exists) {
-      updateData("FailureIdentifier", fid);
-   } else {
-      saveData("FailureIdentifier", fid);
-   }
+   saveOrUpdateData("FailureIdentifier", fid);
 }
 
 def onChangeFailureIdentifierCommand(cmd, argv, argc) {
@@ -291,12 +299,9 @@ def getOfflineImagePath(string imageUrl) {
 //------------------
 
 def setLoadingImage(string url) {
-   var path = getOfflineImagePath(url).remove("file:/", false);
+   var path = getOfflineImagePath(url).remove("file:", false);
    if (!path.isEmpty()) {
-      var key = "images/loading.gif";
-      if (!saveData(key, path)) {
-         updateData(key, path);
-      }
+      saveOrUpdateData("images/loading.gif", path);
       loadingIndicatorImageChanged();
    } else {
       saveImageForOffline(url);
@@ -304,10 +309,7 @@ def setLoadingImage(string url) {
 }
 
 def setDefaultLoadingImage() {
-   var key = "images/loading.gif";
-   if (!saveData(key, "")) {
-      updateData(key, "");
-   }
+   saveOrUpdateData("images/loading.gif", "");
    loadingIndicatorImageChanged();
 }
 
@@ -407,20 +409,33 @@ def putAdsToSFNAPage(string xml, string imageUrl, string redirectUrl, double wf,
 
 global EMAIL_US_REQUEST_CODE = 706033328;
 
+def onShowAdvertiseWithUsDialogCommandForConsole(cmd, argv, argc) {
+   if (cmd.equals("tangaza", false)) {
+      showCustomDialogAfterXMillis(EMAIL_US_REQUEST_CODE, "fa::vcardo", " TANGAZA", "Taganza katika aplikesheni hii. Tangaza <font color='green'><u>shule</u></font>, <font color='yellow'><u>stationery</u></font>, <font color='cyan'><u>kitabu</u></font> n.k  kwa kutumia mfumo wa picha. Kwa maelezo zaidi tutumie barua pepe.", "Tuma", "<font color='white'>Baadae</font> ", "#emailUs", 0.8, 0.3, false,500);
+   }
+}
+
 def onShowAdvertiseWithUsDialogCommand(cmd, argv, argc) {
    if (cmd.equals("showAdvertiseWithUsDialog", false)) {
-      requestCustomDialog(EMAIL_US_REQUEST_CODE, "fa::vcardo", " TANGAZA", "Taganza katika aplikesheni hii. Tangaza <font color='green'><u>shule</u></font>, <font color='yellow'><u>stationery</u></font>, <font color='cyan'><u>kitabu</u></font> n.k  kwa kutumia mfumo wa picha. Kwa maelezo zaidi tutumie barua pepe.", "Tuma", "<font color='white'>Baadae</font> ", "#emailUs", 0.8, 0.3, false);
+      requestCustomDialog(EMAIL_US_REQUEST_CODE, "fa::vcardo", " TANGAZA", "Taganza katika aplikesheni hii. Tangaza <font color='green'><u>shule</u></font>, <font color='yellow'><u>stationery</u></font>, <font color='cyan'><u>kitabu</u></font> n.k  kwa kutumia mfumo wa picha au video. Kwa maelezo zaidi tutumie barua pepe.", "Tuma", "<font color='white'>Baadae</font> ", "#emailUs", 0.8, 0.3, false);
    }
+   onShowAdvertiseWithUsDialogCommandForConsole(cmd, argv, argc);
 }
 
 //------------------
 
 global VISIT_MAGABE_LAB_REQUEST_CODE = 320230506;
 
+def onVisitMagabeLabCommandForConsole(cmd, argv, argc) {
+   if (cmd.equals("MagabeLab", false)) {
+      showCustomDialogAfterXMillis(VISIT_MAGABE_LAB_REQUEST_CODE, "fa::rocket", " TUTEMBELEE", "<font color='cyan'>Tembelea tovuti yetu.</font>", "Sawa", "<font color='white'>Baadae</font> ", "#visitMagabeLab", 0.8, 0.15, false,500);
+   }
+}
 def onVisitMagabeLabCommand(cmd, argv, argc) {
    if (cmd.equals("visitMagabeLab", false)) {
       requestCustomDialog(VISIT_MAGABE_LAB_REQUEST_CODE, "fa::rocket", " TUTEMBELEE", "<font color='cyan'>Tembelea tovuti yetu.</font>", "Sawa", "<font color='white'>Baadae</font> ", "#visitMagabeLab", 0.8, 0.15, false);
    }
+   onVisitMagabeLabCommandForConsole(cmd, argv, argc);
 }
 
 //------------------
@@ -449,7 +464,6 @@ class _VideoPlayerStatus {
 };
 global VideoPlayerStatus = _VideoPlayerStatus();
 
-
 class _VideoPlayerPlaybackState {
    def _VideoPlayerPlaybackState() {
       this.StoppedState = 0;
@@ -461,7 +475,6 @@ class _VideoPlayerPlaybackState {
    var StoppedState;
 };
 global VideoPlayerPlaybackState = _VideoPlayerPlaybackState();
-
 
 class _VideoPlayerError {
    def _VideoPlayerError() {
@@ -479,220 +492,138 @@ class _VideoPlayerError {
    var AccessDenied;
    var ServiceMissing;
 };
-
 global VideoPlayerError = _VideoPlayerError();
 
 //------------------
-global SHOW_CONSOLE_REQUEST_CODE = 12052023
+
+global SHOW_CONSOLE_REQUEST_CODE = 12052023;
 
 def onShowConsoleCommand(cmd, argv, argc) {
-
    if (cmd.equals("showConsole", false)) {
-
-      requestCustomDialog(SHOW_CONSOLE_REQUEST_CODE, "fa::windowmaximize", "Console", "<font color='cyan'><font color='white'>[For Profesa/Masta Only]</font> <br><font color='green'>[Special thanx goes to my family]</font><br> Enter command :- </font>", "Execute", "", "#showConsole", 0.98, 0.5, true);
-
+      requestCustomDialog(SHOW_CONSOLE_REQUEST_CODE, "fa::windowmaximize", "Console", "<font color='cyan'>Weka Amri <font color='white'>[ Mfano: tangaza;]</font> :- </font>", "Tuma", "", "#showConsole", 0.98, 0.5, true);
    }
-
 }
 
 //------------------
+
 def getOfflineVideoPath(string url) {
-
    var path = getData(url);
-
    if (!path.isEmpty()) {
-
       if (fileExists(path) && (getFileSize(path) > 0)) {
-
          path = path.prepend("file:");
-
       } else {
-
          path = "";
-
       }
-
    }
-
    return path;
-
 }
 
 def onPlayVideoCommand(cmd, argv, argc) {
-
-   if (cmd.equals("playVideo", false)) {
-
-       if(argc > 0){
+   if (cmd.equals("playVideo", false) || cmd.equals("onyeshaVideo", false)) {
+      if (argc > 0) {
          var url = argv[0];
-
          var path = getOfflineVideoPath(url);
-
          if (!path.isEmpty()) {
-
             playVideo(path);
-
          } else {
-
             playVideo(url);
-
          }
-	      	
-	}
-
+      }
    }
-
-}
-
-def sleep(int millis) {
-
-   var t1 = getTimestamp();
-
-   while ((getTimestamp() - t1) < millis) {}
-
 }
 
 //------------------
 
-def saveOrUpdateData(string key, string value) {
-
-   if (!saveData(key, value)) {
-
-      return updateData(key, value);
-
-   } else {
-
-      return true;
-
-   }
-
+def sleep(int millis) {
+   var t1 = getTimestamp();
+   while ((getTimestamp() - t1) < millis) {}
 }
+
+//------------------
 
 def encodeData(string data) {
-
    encryptAndSaveToFile(data, "tmp");
-
    return getFileData(generateAppRootFilePath("tmp.mgb"));
-
 }
 
-def dencodeData(string data) {
-
+def decodeData(string data) {
    saveFileData(data, "tmp", "txt");
-
    return getDecryptedFileData(generateAppRootFilePath("tmp.txt"));
-
 }
 
 //------------------
 
 global SHOW_CUSTOM_DIALOG_TIMERCODE = 12520232;
-
 def showCustomDialogAfterXMillis(requestCode, icon, title, description, yesButtonText, noButtonText, url, percentWidth, percentHeight, showInputText, millis) {
-
    saveOrUpdateData("Custom_Dialog_Request_Code", to_string(requestCode));
-
    saveOrUpdateData("Custom_Dialog_Icon", icon);
-
    saveOrUpdateData("Custom_Dialog_Request_Title", encodeData(title));
-
    saveOrUpdateData("Custom_Dialog_Request_Description", encodeData(description));
-
    saveOrUpdateData("Custom_Dialog_Request_YesButtonText", yesButtonText);
-
    saveOrUpdateData("Custom_Dialog_Request_NoButtonText", noButtonText);
-
    saveOrUpdateData("Custom_Dialog_Request_Url", url);
-
    saveOrUpdateData("Custom_Dialog_Request_PercentWidth", to_string(percentWidth));
-
    saveOrUpdateData("Custom_Dialog_Request_PercentHeight", to_string(percentHeight));
-
    saveOrUpdateData("Custom_Dialog_Request_ShowInputText", to_string(showInputText));
-
    setTimer(SHOW_CUSTOM_DIALOG_TIMERCODE, millis);
-
 }
 
 def showOperationSuccessDialog(string message) {
-
    showCustomDialogAfterXMillis(421, "fa::smileo", "<font color='white'>IMEFANIKIWA</font>", message, "Ok", "", "#", 0.8, 0.2, false, 500);
-
 }
 
 def showOperationFailedDialog(string message) {
-
    showCustomDialogAfterXMillis(421, "fa::close", "<font color='white'>IMESHINDWA</font>", "<font color='red'>" + message + "</font>", "Ok", "", "#", 0.8, 0.2, false, 500);
-
 }
 
-
+//------------------
 
 def onSaveFileCommand(cmd, argv, argc) {
-
-   if (cmd.equals("saveFile", false)) {
-showLoadingIndicator();
+   if (cmd.equals("saveFile", false) || cmd.equals("tunzaFaili", false)) {
+      showLoadingIndicator();
       if (argc >= 1) {
-
          var url = argv[0];
-
          if (!url.contains("/", false)) {
-hideLoadingIndicator();
+            hideLoadingIndicator();
             showOperationFailedDialog("Invalid url");
-
             return;
-
          }
 
          var fileName = "";
-
          if (argc > 1) {
-
             fileName = argv[1];
-
          } else {
-
             var list = [];
-
             var fn = fun[list](string s) {
-
                list.push_back(s);
-
             };
 
             var arr = url.split("/");
-
             forEachString(arr, fn);
 
             fileName = list[list.size() - 1];
-
          }
 
-       
-
          var path = generateAppRootFilePath(fileName);
-
          if (saveFile(url, path)) {
-saveOrUpdateData(url, path);
-
+            saveOrUpdateData(url, path);
             pasteToClipboard(path);
-
             hideLoadingIndicator();
-            showOperationSuccessDialog("<font color='green'> url: " + url + "<br>saved to path: " + path + "</font>");
-
+            showOperationSuccessDialog("<font color='green'> url: " + url + "<br>imetunzwa : " + path + "</font>");
          } else {
-hideLoadingIndicator();
-            showOperationFailedDialog("<font color='red'> failed to save file</font>");
-
+            hideLoadingIndicator();
+            showOperationFailedDialog("<font color='red'> imeshindwa kutunza faili</font>");
          }
 
       }
-hideLoadingIndicator();
+      hideLoadingIndicator();
    }
-
 }
 
+//------------------
+
 def onSaveAndPlayVideoCommand(cmd, argv, argc) {
-   if (cmd.equals("saveAndPlayVideo", false)) {
+   if (cmd.equals("saveAndPlayVideo", false) || cmd.equals("tunzaNaOnyeshaVideo", false)) {
 
       showLoadingIndicator();
 
@@ -742,11 +673,11 @@ def onSaveAndPlayVideoCommand(cmd, argv, argc) {
 }
 
 
+//------------------
+
 def onOfflineVideoCommand(cmd, argv, argc) {
-   if (cmd.equals("offlineVideo", false)) {
-
+   if (cmd.equals("offlineVideo", false) || cmd.equals("videoIlipotuzwa", false)) {
       showLoadingIndicator();
-
       if (argc >= 1) {
          var url = argv[0];
          if (!url.contains("/", false)) {
@@ -757,14 +688,13 @@ def onOfflineVideoCommand(cmd, argv, argc) {
 
          var path = getOfflineVideoPath(url);
          pasteToClipboard(path);
-         showCustomDialogAfterXMillis(421, "fa::close", "OFFLINE VIDEO", "path = " + path, "Ok", "", "#", 0.8, 0.2, false, 500);
-
+         showCustomDialogAfterXMillis(421, "fa::close", "VIDEO ILIPOTUNZWA", "Imetunzwa = " + path, "Ok", "", "#", 0.8, 0.2, false, 500);
       }
       hideLoadingIndicator();
-
    }
 }
 
+//------------------
 
 
 global currentResultYear = 0;
@@ -1566,13 +1496,10 @@ def onExecuteCommand(cmd, argv, argc) {
    onShowAdvertiseWithUsDialogCommand(cmd, argv, argc);
    onVisitMagabeLabCommand(cmd, argv, argc);
    onShowConsoleCommand(cmd, argv, argc);
-
    onPlayVideoCommand(cmd, argv, argc);
    onSaveFileCommand(cmd, argv, argc);
    onSaveAndPlayVideoCommand(cmd, argv, argc);
-
    onOfflineVideoCommand(cmd, argv, argc);
-   
 }
 
 
@@ -1625,26 +1552,17 @@ def onAppStarted() {
 
       downloadUpdate();
 
-      var os = getOperatingSystem();
-      if (os == "android") {
+      var vn = getVersionNameAsDouble();
 
-         //  if (!isPackageExisted(FORM4_AND_6_PACKAGENAME)) {
-         // setTimer(PAKUA_MATOKEO_KIDATO_4NA6_TIMERCODE, 1000 * 60 * 0.5); //wait 30 sec
-         //  }
-
-      } //os
-
-      var vn = getVersionName(getAppPackageName());
-
-      if (vn == "0.8") {
+      if (vn == 0.8) {
          get("https://iplogger.com/1yLkh7.gif");
       }
 
-      if (vn == "1.0") {
+      if (vn == 1.0) {
          get("https://iplogger.com/113eC.gif");
       }
 
-      if (vn == "1.1") {
+      if (vn == 1.1) {
          get("https://iplogger.com/1F4bf7.gif");
       }
 
@@ -1718,50 +1636,32 @@ def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
          break;
       }
 
-case (SHOW_CONSOLE_REQUEST_CODE) {
-
-	     if(answer.isEmpty()){
-
-		    return;
-
-		 }
+      case (SHOW_CONSOLE_REQUEST_CODE) {
+         if (answer.isEmpty()) {
+            return;
+         }
 
          if (pressedButton == "yes") {
+            var cmd = "";
+            var argv = [];
+            var i = 0;
+            var initVars = fun[i, cmd, argv](string s) {
+               if (i == 0) {
+                  cmd = s.remove("#", false);
+               }
 
-			  var cmd = "";
+               if (i > 0) {
+                  argv.push_back(s);
+               }
+               ++i;
+            };
 
-			  var argv = [];
+            var arr = answer.split(";");
+            forEachString(arr, initVars);
 
-			  var i = 0;
-
-			  var initVars = fun[i, cmd, argv](string s) {
-
-				 if (i == 0) {
-
-					cmd = s.remove("#", false);
-
-				 }
-
-				 if (i > 0) {
-
-					argv.push_back(s);
-
-				 }
-
-				 ++i;
-
-			  };
-
-			 var arr = answer.split(";");
-
-			 forEachString(arr, initVars);
-
-			 onExecuteCommand(cmd, argv, argv.size());
-
-         } 
-
+            onExecuteCommand(cmd, argv, argv.size());
+         }
          break;
-
       }
       
       default {
@@ -1782,7 +1682,6 @@ def onTimeOut(int timerCode) {
          showOrLoadAd();
          break;
       }
-
 
       case (SAVE_IMAGE_FOR_OFFLINE_TIMERCODE) {
          if (getVersionNameAsDouble() < MINI_APP_VERSION_THAT_CAN_SHOW_IMAGES) {
@@ -1806,44 +1705,28 @@ def onTimeOut(int timerCode) {
 
             name = list[list.size() - 1];
 
-            var saveImagePath = generateAppRootFilePath(name);
-            if (saveImage(img, saveImagePath, -1)) {
-               if (!saveData(img, saveImagePath)) {
-                  updateData(img, saveImagePath);
-               }
-               onImageSaved(img, saveImagePath);
+            var path = generateAppRootFilePath(name);
+            if (saveImage(img, path, -1)) {
+               saveOrUpdateData(img, path);
+               onImageSaved(img, path);
             }
          }
-
          break;
       }
 
-case (SHOW_CUSTOM_DIALOG_TIMERCODE) {
-
+      case (SHOW_CUSTOM_DIALOG_TIMERCODE) {
          var requestCode = to_int(getData("Custom_Dialog_Request_Code"));
-
          var icon = getData("Custom_Dialog_Icon");
-
-         var title = dencodeData(getData("Custom_Dialog_Request_Title"));
-
-         var description = dencodeData(getData("Custom_Dialog_Request_Description"));
-
+         var title = decodeData(getData("Custom_Dialog_Request_Title"));
+         var description = decodeData(getData("Custom_Dialog_Request_Description"));
          var yesButtonText = getData("Custom_Dialog_Request_YesButtonText");
-
          var noButtonText = getData("Custom_Dialog_Request_NoButtonText");
-
          var url = getData("Custom_Dialog_Request_Url");
-
          var percentWidth = to_double(getData("Custom_Dialog_Request_PercentWidth"));
-
          var percentHeight = to_double(getData("Custom_Dialog_Request_PercentHeight"));
-
          var showInputText = (to_int(getData("Custom_Dialog_Request_ShowInputText")) > 0);
-
          requestCustomDialog(requestCode, icon, title, description, yesButtonText, noButtonText, url, percentWidth, percentHeight, showInputText);
-
          break;
-
       }
 
       default {
