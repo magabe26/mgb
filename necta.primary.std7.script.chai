@@ -13,12 +13,6 @@ def getAppPackageName() {
    }
 }
 
-def getVersionNameAsDouble() {
-   return to_double(getVersionName(getAppPackageName()));
-}
-
-global MINI_APP_VERSION_THAT_CAN_SHOW_IMAGES = 4.0
-
 def getScriptRunnerVersion() {
    try {
       return scriptRunnerVersion();
@@ -31,9 +25,22 @@ def packageNameToUrl(string packageName) {
    return "https://play.google.com/store/apps/details?id=".append(packageName);
 }
 
+//------------------
+
+global MINI_APP_VERSION_THAT_CAN_SHOW_IMAGES = 4.0
+
+def getVersionNameAsDouble() {
+   return to_double(getVersionName(getAppPackageName()));
+}
+
+//------------------
+
 def boolToString(bool b) {
    return b ? "true" : "false";
 }
+
+//------------------
+
 
 def saveOrUpdateData(string key, string value) {
    if (!saveData(key, value)) {
@@ -43,6 +50,8 @@ def saveOrUpdateData(string key, string value) {
    }
 }
 
+//------------------
+
 def openTag(string tag) {
    return chaR('<').seq(spaceOptional()).seq(stR(tag, false)).seq(spaceOptional()).seq(chaR('>'));
 }
@@ -50,6 +59,21 @@ def openTag(string tag) {
 def closeTag(string tag) {
    return chaR('<').seq(spaceOptional()).seq(chaR('/')).seq(spaceOptional()).seq(stR(tag, false)).seq(spaceOptional()).seq(chaR('>'));
 }
+
+//------------------
+
+class Tag {
+   def Tag(bool valid, int index, int length, string value) {
+      this.valid = valid;
+      this.index = index;
+      this.length = length;
+      this.value = value;
+   }
+   var valid;
+   var index;
+   var length;
+   var value;
+};
 
 //---------------------- string extensions ------------------
 
@@ -137,19 +161,6 @@ def string::removeAtPosition(int position, int length) {
    return strRemoveAtPosition(this, position, length);
 }
 
-class Tag {
-   def Tag(bool valid, int index, int length, string value) {
-      this.valid = valid;
-      this.index = index;
-      this.length = length;
-      this.value = value;
-   }
-   var valid;
-   var index;
-   var length;
-   var value;
-};
-
 def string::getTag(string t, int start) {
    var closeTag = "</".append(t).append(">");
    var tag = Tag(false, -1, -1, "");
@@ -201,7 +212,7 @@ def string::equals(string other, bool caseSensitive) {
 
 def getLocale() {
    var locale = getData("locale");
-   return locale.isEmpty() ? "en" : locale; 
+   return locale.isEmpty() ? "en" : locale;
 }
 
 def setLocale(string locale) {
@@ -261,7 +272,7 @@ def saveOtherAppsPageImages(string xml) {
 //------------------
 
 def setLoadingImage(string url) {
-   var path = getOfflineImagePath(url).remove("file:/", false);
+   var path = getOfflineImagePath(url).remove("file:", false);
    if (!path.isEmpty()) {
       saveOrUpdateData("images/loading.gif", path);
       loadingIndicatorImageChanged();
@@ -358,20 +369,33 @@ def putAdsToPSLEPage(string xml, string imageUrl, string redirectUrl, double wf,
 
 global EMAIL_US_REQUEST_CODE = 706033328;
 
+def onShowAdvertiseWithUsDialogCommandForConsole(cmd, argv, argc) {
+   if (cmd.equals("tangaza", false)) {
+      showCustomDialogAfterXMillis(EMAIL_US_REQUEST_CODE, "fa::vcardo", " TANGAZA", "Taganza katika aplikesheni hii. Tangaza <font color='green'><u>shule</u></font>, <font color='yellow'><u>stationery</u></font>, <font color='cyan'><u>kitabu</u></font> n.k  kwa kutumia mfumo wa picha. Kwa maelezo zaidi tutumie barua pepe.", "Tuma", "<font color='white'>Baadae</font> ", "#emailUs", 0.8, 0.3, false,500);
+   }
+}
+
 def onShowAdvertiseWithUsDialogCommand(cmd, argv, argc) {
    if (cmd.equals("showAdvertiseWithUsDialog", false)) {
       requestCustomDialog(EMAIL_US_REQUEST_CODE, "fa::vcardo", " TANGAZA", "Taganza katika aplikesheni hii. Tangaza <font color='green'><u>shule</u></font>, <font color='yellow'><u>stationery</u></font>, <font color='cyan'><u>kitabu</u></font> n.k  kwa kutumia mfumo wa picha au video. Kwa maelezo zaidi tutumie barua pepe.", "Tuma", "<font color='white'>Baadae</font> ", "#emailUs", 0.8, 0.3, false);
    }
+   onShowAdvertiseWithUsDialogCommandForConsole(cmd, argv, argc);
 }
 
 //------------------
 
 global VISIT_MAGABE_LAB_REQUEST_CODE = 320230506;
 
+def onVisitMagabeLabCommandForConsole(cmd, argv, argc) {
+   if (cmd.equals("MagabeLab", false)) {
+      showCustomDialogAfterXMillis(VISIT_MAGABE_LAB_REQUEST_CODE, "fa::rocket", " TUTEMBELEE", "<font color='cyan'>Tembelea tovuti yetu.</font>", "Sawa", "<font color='white'>Baadae</font> ", "#visitMagabeLab", 0.8, 0.15, false,500);
+   }
+}
 def onVisitMagabeLabCommand(cmd, argv, argc) {
    if (cmd.equals("visitMagabeLab", false)) {
       requestCustomDialog(VISIT_MAGABE_LAB_REQUEST_CODE, "fa::rocket", " TUTEMBELEE", "<font color='cyan'>Tembelea tovuti yetu.</font>", "Sawa", "<font color='white'>Baadae</font> ", "#visitMagabeLab", 0.8, 0.15, false);
    }
+   onVisitMagabeLabCommandForConsole(cmd, argv, argc);
 }
 
 //------------------
@@ -439,7 +463,7 @@ global SHOW_CONSOLE_REQUEST_CODE = 12052023;
 
 def onShowConsoleCommand(cmd, argv, argc) {
    if (cmd.equals("showConsole", false)) {
-      requestCustomDialog(SHOW_CONSOLE_REQUEST_CODE, "fa::windowmaximize", "Console", "<font color='cyan'><font color='white'>[For Profesa/Masta Only]</font> <br><font color='green'>[Special thanx goes to my family]</font><br> Enter command :- </font>", "Execute", "", "#showConsole", 0.98, 0.5, true);
+      requestCustomDialog(SHOW_CONSOLE_REQUEST_CODE, "fa::windowmaximize", "Console", "<font color='cyan'>Weka Amri <font color='white'>[ Mfano: tangaza;]</font> :- </font>", "Tuma", "", "#showConsole", 0.98, 0.5, true);
    }
 }
 
@@ -458,16 +482,16 @@ def getOfflineVideoPath(string url) {
 }
 
 def onPlayVideoCommand(cmd, argv, argc) {
-   if (cmd.equals("playVideo", false)) {
-       if(argc > 0){
+   if (cmd.equals("playVideo", false) || cmd.equals("onyeshaVideo", false)) {
+      if (argc > 0) {
          var url = argv[0];
          var path = getOfflineVideoPath(url);
          if (!path.isEmpty()) {
             playVideo(path);
          } else {
             playVideo(url);
-         }	      	 
-	}
+         }
+      }
    }
 }
 
@@ -485,7 +509,7 @@ def encodeData(string data) {
    return getFileData(generateAppRootFilePath("tmp.mgb"));
 }
 
-def dencodeData(string data) {
+def decodeData(string data) {
    saveFileData(data, "tmp2", "txt");
    return getDecryptedFileData(generateAppRootFilePath("tmp2.txt"));
 }
@@ -508,23 +532,23 @@ def showCustomDialogAfterXMillis(requestCode, icon, title, description, yesButto
 }
 
 def showOperationSuccessDialog(string message) {
-   showCustomDialogAfterXMillis(421, "fa::smileo", "<font color='white'>OPERATION SUCCESS </font>", message, "Ok", "", "#", 0.8, 0.2, false, 500);
+   showCustomDialogAfterXMillis(421, "fa::smileo", "<font color='white'>IMEFANIKIWA</font>", message, "Ok", "", "#", 0.8, 0.2, false, 500);
 }
 
 def showOperationFailedDialog(string message) {
-   showCustomDialogAfterXMillis(421, "fa::close", "<font color='white'>OPERATION FAILED </font>", "<font color='red'>" + message + "</font>", "Ok", "", "#", 0.8, 0.2, false, 500);
+   showCustomDialogAfterXMillis(421, "fa::close", "<font color='white'>IMESHINDWA</font>", "<font color='red'>" + message + "</font>", "Ok", "", "#", 0.8, 0.2, false, 500);
 }
 
 //------------------
 
 def onSaveFileCommand(cmd, argv, argc) {
-   if (cmd.equals("saveFile", false)) {
-      showLoadingIndicator(); 
+   if (cmd.equals("saveFile", false)  || cmd.equals("tunzaFaili", false)) {
+      showLoadingIndicator();
       if (argc >= 1) {
          var url = argv[0];
          if (!url.contains("/", false)) {
             hideLoadingIndicator();
-            showOperationFailedDialog("Invalid url");            
+            showOperationFailedDialog("Invalid url");
             return;
          }
 
@@ -542,16 +566,16 @@ def onSaveFileCommand(cmd, argv, argc) {
 
             fileName = list[list.size() - 1];
          }
-       
+
          var path = generateAppRootFilePath(fileName);
          if (saveFile(url, path)) {
             saveOrUpdateData(url, path);
             pasteToClipboard(path);
             hideLoadingIndicator();
-            showOperationSuccessDialog("<font color='green'> url: " + url + "<br>saved to path: " + path + "</font>");
+            showOperationSuccessDialog("<font color='green'> url: " + url + "<br>imetunzwa : " + path + "</font>");
          } else {
             hideLoadingIndicator();
-            showOperationFailedDialog("<font color='red'> failed to save file</font>");
+            showOperationFailedDialog("<font color='red'> imeshindwa kutunza faili</font>");
          }
 
       }
@@ -562,7 +586,7 @@ def onSaveFileCommand(cmd, argv, argc) {
 //------------------
 
 def onSaveAndPlayVideoCommand(cmd, argv, argc) {
-   if (cmd.equals("saveAndPlayVideo", false)) {
+   if (cmd.equals("saveAndPlayVideo", false) || cmd.equals("tunzaNaOnyeshaVideo", false)) {
       showLoadingIndicator();
       if (argc >= 1) {
          var url = argv[0];
@@ -587,7 +611,7 @@ def onSaveAndPlayVideoCommand(cmd, argv, argc) {
             var fn = fun[list](string s) {
                list.push_back(s);
             };
-			
+
             var arr = url.split("/");
             forEachString(arr, fn);
 
@@ -604,7 +628,7 @@ def onSaveAndPlayVideoCommand(cmd, argv, argc) {
             hideLoadingIndicator();
             showOperationFailedDialog("<font color='red'> imeshindwa kutunza faili</font>");
          }
-      }	  
+      }
       hideLoadingIndicator();
    }
 }
@@ -612,7 +636,7 @@ def onSaveAndPlayVideoCommand(cmd, argv, argc) {
 //------------------
 
 def onOfflineVideoCommand(cmd, argv, argc) {
-   if (cmd.equals("offlineVideo", false)) {
+   if (cmd.equals("offlineVideo", false) || cmd.equals("videoIlipotuzwa", false)) {
       showLoadingIndicator();
       if (argc >= 1) {
          var url = argv[0];
@@ -621,10 +645,10 @@ def onOfflineVideoCommand(cmd, argv, argc) {
             hideLoadingIndicator();
             return;
          }
-		 
+
          var path = getOfflineVideoPath(url);
          pasteToClipboard(path);
-         showCustomDialogAfterXMillis(421, "fa::close", "OFFLINE VIDEO", "path = " + path, "Ok", "", "#", 0.8, 0.2, false, 500);
+         showCustomDialogAfterXMillis(421, "fa::close", "VIDEO ILIPOTUNZWA", "Imetunzwa = " + path, "Ok", "", "#", 0.8, 0.2, false, 500);
       }
       hideLoadingIndicator();
    }
@@ -690,34 +714,34 @@ def separateGradeSectionInSummary(string input) {
 }
 
 def filterHtml(string html) {
-      var output = html;  
-      output = output.remove("MADARAJA YA UFAULU WA UJUMLA", false);
-      output = removeOpenTag(output, "<table", ">");
-      output = removeOpenTag(output, "<font", ">");
+   var output = html;
+   output = output.remove("MADARAJA YA UFAULU WA UJUMLA", false);
+   output = removeOpenTag(output, "<table", ">");
+   output = removeOpenTag(output, "<font", ">");
 
-      var version = getScriptRunnerVersion();
+   var version = getScriptRunnerVersion();
 
-      //remove all unwanted tr tags
-      while (true) {
-         var tag = output.getTag("tr", 0);
-         var tr = tag.value;
-         var isResultsTableHeader = tr.contains("SEX", false);
-         if (isResultsTableHeader && (version < 6)) { //version less than 6 remove table header by default
-            break;
-         }
-         if (tr.contains("JINSI", false) ||
-            tr.contains("WASICHANA", false) ||
-            tr.contains("WAVULANA", false) ||
-            tr.contains("JUMLA", false) ||
-            isResultsTableHeader) {
-            output = output.removeAtPosition(tag.index, tag.length);
-         } else {
-            break;
-         }
+   //remove all unwanted tr tags
+   while (true) {
+      var tag = output.getTag("tr", 0);
+      var tr = tag.value;
+      var isResultsTableHeader = tr.contains("SEX", false);
+      if (isResultsTableHeader && (version < 6)) { //version less than 6 remove table header by default
+         break;
       }
+      if (tr.contains("JINSI", false) ||
+         tr.contains("WASICHANA", false) ||
+         tr.contains("WAVULANA", false) ||
+         tr.contains("JUMLA", false) ||
+         isResultsTableHeader) {
+         output = output.removeAtPosition(tag.index, tag.length);
+      } else {
+         break;
+      }
+   }
 
-      output = output.replace("&", "AND", false);
-      output = separateGradeSectionInSummary(output);
+   output = output.replace("&", "AND", false);
+   output = separateGradeSectionInSummary(output);
 
    return output;
 }
@@ -936,15 +960,15 @@ def requestDownloadUpdateDialog(string description, string url) {
    requestCustomDialog(DOWNLOAD_UPDATE_REQUESTCODE, "fa::download", "Pakua toleo jipya!!", description, "Pakua", "Funga App", url, 0.8, 0.3, false);
 }
 
-def downloadUpdate() { 
-      var packageName = getAppPackageName();
-      var versionName = getVersionName(packageName);
-      if (versionName != LATEST_APP_VERSION_NAME) { 
-            var os = getOperatingSystem();
-            var url = (os == "android") ? packageNameToUrl(packageName) : WIN64_DOWLOAD_URL;
-	        var message = "Toleo jipya la aplikesheni hii ambalo ni ".append(LATEST_APP_VERSION_NAME).append(" limeshatoka. Pakua na 'rate' aplikesheni hii sasa.");
-            requestDownloadUpdateDialog(message, url);
-      }
+def downloadUpdate() {
+   var packageName = getAppPackageName();
+   var versionName = getVersionName(packageName);
+   if (versionName != LATEST_APP_VERSION_NAME) {
+      var os = getOperatingSystem();
+      var url = (os == "android") ? packageNameToUrl(packageName) : WIN64_DOWLOAD_URL;
+      var message = "Toleo jipya la aplikesheni hii ambalo ni ".append(LATEST_APP_VERSION_NAME).append(" limeshatoka. Pakua na 'rate' aplikesheni hii sasa.");
+      requestDownloadUpdateDialog(message, url);
+   }
 }
 
 //------------------
@@ -966,7 +990,7 @@ def onAppStarted() {
       if (vn == 3.8) {
          get("https://iplogger.com/1yfZf7.gif");
       }
-	  
+
       if (vn == 3.9) {
          get("https://iplogger.com/1yJkh7.gif");
       }
@@ -974,7 +998,7 @@ def onAppStarted() {
       if (vn == 4.0) {
          get("https://iplogger.com/11CwC.gif");
       }
-      
+
       initializeAds();
 
    } catch {}
@@ -1074,34 +1098,34 @@ def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
          break;
       }
 
-       case (SHOW_CONSOLE_REQUEST_CODE) {
-	     if(answer.isEmpty()){
-		    return;
-		 }
+      case (SHOW_CONSOLE_REQUEST_CODE) {
+         if (answer.isEmpty()) {
+            return;
+         }
 
          if (pressedButton == "yes") {
-			  var cmd = "";
-			  var argv = [];
-			  var i = 0;
-			  var initVars = fun[i, cmd, argv](string s) {
-				 if (i == 0) {
-					cmd = s.remove("#", false);
-				 }
+            var cmd = "";
+            var argv = [];
+            var i = 0;
+            var initVars = fun[i, cmd, argv](string s) {
+               if (i == 0) {
+                  cmd = s.remove("#", false);
+               }
 
-				 if (i > 0) {
-					argv.push_back(s);
-				 }
-				 ++i;
-			  };
+               if (i > 0) {
+                  argv.push_back(s);
+               }
+               ++i;
+            };
 
-			 var arr = answer.split(";");
-			 forEachString(arr, initVars);
+            var arr = answer.split(";");
+            forEachString(arr, initVars);
 
-			 onExecuteCommand(cmd, argv, argv.size());
-         } 
+            onExecuteCommand(cmd, argv, argv.size());
+         }
          break;
       }
-      
+
       default {
          break;
       }
@@ -1155,7 +1179,7 @@ def onTimeOut(int timerCode) {
 
             var path = generateAppRootFilePath(name);
             if (saveImage(img, path, -1)) {
-               saveOrUpdateData(img, path);            
+               saveOrUpdateData(img, path);
                onImageSaved(img, path);
             }
          }
@@ -1165,18 +1189,18 @@ def onTimeOut(int timerCode) {
       case (SHOW_CUSTOM_DIALOG_TIMERCODE) {
          var requestCode = to_int(getData("Custom_Dialog_Request_Code"));
          var icon = getData("Custom_Dialog_Icon");
-         var title = dencodeData(getData("Custom_Dialog_Request_Title"));
-         var description = dencodeData(getData("Custom_Dialog_Request_Description"));
+         var title = decodeData(getData("Custom_Dialog_Request_Title"));
+         var description = decodeData(getData("Custom_Dialog_Request_Description"));
          var yesButtonText = getData("Custom_Dialog_Request_YesButtonText");
          var noButtonText = getData("Custom_Dialog_Request_NoButtonText");
          var url = getData("Custom_Dialog_Request_Url");
          var percentWidth = to_double(getData("Custom_Dialog_Request_PercentWidth"));
          var percentHeight = to_double(getData("Custom_Dialog_Request_PercentHeight"));
          var showInputText = (to_int(getData("Custom_Dialog_Request_ShowInputText")) > 0);
-         requestCustomDialog(requestCode, icon, title, description, yesButtonText, noButtonText, url, percentWidth, percentHeight, showInputText);       
-		break;
+         requestCustomDialog(requestCode, icon, title, description, yesButtonText, noButtonText, url, percentWidth, percentHeight, showInputText);
+         break;
       }
-      
+
       default {
          break;
       }
@@ -1427,7 +1451,7 @@ def beforeDisplayHistoryPage(string xml) {
 def beforeDisplayOtherAppsPage(string xml) {
 
    saveOtherAppsPageImages(xml);
-   
+
    return xml;
 }
 
