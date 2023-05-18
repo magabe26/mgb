@@ -1647,7 +1647,7 @@ def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
             var i = 0;
             var initVars = fun[i, cmd, argv](string s) {
                if (i == 0) {
-                  cmd = s.remove("#", false);
+                  cmd = s.remove("#", false).simplified();
                }
 
                if (i > 0) {
