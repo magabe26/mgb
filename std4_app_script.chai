@@ -428,12 +428,12 @@ global VISIT_MAGABE_LAB_REQUEST_CODE = 320230506;
 
 def onVisitMagabeLabCommandForConsole(cmd, argv, argc) {
    if (cmd.equals("MagabeLab", false)) {
-      showCustomDialogAfterXMillis(VISIT_MAGABE_LAB_REQUEST_CODE, "fa::rocket", " TUTEMBELEE", "<font color='cyan'>Tembelea tovuti yetu.</font>", "Sawa", "<font color='white'>Baadae</font> ", "#visitMagabeLab", 0.8, 0.15, false,500);
+      showCustomDialogAfterXMillis(VISIT_MAGABE_LAB_REQUEST_CODE, "fa::rocket", " TUTEMBELEE", "<font color='cyan'>Tembelea tovuti yetu.</font>", "Sawa", "<font color='white'>Badae</font> ", "#visitMagabeLab", 0.8, 0.15, false,500);
    }
 }
 def onVisitMagabeLabCommand(cmd, argv, argc) {
    if (cmd.equals("visitMagabeLab", false)) {
-      requestCustomDialog(VISIT_MAGABE_LAB_REQUEST_CODE, "fa::rocket", " TUTEMBELEE", "<font color='cyan'>Tembelea tovuti yetu.</font>", "Sawa", "<font color='white'>Baadae</font> ", "#visitMagabeLab", 0.8, 0.15, false);
+      requestCustomDialog(VISIT_MAGABE_LAB_REQUEST_CODE, "fa::rocket", " TUTEMBELEE", "<font color='cyan'>Tembelea tovuti yetu.</font>", "Sawa", "<font color='white'>Badae</font> ", "#visitMagabeLab", 0.8, 0.15, false);
    }
    onVisitMagabeLabCommandForConsole(cmd, argv, argc);
 }
