@@ -744,7 +744,7 @@ def onShareViaSms(string phoneNumber, string resultsShared) {
 }
 
 global LATEST_APP_VERSION_NAME = "0.4"; //Always change this this on every App release
-global WIN64_DOWLOAD_URL = "https://www.mediafire.com/file/j1kw7r82vndgnek/Matokeo+Cha2+v0.4+WinX64+Installer.exe/file";
+global WIN64_DOWLOAD_URL = "https://www.mediafire.com/file/ifqlyk3t0s2xndl/Matokeo+Cha2+v0.5+WinX64+Installer.exe/file";
 global DOWNLOAD_UPDATE_REQUESTCODE = 201;
 
 def requestDownloadUpdateDialog(string description, string url) {
