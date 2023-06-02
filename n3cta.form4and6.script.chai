@@ -214,6 +214,312 @@ def getAppTitle(){
      }
 }
 
+//------------------
+
+def saveOrUpdateData(string key, string value) {
+   if (!saveData(key, value)) {
+      return updateData(key, value);
+   } else {
+      return true;
+   }
+}
+
+//------------------
+
+
+global imagesToBeSaved = [];
+global savedImageIndex = 0;
+global SAVE_IMAGE_FOR_OFFLINE_TIMERCODE = 2023457;
+
+
+def saveImageForOffline(string imageUrl) {
+   imagesToBeSaved.push_back(imageUrl);
+   setTimer(SAVE_IMAGE_FOR_OFFLINE_TIMERCODE, 100);
+}
+
+def getOfflineImagePath(string imageUrl) {
+   var path = getData(imageUrl);
+   if (!path.isEmpty()) {
+      if (fileExists(path) && (getFileSize(path) > 0)) {
+         path = path.prepend("file:");
+      } else {
+         path = "";
+      }
+   }
+   return path;
+}
+
+//------------------
+global LOADING_IMAGE_RESOURCE_URL = "/loading.gif";
+global recentLoadingImageSet = "";
+
+def setLoadingImage(string url) {
+   var path = getOfflineImagePath(url).remove("file:", false);
+   if (!path.isEmpty()) {
+      saveOrUpdateData(LOADING_IMAGE_RESOURCE_URL , path);
+      loadingIndicatorImageChanged();
+   } else {
+      recentLoadingImageSet = url;
+      saveImageForOffline(url);
+   }
+}
+
+def setDefaultLoadingImage() {
+   saveOrUpdateData(LOADING_IMAGE_RESOURCE_URL , "");
+   loadingIndicatorImageChanged();
+}
+
+
+def onLoadingImageSaved(string url, string path) {
+  if(recentLoadingImageSet.equals(url,false)){
+     saveOrUpdateData(LOADING_IMAGE_RESOURCE_URL, path);
+     loadingIndicatorImageChanged();
+	 recentLoadingImageSet = "";
+  }
+}
+
+//------------------
+
+global EMAIL_US_REQUEST_CODE = 706033328;
+
+def onShowAdvertiseWithUsDialogCommand(cmd, argv, argc) {
+   if (cmd.equals("showAdvertiseWithUsDialog", false) || cmd.equals("tangaza", false)) {
+      requestCustomDialog(EMAIL_US_REQUEST_CODE, "fa::vcardo", " TANGAZA", "Taganza katika aplikesheni hii. Tangaza <font color='green'><u>shule</u></font>, <font color='yellow'><u>stationery</u></font>, <font color='cyan'><u>kitabu</u></font> n.k  kwa kutumia mfumo wa picha au video. Kwa maelezo zaidi tutumie barua pepe.", "Tuma", "<font color='white'>Baadae</font> ", "#emailUs", 0.8, 0.3, false);
+   }
+}
+
+//------------------
+
+global VISIT_MAGABE_LAB_REQUEST_CODE = 320230506;
+
+def onVisitMagabeLabCommand(cmd, argv, argc) {
+   if (cmd.equals("visitMagabeLab", false) || cmd.equals("magabelab", false)) {
+      requestCustomDialog(VISIT_MAGABE_LAB_REQUEST_CODE, "fa::rocket", " TUTEMBELEE", "<font color='cyan'>Tembelea tovuti yetu.</font>", "Sawa", "<font color='white'>Baadae</font> ", "#visitMagabeLab", 0.8, 0.15, false);
+   }
+}
+//------------------
+//video
+class _VideoPlayerStatus {
+   def _VideoPlayerStatus() {
+      this.UnknownStatus = 0;
+      this.NoMedia = 1;
+      this.Loading = 2;
+      this.Loaded = 3;
+      this.Stalled = 4;
+      this.Buffering = 5;
+      this.Buffered = 6;
+      this.EndOfMedia = 7;
+      this.InvalidMedia = 8;
+   }
+   var NoMedia;
+   var Loading;
+   var Loaded;
+   var Buffering;
+   var Stalled;
+   var Buffered;
+   var EndOfMedia;
+   var InvalidMedia;
+   var UnknownStatus;
+};
+global VideoPlayerStatus = _VideoPlayerStatus();
+
+class _VideoPlayerPlaybackState {
+   def _VideoPlayerPlaybackState() {
+      this.StoppedState = 0;
+      this.PlayingState = 1;
+      this.PausedState = 2;
+   }
+   var PlayingState;
+   var PausedState;
+   var StoppedState;
+};
+global VideoPlayerPlaybackState = _VideoPlayerPlaybackState();
+
+class _VideoPlayerError {
+   def _VideoPlayerError() {
+      this.NoError = 0;
+      this.ResourceError = 1;
+      this.FormatError = 2;
+      this.NetworkError = 3;
+      this.AccessDenied = 4;
+      this.ServiceMissing = 5;
+   }
+   var NoError;
+   var ResourceError;
+   var FormatError;
+   var NetworkError;
+   var AccessDenied;
+   var ServiceMissing;
+};
+global VideoPlayerError = _VideoPlayerError();
+
+//------------------
+
+global SHOW_CONSOLE_REQUEST_CODE = 12052023;
+
+def onShowConsoleCommand(cmd, argv, argc) {
+   if (cmd.equals("showConsole", false)) {
+      requestCustomDialog(SHOW_CONSOLE_REQUEST_CODE, "fa::windowmaximize", "Console", "<font color='cyan'>Weka Amri <font color='white'>[ Mfano: tangaza;]</font> :- </font>", "Tuma", "", "#showConsole", 0.98, 0.5, true);
+   }
+}
+
+//------------------
+
+def getOfflineVideoPath(string url) {
+   var path = getData(url);
+   if (!path.isEmpty()) {
+      if (fileExists(path) && (getFileSize(path) > 0)) {
+         path = path.prepend("file:");
+      } else {
+         path = "";
+      }
+   }
+   return path;
+}
+
+def onPlayVideoCommand(cmd, argv, argc) {
+   if (cmd.equals("playVideo", false) || cmd.equals("onyeshaVideo", false)) {
+      if (argc > 0) {
+         var url = argv[0];
+         var path = getOfflineVideoPath(url);
+         if (!path.isEmpty()) {
+            playVideo(path);
+         } else {
+            playVideo(url);
+         }
+      }
+   }
+}
+
+//------------------
+def showOperationSuccessDialog(string message) {
+   requestCustomDialog(421, "fa::smileo", "<font color='white'>IMEFANIKIWA</font>", message, "Ok", "", "#", 0.8, 0.2, false);
+}
+
+def showOperationFailedDialog(string message) {
+   requestCustomDialog(421, "fa::close", "<font color='white'>IMESHINDWA</font>", "<font color='red'>" + message + "</font>", "Ok", "", "#", 0.8, 0.2, false);
+}
+
+//------------------
+
+def onSaveFileCommand(cmd, argv, argc) {
+   if (cmd.equals("saveFile", false) || cmd.equals("tunzaFaili", false)) {
+      showLoadingIndicator();
+      if (argc >= 1) {
+         var url = argv[0];
+         if (!url.contains("/", false)) {
+            hideLoadingIndicator();
+            showOperationFailedDialog("Invalid url");
+            return;
+         }
+
+         var fileName = "";
+         if (argc > 1) {
+            fileName = argv[1];
+         } else {
+            var list = [];
+            var fn = fun[list](string s) {
+               list.push_back(s);
+            };
+
+            var arr = url.split("/");
+            forEachString(arr, fn);
+
+            fileName = list[list.size() - 1];
+         }
+
+         var path = generateAppRootFilePath(fileName);
+         if (saveFile(url, path)) {
+            saveOrUpdateData(url, path);
+            pasteToClipboard(path);
+            hideLoadingIndicator();
+            showOperationSuccessDialog("<font color='green'> url: " + url + "<br>imetunzwa : " + path + "</font>");
+         } else {
+            hideLoadingIndicator();
+            showOperationFailedDialog("<font color='red'> imeshindwa kutunza faili</font>");
+         }
+
+      }
+      hideLoadingIndicator();
+   }
+}
+
+//------------------
+
+def onSaveAndPlayVideoCommand(cmd, argv, argc) {
+   if (cmd.equals("saveAndPlayVideo", false) || cmd.equals("tunzaNaOnyeshaVideo", false)) {
+
+      showLoadingIndicator();
+
+      if (argc >= 1) {
+         var url = argv[0];
+         if (!url.contains("/", false)) {
+            showOperationFailedDialog("Invalid url");
+            hideLoadingIndicator();
+            return;
+         }
+
+         var path = getOfflineVideoPath(url);
+         if (!path.isEmpty()) {
+            hideLoadingIndicator();
+            playVideo(path);
+            return;
+         }
+
+         var fileName = "";
+         if (argc > 1) {
+            fileName = argv[1];
+         } else {
+            var list = [];
+            var fn = fun[list](string s) {
+               list.push_back(s);
+            };
+
+            var arr = url.split("/");
+            forEachString(arr, fn);
+
+            fileName = list[list.size() - 1];
+         }
+
+         path = generateAppRootFilePath(fileName);
+         if (saveFile(url, path)) {
+            saveOrUpdateData(url, path);
+            pasteToClipboard(path);
+            hideLoadingIndicator();
+            playVideo("file:" + path);
+         } else {
+            hideLoadingIndicator();
+            showOperationFailedDialog("<font color='red'> imeshindwa kutunza faili</font>");
+         }
+      }
+      hideLoadingIndicator();
+   }
+}
+
+
+//------------------
+
+def onOfflineVideoCommand(cmd, argv, argc) {
+   if (cmd.equals("offlineVideo", false) || cmd.equals("videoIlipotuzwa", false)) {
+      showLoadingIndicator();
+      if (argc >= 1) {
+         var url = argv[0];
+         if (!url.contains("/", false)) {
+            showOperationFailedDialog("Invalid url");
+            hideLoadingIndicator();
+            return;
+         }
+
+         var path = getOfflineVideoPath(url);
+         pasteToClipboard(path);
+         requestCustomDialog(421, "fa::close", "VIDEO ILIPOTUNZWA", "Imetunzwa = " + path, "Ok", "", "#", 0.8, 0.2, false, 500);
+      }
+      hideLoadingIndicator();
+   }
+}
+
+//------------------
+
 def removeSubString(string output, string start, string end) {
    var firstIndex = output.indexOf(start, 0, false);
    if (firstIndex != -1) {
@@ -366,8 +672,14 @@ def onUrlVisited(string url) {
 }
 
 //argv is vector of strings whitch represents a list of command argurments
-def onExecuteCommand(cmd,argv,argc){
-  
+def onExecuteCommand(cmd, argv, argc) {
+   onShowAdvertiseWithUsDialogCommand(cmd, argv, argc);
+   onVisitMagabeLabCommand(cmd, argv, argc);
+   onShowConsoleCommand(cmd, argv, argc);
+   onPlayVideoCommand(cmd, argv, argc);
+   onSaveFileCommand(cmd, argv, argc);
+   onSaveAndPlayVideoCommand(cmd, argv, argc);
+   onOfflineVideoCommand(cmd, argv, argc);
 }
 
 def onShareViaSms(string phoneNumber, string resultsShared) {
@@ -693,6 +1005,54 @@ def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
          break;
       }
 
+      case (EMAIL_US_REQUEST_CODE) {
+         if (pressedButton == "yes") {
+            showToastMessage("Asante, Tafadhali subiri");
+            openPage("mailto:magabelab.tz@gmail.com");
+         } else {
+            showToastMessage("Sawa!");
+         }
+         break;
+      }
+
+      case (VISIT_MAGABE_LAB_REQUEST_CODE) {
+         if (pressedButton == "yes") {
+            showToastMessage("Asante, Tafadhali subiri");
+            openPage("https://magabelab-tz.web.app");
+         } else {
+            showToastMessage("Sawa!");
+         }
+         break;
+      }
+
+      case (SHOW_CONSOLE_REQUEST_CODE) {
+         if (answer.isEmpty()) {
+            return;
+         }
+
+         if (pressedButton == "yes") {
+            var cmd = "";
+            var argv = [];
+            var i = 0;
+            var initVars = fun[i, cmd, argv](string s) {
+               if (i == 0) {
+                  cmd = s.remove("#", false);
+               }
+
+               if (i > 0) {
+                  argv.push_back(s);
+               }
+               ++i;
+            };
+
+            var arr = answer.split(";");
+            forEachString(arr, initVars);
+
+            onExecuteCommand(cmd, argv, argv.size());
+         }
+         break;
+      }
+	  
       default {
          break;
       }
@@ -712,12 +1072,46 @@ def onTimeOut(int timerCode) {
          break;
       }
 
+      case (SAVE_IMAGE_FOR_OFFLINE_TIMERCODE) {
+         if (imagesToBeSaved.empty() || savedImageIndex >= imagesToBeSaved.size()) {
+            break;
+         }
+         var img = imagesToBeSaved[savedImageIndex];
+         ++savedImageIndex;
+
+         if (!img.isEmpty() && getOfflineImagePath(img).isEmpty()) {
+            var name = "";
+            var list = [];
+            var fn = fun[list](string s) {
+               list.push_back(s);
+            };
+
+            var arr = img.split("/");
+            forEachString(arr, fn);
+
+            name = list[list.size() - 1];
+
+            var path = generateAppRootFilePath(name);
+            if (saveFile(img, path)) {
+               saveOrUpdateData(img, path);
+               onImageSaved(img, path);
+            }
+         }
+         break;
+      }
+	  
       default {
          break;
       }
 
    }
 
+}
+
+def onImageSaved(string url, string path) {
+   log("Image saved: url = ".append(url).append(" , path = ").append(path));
+   
+   onLoadingImageSaved(url,path);
 }
 
 global currentSchool = "";
@@ -832,6 +1226,186 @@ def onAdDismissed() {
    //showToastMessage("Ad Dismissed!");
 }
 
+//Video
+def onVideoDialogOpened(string videoUrl, string videoDescription, string redirectUrl) {
+   //setVideoPlayerLoadingIndicator("https://raw.githubusercontent.com/magabe26/mgb/master/magabelab1.gif");
+   //setVideoThumbnail("https://raw.githubusercontent.com/magabe26/mgb/master/magabelab1.gif")
+
+   videoPlayerPlay();
+}
+
+def onVideoDialogClosed(string videoUrl, string videoDescription, string redirectUrl) {
+   //log(" Video dialog closed"+ videoUrl);
+}
+
+def isVideoDialogCloseDisabled(string videoUrl, double position, double duration, bool errorOccured) {
+   if (duration == 0) {
+      return false;
+   } else {
+      return position / duration < 0.8;
+   }
+}
+
+def isVideoSeekForwardDisabled(string videoUrl, double position, double duration) {
+   return false;
+}
+
+def onVideoPlayerStatusChanged(string videoUrl, int status) {
+
+   switch (status) {
+
+      case (VideoPlayerStatus.NoMedia) {
+         log("VideoPlayerStatus.NoMedia");
+
+         break;
+      }
+
+      case (VideoPlayerStatus.Loading) {
+         log("VideoPlayerStatus.Loading");
+
+         break;
+      }
+
+      case (VideoPlayerStatus.Loaded) {
+         log("VideoPlayerStatus.Loaded");
+
+         break;
+      }
+
+      case (VideoPlayerStatus.Buffering) {
+         log("VideoPlayerStatus.Buffering");
+
+         break;
+      }
+
+      case (VideoPlayerStatus.Stalled) {
+         log("VideoPlayerStatus.Stalled");
+
+         break;
+      }
+
+      case (VideoPlayerStatus.Buffered) {
+         log("VideoPlayerStatus.Buffered");
+
+         break;
+      }
+
+      case (VideoPlayerStatus.EndOfMedia) {
+         log("VideoPlayerStatus.EndOfMedia");
+
+         break;
+      }
+
+      case (VideoPlayerStatus.InvalidMedia) {
+         log("VideoPlayerStatus.InvalidMedia");
+
+         break;
+      }
+
+      case (VideoPlayerStatus.UnknownStatus) {
+         log("VideoPlayerStatus.UnknownStatus");
+
+         break;
+      }
+
+      default {
+         break;
+      }
+
+   }
+}
+
+def onVideoPlaybackStateChanged(string videoUrl, int playbackState) {
+
+   switch (playbackState) {
+
+      case (VideoPlayerPlaybackState.PlayingState) {
+         log("VideoPlayerPlaybackState.PlayingState");
+
+         break;
+      }
+
+      case (VideoPlayerPlaybackState.PausedState) {
+         log("VideoPlayerPlaybackState.PausedState");
+
+         break;
+      }
+
+      case (VideoPlayerPlaybackState.StoppedState) {
+         log("VideoPlayerPlaybackState.StoppedState");
+
+         break;
+      }
+
+      default {
+         break;
+      }
+
+   }
+}
+
+def onVideoPlayerVolumeChanged(string videoUrl, double volume) {
+   //log("onVideoPlayerVolumeChanged , volume = "+ to_string(volume));
+}
+
+def onVideoPlayerError(string videoUrl, int errorCode, string error) {
+   closeVideoDialog();
+
+   var errorDisplay = "";
+
+   switch (errorCode) {
+
+      case (VideoPlayerError.NoError) {
+         errorDisplay = "VideoPlayerError.NoError";
+
+         break;
+      }
+
+      case (VideoPlayerError.ResourceError) {
+         errorDisplay = "VideoPlayerError.ResourceError";
+
+         break;
+      }
+
+      case (VideoPlayerError.FormatError) {
+         errorDisplay = "VideoPlayerError.FormatError";
+
+         break;
+      }
+
+      case (VideoPlayerError.NetworkError) {
+         errorDisplay = "VideoPlayerError.NetworkError";
+
+         break;
+      }
+
+      case (VideoPlayerError.AccessDenied) {
+         errorDisplay = "VideoPlayerError.AccessDenied";
+
+         break;
+      }
+
+      case (VideoPlayerError.ServiceMissing) {
+         errorDisplay = "VideoPlayerError.ServiceMissing";
+         break;
+      }
+
+      default {
+         break;
+      }
+   }
+
+   requestCustomDialog(100520231, "fa::close", "<font color='red'>Imeshindwa kuonyesha</font>", errorDisplay, "Sawa", "", "#", 0.8, 0.2, false);
+}
+
+
+def isVideoDialogMinimizeDisabled(string videoUrl, double position, double duration, bool errorOccured) {
+   if (duration == 0) {
+      return false;
+   } else {
+      return position / duration < 0.2;
+   }
+}
 
 def runTest(string input) {
    var output = input;
