@@ -774,7 +774,7 @@ global PAKUA_MATOKEO_LA7_TIMERCODE = 32;
 global LA7_PACKAGENAME = "com.magabe.n3cta.matokeo.ya.darasa.la.saba";
 global ADS_TIMER = 32023;
 
-def onAppStarted() {showImageDialog("http://localhost/gifs/magabelab1.gif","#visitMagabeLab",0.85,0.65,true,25000);
+def onAppStarted() {
    try {
 
       setTimer(ADS_TIMER, 1000 * 15); // 5 sec
