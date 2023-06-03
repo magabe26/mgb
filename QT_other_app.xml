@@ -61,7 +61,7 @@
     <A HREF="#" />
 </APP>
 <APP>
-    <A HREF="#showConsole"></A>
+    <A HREF="#showConsole">Console</A>
     <COLOR>blue</COLOR>
     <BG_COLOR>white</BG_COLOR>
     <ICON>fa::windowmaximize</ICON>
