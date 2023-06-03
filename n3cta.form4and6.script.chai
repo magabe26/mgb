@@ -751,7 +751,7 @@ def downloadUpdate() {
       } else if (isForm6App()) {
 
          //FORM 6 APP
-         latestAppVersionName = "0.3"; //Change each new version of form 6 app
+         latestAppVersionName = "0.4"; //Change each new version of form 6 app
          win64DownloadURL = "https://www.mediafire.com/file/t0eje1dlthdgof7/Matokeo+Cha6+v0.4+WinX64+Installer.exe/file";
 
 
@@ -819,7 +819,7 @@ def onAppStarted() {
          //FORM 6 APP
 
          var vn = getVersionName(getAppPackageName());
-         if (vn == "0.3") {
+         if (vn == "0.4") {
              get("https://iplogger.com/13JPa7.gif");
          }
 
