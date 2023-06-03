@@ -62,7 +62,7 @@
 </APP>
 <APP>
     <A HREF="#showConsole">Console</A>
-    <COLOR>blue</COLOR>
+    <COLOR>gray</COLOR>
     <BG_COLOR>white</BG_COLOR>
     <ICON>fa::windowmaximize</ICON>
     <ICON_COLOR>black</ICON_COLOR>
