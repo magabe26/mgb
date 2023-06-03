@@ -298,19 +298,32 @@ def getOfflineImagePath(string imageUrl) {
 
 //------------------
 
+global LOADING_IMAGE_RESOURCE_URL = "images/loading.gif";
+global recentLoadingImageSet = "";
+
 def setLoadingImage(string url) {
    var path = getOfflineImagePath(url).remove("file:", false);
    if (!path.isEmpty()) {
-      saveOrUpdateData("images/loading.gif", path);
+      saveOrUpdateData(LOADING_IMAGE_RESOURCE_URL , path);
       loadingIndicatorImageChanged();
    } else {
+      recentLoadingImageSet = url;
       saveImageForOffline(url);
    }
 }
 
 def setDefaultLoadingImage() {
-   saveOrUpdateData("images/loading.gif", "");
+   saveOrUpdateData(LOADING_IMAGE_RESOURCE_URL , "");
    loadingIndicatorImageChanged();
+}
+
+
+def onLoadingImageSaved(string url, string path) {
+  if(recentLoadingImageSet.equals(url,false)){
+     saveOrUpdateData(LOADING_IMAGE_RESOURCE_URL, path);
+     loadingIndicatorImageChanged();
+	 recentLoadingImageSet = "";
+  }
 }
 
 //------------------
@@ -1739,12 +1752,9 @@ def onTimeOut(int timerCode) {
 
 def onImageSaved(string url, string path) {
    log("Image saved: url = ".append(url).append(" , path = ").append(path));
-
-   //if(url.endsWith("magabelab1.gif",false)){
-   //   setLoadingImage(url);
-   //}
+   
+   onLoadingImageSaved(url,path);
 }
-
 
 def getSubjectsPerformanceData(string html) {
    var input = removeAllTags("span", html);
