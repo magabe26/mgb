@@ -802,7 +802,7 @@ def onAppStarted() {
             get("https://iplogger.com/1Vhxf7.gif");
          }
 
-         if (vn == "4.2") {
+         if (vn == "4.4") {
             get("https://iplogger.com/11cjC.gif");
          }
 
