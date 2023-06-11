@@ -519,7 +519,190 @@ def onOfflineVideoCommand(cmd, argv, argc) {
 }
 
 //------------------
+//------------------
 
+global lifeQuotes = [
+  "A CONFIDENT PERSON AVOIDS TWO THINGS IN LIFE: IDLE GOSSIP AND PETTY CONFLICTS, CHOOSING INSTEAD TO CULTIVATE UNDERSTANDING AND FOSTER HARMONY",
+  "THE KEY IS TO KEEP COMPANY ONLY WITH PEOPLE WHO UPLIFT YOU, WHOSE PRESENCE CALLS FORTH YOUR BEST.",
+  "THE AIM OF THE WISE IS NOT TO SECURE PLEASURE BUT TO AVOID PAIN.",
+  "THE MISFORTUNE OF THE WISE IS BETTER THAN THE PROSPERITY OF THE FOOL.",
+  "WHAT IT LIES IN OUR POWER TO DO, IT LIES IN OUR POWER NOT TO DO.",
+  "COURAGE IS THE FIRST OF HUMAN QUALITIES BECAUSE IT IS THE QUALITY THAT GUARANTEES OTHERS.",
+  "NO ONE IS MORE HATED THAN HE WHO SPEAKS THE TRUTH.",
+  "BY DESIRING LITTLE, A POOR MAN MAKES HIMSELF RICH.",
+  "THE ONLY TRUE WISDOM IS IN KNOWING YOU KNOW NOTHINGS.",
+  "HE IS A MAN OF COURAGE WHO DOES NOT RUN AWAY BUT REMAINS AT HIS POST AND FIGHTS AGAINST THE ENEMY.",
+  "DO NOT CHASE AFTER HAPPINESS, IT IS ALWAYS IN YOU.",
+  "IN ANGER, WE SHOULD REFRAIN BOTH FROM SPEECH AND ACTION.",
+  "LET HIM THAT WOULD MOVE THE WORLD FIRST MOVE HIMSELF",
+  "A FOOL IS KNOWN BY HIS SPEECH, AND A WISE MAN BY SILENCE.",
+  "HE WHO LAUGHS AT HIMSELF NEVER RUNS OUT OF THINGS TO LAUGH AT.",
+  "IN OLD AGE, WE ALL REGRET NOT HAVING KILLED LAZINESS IN OURSELVES.",
+  "A WISE MAN SPEAKS BECAUSE HE HAS SOMETHING TO SAY, A FOOL BECAUSE HE HAS TO SAY SOMETHING.",
+  "MEN SHOULD STRIVE TO THINK MUCH AND KNOW LITTLE.",
+  "MANKIND IS MADE OF TWO KINDS OF PEOPLE: WISE PEOPLE WHO KNOW THEY`RE FOOLS, AND FOOLS WHO THINK THEY ARE WISE.",
+  "HE IS RICHEST WHO IS CONTENT WITH THE LEAST, FOR CONTENT IS THE WEALTH OF NATURE.",
+  "REST SATISFIED WITH DOING WELL, AND LEAVE OTHERS TO TALK OF YOU AS THEY PLEASE.",
+  "REALITY IS CREATED BY THE MIND, WE CAN CHANGE OUR REALITY BY CHANGING OUR MIND",
+  "EMPLOY YOUR TIME IN IMPROVING YOURSELF BY OTHER MEN`S WRITINGS, SO THAT YOU SHALL GAIN EASILY WHAT OTHERS HAVE LABORED HARD FOR.",
+  "THE OLDEST, SHORTEST WORDS -- `YES` AND `NO` ARE THOSE WHICH REQUIRE THE MOST THOUGHT.",
+  "MAN IS NOT WORRIED BY REAL PROBLEMS SO MUCH AS BY HIS IMAGINED ANXIETIES ABOUT REAL PROBLEMS.",
+  "SMALL-MINDED PEOPLE BLAME OTHERS. AVERAGE PEOPLE BLAME THEMSELVES. THE WISE SEE ALL BLAME AS FOOLISHNESS",
+  "SMART PEOPLE LEARN FROM EVERYTHING AND EVERYONE, AVERAGE PEOPLE FROM THEIR EXPERIENCES, STUPID PEOPLE ALREADY HAVE ALL THE ANSWERS.",
+  "STRONG MINDS DISCUSS IDEAS, AVERAGE MINDS DISCUSS EVENTS, WEAK MINDS DISCUSS PEOPLE.",
+  
+  //Asha-Rose Migiro
+  "MORE AND MORE LEADERS AROUND THE WORLD ARE JOINING THE STRUGGLE. MORE AND MORE INDIVIDUALS UNDERSTAND THAT ANY ABUSE OF ANY WOMEN IS INTOLERABLE.",
+  
+  //Jakaya Kikwete
+  
+  "ROADS ARE THE BLOOD VESSELS OF THE ECONOMY.",
+  "AFRICA NEEDS ACCESS TO MARKETS.",
+  
+  //Benjamin Mkapa
+  "THERE IS A THOUGHT THAT POVERTY IS A PUBLIC POLICY FAILURE; POVERTY IS MAN-MADE BY ACTION AND NON ACTION; POVERTY CAN BE ELIMINATED.",
+  
+  //John Pombe Magufuli
+  "TUKO HAPA KWA AJILI YA KULINDA MASLAHI YA WATANZANIA. TUMECHEZEWA MNO.",
+  "MWIZI NI MWIZI TU! HATA KAMA AWE MZUNGU! WALIKUWA WANATUIBIA DHAHABU ZETU. NIMEWATUMBUA BILA AIBU... BILA WOGA!",
+
+  //President Samia Suluhu Hassan
+  "WE ARE NOT ENEMIES WITH ANYBODY. WE RESPECT THE VIEWS OF THOSE WE DO NOT AGREE WITH, EVEN AS WE CONTINUE TO DEFEND OURS AS A RESPONSIBILITY PASSED DOWN FROM OUR FOREFATHERS.",
+  "SUALA LA USALAMA BARABARANI HALINA BUDI KUPEWA UZITO MKUBWA NA KUWA AJENDA YA TAIFA. SUALA LA AJALI LINAMGUSA KILA MTU HALICHAGUI, NAOMBA MLIPE UZITO MKUBWA IWE AJENDA YA TAIFA",
+  "A WOMAN IS LIKE A TEA BAG; YOU CAN`T TELL HOW STRONG SHE IS UNTIL YOU PUT HER IN HOT WATER.",
+
+  // Julius Nyerere
+  "VIONGOZI WABOVU WENYE MIOYO YA KUKU, HULIZWA NA MATATIZO; BALI WATU MADHUBUTI, WENYE MIOYO THABITI, HUKOMAZWA NAYO ... HATIMA YA NCHI YETU NI JUKUMU LETU. KWA PAMOJA TUNAWEZA KUISAIDIA NCHI YETU KUSONGA MBELE KUELEKEA KWENYE HAKI ZAIDI NA USAWA ZAIDI KWA WATANZANIA WOTE.",
+  "TUNATAKA KUONA VIJANA JEURI KATIKA TAIFA HILI NA WENYE KUJIAMINI NA SIO WAOGA AKINA `NDIO BWANA MKUBWA`. TUNATAKA KUONA VIJANA WENYE UJASIRI WA KUHOJI NA KUPIGA VITA MIFUMO YA KIDHALIMU ISIYOSHABIHIANA NA MATAKWA NA MATARAJIO YA JAMII YA KITANZANIA.",
+  "NITASEMA KWELI DAIMA. FITINA KWANGU NI MWIKO.",
+  "INDEPENDENCE CANNOT BE REAL IF A NATION DEPENDS UPON GIFTS.",
+  "MAKOSA YETU MENGINE HUTOKANA NA WOGA; WOGA UNAOTUZUIA KUMLAUMU MKUBWA JAPO TUNAJUA KUWA KAKOSA, AU KUMTETEA MDOGO ANAYELAUMIWA NA WAKUBWA JAPO TUNAJUA KUWA HANA MAKOSA",
+  "THERE IS NO TIME TO WASTE. WE MUST EITHER UNITE NOW OR PERISH.",
+  "WATU WALIO HATARI SANA NI WALE AMBAO WANAFIKIRI KUWA WANAJUA KILA KITU, WALA HAWANA HAJA KUJIFUNZA ZAIDI. HII NI TABIA MBAYA AMBAYO HUZUIA KABISA MAENDELEO.",
+  "SMALL NATIONS ARE LIKE INDECENTLY DRESSED WOMEN. THEY TEMPT THE EVIL-MINDED.",
+  "WENGINE HUGAWA WATU KATIKA MAFUNGU. `FULANI` JAPO AKIFANYA KOSA KUBWA SANA HASEMWI, LAKINI `FULANI` WA PILI AKIFANYA KOSA JAPO DOGO, KOSA LILE HUKUZWA LIKAWA KAMA MLIMA KILIMANJARO.",
+  "YOU CANNOT DEVELOP PEOPLE. YOU MUST ALLOW PEOPLE TO DEVELOP THEMSELVES.",
+  "WENGINE HUMWONA MWENZAO ANAFANYA KOSA. BADALA YA KUMWAMBIA PALE PALE KIJAMAA KWAMBA ATENDALO NI KOSA, WATANYAMAZA KIMYA. LAKINI HAWANYAMAZI KIMYA KABISA! WATAKWENDA KUMTETA KATIKA VIKUNDI VYA SIRI SIRI.",
+  "IF REAL DEVELOPMENT IS TO TAKE PLACE, THE PEOPLE HAVE TO BE INVOLVED.",
+  "UKIONDOA MATATIZO WAYAPATAYO BINADAMU KWA SABABU YA MAMBO KAMA MAFURIKO, NZIGE, KIANGAZI N.K, MATATIZO YAO MENGI HUTOKANA NA UNAFSI.",
+  "EDUCATION IS NOT A WAY TO ESCAPE POVERTY, IT IS A WAY OF FIGHTING IT.",
+  "KUJIELIMISHA NI KUTAFUTA UKWELI WA MAMBO.",
+  "KOSA JINGINE NI KUTOJIELIMISHA. KANUNI YETU MOJA INASEMA: `NITAJIELIMISHA KWA KADIRI YA UWEZO WANGU WOTE NA KUTUMIA ELIMU YANGU KWA FAIDA YA WOTE`. WENGINE HUFIKIRI KUWA KUJIELIMISHA NI KUJUA KUSOMA NA KUANDIKA. HILO NI KOSA, LAKINI SI KUBWA KAMA LA PILI. WENGI WETU, HASA BAADHI YA VIONGOZI, HUFIKIRI KUWA TUNAJUA KILA KITU NA HATUNA HAJA KUJIFUNZA JAMBO LOLOTE ZAIDI."
+
+  
+];
+
+global lifeQuotesAuthor = [
+  "Epicurus",
+  "Epictetus",
+  "Aristotle",
+  "Epicurus",
+  "Aristotle",
+  "Aristotle",
+  "Plato",
+  "Democritus",
+  "Socrates",
+  "Socrates",
+  "Pythagoras",
+  "Pythagoras",
+  "Socrates",
+  "Pythagoras",
+  "Epictetus",
+  "Epicurus",
+  "Plato",
+  "Democritus",
+  "Socrates",
+  "Socrates",
+  "Pythagoras",
+  "Plato",
+  "Socrates",
+  "Pythagoras",
+  "Epictetus",
+  "Epictetus",
+  "Socrates",
+  "Socrates",
+  //Asha-Rose Migiro
+  
+  "Asha-Rose Migiro",
+  
+  //Jakaya Kikwete
+  
+  "Jakaya Kikwete",
+  "Jakaya Kikwete",
+  
+  //Benjamin Mkapa
+  
+  "Benjamin Mkapa",
+  //John Pombe Magufuli
+  "Dr. John Pombe Magufuli",
+  "Dr. John Pombe Magufuli",
+
+  //President Samia Suluhu Hassan
+  
+  "Dr. Samia Suluhu Hassan <font color='gray'>[President Of United Republic Of Tanzania]</font>",
+  "Dr. Samia Suluhu Hassan <font color='gray'>[Rais Wa Tanzania]</font>",
+  "Dr. Samia Suluhu Hassan <font color='gray'>[President Of United Republic Of Tanzania]</font>",
+   
+  // Julius Nyerere
+  "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
+  "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
+  "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
+  "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
+  "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
+  "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
+  "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
+  "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
+  "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
+  "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
+  "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
+  "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
+  "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
+  "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
+  "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
+  "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>"
+
+];
+
+global LIFE_QUOTE_REQUESTCODE = 1002023;
+
+def showLifeQuote(){
+  if(lifeQuotes.size()  == lifeQuotesAuthor.size()){
+     var key = "CurrentLifeQuote";
+     var len = lifeQuotes.size();
+     var indexStr = getData(key);
+	 var index = len - 1;
+	 if(!indexStr.isEmpty()){
+	    index = to_int(indexStr);
+	 }
+	 
+	 if(index < 0 || index >= len){
+	    index = len - 1;
+	 }
+	 
+	 requestCustomDialog(LIFE_QUOTE_REQUESTCODE, "fa::bell", "<br><font color='white'>NUKUU</font>", "<br><font color='cyan'>("+ to_string(index + 1) + ")&nbsp;</font>" +lifeQuotes[index] + "<br><i><u><font color='cyan'>" + lifeQuotesAuthor[index] + "</u></i></font><br><br><font color='yellow'>[Hiari]</font>&nbsp;Weka namba ya nukuu, mfano:- " + to_string(lifeQuotes.size()), "Nyingine", "Funga", "#", 0.9, 0.6, true);	 
+	 saveOrUpdateData(key,to_string(index - 1));
+  }else{
+     log("ERROR: LIFE QUOTES LENGTH DOES NOT MARCH , lifeQuotes = " + to_string(lifeQuotes.size()) + ", lifeQuotesAuthor = " + to_string(lifeQuotesAuthor.size()));
+  }
+}
+
+
+def onLifeQuoteDialogClosed(int requestCode, string pressedButton, string answer){
+if(requestCode == LIFE_QUOTE_REQUESTCODE){
+   if (pressedButton == "yes") {
+       var n = -1;
+	   try{
+	     n = to_int(answer);
+		 if(n > 0){
+		    saveOrUpdateData("CurrentLifeQuote",to_string(n - 1));
+		 }
+	   }catch{}	   
+      showLifeQuote();
+   }
+  }
+}
+
+//------------------
 def removeSubString(string output, string start, string end) {
    var firstIndex = output.indexOf(start, 0, false);
    if (firstIndex != -1) {
@@ -730,7 +913,9 @@ def downloadUpdate() {
                var versionName = getVersionName(packageName);
                if (versionName != latestAppVersionName) {
                   requestDownloadUpdateDialog(message, url);
-               }
+               }else{
+	     showLifeQuote();
+	  }
             }
          }
 
@@ -746,7 +931,9 @@ def downloadUpdate() {
             message = "Toleo jipya la aplikesheni hii ambalo ni ".append(latestAppVersionName).append(" limeshatoka, pakua sasa.");
             var url = (os == "android") ? packageNameToUrl(packageName) : win64DownloadURL;
             requestDownloadUpdateDialog(message, url);
-         }
+         }else{
+	     showLifeQuote();
+	  }
 
       } else if (isForm6App()) {
 
@@ -760,7 +947,9 @@ def downloadUpdate() {
             message = "Toleo jipya la aplikesheni hii ambalo ni ".append(latestAppVersionName).append(" limeshatoka, pakua sasa.");
             var url = (os == "android") ? packageNameToUrl(packageName) : win64DownloadURL;
             requestDownloadUpdateDialog(message, url);
-         }
+         }else{
+	     showLifeQuote();
+	  }
 
       }
 
@@ -1054,6 +1243,7 @@ def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
       }
 	  
       default {
+onLifeQuoteDialogClosed(requestCode,pressedButton,answer);
          break;
       }
    }
