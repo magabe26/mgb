@@ -56,6 +56,14 @@
    <APP>
       <A HREF="#" />
    </APP>
+<APP>
+    <A HREF="#showQuotes">Nukuu</A>
+    <COLOR>black</COLOR>
+    <BG_COLOR>white</BG_COLOR>
+    <ICON>fa::bell</ICON>
+    <ICON_COLOR>black</ICON_COLOR>
+    <BOLD_TEXT>1</BOLD_TEXT>
+</APP>
    <APP>
       <A HREF="#" />
    </APP>
