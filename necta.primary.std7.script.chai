@@ -540,7 +540,7 @@ def showCustomDialogAfterXMillis(requestCode, icon, title, description, yesButto
    saveOrUpdateData("Custom_Dialog_Request_Url", url);
    saveOrUpdateData("Custom_Dialog_Request_PercentWidth", to_string(percentWidth));
    saveOrUpdateData("Custom_Dialog_Request_PercentHeight", to_string(percentHeight));
-   saveOrUpdateData("Custom_Dialog_Request_ShowInputText", to_string(showInputText));
+   saveOrUpdateData("Custom_Dialog_Request_ShowInputText", to_string(showInputText ? 1 : 0));
    setTimer(SHOW_CUSTOM_DIALOG_TIMERCODE, millis);
 }
 
