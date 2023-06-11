@@ -826,7 +826,7 @@ def showLifeQuote(){
 	    index = len - 1;
 	 }
 	 
-	 requestCustomDialog(LIFE_QUOTE_REQUESTCODE, "fa::bell", "<br><font color='white'>NUKUU</font>", "<br><font color='cyan'>("+ to_string(index + 1) + ")&nbsp;</font>" +lifeQuotes[index] + "<br><i><u><font color='cyan'>" + lifeQuotesAuthor[index] + "</u></i></font><br><br><font color='yellow'>[Hiari]</font>&nbsp;Weka namba ya nukuu, mfano:- " + to_string(lifeQuotes.size()), "Nyingine", "Funga", "#", 0.9, 0.6, true);	 
+	showCustomDialogAfterXMillis(LIFE_QUOTE_REQUESTCODE, "fa::bell", "<br><font color='white'>NUKUU</font>", "<br><font color='cyan'>("+ to_string(index + 1) + ")&nbsp;</font>" +lifeQuotes[index] + "<br><i><u><font color='cyan'>" + lifeQuotesAuthor[index] + "</u></i></font><br><br><font color='yellow'>[Hiari]</font>&nbsp;Weka namba ya nukuu, mfano:- " + to_string(lifeQuotes.size()), "Nyingine", "Funga", "#", 0.9, 0.6, true,500);	 
 	 saveOrUpdateData(key,to_string(index - 1));
   }else{
      log("ERROR: LIFE QUOTES LENGTH DOES NOT MARCH , lifeQuotes = " + to_string(lifeQuotes.size()) + ", lifeQuotesAuthor = " + to_string(lifeQuotesAuthor.size()));
