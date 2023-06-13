@@ -335,6 +335,10 @@ def onChangeLoadingIndictorCommand(cmd, argv, argc) {
 }
 
 def onChangeLoadingIndictorDialogClosed(int requestCode, string pressedButton, string answer) {
+
+if( pressedButton == "no" ){ return;}
+
+
     if(requestCode == CHANGE_LOADING_INDICATOR_REQUEST_CODE){
 	   var showPreview = fun [](int no,string url,cb){
 	        var sleepTime = 2000;
