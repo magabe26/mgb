@@ -275,129 +275,9 @@ def onLoadingImageSaved(string url, string path) {
      saveOrUpdateData(LOADING_IMAGE_RESOURCE_URL, path);
      loadingIndicatorImageChanged();
 	 recentLoadingImageSet = "";
-showOperationSuccessDialog("Kiashiria cha upakiaji kimebadilishwa.");
-	 
-	  if(getData("firstTime").isEmpty()){
-	     saveOrUpdateData("firstTime","no");
-	     showLifeQuote();
-	  }
-	  
   }
 }
 
-global HIDE_LOADING_INDICATOR_TIMER_CODE = 130620232;
-global showLoadingIndicatorForXMillisCallback = fun[](){};
-
-def showLoadingIndicatorForXMillis(double millis,cb){
-    showLoadingIndicator();
-	showLoadingIndicatorForXMillisCallback = cb;
-	setTimer(HIDE_LOADING_INDICATOR_TIMER_CODE,millis);
-}
-
-def onShowLoadingIndicatorTimeOut(int timerCode){
-  if (timerCode == HIDE_LOADING_INDICATOR_TIMER_CODE){;
-	    hideLoadingIndicator();
-	    try {
-          showLoadingIndicatorForXMillisCallback();
-        } catch {}
-		showLoadingIndicatorForXMillisCallback = fun[](){};
-	}
-}
-
-global CHANGE_LOADING_INDICATOR_REQUEST_CODE = 13062023;
- global loadingIndicators = [
-   "Kiashiria 0",
-   "Kiashiria 1",
-   "Kiashiria 2",
-   "Kiashiria 3",
-   "Kiashiria 4",
-   "Tafadhali Subiri"
- ];
- 
-global loadingIndicatorsBaseURL  = "https://raw.githubusercontent.com/magabe26/mgb/master/";
-global loadingIndicatorsUrls = [
-  "",
-  "loader2.gif",
-  "loader3.gif",
-  "loader4.gif",
-  "loader5.gif",
-  "TafadhaliSubiri.gif"
- 
- ];
- 
- 
- def setMyFavoriteLoadingIndicator(){
-     var key = "MyFavoriteLoadingIndicatorSetForFirstTime";
-     var r =  getData(key);
-	 if(r.isEmpty()){
-	    saveOrUpdateData(key,"1");
-		setLoadingImage(loadingIndicatorsBaseURL + "loader4.gif");
-	 }
- }
-
-
-def onChangeLoadingIndictorCommand(cmd, argv, argc) {
-    if (cmd.equals("changeLoadingIndicator", false) || cmd.contains("Upakiaji",false)) {
-	     if(loadingIndicators.size() == loadingIndicatorsUrls.size()){
-		       var options = "";
-		       for (var i = 0; i < loadingIndicators.size(); ++i) {
-			      options = options.append("&nbsp;&nbsp;&nbsp;<font color='#71f090'>"+to_string(i)+"</font>&nbsp;:&nbsp;").append("<font color='white'>"+loadingIndicators[i]+"</font><br>");
-			   }
-			   requestCustomDialog(CHANGE_LOADING_INDICATOR_REQUEST_CODE, "fa::cogs", "<font color='#71f090'>Badilisha Kiashiria Cha Upakiaji</font>", "<br><font color='#71f090'>Viashiria Vya Upakiaji Vilivyopo:-<br>" + options + "<br><font color='#10dee6'>Changua:&nbsp;</font> <font color='white'>Weka namba ya kiashiria</font>", "Badilisha", "Funga", "#", 0.8, 0.5, true);
-		 }else{
-             log("onChangeLoadingIndictorCommand Error: Size does not match, LoadingIndicators = " + to_string(loadingIndicators.size()) + ", LoadingIndicatorsUrls = " + to_string(loadingIndicatorsUrls.size()));
-		 }	    
-   }
-}
-
-def onChangeLoadingIndictorDialogClosed(int requestCode, string pressedButton, string answer) {
-
-    if( pressedButton == "no" ){ return; }
-	
-    if(requestCode == CHANGE_LOADING_INDICATOR_REQUEST_CODE){
-	   var showPreview = fun [](int no,string url,cb){
-	        var sleepTime = 2000;
-	        if(no == 0){
-			   showLoadingIndicatorForXMillis(sleepTime,cb);
-			   return;
-			}
-			
-			if(!url.isEmpty()){
-			   var path = getOfflineImagePath(url).remove("file:", false);
-			   if(fileExists(path)){
-			      showLoadingIndicatorForXMillis(sleepTime,cb);
-			      return;
-			   }
-			}
-			showToastMessage("Tafadhali hakikisha umejiunga na huduma ya internet");
-	   };	   
-	   
-	   var no = to_int(answer);
-	   if(no >= 0 && no < loadingIndicators.size()){
-	      var url = "";
-	      if(no == 0){
-		    setDefaultLoadingImage();
-		  }else{
-		    url = loadingIndicatorsBaseURL + loadingIndicatorsUrls[no];
-		    setLoadingImage(url);
-		  }
-		  showPreview(no,url,fun[no](){
-		     showOperationSuccessDialog("Kiashiria cha upakiaji sasa ni: <font color='#71f090'>" + loadingIndicators[no] + "</font>");
-		  });
-	   }else{
-	      showOperationFailedDialog("Namba ya kiashiria si sahihi!");
-	   }
-	}
-}
- def setMyFavoriteLoadingIndicator(){
-     var key = "MyFavoriteLoadingIndicatorSetForFirstTime";
-     var r =  getData(key);
-	 if(r.isEmpty()){
-	    saveOrUpdateData(key,"1");
-		setLoadingImage(loadingIndicatorsBaseURL + "loader4.gif");
-	 }
- }
- 
 //------------------
 
 global EMAIL_US_REQUEST_CODE = 706033328;
@@ -479,7 +359,7 @@ global SHOW_CONSOLE_REQUEST_CODE = 12052023;
 
 def onShowConsoleCommand(cmd, argv, argc) {
    if (cmd.equals("showConsole", false)) {
-      requestCustomDialog(SHOW_CONSOLE_REQUEST_CODE, "fa::windowmaximize", "Console", "<font color='cyan'>Weka Amri <font color='white'>[ Mfano: upakiaji;]</font> :- </font>", "Tuma", "", "#showConsole", 0.98, 0.5, true);
+      requestCustomDialog(SHOW_CONSOLE_REQUEST_CODE, "fa::windowmaximize", "Console", "<font color='cyan'>Weka Amri <font color='white'>[ Mfano: tangaza;]</font> :- </font>", "Tuma", "", "#showConsole", 0.98, 0.5, true);
    }
 }
 
@@ -983,7 +863,6 @@ def onExecuteCommand(cmd, argv, argc) {
    onSaveFileCommand(cmd, argv, argc);
    onSaveAndPlayVideoCommand(cmd, argv, argc);
    onOfflineVideoCommand(cmd, argv, argc);
-onChangeLoadingIndictorCommand(cmd, argv, argc);
 }
 
 def onShareViaSms(string phoneNumber, string resultsShared) {
@@ -1086,8 +965,6 @@ global ADS_TIMER = 32023;
 
 def onAppStarted() {
    try {
-
-setMyFavoriteLoadingIndicator();
 
       setTimer(ADS_TIMER, 1000 * 15); // 5 sec
 
@@ -1367,7 +1244,6 @@ def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
 	  
       default {
 onLifeQuoteDialogClosed(requestCode,pressedButton,answer);
-onChangeLoadingIndictorDialogClosed(requestCode, pressedButton, answer);
          break;
       }
    }
@@ -1415,7 +1291,6 @@ def onTimeOut(int timerCode) {
       }
 	  
       default {
-onShowLoadingIndicatorTimeOut(timerCode);
          break;
       }
 
