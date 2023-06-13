@@ -42,5 +42,15 @@
    {
       "appName": "Magabe Lab apps on Google play",
       "appUrl": "https://play.google.com/store/apps/developer?id=Magabe+Lab"
+   },
+
+   {
+      "appName": "*-*-*-*-*-*-*-*-*-*-*-*-*",
+      "appUrl": "#"
+   },
+
+   {
+      "appName": "Badilisha Kiashiria Cha Upakiaji",
+      "appUrl": "#changeLoadingIndicator"
    }
 ]
