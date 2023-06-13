@@ -1297,7 +1297,7 @@ def getNectaResultLinks(string html) {
 	for(var i = 0; i < links.size(); ++i){
 	    var link = links[i];
 		var year = getYear("",link);
-		if(year != 0){
+		if(year != 0 && year != 2020 && year != 2021){
 		  var yearTag = "<year>".append(to_string(year)).append("</year>");
 		  var aTag = "<a HREF=\"".append(link).append("\"></a>");
           var linkTag = "<link>".append(yearTag).append(aTag).append("</link>");
