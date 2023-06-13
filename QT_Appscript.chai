@@ -267,6 +267,12 @@ def onLoadingImageSaved(string url, string path) {
      saveOrUpdateData(LOADING_IMAGE_RESOURCE_URL, path);
      loadingIndicatorImageChanged();
 	 recentLoadingImageSet = "";
+showOperationSuccessDialog("Kiashiria cha upakiaji kimebadilishwa.");
+	 
+	  if(getData("firstTime").isEmpty()){
+	     saveOrUpdateData("firstTime","no");
+	     showLifeQuote();
+	  }
   }
 }
 
@@ -291,13 +297,21 @@ def onShowLoadingIndicatorTimeOut(int timerCode){
 
 global CHANGE_LOADING_INDICATOR_REQUEST_CODE = 13062023;
 global loadingIndicators = [
-   "Chaguomsingi",
+   "Kiashiria 0",
+   "Kiashiria 1",
+   "Kiashiria 2",
+   "Kiashiria 3",
+   "Kiashiria 4",
    "Tafadhali Subiri"
  ];
  
 global loadingIndicatorsBaseURL  = "https://raw.githubusercontent.com/magabe26/mgb/master/";
 global loadingIndicatorsUrls = [
   "",
+  "loader2.gif",
+  "loader3.gif",
+  "loader4.gif",
+  "loader5.gif",
   "TafadhaliSubiri.gif"
  
  ];
@@ -309,7 +323,11 @@ def onChangeLoadingIndictorCommand(cmd, argv, argc) {
 		       for (var i = 0; i < loadingIndicators.size(); ++i) {
 			      options = options.append("&nbsp;&nbsp;&nbsp;<font color='#71f090'>"+to_string(i)+"</font>&nbsp;:&nbsp;").append("<font color='white'>"+loadingIndicators[i]+"</font><br>");
 			   }
-		 	 requestCustomDialog(CHANGE_LOADING_INDICATOR_REQUEST_CODE, "fa::cogs", "<font color='#71f090'>Badilisha Kiashiria Cha Upakiaji</font>", "<br><font color='#71f090'>Viashiria Vya Upakiaji Vilivyopo:-<br>" + options + "<br><font color='#10dee6'>Changua:&nbsp;</font> <font color='white'>Weka namba ya kiashiria</font>", "Badilisha", "Funga", "#", 0.8, 0.5, true);
+		 	 if(cmd.contains("Upakiaji",false)){
+			   	  showCustomDialogAfterXMillis(CHANGE_LOADING_INDICATOR_REQUEST_CODE, "fa::cogs", "<font color='#71f090'>Badilisha Kiashiria Cha Upakiaji</font>", "<br><font color='#71f090'>Viashiria Vya Upakiaji Vilivyopo:-<br>" + options + "<br><font color='#10dee6'>Changua:&nbsp;</font> <font color='white'>Weka namba ya kiashiria</font>", "Badilisha", "Funga", "#", 0.8, 0.5, true, 500);
+			   }else{
+			   	  requestCustomDialog(CHANGE_LOADING_INDICATOR_REQUEST_CODE, "fa::cogs", "<font color='#71f090'>Badilisha Kiashiria Cha Upakiaji</font>", "<br><font color='#71f090'>Viashiria Vya Upakiaji Vilivyopo:-<br>" + options + "<br><font color='#10dee6'>Changua:&nbsp;</font> <font color='white'>Weka namba ya kiashiria</font>", "Badilisha", "Funga", "#", 0.8, 0.5, true);
+			   }
 		 }else{
              log("onChangeLoadingIndictorCommand Error: Size does not match, LoadingIndicators = " + to_string(loadingIndicators.size()) + ", LoadingIndicatorsUrls = " + to_string(loadingIndicatorsUrls.size()));
 		 }	    
@@ -353,6 +371,14 @@ def onChangeLoadingIndictorDialogClosed(int requestCode, string pressedButton, s
 	}
 }
 
+def setMyFavoriteLoadingIndicator(){
+     var key = "MyFavoriteLoadingIndicatorSetForFirstTime";
+     var r =  getData(key);
+	 if(r.isEmpty()){
+	    saveOrUpdateData(key,"1");
+		setLoadingImage(loadingIndicatorsBaseURL + "loader4.gif");
+	 }
+ }
 //------------------
 
 class _VideoPlayerStatus {
@@ -1058,7 +1084,7 @@ global FORM4_AND_6_PACKAGENAME = "com.magabelab.matokeo.kidato.cha4na6";
 
 def onAppStarted() {
    try {
-
+setMyFavoriteLoadingIndicator();
       downloadUpdate();
 
       var vn = getVersionName(getAppPackageName());
