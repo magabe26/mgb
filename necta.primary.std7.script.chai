@@ -297,6 +297,13 @@ def onLoadingImageSaved(string url, string path) {
      loadingIndicatorImageChanged();
 	 recentLoadingImageSet = "";
 showOperationSuccessDialog("Kiashiria cha upakiaji kimebadilishwa.");
+var key = "CurrentLifeQuote";
+	  var current = to_int(getData(key));
+	  var size = lifeQuotesAuthor.size();
+	  if((size - 1) == current){
+	      saveOrUpdateData(key,size);
+	      showLifeQuote();
+	  }
   }
 }
 
