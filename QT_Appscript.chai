@@ -270,6 +270,89 @@ def onLoadingImageSaved(string url, string path) {
   }
 }
 
+global HIDE_LOADING_INDICATOR_TIMER_CODE = 130620232;
+global showLoadingIndicatorForXMillisCallback = fun[](){};
+
+def showLoadingIndicatorForXMillis(double millis,cb){
+    showLoadingIndicator();
+	showLoadingIndicatorForXMillisCallback = cb;
+	setTimer(HIDE_LOADING_INDICATOR_TIMER_CODE,millis);
+}
+
+def onShowLoadingIndicatorTimeOut(int timerCode){
+  if (timerCode == HIDE_LOADING_INDICATOR_TIMER_CODE){;
+	    hideLoadingIndicator();
+	    try {
+          showLoadingIndicatorForXMillisCallback();
+        } catch {}
+		showLoadingIndicatorForXMillisCallback = fun[](){};
+	}
+}
+
+global CHANGE_LOADING_INDICATOR_REQUEST_CODE = 13062023;
+global loadingIndicators = [
+   "Chaguomsingi",
+   "Tafadhali Subiri"
+ ];
+ 
+global loadingIndicatorsBaseURL  = "https://raw.githubusercontent.com/magabe26/mgb/master/";
+global loadingIndicatorsUrls = [
+  "",
+  "TafadhaliSubiri.gif"
+ 
+ ];
+
+def onChangeLoadingIndictorCommand(cmd, argv, argc) {
+    if (cmd.equals("changeLoadingIndicator", false) || cmd.contains("Upakiaji",false)) {
+	     if(loadingIndicators.size() == loadingIndicatorsUrls.size()){
+		       var options = "";
+		       for (var i = 0; i < loadingIndicators.size(); ++i) {
+			      options = options.append("&nbsp;&nbsp;&nbsp;<font color='#71f090'>"+to_string(i)+"</font>&nbsp;:&nbsp;").append("<font color='white'>"+loadingIndicators[i]+"</font><br>");
+			   }
+		 	 requestCustomDialog(CHANGE_LOADING_INDICATOR_REQUEST_CODE, "fa::cogs", "<font color='#71f090'>Badilisha Kiashiria Cha Upakiaji</font>", "<br><font color='#71f090'>Viashiria Vya Upakiaji Vilivyopo:-<br>" + options + "<br><font color='#10dee6'>Changua:&nbsp;</font> <font color='white'>Weka namba ya kiashiria</font>", "Badilisha", "Funga", "#", 0.8, 0.5, true);
+		 }else{
+             log("onChangeLoadingIndictorCommand Error: Size does not match, LoadingIndicators = " + to_string(loadingIndicators.size()) + ", LoadingIndicatorsUrls = " + to_string(loadingIndicatorsUrls.size()));
+		 }	    
+   }
+}
+
+def onChangeLoadingIndictorDialogClosed(int requestCode, string pressedButton, string answer) {
+    if(requestCode == CHANGE_LOADING_INDICATOR_REQUEST_CODE){
+	   var showPreview = fun [](int no,string url,cb){
+	        var sleepTime = 2000;
+	        if(no == 0){
+			   showLoadingIndicatorForXMillis(sleepTime,cb);
+			   return;
+			}
+			
+			if(!url.isEmpty()){
+			   var path = getOfflineImagePath(url).remove("file:", false);
+			   if(fileExists(path)){
+			      showLoadingIndicatorForXMillis(sleepTime,cb);
+			      return;
+			   }
+			}
+			showToastMessage("Tafadhali hakikisha umejiunga na huduma ya internet");
+	   };	   
+	   
+	   var no = to_int(answer);
+	   if(no >= 0 && no < loadingIndicators.size()){
+	      var url = "";
+	      if(no == 0){
+		    setDefaultLoadingImage();
+		  }else{
+		    url = loadingIndicatorsBaseURL + loadingIndicatorsUrls[no];
+		    setLoadingImage(url);
+		  }
+		 showPreview(no,url,fun[no](){
+		     showOperationSuccessDialog("Kiashiria cha upakiaji sasa ni: <font color='#71f090'>" + loadingIndicators[no] + "</font>");
+		  });
+	   }else{
+	      showOperationFailedDialog("Namba ya kiashiria si sahihi!");
+	   }
+	}
+}
+
 //------------------
 
 class _VideoPlayerStatus {
@@ -499,11 +582,11 @@ def showCustomDialogAfterXMillis(requestCode, icon, title, description, yesButto
 }
 
 def showOperationSuccessDialog(string message) {
-   showCustomDialogAfterXMillis(421, "fa::smileo", "<font color='white'>OPERATION SUCCESS </font>", message, "Ok", "", "#", 0.8, 0.2, false, 500);
+   showCustomDialogAfterXMillis(421, "fa::smileo", "<font color='white'>IMEFANIKIWA </font>", message, "Sawa", "", "#", 0.8, 0.2, false, 500);
 }
 
 def showOperationFailedDialog(string message) {
-   showCustomDialogAfterXMillis(421, "fa::close", "<font color='white'>OPERATION FAILED </font>", "<font color='red'>" + message + "</font>", "Ok", "", "#", 0.8, 0.2, false, 500);
+   showCustomDialogAfterXMillis(421, "fa::close", "<font color='white'>IMESHINDWA</font>", "<font color='red'>" + message + "</font>", "Sawa", "", "#", 0.8, 0.2, false, 500);
 }
 
 //------------------
@@ -923,6 +1006,7 @@ def onExecuteCommand(cmd, argv, argc) {
    onSaveAndPlayVideoCommand(cmd, argv, argc);
    onOfflineVideoCommand(cmd, argv, argc);
 onShowQuotesCommand(cmd, argv, argc);
+onChangeLoadingIndictorCommand(cmd, argv, argc);
 }
 
 
@@ -1073,6 +1157,7 @@ def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
       
       default {
 onLifeQuoteDialogClosed(requestCode,pressedButton,answer);
+onChangeLoadingIndictorDialogClosed(requestCode, pressedButton, answer);
          break;
       }
    }
@@ -1141,6 +1226,7 @@ def onTimeOut(int timerCode) {
       }
 
       default {
+onShowLoadingIndicatorTimeOut(timerCode);
          break;
       }
 
