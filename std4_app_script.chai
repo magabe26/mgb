@@ -324,7 +324,10 @@ def onLoadingImageSaved(string url, string path) {
      loadingIndicatorImageChanged();
 	 recentLoadingImageSet = "";
 showOperationSuccessDialog("Kiashiria cha upakiaji kimebadilishwa.");
-	 
+	 if(getData("firstTime").isEmpty()){
+	     saveOrUpdateData("firstTime","no");
+	     showLifeQuote();
+	  }
   }
 }
 
