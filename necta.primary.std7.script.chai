@@ -627,11 +627,11 @@ def showCustomDialogAfterXMillis(requestCode, icon, title, description, yesButto
 }
 
 def showOperationSuccessDialog(string message) {
-   showCustomDialogAfterXMillis(421, "fa::smileo", "<font color='white'>IMEFANIKIWA</font>", message, "Ok", "", "#", 0.8, 0.2, false, 500);
+   showCustomDialogAfterXMillis(421, "fa::smileo", "<font color='white'>IMEFANIKIWA</font>", message, "Sawa", "", "#", 0.8, 0.2, false, 500);
 }
 
 def showOperationFailedDialog(string message) {
-   showCustomDialogAfterXMillis(421, "fa::close", "<font color='white'>IMESHINDWA</font>", "<font color='red'>" + message + "</font>", "Ok", "", "#", 0.8, 0.2, false, 500);
+   showCustomDialogAfterXMillis(421, "fa::close", "<font color='white'>IMESHINDWA</font>", "<font color='red'>" + message + "</font>", "Sawa", "", "#", 0.8, 0.2, false, 500);
 }
 
 //------------------
