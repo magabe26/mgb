@@ -404,7 +404,7 @@ def setMyFavoriteLoadingIndicator(){
      var r =  getData(key);
 	 if(r.isEmpty()){
 	    saveOrUpdateData(key,"1");
-		setLoadingImage(loadingIndicatorsBaseURL + "loader2.gif");
+		setLoadingImage(loadingIndicatorsBaseURL + "loader4.gif");
 	 }
  }
 //------------------
