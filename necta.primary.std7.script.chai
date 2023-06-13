@@ -320,7 +320,7 @@ def onShowLoadingIndicatorTimeOut(int timerCode){
 
 global CHANGE_LOADING_INDICATOR_REQUEST_CODE = 13062023;
 global loadingIndicators = [
-   "Default",
+   "Chaguomsingi",
    "Tafadhali Subiri"
  ];
  
