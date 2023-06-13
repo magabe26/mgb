@@ -299,13 +299,7 @@ def onLoadingImageSaved(string url, string path) {
 showOperationSuccessDialog("Kiashiria cha upakiaji kimebadilishwa.");
 if(getData("firstTime").isEmpty()){
 	     saveOrUpdateData("firstTime","no");
-		 var key = "CurrentLifeQuote";
-	     var current = to_int(getData(key));
-	     var size = lifeQuotesAuthor.size();
-	     if((size - 1) == current){
-	         saveOrUpdateData(key,size);
 	         showLifeQuote();
-	     }
 	  }
   }
 }
