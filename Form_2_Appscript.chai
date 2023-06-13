@@ -1256,7 +1256,7 @@ def getGeneralRankingAndPerformanceData(string html) {
 
 
 def getNectaMenuUrl() {
-   return "https://onlinesys.necta.go.tz/results/2022/ftna/ftna.htm";
+   return "";
 }
 
 def getAbsoluteLinks(string html){
