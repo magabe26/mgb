@@ -7,6 +7,20 @@
       <IMAGE_WIDTH_FRACTION>1</IMAGE_WIDTH_FRACTION>
       <IMAGE_HEIGHT_FRACTION>0.25</IMAGE_HEIGHT_FRACTION>
    </APP>
+<APP>
+    <A HREF="#" />
+</APP>
+<APP>
+    <A HREF="#changeLoadingIndicator">Badilisha Kiashiria Cha Upakiaji</A>
+    <COLOR>#102e04</COLOR>
+    <BG_COLOR>#9af075</BG_COLOR>
+    <ICON>fa::cogs</ICON>
+    <ICON_COLOR>#065961</ICON_COLOR>
+    <BOLD_TEXT>1</BOLD_TEXT>
+</APP>
+<APP>
+    <A HREF="#" />
+</APP>
  <APP>
       <A HREF="https://www.mediafire.com/file/p0qyktvxmu0jqtl/Matokeo+QT+v0.5+WinX64+Installer.exe/file">Pakua aplikesheni hii kwa ajiri ya PC yako hapa</A>
       <COLOR>white</COLOR>
