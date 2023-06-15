@@ -312,7 +312,7 @@ def onChangeLoadingIndictorCommand(cmd, argv, argc) {
 		       for (var i = 0; i < loadingIndicators.size(); ++i) {
 			      options = options.append("&nbsp;&nbsp;&nbsp;<font color='#71f090'>"+to_string(i)+"</font>&nbsp;:&nbsp;").append("<font color='white'>"+loadingIndicators[i]+"</font><br>");
 			   }
-			   requestCustomDialog(CHANGE_LOADING_INDICATOR_REQUEST_CODE, "fa::cogs", "<font color='#71f090'>Badilisha Kiashiria Cha Upakiaji</font>", "<br><font color='#71f090'>Viashiria Vya Upakiaji Vilivyopo:-<br>" + options + "<br><font color='#10dee6'>Changua:&nbsp;</font> <font color='white'>Weka namba ya kiashiria</font>", "Badilisha", "Funga", "#", 0.8, 0.5, true);
+			   requestCustomDialog(CHANGE_LOADING_INDICATOR_REQUEST_CODE, "fa::cogs", "<font color='#71f090'>Badilisha Kiashiria Cha Upakiaji</font>", "<br><font color='#71f090'>Viashiria Vya Upakiaji Vilivyopo:-<br>" + options + "<br><font color='#10dee6'>Chagua:&nbsp;</font> <font color='white'>Weka namba ya kiashiria</font>", "Badilisha", "Funga", "#", 0.8, 0.5, true);
 		 }else{
              log("onChangeLoadingIndictorCommand Error: Size does not match, LoadingIndicators = " + to_string(loadingIndicators.size()) + ", LoadingIndicatorsUrls = " + to_string(loadingIndicatorsUrls.size()));
 		 }	    
