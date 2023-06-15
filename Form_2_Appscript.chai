@@ -842,13 +842,13 @@ def allTagsToUpper(string html){
 
 /*  add filter logic inside this function  */
 def filterHtml(string html) {
-   var output = removeUnwantedTags(html);
-   
+   var output = html;
    var year = 0;
    var title = "";
    var titleTag = output.getTag("H3", 0);
    if (titleTag.valid) {
-      title = allTagsToUpper(title);
+      title = removeSubString(titleTag.value, "<span", "</span>");
+      title = title.replace("<h3>", "<H3>", false).replace("</h3>", "</H3>", false);
       year = getYear(title, "");
    }
 
@@ -868,8 +868,10 @@ def filterHtml(string html) {
          isMainResultsPage = true;
       }
    }
-
+   
    if (!isMainResultsPage) {
+      output = removeUnwantedTags(output);
+
       //First extract useful tags
       var h1 = output.getTag("h1", 0).value.replace("h1", "TITLE", false);
       var h2 = output.getTag("h2", 0).value.replace("h2", "COUNCIL", false);
@@ -1247,6 +1249,7 @@ def getGeneralRankingAndPerformanceData(string html) {
 	 if(tableCount == 3){
 	   break;
 	 }
+	 
 	 table = input.getTag("table", pos);
    }
    
