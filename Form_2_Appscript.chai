@@ -810,16 +810,45 @@ def removeAllTags(string tag, string html) {
    return output;
 }
 
+def removeUnwantedTags(string html){
+  var output = stripTag(html,"font");
+  output = stripTag(output,"span");
+  output = stripTag(output,"tbody");
+  output = stripTag(output,"p");
+  output = stripTag(output,"b");
+  output = stripTag(output,"meta");
+  output = stripTag(output,"iframe");
+  output = stripTag(output,"gdiv");
+  output = html_tag("style").removeFrom(output,0,-1);
+  output = removeScriptTag(output);
+  output = stR("<tr>",false).seq(spaceOptional()).seq(stR("</tr>",false)).removeFrom(output,0,-1);
+  return output;
+}
+
+
+def removeUnwantedAttributes(string html){
+  var dQuote = chaR('"');
+  return letter().plus().seq(dQuote).seq(any(dQuote,"").star()).seq(dQuote).removeFrom(html,0,-1);
+}
+
+def allTagsToUpper(string html){
+   var open = chaR('<').seq(letter().plus());
+   var close = stR("</",false).seq(letter().plus()).seq(chaR('>'));
+    
+   return open.oR(close).replaceInMapped(html,fun[](string s){
+       return strToUpper(s);
+   },0,-1);
+}
 
 /*  add filter logic inside this function  */
 def filterHtml(string html) {
-   var output = html;
+   var output = removeUnwantedTags(html);
+   
    var year = 0;
    var title = "";
    var titleTag = output.getTag("H3", 0);
    if (titleTag.valid) {
-      title = removeSubString(titleTag.value, "<span", "</span>");
-      title = title.replace("<h3>", "<H3>", false).replace("</h3>", "</H3>", false);
+      title = allTagsToUpper(title);
       year = getYear(title, "");
    }
 
@@ -841,18 +870,12 @@ def filterHtml(string html) {
    }
 
    if (!isMainResultsPage) {
-      output = output.remove("<font  size>", false);
-      output = output.remove("<p >", false);
-      output = output.remove("<p>", false);
-      output = output.remove("</p>", false);
-      output = output.remove("<b>", false);
-      output = output.remove("</b>", false);
-      output = output.remove("<tbody>", false);
-      output = output.remove("</tbody>", false);
+      //First extract useful tags
       var h1 = output.getTag("h1", 0).value.replace("h1", "TITLE", false);
       var h2 = output.getTag("h2", 0).value.replace("h2", "COUNCIL", false);
       var h3 = output.getTag("h3", 0).value.replace("h3", "SCHOOL", false);
 
+      //Get valid table
       var pos = 0;
       var tag = output.getTag("table", pos);
       while (tag.valid) {
@@ -867,9 +890,13 @@ def filterHtml(string html) {
          tag = output.getTag("table", pos);
       }
 
-      output = strToUpper(output);
+      output = allTagsToUpper(output);
+
+	  //Fix tr tags
       output = output.replace("</TR>", "</TR><TR>", false);
       output = output.replace("<TR><TR>", "<TR>", false);
+	  
+	  //Remove first tr tag
       pos = 0;
       tag = output.getTag("tr", pos);
       while (tag.valid) {
@@ -883,7 +910,11 @@ def filterHtml(string html) {
          pos = tag.index + tag.length;
          tag = output.getTag("tr", pos);
       }
+	  
+	  //Change that word to division  0
       output = output.replace("REFERRED", "0", false);
+	  
+	  //Bulid output
       output = "<BODY>".append(h2).append(h1).append(h3).append(output).append("</BODY>");
    }
 
@@ -1031,7 +1062,7 @@ def onExecuteCommand(cmd, argv, argc) {
    onSaveFileCommand(cmd, argv, argc);
    onSaveAndPlayVideoCommand(cmd, argv, argc);
    onOfflineVideoCommand(cmd, argv, argc);
-onChangeLoadingIndictorCommand(cmd, argv, argc);
+   onChangeLoadingIndictorCommand(cmd, argv, argc);
 }
 
 
@@ -1107,12 +1138,7 @@ def onAppExited(int status) {
 
 
 def getGenderWisePerformanceData(string html) {
-   var content = html.remove("<font  size>", false);
-   content = content.remove("<p >", false);
-   content = content.remove("<p>", false);
-   content = content.remove("</p>", false);
-   content = content.remove("<b>", false);
-   content = content.remove("</b>", false);
+   var content = removeUnwantedTags(html);
 
    content = content.getTag("table", 0).value; //Its the first table
 
@@ -1179,78 +1205,51 @@ def getGenderWisePerformanceData(string html) {
 
 
 def getGeneralRankingAndPerformanceData(string html) {
-   var output = html.remove("<font  size>", false);
-   output = output.remove("<p >", false);
-   output = output.remove("<p>", false);
-   output = output.remove("</p>", false);
-   output = output.remove("<b>", false);
-   output = output.remove("</b>", false);
-   output = output.remove("<p \"RIGHT\">", false);
-   output = output.remove("", false);
-
-   var index = output.indexOf("<td >EXAMINATION CENTRE RANKING</td>", 0, false);
-   output = output.right(output.length() - index);
-   output = removeSubString(output, "<div", "</html>");
-
-   while (output.contains("<span", false)) {
-      output = removeSubString(output, "<span", ">");
-   }
-   output = output.remove("</span>", false);
-
-   while (output.contains("style", false)) {
-      output = removeSubString(output, "style", "\"");
-   }
-
-   while (output.contains("font", false)) {
-      output = removeSubString(output, "font", "\"");
-   }
-
-   output = output.remove("<TR></TR>", false);
-
-   //Remove font and color
-   output = removeSubString(output, "<font", ">");
-   while (output.contains("'#", false)) {
-      output = removeSubString(output, "'#", "'");
-   }
-
-   //Remove unwanted table tags
+   var input = removeUnwantedTags(html);
+   
+   var tableCount = 0;
+   var passedFirstRequiredTable = false;
    var pos = 0;
-   var table = output.getTag("table", pos);
+   var table = input.getTag("table", pos);
+   var output = "";
+   
    while (table.valid) {
-      if (table.value.contains("EXAMINATION CENTRE OVERALL PERFORMANCE", false) ||
-         table.value.contains("EXAMINATION CENTRE DIVISION PERFORMANCE", false) ||
-         table.value.contains("EXAMINATION CENTRE SUBJECTS PERFORMANCE", false)) {
-         output = output.removeAtPosition(table.index, table.length);
-         pos = table.index + 6;
-      } else {
-         pos = table.index + table.length;
+     
+     var tableContent = table.value;
+	  
+     if(tableContent.contains("EXAMINATION CENTRE REGION", false) || passedFirstRequiredTable){
+	   passedFirstRequiredTable = true;
+	 
+	  if ( (!tableContent.contains("EXAMINATION CENTRE OVERALL PERFORMANCE", false)) &&
+           (!tableContent.contains("EXAMINATION CENTRE DIVISION PERFORMANCE", false)) &&
+           (!tableContent.contains("EXAMINATION CENTRE SUBJECTS PERFORMANCE", false))
+		 ) {
+		 //fix table open tag
+		 tableContent = stR("<table",false).seq(spaceOptional()).star().seq(stR("<tr><tr>",false)).replaceIn(tableContent,"<table><tr>",0,-1);
+		 
+		 tableContent = removeUnwantedAttributes(tableContent);
+		 tableContent = allTagsToUpper(tableContent);
+
+          //Fixing Examimantion Centre Subjects Performance Xml Data
+          if (tableContent.contains("CODE", false)) {
+             var tmp = tableContent.replace("(", "</TD><TD>", false);
+             tmp = tmp.remove(")", false);
+             tmp = tmp.remove("Grade", false);
+		     output = output + tmp;
+          }else{
+		     output = output + tableContent;
+		  }
+		  ++tableCount;
       }
-
-      //Fixing Examimantion Centre Subjects Performance Xml Data
-      if (table.value.contains("CODE", false)) {
-         var tmp = table.value;
-         tmp = tmp.replace("(", "</TD><TD>", false);
-         tmp = tmp.remove(")", false);
-         tmp = tmp.remove("Grade", false);
-         output = output.replace(table.value, tmp, false);
-      }
-      table = output.getTag("table", pos);
+	 }
+	 
+     pos = table.index + table.length;
+	 if(tableCount == 3){
+	   break;
+	 }
+	 table = input.getTag("table", pos);
    }
-
-   var tbody = "";
-   var tbodyPos = 0;
-   var tag = output.getTag("tbody", tbodyPos);
-   while (tag.valid) {
-      tbody = tbody.append(tag.value);
-      tbodyPos = tag.index + tag.length;
-      tag = output.getTag("tbody", tbodyPos);
-   }
-
-   output = tbody;
-   output = output.replace("tbody", "table", false);
-   output = strToUpper(output);
-   output = output.replace("SATISFACTORY", "SATIS FACTORY", false); //make it fit in a column 
-  
+   
    return output;
 }
 
@@ -1385,9 +1384,11 @@ def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
       }
 
       default {
-onLifeQuoteDialogClosed(requestCode,pressedButton,answer);
-onChangeLoadingIndictorDialogClosed(requestCode, pressedButton, answer);
-         break;
+	  
+         onLifeQuoteDialogClosed(requestCode,pressedButton,answer);
+         onChangeLoadingIndictorDialogClosed(requestCode, pressedButton, answer);
+         
+		 break;
       }
    }
 
@@ -1434,7 +1435,9 @@ def onTimeOut(int timerCode) {
       }
 	  
       default {
-onShowLoadingIndicatorTimeOut(timerCode);
+	  
+         onShowLoadingIndicatorTimeOut(timerCode);
+		 
          break;
       }
 
