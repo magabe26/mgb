@@ -978,6 +978,7 @@ global ACCESS_POINTS_DIALOG_REQUEST_CODE = 260620231;
 global SCHOOL_RESULT_REQUIRED_ACCESS_POINTS = 10;
 global STUDENT_RESULT_REQUIRED_ACCESS_POINTS = 5;
 global REWARD_ACCESS_POINTS_FOR_AD = 50;
+global rewardInitiatedByCommand = false;
 
 def saveAccessPoints(double points) {
    saveOrUpdateData("ACCESS_POINTS", to_string(points));
@@ -1035,6 +1036,10 @@ def giveRewardForAd() {
    incrementAccessPoints(REWARD_ACCESS_POINTS_FOR_AD);
    var message = "Sasa una jumla ya pointi <font color='cyan'><h1>" + to_string(getAccessPoints()) + "</h1></font>";
    requestCustomDialog(421, "fa::coffee", "UMEPOKEA POINTI " + to_string(REWARD_ACCESS_POINTS_FOR_AD), message, "Sawa", "", "#", 0.98, 0.2, false);
+if(rewardInitiatedByCommand){
+	  rewardInitiatedByCommand = false;
+      requestOtherAppsPage();
+	}
 }
 
 global currentSchool = "";
@@ -1098,6 +1103,7 @@ def onAddPointsCommand(cmd, argv, argc) {
    if (cmd.equals("addPoints", false)) {
       var message = "<font color='#71f090'>Angalia tangazo hili kuongeza pointi zako.</font><br><u><i>(Tafadhali hakikisha umejiunga na huduma ya internet)</i></u>";
       requestCustomDialog(ACCESS_POINTS_DIALOG_REQUEST_CODE, "fa::coffee", "ONGEZA POINTI", message, "Ongeza pointi", "<font color='white'>Badae</font>", "#", 0.98, 0.2, false);
+rewardInitiatedByCommand = true;
    }
 }
 
