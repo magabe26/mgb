@@ -1061,7 +1061,7 @@ def enableAccessPointsGuard(double requiredPoints, redirectFn) {
 def onAccessPointsDialogClosed(int requestCode, string pressedButton, string answer) {
    if (requestCode == ACCESS_POINTS_DIALOG_REQUEST_CODE) {
       if (pressedButton == "yes") {
-         showToastMessage("Tafadhali hakikisha umejiunga na huduma ya internet.");
+         showToastMessage("Tafadhali hakikisha umejiunga na huduma ya intaneti.");
          if (adsInitialized) {
             showOrLoadAd();
          } else {
@@ -1146,7 +1146,7 @@ def putAccessPointsBalanceOnOtherAppsInfo(string xml) {
 
 def onAddPointsCommand(cmd, argv, argc) {
    if (cmd.equals("addPoints", false)) {
-      var message = "<font color='#71f090'>Angalia tangazo hili kuongeza pointi zako.</font><br><u><i>(Tafadhali hakikisha umejiunga na huduma ya internet)</i></u>";
+      var message = "<font color='#71f090'>Angalia tangazo hili kuongeza pointi zako.</font><br><u><i>(Tafadhali hakikisha umejiunga na huduma ya intaneti)</i></u>";
       requestCustomDialog(ACCESS_POINTS_DIALOG_REQUEST_CODE, "fa::coffee", "ONGEZA POINTI", message, "Ongeza pointi", "<font color='white'>Badae</font>", "#", 0.98, 0.2, false);
 rewardInitiatedByCommand = true;
    }
