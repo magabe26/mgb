@@ -133,12 +133,4 @@
 <APP>
     <A HREF="#" />
 </APP>
-<APP>
-      <A HREF="https://www.mediafire.com/file/4a5oikiy50mjg18/VAT%252BCal%252Bv1.3%252Binstaller.exe/file">V.A.T Calculator V1.3</A>
-      <COLOR>black</COLOR>
-      <BG_COLOR>white</BG_COLOR>
-      <ICON>fa::download</ICON>
-      <ICON_COLOR>black</ICON_COLOR>
-      <BOLD_TEXT>0</BOLD_TEXT>
-   </APP>
 </APPS>
