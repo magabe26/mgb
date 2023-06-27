@@ -1577,6 +1577,7 @@ def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
       default {
             onLifeQuoteDialogClosed(requestCode,pressedButton,answer);
 onChangeLoadingIndictorDialogClosed(requestCode, pressedButton, answer);
+onAccessPointsDialogClosed(requestCode, pressedButton, answer);
          break;
       }
    }
@@ -1653,8 +1654,6 @@ def onTimeOut(int timerCode) {
 
       default {
  onShowLoadingIndicatorTimeOut(timerCode);
-onAccessPointsDialogClosed(requestCode, pressedButton, answer);
-
          break;
       }
 
