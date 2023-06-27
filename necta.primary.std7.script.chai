@@ -1023,6 +1023,7 @@ def onAccessPointsDialogClosed(int requestCode, string pressedButton, string ans
          } else {
             initializeAds();
          }
+showLoadingIndicator();
       } else {
          showToastMessage("sawa");
       }
@@ -1935,6 +1936,7 @@ def onAdLoaded() {
 
 def onFailedToLoadAd(string error) {
    //showToastMessage("Error:: Failed To LoadAd !".append(error));
+hideLoadingIndicator();
 }
 
 def onAdShown() {
@@ -1942,14 +1944,17 @@ def onAdShown() {
    adsShown = adsShown + 1;
 giveRewardForAd();
    showAdAfterXMins(2);
+hideLoadingIndicator();
 }
 
 def onFailedToShowAd(string error) {
    //showToastMessage("Error:: Failed To ShowAd !".append(error));
+hideLoadingIndicator();
 }
 
 def onAdDismissed() {
    //showToastMessage("Ad Dismissed!");
+hideLoadingIndicator();
 }
 
 def showOrLoadAd() {
