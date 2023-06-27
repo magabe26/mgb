@@ -1015,6 +1015,138 @@ global adsShown = 0;
 global adsInitialized = false;
 global SHOW_AD_TIMERCODE = 1011001;
 
+//------------------
+
+global ENABLE_ACCESS_POINTS_FEATURE = true;
+global ACCESS_POINTS_DIALOG_REQUEST_CODE = 260620231;
+global SCHOOL_RESULT_REQUIRED_ACCESS_POINTS = 10;
+global STUDENT_RESULT_REQUIRED_ACCESS_POINTS = 5;
+global REWARD_ACCESS_POINTS_FOR_AD = 50;
+
+def saveAccessPoints(double points) {
+   saveOrUpdateData("ACCESS_POINTS", to_string(points));
+}
+
+def getAccessPoints() {
+   var points = getData("ACCESS_POINTS");
+   if (points.isEmpty()) {
+      return 0;
+   } else {
+      return to_double(points);
+   }
+}
+
+def incrementAccessPoints(double points) {
+   saveAccessPoints(points + getAccessPoints());
+}
+
+def enableAccessPointsGuard(double requiredPoints, redirectFn) {
+   if (ENABLE_ACCESS_POINTS_FEATURE) {
+      var points = getAccessPoints();
+      if (points < requiredPoints) {
+         showLoadingIndicatorForXMillis(100, fun[redirectFn, points, requiredPoints]() {
+            try {
+               redirectFn();
+            } catch {}
+            var message = "Ili kufunguka unaitaji pointi <h1><font color='cyan'>" + to_string(requiredPoints) + "</font></h1><br> Kwa sasa una jumla ya pointi <font color='red'>" + to_string(points) + "</font><br> <font color='#71f090'>Angalia tangazo hili kuongeza pointi zako.</font>";
+            requestCustomDialog(ACCESS_POINTS_DIALOG_REQUEST_CODE, "fa::bullhorn", "<font color='red'>POINTI ZAKO HAZITOSHI</font>", message, "Ongeza pointi", "<font color='white'>Badae</font>", "#", 0.98, 0.3, false);
+         });
+      } else {
+         incrementAccessPoints(-1 * requiredPoints);
+      }
+   }
+}
+
+def onAccessPointsDialogClosed(int requestCode, string pressedButton, string answer) {
+   if (requestCode == ACCESS_POINTS_DIALOG_REQUEST_CODE) {
+      if (pressedButton == "yes") {
+         showToastMessage("Tafadhali hakikisha umejiunga na huduma ya internet.");
+         if (adsInitialized) {
+            showOrLoadAd();
+         } else {
+            initializeAds();
+         }
+      } else {
+         showToastMessage("sawa");
+      }
+   }
+}
+
+def giveRewardForAd() {
+   if (!ENABLE_ACCESS_POINTS_FEATURE) {
+      return;
+   }
+   incrementAccessPoints(REWARD_ACCESS_POINTS_FOR_AD);
+   var message = "Sasa una jumla ya pointi <font color='cyan'><h1>" + to_string(getAccessPoints()) + "</h1></font>";
+   requestCustomDialog(421, "fa::coffee", "UMEPOKEA POINTI " + to_string(REWARD_ACCESS_POINTS_FOR_AD), message, "Sawa", "", "#", 0.98, 0.2, false);
+}
+
+global currentSchool = "";
+def enableAccessPointsGuardForSchoolResult(string displayName) {
+   var os = getOperatingSystem();
+   if (os != "android") {
+      //return;	   
+   }
+   var points = getAccessPoints();
+   if ((!currentSchool.isEmpty()) && (currentSchool == displayName) && (points >= STUDENT_RESULT_REQUIRED_ACCESS_POINTS /*ok*/ )) {
+      return;
+   }
+   enableAccessPointsGuard(SCHOOL_RESULT_REQUIRED_ACCESS_POINTS, fun[]() {
+      requestHistoryPage();
+   });
+   currentSchool = displayName;
+}
+
+def enableAccessPointsGuardForStudentResult() {
+   var os = getOperatingSystem();
+   if (os != "android") {
+      //return;	   
+   }
+   enableAccessPointsGuard(STUDENT_RESULT_REQUIRED_ACCESS_POINTS, fun[]() {
+      requestHistoryPage();
+   });
+}
+
+
+def putAccessPointsBalanceOnOtherAppsInfo(string xml) {
+   var os = getOperatingSystem();
+   if (os != "android") {
+      //return;	   
+   }
+   if (xml.contains("<APPS>", false)) {
+      xml = xml.remove("<APPS>", false);
+      xml = stR("<?xml", false).seq(any(chaR('>'), "").plus()).seq(chaR('>')).removeFrom(xml, 0, -1);
+
+      var points = getAccessPoints();
+      var pointsXml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><APPS>";
+      pointsXml = pointsXml.append("<APP><A HREF='#addPoints'>Jumla ya pointi zako ni ").append(to_string(points)).append("</A>");
+      pointsXml = pointsXml.append("<COLOR>white</COLOR>");
+      pointsXml = pointsXml.append("<BG_COLOR>transparent</BG_COLOR>");
+      pointsXml = pointsXml.append("<ENABLE_BUTTON>1</ENABLE_BUTTON>");
+      pointsXml = pointsXml.append("<BUTTON_TEXT>Ongeza pointi</BUTTON_TEXT>");
+      pointsXml = pointsXml.append("<BUTTON_TEXT_COLOR>#71f090</BUTTON_TEXT_COLOR>");
+      pointsXml = pointsXml.append("<BUTTON_BG_COLOR>blue</BUTTON_BG_COLOR>");
+      pointsXml = pointsXml.append("<BOLD_TEXT>1</BOLD_TEXT>");
+      pointsXml = pointsXml.append("</APP>");
+
+      pointsXml = pointsXml.append("<APP><A HREF='#'></A>");
+      pointsXml = pointsXml.append("<BG_COLOR>transparent</BG_COLOR>");
+      pointsXml = pointsXml.append("</APP>");
+      xml = pointsXml + xml;
+   }
+
+   return xml;
+}
+
+def onAddPointsCommand(cmd, argv, argc) {
+   if (cmd.equals("addPoints", false)) {
+      var message = "<font color='#71f090'>Angalia tangazo hili kuongeza pointi zako.</font><br><u><i>(Tafadhali hakikisha umejiunga na huduma ya internet)</i></u>";
+      requestCustomDialog(ACCESS_POINTS_DIALOG_REQUEST_CODE, "fa::coffee", "ONGEZA POINTI", message, "Ongeza pointi", "<font color='white'>Badae</font>", "#", 0.98, 0.2, false);
+   }
+}
+
+//------------------
+
 def getPremNoName() {
    return "PREM NO";
 }
@@ -1814,6 +1946,7 @@ def onExecuteCommand(cmd, argv, argc) {
    onOfflineVideoCommand(cmd, argv, argc);
 onShowQuotesCommand(cmd, argv, argc);
 onChangeLoadingIndictorCommand(cmd, argv, argc);
+onAddPointsCommand(cmd, argv, argc);
 }
 
 
@@ -1896,7 +2029,7 @@ def onAppExited(int status) {
 }
 
 def onStudentResultsOpened(string name, string no, string schoolName, string average, string year, string results) {
-
+enableAccessPointsGuardForStudentResult();
 }
 
 /* info is in json format*/
@@ -1984,6 +2117,7 @@ def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
       default {
 onLifeQuoteDialogClosed(requestCode,pressedButton,answer);
 onChangeLoadingIndictorDialogClosed(requestCode, pressedButton, answer);
+onAccessPointsDialogClosed(requestCode, pressedButton, answer);
          break;
       }
    }
@@ -2197,6 +2331,7 @@ def changeFailureIdentifier(string input) {
 }
 
 def beforeDisplayResults(string displayName, int year, string url, string xml) {
+enableAccessPointsGuardForSchoolResult(displayName);
    var output = xml.simplified();
 
    output = changeFailureIdentifier(output);
@@ -2285,7 +2420,7 @@ def beforeDisplayOtherAppsPage(string xml) {
    var output = xml;
 
    output = updateFailureIdentifierMenu(output);
-
+ output= putAccessPointsBalanceOnOtherAppsInfo(output);
    return output;
 }
 
@@ -2318,6 +2453,7 @@ def onFailedToLoadAd(string error) {
 def onAdShown() {
    //showToastMessage("Ad Shown !");
    adsShown = adsShown + 1;
+giveRewardForAd();
    showAdAfterXMins(2);
 }
 
