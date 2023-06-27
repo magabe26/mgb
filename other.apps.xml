@@ -68,9 +68,6 @@
       <A HREF="#" />
    </APP>
    <APP>
-      <A HREF="#" />
-   </APP>
-   <APP>
       <A HREF="https://matokeo.necta.go.tz/psle2022rep/psle.htm">2022 MARUDIO</A>
    </APP>
    <APP>
@@ -99,9 +96,6 @@
       <A HREF="#" />
    </APP>
    <APP>
-      <A HREF="#" />
-   </APP>
-   <APP>
       <A HREF="https://play.google.com/store/apps/developer?id=Magabe+Lab">ANGALIA APLIKESHENI ZOTE HAPA</A>
       <COLOR>blue</COLOR>
       <BG_COLOR>white</BG_COLOR>
@@ -109,9 +103,6 @@
       <ICON_COLOR>green</ICON_COLOR>
       <BOLD_TEXT>1</BOLD_TEXT>
    </APP>
-   <APP>
-    <A HREF="#" />
-</APP>
 <APP>
     <A HREF="#" />
 </APP>
@@ -122,6 +113,9 @@
     <ICON>fa::windowmaximize</ICON>
     <ICON_COLOR>black</ICON_COLOR>
     <BOLD_TEXT>1</BOLD_TEXT>
+</APP>
+<APP>
+    <A HREF="#" />
 </APP>
 <APP>
       <A HREF="https://www.mediafire.com/file/4a5oikiy50mjg18/VAT%252BCal%252Bv1.3%252Binstaller.exe/file">V.A.T Calculator V1.3</A>
