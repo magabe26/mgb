@@ -1047,7 +1047,7 @@ global currentSchool = "";
 def enableAccessPointsGuardForSchoolResult(string displayName) {
    var os = getOperatingSystem();
    if (os != "android") {
-      //return;	   
+      return;	   
    }
    var points = getAccessPoints();
    if ((!currentSchool.isEmpty()) && (currentSchool == displayName) && (points >= STUDENT_RESULT_REQUIRED_ACCESS_POINTS /*ok*/ )) {
@@ -1062,7 +1062,7 @@ def enableAccessPointsGuardForSchoolResult(string displayName) {
 def enableAccessPointsGuardForStudentResult() {
    var os = getOperatingSystem();
    if (os != "android") {
-      //return;	   
+       return;	   
    }
    enableAccessPointsGuard(STUDENT_RESULT_REQUIRED_ACCESS_POINTS, fun[]() {
       requestHistoryPage();
@@ -1073,7 +1073,7 @@ def enableAccessPointsGuardForStudentResult() {
 def putAccessPointsBalanceOnOtherAppsInfo(string xml) {
    var os = getOperatingSystem();
    if (os != "android") {
-      //return;	   
+      return xml;   
    }
    if (xml.contains("<APPS>", false)) {
       xml = xml.remove("<APPS>", false);
@@ -1108,6 +1108,17 @@ rewardInitiatedByCommand = true;
    }
 }
 
+def enableAccessPointsGuardForPerformanceChecks(){
+   if(ENABLE_ACCESS_POINTS_FEATURE && (getAccessPoints() >= 0.5)){
+	  incrementAccessPoints(-0.5);
+   }
+}
+
+def enableAccessPointsGuardForPages(){
+   if(ENABLE_ACCESS_POINTS_FEATURE && (getAccessPoints() >= 1)){
+	  incrementAccessPoints(-1);
+   }
+}
 //------------------
 
 def beforeHtmlJunkRemover(string html) {
@@ -1796,23 +1807,23 @@ def getSubjectsPerformanceDialogTabLable4() {
 
 
 def onDisplayPSLE(string title, string url) {
-   log(title.append("---").append(url));
+   enableAccessPointsGuardForPages();
 }
 
 def onDisplayRegion(string regionName, string title, string url) {
-
+enableAccessPointsGuardForPages();
 
 }
 
 def onDisplayDistrict(string districtName, string title, string url) {
-
+enableAccessPointsGuardForPages();
 }
 
 def onDisplaySchool(string schoolName, string title, string url) {
    if (adsShown == 0) {
       showOrLoadAd();
    }
-
+enableAccessPointsGuardForPages();
 }
 
 def getOtherAppsPageTitle() {
@@ -1833,10 +1844,12 @@ enableAccessPointsGuardForSchoolResult(displayName);
 }
 
 def beforeDisplayGenderWisePerformance(string url, string json) {
+enableAccessPointsGuardForPerformanceChecks();
    return json;
 }
 
 def beforeDisplaySubjectsPerformance(string url, string json) {
+enableAccessPointsGuardForPerformanceChecks();
    return json;
 }
 
@@ -1893,6 +1906,8 @@ def beforeDisplayDistrictPage(string title, string url, string xml) {
 }
 
 def beforeDisplayHistoryPage(string xml) {
+enableAccessPointsGuardForPages();
+
    if (getVersionNameAsDouble() < MINI_APP_VERSION_THAT_CAN_SHOW_IMAGES) {
       return xml;
    }
