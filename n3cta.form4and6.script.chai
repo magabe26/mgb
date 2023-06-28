@@ -858,8 +858,10 @@ global previousRequiredPoints = 0.0;
 
 def showInsuficientAccessPointDialog(double requiredPoints) {
    var points = getAccessPoints();
-   var message = "Ili kufunguka unaitaji pointi <h1><font color='cyan'>" + to_string(requiredPoints) + "</font></h1><br> Kwa sasa una jumla ya pointi <font color='red'>" + to_string(points) + "</font><br> <font color='#71f090'>Angalia tangazo hili kuongeza pointi zako.</font>";
-   requestCustomDialog(ACCESS_POINTS_DIALOG_REQUEST_CODE, "fa::bullhorn", "<font color='red'>POINTI ZAKO HAZITOSHI</font>", message, "Ongeza pointi", "", "#", 0.98, 0.90, false);
+   if (points < requiredPoints) {
+      var message = "Ili kufunguka unaitaji pointi <h1><font color='cyan'>" + to_string(requiredPoints) + "</font></h1><br> Kwa sasa una jumla ya pointi <font color='red'>" + to_string(points) + "</font><br> <font color='#71f090'>Angalia tangazo hili kuongeza pointi zako.</font>";
+      requestCustomDialog(ACCESS_POINTS_DIALOG_REQUEST_CODE, "fa::bullhorn", "<font color='red'>POINTI ZAKO HAZITOSHI</font>", message, "Ongeza pointi", "", "#", 0.98, 0.90, false);
+   }
 }
 
 def enableAccessPointsGuard(double requiredPoints, redirectFn) {
@@ -902,7 +904,7 @@ def giveRewardForAd() {
    enableAdLoadingDialog = false;
    incrementAccessPoints(REWARD_ACCESS_POINTS_FOR_AD);
    var message = "Sasa una jumla ya pointi <font color='cyan'><h1>" + to_string(getAccessPoints()) + "</h1></font>";
-   requestCustomDialog(421, "fa::coffee", "UMEPOKEA POINTI " + to_string(REWARD_ACCESS_POINTS_FOR_AD), message, "Ongeza pointi", "Funga", "#addPoints", 0.98, 0.2, false);
+   requestCustomDialog(ACCESS_POINTS_DIALOG_REQUEST_CODE, "fa::coffee", "UMEPOKEA POINTI " + to_string(REWARD_ACCESS_POINTS_FOR_AD), message, "Ongeza pointi", "<font color='white'>Badae</font>", "#addPoints", 0.98, 0.2, false);
 }
 
 def onAdRewardFailure() {
