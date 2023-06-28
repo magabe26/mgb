@@ -1012,7 +1012,7 @@ global currentSchool = "";
 def enableAccessPointsGuardForSchoolResult(string displayName) {
    var os = getOperatingSystem();
    if (os != "android") {
-      //return;	   
+      return;	   
    }
    var points = getAccessPoints();
    if ((!currentSchool.isEmpty()) && (currentSchool == displayName) && (points >= STUDENT_RESULT_REQUIRED_ACCESS_POINTS /*ok*/ )) {
@@ -1027,7 +1027,7 @@ def enableAccessPointsGuardForSchoolResult(string displayName) {
 def enableAccessPointsGuardForStudentResult() {
    var os = getOperatingSystem();
    if (os != "android") {
-      //return;	   
+      return;	   
    }
    enableAccessPointsGuard(STUDENT_RESULT_REQUIRED_ACCESS_POINTS, fun[]() {
       requestHistoryPage();
@@ -1038,7 +1038,7 @@ def enableAccessPointsGuardForStudentResult() {
 def putAccessPointsBalanceOnOtherAppsInfo(string xml) {
    var os = getOperatingSystem();
    if (os != "android") {
-      //return;	   
+      return xml;
    }
    if (xml.contains("<APPS>", false)) {
       xml = xml.remove("<APPS>", false);
