@@ -1675,6 +1675,16 @@ def onAdShown() {
 giveRewardForAd();
 }
 
+def showOrLoadAd() {
+   if (adsInitialized) {
+      if (adLoaded()) {
+         showAd();
+      } else {
+         loadAd();
+      }
+   }
+}
+
 def onFailedToShowAd(string error) {
    //showToastMessage("Error:: Failed To ShowAd !".append(error));
 onAdRewardFailure();
