@@ -827,7 +827,7 @@ global AD_LOADING_DIALOG_REQUEST_CODE = 280620231;
 global enableAdLoadingDialog = false;
 def showAdLoadingDialog() {
    if (enableAdLoadingDialog) {
-      requestCustomDialog(AD_LOADING_DIALOG_REQUEST_CODE, "fa:: clocko", "Inafungua tangazo ...", "Tafadhali subiri kidogo, pia hakikisha umejiunga na huduma ya intaneti.", "", "", "#", 0.98, 1.0, false);
+      requestCustomDialog(AD_LOADING_DIALOG_REQUEST_CODE, "fa::clocko", "Inafungua tangazo ...", "Tafadhali subiri kidogo, pia hakikisha umejiunga na huduma ya intaneti.", "", "", "#", 0.98, 1.0, false);
    }
 }
 
