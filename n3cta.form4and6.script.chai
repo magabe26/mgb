@@ -950,9 +950,10 @@ def enableAccessPointsGuardForStudentResult() {
 }
 
 def onAddPointsCommand(cmd, argv, argc) {
-   if (cmd.equals("addPoints", false)) {
-       var message = "<font color='#71f090'>Angalia tangazo hili kuongeza pointi zako.</font><br><u><i>(Tafadhali hakikisha umejiunga na huduma ya internet)</i></u>";
-	   requestCustomDialog(ACCESS_POINTS_DIALOG_REQUEST_CODE, "fa::coffee","ONGEZA POINTI", message, "Ongeza pointi", "<font color='white'>Badae</font>", "#", 0.98, 0.2, false);
+   if (cmd.equals("addPoints", false) || cmd.equals("ongezaPointi", false)) {
+       var message = "Sasa una jumla ya pointi <font color='cyan'><h1>" + to_string(getAccessPoints()) + "</h1></font><br>";
+       message = message + "<font color='#71f090'>Angalia tangazo hili kuongeza pointi zako.</font><br><u><i>(Tafadhali hakikisha umejiunga na huduma ya internet)</i></u>";
+	   requestCustomDialog(ACCESS_POINTS_DIALOG_REQUEST_CODE, "fa::coffee","ONGEZA POINTI", message, "Ongeza pointi", "<font color='white'>Badae</font>", "#", 0.98, 0.4, false);
    }
 }
 
