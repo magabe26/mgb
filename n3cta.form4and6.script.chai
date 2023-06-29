@@ -827,7 +827,7 @@ global AD_LOADING_DIALOG_REQUEST_CODE = 280620231;
 global enableAdLoadingDialog = false;
 def showAdLoadingDialog() {
    if (enableAdLoadingDialog) {
-      requestCustomDialog(AD_LOADING_DIALOG_REQUEST_CODE, "fa::clocko", "Inafungua tangazo ...", "Tafadhali subiri kidogo, pia hakikisha umejiunga na huduma ya intaneti.", "", "", "#", 0.98, 0.98, false);
+      requestCustomDialog(AD_LOADING_DIALOG_REQUEST_CODE, "fa::clocko", "Inafungua tangazo ...", "Tafadhali subiri kidogo, pia hakikisha umejiunga na huduma ya intaneti.", "", "", "#", 0.98, 0.99, false);
    }
 }
 
@@ -860,7 +860,7 @@ def showInsuficientAccessPointDialog(double requiredPoints) {
    var points = getAccessPoints();
    if (points < requiredPoints) {
       var message = "Ili kufunguka unaitaji pointi <h1><font color='cyan'>" + to_string(requiredPoints) + "</font></h1><br> Kwa sasa una jumla ya pointi <font color='red'>" + to_string(points) + "</font><br> <font color='#71f090'>Angalia tangazo hili kuongeza pointi zako.</font>";
-      requestCustomDialog(ACCESS_POINTS_DIALOG_REQUEST_CODE, "fa::bullhorn", "<font color='red'>POINTI ZAKO HAZITOSHI</font>", message, "Ongeza pointi", "", "#", 0.98, 0.98, false);
+      requestCustomDialog(ACCESS_POINTS_DIALOG_REQUEST_CODE, "fa::bullhorn", "<font color='red'>POINTI ZAKO HAZITOSHI</font>", message, "Ongeza pointi", "", "#", 0.98, 0.99, false);
    }
 }
 
