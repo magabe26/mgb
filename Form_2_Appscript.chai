@@ -798,7 +798,7 @@ global AD_LOADING_DIALOG_REQUEST_CODE = 280620231;
 global enableAdLoadingDialog = false;
 def showAdLoadingDialog() {
    if (enableAdLoadingDialog) {
-      requestCustomDialog(AD_LOADING_DIALOG_REQUEST_CODE, "fa::loading", "Inafungua tangazo ...", "Tafadhali subiri kidogo, pia hakikisha umejiunga na huduma ya internet.", "", "", "#", 0.98, 1.0, false);
+      requestCustomDialog(AD_LOADING_DIALOG_REQUEST_CODE, "fa::loading", "Inafungua tangazo ...", "Tafadhali subiri kidogo, pia hakikisha umejiunga na huduma ya intaneti.", "", "", "#", 0.98, 1.0, false);
    }
 }
 
@@ -853,7 +853,7 @@ def enableAccessPointsGuard(double requiredPoints, redirectFn) {
 def onAccessPointsDialogClosed(int requestCode, string pressedButton, string answer) {
    if (requestCode == ACCESS_POINTS_DIALOG_REQUEST_CODE) {
       if (pressedButton == "yes") {
-         showToastMessage("Tafadhali hakikisha umejiunga na huduma ya internet.");
+         showToastMessage("Tafadhali hakikisha umejiunga na huduma ya intaneti.");
          if (adsInitialized) {
             showOrLoadAd();
          } else {
@@ -923,7 +923,7 @@ def enableAccessPointsGuardForStudentResult() {
 def onAddPointsCommand(cmd, argv, argc) {
    if (cmd.equals("addPoints", false) || cmd.equals("ongezaPointi", false)) {
        var message = "Sasa una jumla ya pointi <font color='cyan'><h1>" + to_string(getAccessPoints()) + "</h1></font><br>";
-       message = message + "<font color='#71f090'>Angalia tangazo hili kuongeza pointi zako.</font><br><u><i>(Tafadhali hakikisha umejiunga na huduma ya internet)</i></u>";
+       message = message + "<font color='#71f090'>Angalia tangazo hili kuongeza pointi zako.</font><br><u><i>(Tafadhali hakikisha umejiunga na huduma ya intaneti)</i></u>";
 	   requestCustomDialog(ACCESS_POINTS_DIALOG_REQUEST_CODE, "fa::coffee","ONGEZA POINTI", message, "Ongeza pointi", "<font color='white'>Badae</font>", "#", 0.98, 0.4, false);
    }
 }
