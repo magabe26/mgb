@@ -1,4 +1,8 @@
 [
+{
+"appName": "Ongeza pointi",
+"appUrl": "#addPoints"
+},
    {
       "appName": "*-*-*-*-*-*-* MAGABE LAB APPS *-*-*-*-*-*-*",
       "appUrl": "#"
@@ -33,14 +37,6 @@
    {
       "appName": "Doctor Magic",
       "appUrl": "https://play.google.com/store/apps/details?id=com.magabelab.doctormagic"
-   },
-   {
-      "appName": "YAMA for STD7",
-      "appUrl": "https://play.google.com/store/apps/details?id=com.magabelab.std7results"
-   },
-   {
-      "appName": "ZeMGame",
-      "appUrl": "https://play.google.com/store/apps/details?id=com.magabe.zemgame"
    },
    {
       "appName": "Magabe Lab apps on Google play",
