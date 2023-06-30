@@ -907,19 +907,18 @@ def giveRewardForAd() {
    requestCustomDialog(ACCESS_POINTS_DIALOG_REQUEST_CODE, "fa::coffee", "UMEPOKEA POINTI " + to_string(REWARD_ACCESS_POINTS_FOR_AD), message, "Ongeza pointi", "<font color='white'>Badae</font>", "#addPoints", 0.98, 0.2, false);
 }
 
-def onAdRewardFailure() {
-   hideLoadingIndicator();
-   var os = getOperatingSystem();
-   if (os != "android") {
-      return;
-   }
-   enableAdLoadingDialog = false;
-   var points = getAccessPoints();
-   var requiredPoints = (previousRequiredPoints > 0.0) ? previousRequiredPoints : STUDENT_RESULT_REQUIRED_ACCESS_POINTS;
-   if (points < requiredPoints) {
-      showInsuficientAccessPointDialog(requiredPoints);
-      showToastMessage("Imeshindwa kufungua tangazo!");
-   }
+def onAdRewardFailure(){
+    hideLoadingIndicator();
+	var os = getOperatingSystem();
+    if (os != "android") {
+		return;	   
+	}
+	enableAdLoadingDialog = false;
+	var points = getAccessPoints();
+	if(previousRequiredPoints != 0.0){
+	   showInsuficientAccessPointDialog(previousRequiredPoints);
+	   showToastMessage("Imeshindwa kufungua tangazo!");
+	}
 }
 
 global currentSchool = "";
