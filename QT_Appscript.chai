@@ -1019,7 +1019,7 @@ def enableAccessPointsGuardForSchoolResult(string displayName) {
       return;
    }
    enableAccessPointsGuard(SCHOOL_RESULT_REQUIRED_ACCESS_POINTS, fun[]() {
-      requestHistoryPage();
+      requestMenuPage();
    });
    currentSchool = displayName;
 }
@@ -1030,7 +1030,7 @@ def enableAccessPointsGuardForStudentResult() {
       return;	   
    }
    enableAccessPointsGuard(STUDENT_RESULT_REQUIRED_ACCESS_POINTS, fun[]() {
-      requestHistoryPage();
+      requestMenuPage();
    });
 }
 
