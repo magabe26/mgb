@@ -920,23 +920,24 @@ def onAdRewardFailure(){
 	}
 }
 
-global currentSchool = "";
 global disableSchoolGuardOnStartup = true;
+global recentChargedSchool = "";
 def enableAccessPointsGuardForSchoolResult(string displayName) {
-   if (disableSchoolGuardOnStartup) {
-      disableSchoolGuardOnStartup = false;
-      return;
-   }
-   var os = getOperatingSystem();
-   if (os != "android") {
-      return;
-   }
-   var points = getAccessPoints();
-   if ((!currentSchool.isEmpty()) && (currentSchool == displayName) && (points >= STUDENT_RESULT_REQUIRED_ACCESS_POINTS /*ok*/ )) {
-      return;
-   }
-   enableAccessPointsGuard(SCHOOL_RESULT_REQUIRED_ACCESS_POINTS, fun[]() {});
-   currentSchool = displayName;
+    var os = getOperatingSystem();
+    if (os != "android") {
+		return;	   
+	}
+	
+	if(disableSchoolGuardOnStartup){
+	   disableSchoolGuardOnStartup = false;
+	   return;
+	}
+	var points = getAccessPoints();
+	var min = (STUDENT_RESULT_REQUIRED_ACCESS_POINTS < SCHOOL_RESULT_REQUIRED_ACCESS_POINTS) ? STUDENT_RESULT_REQUIRED_ACCESS_POINTS : SCHOOL_RESULT_REQUIRED_ACCESS_POINTS;
+    if((!recentChargedSchool.isEmpty) && (recentChargedSchool == displayName) && (points >= min)){
+	   return;
+	}
+   enableAccessPointsGuard(SCHOOL_RESULT_REQUIRED_ACCESS_POINTS,fun[recentChargedSchool,displayName](){ recentChargedSchool = displayName });
 }
 
 def enableAccessPointsGuardForStudentResult() {
@@ -1577,7 +1578,6 @@ global currentResultType = "";
 
 def onSchoolResultsOpened(string info) {
    //log("School results opened ---> ".append(info));
-enableAccessPointsGuardForSchoolResult(currentSchool);
 
    currentResultType = info.contains("ACSEE", false) ? "ACSEE" : "";
    if (currentResultType.isEmpty()) {
@@ -1594,7 +1594,9 @@ enableAccessPointsGuardForSchoolResult(currentSchool);
 
    currentResultYear = getYear(info, "");
 
-   currentSchool = info.remove(to_string(currentResultYear), false).remove(currentResultType, false).remove("_", false).trim();
+   currentSchool = info.remove(to_string(currentResultYear),false).remove(currentResultType, false).remove("_", false).trim();
+
+enableAccessPointsGuardForSchoolResult(currentSchool);
 
    //log("CurrentResultYear == ".append(to_string(currentResultYear)));
    //log("CurrentResultType == ".append(currentResultType));
