@@ -1050,7 +1050,7 @@ def enableAccessPointsGuard(double requiredPoints, redirectFn) {
                redirectFn();
             } catch {}
             var message = "Ili kufunguka unaitaji pointi <h1><font color='cyan'>" + to_string(requiredPoints) + "</font></h1><br> Kwa sasa una jumla ya pointi <font color='red'>" + to_string(points) + "</font><br> <font color='#71f090'>Angalia tangazo hili kuongeza pointi zako.</font>";
-            requestCustomDialog(ACCESS_POINTS_DIALOG_REQUEST_CODE, "fa::bullhorn", "<font color='red'>POINTI ZAKO HAZITOSHI</font>", message, "Ongeza pointi", "<font color='white'>Badae</font>", "#", 0.98, 0.3, false);
+            requestCustomDialog(ACCESS_POINTS_DIALOG_REQUEST_CODE, "fa::bullhorn", "<br><font color='white'>POINTI ZAKO HAZITOSHI</font>", message, "Ongeza pointi", "<font color='white'>Badae</font>", "#", 0.98, 0.3, false);
          });
       } else {
          incrementAccessPoints(-1 * requiredPoints);
