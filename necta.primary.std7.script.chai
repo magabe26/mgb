@@ -1140,11 +1140,7 @@ def getCandidateItemTag(string text) {
    } else {
       var hasSpace = space().hasMatch(text, 0);
       if (hasSpace) {
-         var wordCount = 0;
-         forEachString(text.split(" "), fun[wordCount](string s) {
-            ++wordCount;
-         });
-
+         var wordCount = arrayCount(text.split(" "));
          if (!(digit().hasMatch(text, 0)) && (wordCount == 2 || wordCount == 3) && ((!text.contains("-", false)) && (!text.contains(",", false)) && (!text.contains(";", false)))) {
             return "CANDIDATE_NAME";
          } else {
