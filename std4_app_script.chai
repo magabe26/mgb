@@ -1616,10 +1616,10 @@ def filterHtmlForYear2022AndAbove(string html) {
 
 
 def getTdNodeTagNameForResults(int tdIndex, int tdCount, string tagText) {
-  var name = getCandidateItemTag(tagText);
-   if (!name.isEmpty()) {
-      return name;
-   }
+  //var name = getCandidateItemTag(tagText);
+   //if (!name.isEmpty()) {
+   //   return name;
+   //}
 
 
    if (tdCount == 6) {
