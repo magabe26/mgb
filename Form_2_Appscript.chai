@@ -934,6 +934,75 @@ def enableAccessPointsGuardForThisUsefullFeature() {
    }
 }
 //------------------
+
+def arrayCount(array) {
+   var count = 0;
+   forEachString(array, fun[count](string) {
+      ++count
+   });
+   return count;
+}
+
+def getCandidateItemTag(string text) {
+   text = text.simplified();
+   if (text.equals("m", false) || text.equals("f", false) || text.equals("male", false) || text.equals("female", false) || text.equals("msichana", false) || text.equals("mvulana", false)) {
+      return "SEX";
+   } else if (text.equals("a", false) || text.equals("b", false) || text.equals("c", false) || text.equals("d", false) || text.equals("e", false) || text.equals("f", false) || text.equals("referred", false)) {
+      return "AVERAGE";
+   } else if (text.equals("i", false) || text.equals("ii", false) || text.equals("iii", false) || text.equals("iv", false) || text.equals("0", false) || text.equals("merit", false) || text.equals("demerit", false)) {
+      return "DIV";
+   } else {
+      var hasSpace = space().hasMatch(text, 0);
+      if (hasSpace) {
+         var wordCount = arrayCount(text.split(" "));
+
+         if (!(digit().hasMatch(text, 0)) && (wordCount == 2 || wordCount == 3) && ((!text.contains("-", false)) && (!text.contains(",", false)) && (!text.contains(";", false)))) {
+            return "CANDIDATE_NAME";
+         } else {
+            var separator = chaR('-').oR(chaR('~')).optional();
+            var quote = chaR('\'').oR(chaR('"')).optional();
+            var score = stR("a", false).oR(stR("b", false)).oR(stR("c", false)).oR(stR("d", false)).oR(stR("e", false)).oR(stR("f", false));
+            var containSubjectScore = letter().plus().seq(spaceOptional()).seq(separator).seq(spaceOptional()).seq(quote).seq(spaceOptional()).seq(score).seq(spaceOptional()).seq(quote).hasMatch(text, 0);
+            if (containSubjectScore) {
+               return "DETAILED_SUBJECTS";
+            }
+         }
+      } else {
+         if (text.contains("-", false) || text.contains("/", false) || (text.length() > 2 && text.length() <= 4)) {
+            return "CNO";
+         } else if ((text.length() > 4) && (!letter().hasMatch(text, 0))) {
+            return "PREM_NO";
+         } else if ((!letter().hasMatch(text, 0)) && (text.length() == 1 || text.length() == 2)) {
+            return "AGGT";
+         }
+      }
+   }
+   return "";
+}
+
+def getTagText(string input) {
+   return chaR('<').seq(any(chaR('>'), "<>").plus()).seq(chaR('>')).removeFrom(input, 0, -1).simplified();
+}
+
+def formatCandidateResult(string input) { //input = candidate tr
+   var output = "<CANDIDATE>";
+
+   stR("<td", false).seq(any(stR("td>", false), "").plus()).seq(stR("td>", false)).replaceInMapped(input, fun[output](string tag) {
+      var text = getTagText(tag);
+      var newTag = getCandidateItemTag(text);
+      if (!newTag.isEmpty()) {
+         var item = "<" + newTag + ">" + text + "</" + newTag + ">";
+         output += item;
+      }
+      return tag;
+   }, 0, -1);
+
+   output += "</CANDIDATE>";
+
+   return output;
+}
+
+//------------------
 def removeSubString(string output, string start, string end) {
    var firstIndex = output.indexOf(start, 0, false);
    if (firstIndex != -1) {
@@ -1078,6 +1147,11 @@ def getAppTitle(){
 }
 
 def getTdNodeTagNameForResults(int tdIndex, int tdCount, string tagText) {
+var name = getCandidateItemTag(tagText);
+   if (!name.isEmpty()) {
+      return name;
+   }
+
    switch (tdIndex) {
       case (0) {
          return "CNO";
