@@ -1159,8 +1159,8 @@ def enableAccessPointsGuardForPerformanceChecks(){
 }
 
 def enableAccessPointsGuardForPages(){
-   if(ENABLE_ACCESS_POINTS_FEATURE && (getAccessPoints() >= 1)){
-	  incrementAccessPoints(-1);
+   if(ENABLE_ACCESS_POINTS_FEATURE && (getAccessPoints() >= 0.25)){
+	  incrementAccessPoints(-0.25);
    }
 }
 
