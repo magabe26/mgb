@@ -1688,9 +1688,11 @@ enableAccessPointsGuardForThisUsefullFeature();
          return "REG/RANK";
       }
    } else {
-      return "REG/RANK";
-
-   }
+      if (currentResultYear >= 2023) {
+         return "GRADE";
+      } else {
+         return "REG/RANK";
+      }
 }
 
 def getNatRankTitle() {
@@ -1701,7 +1703,11 @@ def getNatRankTitle() {
          return "NAT/RANK";
       }
    } else {
-      return "NAT/RANK";
+      if (currentResultYear >= 2023) {
+         return "CLEVEL";
+      } else {
+         return "NAT/RANK";
+      }
    }
 }
 
