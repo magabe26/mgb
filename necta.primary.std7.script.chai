@@ -522,6 +522,11 @@ def onVisitMagabeLabCommand(cmd, argv, argc) {
    onVisitMagabeLabCommandForConsole(cmd, argv, argc);
 }
 
+def onEmailUsCommand(cmd, argv, argc) {
+   if (cmd.equals("emailUs", false)) {
+      openPage("mailto:magabelab.tz@gmail.com");
+   }
+}
 //------------------
 
 class _VideoPlayerStatus {
@@ -1469,6 +1474,7 @@ def onExecuteCommand(cmd, argv, argc) {
 onShowQuotesCommand(cmd, argv, argc);
 onChangeLoadingIndictorCommand(cmd, argv, argc);
 onAddPointsCommand(cmd, argv, argc);
+onEmailUsCommand(cmd, argv, argc);
 }
 
 
@@ -1934,7 +1940,7 @@ def beforeDisplayMenuPage(string xml) {
    var output = xml;
    var w = 0.85;
 
-   output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/tangaza3.gif", "#showAdvertiseWithUsDialog", w, 0.3, "middle");
+   output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/natengeneza.gif", "#emailUs", w, 0.3, "middle");
    output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/magabelab1.gif", "#visitMagabeLab", w, 0.22, "bottom");
 
    return output;
