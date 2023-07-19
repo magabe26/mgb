@@ -546,6 +546,11 @@ def onShowAdvertiseWithUsDialogCommand(cmd, argv, argc) {
    onShowAdvertiseWithUsDialogCommandForConsole(cmd, argv, argc);
 }
 
+def onEmailUsCommand(cmd, argv, argc) {
+   if (cmd.equals("emailUs", false)) {
+      openPage("mailto:magabelab.tz@gmail.com");
+   }
+}
 //------------------
 
 global VISIT_MAGABE_LAB_REQUEST_CODE = 320230506;
@@ -1450,7 +1455,7 @@ def filterHtml(string html) {
          }
       } else {
          break;
-      }
+      } 
    }
 
    if (summaryTag.valid) {
@@ -2040,6 +2045,7 @@ def onExecuteCommand(cmd, argv, argc) {
 onShowQuotesCommand(cmd, argv, argc);
 onChangeLoadingIndictorCommand(cmd, argv, argc);
 onAddPointsCommand(cmd, argv, argc);
+onEmailUsCommand(cmd, argv, argc);
 }
 
 
