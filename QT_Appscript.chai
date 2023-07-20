@@ -540,6 +540,7 @@ def onVisitMagabeLabCommand(cmd, argv, argc) {
 
 def onEmailUsCommand(cmd, argv, argc) {
    if (cmd.equals("emailUs", false)) {
+showToastMessage("Tafadhali subiri!");
       openPage("mailto:magabelab.tz@gmail.com");
    }
 }
