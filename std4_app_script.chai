@@ -1553,6 +1553,787 @@ def getSummary(string html) {
    return "";
 }
 
+//------------------
+
+def getUserCountryName() {
+   var name = get("https://get.geojs.io/v1/ip/country/full");
+   if (name.isEmpty()) {
+      name = getData("CountryName");
+   } else {
+      saveOrUpdateData("CountryName", name);
+   }
+   return name;
+}
+
+def getUserCountryCode() {
+   var code = get("https://get.geojs.io/v1/ip/country");
+   if (code.isEmpty()) {
+      code = getData("CountryCode");
+   } else {
+      saveOrUpdateData("CountryCode", code);
+   }
+   return code;
+}
+
+def getFlag(string code) {
+   if (code.equals("AD", false)) {
+      return "🇦🇩";
+   }
+   if (code.equals("AE", false)) {
+      return "🇦🇪";
+   }
+   if (code.equals("AF", false)) {
+      return "🇦🇫";
+   }
+   if (code.equals("AG", false)) {
+      return "🇦🇬";
+   }
+   if (code.equals("AI", false)) {
+      return "🇦🇮";
+   }
+   if (code.equals("AL", false)) {
+      return "🇦🇱";
+   }
+   if (code.equals("AM", false)) {
+      return "🇦🇲";
+   }
+   if (code.equals("AO", false)) {
+      return "🇦🇴";
+   }
+   if (code.equals("AQ", false)) {
+      return "🇦🇶";
+   }
+   if (code.equals("AR", false)) {
+      return "🇦🇷";
+   }
+   if (code.equals("AS", false)) {
+      return "🇦🇸";
+   }
+   if (code.equals("AT", false)) {
+      return "🇦🇹";
+   }
+   if (code.equals("AU", false)) {
+      return "🇦🇺";
+   }
+   if (code.equals("AW", false)) {
+      return "🇦🇼";
+   }
+   if (code.equals("AX", false)) {
+      return "🇦🇽";
+   }
+   if (code.equals("AZ", false)) {
+      return "🇦🇿";
+   }
+   if (code.equals("BA", false)) {
+      return "🇧🇦";
+   }
+   if (code.equals("BB", false)) {
+      return "🇧🇧";
+   }
+   if (code.equals("BD", false)) {
+      return "🇧🇩";
+   }
+   if (code.equals("BE", false)) {
+      return "🇧🇪";
+   }
+   if (code.equals("BF", false)) {
+      return "🇧🇫";
+   }
+   if (code.equals("BG", false)) {
+      return "🇧🇬";
+   }
+   if (code.equals("BH", false)) {
+      return "🇧🇭";
+   }
+   if (code.equals("BI", false)) {
+      return "🇧🇮";
+   }
+   if (code.equals("BJ", false)) {
+      return "🇧🇯";
+   }
+   if (code.equals("BL", false)) {
+      return "🇧🇱";
+   }
+   if (code.equals("BM", false)) {
+      return "🇧🇲";
+   }
+   if (code.equals("BN", false)) {
+      return "🇧🇳";
+   }
+   if (code.equals("BO", false)) {
+      return "🇧🇴";
+   }
+   if (code.equals("BQ", false)) {
+      return "🇧🇶";
+   }
+   if (code.equals("BR", false)) {
+      return "🇧🇷";
+   }
+   if (code.equals("BS", false)) {
+      return "🇧🇸";
+   }
+   if (code.equals("BT", false)) {
+      return "🇧🇹";
+   }
+   if (code.equals("BV", false)) {
+      return "🇧🇻";
+   }
+   if (code.equals("BW", false)) {
+      return "🇧🇼";
+   }
+   if (code.equals("BY", false)) {
+      return "🇧🇾";
+   }
+   if (code.equals("BZ", false)) {
+      return "🇧🇿";
+   }
+   if (code.equals("CA", false)) {
+      return "🇨🇦";
+   }
+   if (code.equals("CC", false)) {
+      return "🇨🇨";
+   }
+   if (code.equals("CD", false)) {
+      return "🇨🇩";
+   }
+   if (code.equals("CF", false)) {
+      return "🇨🇫";
+   }
+   if (code.equals("CG", false)) {
+      return "🇨🇬";
+   }
+   if (code.equals("CH", false)) {
+      return "🇨🇭";
+   }
+   if (code.equals("CI", false)) {
+      return "🇨🇮";
+   }
+   if (code.equals("CK", false)) {
+      return "🇨🇰";
+   }
+   if (code.equals("CL", false)) {
+      return "🇨🇱";
+   }
+   if (code.equals("CM", false)) {
+      return "🇨🇲";
+   }
+   if (code.equals("CN", false)) {
+      return "🇨🇳";
+   }
+   if (code.equals("CO", false)) {
+      return "🇨🇴";
+   }
+   if (code.equals("CR", false)) {
+      return "🇨🇷";
+   }
+   if (code.equals("CU", false)) {
+      return "🇨🇺";
+   }
+   if (code.equals("CV", false)) {
+      return "🇨🇻";
+   }
+   if (code.equals("CW", false)) {
+      return "🇨🇼";
+   }
+   if (code.equals("CX", false)) {
+      return "🇨🇽";
+   }
+   if (code.equals("CY", false)) {
+      return "🇨🇾";
+   }
+   if (code.equals("CZ", false)) {
+      return "🇨🇿";
+   }
+   if (code.equals("DE", false)) {
+      return "🇩🇪";
+   }
+   if (code.equals("DJ", false)) {
+      return "🇩🇯";
+   }
+   if (code.equals("DK", false)) {
+      return "🇩🇰";
+   }
+   if (code.equals("DM", false)) {
+      return "🇩🇲";
+   }
+   if (code.equals("DO", false)) {
+      return "🇩🇴";
+   }
+   if (code.equals("DZ", false)) {
+      return "🇩🇿";
+   }
+   if (code.equals("EC", false)) {
+      return "🇪🇨";
+   }
+   if (code.equals("EE", false)) {
+      return "🇪🇪";
+   }
+   if (code.equals("EG", false)) {
+      return "🇪🇬";
+   }
+   if (code.equals("EH", false)) {
+      return "🇪🇭";
+   }
+   if (code.equals("ER", false)) {
+      return "🇪🇷";
+   }
+   if (code.equals("ES", false)) {
+      return "🇪🇸";
+   }
+   if (code.equals("ET", false)) {
+      return "🇪🇹";
+   }
+   if (code.equals("FI", false)) {
+      return "🇫🇮";
+   }
+   if (code.equals("FJ", false)) {
+      return "🇫🇯";
+   }
+   if (code.equals("FK", false)) {
+      return "🇫🇰";
+   }
+   if (code.equals("FM", false)) {
+      return "🇫🇲";
+   }
+   if (code.equals("FO", false)) {
+      return "🇫🇴";
+   }
+   if (code.equals("FR", false)) {
+      return "🇫🇷";
+   }
+   if (code.equals("GA", false)) {
+      return "🇬🇦";
+   }
+   if (code.equals("GB", false)) {
+      return "🇬🇧";
+   }
+   if (code.equals("GD", false)) {
+      return "🇬🇩";
+   }
+   if (code.equals("GE", false)) {
+      return "🇬🇪";
+   }
+   if (code.equals("GF", false)) {
+      return "🇬🇫";
+   }
+   if (code.equals("GG", false)) {
+      return "🇬🇬";
+   }
+   if (code.equals("GH", false)) {
+      return "🇬🇭";
+   }
+   if (code.equals("GI", false)) {
+      return "🇬🇮";
+   }
+   if (code.equals("GL", false)) {
+      return "🇬🇱";
+   }
+   if (code.equals("GM", false)) {
+      return "🇬🇲";
+   }
+   if (code.equals("GN", false)) {
+      return "🇬🇳";
+   }
+   if (code.equals("GP", false)) {
+      return "🇬🇵";
+   }
+   if (code.equals("GQ", false)) {
+      return "🇬🇶";
+   }
+   if (code.equals("GR", false)) {
+      return "🇬🇷";
+   }
+   if (code.equals("GS", false)) {
+      return "🇬🇸";
+   }
+   if (code.equals("GT", false)) {
+      return "🇬🇹";
+   }
+   if (code.equals("GU", false)) {
+      return "🇬🇺";
+   }
+   if (code.equals("GW", false)) {
+      return "🇬🇼";
+   }
+   if (code.equals("GY", false)) {
+      return "🇬🇾";
+   }
+   if (code.equals("HK", false)) {
+      return "🇭🇰";
+   }
+   if (code.equals("HM", false)) {
+      return "🇭🇲";
+   }
+   if (code.equals("HN", false)) {
+      return "🇭🇳";
+   }
+   if (code.equals("HR", false)) {
+      return "🇭🇷";
+   }
+   if (code.equals("HT", false)) {
+      return "🇭🇹";
+   }
+   if (code.equals("HU", false)) {
+      return "🇭🇺";
+   }
+   if (code.equals("ID", false)) {
+      return "🇮🇩";
+   }
+   if (code.equals("IE", false)) {
+      return "🇮🇪";
+   }
+   if (code.equals("IL", false)) {
+      return "🇮🇱";
+   }
+   if (code.equals("IM", false)) {
+      return "🇮🇲";
+   }
+   if (code.equals("IN", false)) {
+      return "🇮🇳";
+   }
+   if (code.equals("IO", false)) {
+      return "🇮🇴";
+   }
+   if (code.equals("IQ", false)) {
+      return "🇮🇶";
+   }
+   if (code.equals("IR", false)) {
+      return "🇮🇷";
+   }
+   if (code.equals("IS", false)) {
+      return "🇮🇸";
+   }
+   if (code.equals("IT", false)) {
+      return "🇮🇹";
+   }
+   if (code.equals("JE", false)) {
+      return "🇯🇪";
+   }
+   if (code.equals("JM", false)) {
+      return "🇯🇲";
+   }
+   if (code.equals("JO", false)) {
+      return "🇯🇴";
+   }
+   if (code.equals("JP", false)) {
+      return "🇯🇵";
+   }
+   if (code.equals("KE", false)) {
+      return "🇰🇪";
+   }
+   if (code.equals("KG", false)) {
+      return "🇰🇬";
+   }
+   if (code.equals("KH", false)) {
+      return "🇰🇭";
+   }
+   if (code.equals("KI", false)) {
+      return "🇰🇮";
+   }
+   if (code.equals("KM", false)) {
+      return "🇰🇲";
+   }
+   if (code.equals("KN", false)) {
+      return "🇰🇳";
+   }
+   if (code.equals("KP", false)) {
+      return "🇰🇵";
+   }
+   if (code.equals("KR", false)) {
+      return "🇰🇷";
+   }
+   if (code.equals("KW", false)) {
+      return "🇰🇼";
+   }
+   if (code.equals("KY", false)) {
+      return "🇰🇾";
+   }
+   if (code.equals("KZ", false)) {
+      return "🇰🇿";
+   }
+   if (code.equals("LA", false)) {
+      return "🇱🇦";
+   }
+   if (code.equals("LB", false)) {
+      return "🇱🇧";
+   }
+   if (code.equals("LC", false)) {
+      return "🇱🇨";
+   }
+   if (code.equals("LI", false)) {
+      return "🇱🇮";
+   }
+   if (code.equals("LK", false)) {
+      return "🇱🇰";
+   }
+   if (code.equals("LR", false)) {
+      return "🇱🇷";
+   }
+   if (code.equals("LS", false)) {
+      return "🇱🇸";
+   }
+   if (code.equals("LT", false)) {
+      return "🇱🇹";
+   }
+   if (code.equals("LU", false)) {
+      return "🇱🇺";
+   }
+   if (code.equals("LV", false)) {
+      return "🇱🇻";
+   }
+   if (code.equals("LY", false)) {
+      return "🇱🇾";
+   }
+   if (code.equals("MA", false)) {
+      return "🇲🇦";
+   }
+   if (code.equals("MC", false)) {
+      return "🇲🇨";
+   }
+   if (code.equals("MD", false)) {
+      return "🇲🇩";
+   }
+   if (code.equals("ME", false)) {
+      return "🇲🇪";
+   }
+   if (code.equals("MF", false)) {
+      return "🇲🇫";
+   }
+   if (code.equals("MG", false)) {
+      return "🇲🇬";
+   }
+   if (code.equals("MH", false)) {
+      return "🇲🇭";
+   }
+   if (code.equals("MK", false)) {
+      return "🇲🇰";
+   }
+   if (code.equals("ML", false)) {
+      return "🇲🇱";
+   }
+   if (code.equals("MM", false)) {
+      return "🇲🇲";
+   }
+   if (code.equals("MN", false)) {
+      return "🇲🇳";
+   }
+   if (code.equals("MO", false)) {
+      return "🇲🇴";
+   }
+   if (code.equals("MP", false)) {
+      return "🇲🇵";
+   }
+   if (code.equals("MQ", false)) {
+      return "🇲🇶";
+   }
+   if (code.equals("MR", false)) {
+      return "🇲🇷";
+   }
+   if (code.equals("MS", false)) {
+      return "🇲🇸";
+   }
+   if (code.equals("MT", false)) {
+      return "🇲🇹";
+   }
+   if (code.equals("MU", false)) {
+      return "🇲🇺";
+   }
+   if (code.equals("MV", false)) {
+      return "🇲🇻";
+   }
+   if (code.equals("MW", false)) {
+      return "🇲🇼";
+   }
+   if (code.equals("MX", false)) {
+      return "🇲🇽";
+   }
+   if (code.equals("MY", false)) {
+      return "🇲🇾";
+   }
+   if (code.equals("MZ", false)) {
+      return "🇲🇿";
+   }
+   if (code.equals("NA", false)) {
+      return "🇳🇦";
+   }
+   if (code.equals("NC", false)) {
+      return "🇳🇨";
+   }
+   if (code.equals("NE", false)) {
+      return "🇳🇪";
+   }
+   if (code.equals("NF", false)) {
+      return "🇳🇫";
+   }
+   if (code.equals("NG", false)) {
+      return "🇳🇬";
+   }
+   if (code.equals("NI", false)) {
+      return "🇳🇮";
+   }
+   if (code.equals("NL", false)) {
+      return "🇳🇱";
+   }
+   if (code.equals("NO", false)) {
+      return "🇳🇴";
+   }
+   if (code.equals("NP", false)) {
+      return "🇳🇵";
+   }
+   if (code.equals("NR", false)) {
+      return "🇳🇷";
+   }
+   if (code.equals("NU", false)) {
+      return "🇳🇺";
+   }
+   if (code.equals("NZ", false)) {
+      return "🇳🇿";
+   }
+   if (code.equals("OM", false)) {
+      return "🇴🇲";
+   }
+   if (code.equals("PA", false)) {
+      return "🇵🇦";
+   }
+   if (code.equals("PE", false)) {
+      return "🇵🇪";
+   }
+   if (code.equals("PF", false)) {
+      return "🇵🇫";
+   }
+   if (code.equals("PG", false)) {
+      return "🇵🇬";
+   }
+   if (code.equals("PH", false)) {
+      return "🇵🇭";
+   }
+   if (code.equals("PK", false)) {
+      return "🇵🇰";
+   }
+   if (code.equals("PL", false)) {
+      return "🇵🇱";
+   }
+   if (code.equals("PM", false)) {
+      return "🇵🇲";
+   }
+   if (code.equals("PN", false)) {
+      return "🇵🇳";
+   }
+   if (code.equals("PR", false)) {
+      return "🇵🇷";
+   }
+   if (code.equals("PS", false)) {
+      return "🇵🇸";
+   }
+   if (code.equals("PT", false)) {
+      return "🇵🇹";
+   }
+   if (code.equals("PW", false)) {
+      return "🇵🇼";
+   }
+   if (code.equals("PY", false)) {
+      return "🇵🇾";
+   }
+   if (code.equals("QA", false)) {
+      return "🇶🇦";
+   }
+   if (code.equals("RE", false)) {
+      return "🇷🇪";
+   }
+   if (code.equals("RO", false)) {
+      return "🇷🇴";
+   }
+   if (code.equals("RS", false)) {
+      return "🇷🇸";
+   }
+   if (code.equals("RU", false)) {
+      return "🇷🇺";
+   }
+   if (code.equals("RW", false)) {
+      return "🇷🇼";
+   }
+   if (code.equals("SA", false)) {
+      return "🇸🇦";
+   }
+   if (code.equals("SB", false)) {
+      return "🇸🇧";
+   }
+   if (code.equals("SC", false)) {
+      return "🇸🇨";
+   }
+   if (code.equals("SD", false)) {
+      return "🇸🇩";
+   }
+   if (code.equals("SE", false)) {
+      return "🇸🇪";
+   }
+   if (code.equals("SG", false)) {
+      return "🇸🇬";
+   }
+   if (code.equals("SH", false)) {
+      return "🇸🇭";
+   }
+   if (code.equals("SI", false)) {
+      return "🇸🇮";
+   }
+   if (code.equals("SJ", false)) {
+      return "🇸🇯";
+   }
+   if (code.equals("SK", false)) {
+      return "🇸🇰";
+   }
+   if (code.equals("SL", false)) {
+      return "🇸🇱";
+   }
+   if (code.equals("SM", false)) {
+      return "🇸🇲";
+   }
+   if (code.equals("SN", false)) {
+      return "🇸🇳";
+   }
+   if (code.equals("SO", false)) {
+      return "🇸🇴";
+   }
+   if (code.equals("SR", false)) {
+      return "🇸🇷";
+   }
+   if (code.equals("SS", false)) {
+      return "🇸🇸";
+   }
+   if (code.equals("ST", false)) {
+      return "🇸🇹";
+   }
+   if (code.equals("SV", false)) {
+      return "🇸🇻";
+   }
+   if (code.equals("SX", false)) {
+      return "🇸🇽";
+   }
+   if (code.equals("SY", false)) {
+      return "🇸🇾";
+   }
+   if (code.equals("SZ", false)) {
+      return "🇸🇿";
+   }
+   if (code.equals("TC", false)) {
+      return "🇹🇨";
+   }
+   if (code.equals("TD", false)) {
+      return "🇹🇩";
+   }
+   if (code.equals("TF", false)) {
+      return "🇹🇫";
+   }
+   if (code.equals("TG", false)) {
+      return "🇹🇬";
+   }
+   if (code.equals("TH", false)) {
+      return "🇹🇭";
+   }
+   if (code.equals("TJ", false)) {
+      return "🇹🇯";
+   }
+   if (code.equals("TK", false)) {
+      return "🇹🇰";
+   }
+   if (code.equals("TL", false)) {
+      return "🇹🇱";
+   }
+   if (code.equals("TM", false)) {
+      return "🇹🇲";
+   }
+   if (code.equals("TN", false)) {
+      return "🇹🇳";
+   }
+   if (code.equals("TO", false)) {
+      return "🇹🇴";
+   }
+   if (code.equals("TR", false)) {
+      return "🇹🇷";
+   }
+   if (code.equals("TT", false)) {
+      return "🇹🇹";
+   }
+   if (code.equals("TV", false)) {
+      return "🇹🇻";
+   }
+   if (code.equals("TW", false)) {
+      return "🇹🇼";
+   }
+   if (code.equals("TZ", false)) {
+      return "🇹🇿";
+   }
+   if (code.equals("UA", false)) {
+      return "🇺🇦";
+   }
+   if (code.equals("UG", false)) {
+      return "🇺🇬";
+   }
+   if (code.equals("UM", false)) {
+      return "🇺🇲";
+   }
+   if (code.equals("US", false)) {
+      return "🇺🇸";
+   }
+   if (code.equals("UY", false)) {
+      return "🇺🇾";
+   }
+   if (code.equals("UZ", false)) {
+      return "🇺🇿";
+   }
+   if (code.equals("VA", false)) {
+      return "🇻🇦";
+   }
+   if (code.equals("VC", false)) {
+      return "🇻🇨";
+   }
+   if (code.equals("VE", false)) {
+      return "🇻🇪";
+   }
+   if (code.equals("VG", false)) {
+      return "🇻🇬";
+   }
+   if (code.equals("VI", false)) {
+      return "🇻🇮";
+   }
+   if (code.equals("VN", false)) {
+      return "🇻🇳";
+   }
+   if (code.equals("VU", false)) {
+      return "🇻🇺";
+   }
+   if (code.equals("WF", false)) {
+      return "🇼🇫";
+   }
+   if (code.equals("WS", false)) {
+      return "🇼🇸";
+   }
+   if (code.equals("XK", false)) {
+      return "🇽🇰";
+   }
+   if (code.equals("YE", false)) {
+      return "🇾🇪";
+   }
+   if (code.equals("YT", false)) {
+      return "🇾🇹";
+   }
+   if (code.equals("ZA", false)) {
+      return "🇿🇦";
+   }
+   if (code.equals("ZM", false)) {
+      return "🇿🇲";
+   }
+   return "🏳";
+}
+
+
+def getUserFlag() {
+   return getFlag(getUserCountryCode());
+}
+
+
+//----------------
+
 def filterHtmlForYear2022AndAbove(string html) {
    var output = html;
    /* A fast and advanced  method */
@@ -2121,6 +2902,9 @@ setMyFavoriteLoadingIndicator();
 
       initializeAds();
 
+      //save country code for later use
+      getUserCountryCode();
+
    } catch {}
 
 }
@@ -2413,7 +3197,9 @@ enableAccessPointsGuardForPages();
 }
 
 def getOtherAppsPageTitle() {
-   return "TAARIFA";
+  var code = getData("CountryCode");
+   var flag = getFlag(code);
+   return "👋 " + flag + " 👋<br/>TAARIFA";
 }
 
 def getOtherAppsDelegateSpacing() {
