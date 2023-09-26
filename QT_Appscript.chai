@@ -2249,7 +2249,7 @@ def getAcceptableParseCompletion(string url, int year) {
 def getOtherAppsPageTitle(){
    var code = getData("CountryCode");
    var flag = getFlag(code);
-   return "&emsp;👋 " + flag + " 👋<br/> INFORMATION";
+   return "&nbsp;&nbsp;👋 " + flag + " 👋<br/> INFORMATION";
 }
 
 def getOtherAppsDelegateSpacing() {
