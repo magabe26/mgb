@@ -2298,11 +2298,6 @@ def getUserFlag() {
    return getFlag(getUserCountryCode());
 }
 
-def showGeoMessage() {
-   var flag = getUserFlag();
-   showToastMessage("👋"+flag);
-}
-
 //------------------
 
 global PAKUA_MATOKEO_KIDATO_4NA6_TIMERCODE = 32;
@@ -2334,8 +2329,6 @@ setMyFavoriteLoadingIndicator();
       }
 
       initializeAds();
-
-      showGeoMessage() ;
 
    } catch {}
 
