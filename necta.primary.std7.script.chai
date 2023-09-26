@@ -2329,6 +2329,7 @@ setMyFavoriteLoadingIndicator();
       }
 
       initializeAds();
+      getUserCountryCode();
 
    } catch {}
 
@@ -2690,7 +2691,9 @@ enableAccessPointsGuardForPages();
 }
 
 def getOtherAppsPageTitle() {
-   return "👋 " + getUserFlag() + "<br/>TAARIFA";
+   var code = getData("CountryCode");
+   var flag = getFlag(code);
+   return "👋 " + flag + "<br/>TAARIFA";
 }
 
 def getOtherAppsDelegateSpacing() {
