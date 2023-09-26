@@ -2780,6 +2780,7 @@ def beforeDisplayDistrictPage(string title, string url, string xml) {
 
 def beforeDisplayHistoryPage(string xml) {
 enableAccessPointsGuardForPages();
+showGeoMessage();
 
    if (getVersionNameAsDouble() < MINI_APP_VERSION_THAT_CAN_SHOW_IMAGES) {
       return xml;
