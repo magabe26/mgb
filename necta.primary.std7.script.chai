@@ -2329,6 +2329,8 @@ setMyFavoriteLoadingIndicator();
       }
 
       initializeAds();
+
+      //save country code for later use
       getUserCountryCode();
 
    } catch {}
