@@ -2300,10 +2300,7 @@ def getUserFlag() {
 
 def showGeoMessage() {
    var flag = getUserFlag();
-   if (!flag.equals("🏳", false)) {
-      showToastMessage("👋"+flag);
-   }
-
+   showToastMessage("👋"+flag);
 }
 
 //------------------
@@ -2780,7 +2777,6 @@ def beforeDisplayDistrictPage(string title, string url, string xml) {
 
 def beforeDisplayHistoryPage(string xml) {
 enableAccessPointsGuardForPages();
-showGeoMessage();
 
    if (getVersionNameAsDouble() < MINI_APP_VERSION_THAT_CAN_SHOW_IMAGES) {
       return xml;
