@@ -2690,7 +2690,7 @@ enableAccessPointsGuardForPages();
 }
 
 def getOtherAppsPageTitle() {
-   return "TAARIFA";
+   return "👋 " + getUserFlag() + "<br/>TAARIFA";
 }
 
 def getOtherAppsDelegateSpacing() {
