@@ -2326,14 +2326,14 @@ setMyFavoriteLoadingIndicator();
 
       if (vn == 4.0) {
          get("https://iplogger.com/11CwC.gif");
-      }
-
-      loadConsentForm();
+      }      
 
       initializeAds();
 
       //save country code for later use
       getUserCountryCode();
+
+      loadConsentForm();
 
    } catch {}
 
