@@ -2328,6 +2328,8 @@ setMyFavoriteLoadingIndicator();
          get("https://iplogger.com/11CwC.gif");
       }
 
+      loadConsentForm();
+
       initializeAds();
 
       //save country code for later use
@@ -3036,6 +3038,43 @@ def isVideoDialogMinimizeDisabled(string videoUrl, double position, double durat
    }
 }
 
+//ConsentManager
+
+def showDebugMessage(msg)
+{
+  requestCustomDialog(411, "fa::coffee","Debug message", msg, "ok", "", "#", 0.98, 0.6, false);
+}
+
+def onConsentInfoUpdateFailure(error)
+{
+   showDebugMessage(error);
+}
+
+def onConsentFormLoaded()
+{
+   showDebugMessage("Form loaded");	
+   showConsentForm();
+}
+
+def onConsentFormLoadFailure(error)
+{
+ showDebugMessage(error);
+}
+
+def onConsentFormShowFailure(error)
+{
+  showDebugMessage(error);
+}
+
+def onConsentNotGranted(error)
+{
+ showDebugMessage(error);
+}
+
+def onConsentGranted()
+{
+  showDebugMessage("Consent granted");
+}
 
 def runTest(string input) {
    var output = input;
