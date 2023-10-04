@@ -350,7 +350,7 @@ def onChangeLoadingIndictorCommand(cmd, argv, argc) {
       if (loadingIndicators.size() == loadingIndicatorsUrls.size()) {
          var options = "";
          for (var i = 0; i < loadingIndicators.size(); ++i) {
-            options = options.append("   <font color='#71f090'>" + to_string(i) + "</font> : ").append("<font color='white'>" + loadingIndicators[i] + "</font><br>");
+            options = options.append("&nbsp;&nbsp;&nbsp;<font color='#71f090'>" + to_string(i) + "</font> : ").append("<font color='white'>" + loadingIndicators[i] + "</font><br>");
          }
          if (cmd.contains("Upakiaji", false)) {
             showCustomDialogAfterXMillis(CHANGE_LOADING_INDICATOR_REQUEST_CODE, "fa::cogs", "<font color='#71f090'>Badilisha Kiashiria Cha Upakiaji</font>", "<br><font color='#71f090'>Viashiria Vya Upakiaji Vilivyopo:-<br>" + options + "<br><font color='#10dee6'>Chagua: </font> <font color='white'>Weka namba ya kiashiria</font>", "Badilisha", "Funga", "#", 0.8, 0.5, true, 500);
