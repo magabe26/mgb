@@ -3056,10 +3056,6 @@ def isVideoDialogMinimizeDisabled(string videoUrl, double position, double durat
 }
 //------------------------------------------------
 
-def getPageTitle() {
-    return "";
-}
-
 def tr(text) {
    return text;
 }
