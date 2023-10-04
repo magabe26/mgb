@@ -2328,12 +2328,20 @@ setMyFavoriteLoadingIndicator();
          get("https://iplogger.com/11CwC.gif");
       }      
 
-      initializeAds();
-
       //save country code for later use
       getUserCountryCode();
 
-      loadConsentForm();
+          if(vn < 4.2){
+	    initializeAds();	  
+	  }else{
+	        var status = getConsentStatus();
+		showDebugMessage("consent status" + to_string(loadConsentForm));
+		if(status > 0){
+		   initializeAds();
+		}else{
+		   loadConsentForm();
+		}
+	  }
 
    } catch {}
 
@@ -3037,6 +3045,7 @@ def isVideoDialogMinimizeDisabled(string videoUrl, double position, double durat
       return position / duration < 0.2;
    }
 }
+//------------------------------------------------
 
 //ConsentManager
 
@@ -3045,36 +3054,49 @@ def showDebugMessage(msg)
   requestCustomDialog(411, "fa::coffee","Debug message", msg, "ok", "", "#", 0.98, 0.6, false);
 }
 
+def setConsentGrantedStatus(bool status)
+{
+    saveOrUpdateData("ConsentGranted",status ? "1" : "0");
+}
+
+def isConsentGranted()
+{
+   return getData("ConsentGranted") == "1";
+}
+
 def onConsentInfoUpdateFailure(error)
 {
-   showDebugMessage(error);
+   initializeAds();
 }
 
 def onConsentFormLoaded()
 {
-   showDebugMessage("Form loaded");	
    showConsentForm();
 }
 
 def onConsentFormLoadFailure(error)
 {
- showDebugMessage(error);
+   initializeAds();
 }
 
 def onConsentFormShowFailure(error)
 {
-  showDebugMessage(error);
+   initializeAds();
 }
 
 def onConsentNotGranted(error)
 {
- showDebugMessage(error);
+   setConsentGrantedStatus(false);
+   initializeAds();
 }
 
 def onConsentGranted()
 {
-  showDebugMessage("Consent granted");
+   setConsentGrantedStatus(true);
+   initializeAds();
 }
+
+//----------------------------------------
 
 def runTest(string input) {
    var output = input;
