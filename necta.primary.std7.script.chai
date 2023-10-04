@@ -2331,17 +2331,15 @@ setMyFavoriteLoadingIndicator();
       //save country code for later use
       getUserCountryCode();
 
-          if(vn < 4.2){
-	    initializeAds();	  
-	  }else{
-	        var status = getConsentStatus();
-		showDebugMessage("consent status" + to_string(status));
-		if(status > 0){
-		   initializeAds();
-		}else{
-		   loadConsentForm();
-		}
-	  }
+      if(vn < 4.2){
+	   initializeAds();	  
+      }else{
+           if(isConsentGranted()){
+	        initializeAds();
+	     }else{
+		loadConsentForm();
+           }
+       }
 
    } catch {}
 
