@@ -3056,15 +3056,19 @@ def isVideoDialogMinimizeDisabled(string videoUrl, double position, double durat
 }
 //------------------------------------------------
 
+def getPageTitle() {
+    return "";
+}
+
 def tr(text) {
    return text;
 }
 
-//ConsentManager
-
 def showDebugMessage(msg) {
    requestCustomDialog(411, "fa::coffee", "Debug message", msg, "ok", "", "#", 0.98, 0.6, false);
 }
+
+//-------------- ConsentManager -----------------
 
 def onConsentInfoUpdateSuccess() {}
 
