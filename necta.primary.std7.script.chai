@@ -3056,6 +3056,10 @@ def isVideoDialogMinimizeDisabled(string videoUrl, double position, double durat
 }
 //------------------------------------------------
 
+def tr(text) {
+   return text;
+}
+
 //ConsentManager
 
 def showDebugMessage(msg) {
