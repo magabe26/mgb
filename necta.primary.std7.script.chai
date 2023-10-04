@@ -2337,6 +2337,8 @@ setMyFavoriteLoadingIndicator();
       if(vn < 4.2){
 	   initializeAds();	  
       }else{
+          requestConsentInfoUpdate();
+
            if(isConsentGranted()){
 	        initializeAds();
 	     }else{
@@ -3065,6 +3067,10 @@ def setConsentGrantedStatus(bool status)
 def isConsentGranted()
 {
    return getData("ConsentGranted") == "1";
+}
+
+def onConsentInfoUpdateSuccess(){
+  showDebugMessage("onConsentInfoUpdateSuccess");
 }
 
 def onConsentInfoUpdateFailure(error)
