@@ -2337,7 +2337,8 @@ setMyFavoriteLoadingIndicator();
       if(vn < 4.2){
 	   initializeAds();	  
       }else{
-          requestConsentInfoUpdate();
+         showDebugMessage("isGDPR = " + to_string(isGDPR()) + "canShowAds = " + to_string(canShowAds()) + "canShowPersonalizedAds = " + to_string(canShowPersonalizedAds()));
+
 
            if(isConsentGranted()){
 	        initializeAds();
