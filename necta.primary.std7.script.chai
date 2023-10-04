@@ -2832,7 +2832,7 @@ def onAdLoaded() {
 }
 
 def onFailedToLoadAd(string error) {
-   //showToastMessage("Error:: Failed To LoadAd !".append(error));
+   showToastMessage("Error:: Failed To LoadAd !".append(error));
    hideLoadingIndicator();
 }
 
@@ -2845,7 +2845,7 @@ def onAdShown() {
 }
 
 def onFailedToShowAd(string error) {
-   //showToastMessage("Error:: Failed To ShowAd !".append(error));
+   showToastMessage("Error:: Failed To ShowAd !".append(error));
    hideLoadingIndicator();
 }
 
