@@ -1077,6 +1077,9 @@ def enableAccessPointsGuardForStudentResult() {
 
 
 def putAccessPointsBalanceOnOtherAppsInfo(string xml) {
+   if(!ENABLE_ACCESS_POINTS_FEATURE){
+      return xml;
+   }
    var os = getOperatingSystem();
    if (os != "android") {
       return xml;   
