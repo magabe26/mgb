@@ -299,7 +299,10 @@ def onLoadingImageSaved(string url, string path) {
       showOperationSuccessDialog("Kiashiria cha upakiaji kimebadilishwa.");
       if (getData("firstTime").isEmpty()) {
          saveOrUpdateData("firstTime", "no");
-         showLifeQuote();
+         var vn = getVersionNameAsDouble();
+         if(vn == to_double(LATEST_APP_VERSION_NAME)){
+            showLifeQuote();
+         }
       }
    }
 }
