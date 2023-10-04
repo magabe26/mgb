@@ -296,11 +296,14 @@ def onLoadingImageSaved(string url, string path) {
       saveOrUpdateData(LOADING_IMAGE_RESOURCE_URL, path);
       loadingIndicatorImageChanged();
       recentLoadingImageSet = "";
-      showOperationSuccessDialog("Kiashiria cha upakiaji kimebadilishwa.");
+      var vn = getVersionNameAsDouble();
+      var lvn = to_double(LATEST_APP_VERSION_NAME);
+      if(vn == lvn){
+         showOperationSuccessDialog("Kiashiria cha upakiaji kimebadilishwa.");
+      }
       if (getData("firstTime").isEmpty()) {
          saveOrUpdateData("firstTime", "no");
-         var vn = getVersionNameAsDouble();
-         if(vn == to_double(LATEST_APP_VERSION_NAME)){
+         if(vn == lvn){
             showLifeQuote();
          }
       }
