@@ -277,7 +277,7 @@ global recentLoadingImageSet = "";
 def setLoadingImage(string url) {
    var path = getOfflineImagePath(url).remove("file:", false);
    if (!path.isEmpty()) {
-      saveOrUpdateData(LOADING_IMAGE_RESOURCE_URL , path);
+      saveOrUpdateData(LOADING_IMAGE_RESOURCE_URL, path);
       loadingIndicatorImageChanged();
    } else {
       recentLoadingImageSet = url;
@@ -286,41 +286,42 @@ def setLoadingImage(string url) {
 }
 
 def setDefaultLoadingImage() {
-   saveOrUpdateData(LOADING_IMAGE_RESOURCE_URL , "");
+   saveOrUpdateData(LOADING_IMAGE_RESOURCE_URL, "");
    loadingIndicatorImageChanged();
 }
 
 
 def onLoadingImageSaved(string url, string path) {
-  if(recentLoadingImageSet.equals(url,false)){
-     saveOrUpdateData(LOADING_IMAGE_RESOURCE_URL, path);
-     loadingIndicatorImageChanged();
-	 recentLoadingImageSet = "";
-showOperationSuccessDialog("Kiashiria cha upakiaji kimebadilishwa.");
-if(getData("firstTime").isEmpty()){
-	     saveOrUpdateData("firstTime","no");
-	         showLifeQuote();
-	  }
-  }
+   if (recentLoadingImageSet.equals(url, false)) {
+      saveOrUpdateData(LOADING_IMAGE_RESOURCE_URL, path);
+      loadingIndicatorImageChanged();
+      recentLoadingImageSet = "";
+      showOperationSuccessDialog("Kiashiria cha upakiaji kimebadilishwa.");
+      if (getData("firstTime").isEmpty()) {
+         saveOrUpdateData("firstTime", "no");
+         showLifeQuote();
+      }
+   }
 }
 
 global HIDE_LOADING_INDICATOR_TIMER_CODE = 130620232;
-global showLoadingIndicatorForXMillisCallback = fun[](){};
+global showLoadingIndicatorForXMillisCallback = fun[]() {};
 
-def showLoadingIndicatorForXMillis(double millis,cb){
-    showLoadingIndicator();
-	showLoadingIndicatorForXMillisCallback = cb;
-	setTimer(HIDE_LOADING_INDICATOR_TIMER_CODE,millis);
+def showLoadingIndicatorForXMillis(double millis, cb) {
+   showLoadingIndicator();
+   showLoadingIndicatorForXMillisCallback = cb;
+   setTimer(HIDE_LOADING_INDICATOR_TIMER_CODE, millis);
 }
 
-def onShowLoadingIndicatorTimeOut(int timerCode){
-  if (timerCode == HIDE_LOADING_INDICATOR_TIMER_CODE){;
-	    hideLoadingIndicator();
-	    try {
-          showLoadingIndicatorForXMillisCallback();
-        } catch {}
-		showLoadingIndicatorForXMillisCallback = fun[](){};
-	}
+def onShowLoadingIndicatorTimeOut(int timerCode) {
+   if (timerCode == HIDE_LOADING_INDICATOR_TIMER_CODE) {
+      ;
+      hideLoadingIndicator();
+      try {
+         showLoadingIndicatorForXMillisCallback();
+      } catch {}
+      showLoadingIndicatorForXMillisCallback = fun[]() {};
+   }
 }
 
 global CHANGE_LOADING_INDICATOR_REQUEST_CODE = 13062023;
@@ -331,85 +332,87 @@ global loadingIndicators = [
    "Kiashiria 3",
    "Kiashiria 4",
    "Tafadhali Subiri"
- ];
- 
-global loadingIndicatorsBaseURL  = "https://raw.githubusercontent.com/magabe26/mgb/master/";
+];
+
+global loadingIndicatorsBaseURL = "https://raw.githubusercontent.com/magabe26/mgb/master/";
 global loadingIndicatorsUrls = [
-  "",
-  "loader2.gif",
-  "loader3.gif",
-  "loader4.gif",
-  "loader5.gif",
-  "TafadhaliSubiri.gif"
- 
- ];
+   "",
+   "loader2.gif",
+   "loader3.gif",
+   "loader4.gif",
+   "loader5.gif",
+   "TafadhaliSubiri.gif"
+
+];
 
 def onChangeLoadingIndictorCommand(cmd, argv, argc) {
-    if (cmd.equals("changeLoadingIndicator", false) || cmd.contains("Upakiaji",false)) {
-	     if(loadingIndicators.size() == loadingIndicatorsUrls.size()){
-		       var options = "";
-		       for (var i = 0; i < loadingIndicators.size(); ++i) {
-			      options = options.append("&nbsp;&nbsp;&nbsp;<font color='#71f090'>"+to_string(i)+"</font>&nbsp;:&nbsp;").append("<font color='white'>"+loadingIndicators[i]+"</font><br>");
-			   }
-		 	 if(cmd.contains("Upakiaji",false)){
-			   	  showCustomDialogAfterXMillis(CHANGE_LOADING_INDICATOR_REQUEST_CODE, "fa::cogs", "<font color='#71f090'>Badilisha Kiashiria Cha Upakiaji</font>", "<br><font color='#71f090'>Viashiria Vya Upakiaji Vilivyopo:-<br>" + options + "<br><font color='#10dee6'>Chagua:&nbsp;</font> <font color='white'>Weka namba ya kiashiria</font>", "Badilisha", "Funga", "#", 0.8, 0.5, true, 500);
-			   }else{
-			   	  requestCustomDialog(CHANGE_LOADING_INDICATOR_REQUEST_CODE, "fa::cogs", "<font color='#71f090'>Badilisha Kiashiria Cha Upakiaji</font>", "<br><font color='#71f090'>Viashiria Vya Upakiaji Vilivyopo:-<br>" + options + "<br><font color='#10dee6'>Chagua:&nbsp;</font> <font color='white'>Weka namba ya kiashiria</font>", "Badilisha", "Funga", "#", 0.8, 0.5, true);
-			   }
-		 }else{
-             log("onChangeLoadingIndictorCommand Error: Size does not match, LoadingIndicators = " + to_string(loadingIndicators.size()) + ", LoadingIndicatorsUrls = " + to_string(loadingIndicatorsUrls.size()));
-		 }	    
+   if (cmd.equals("changeLoadingIndicator", false) || cmd.contains("Upakiaji", false)) {
+      if (loadingIndicators.size() == loadingIndicatorsUrls.size()) {
+         var options = "";
+         for (var i = 0; i < loadingIndicators.size(); ++i) {
+            options = options.append("   <font color='#71f090'>" + to_string(i) + "</font> : ").append("<font color='white'>" + loadingIndicators[i] + "</font><br>");
+         }
+         if (cmd.contains("Upakiaji", false)) {
+            showCustomDialogAfterXMillis(CHANGE_LOADING_INDICATOR_REQUEST_CODE, "fa::cogs", "<font color='#71f090'>Badilisha Kiashiria Cha Upakiaji</font>", "<br><font color='#71f090'>Viashiria Vya Upakiaji Vilivyopo:-<br>" + options + "<br><font color='#10dee6'>Chagua: </font> <font color='white'>Weka namba ya kiashiria</font>", "Badilisha", "Funga", "#", 0.8, 0.5, true, 500);
+         } else {
+            requestCustomDialog(CHANGE_LOADING_INDICATOR_REQUEST_CODE, "fa::cogs", "<font color='#71f090'>Badilisha Kiashiria Cha Upakiaji</font>", "<br><font color='#71f090'>Viashiria Vya Upakiaji Vilivyopo:-<br>" + options + "<br><font color='#10dee6'>Chagua: </font> <font color='white'>Weka namba ya kiashiria</font>", "Badilisha", "Funga", "#", 0.8, 0.5, true);
+         }
+      } else {
+         log("onChangeLoadingIndictorCommand Error: Size does not match, LoadingIndicators = " + to_string(loadingIndicators.size()) + ", LoadingIndicatorsUrls = " + to_string(loadingIndicatorsUrls.size()));
+      }
    }
 }
 
 def onChangeLoadingIndictorDialogClosed(int requestCode, string pressedButton, string answer) {
 
-if( pressedButton == "no" ){ return;}
+   if (pressedButton == "no") {
+      return;
+   }
 
-    if(requestCode == CHANGE_LOADING_INDICATOR_REQUEST_CODE){
-	   var showPreview = fun [](int no,string url,cb){
-	        var sleepTime = 2000;
-	        if(no == 0){
-			   showLoadingIndicatorForXMillis(sleepTime,cb);
-			   return;
-			}
-			
-			if(!url.isEmpty()){
-			   var path = getOfflineImagePath(url).remove("file:", false);
-			   if(fileExists(path)){
-			      showLoadingIndicatorForXMillis(sleepTime,cb);
-			      return;
-			   }
-			}
-			showToastMessage("Tafadhali hakikisha umejiunga na huduma ya internet");
-	   };	   
-	   
-	   var no = to_int(answer);
-	   if(no >= 0 && no < loadingIndicators.size()){
-	      var url = "";
-	      if(no == 0){
-		    setDefaultLoadingImage();
-		  }else{
-		    url = loadingIndicatorsBaseURL + loadingIndicatorsUrls[no];
-		    setLoadingImage(url);
-		  }
-		 showPreview(no,url,fun[no](){
-		     showOperationSuccessDialog("Kiashiria cha upakiaji sasa ni: <font color='#71f090'>" + loadingIndicators[no] + "</font>");
-		  });
-	   }else{
-	      showOperationFailedDialog("Namba ya kiashiria si sahihi!");
-	   }
-	}
+   if (requestCode == CHANGE_LOADING_INDICATOR_REQUEST_CODE) {
+      var showPreview = fun[](int no, string url, cb) {
+         var sleepTime = 2000;
+         if (no == 0) {
+            showLoadingIndicatorForXMillis(sleepTime, cb);
+            return;
+         }
+
+         if (!url.isEmpty()) {
+            var path = getOfflineImagePath(url).remove("file:", false);
+            if (fileExists(path)) {
+               showLoadingIndicatorForXMillis(sleepTime, cb);
+               return;
+            }
+         }
+         showToastMessage("Tafadhali hakikisha umejiunga na huduma ya internet");
+      };
+
+      var no = to_int(answer);
+      if (no >= 0 && no < loadingIndicators.size()) {
+         var url = "";
+         if (no == 0) {
+            setDefaultLoadingImage();
+         } else {
+            url = loadingIndicatorsBaseURL + loadingIndicatorsUrls[no];
+            setLoadingImage(url);
+         }
+         showPreview(no, url, fun[no]() {
+            showOperationSuccessDialog("Kiashiria cha upakiaji sasa ni: <font color='#71f090'>" + loadingIndicators[no] + "</font>");
+         });
+      } else {
+         showOperationFailedDialog("Namba ya kiashiria si sahihi!");
+      }
+   }
 }
 
-def setMyFavoriteLoadingIndicator(){
-     var key = "MyFavoriteLoadingIndicatorSetForFirstTime";
-     var r =  getData(key);
-	 if(r.isEmpty()){
-	    saveOrUpdateData(key,"1");
-		setLoadingImage(loadingIndicatorsBaseURL + "loader4.gif");
-	 }
- }
+def setMyFavoriteLoadingIndicator() {
+   var key = "MyFavoriteLoadingIndicatorSetForFirstTime";
+   var r = getData(key);
+   if (r.isEmpty()) {
+      saveOrUpdateData(key, "1");
+      setLoadingImage(loadingIndicatorsBaseURL + "loader4.gif");
+   }
+}
 //------------------
 
 def putAdsImpl(string xml, string imageUrl, string redirectUrl, double wf, double hf, string adLocation, string rootTagName, string childTagName, string urlAttributeName, string wrapperTagName) {
@@ -495,7 +498,7 @@ global EMAIL_US_REQUEST_CODE = 706033328;
 
 def onShowAdvertiseWithUsDialogCommandForConsole(cmd, argv, argc) {
    if (cmd.equals("tangaza", false)) {
-      showCustomDialogAfterXMillis(EMAIL_US_REQUEST_CODE, "fa::vcardo", " TANGAZA", "Tangaza katika aplikesheni hii. Tangaza <font color='green'><u>shule</u></font>, <font color='yellow'><u>stationery</u></font>, <font color='cyan'><u>kitabu</u></font> n.k  kwa kutumia mfumo wa picha au video. Kwa maelezo zaidi tutumie barua pepe.", "Tuma", "<font color='white'>Badae</font> ", "#emailUs", 0.8, 0.3, false,500);
+      showCustomDialogAfterXMillis(EMAIL_US_REQUEST_CODE, "fa::vcardo", " TANGAZA", "Tangaza katika aplikesheni hii. Tangaza <font color='green'><u>shule</u></font>, <font color='yellow'><u>stationery</u></font>, <font color='cyan'><u>kitabu</u></font> n.k  kwa kutumia mfumo wa picha au video. Kwa maelezo zaidi tutumie barua pepe.", "Tuma", "<font color='white'>Badae</font> ", "#emailUs", 0.8, 0.3, false, 500);
    }
 }
 
@@ -512,7 +515,7 @@ global VISIT_MAGABE_LAB_REQUEST_CODE = 320230506;
 
 def onVisitMagabeLabCommandForConsole(cmd, argv, argc) {
    if (cmd.equals("MagabeLab", false)) {
-      showCustomDialogAfterXMillis(VISIT_MAGABE_LAB_REQUEST_CODE, "fa::rocket", " TUTEMBELEE", "<font color='cyan'>Tembelea tovuti yetu.</font>", "Sawa", "<font color='white'>Badae</font> ", "#visitMagabeLab", 0.8, 0.15, false,500);
+      showCustomDialogAfterXMillis(VISIT_MAGABE_LAB_REQUEST_CODE, "fa::rocket", " TUTEMBELEE", "<font color='cyan'>Tembelea tovuti yetu.</font>", "Sawa", "<font color='white'>Badae</font> ", "#visitMagabeLab", 0.8, 0.15, false, 500);
    }
 }
 def onVisitMagabeLabCommand(cmd, argv, argc) {
@@ -524,7 +527,7 @@ def onVisitMagabeLabCommand(cmd, argv, argc) {
 
 def onEmailUsCommand(cmd, argv, argc) {
    if (cmd.equals("emailUs", false)) {
-showToastMessage("Tafadhali subiri!");
+      showToastMessage("Tafadhali subiri!");
       openPage("mailto:magabelab.tz@gmail.com");
    }
 }
@@ -672,7 +675,7 @@ def showOperationFailedDialog(string message) {
 //------------------
 
 def onSaveFileCommand(cmd, argv, argc) {
-   if (cmd.equals("saveFile", false)  || cmd.equals("tunzaFaili", false)) {
+   if (cmd.equals("saveFile", false) || cmd.equals("tunzaFaili", false)) {
       showLoadingIndicator();
       if (argc >= 1) {
          var url = argv[0];
@@ -786,189 +789,189 @@ def onOfflineVideoCommand(cmd, argv, argc) {
 //------------------
 
 global lifeQuotes = [
-  "A CONFIDENT PERSON AVOIDS TWO THINGS IN LIFE: IDLE GOSSIP AND PETTY CONFLICTS, CHOOSING INSTEAD TO CULTIVATE UNDERSTANDING AND FOSTER HARMONY",
-  "THE KEY IS TO KEEP COMPANY ONLY WITH PEOPLE WHO UPLIFT YOU, WHOSE PRESENCE CALLS FORTH YOUR BEST.",
-  "THE AIM OF THE WISE IS NOT TO SECURE PLEASURE BUT TO AVOID PAIN.",
-  "THE MISFORTUNE OF THE WISE IS BETTER THAN THE PROSPERITY OF THE FOOL.",
-  "WHAT IT LIES IN OUR POWER TO DO, IT LIES IN OUR POWER NOT TO DO.",
-  "COURAGE IS THE FIRST OF HUMAN QUALITIES BECAUSE IT IS THE QUALITY THAT GUARANTEES OTHERS.",
-  "NO ONE IS MORE HATED THAN HE WHO SPEAKS THE TRUTH.",
-  "BY DESIRING LITTLE, A POOR MAN MAKES HIMSELF RICH.",
-  "THE ONLY TRUE WISDOM IS IN KNOWING YOU KNOW NOTHINGS.",
-  "HE IS A MAN OF COURAGE WHO DOES NOT RUN AWAY BUT REMAINS AT HIS POST AND FIGHTS AGAINST THE ENEMY.",
-  "DO NOT CHASE AFTER HAPPINESS, IT IS ALWAYS IN YOU.",
-  "IN ANGER, WE SHOULD REFRAIN BOTH FROM SPEECH AND ACTION.",
-  "LET HIM THAT WOULD MOVE THE WORLD FIRST MOVE HIMSELF",
-  "A FOOL IS KNOWN BY HIS SPEECH, AND A WISE MAN BY SILENCE.",
-  "HE WHO LAUGHS AT HIMSELF NEVER RUNS OUT OF THINGS TO LAUGH AT.",
-  "IN OLD AGE, WE ALL REGRET NOT HAVING KILLED LAZINESS IN OURSELVES.",
-  "A WISE MAN SPEAKS BECAUSE HE HAS SOMETHING TO SAY, A FOOL BECAUSE HE HAS TO SAY SOMETHING.",
-  "MEN SHOULD STRIVE TO THINK MUCH AND KNOW LITTLE.",
-  "MANKIND IS MADE OF TWO KINDS OF PEOPLE: WISE PEOPLE WHO KNOW THEY`RE FOOLS, AND FOOLS WHO THINK THEY ARE WISE.",
-  "HE IS RICHEST WHO IS CONTENT WITH THE LEAST, FOR CONTENT IS THE WEALTH OF NATURE.",
-  "REST SATISFIED WITH DOING WELL, AND LEAVE OTHERS TO TALK OF YOU AS THEY PLEASE.",
-  "REALITY IS CREATED BY THE MIND, WE CAN CHANGE OUR REALITY BY CHANGING OUR MIND",
-  "EMPLOY YOUR TIME IN IMPROVING YOURSELF BY OTHER MEN`S WRITINGS, SO THAT YOU SHALL GAIN EASILY WHAT OTHERS HAVE LABORED HARD FOR.",
-  "THE OLDEST, SHORTEST WORDS -- `YES` AND `NO` ARE THOSE WHICH REQUIRE THE MOST THOUGHT.",
-  "MAN IS NOT WORRIED BY REAL PROBLEMS SO MUCH AS BY HIS IMAGINED ANXIETIES ABOUT REAL PROBLEMS.",
-  "SMALL-MINDED PEOPLE BLAME OTHERS. AVERAGE PEOPLE BLAME THEMSELVES. THE WISE SEE ALL BLAME AS FOOLISHNESS",
-  "SMART PEOPLE LEARN FROM EVERYTHING AND EVERYONE, AVERAGE PEOPLE FROM THEIR EXPERIENCES, STUPID PEOPLE ALREADY HAVE ALL THE ANSWERS.",
-  "STRONG MINDS DISCUSS IDEAS, AVERAGE MINDS DISCUSS EVENTS, WEAK MINDS DISCUSS PEOPLE.",
-  
-  //Asha-Rose Migiro
-  "MORE AND MORE LEADERS AROUND THE WORLD ARE JOINING THE STRUGGLE. MORE AND MORE INDIVIDUALS UNDERSTAND THAT ANY ABUSE OF ANY WOMEN IS INTOLERABLE.",
-  
-  //Jakaya Kikwete
-  
-  "ROADS ARE THE BLOOD VESSELS OF THE ECONOMY.",
-  "AFRICA NEEDS ACCESS TO MARKETS.",
-  
-  //Benjamin Mkapa
-  "THERE IS A THOUGHT THAT POVERTY IS A PUBLIC POLICY FAILURE; POVERTY IS MAN-MADE BY ACTION AND NON ACTION; POVERTY CAN BE ELIMINATED.",
-  
-  //John Pombe Magufuli
-  "TUKO HAPA KWA AJILI YA KULINDA MASLAHI YA WATANZANIA. TUMECHEZEWA MNO.",
-  "MWIZI NI MWIZI TU! HATA KAMA AWE MZUNGU! WALIKUWA WANATUIBIA DHAHABU ZETU. NIMEWATUMBUA BILA AIBU... BILA WOGA!",
+   "A CONFIDENT PERSON AVOIDS TWO THINGS IN LIFE: IDLE GOSSIP AND PETTY CONFLICTS, CHOOSING INSTEAD TO CULTIVATE UNDERSTANDING AND FOSTER HARMONY",
+   "THE KEY IS TO KEEP COMPANY ONLY WITH PEOPLE WHO UPLIFT YOU, WHOSE PRESENCE CALLS FORTH YOUR BEST.",
+   "THE AIM OF THE WISE IS NOT TO SECURE PLEASURE BUT TO AVOID PAIN.",
+   "THE MISFORTUNE OF THE WISE IS BETTER THAN THE PROSPERITY OF THE FOOL.",
+   "WHAT IT LIES IN OUR POWER TO DO, IT LIES IN OUR POWER NOT TO DO.",
+   "COURAGE IS THE FIRST OF HUMAN QUALITIES BECAUSE IT IS THE QUALITY THAT GUARANTEES OTHERS.",
+   "NO ONE IS MORE HATED THAN HE WHO SPEAKS THE TRUTH.",
+   "BY DESIRING LITTLE, A POOR MAN MAKES HIMSELF RICH.",
+   "THE ONLY TRUE WISDOM IS IN KNOWING YOU KNOW NOTHINGS.",
+   "HE IS A MAN OF COURAGE WHO DOES NOT RUN AWAY BUT REMAINS AT HIS POST AND FIGHTS AGAINST THE ENEMY.",
+   "DO NOT CHASE AFTER HAPPINESS, IT IS ALWAYS IN YOU.",
+   "IN ANGER, WE SHOULD REFRAIN BOTH FROM SPEECH AND ACTION.",
+   "LET HIM THAT WOULD MOVE THE WORLD FIRST MOVE HIMSELF",
+   "A FOOL IS KNOWN BY HIS SPEECH, AND A WISE MAN BY SILENCE.",
+   "HE WHO LAUGHS AT HIMSELF NEVER RUNS OUT OF THINGS TO LAUGH AT.",
+   "IN OLD AGE, WE ALL REGRET NOT HAVING KILLED LAZINESS IN OURSELVES.",
+   "A WISE MAN SPEAKS BECAUSE HE HAS SOMETHING TO SAY, A FOOL BECAUSE HE HAS TO SAY SOMETHING.",
+   "MEN SHOULD STRIVE TO THINK MUCH AND KNOW LITTLE.",
+   "MANKIND IS MADE OF TWO KINDS OF PEOPLE: WISE PEOPLE WHO KNOW THEY`RE FOOLS, AND FOOLS WHO THINK THEY ARE WISE.",
+   "HE IS RICHEST WHO IS CONTENT WITH THE LEAST, FOR CONTENT IS THE WEALTH OF NATURE.",
+   "REST SATISFIED WITH DOING WELL, AND LEAVE OTHERS TO TALK OF YOU AS THEY PLEASE.",
+   "REALITY IS CREATED BY THE MIND, WE CAN CHANGE OUR REALITY BY CHANGING OUR MIND",
+   "EMPLOY YOUR TIME IN IMPROVING YOURSELF BY OTHER MEN`S WRITINGS, SO THAT YOU SHALL GAIN EASILY WHAT OTHERS HAVE LABORED HARD FOR.",
+   "THE OLDEST, SHORTEST WORDS -- `YES` AND `NO` ARE THOSE WHICH REQUIRE THE MOST THOUGHT.",
+   "MAN IS NOT WORRIED BY REAL PROBLEMS SO MUCH AS BY HIS IMAGINED ANXIETIES ABOUT REAL PROBLEMS.",
+   "SMALL-MINDED PEOPLE BLAME OTHERS. AVERAGE PEOPLE BLAME THEMSELVES. THE WISE SEE ALL BLAME AS FOOLISHNESS",
+   "SMART PEOPLE LEARN FROM EVERYTHING AND EVERYONE, AVERAGE PEOPLE FROM THEIR EXPERIENCES, STUPID PEOPLE ALREADY HAVE ALL THE ANSWERS.",
+   "STRONG MINDS DISCUSS IDEAS, AVERAGE MINDS DISCUSS EVENTS, WEAK MINDS DISCUSS PEOPLE.",
 
-  //President Samia Suluhu Hassan
-  "WE ARE NOT ENEMIES WITH ANYBODY. WE RESPECT THE VIEWS OF THOSE WE DO NOT AGREE WITH, EVEN AS WE CONTINUE TO DEFEND OURS AS A RESPONSIBILITY PASSED DOWN FROM OUR FOREFATHERS.",
-  "SUALA LA USALAMA BARABARANI HALINA BUDI KUPEWA UZITO MKUBWA NA KUWA AJENDA YA TAIFA. SUALA LA AJALI LINAMGUSA KILA MTU HALICHAGUI, NAOMBA MLIPE UZITO MKUBWA IWE AJENDA YA TAIFA",
-  "A WOMAN IS LIKE A TEA BAG; YOU CAN`T TELL HOW STRONG SHE IS UNTIL YOU PUT HER IN HOT WATER.",
+   //Asha-Rose Migiro
+   "MORE AND MORE LEADERS AROUND THE WORLD ARE JOINING THE STRUGGLE. MORE AND MORE INDIVIDUALS UNDERSTAND THAT ANY ABUSE OF ANY WOMEN IS INTOLERABLE.",
 
-  // Julius Nyerere
-  "VIONGOZI WABOVU WENYE MIOYO YA KUKU, HULIZWA NA MATATIZO; BALI WATU MADHUBUTI, WENYE MIOYO THABITI, HUKOMAZWA NAYO ... HATIMA YA NCHI YETU NI JUKUMU LETU. KWA PAMOJA TUNAWEZA KUISAIDIA NCHI YETU KUSONGA MBELE KUELEKEA KWENYE HAKI ZAIDI NA USAWA ZAIDI KWA WATANZANIA WOTE.",
-  "TUNATAKA KUONA VIJANA JEURI KATIKA TAIFA HILI NA WENYE KUJIAMINI NA SIO WAOGA AKINA `NDIO BWANA MKUBWA`. TUNATAKA KUONA VIJANA WENYE UJASIRI WA KUHOJI NA KUPIGA VITA MIFUMO YA KIDHALIMU ISIYOSHABIHIANA NA MATAKWA NA MATARAJIO YA JAMII YA KITANZANIA.",
-  "NITASEMA KWELI DAIMA. FITINA KWANGU NI MWIKO.",
-  "INDEPENDENCE CANNOT BE REAL IF A NATION DEPENDS UPON GIFTS.",
-  "MAKOSA YETU MENGINE HUTOKANA NA WOGA; WOGA UNAOTUZUIA KUMLAUMU MKUBWA JAPO TUNAJUA KUWA KAKOSA, AU KUMTETEA MDOGO ANAYELAUMIWA NA WAKUBWA JAPO TUNAJUA KUWA HANA MAKOSA",
-  "THERE IS NO TIME TO WASTE. WE MUST EITHER UNITE NOW OR PERISH.",
-  "WATU WALIO HATARI SANA NI WALE AMBAO WANAFIKIRI KUWA WANAJUA KILA KITU, WALA HAWANA HAJA KUJIFUNZA ZAIDI. HII NI TABIA MBAYA AMBAYO HUZUIA KABISA MAENDELEO.",
-  "SMALL NATIONS ARE LIKE INDECENTLY DRESSED WOMEN. THEY TEMPT THE EVIL-MINDED.",
-  "WENGINE HUGAWA WATU KATIKA MAFUNGU. `FULANI` JAPO AKIFANYA KOSA KUBWA SANA HASEMWI, LAKINI `FULANI` WA PILI AKIFANYA KOSA JAPO DOGO, KOSA LILE HUKUZWA LIKAWA KAMA MLIMA KILIMANJARO.",
-  "YOU CANNOT DEVELOP PEOPLE. YOU MUST ALLOW PEOPLE TO DEVELOP THEMSELVES.",
-  "WENGINE HUMWONA MWENZAO ANAFANYA KOSA. BADALA YA KUMWAMBIA PALE PALE KIJAMAA KWAMBA ATENDALO NI KOSA, WATANYAMAZA KIMYA. LAKINI HAWANYAMAZI KIMYA KABISA! WATAKWENDA KUMTETA KATIKA VIKUNDI VYA SIRI SIRI.",
-  "IF REAL DEVELOPMENT IS TO TAKE PLACE, THE PEOPLE HAVE TO BE INVOLVED.",
-  "UKIONDOA MATATIZO WAYAPATAYO BINADAMU KWA SABABU YA MAMBO KAMA MAFURIKO, NZIGE, KIANGAZI N.K, MATATIZO YAO MENGI HUTOKANA NA UNAFSI.",
-  "EDUCATION IS NOT A WAY TO ESCAPE POVERTY, IT IS A WAY OF FIGHTING IT.",
-  "KUJIELIMISHA NI KUTAFUTA UKWELI WA MAMBO.",
-  "KOSA JINGINE NI KUTOJIELIMISHA. KANUNI YETU MOJA INASEMA: `NITAJIELIMISHA KWA KADIRI YA UWEZO WANGU WOTE NA KUTUMIA ELIMU YANGU KWA FAIDA YA WOTE`. WENGINE HUFIKIRI KUWA KUJIELIMISHA NI KUJUA KUSOMA NA KUANDIKA. HILO NI KOSA, LAKINI SI KUBWA KAMA LA PILI. WENGI WETU, HASA BAADHI YA VIONGOZI, HUFIKIRI KUWA TUNAJUA KILA KITU NA HATUNA HAJA KUJIFUNZA JAMBO LOLOTE ZAIDI."
+   //Jakaya Kikwete
 
-  
+   "ROADS ARE THE BLOOD VESSELS OF THE ECONOMY.",
+   "AFRICA NEEDS ACCESS TO MARKETS.",
+
+   //Benjamin Mkapa
+   "THERE IS A THOUGHT THAT POVERTY IS A PUBLIC POLICY FAILURE; POVERTY IS MAN-MADE BY ACTION AND NON ACTION; POVERTY CAN BE ELIMINATED.",
+
+   //John Pombe Magufuli
+   "TUKO HAPA KWA AJILI YA KULINDA MASLAHI YA WATANZANIA. TUMECHEZEWA MNO.",
+   "MWIZI NI MWIZI TU! HATA KAMA AWE MZUNGU! WALIKUWA WANATUIBIA DHAHABU ZETU. NIMEWATUMBUA BILA AIBU... BILA WOGA!",
+
+   //President Samia Suluhu Hassan
+   "WE ARE NOT ENEMIES WITH ANYBODY. WE RESPECT THE VIEWS OF THOSE WE DO NOT AGREE WITH, EVEN AS WE CONTINUE TO DEFEND OURS AS A RESPONSIBILITY PASSED DOWN FROM OUR FOREFATHERS.",
+   "SUALA LA USALAMA BARABARANI HALINA BUDI KUPEWA UZITO MKUBWA NA KUWA AJENDA YA TAIFA. SUALA LA AJALI LINAMGUSA KILA MTU HALICHAGUI, NAOMBA MLIPE UZITO MKUBWA IWE AJENDA YA TAIFA",
+   "A WOMAN IS LIKE A TEA BAG; YOU CAN`T TELL HOW STRONG SHE IS UNTIL YOU PUT HER IN HOT WATER.",
+
+   // Julius Nyerere
+   "VIONGOZI WABOVU WENYE MIOYO YA KUKU, HULIZWA NA MATATIZO; BALI WATU MADHUBUTI, WENYE MIOYO THABITI, HUKOMAZWA NAYO ... HATIMA YA NCHI YETU NI JUKUMU LETU. KWA PAMOJA TUNAWEZA KUISAIDIA NCHI YETU KUSONGA MBELE KUELEKEA KWENYE HAKI ZAIDI NA USAWA ZAIDI KWA WATANZANIA WOTE.",
+   "TUNATAKA KUONA VIJANA JEURI KATIKA TAIFA HILI NA WENYE KUJIAMINI NA SIO WAOGA AKINA `NDIO BWANA MKUBWA`. TUNATAKA KUONA VIJANA WENYE UJASIRI WA KUHOJI NA KUPIGA VITA MIFUMO YA KIDHALIMU ISIYOSHABIHIANA NA MATAKWA NA MATARAJIO YA JAMII YA KITANZANIA.",
+   "NITASEMA KWELI DAIMA. FITINA KWANGU NI MWIKO.",
+   "INDEPENDENCE CANNOT BE REAL IF A NATION DEPENDS UPON GIFTS.",
+   "MAKOSA YETU MENGINE HUTOKANA NA WOGA; WOGA UNAOTUZUIA KUMLAUMU MKUBWA JAPO TUNAJUA KUWA KAKOSA, AU KUMTETEA MDOGO ANAYELAUMIWA NA WAKUBWA JAPO TUNAJUA KUWA HANA MAKOSA",
+   "THERE IS NO TIME TO WASTE. WE MUST EITHER UNITE NOW OR PERISH.",
+   "WATU WALIO HATARI SANA NI WALE AMBAO WANAFIKIRI KUWA WANAJUA KILA KITU, WALA HAWANA HAJA KUJIFUNZA ZAIDI. HII NI TABIA MBAYA AMBAYO HUZUIA KABISA MAENDELEO.",
+   "SMALL NATIONS ARE LIKE INDECENTLY DRESSED WOMEN. THEY TEMPT THE EVIL-MINDED.",
+   "WENGINE HUGAWA WATU KATIKA MAFUNGU. `FULANI` JAPO AKIFANYA KOSA KUBWA SANA HASEMWI, LAKINI `FULANI` WA PILI AKIFANYA KOSA JAPO DOGO, KOSA LILE HUKUZWA LIKAWA KAMA MLIMA KILIMANJARO.",
+   "YOU CANNOT DEVELOP PEOPLE. YOU MUST ALLOW PEOPLE TO DEVELOP THEMSELVES.",
+   "WENGINE HUMWONA MWENZAO ANAFANYA KOSA. BADALA YA KUMWAMBIA PALE PALE KIJAMAA KWAMBA ATENDALO NI KOSA, WATANYAMAZA KIMYA. LAKINI HAWANYAMAZI KIMYA KABISA! WATAKWENDA KUMTETA KATIKA VIKUNDI VYA SIRI SIRI.",
+   "IF REAL DEVELOPMENT IS TO TAKE PLACE, THE PEOPLE HAVE TO BE INVOLVED.",
+   "UKIONDOA MATATIZO WAYAPATAYO BINADAMU KWA SABABU YA MAMBO KAMA MAFURIKO, NZIGE, KIANGAZI N.K, MATATIZO YAO MENGI HUTOKANA NA UNAFSI.",
+   "EDUCATION IS NOT A WAY TO ESCAPE POVERTY, IT IS A WAY OF FIGHTING IT.",
+   "KUJIELIMISHA NI KUTAFUTA UKWELI WA MAMBO.",
+   "KOSA JINGINE NI KUTOJIELIMISHA. KANUNI YETU MOJA INASEMA: `NITAJIELIMISHA KWA KADIRI YA UWEZO WANGU WOTE NA KUTUMIA ELIMU YANGU KWA FAIDA YA WOTE`. WENGINE HUFIKIRI KUWA KUJIELIMISHA NI KUJUA KUSOMA NA KUANDIKA. HILO NI KOSA, LAKINI SI KUBWA KAMA LA PILI. WENGI WETU, HASA BAADHI YA VIONGOZI, HUFIKIRI KUWA TUNAJUA KILA KITU NA HATUNA HAJA KUJIFUNZA JAMBO LOLOTE ZAIDI."
+
+
 ];
 
 global lifeQuotesAuthor = [
-  "Epicurus",
-  "Epictetus",
-  "Aristotle",
-  "Epicurus",
-  "Aristotle",
-  "Aristotle",
-  "Plato",
-  "Democritus",
-  "Socrates",
-  "Socrates",
-  "Pythagoras",
-  "Pythagoras",
-  "Socrates",
-  "Pythagoras",
-  "Epictetus",
-  "Epicurus",
-  "Plato",
-  "Democritus",
-  "Socrates",
-  "Socrates",
-  "Pythagoras",
-  "Plato",
-  "Socrates",
-  "Pythagoras",
-  "Epictetus",
-  "Epictetus",
-  "Socrates",
-  "Socrates",
-  //Asha-Rose Migiro
-  
-  "Asha-Rose Migiro",
-  
-  //Jakaya Kikwete
-  
-  "Jakaya Kikwete",
-  "Jakaya Kikwete",
-  
-  //Benjamin Mkapa
-  
-  "Benjamin Mkapa",
-  //John Pombe Magufuli
-  "Dr. John Pombe Magufuli",
-  "Dr. John Pombe Magufuli",
+   "Epicurus",
+   "Epictetus",
+   "Aristotle",
+   "Epicurus",
+   "Aristotle",
+   "Aristotle",
+   "Plato",
+   "Democritus",
+   "Socrates",
+   "Socrates",
+   "Pythagoras",
+   "Pythagoras",
+   "Socrates",
+   "Pythagoras",
+   "Epictetus",
+   "Epicurus",
+   "Plato",
+   "Democritus",
+   "Socrates",
+   "Socrates",
+   "Pythagoras",
+   "Plato",
+   "Socrates",
+   "Pythagoras",
+   "Epictetus",
+   "Epictetus",
+   "Socrates",
+   "Socrates",
+   //Asha-Rose Migiro
 
-  //President Samia Suluhu Hassan
-  
-  "Dr. Samia Suluhu Hassan <font color='gray'>[President Of United Republic Of Tanzania]</font>",
-  "Dr. Samia Suluhu Hassan <font color='gray'>[Rais Wa Tanzania]</font>",
-  "Dr. Samia Suluhu Hassan <font color='gray'>[President Of United Republic Of Tanzania]</font>",
-   
-  // Julius Nyerere
-  "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
-  "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
-  "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
-  "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
-  "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
-  "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
-  "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
-  "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
-  "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
-  "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
-  "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
-  "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
-  "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
-  "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
-  "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
-  "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>"
+   "Asha-Rose Migiro",
+
+   //Jakaya Kikwete
+
+   "Jakaya Kikwete",
+   "Jakaya Kikwete",
+
+   //Benjamin Mkapa
+
+   "Benjamin Mkapa",
+   //John Pombe Magufuli
+   "Dr. John Pombe Magufuli",
+   "Dr. John Pombe Magufuli",
+
+   //President Samia Suluhu Hassan
+
+   "Dr. Samia Suluhu Hassan <font color='gray'>[President Of United Republic Of Tanzania]</font>",
+   "Dr. Samia Suluhu Hassan <font color='gray'>[Rais Wa Tanzania]</font>",
+   "Dr. Samia Suluhu Hassan <font color='gray'>[President Of United Republic Of Tanzania]</font>",
+
+   // Julius Nyerere
+   "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
+   "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
+   "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
+   "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
+   "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
+   "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
+   "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
+   "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
+   "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
+   "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
+   "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
+   "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
+   "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
+   "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
+   "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
+   "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>"
 
 ];
 
 global LIFE_QUOTE_REQUESTCODE = 1002023;
 
-def showLifeQuote(){
-  if(lifeQuotes.size()  == lifeQuotesAuthor.size()){
-     var key = "CurrentLifeQuote";
-     var len = lifeQuotes.size();
-     var indexStr = getData(key);
-	 var index = len - 1;
-	 if(!indexStr.isEmpty()){
-	    index = to_int(indexStr);
-	 }
-	 
-	 if(index < 0 || index >= len){
-	    index = len - 1;
-	 }
-	 
-	showCustomDialogAfterXMillis(LIFE_QUOTE_REQUESTCODE, "fa::bell", "<br><font color='white'>NUKUU</font>", "<br><font color='cyan'>("+ to_string(index + 1) + ")&nbsp;</font>" +lifeQuotes[index] + "<br><i><u><font color='cyan'>" + lifeQuotesAuthor[index] + "</u></i></font><br><br><font color='yellow'>[Hiari]</font>&nbsp;Weka namba ya nukuu, mfano:- " + to_string(lifeQuotes.size()), "Nyingine", "Funga", "#", 0.9, 0.6, true,600);	 
-	 saveOrUpdateData(key,to_string(index - 1));
-  }else{
-     log("ERROR: LIFE QUOTES LENGTH DOES NOT MARCH , lifeQuotes = " + to_string(lifeQuotes.size()) + ", lifeQuotesAuthor = " + to_string(lifeQuotesAuthor.size()));
-  }
+def showLifeQuote() {
+   if (lifeQuotes.size() == lifeQuotesAuthor.size()) {
+      var key = "CurrentLifeQuote";
+      var len = lifeQuotes.size();
+      var indexStr = getData(key);
+      var index = len - 1;
+      if (!indexStr.isEmpty()) {
+         index = to_int(indexStr);
+      }
+
+      if (index < 0 || index >= len) {
+         index = len - 1;
+      }
+
+      showCustomDialogAfterXMillis(LIFE_QUOTE_REQUESTCODE, "fa::bell", "<br><font color='white'>NUKUU</font>", "<br><font color='cyan'>(" + to_string(index + 1) + ") </font>" + lifeQuotes[index] + "<br><i><u><font color='cyan'>" + lifeQuotesAuthor[index] + "</u></i></font><br><br><font color='yellow'>[Hiari]</font> Weka namba ya nukuu, mfano:- " + to_string(lifeQuotes.size()), "Nyingine", "Funga", "#", 0.9, 0.6, true, 600);
+      saveOrUpdateData(key, to_string(index - 1));
+   } else {
+      log("ERROR: LIFE QUOTES LENGTH DOES NOT MARCH , lifeQuotes = " + to_string(lifeQuotes.size()) + ", lifeQuotesAuthor = " + to_string(lifeQuotesAuthor.size()));
+   }
 }
 
 
-def onLifeQuoteDialogClosed(int requestCode, string pressedButton, string answer){
-if(requestCode == LIFE_QUOTE_REQUESTCODE){
-   if (pressedButton == "yes") {
-       var n = -1;
-	   try{
-	     n = to_int(answer);
-		 if(n > 0){
-		    saveOrUpdateData("CurrentLifeQuote",to_string(n - 1));
-		 }
-	   }catch{}	   
-      showLifeQuote();
+def onLifeQuoteDialogClosed(int requestCode, string pressedButton, string answer) {
+   if (requestCode == LIFE_QUOTE_REQUESTCODE) {
+      if (pressedButton == "yes") {
+         var n = -1;
+         try {
+            n = to_int(answer);
+            if (n > 0) {
+               saveOrUpdateData("CurrentLifeQuote", to_string(n - 1));
+            }
+         } catch {}
+         showLifeQuote();
+      }
    }
-  }
 }
 
 def onShowQuotesCommand(cmd, argv, argc) {
-   if (cmd.equals("showQuotes", false)  || cmd.equals("nukuu", false) || cmd.equals("quotes", false) || cmd.equals("quote", false)) {
-       showLifeQuote();
+   if (cmd.equals("showQuotes", false) || cmd.equals("nukuu", false) || cmd.equals("quotes", false) || cmd.equals("quote", false)) {
+      showLifeQuote();
    }
 }
 //------------------
@@ -1029,7 +1032,7 @@ def onAccessPointsDialogClosed(int requestCode, string pressedButton, string ans
          } else {
             initializeAds();
          }
-showLoadingIndicator();
+         showLoadingIndicator();
       } else {
          showToastMessage("sawa");
       }
@@ -1043,17 +1046,17 @@ def giveRewardForAd() {
    incrementAccessPoints(REWARD_ACCESS_POINTS_FOR_AD);
    var message = "Sasa una jumla ya pointi <font color='cyan'><h1>" + to_string(getAccessPoints()) + "</h1></font>";
    requestCustomDialog(421, "fa::coffee", "UMEPOKEA POINTI " + to_string(REWARD_ACCESS_POINTS_FOR_AD), message, "Sawa", "", "#", 0.98, 0.2, false);
-if(rewardInitiatedByCommand){
-	  rewardInitiatedByCommand = false;
+   if (rewardInitiatedByCommand) {
+      rewardInitiatedByCommand = false;
       requestOtherAppsPage();
-	}
+   }
 }
 
 global currentSchool = "";
 def enableAccessPointsGuardForSchoolResult(string displayName) {
    var os = getOperatingSystem();
    if (os != "android") {
-      return;	   
+      return;
    }
    var points = getAccessPoints();
    if ((!currentSchool.isEmpty()) && (currentSchool == displayName) && (points >= STUDENT_RESULT_REQUIRED_ACCESS_POINTS /*ok*/ )) {
@@ -1068,7 +1071,7 @@ def enableAccessPointsGuardForSchoolResult(string displayName) {
 def enableAccessPointsGuardForStudentResult() {
    var os = getOperatingSystem();
    if (os != "android") {
-       return;	   
+      return;
    }
    enableAccessPointsGuard(STUDENT_RESULT_REQUIRED_ACCESS_POINTS, fun[]() {
       requestHistoryPage();
@@ -1077,12 +1080,12 @@ def enableAccessPointsGuardForStudentResult() {
 
 
 def putAccessPointsBalanceOnOtherAppsInfo(string xml) {
-   if(!ENABLE_ACCESS_POINTS_FEATURE){
+   if (!ENABLE_ACCESS_POINTS_FEATURE) {
       return xml;
    }
    var os = getOperatingSystem();
    if (os != "android") {
-      return xml;   
+      return xml;
    }
    if (xml.contains("<APPS>", false)) {
       xml = xml.remove("<APPS>", false);
@@ -1113,19 +1116,19 @@ def onAddPointsCommand(cmd, argv, argc) {
    if (cmd.equals("addPoints", false)) {
       var message = "<font color='#71f090'>Angalia tangazo hili kuongeza pointi zako.</font><br><u><i>(Tafadhali hakikisha umejiunga na huduma ya intaneti)</i></u>";
       requestCustomDialog(ACCESS_POINTS_DIALOG_REQUEST_CODE, "fa::coffee", "ONGEZA POINTI", message, "Ongeza pointi", "<font color='white'>Badae</font>", "#", 0.98, 0.2, false);
-rewardInitiatedByCommand = true;
+      rewardInitiatedByCommand = true;
    }
 }
 
-def enableAccessPointsGuardForPerformanceChecks(){
-   if(ENABLE_ACCESS_POINTS_FEATURE && (getAccessPoints() >= 0.5)){
-	  incrementAccessPoints(-0.5);
+def enableAccessPointsGuardForPerformanceChecks() {
+   if (ENABLE_ACCESS_POINTS_FEATURE && (getAccessPoints() >= 0.5)) {
+      incrementAccessPoints(-0.5);
    }
 }
 
-def enableAccessPointsGuardForPages(){
-   if(ENABLE_ACCESS_POINTS_FEATURE && (getAccessPoints() >= 0.25)){
-	  incrementAccessPoints(-0.25);
+def enableAccessPointsGuardForPages() {
+   if (ENABLE_ACCESS_POINTS_FEATURE && (getAccessPoints() >= 0.25)) {
+      incrementAccessPoints(-0.25);
    }
 }
 //------------------
@@ -1285,7 +1288,7 @@ def filterHtml(string html) {
 def getTdNodeTagNameForResults(int tdIndex, int tdCount, string tagText) {
    //var name = getCandidateItemTag(tagText);
    //if (!name.isEmpty()) {
-    //  return name;
+   //  return name;
    //}
 
 
@@ -1391,7 +1394,7 @@ def getGenderWisePerformanceData(string html) {
 }
 
 def verifyBaseUrlLastSegment(string url, string lastSegment) {
-   if(url.contains("tetea",false)){
+   if (url.contains("tetea", false)) {
       return "";
    }
    return lastSegment;
@@ -1478,10 +1481,10 @@ def onExecuteCommand(cmd, argv, argc) {
    onSaveFileCommand(cmd, argv, argc);
    onSaveAndPlayVideoCommand(cmd, argv, argc);
    onOfflineVideoCommand(cmd, argv, argc);
-onShowQuotesCommand(cmd, argv, argc);
-onChangeLoadingIndictorCommand(cmd, argv, argc);
-onAddPointsCommand(cmd, argv, argc);
-onEmailUsCommand(cmd, argv, argc);
+   onShowQuotesCommand(cmd, argv, argc);
+   onChangeLoadingIndictorCommand(cmd, argv, argc);
+   onAddPointsCommand(cmd, argv, argc);
+   onEmailUsCommand(cmd, argv, argc);
 }
 
 
@@ -1517,9 +1520,9 @@ def downloadUpdate() {
       var url = (os == "android") ? packageNameToUrl(packageName) : WIN64_DOWLOAD_URL;
       var message = "Toleo jipya la aplikesheni hii ambalo ni ".append(LATEST_APP_VERSION_NAME).append(" limeshatoka. Pakua na 'rate' aplikesheni hii sasa.");
       requestDownloadUpdateDialog(message, url);
-   }else {
-   showLifeQuote();
-}
+   } else {
+      showLifeQuote();
+   }
 }
 
 //------------------
@@ -2313,7 +2316,7 @@ global DONATE_TIMERCODE = 202226;
 def onAppStarted() {
    try {
 
-setMyFavoriteLoadingIndicator();
+      setMyFavoriteLoadingIndicator();
 
       downloadUpdate();
 
@@ -2329,23 +2332,20 @@ setMyFavoriteLoadingIndicator();
 
       if (vn == 4.0) {
          get("https://iplogger.com/11CwC.gif");
-      }      
+      }
 
       //save country code for later use
       getUserCountryCode();
 
-      if(vn < 4.2){
-	   initializeAds();	  
-      }else{
-         showDebugMessage("isGDPR = " + to_string(isGDPR()) + "canShowAds = " + to_string(canShowAds()) + "canShowPersonalizedAds = " + to_string(canShowPersonalizedAds()));
-
-
-           if(isConsentGranted()){
-	        initializeAds();
-	     }else{
-		loadConsentForm();
-           }
-       }
+      if (vn < 4.2) {
+         initializeAds();
+      } else {
+         if (canShowAds()) {
+            initializeAds();
+         } else {
+            loadConsentForm();
+         }
+      }
 
    } catch {}
 
@@ -2357,7 +2357,7 @@ def onAppExited(int status) {
 }
 
 def onStudentResultsOpened(string name, string no, string schoolName, string average, string year, string results) {
-enableAccessPointsGuardForStudentResult();
+   enableAccessPointsGuardForStudentResult();
 }
 
 /* info is in json format*/
@@ -2473,9 +2473,9 @@ def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
       }
 
       default {
-            onLifeQuoteDialogClosed(requestCode,pressedButton,answer);
-onChangeLoadingIndictorDialogClosed(requestCode, pressedButton, answer);
-onAccessPointsDialogClosed(requestCode, pressedButton, answer);
+         onLifeQuoteDialogClosed(requestCode, pressedButton, answer);
+         onChangeLoadingIndictorDialogClosed(requestCode, pressedButton, answer);
+         onAccessPointsDialogClosed(requestCode, pressedButton, answer);
          break;
       }
    }
@@ -2551,7 +2551,7 @@ def onTimeOut(int timerCode) {
       }
 
       default {
- onShowLoadingIndicatorTimeOut(timerCode);
+         onShowLoadingIndicatorTimeOut(timerCode);
          break;
       }
 
@@ -2561,8 +2561,8 @@ def onTimeOut(int timerCode) {
 
 def onImageSaved(string url, string path) {
    log("Image saved: url = ".append(url).append(" , path = ").append(path));
-   
-   onLoadingImageSaved(url,path);
+
+   onLoadingImageSaved(url, path);
 }
 
 def removeAllTags(string tag, string html) {
@@ -2691,19 +2691,19 @@ def onDisplayPSLE(string title, string url) {
 }
 
 def onDisplayRegion(string regionName, string title, string url) {
-enableAccessPointsGuardForPages();
+   enableAccessPointsGuardForPages();
 
 }
 
 def onDisplayDistrict(string districtName, string title, string url) {
-enableAccessPointsGuardForPages();
+   enableAccessPointsGuardForPages();
 }
 
 def onDisplaySchool(string schoolName, string title, string url) {
    if (adsShown == 0) {
       showOrLoadAd();
    }
-enableAccessPointsGuardForPages();
+   enableAccessPointsGuardForPages();
 }
 
 def getOtherAppsPageTitle() {
@@ -2721,17 +2721,17 @@ def onGetNewImageUrl(string previousImageUrl) {
 }
 
 def beforeDisplayResults(string displayName, int year, string url, string xml) {
-enableAccessPointsGuardForSchoolResult(displayName);
+   enableAccessPointsGuardForSchoolResult(displayName);
    return xml.simplified();
 }
 
 def beforeDisplayGenderWisePerformance(string url, string json) {
-enableAccessPointsGuardForPerformanceChecks();
+   enableAccessPointsGuardForPerformanceChecks();
    return json;
 }
 
 def beforeDisplaySubjectsPerformance(string url, string json) {
-enableAccessPointsGuardForPerformanceChecks();
+   enableAccessPointsGuardForPerformanceChecks();
    return json;
 }
 
@@ -2788,7 +2788,7 @@ def beforeDisplayDistrictPage(string title, string url, string xml) {
 }
 
 def beforeDisplayHistoryPage(string xml) {
-enableAccessPointsGuardForPages();
+   enableAccessPointsGuardForPages();
 
    if (getVersionNameAsDouble() < MINI_APP_VERSION_THAT_CAN_SHOW_IMAGES) {
       return xml;
@@ -2805,7 +2805,7 @@ enableAccessPointsGuardForPages();
 def beforeDisplayOtherAppsPage(string xml) {
 
    saveOtherAppsPageImages(xml);
-xml = putAccessPointsBalanceOnOtherAppsInfo(xml);
+   xml = putAccessPointsBalanceOnOtherAppsInfo(xml);
    return xml;
 }
 
@@ -2832,26 +2832,26 @@ def onAdLoaded() {
 }
 
 def onFailedToLoadAd(string error) {
-   showToastMessage("Error:: Failed To LoadAd !".append(error));
-hideLoadingIndicator();
+   //showToastMessage("Error:: Failed To LoadAd !".append(error));
+   hideLoadingIndicator();
 }
 
 def onAdShown() {
    //showToastMessage("Ad Shown !");
    adsShown = adsShown + 1;
-giveRewardForAd();
+   giveRewardForAd();
    showAdAfterXMins(2);
-hideLoadingIndicator();
+   hideLoadingIndicator();
 }
 
 def onFailedToShowAd(string error) {
-   showToastMessage("Error:: Failed To ShowAd !".append(error));
-hideLoadingIndicator();
+   //showToastMessage("Error:: Failed To ShowAd !".append(error));
+   hideLoadingIndicator();
 }
 
 def onAdDismissed() {
    //showToastMessage("Ad Dismissed!");
-hideLoadingIndicator();
+   hideLoadingIndicator();
 }
 
 def showOrLoadAd() {
@@ -2861,8 +2861,11 @@ def showOrLoadAd() {
       } else {
          loadAd();
       }
-   }else{
-      initializeAds();
+   } else {
+      var vn = getVersionNameAsDouble();
+      if ((vn < 4.2) || canShowAds()) {
+         initializeAds();
+      }
    }
 }
 
@@ -3055,54 +3058,25 @@ def isVideoDialogMinimizeDisabled(string videoUrl, double position, double durat
 
 //ConsentManager
 
-def showDebugMessage(msg)
-{
-  requestCustomDialog(411, "fa::coffee","Debug message", msg, "ok", "", "#", 0.98, 0.6, false);
+def showDebugMessage(msg) {
+   requestCustomDialog(411, "fa::coffee", "Debug message", msg, "ok", "", "#", 0.98, 0.6, false);
 }
 
-def setConsentGrantedStatus(bool status)
-{
-    saveOrUpdateData("ConsentGranted",status ? "1" : "0");
-}
+def onConsentInfoUpdateSuccess() {}
 
-def isConsentGranted()
-{
-   return getData("ConsentGranted") == "1";
-}
+def onConsentInfoUpdateFailure(error) {}
 
-def onConsentInfoUpdateSuccess(){
-  showDebugMessage("onConsentInfoUpdateSuccess");
-}
-
-def onConsentInfoUpdateFailure(error)
-{
-   initializeAds();
-}
-
-def onConsentFormLoaded()
-{
+def onConsentFormLoaded() {
    showConsentForm();
 }
 
-def onConsentFormLoadFailure(error)
-{
-   initializeAds();
-}
+def onConsentFormLoadFailure(error) {}
 
-def onConsentFormShowFailure(error)
-{
-   initializeAds();
-}
+def onConsentFormShowFailure(error) {}
 
-def onConsentNotGranted(error)
-{
-   setConsentGrantedStatus(false);
-   initializeAds();
-}
+def onConsentNotGranted(error) {}
 
-def onConsentGranted()
-{
-   setConsentGrantedStatus(true);
+def onConsentGranted() {
    initializeAds();
 }
 
