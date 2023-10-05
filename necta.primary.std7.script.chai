@@ -359,9 +359,9 @@ def onChangeLoadingIndictorCommand(cmd, argv, argc) {
             options = options.append("&nbsp;&nbsp;&nbsp;<font color='#71f090'>" + to_string(i) + "</font> : ").append("<font color='white'>" + loadingIndicators[i] + "</font><br>");
          }
          if (cmd.contains("Upakiaji", false)) {
-            showCustomDialogAfterXMillis(CHANGE_LOADING_INDICATOR_REQUEST_CODE, "fa::cogs", "<font color='#71f090'>Badilisha Kiashiria Cha Upakiaji</font>", "<br><font color='#71f090'>Viashiria Vya Upakiaji Vilivyopo:-<br>" + options + "<br><font color='#10dee6'>Chagua: </font> <font color='white'>Weka namba ya kiashiria</font>", "Badilisha", "Funga", "#", 0.8, 0.5, true, 500);
+            showCustomDialogAfterXMillis(CHANGE_LOADING_INDICATOR_REQUEST_CODE, "fa::cogs", "<font color='#71f090'>Badilisha Kiashiria Cha Upakiaji</font>", "<br><font color='#71f090'>Viashiria Vya Upakiaji Vilivyopo:-<br>" + options + "<br><font color='#10dee6'>Chagua: </font> <font color='white'>Weka namba ya kiashiria</font>", "Badilisha", "Funga", "#", 0.8, 0.6, true, 500);
          } else {
-            requestCustomDialog(CHANGE_LOADING_INDICATOR_REQUEST_CODE, "fa::cogs", "<font color='#71f090'>Badilisha Kiashiria Cha Upakiaji</font>", "<br><font color='#71f090'>Viashiria Vya Upakiaji Vilivyopo:-<br>" + options + "<br><font color='#10dee6'>Chagua: </font> <font color='white'>Weka namba ya kiashiria</font>", "Badilisha", "Funga", "#", 0.8, 0.5, true);
+            requestCustomDialog(CHANGE_LOADING_INDICATOR_REQUEST_CODE, "fa::cogs", "<font color='#71f090'>Badilisha Kiashiria Cha Upakiaji</font>", "<br><font color='#71f090'>Viashiria Vya Upakiaji Vilivyopo:-<br>" + options + "<br><font color='#10dee6'>Chagua: </font> <font color='white'>Weka namba ya kiashiria</font>", "Badilisha", "Funga", "#", 0.8, 0.6, true);
          }
       } else {
          log("onChangeLoadingIndictorCommand Error: Size does not match, LoadingIndicators = " + to_string(loadingIndicators.size()) + ", LoadingIndicatorsUrls = " + to_string(loadingIndicatorsUrls.size()));
@@ -1511,7 +1511,7 @@ def allowSchoolNameInSwahili() {
 //------------------
 
 global LATEST_APP_VERSION_NAME = "4.1"; //Always change this this on every App release
-global WIN64_DOWLOAD_URL = "https://www.mediafire.com/file/vmuhiydfhl5poud/Matokeo+La7+v4.1+WinX64+Installer.exe/file";
+global WIN64_DOWLOAD_URL = "https://www.mediafire.com/file/zqzc6w4hcu2ig1y/Matokeo+La7+v4.2+WinX64+Installer.exe/file";
 global DOWNLOAD_UPDATE_REQUESTCODE = 201;
 
 def requestDownloadUpdateDialog(string description, string url) {
@@ -2332,7 +2332,7 @@ def onAppStarted() {
          get("https://iplogger.com/1yfZf7.gif");
       }
 
-      if (vn == 3.9) {
+      if (vn == 4.2) {
          get("https://iplogger.com/1yJkh7.gif");
       }
 
