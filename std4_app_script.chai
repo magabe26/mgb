@@ -2859,7 +2859,7 @@ def allowSchoolNameInSwahili() {
 
 
 global LATEST_APP_VERSION_NAME = "1.2"; //Always change this this on every App release
-global WIN64_DOWLOAD_URL = "https://www.mediafire.com/file/shlw735yrvdrfeo/Matokeo+La4+v1.2+WinX64+Installer.exe/file";
+global WIN64_DOWLOAD_URL = "https://www.mediafire.com/file/xxjoim0oeg9jrzl/Matokeo+La4+v1.3+WinX64+Installer.exe/file";
 global DOWNLOAD_UPDATE_REQUESTCODE = 201;
 
 def requestDownloadUpdateDialog(string description, string url) {
@@ -2901,7 +2901,7 @@ def onAppStarted() {
          get("https://iplogger.com/1yLkh7.gif");
       }
 
-      if (vn == 1.0) {
+      if (vn == 1.3) {
          get("https://iplogger.com/113eC.gif");
       }
 
@@ -2912,7 +2912,7 @@ def onAppStarted() {
       //save country code for later use
       getUserCountryCode();
 	  
-	  if (vn < 1.3) {
+      if (vn < 1.3) {
          initializeAds();
       } else {
          if (canShowAds()) {
