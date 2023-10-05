@@ -319,16 +319,22 @@ def setDefaultLoadingImage() {
 
 
 def onLoadingImageSaved(string url, string path) {
-  if(recentLoadingImageSet.equals(url,false)){
-     saveOrUpdateData(LOADING_IMAGE_RESOURCE_URL, path);
-     loadingIndicatorImageChanged();
-	 recentLoadingImageSet = "";
-showOperationSuccessDialog("Kiashiria cha upakiaji kimebadilishwa.");
-	 if(getData("firstTime").isEmpty()){
-	     saveOrUpdateData("firstTime","no");
-	     showLifeQuote();
-	  }
-  }
+   if (recentLoadingImageSet.equals(url, false)) {
+      saveOrUpdateData(LOADING_IMAGE_RESOURCE_URL, path);
+      loadingIndicatorImageChanged();
+      recentLoadingImageSet = "";
+      var vn = getVersionNameAsDouble();
+      var lvn = to_double(LATEST_APP_VERSION_NAME);
+      if(vn == lvn){
+         showOperationSuccessDialog("Kiashiria cha upakiaji kimebadilishwa.");
+      }
+      if (getData("firstTime").isEmpty()) {
+         saveOrUpdateData("firstTime", "no");
+         if(vn == lvn){
+            showLifeQuote();
+         }
+      }
+   }
 }
 
 global HIDE_LOADING_INDICATOR_TIMER_CODE = 130620232;
@@ -2326,11 +2332,9 @@ def getFlag(string code) {
    return "🏳";
 }
 
-
 def getUserFlag() {
    return getFlag(getUserCountryCode());
 }
-
 
 //----------------
 
@@ -2882,7 +2886,8 @@ global FORM4_AND_6_PACKAGENAME = "com.magabelab.matokeo.kidato.cha4na6";
 
 def onAppStarted() {
    try {
-setMyFavoriteLoadingIndicator();
+   
+      setMyFavoriteLoadingIndicator();
 
       downloadUpdate();
 
@@ -2900,11 +2905,19 @@ setMyFavoriteLoadingIndicator();
          get("https://iplogger.com/1F4bf7.gif");
       }
 
-      initializeAds();
-
       //save country code for later use
       getUserCountryCode();
-
+	  
+	  if (vn < 1.3) {
+         initializeAds();
+      } else {
+         if (canShowAds()) {
+            initializeAds();
+         } else {
+            loadConsentForm();
+         }
+      }
+	  
    } catch {}
 
 }
@@ -3199,7 +3212,7 @@ enableAccessPointsGuardForPages();
 def getOtherAppsPageTitle() {
   var code = getData("CountryCode");
    var flag = getFlag(code);
-   return "👋 " + flag + " 👋<br/>TAARIFA";
+   return "?? " + flag + " ??<br/>TAARIFA";
 }
 
 def getOtherAppsDelegateSpacing() {
@@ -3368,6 +3381,11 @@ def showOrLoadAd() {
          showAd();
       } else {
          loadAd();
+      }
+   } else {
+      var vn = getVersionNameAsDouble();
+      if ((vn < 1.3) || canShowAds()) {
+         initializeAds();
       }
    }
 }
@@ -3557,6 +3575,38 @@ def isVideoDialogMinimizeDisabled(string videoUrl, double position, double durat
       return position / duration < 0.2;
    }
 }
+
+//------------------------------------------------
+
+def tr(text) {
+   return text;
+}
+
+def showDebugMessage(msg) {
+   requestCustomDialog(411, "fa::coffee", "Debug message", msg, "ok", "", "#", 0.98, 0.6, false);
+}
+
+//-------------- ConsentManager -----------------
+
+def onConsentInfoUpdateSuccess() {}
+
+def onConsentInfoUpdateFailure(error) {}
+
+def onConsentFormLoaded() {
+   showConsentForm();
+}
+
+def onConsentFormLoadFailure(error) {}
+
+def onConsentFormShowFailure(error) {}
+
+def onConsentNotGranted(error) {}
+
+def onConsentGranted() {
+   initializeAds();
+}
+
+//----------------------------------------
 
 
 def runTest(string input) {
