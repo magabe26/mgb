@@ -2715,7 +2715,7 @@ def onDisplaySchool(string schoolName, string title, string url) {
 def getOtherAppsPageTitle() {
    var code = getData("CountryCode");
    var flag = getFlag(code);
-   return "👋 " + flag + " 👋<br/>TAARIFA";
+   return "👏🏾 " + flag + " 👏🏾<br/>TAARIFA";
 }
 
 def getOtherAppsDelegateSpacing() {
