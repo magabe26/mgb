@@ -1029,7 +1029,7 @@ global SHOW_AD_TIMERCODE = 1011001;
 
 //------------------
 
-global ENABLE_ACCESS_POINTS_FEATURE = true;
+global ENABLE_ACCESS_POINTS_FEATURE = false;
 global ACCESS_POINTS_DIALOG_REQUEST_CODE = 260620231;
 global SCHOOL_RESULT_REQUIRED_ACCESS_POINTS = 5;
 global STUDENT_RESULT_REQUIRED_ACCESS_POINTS = 1.25;
@@ -1127,6 +1127,10 @@ def enableAccessPointsGuardForStudentResult() {
 
 
 def putAccessPointsBalanceOnOtherAppsInfo(string xml) {
+   if (!ENABLE_ACCESS_POINTS_FEATURE) {
+      return xml;
+   }
+
    var os = getOperatingSystem();
    if (os != "android") {
        return xml;	   
