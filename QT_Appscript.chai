@@ -261,19 +261,23 @@ def setDefaultLoadingImage() {
    loadingIndicatorImageChanged();
 }
 
-
 def onLoadingImageSaved(string url, string path) {
-  if(recentLoadingImageSet.equals(url,false)){
-     saveOrUpdateData(LOADING_IMAGE_RESOURCE_URL, path);
-     loadingIndicatorImageChanged();
-	 recentLoadingImageSet = "";
-showOperationSuccessDialog("Kiashiria cha upakiaji kimebadilishwa.");
-	 
-	  if(getData("firstTime").isEmpty()){
-	     saveOrUpdateData("firstTime","no");
-	     showLifeQuote();
-	  }
-  }
+   if (recentLoadingImageSet.equals(url, false)) {
+      saveOrUpdateData(LOADING_IMAGE_RESOURCE_URL, path);
+      loadingIndicatorImageChanged();
+      recentLoadingImageSet = "";
+      var vn = getVersionNameAsDouble();
+      var lvn = to_double(LATEST_APP_VERSION_NAME);
+      if(vn == lvn){
+         showOperationSuccessDialog("Kiashiria cha upakiaji kimebadilishwa.");
+      }
+      if (getData("firstTime").isEmpty()) {
+         saveOrUpdateData("firstTime", "no");
+         if(vn == lvn){
+            showLifeQuote();
+         }
+      }
+   }
 }
 
 global HIDE_LOADING_INDICATOR_TIMER_CODE = 130620232;
@@ -943,7 +947,7 @@ global SHOW_AD_TIMERCODE = 1011001;
 
 //------------------
 
-global ENABLE_ACCESS_POINTS_FEATURE = true;
+global ENABLE_ACCESS_POINTS_FEATURE = false;
 global ACCESS_POINTS_DIALOG_REQUEST_CODE = 260620231;
 global SCHOOL_RESULT_REQUIRED_ACCESS_POINTS = 5;
 global STUDENT_RESULT_REQUIRED_ACCESS_POINTS = 1.25;
@@ -1042,6 +1046,9 @@ def enableAccessPointsGuardForStudentResult() {
 
 
 def putAccessPointsBalanceOnOtherAppsInfo(string xml) {
+ if (!ENABLE_ACCESS_POINTS_FEATURE) {
+      return xml;
+   }
    var os = getOperatingSystem();
    if (os != "android") {
       return xml;
@@ -2022,7 +2029,9 @@ global FORM4_AND_6_PACKAGENAME = "com.magabelab.matokeo.kidato.cha4na6";
 
 def onAppStarted() {
    try {
-setMyFavoriteLoadingIndicator();
+
+      setMyFavoriteLoadingIndicator();
+
       downloadUpdate();
 
       var vn = getVersionName(getAppPackageName());
@@ -2030,10 +2039,18 @@ setMyFavoriteLoadingIndicator();
          get("https://iplogger.com/1oHhS.gif");
       }
 
-      initializeAds();
-
-//save country code for later use
+      //save country code for later use
       getUserCountryCode();
+
+      if (vn < 0.6) {
+         initializeAds();
+      } else {
+         if (canShowAds()) {
+            initializeAds();
+         } else {
+            loadConsentForm();
+         }
+      }
 
    } catch {}
 
@@ -2335,6 +2352,11 @@ def showOrLoadAd() {
       } else {
          loadAd();
       }
+   } else {
+      var vn = getVersionNameAsDouble();
+      if ((vn < 0.6) || canShowAds()) {
+         initializeAds();
+      }
    }
 }
 
@@ -2524,6 +2546,37 @@ def isVideoDialogMinimizeDisabled(string videoUrl, double position, double durat
    }
 }
 
+//------------------------------------------------
+
+def tr(text) {
+   return text;
+}
+
+def showDebugMessage(msg) {
+   requestCustomDialog(411, "fa::coffee", "Debug message", msg, "ok", "", "#", 0.98, 0.6, false);
+}
+
+//-------------- ConsentManager -----------------
+
+def onConsentInfoUpdateSuccess() {}
+
+def onConsentInfoUpdateFailure(error) {}
+
+def onConsentFormLoaded() {
+   showConsentForm();
+}
+
+def onConsentFormLoadFailure(error) {}
+
+def onConsentFormShowFailure(error) {}
+
+def onConsentNotGranted(error) {}
+
+def onConsentGranted() {
+   initializeAds();
+}
+
+//----------------------------------------
 
 def runTest(string input) {
    var output = input;
