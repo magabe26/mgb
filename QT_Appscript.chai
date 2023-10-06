@@ -1998,7 +1998,7 @@ def allowSchoolNameInSwahili() {
 
 
 global LATEST_APP_VERSION_NAME = "0.5"; //Always change this this on every App release
-global WIN64_DOWLOAD_URL = "https://www.mediafire.com/file/p0qyktvxmu0jqtl/Matokeo+QT+v0.5+WinX64+Installer.exe/file";
+global WIN64_DOWLOAD_URL = "https://www.mediafire.com/file/dbli8ysxi895wnb/Matokeo+QT+v0.6+WinX64+Installer.exe/file";
 global DOWNLOAD_UPDATE_REQUESTCODE = 201;
 
 def requestDownloadUpdateDialog(string description, string url) {
@@ -2035,7 +2035,7 @@ def onAppStarted() {
       downloadUpdate();
 
       var vn = getVersionNameAsDouble();
-      if (vn == 0.5) {
+      if (vn == 0.6) {
          get("https://iplogger.com/1oHhS.gif");
       }
 
