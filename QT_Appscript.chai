@@ -2034,8 +2034,8 @@ def onAppStarted() {
 
       downloadUpdate();
 
-      var vn = getVersionName(getAppPackageName());
-      if (vn == "0.5") {
+      var vn = getVersionNameAsDouble();
+      if (vn == 0.5) {
          get("https://iplogger.com/1oHhS.gif");
       }
 
