@@ -86,9 +86,6 @@
     <ICON_COLOR>black</ICON_COLOR>
     <BOLD_TEXT>1</BOLD_TEXT>
 </APP>
-<APP>
-    <A HREF="#" />
-</APP>
    <APP>
       <A HREF="#openurl;https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.kidato.cha.nne" />
       <BG_COLOR>transparent</BG_COLOR>
