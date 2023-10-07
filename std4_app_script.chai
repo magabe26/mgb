@@ -1250,6 +1250,22 @@ def formatCandidateResult(string input) { //input = candidate tr
 }
 
 //------------------
+//--------------------------
+
+def onOpenURLCommand(cmd, argv, argc) {
+   if (cmd.equals("openurl", false)) {
+      if (argc >= 1) {
+         var url = argv[0];
+         if (!url.contains("/", false)) {
+            return;
+         }
+         openPage(url);
+      }
+   }
+
+}
+
+//--------------------------
 def getPremNoName() {
    return "PREM NO";
 }
@@ -2839,6 +2855,7 @@ onShowQuotesCommand(cmd, argv, argc);
 onChangeLoadingIndictorCommand(cmd, argv, argc);
 onAddPointsCommand(cmd, argv, argc);
 onEmailUsCommand(cmd, argv, argc);
+onOpenURLCommand(cmd, argv, argc);
 }
 
 
