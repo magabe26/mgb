@@ -1085,6 +1085,22 @@ def onAddPointsCommand(cmd, argv, argc) {
 rewardInitiatedByCommand = true;
    }
 }
+//--------------------------
+
+def onOpenURLCommand(cmd, argv, argc) {
+   if (cmd.equals("openurl", false)) {
+      if (argc >= 1) {
+         var url = argv[0];
+         if (!url.contains("/", false)) {
+            return;
+         }
+         openPage(url);
+      }
+   }
+
+}
+
+//--------------------------
 //------------------
 
 def getUserCountryName() {
@@ -1978,6 +1994,7 @@ onShowQuotesCommand(cmd, argv, argc);
 onChangeLoadingIndictorCommand(cmd, argv, argc);
 onAddPointsCommand(cmd, argv, argc);
 onEmailUsCommand(cmd, argv, argc);
+onOpenURLCommand(cmd, argv, argc);
 }
 
 
@@ -2266,7 +2283,7 @@ def getAcceptableParseCompletion(string url, int year) {
 def getOtherAppsPageTitle(){
    var code = getData("CountryCode");
    var flag = getFlag(code);
-   return "&nbsp;&nbsp;👋 " + flag + " 👋<br/> INFORMATION";
+   return "👋🏾 " + flag + " 👋🏾<br/> INFORMATION";
 }
 
 def getOtherAppsDelegateSpacing() {
