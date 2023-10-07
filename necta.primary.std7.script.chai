@@ -2766,8 +2766,8 @@ def beforeDisplayMenuPage(string xml) {
    var w = 0.85;
 
    output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/natengeneza.gif", "#emailUs", w, 0.3, "middle");
-   output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/std4.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.darasa.la.nne", w, 0.20, "bottom");
-   output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/qt.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.qt", w, 0.20, "bottom");
+   output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/std4.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.darasa.la.nne", w, 0.16, "bottom");
+   output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/qt.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.qt", w, 0.16, "bottom");
 
    return output;
 }
@@ -2779,6 +2779,7 @@ def beforeDisplayPSLEPage(string title, string url, string xml) {
    var output = xml;
    var w = 0.85;
 
+   output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/qt.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.qt", w, 0.16, "top");
    output = putAdsToPSLEPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/tangaza2.gif", "#showAdvertiseWithUsDialog", w, 0.40, "top");
    output = putAdsToPSLEPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/magabelab1.gif", "#visitMagabeLab", w, 0.20, "bottom");
 
@@ -2792,6 +2793,7 @@ def beforeDisplayRegionPage(string title, string url, string xml) {
    var output = xml;
    var w = 0.85;
 
+   output = putAdsToRegionPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/form4.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.kidato.cha.nne", w, 0.16, "top);
    output = putAdsToRegionPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/tangaza2.gif", "#showAdvertiseWithUsDialog", w, 0.40, "bottom");
    output = putAdsToRegionPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/magabelab1.gif", "#visitMagabeLab", w, 0.20, "bottom");
 
@@ -2805,6 +2807,7 @@ def beforeDisplayDistrictPage(string title, string url, string xml) {
    var output = xml;
    var w = 0.85;
 
+   output = putAdsToDistrictPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/form6.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.kidato.cha.sita", w, 0.16, "top");
    output = putAdsToDistrictPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/tangaza2.gif", "#showAdvertiseWithUsDialog", w, 0.30, "top");
    output = putAdsToDistrictPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/magabelab1.gif", "#visitMagabeLab", w, 0.20, "bottom");
 
@@ -2821,8 +2824,8 @@ def beforeDisplayHistoryPage(string xml) {
    var w = 0.85;
 
    output = putAdsToHistoryPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/tangaza2.gif", "#showAdvertiseWithUsDialog", w, 0.50, "bottom");
-   output = putAdsToHistoryPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/form2.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.kidato.cha.pili", w, 0.20, "bottom");
-   output = putAdsToHistoryPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/form4n6.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.matokeo.kidato.cha4na6", w, 0.20, "bottom");
+   output = putAdsToHistoryPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/form2.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.kidato.cha.pili", w, 0.18, "bottom");
+   output = putAdsToHistoryPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/form4n6.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.matokeo.kidato.cha4na6", w, 0.18, "bottom");
 
    return output;
 }
