@@ -2804,7 +2804,8 @@ def beforeDisplayHistoryPage(string xml) {
    var w = 0.85;
 
    output = putAdsToHistoryPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/tangaza2.gif", "#showAdvertiseWithUsDialog", w, 0.50, "bottom");
-   output = putAdsToHistoryPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/magabelab1.gif", "#visitMagabeLab", w, 0.25, "bottom");
+   output = putAdsToHistoryPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/form2.gif", "https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.kidato.cha.pili", w, 0.25, "bottom");
+   output = putAdsToHistoryPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/form4n6.gif", "https://play.google.com/store/apps/details?id=com.magabelab.matokeo.kidato.cha4na6", w, 0.25, "bottom");
 
    return output;
 }
