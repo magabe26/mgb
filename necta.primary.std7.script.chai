@@ -2766,8 +2766,8 @@ def beforeDisplayMenuPage(string xml) {
    var w = 0.85;
 
    output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/natengeneza.gif", "#emailUs", w, 0.3, "middle");
-   output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/std4.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.darasa.la.nne", w, 0.20, "bottom");
-   output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/qt.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.qt", w, 0.20, "bottom");
+   output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/std4.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.darasa.la.nne", w, 0.16, "bottom");
+   output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/qt.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.qt", w, 0.16, "bottom");
 
    return output;
 }
@@ -2779,6 +2779,7 @@ def beforeDisplayPSLEPage(string title, string url, string xml) {
    var output = xml;
    var w = 0.85;
 
+   output = putAdsToPSLEPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/form4.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.kidato.cha.nne", w, 0.16, "top");
    output = putAdsToPSLEPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/tangaza2.gif", "#showAdvertiseWithUsDialog", w, 0.40, "top");
    output = putAdsToPSLEPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/magabelab1.gif", "#visitMagabeLab", w, 0.20, "bottom");
 
