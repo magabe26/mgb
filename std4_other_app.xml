@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <APPS>
+  <APP>
+      <A HREF="#openurl;https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.kidato.cha.nne" />
+      <BG_COLOR>transparent</BG_COLOR>
+      <ENABLE_IMAGE>1</ENABLE_IMAGE>
+      <IMAGE_URL>https://raw.githubusercontent.com/magabe26/mgb/master/form4.gif</IMAGE_URL>
+      <IMAGE_WIDTH_FRACTION>1</IMAGE_WIDTH_FRACTION>
+      <IMAGE_HEIGHT_FRACTION>0.12</IMAGE_HEIGHT_FRACTION>
+   </APP>
    <APP>
       <BG_COLOR>white</BG_COLOR>
       <ENABLE_IMAGE>1</ENABLE_IMAGE>
@@ -99,29 +107,7 @@
    </APP>
    <APP>
       <A HREF="#" />
-   </APP>
-   <APP>
-      <A HREF="https://play.google.com/store/apps/details?id=com.magabelab.somakidijitali">Pakua Aplikesheni ya Soma Kidijitali</A>
-      <COLOR>green</COLOR>
-      <BG_COLOR>yellow</BG_COLOR>
-      <ICON>fa::globe</ICON>
-      <ICON_COLOR>blue</ICON_COLOR>
-      <BOLD_TEXT>1</BOLD_TEXT>
-   </APP>
-   <APP>
-      <A HREF="#" />
-   </APP>
-   <APP>
-      <A HREF="https://play.google.com/store/apps/developer?id=Magabe+Lab">ANGALIA APLIKESHENI ZOTE HAPA</A>
-      <COLOR>blue</COLOR>
-      <BG_COLOR>white</BG_COLOR>
-      <ICON>fa::android</ICON>
-      <ICON_COLOR>green</ICON_COLOR>
-      <BOLD_TEXT>1</BOLD_TEXT>
-   </APP>
-	<APP>
-    <A HREF="#" />
-</APP>
+   </APP> 
 <APP>
     <A HREF="#showConsole">Console</A>
     <COLOR>gray</COLOR>
@@ -131,6 +117,19 @@
     <BOLD_TEXT>1</BOLD_TEXT>
 </APP>
 <APP>
-    <A HREF="#" />
-</APP>
+      <A HREF="#openurl;https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.kidato.cha.sita" />
+      <BG_COLOR>transparent</BG_COLOR>
+      <ENABLE_IMAGE>1</ENABLE_IMAGE>
+      <IMAGE_URL>https://raw.githubusercontent.com/magabe26/mgb/master/form6.gif</IMAGE_URL>
+      <IMAGE_WIDTH_FRACTION>1</IMAGE_WIDTH_FRACTION>
+      <IMAGE_HEIGHT_FRACTION>0.12</IMAGE_HEIGHT_FRACTION>
+   </APP>
+   <APP>
+      <A HREF="#openurl;https://play.google.com/store/apps/developer?id=Magabe+Lab" />
+      <BG_COLOR>transparent</BG_COLOR>
+      <ENABLE_IMAGE>1</ENABLE_IMAGE>
+      <IMAGE_URL>https://raw.githubusercontent.com/magabe26/mgb/master/magabelabapps_sw.gif</IMAGE_URL>
+      <IMAGE_WIDTH_FRACTION>1</IMAGE_WIDTH_FRACTION>
+      <IMAGE_HEIGHT_FRACTION>0.12</IMAGE_HEIGHT_FRACTION>
+   </APP>
 </APPS>
