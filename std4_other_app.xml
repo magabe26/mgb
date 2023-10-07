@@ -94,9 +94,7 @@
       <ICON_COLOR>white</ICON_COLOR>
       <BOLD_TEXT>0</BOLD_TEXT>
    </APP>
-   <APP>
-      <A HREF="#" />
-   </APP>
+   
    <APP>
       <A HREF="https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.darasa.la.nne">Tafadhali rate aplikesheni hii hapa</A>
       <COLOR>cyan</COLOR>
@@ -105,9 +103,7 @@
       <ICON_COLOR>white</ICON_COLOR>
       <BOLD_TEXT>1</BOLD_TEXT>
    </APP>
-   <APP>
-      <A HREF="#" />
-   </APP> 
+   
 <APP>
     <A HREF="#showConsole">Console</A>
     <COLOR>gray</COLOR>
