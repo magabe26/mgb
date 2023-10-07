@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <APPS>
    <APP>
+      <A HREF="#openurl;https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.kidato.cha.nne" />
+      <BG_COLOR>transparent</BG_COLOR>
+      <ENABLE_IMAGE>1</ENABLE_IMAGE>
+      <IMAGE_URL>https://raw.githubusercontent.com/magabe26/mgb/master/form4.gif</IMAGE_URL>
+      <IMAGE_WIDTH_FRACTION>1</IMAGE_WIDTH_FRACTION>
+      <IMAGE_HEIGHT_FRACTION>0.12</IMAGE_HEIGHT_FRACTION>
+   </APP>
+   <APP>
       <BG_COLOR>white</BG_COLOR>
       <ENABLE_IMAGE>1</ENABLE_IMAGE>
       <IMAGE_URL>https://www.crossed-flag-pins.com/animated-flag-gif/gifs/Tanzania_240-animated-flag-gifs.gif</IMAGE_URL>
@@ -86,14 +94,6 @@
     <ICON_COLOR>black</ICON_COLOR>
     <BOLD_TEXT>1</BOLD_TEXT>
 </APP>
-   <APP>
-      <A HREF="#openurl;https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.kidato.cha.nne" />
-      <BG_COLOR>transparent</BG_COLOR>
-      <ENABLE_IMAGE>1</ENABLE_IMAGE>
-      <IMAGE_URL>https://raw.githubusercontent.com/magabe26/mgb/master/form4.gif</IMAGE_URL>
-      <IMAGE_WIDTH_FRACTION>1</IMAGE_WIDTH_FRACTION>
-      <IMAGE_HEIGHT_FRACTION>0.12</IMAGE_HEIGHT_FRACTION>
-   </APP>
    <APP>
       <A HREF="#openurl;https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.kidato.cha.sita" />
       <BG_COLOR>transparent</BG_COLOR>
