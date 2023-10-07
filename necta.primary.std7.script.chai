@@ -2780,7 +2780,7 @@ def beforeDisplayPSLEPage(string title, string url, string xml) {
    var w = 0.85;
 
    output = putAdsToPSLEPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/form4.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.kidato.cha.nne", w, 0.16, "top");
-   output = putAdsToPSLEPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/tangaza2.gif", "#showAdvertiseWithUsDialog", w, 0.40, "top");
+   output = putAdsToPSLEPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/tangaza2.gif", "#showAdvertiseWithUsDialog", w, 0.40, "middle");
    output = putAdsToPSLEPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/magabelab1.gif", "#visitMagabeLab", w, 0.20, "bottom");
 
    return output;
@@ -2807,7 +2807,8 @@ def beforeDisplayDistrictPage(string title, string url, string xml) {
    var output = xml;
    var w = 0.85;
 
-   output = putAdsToDistrictPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/tangaza2.gif", "#showAdvertiseWithUsDialog", w, 0.30, "top");
+   output = putAdsToDistrictPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/SomaKidigitali.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.somakidijitali", w, 0.18, "top");
+   output = putAdsToDistrictPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/tangaza2.gif", "#showAdvertiseWithUsDialog", w, 0.30, "middle");
    output = putAdsToDistrictPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/magabelab1.gif", "#visitMagabeLab", w, 0.20, "bottom");
 
    return output;
