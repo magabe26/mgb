@@ -51,9 +51,6 @@
     <BOLD_TEXT>1</BOLD_TEXT>
 </APP>
 <APP>
-    <A HREF="#" />
-</APP>
-<APP>
     <A HREF="#showQuotes">Nukuu</A>
     <COLOR>black</COLOR>
     <BG_COLOR>white</BG_COLOR>
@@ -61,9 +58,6 @@
     <ICON_COLOR>black</ICON_COLOR>
     <BOLD_TEXT>1</BOLD_TEXT>
 </APP>
-   <APP>
-      <A HREF="#" />
-   </APP>
    <APP>
       <A HREF="https://www.mediafire.com/file/zqzc6w4hcu2ig1y/Matokeo+La7+v4.2+WinX64+Installer.exe/file">Pakua Aplikesheni hii kwa ajiri ya PC yako hapa</A>
       <COLOR>white</COLOR>
@@ -85,7 +79,7 @@
       <BG_COLOR>white</BG_COLOR>
       <ENABLE_IMAGE>1</ENABLE_IMAGE>
       <IMAGE_URL>https://raw.githubusercontent.com/magabe26/mgb/master/rate.png</IMAGE_URL>
-      <IMAGE_WIDTH_FRACTION>0.25</IMAGE_WIDTH_FRACTION>
+      <IMAGE_WIDTH_FRACTION>0.20</IMAGE_WIDTH_FRACTION>
       <IMAGE_HEIGHT_FRACTION>0.10</IMAGE_HEIGHT_FRACTION>
    </APP>
    <APP>
