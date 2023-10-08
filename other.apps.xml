@@ -72,9 +72,6 @@
       <ICON_COLOR>white</ICON_COLOR>
       <BOLD_TEXT>0</BOLD_TEXT>
    </APP>
-   <APP>
-      <A HREF="#" />
-   </APP>
 <APP>
     <A HREF="#showConsole">Console</A>
     <COLOR>gray</COLOR>
