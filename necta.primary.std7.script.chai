@@ -3084,8 +3084,19 @@ def isVideoDialogMinimizeDisabled(string videoUrl, double position, double durat
 }
 //------------------------------------------------
 
-def tr(text) {
+def useNonBraggingAboutText(text) {
+   var len = text.length();
+   if (len == 348) {
+      var end = "maneno.";
+      var i = text.indexOf(end, 0, false);
+      return text.left(i + end.length()) + " 😀";
+   }
    return text;
+}
+
+def tr(text) {
+   //return text;
+   return useNonBraggingAboutText(text);
 }
 
 def showDebugMessage(msg) {
