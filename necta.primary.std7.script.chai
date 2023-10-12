@@ -3085,10 +3085,9 @@ def isVideoDialogMinimizeDisabled(string videoUrl, double position, double durat
 //------------------------------------------------
 
 def useNonBraggingAboutText(text) {
-   var len = text.length();
-   if (len == 348) {
-      var end = "maneno.";
-      var i = text.indexOf(end, 0, false);
+   var end = "maneno.";
+   var i = text.indexOf(end, 0, false);
+   if (i != -1) {
       return text.left(i + end.length()) + " 😀";
    }
    return text;
