@@ -25,6 +25,10 @@ def packageNameToUrl(string packageName) {
    return "https://play.google.com/store/apps/details?id=".append(packageName);
 }
 
+def getVersionNameAsDouble() {
+   return to_double(getVersionName(getAppPackageName()));
+}
+
 def boolToString(bool b) {
    return b ? "true" : "false";
 }
@@ -1348,8 +1352,8 @@ setMyFavoriteLoadingIndicator();
       //   }
       //}
 
-      var vn = getVersionName(getAppPackageName());
-      if (vn == "0.5") {
+      var vn = getVersionNameAsDouble();
+      if (vn == 0.5) {
           get("https://iplogger.com/1QYkz7.gif");
       }
 
@@ -1631,7 +1635,16 @@ def onTimeOut(int timerCode) {
       }
 
       case (ADS_TIMER) {
-         initializeAds();
+	    var vn = getVersionNameAsDouble();
+        if (vn < 0.6) {
+           initializeAds();
+         } else {
+         if (canShowAds()) {
+            initializeAds();
+         } else {
+            loadConsentForm();
+         }
+         }
          break;
       }
 
@@ -1769,8 +1782,14 @@ def showOrLoadAd() {
       } else {
          loadAd();
       }
+   } else {
+      var vn = getVersionNameAsDouble();
+      if ((vn < 0.6) || canShowAds()) {
+         initializeAds();
+      }
    }
 }
+
 
 //Video
 def onVideoDialogOpened(string videoUrl, string videoDescription, string redirectUrl) {
@@ -1952,6 +1971,36 @@ def isVideoDialogMinimizeDisabled(string videoUrl, double position, double durat
       return position / duration < 0.2;
    }
 }
+
+def tr(text) {
+   return text;
+}
+
+def showDebugMessage(msg) {
+   requestCustomDialog(411, "fa::coffee", "Debug message", msg, "ok", "", "#", 0.98, 0.6, false);
+}
+
+//-------------- ConsentManager -----------------
+
+def onConsentInfoUpdateSuccess() {}
+
+def onConsentInfoUpdateFailure(error) {}
+
+def onConsentFormLoaded() {
+   showConsentForm();
+}
+
+def onConsentFormLoadFailure(error) {}
+
+def onConsentFormShowFailure(error) {}
+
+def onConsentNotGranted(error) {}
+
+def onConsentGranted() {
+   initializeAds();
+}
+
+//----------------------------------------
 
 def runTest(string input) {
    var output = input;
