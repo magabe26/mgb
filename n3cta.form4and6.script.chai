@@ -866,7 +866,7 @@ def incrementAccessPoints(double points) {
 global previousRequiredPoints = 0.0;
 
 def showInsuficientAccessPointDialog(double requiredPoints) {
-  if (!isMobile()) {
+  if (!isMobile()  || !ENABLE_ACCESS_POINTS_FEATURE) {
     return;	   
 	}
    var points = getAccessPoints();
