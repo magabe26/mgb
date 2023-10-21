@@ -25,6 +25,15 @@ def packageNameToUrl(string packageName) {
    return "https://play.google.com/store/apps/details?id=".append(packageName);
 }
 
+def getVersionNameAsDouble() {
+   return to_double(getVersionName(getAppPackageName()));
+}
+
+def isMobile() {
+    var os = getOperatingSystem();
+    return os.equals("android",false) || os.equals("ios",false);
+}
+
 def boolToString(bool b) {
    return b ? "true" : "false";
 }
@@ -817,7 +826,7 @@ if(requestCode == LIFE_QUOTE_REQUESTCODE){
 //------------------
 global adsInitialized = false;
 
-global ENABLE_ACCESS_POINTS_FEATURE = true;
+global ENABLE_ACCESS_POINTS_FEATURE = false;
 global ACCESS_POINTS_DIALOG_REQUEST_CODE = 260620231;
 global SCHOOL_RESULT_REQUIRED_ACCESS_POINTS = 5;
 global STUDENT_RESULT_REQUIRED_ACCESS_POINTS = 1.25;
@@ -857,6 +866,9 @@ def incrementAccessPoints(double points) {
 global previousRequiredPoints = 0.0;
 
 def showInsuficientAccessPointDialog(double requiredPoints) {
+  if (!isMobile()) {
+    return;	   
+	}
    var points = getAccessPoints();
    if (points < requiredPoints) {
       var message = "Ili kufunguka unaitaji pointi <h1><font color='cyan'>" + to_string(requiredPoints) + "</font></h1><br> Kwa sasa una jumla ya pointi <font color='red'>" + to_string(points) + "</font><br> <font color='#71f090'>Angalia tangazo hili kuongeza pointi zako.</font>";
@@ -865,6 +877,9 @@ def showInsuficientAccessPointDialog(double requiredPoints) {
 }
 
 def enableAccessPointsGuard(double requiredPoints, redirectFn) {
+  if (!isMobile()) {
+    return;	   
+	}
    previousRequiredPoints = requiredPoints;
    if (ENABLE_ACCESS_POINTS_FEATURE) {
       var points = getAccessPoints();
@@ -923,9 +938,8 @@ def onAdRewardFailure(){
 global disableSchoolGuardOnStartup = true;
 global recentChargedSchool = "";
 def enableAccessPointsGuardForSchoolResult(string displayName) {
-    var os = getOperatingSystem();
-    if (os != "android") {
-		return;	   
+    if (!isMobile()) {
+    return;	   
 	}
 	
 	if(disableSchoolGuardOnStartup){
@@ -941,10 +955,9 @@ def enableAccessPointsGuardForSchoolResult(string displayName) {
 }
 
 def enableAccessPointsGuardForStudentResult() {
-   var os = getOperatingSystem();
-   if (os != "android") {
-      return;
-   }
+   if (!isMobile()) {
+    return;	   
+	}
    enableAccessPointsGuard(STUDENT_RESULT_REQUIRED_ACCESS_POINTS, fun[]() {});
 }
 
@@ -1302,6 +1315,8 @@ def onAppStarted() {
       setTimer(ADS_TIMER, 1000 * 15); // 5 sec
 
       downloadUpdate();
+	  
+	  var vn = getVersionNameAsDouble();
 
       if (isGeneralApp()) {
          //GENERAL APP
@@ -1319,12 +1334,11 @@ def onAppStarted() {
             } //os
          } //version
 
-         var vn = getVersionName(getAppPackageName());
-         if (vn == "4.3") {
+         if (vn == 4.5) {
             get("https://iplogger.com/1Vhxf7.gif");
          }
 
-         if (vn == "4.4") {
+         if (vn == 4.4) {
             get("https://iplogger.com/11cjC.gif");
          }
 
@@ -1332,16 +1346,14 @@ def onAppStarted() {
       } else if (isForm4App()) {
          //FORM 4 APP
 
-         var vn = getVersionName(getAppPackageName());
-         if (vn == "0.4") {
+         if (vn == 0.5) {
              get("https://iplogger.com/13APa7.gif");
          }
 
       } else if (isForm6App()) {
          //FORM 6 APP
 
-         var vn = getVersionName(getAppPackageName());
-         if (vn == "0.4") {
+         if (vn == 0.5) {
              get("https://iplogger.com/13JPa7.gif");
          }
 
@@ -1595,7 +1607,20 @@ def onTimeOut(int timerCode) {
       }
 
       case (ADS_TIMER) {
-         initializeAds();
+	      var cvn = 0.5;
+	      if (isGeneralApp()) {
+	          cvn = 4.5;
+	       }
+           var vn = getVersionNameAsDouble();
+          if (vn < cvn) {
+             initializeAds();
+           } else {
+          if (canShowAds()) {
+            initializeAds();
+           } else {
+            loadConsentForm();
+          }
+          }
          break;
       }
 
@@ -1758,6 +1783,15 @@ def showOrLoadAd() {
          showAd();
       } else {
          loadAd();
+      }
+   } else {
+      var cvn = 0.5;
+	  if (isGeneralApp()) {
+	     cvn = 4.5;
+	  }
+      var vn = getVersionNameAsDouble();
+      if ((vn < cvn) || canShowAds()) {
+         initializeAds();
       }
    }
 }
@@ -1952,6 +1986,36 @@ def isVideoDialogMinimizeDisabled(string videoUrl, double position, double durat
       return position / duration < 0.2;
    }
 }
+
+def tr(text) {
+   return text;
+}
+
+def showDebugMessage(msg) {
+   requestCustomDialog(411, "fa::coffee", "Debug message", msg, "ok", "", "#", 0.98, 0.6, false);
+}
+
+//-------------- ConsentManager -----------------
+
+def onConsentInfoUpdateSuccess() {}
+
+def onConsentInfoUpdateFailure(error) {}
+
+def onConsentFormLoaded() {
+   showConsentForm();
+}
+
+def onConsentFormLoadFailure(error) {}
+
+def onConsentFormShowFailure(error) {}
+
+def onConsentNotGranted(error) {}
+
+def onConsentGranted() {
+   initializeAds();
+}
+
+//----------------------------------------
 
 def runTest(string input) {
    var output = input;
