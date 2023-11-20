@@ -3102,6 +3102,24 @@ def showDebugMessage(msg) {
    requestCustomDialog(411, "fa::coffee", "Debug message", msg, "ok", "", "#", 0.98, 0.6, false);
 }
 
+//-------------------------------
+
+def hasInternetAccess() {
+   var code = get("https://get.geojs.io/v1/ip/country");
+   return (!code.isEmpty());
+}
+
+def onDownloadFailed(url, errorCode, errorString)
+{
+  //log(url + "----" + to_string(errorCode) + "----" + errorString);
+  
+  if(hasInternetAccess()){
+    disableDefaultDownloadErrorToastMessage();
+    requestCustomDialog(411, "fa::bullhorn", "<br>Maboresho ya mfumo", "Nimeshindwa kupata taarifa hizo kwa sasa, tafadhali jaribu tena baadae.", "sawa", "", "#", 0.98, 0.4, false);
+  }
+}
+
+//-------------------------------
 //-------------- ConsentManager -----------------
 
 def onConsentInfoUpdateSuccess() {}
