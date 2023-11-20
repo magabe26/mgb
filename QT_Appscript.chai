@@ -2592,7 +2592,24 @@ def onConsentNotGranted(error) {}
 def onConsentGranted() {
    initializeAds();
 }
+//-------------------------------
 
+def hasInternetAccess() {
+   var code = get("https://get.geojs.io/v1/ip/country");
+   return (!code.isEmpty());
+}
+
+def onDownloadFailed(url, errorCode, errorString)
+{
+  //log(url + "----" + to_string(errorCode) + "----" + errorString);
+  
+  if(hasInternetAccess()){
+    disableDefaultDownloadErrorToastMessage();
+    requestCustomDialog(411, "fa::bullhorn", "<br>System improvement", "I was unable to acquire that information for now, please try again later.", "sawa", "", "#", 0.98, 0.3, false);
+  }
+}
+
+//-------------------------------
 //----------------------------------------
 
 def runTest(string input) {
