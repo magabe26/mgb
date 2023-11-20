@@ -3115,7 +3115,7 @@ def onDownloadFailed(url, errorCode, errorString)
   
   if(hasInternetAccess()){
     disableDefaultDownloadErrorToastMessage();
-    requestCustomDialog(411, "fa::bullhorn", "<br>Maboresho ya mfumo", "Nimeshindwa kupata taarifa hizo kwa sasa, tafadhali jaribu tena baadae.", "sawa", "", "#", 0.98, 0.4, false);
+    requestCustomDialog(411, "fa::bullhorn", "<br>Maboresho ya mfumo", "Nimeshindwa kupata taarifa hizo kwa sasa, tafadhali jaribu tena baadae.", "sawa", "", "#", 0.98, 0.3, false);
   }
 }
 
