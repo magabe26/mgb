@@ -2386,7 +2386,7 @@ def onContactCredboCommand(cmd, argv, argc) {
 		 }
        }
 	   var ad = getCredboAd();
-	   var height = 0.85;
+	   var height = 0.92;
 	   if(ad.isEmpty()){
 	      height = 0.4;
 		  ad = getCredboInfo() + "<br><br>" + getCredboContactDetails();
