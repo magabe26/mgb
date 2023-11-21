@@ -2095,6 +2095,8 @@ onChangeLoadingIndictorCommand(cmd, argv, argc);
 onAddPointsCommand(cmd, argv, argc);
 onEmailUsCommand(cmd, argv, argc);
 onOpenURLCommand(cmd, argv, argc);
+onContactCredboCommand(cmd, argv, argc);
+   onShowCredboAdCommand(cmd, argv, argc);
 }
 
 
