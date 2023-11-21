@@ -2262,6 +2262,8 @@ def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
 onLifeQuoteDialogClosed(requestCode,pressedButton,answer);
 onChangeLoadingIndictorDialogClosed(requestCode, pressedButton, answer);
 onAccessPointsDialogClosed(requestCode, pressedButton, answer);
+onContactCredboDialogClosed(requestCode, pressedButton, answer);
+         onCredboAdDialogClosed(requestCode, pressedButton, answer);
          break;
       }
    }
