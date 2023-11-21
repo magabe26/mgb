@@ -1888,6 +1888,106 @@ def showGeoMessage() {
 }
 
 //------------------
+//---------Credbo---------
+global CREDBO_DIALOG_REQUEST_CODE = 12112023;
+global CONTACT_CREDBO_DIALOG_REQUEST_CODE = 220231119;
+global CREDBO_AD_URL = "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/Credbo/Ad.txt";
+global CREDBO_EMAIL = "contact@credbo.com";
+global CREDBO_PHONE = "+255 712 611 544";
+global CREDBO_PHONE_OWNER = "WILFRED WILLIAM (Credbo Company Manager)";
+
+def getCredboAd(){
+    var key = "CREDBO_AD";
+    var ad = get(CREDBO_AD_URL);
+	if(!ad.isEmpty()){
+	   saveOrUpdateData(key,ad);
+	}else{
+	   ad = getData(key);
+	}
+	return ad;
+}
+
+def recordCustomerVisit(string method){
+     if(method.equals("sms",false)){
+	     get("https://iplogger.com/1XNea7.gif");
+	 }else if(method.equals("tel",false)){
+	     get("https://iplogger.com/1X2ra7.gif");
+	 }else if(method.equals("email",false)){
+	     get("https://iplogger.com/1X3ra7.gif");
+	 }else if(method.equals("whatsapp",false)){
+	     get("https://iplogger.com/1X4ra7.gif");
+	 }else if(method.equals("website",false)){
+	     get("https://iplogger.com/1X5ra7.gif");
+	 }else if(method.equals("dialog",false)){
+	    get("https://iplogger.com/1X7ra7.gif");
+	 }
+}
+
+def getCredboContactDetails() {
+	return "Website:<font color='#58ACFA'> https://credbo.com</font> <br>Email:<font color='#40FF00'> contact@credbo.com</font> <br>Mobile(s):<font color='cyan'>" + CREDBO_PHONE + " / +255 712 611 544</font><br>P.O BOX <font color='white'>20 Mwanza, Tanzania.</font>";
+}
+
+def getCredboInfo(){
+   return "Empowering Your Success Across Materials, Branding, Bulk SMS, Domain & Hosting, and Software Development.<br>Credbo Company Limited , Your One-Stop Solution for Excellence.";
+}
+
+def onContactCredboCommand(cmd, argv, argc) {
+   if (cmd.equals("contactCredbo", false)) {
+        if (argc >= 1) {
+         var url = argv[0];
+		 var i = url.indexOf(":",0,false);
+		 if(i != -1){
+		  openPage(url);
+		  var method = url.left(i).trim();
+		  recordCustomerVisit(method);
+		  return;
+		 }
+       }
+	   var ad = getCredboAd();
+	   var height = 0.92;
+	   if(ad.isEmpty()){
+	      height = 0.4;
+		  ad = getCredboInfo() + "<br><br>" + getCredboContactDetails();
+	   }
+	   showCustomDialogAfterXMillis(CONTACT_CREDBO_DIALOG_REQUEST_CODE, "fa::star", "Credbo Company Limited", ad, "<font color='#40FF00'>WhatsApp Us</font>", "<font color='white'>Call Us</font>", "#", 0.98, height, false, 600);
+   }
+}
+
+def onContactCredboDialogClosed(int requestCode, string pressedButton, string answer) {
+   if (requestCode == CONTACT_CREDBO_DIALOG_REQUEST_CODE) {
+      if (pressedButton == "yes") {
+	      onUrlVisited("#contactCredbo;https://wa.me/" + CREDBO_PHONE);
+		  showToastMessage("WhatsApp : " + CREDBO_PHONE + "\n"+ CREDBO_PHONE_OWNER);
+      } else {
+	      onUrlVisited("#contactCredbo;tel:/" + CREDBO_PHONE);
+          showToastMessage("Call : " + CREDBO_PHONE + "\n"+ CREDBO_PHONE_OWNER);
+      }
+   }
+}
+
+def onShowCredboAdCommand(cmd, argv, argc) {
+   if (cmd.equals("showCredboAd", false)) {
+        var ad = getCredboAd();
+		if(ad.isEmpty()){
+		   openPage("sms:/".append(CREDBO_PHONE));
+		   recordCustomerVisit("sms");
+		}else{
+		   requestCustomDialog(CREDBO_DIALOG_REQUEST_CODE, "fa::star", "Credbo Company Limited", ad, "<font color='white'>Call Us</font>", "Close", "#", 0.98, 0.85, false);
+		   recordCustomerVisit("dialog");
+		}
+   }
+}
+
+def onCredboAdDialogClosed(int requestCode, string pressedButton, string answer) {
+   if (requestCode == CREDBO_DIALOG_REQUEST_CODE) {
+      if (pressedButton == "yes") {
+	      onUrlVisited("#contactCredbo;tel:/" + CREDBO_PHONE);
+		  showToastMessage("Call : " + CREDBO_PHONE + "\n"+ CREDBO_PHONE_OWNER);
+      } 
+   }
+}
+
+//------------------
 //------------------
 
 //  Add filter logic inside this function
