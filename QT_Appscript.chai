@@ -2405,9 +2405,9 @@ def beforeDisplayMenuPage(string xml) {
    var output = xml;
    var w = 0.85;
 
-//output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/natengeneza.gif", "#emailUs", w, 0.3, "top");
+output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/natengeneza.gif", "#emailUs", w, 0.3, "bottom");
   // output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/tangaza3.gif", "#showAdvertiseWithUsDialog", w, 0.3, "middle");
-   output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/magabelab1.gif", "#visitMagabeLab", w, 0.22, "bottom");
+  // output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/magabelab1.gif", "#visitMagabeLab", w, 0.22, "bottom");
 output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/Credbo/credbo.jpeg", "#contactCredbo;", 1, 0.3, "top");
   output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/Credbo/credbo2.png", "#contactCredbo;", 1, 0.3, "top");
   
