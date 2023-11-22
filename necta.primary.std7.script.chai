@@ -2367,7 +2367,7 @@ def recordCustomerVisit(string method){
 }
 
 def getCredboContactDetails() {
-	return "Website:<font color='#58ACFA'> https://credbo.com</font> <br>Email:<font color='#40FF00'> contact@credbo.com</font> <br>Mobile(s):<font color='cyan'>" + CREDBO_PHONE + " / +255 712 611 544</font><br>P.O BOX <font color='white'>10167 Mwanza, Tanzania.</font>";
+	return "Website:<font color='#58ACFA'> https://credbo.com</font> <br>Email:<font color='#40FF00'> contact@credbo.com</font> <br>Mobile(s):<font color='cyan'>" + CREDBO_PHONE + " / " + CREDBO_PHONE2 + "</font><br>P.O BOX <font color='white'>10167 Mwanza, Tanzania.</font>";
 }
 
 def getCredboInfo(){
