@@ -1894,6 +1894,8 @@ global CONTACT_CREDBO_DIALOG_REQUEST_CODE = 220231119;
 global CREDBO_AD_URL = "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/Credbo/Ad.txt";
 global CREDBO_EMAIL = "contact@credbo.com";
 global CREDBO_PHONE = "+255 712 611 544";
+global CREDBO_PHONE2 = "+255 786 670 537";
+
 global CREDBO_PHONE_OWNER = "WILFRED WILLIAM (Credbo Company Manager)";
 
 def getCredboAd(){
