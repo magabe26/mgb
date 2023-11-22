@@ -2337,6 +2337,7 @@ global CREDBO_AD_URL = "https://raw.githubusercontent.com/magabe26/mgb/master/Ad
 global CREDBO_EMAIL = "contact@credbo.com";
 global CREDBO_PHONE = "+255 712 611 544";
 global CREDBO_PHONE_OWNER = "WILFRED WILLIAM (Credbo Company Manager)";
+global CREDBO_PHONE2 = "+255 786 670 537";
 
 def getCredboAd(){
     var key = "CREDBO_AD";
