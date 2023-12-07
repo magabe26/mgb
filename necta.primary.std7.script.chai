@@ -1508,8 +1508,8 @@ def onExecuteCommand(cmd, argv, argc) {
    onAddPointsCommand(cmd, argv, argc);
    onEmailUsCommand(cmd, argv, argc);
    onOpenURLCommand(cmd, argv, argc);
-   onContactCredboCommand(cmd, argv, argc);
-   onShowCredboAdCommand(cmd, argv, argc);
+   //onContactCredboCommand(cmd, argv, argc);
+   //onShowCredboAdCommand(cmd, argv, argc);
 }
 
 
@@ -2869,11 +2869,11 @@ def beforeDisplayMenuPage(string xml) {
    var output = xml;
    var w = 0.85;
 
-   //output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/natengeneza.gif", "#emailUs", w, 0.3, "middle");
+   output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/natengeneza.gif", "#emailUs", w, 0.3, "middle");
    output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/std4b.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.darasa.la.nne", w, 0.16, "bottom");
    output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/qt.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.qt", w, 0.16, "bottom");
-   output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/Credbo/credbo.jpeg", "#contactCredbo;", 1, 0.3, "top");
-output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/Credbo/credbo2.jpg", "#contactCredbo;", 1, 0.3, "top");
+  // output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/Credbo/credbo.jpeg", "#contactCredbo;", 1, 0.3, "top");
+//output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/Credbo/credbo2.jpg", "#contactCredbo;", 1, 0.3, "top");
   
    return output;
 }
@@ -2930,9 +2930,9 @@ def beforeDisplayHistoryPage(string xml) {
    var w = 0.85;
 
   // output = putAdsToHistoryPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/tangaza2.gif", "#showAdvertiseWithUsDialog", w, 0.30, "bottom");
-   output = putAdsToHistoryPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/form2.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.kidato.cha.pili", w, 0.18, "middle");
+   output = putAdsToHistoryPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/form2.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.kidato.cha.pili", w, 0.18, "top");
    output = putAdsToHistoryPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/form4n6.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.matokeo.kidato.cha4na6", w, 0.18, "bottom");
-output = putAdsToHistoryPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/Credbo/credbo2.jpg", "#contactCredbo;", 1, 0.3, "top");
+//output = putAdsToHistoryPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/Credbo/credbo2.jpg", "#contactCredbo;", 1, 0.3, "top");
 
    return output;
 }
