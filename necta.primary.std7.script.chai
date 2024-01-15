@@ -1629,6 +1629,7 @@ def onExecuteCommand(cmd, argv, argc) {
    onOpenURLCommand(cmd, argv, argc);
    //onContactCredboCommand(cmd, argv, argc);
    //onShowCredboAdCommand(cmd, argv, argc);
+onShowSystemResetDialogCommand(cmd, argv, argc);
 }
 
 
@@ -2722,6 +2723,7 @@ def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
          onAccessPointsDialogClosed(requestCode, pressedButton, answer);
          onContactCredboDialogClosed(requestCode, pressedButton, answer);
          onCredboAdDialogClosed(requestCode, pressedButton, answer);
+onSystemResetDialogClosed(requestCode, pressedButton, answer);
          break;
       }
    }
