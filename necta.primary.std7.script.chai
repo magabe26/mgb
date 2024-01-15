@@ -602,7 +602,7 @@ global SHOW_CONSOLE_REQUEST_CODE = 12052023;
 
 def onShowConsoleCommand(cmd, argv, argc) {
    if (cmd.equals("showConsole", false)) {
-      requestCustomDialog(SHOW_CONSOLE_REQUEST_CODE, "fa::windowmaximize", "Console", "<font color='cyan'>Weka Amri <font color='white'>[ Mfano: tangaza;]</font> :- </font>", "Tuma", "", "#showConsole", 0.98, 0.5, true);
+      requestCustomDialog(SHOW_CONSOLE_REQUEST_CODE, "fa::windowmaximize", "Console", "<font color='cyan'>Weka Amri <font color='white'>[ Mfano: rekebisha;]</font> :- </font>", "Tuma", "", "#showConsole", 0.98, 0.5, true);
    }
 }
 
