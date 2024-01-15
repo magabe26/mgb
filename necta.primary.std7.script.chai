@@ -1222,6 +1222,125 @@ def formatCandidateResult(string input) { //input = candidate tr
 }
 
 //------------------
+/*----------------sys cleanup-----------------*/
+
+def toToIndexedList(stringArray) {
+   var list = [];
+   var fn = fun[list](string s) {
+      list.push_back(s);
+   };
+   forEachString(stringArray, fn);
+   return list;
+}
+
+def createSelectQuery(columns, table, whereColumn, like) {
+   return "SELECT ".append(columns).append(" FROM ").append(table).append(" WHERE ").append(whereColumn).append(" LIKE '").append(like).append("'");
+}
+
+def createDeleteQuery(table, whereColumn, like) {
+   return "DELETE FROM ".append(table).append(" WHERE ").append(whereColumn).append(" LIKE '").append(like).append("'");
+}
+
+def fetchSingleDBValue(query, fn) {
+   excuteDBQuery(query, fun[fn](success, values) {
+      if (success) {
+         var data = toToIndexedList(values);
+         if (data.size() == 1) {
+            fn(true, data[0]);
+         } else {
+            fn(false, "");
+         }
+      } else {
+         fn(false, "");
+      }
+   });
+}
+
+def excuteBooleanDBQuery(query, fn) {
+   excuteDBQuery(query, fun[fn](success, values) {
+      fn(success);
+   });
+}
+
+def deleteResultData(string url) {
+   var opResult = false;
+   fetchSingleDBValue(createSelectQuery("fpath", "Results", "url", url), fun[opResult, url](success, path) {
+      if (success) {
+         if (deleteFile(path)) {
+            excuteBooleanDBQuery(createDeleteQuery("Results", "url", url), fun[](success) {});
+            excuteBooleanDBQuery(createDeleteQuery("GenderWisePerformance", "url", url), fun[](success) {});
+            excuteBooleanDBQuery(createDeleteQuery("SubjectsPerformance", "url", url), fun[](success) {});
+            opResult = true;
+         }
+      }
+   });
+   return opResult;
+}
+
+def deleteAllResultsData() {
+   excuteDBQuery("SELECT url FROM Results", fun[](success, values) {
+      if (success) {
+         forEachString(values, fun[](value) {
+            deleteResultData(value);
+         });
+      }
+   });
+}
+
+def deletePageData(table) {
+   excuteDBQuery("SELECT fpath FROM ".append(table), fun[table](success, values) {
+      if (success) {
+         forEachString(values, fun[table](path) {
+            if (deleteFile(path)) {
+               excuteBooleanDBQuery(createDeleteQuery(table, "fpath", path), fun[](success) {});
+            }
+         });
+      }
+   });
+}
+
+def deleteAllPageData() {
+   deletePageData(getAppPackageName().contains("saba", false) ? "PSLE" : "SFNA");
+   deletePageData("Regions");
+   deletePageData("Districts");
+}
+
+def deleteAllImages() {
+   forEachString(getFiles(getAppRootPath()), fun[](file) {
+      if (file.endsWith(".gif", false) || file.endsWith(".png", false) || file.endsWith(".jpg", false) || file.endsWith(".jpeg", false)) {
+         var path = generateAppRootFilePath(file);
+         deleteFile(path);
+      }
+   });
+}
+
+def doSystemReset() {
+   deleteAllPageData();
+   deleteAllResultsData();
+   deleteAllImages();
+}
+
+global SYSTEM_RESET_DIALOG_REQUEST_CODE = 20240108;
+
+def onShowSystemResetDialogCommand(cmd, argv, argc) {
+   if (cmd.equals("showSystemResetDialog", false) || cmd.equals("reset", false) || cmd.equals("rekebisha", false)) {
+      showCustomDialogAfterXMillis(SYSTEM_RESET_DIALOG_REQUEST_CODE, "fa::cogs", "MABORESHO YA MFUMO", "Rudisha mfumo katika hali ya mwanzo.", "Sawa", "Hapana", "#", 0.8, 0.2, false, 500);
+   }
+}
+
+def onSystemResetDialogClosed(int requestCode, string pressedButton, string answer) {
+   if (requestCode == SYSTEM_RESET_DIALOG_REQUEST_CODE) {
+      if (pressedButton == "yes") {
+         showLoadingIndicator();
+         doSystemReset();
+         hideLoadingIndicator();
+         requestMenuPage();
+         showToastMessage("Imefanikiwa");
+      }
+   }
+}
+
+/*---------------------------------*/
 
 def beforeHtmlJunkRemover(string html) {
 
