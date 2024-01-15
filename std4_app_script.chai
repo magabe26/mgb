@@ -3079,6 +3079,7 @@ onEmailUsCommand(cmd, argv, argc);
 onOpenURLCommand(cmd, argv, argc);
 //onContactCredboCommand(cmd, argv, argc);
    //onShowCredboAdCommand(cmd, argv, argc);
+onShowSystemResetDialogCommand(cmd, argv, argc);
 }
 
 
@@ -3264,6 +3265,8 @@ onChangeLoadingIndictorDialogClosed(requestCode, pressedButton, answer);
 onAccessPointsDialogClosed(requestCode, pressedButton, answer);
 onContactCredboDialogClosed(requestCode, pressedButton, answer);
          onCredboAdDialogClosed(requestCode, pressedButton, answer);
+onSystemResetDialogClosed(requestCode, pressedButton, answer);
+
          break;
       }
    }
