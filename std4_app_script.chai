@@ -1401,7 +1401,7 @@ def doSystemReset() {
    deleteAllPageData();
    deleteAllResultsData();
    deleteAllImages();
-   downloadMenu(getGithubMenuURL());
+  // downloadMenu(getGithubMenuURL());
 }
 
 global SYSTEM_RESET_DIALOG_REQUEST_CODE = 20240108;
