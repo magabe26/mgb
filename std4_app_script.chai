@@ -1269,6 +1269,42 @@ def onOpenURLCommand(cmd, argv, argc) {
 def getPremNoName() {
    return "PREM NO";
 }
+
+/*---------------------------------*/
+
+def githubFile(string name) {
+   return "https://raw.githubusercontent.com/magabe26/mgb/master/".append(name);
+}
+
+/*------Menu download-------------*/
+
+def getGithubMenuURL() {
+   var pn = getAppPackageName();
+   if (pn.endsWith("la.nne", false)) {
+      return githubFile("std4_menu.xml");
+   } else if (pn.endsWith("la.saba", false)) {
+      return githubFile("necta.primary.std7.xml");
+   } else if (pn.endsWith("ya.qt", false)) {
+      return githubFile("QT_menu.xml");
+   } else {
+      return "";
+   }
+
+}
+
+def isMenuXML(string xml) {
+   return html_tag("NECTA_RESULTS").hasMatch(xml, 0) && html_tag("RESULTS").hasMatch(xml, 0) && html_tag("A").hasMatch(xml, 0);
+}
+
+def downloadMenu(string url) {
+   var menu = get(url);
+   if (isMenuXML(menu)) {
+      deleteFile(generateAppRootFilePath("Menu.mgb"));
+      encryptAndSaveToFile(menu, "Menu");
+   }
+}
+
+/*--------------------------------*/
 /*----------------sys cleanup-----------------*/
 
 def toToIndexedList(stringArray) {
@@ -1365,6 +1401,7 @@ def doSystemReset() {
    deleteAllPageData();
    deleteAllResultsData();
    deleteAllImages();
+   downloadMenu(getGithubMenuURL());
 }
 
 global SYSTEM_RESET_DIALOG_REQUEST_CODE = 20240108;
