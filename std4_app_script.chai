@@ -1296,9 +1296,26 @@ def isMenuXML(string xml) {
    return html_tag("NECTA_RESULTS").hasMatch(xml, 0) && html_tag("RESULTS").hasMatch(xml, 0) && html_tag("A").hasMatch(xml, 0);
 }
 
+def getNectaUpdatedMenu(string menu) {
+   var updatedMenu = menu;
+   var links = getMainResultURLs(get(getNectaMenuUrl()));
+   forEachString(links, fun[](link) {
+      var year = getYear("", link);
+      if (year != 0) {
+         var name = to_string(year);
+         if (!updatedMenu.contains(name, false)) {
+            updatedMenu = addLinkToMenuXML(name, link, updatedMenu);
+         }
+      }
+
+   });
+   return updatedMenu;
+}
+
 def downloadMenu(string url) {
    var menu = get(url);
    if (isMenuXML(menu)) {
+      menu = getNectaUpdatedMenu(menu);
       deleteFile(generateAppRootFilePath("Menu.mgb"));
       encryptAndSaveToFile(menu, "Menu");
    }
@@ -1401,7 +1418,7 @@ def doSystemReset() {
    deleteAllPageData();
    deleteAllResultsData();
    deleteAllImages();
-  // downloadMenu(getGithubMenuURL());
+   downloadMenu(getGithubMenuURL());
 }
 
 global SYSTEM_RESET_DIALOG_REQUEST_CODE = 20240108;
