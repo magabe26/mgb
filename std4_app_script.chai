@@ -1414,11 +1414,18 @@ def deleteAllImages() {
    });
 }
 
+def resetMyFavoriteLoadingIndicator()
+{
+  saveOrUpdateData("MyFavoriteLoadingIndicatorSetForFirstTime","");
+  setMyFavoriteLoadingIndicator();
+}
+
 def doSystemReset() {
    deleteAllPageData();
    deleteAllResultsData();
    deleteAllImages();
    downloadMenu(getGithubMenuURL());
+   resetMyFavoriteLoadingIndicator();
 }
 
 global SYSTEM_RESET_DIALOG_REQUEST_CODE = 20240108;
