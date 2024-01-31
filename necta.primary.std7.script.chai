@@ -1248,6 +1248,30 @@ def isMenuXML(string xml) {
    return html_tag("NECTA_RESULTS").hasMatch(xml, 0) && html_tag("RESULTS").hasMatch(xml, 0) && html_tag("A").hasMatch(xml, 0);
 }
 
+def addResultLinksFromNectaFrontPage(string resultType, string menu) {
+   var updatedMenu = menu;
+   var links = getMainResultURLs(get("https://www.necta.go.tz/"));
+   forEachString(links, fun[updatedMenu, resultType](link) {
+      if (link.contains("selection", false)) {
+         return;
+      }
+      var end = stR(".htm", false);
+      var fileName = chaR('/').seq(any(end, "/").plus()).seq(end).firstStringMatch(link, 0);
+      if (!fileName.contains(resultType, false)) {
+         return;
+      }
+      var year = getYear("", link);
+      if (year != 0) {
+         var name = to_string(year);
+         if (!updatedMenu.contains(name, false)) {
+            updatedMenu = addLinkToMenuXML(name, link, updatedMenu);
+         }
+      }
+
+   });
+   return updatedMenu;
+}
+
 def getNectaUpdatedMenu(string menu) {
    var updatedMenu = menu;
    var links = getMainResultURLs(get(getNectaMenuUrl()));
@@ -1261,7 +1285,7 @@ def getNectaUpdatedMenu(string menu) {
       }
 
    });
-   return updatedMenu;
+   return addResultLinksFromNectaFrontPage("psle",updatedMenu);
 }
 
 def downloadMenu(string url) {
@@ -1533,7 +1557,7 @@ def getTdNodeTagNameForResults(int tdIndex, int tdCount, string tagText) {
 
 def updateMenu(string menu) {
    var output = menu;
-
+   output = addResultLinksFromNectaFrontPage("psle", output);
    return output;
 }
 
