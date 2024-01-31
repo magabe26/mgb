@@ -1250,7 +1250,15 @@ def isMenuXML(string xml) {
 
 def addResultLinksFromNectaFrontPage(string resultType, string menu) {
    var updatedMenu = menu;
-   var links = getMainResultURLs(get("https://www.necta.go.tz/"));
+   var content = get("https://www.necta.go.tz/");
+   var i1 = content.indexOf("<!--START NEWS-->", 0, false);
+   if (i1 != -1) {
+      var i2 = content.indexOf("<!--END NEWS-->", i1, false);
+      if (i2 != -1) {
+         content = content.mid(i1, i2 - i1);
+      }
+   }
+   var links = getMainResultURLs(content);
    forEachString(links, fun[updatedMenu, resultType](link) {
       if (link.contains("selection", false)) {
          return;
@@ -1260,6 +1268,7 @@ def addResultLinksFromNectaFrontPage(string resultType, string menu) {
       if (!fileName.contains(resultType, false)) {
          return;
       }
+
       var year = getYear("", link);
       if (year != 0) {
          var name = to_string(year);
