@@ -1315,9 +1315,8 @@ def getNectaUpdatedMenu(string menu) {
 def downloadMenu(string url) {
    var menu = get(url);
    if (isMenuXML(menu)) {
-      menu = getNectaUpdatedMenu(menu);
       deleteFile(generateAppRootFilePath("Menu.mgb"));
-      encryptAndSaveToFile(menu, "Menu");
+      encryptAndSaveToFile(getNectaUpdatedMenu(menu), "Menu");
    }
 }
 
