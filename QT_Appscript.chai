@@ -1991,7 +1991,37 @@ def onCredboAdDialogClosed(int requestCode, string pressedButton, string answer)
 
 //------------------
 //------------------
+//----------NECTA INFO--------
 
+def getNectaInfo() {
+   var pageUrl = "https://necta.go.tz/"
+   return stripTag(html_tag("marquee").firstStringMatch(get(pageUrl), 0), "marquee").trim();
+}
+
+def showNectaInfo(string info) {
+   if (info.isEmpty()) {
+      info = "HAKUNA TAARIFA YEYOTE ILIYOTOLEWA";
+   }
+   info = "<font color='cyan'>".append(info).append("</font>");
+   requestCustomDialog(411, "fa::bullhorn", "<br> <font color='yellow'>TAARIFA KUTOKA NECTA</font>", info, "sawa", "", "#", 0.98, 0.5, false);
+}
+
+def showNectaInfoOrLifeQuote() {
+   var info = getNectaInfo();
+   if (!info.isEmpty()) {
+      showNectaInfo(info);
+   } else {
+      showLifeQuote();
+   }
+}
+
+def onShowNectaInfoCommand(cmd, argv, argc) {
+   if (cmd.equals("showNectaInfo", false)) {
+      showNectaInfo(getNectaInfo());
+   }
+}
+
+//------------------
 //  Add filter logic inside this function
 def filterHtml(string html) {
    var output = html;
@@ -2131,6 +2161,7 @@ onEmailUsCommand(cmd, argv, argc);
 onOpenURLCommand(cmd, argv, argc);
 //onContactCredboCommand(cmd, argv, argc);
    //onShowCredboAdCommand(cmd, argv, argc);
+onShowNectaInfoCommand(cmd, argv, argc);
 }
 
 
@@ -2170,7 +2201,7 @@ def downloadUpdate() {
       if (versionName != LATEST_APP_VERSION_NAME) {
          requestDownloadUpdateDialog(message, url);
       }else{
-	     showLifeQuote();
+	     showNectaInfoOrLifeQuote();
 	  }
 
    } catch {}
