@@ -73,7 +73,12 @@
     <BOLD_TEXT>1</BOLD_TEXT>
 </APP>
 <APP>
-    <A HREF="#" />
+    <A HREF="#showNectaInfo">Taarifa kutoka NECTA</A>
+    <COLOR>green</COLOR>
+    <BG_COLOR>white</BG_COLOR>
+    <ICON>fa::bullhorn</ICON>
+    <ICON_COLOR>blue</ICON_COLOR>
+    <BOLD_TEXT>1</BOLD_TEXT>
 </APP>
 <APP>
     <A HREF="#showQuotes">Nukuu</A>
