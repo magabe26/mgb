@@ -1433,7 +1433,37 @@ def onSystemResetDialogClosed(int requestCode, string pressedButton, string answ
 }
 
 /*---------------------------------*/
+//----------NECTA INFO--------
 
+def getNectaInfo() {
+   var pageUrl = "https://necta.go.tz/"
+   return stripTag(html_tag("marquee").firstStringMatch(get(pageUrl), 0), "marquee").trim();
+}
+
+def showNectaInfo(string info) {
+   if (info.isEmpty()) {
+      info = "HAKUNA TAARIFA YEYOTE ILIYOTOLEWA";
+   }
+   info = "<font color='cyan'>".append(info).append("</font>");
+   requestCustomDialog(411, "fa::bullhorn", "<br> <font color='yellow'>TAARIFA KUTOKA NECTA</font>", info, "sawa", "", "#", 0.98, 0.5, false);
+}
+
+def showNectaInfoOrLifeQuote() {
+   var info = getNectaInfo();
+   if (!info.isEmpty()) {
+      showNectaInfo(info);
+   } else {
+      showLifeQuote();
+   }
+}
+
+def onShowNectaInfoCommand(cmd, argv, argc) {
+   if (cmd.equals("showNectaInfo", false)) {
+      showNectaInfo(getNectaInfo());
+   }
+}
+
+//------------------
 def beforeHtmlJunkRemover(string html) {
 
 
@@ -1722,6 +1752,8 @@ def onExecuteCommand(cmd, argv, argc) {
    //onContactCredboCommand(cmd, argv, argc);
    //onShowCredboAdCommand(cmd, argv, argc);
 onShowSystemResetDialogCommand(cmd, argv, argc);
+onShowNectaInfoCommand(cmd, argv, argc);
+
 }
 
 
@@ -1758,7 +1790,7 @@ def downloadUpdate() {
       var message = "Toleo jipya la aplikesheni hii ambalo ni ".append(LATEST_APP_VERSION_NAME).append(" limeshatoka. Pakua na 'rate' aplikesheni hii sasa.");
       requestDownloadUpdateDialog(message, url);
    } else {
-      showLifeQuote();
+      showNectaInfoOrLifeQuote();
    }
 }
 
