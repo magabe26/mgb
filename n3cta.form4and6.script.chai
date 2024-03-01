@@ -1068,8 +1068,9 @@ def showNectaInfoOrLifeQuote() {
 
 def onShowNectaInfoCommand(cmd, argv, argc) {
    if (cmd.equals("showNectaInfo", false)) {
-
+      showNectaInfoOrLifeQuote();
       showNectaInfo(getNectaInfo());
+      hideLoadingIndicator();
    }
 }
 
