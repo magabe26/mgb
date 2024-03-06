@@ -1248,6 +1248,21 @@ def isMenuXML(string xml) {
    return html_tag("NECTA_RESULTS").hasMatch(xml, 0) && html_tag("RESULTS").hasMatch(xml, 0) && html_tag("A").hasMatch(xml, 0);
 }
 
+/*
+A fast method to get links from necta website news section
+Use this instead of getMainResultURLs in addResultLinksFromNectaFrontPage 
+*/
+def getNectaNewsLinks(string content) {
+   var links = [];
+   var fn = fun[links](string input) {
+      var link = stR("href=", false).oR(chaR('"')).oR(chaR('\'')).removeFrom(html_attr("href").firstStringMatch(input, 0), 0, -1);
+      links.push_back(link);
+      return "";
+   };
+   stR("class=\"news-title\">", false).seq(any(chaR('>'), "").plus()).replaceInMapped(content, fn, 0, -1);
+   return links;
+}
+
 def addResultLinksFromNectaFrontPage(string resultType, string menu) {
    var updatedMenu = menu;
    var content = get("https://www.necta.go.tz/");
@@ -1258,7 +1273,7 @@ def addResultLinksFromNectaFrontPage(string resultType, string menu) {
          content = content.mid(i1, i2 - i1);
       }
    }
-   var links = getMainResultURLs(content);
+   var links = getNectaNewsLinks(content);
    forEachString(links, fun[updatedMenu, resultType](link) {
       if (link.contains("selection", false)) {
          return;
