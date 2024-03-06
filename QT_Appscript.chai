@@ -2057,6 +2057,10 @@ def addResultLinksFromNectaFrontPage(string resultType, string menu) {
       }
    }
    var links = getNectaNewsLinks(content);
+   if(links.size() == 0){
+      links = getMainResultURLs(content);
+   }
+
    forEachString(links, fun[updatedMenu, resultType](link) {
       if (link.contains("selection", false)) {
          return;
