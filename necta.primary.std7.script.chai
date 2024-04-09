@@ -1483,7 +1483,26 @@ def onShowNectaInfoCommand(cmd, argv, argc) {
       hideLoadingIndicator();
    }
 }
+//------------------ 
 
+global _clickCountImageDialog = 0;
+def showImageDialogAfterXClicks(int clicks, string imageUrl,string redirectURL,double percentWidth,double percentHeight,bool showCloseButton,double showCloseButtonAfterXMills)
+{
+     ++_clickCountImageDialog; 
+	 if(_clickCountImageDialog > clicks){
+	    _clickCountImageDialog = 1;
+		return;
+	 }
+	 if(_clickCountImageDialog == clicks){ 
+	    var cachedImage = getOfflineImagePath(imageUrl);
+		if(cachedImage.isEmpty()){
+		   saveImageForOffline(imageUrl);
+		}
+	    showImageDialog(cachedImage.isEmpty() ? imageUrl : cachedImage,redirectURL,percentWidth,percentHeight,showCloseButton,showCloseButtonAfterXMills);
+	 }	
+}
+
+//------------------ 
 //------------------
 def beforeHtmlJunkRemover(string html) {
 
