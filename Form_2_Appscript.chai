@@ -792,8 +792,34 @@ if(requestCode == LIFE_QUOTE_REQUESTCODE){
    }
   }
 }
-
 //------------------
+
+def githubFile(string name)
+{
+   return "https://raw.githubusercontent.com/magabe26/mgb/master/".append(name);
+}
+
+//------------------ 
+
+global _clickCountImageDialog = 0;
+def showImageDialogAfterXClicks(int clicks, string imageUrl,string redirectURL,double percentWidth,double percentHeight,bool showCloseButton,double showCloseButtonAfterXMills)
+{
+     ++_clickCountImageDialog; 
+	 if(_clickCountImageDialog > clicks){
+	    _clickCountImageDialog = 1;
+		return;
+	 }
+	 if(_clickCountImageDialog == clicks){ 
+	    var cachedImage = getOfflineImagePath(imageUrl);
+		if(cachedImage.isEmpty()){
+		   saveImageForOffline(imageUrl);
+		}
+	    showImageDialog(cachedImage.isEmpty() ? imageUrl : cachedImage,redirectURL,percentWidth,percentHeight,showCloseButton,showCloseButtonAfterXMills);
+	 }	
+}
+
+//------------------ 
+
 //------------------
 global adsInitialized = false;
 
@@ -1736,6 +1762,9 @@ def onImageSaved(string url, string path) {
    log("Image saved: url = ".append(url).append(" , path = ").append(path));
    
    onLoadingImageSaved(url,path);
+
+showImageDialogAfterXClicks(3,githubFile("Ads/changia.png"),"#",1,0.8,true,3000);
+
 }
 
 
