@@ -1760,7 +1760,7 @@ def onCandidateResultOpened(string info) {
    //log("Candidate result opened ---> ".append(info));
 enableAccessPointsGuardForStudentResult();
 
-showImageDialogAfterXClicks(3,githubFile("Ads/changia.png"),"#",1,1,true,3000);
+showImageDialogAfterXClicks(3,githubFile("Ads/changia.png"),"#",1,0.8,true,3000);
 
 }
 
