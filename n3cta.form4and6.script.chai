@@ -190,6 +190,10 @@ def string::equals(string other, bool caseSensitive) {
 
 /* -------------------------------------------------*/
 
+def githubFile(string name)
+{
+   return "https://raw.githubusercontent.com/magabe26/mgb/master/".append(name);
+}
 
 def isForm4App() {
    try {
