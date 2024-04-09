@@ -1762,9 +1762,6 @@ def onImageSaved(string url, string path) {
    log("Image saved: url = ".append(url).append(" , path = ").append(path));
    
    onLoadingImageSaved(url,path);
-
-showImageDialogAfterXClicks(3,githubFile("Ads/changia.png"),"#",1,0.8,true,3000);
-
 }
 
 
@@ -1786,6 +1783,7 @@ enableAccessPointsGuardForSchoolResult(currentSchool);
 def onCandidateResultOpened(string info) {
    //log("Candidate result opened ---> ".append(info));
 enableAccessPointsGuardForStudentResult();
+showImageDialogAfterXClicks(3,githubFile("Ads/changia.png"),"#",1,0.8,true,3000);
 }
 
 
