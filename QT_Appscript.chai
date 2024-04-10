@@ -1907,6 +1907,10 @@ def showImageDialogAfterXClicks(int clicks, string imageUrl,string redirectURL,d
 }
 
 //------------------ 
+def githubFile(string name)
+{
+   return "https://raw.githubusercontent.com/magabe26/mgb/master/".append(name);
+}
 //------------------
 //---------Credbo---------
 global CREDBO_DIALOG_REQUEST_CODE = 12112023;
