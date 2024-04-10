@@ -2466,7 +2466,7 @@ enableAccessPointsGuardForSchoolResult("");
 
 def onCandidateResultClicked(string json, int year) {
 enableAccessPointsGuardForStudentResult();
-showImageDialogAfterXClicks(3,githubFile("Ads/changia.png"),"#",1,0.68,true,3000);
+showImageDialogAfterXClicks(3,githubFile("Ads/changia.png"),"#",1,0.68,false,3000);
 }
 
 def getFallbackJson(string resultsData, int year) {
