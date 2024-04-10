@@ -2767,7 +2767,7 @@ def onAppExited(int status) {
 
 def onStudentResultsOpened(string name, string no, string schoolName, string average, string year, string results) {
    enableAccessPointsGuardForStudentResult();
-showImageDialogAfterXClicks(3,githubFile("Ads/changia.png"),"#",1,0.68,false,3000);
+showImageDialogAfterXClicks(3,githubFile("Ads/changia.png"),"",1,0.68,false,3000);
 }
 
 /* info is in json format*/
