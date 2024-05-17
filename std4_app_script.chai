@@ -3742,7 +3742,7 @@ enableAccessPointsGuardForPages();
    var output = xml;
    var w = 0.85;
 
-output = putAdsToHistoryPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/elimu.png", "#", 1, 0.8, "top");
+output = putAdsToHistoryPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/elimu.png", "#mambo", 1, 0.8, "top");
 //output = putAdsToHistoryPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/changia.png", "#", 1, 0.8, "bottom");
 
   //output = putAdsToHistoryPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/tangaza2.gif", "#showAdvertiseWithUsDialog", w, 0.30, "bottom");
