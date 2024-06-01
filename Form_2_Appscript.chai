@@ -1305,7 +1305,7 @@ def getPremNoName() {
    return "PREM NO";
 }
 
-def updateMenu(string input) { return "";
+def updateMenu(string input) { return "-";
    var output = input;
 
    output= removeMenuItem(output,"2021",3);
