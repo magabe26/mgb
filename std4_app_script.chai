@@ -3302,7 +3302,7 @@ showNectaInfoOrLifeQuote();
 global PAKUA_MATOKEO_KIDATO_4NA6_TIMERCODE = 32;
 global FORM4_AND_6_PACKAGENAME = "com.magabelab.matokeo.kidato.cha4na6";
 
-def onAppStarted() { return;
+def onAppStarted() { 
    try {
    
       setMyFavoriteLoadingIndicator();
@@ -3348,7 +3348,7 @@ def onAppExited(int status) {
 
 def onStudentResultsOpened(string name, string no, string schoolName, string average, string year, string results) {
 enableAccessPointsGuardForStudentResult();
-showImageDialogAfterXClicks(3,githubFile("Ads/changia.png"),"#",1,0.68,true,3000);
+//showImageDialogAfterXClicks(3,githubFile("Ads/changia.png"),"#",1,0.68,true,3000);
 }
 
 /* info is in json format*/
@@ -3632,7 +3632,7 @@ def onDisplaySchool(string schoolName, string title, string url) {
 enableAccessPointsGuardForPages();
 }
 
-def getOtherAppsPageTitle() { return "";
+def getOtherAppsPageTitle() { 
   var code = getData("CountryCode");
    var flag = getFlag(code);
    return "👋🏾 " + flag + " 👋🏾<br/>TAARIFA";
@@ -3678,7 +3678,7 @@ enableAccessPointsGuardForPerformanceChecks();
    return json;
 }
 
-def beforeDisplayMenuPage(string xml) { return "";
+def beforeDisplayMenuPage(string xml) { 
    if (getVersionNameAsDouble() < MINI_APP_VERSION_THAT_CAN_SHOW_IMAGES) {
       return xml;
    }
@@ -3733,7 +3733,7 @@ def beforeDisplayDistrictPage(string title, string url, string xml) {
    return output;
 }
 
-def beforeDisplayHistoryPage(string xml) { return "";
+def beforeDisplayHistoryPage(string xml) { 
 enableAccessPointsGuardForPages();
 
    if (getVersionNameAsDouble() < MINI_APP_VERSION_THAT_CAN_SHOW_IMAGES) {
@@ -3754,7 +3754,7 @@ output = putAdsToHistoryPage(output, "https://raw.githubusercontent.com/magabe26
 }
 
 
-def beforeDisplayOtherAppsPage(string xml) { return "";
+def beforeDisplayOtherAppsPage(string xml) { 
    saveOtherAppsPageImages(xml);
    var output = xml;
 
@@ -4011,7 +4011,7 @@ def isVideoDialogMinimizeDisabled(string videoUrl, double position, double durat
 
 //------------------------------------------------
 
-def useNonBraggingAboutText(text) { return "-";
+def useNonBraggingAboutText(text) { 
    var end = "maneno.";
    var i = text.indexOf(end, 0, false);
    if (i != -1) {
