@@ -823,7 +823,7 @@ def showImageDialogAfterXClicks(int clicks, string imageUrl,string redirectURL,d
 //------------------
 global adsInitialized = false;
 
-global ENABLE_ACCESS_POINTS_FEATURE = false;
+global ENABLE_ACCESS_POINTS_FEATURE = true;
 global ACCESS_POINTS_DIALOG_REQUEST_CODE = 260620231;
 global SCHOOL_RESULT_REQUIRED_ACCESS_POINTS = 5;
 global STUDENT_RESULT_REQUIRED_ACCESS_POINTS = 1.25;
@@ -1305,7 +1305,7 @@ def getPremNoName() {
    return "PREM NO";
 }
 
-def updateMenu(string input) { return "-";
+def updateMenu(string input) { 
    var output = input;
 
    output= removeMenuItem(output,"2021",3);
@@ -1404,7 +1404,7 @@ global PAKUA_MATOKEO_LA7_TIMERCODE = 32;
 global LA7_PACKAGENAME = "com.magabe.n3cta.matokeo.ya.darasa.la.saba";
 global ADS_TIMER = 32023;
 
-def onAppStarted() { return;
+def onAppStarted() { 
    try {
 
       setMyFavoriteLoadingIndicator();
