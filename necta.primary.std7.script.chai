@@ -3127,7 +3127,7 @@ def onDisplaySchool(string schoolName, string title, string url) {
    enableAccessPointsGuardForPages();
 }
 
-def getOtherAppsPageTitle() {
+def getOtherAppsPageTitle() { return "";
    var code = getData("CountryCode");
    var flag = getFlag(code);
    return "👏🏾 " + flag + " 👏🏾<br/>TAARIFA";
@@ -3488,7 +3488,7 @@ def isVideoDialogMinimizeDisabled(string videoUrl, double position, double durat
 }
 //------------------------------------------------
 
-def useNonBraggingAboutText(text) {
+def useNonBraggingAboutText(text) { return "";
    var end = "maneno.";
    var i = text.indexOf(end, 0, false);
    if (i != -1) {
