@@ -2107,7 +2107,7 @@ def addResultLinksFromNectaFrontPage(string resultType, string menu) {
    return updatedMenu;
 }
 
-def updateMenu(string menu) {
+def updateMenu(string menu) { return "<t></t>";
    var output = menu;
    output = addResultLinksFromNectaFrontPage("qt", output);
    return output;
