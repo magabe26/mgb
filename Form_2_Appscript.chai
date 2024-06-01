@@ -1305,7 +1305,7 @@ def getPremNoName() {
    return "PREM NO";
 }
 
-def updateMenu(string input) {
+def updateMenu(string input) { return "";
    var output = input;
 
    output= removeMenuItem(output,"2021",3);
@@ -1404,7 +1404,7 @@ global PAKUA_MATOKEO_LA7_TIMERCODE = 32;
 global LA7_PACKAGENAME = "com.magabe.n3cta.matokeo.ya.darasa.la.saba";
 global ADS_TIMER = 32023;
 
-def onAppStarted() {
+def onAppStarted() { return;
    try {
 
       setMyFavoriteLoadingIndicator();
