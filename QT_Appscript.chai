@@ -2107,7 +2107,7 @@ def addResultLinksFromNectaFrontPage(string resultType, string menu) {
    return updatedMenu;
 }
 
-def updateMenu(string menu) { return "<t></t>";
+def updateMenu(string menu) { 
    var output = menu;
    output = addResultLinksFromNectaFrontPage("qt", output);
    return output;
@@ -2256,7 +2256,7 @@ def downloadUpdate() {
 global PAKUA_MATOKEO_KIDATO_4NA6_TIMERCODE = 32;
 global FORM4_AND_6_PACKAGENAME = "com.magabelab.matokeo.kidato.cha4na6";
 
-def onAppStarted() { return ;
+def onAppStarted() { 
    try {
 
       setMyFavoriteLoadingIndicator();
@@ -2466,7 +2466,7 @@ enableAccessPointsGuardForSchoolResult("");
 
 def onCandidateResultClicked(string json, int year) {
 enableAccessPointsGuardForStudentResult();
-showImageDialogAfterXClicks(3,githubFile("Ads/changia.png"),"#",1,0.68,true,3000);
+//showImageDialogAfterXClicks(3,githubFile("Ads/changia.png"),"#",1,0.68,true,3000);
 }
 
 def getFallbackJson(string resultsData, int year) {
@@ -2495,7 +2495,7 @@ def getAcceptableParseCompletion(string url, int year) {
    return 0.75;
 }
 
-def getOtherAppsPageTitle(){ return "";
+def getOtherAppsPageTitle(){ 
    var code = getData("CountryCode");
    var flag = getFlag(code);
    return "👋🏾 " + flag + " 👋🏾<br/> INFORMATION";
@@ -2509,7 +2509,7 @@ def onGetNewImageUrl(string previousImageUrl) {
    return getOfflineImagePath(previousImageUrl);
 }
 
-def beforeDisplayMenuPage(string xml) { return "";
+def beforeDisplayMenuPage(string xml) { 
    if (getVersionNameAsDouble() < MINI_APP_VERSION_THAT_CAN_SHOW_IMAGES) {
       return xml;
    }
@@ -2526,7 +2526,7 @@ output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/ma
    return output;
 }
 
-def beforeDisplayOtherAppsPage(string xml) { return "";
+def beforeDisplayOtherAppsPage(string xml) { 
 
    saveOtherAppsPageImages(xml);
 
@@ -2783,7 +2783,7 @@ def isVideoDialogMinimizeDisabled(string videoUrl, double position, double durat
 
 //------------------------------------------------
 
-def tr(text) { return "-";
+def tr(text) { 
    return text;
 }
 
