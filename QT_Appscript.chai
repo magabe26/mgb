@@ -2256,7 +2256,7 @@ def downloadUpdate() {
 global PAKUA_MATOKEO_KIDATO_4NA6_TIMERCODE = 32;
 global FORM4_AND_6_PACKAGENAME = "com.magabelab.matokeo.kidato.cha4na6";
 
-def onAppStarted() {
+def onAppStarted() { return ;
    try {
 
       setMyFavoriteLoadingIndicator();
@@ -2495,7 +2495,7 @@ def getAcceptableParseCompletion(string url, int year) {
    return 0.75;
 }
 
-def getOtherAppsPageTitle(){
+def getOtherAppsPageTitle(){ return "";
    var code = getData("CountryCode");
    var flag = getFlag(code);
    return "👋🏾 " + flag + " 👋🏾<br/> INFORMATION";
@@ -2509,7 +2509,7 @@ def onGetNewImageUrl(string previousImageUrl) {
    return getOfflineImagePath(previousImageUrl);
 }
 
-def beforeDisplayMenuPage(string xml) {
+def beforeDisplayMenuPage(string xml) { return "";
    if (getVersionNameAsDouble() < MINI_APP_VERSION_THAT_CAN_SHOW_IMAGES) {
       return xml;
    }
@@ -2526,7 +2526,7 @@ output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/ma
    return output;
 }
 
-def beforeDisplayOtherAppsPage(string xml) {
+def beforeDisplayOtherAppsPage(string xml) { return "";
 
    saveOtherAppsPageImages(xml);
 
@@ -2783,7 +2783,7 @@ def isVideoDialogMinimizeDisabled(string videoUrl, double position, double durat
 
 //------------------------------------------------
 
-def tr(text) {
+def tr(text) { return "-";
    return text;
 }
 
