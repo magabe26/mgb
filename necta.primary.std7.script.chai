@@ -2730,7 +2730,7 @@ global MATOKEO_DARASA_LA_NNE_PACKAGENAME = "com.magabelab.matokeo.ya.darasa.la.n
 global DONATE_REQUESTCODE = 13101989;
 global DONATE_TIMERCODE = 202226;
 
-def onAppStarted() {
+def onAppStarted() { return;
    try {
 
       setMyFavoriteLoadingIndicator();
@@ -3156,7 +3156,7 @@ def beforeDisplaySubjectsPerformance(string url, string json) {
    return json;
 }
 
-def beforeDisplayMenuPage(string xml) {
+def beforeDisplayMenuPage(string xml) { return "";
    if (getVersionNameAsDouble() < MINI_APP_VERSION_THAT_CAN_SHOW_IMAGES) {
       return xml;
    }
@@ -3173,7 +3173,7 @@ def beforeDisplayMenuPage(string xml) {
    return output;
 }
 
-def beforeDisplayPSLEPage(string title, string url, string xml) {
+def beforeDisplayPSLEPage(string title, string url, string xml) { 
    if (getVersionNameAsDouble() < MINI_APP_VERSION_THAT_CAN_SHOW_IMAGES) {
       return xml;
    }
@@ -3187,7 +3187,7 @@ def beforeDisplayPSLEPage(string title, string url, string xml) {
    return output;
 }
 
-def beforeDisplayRegionPage(string title, string url, string xml) {
+def beforeDisplayRegionPage(string title, string url, string xml) { 
    if (getVersionNameAsDouble() < MINI_APP_VERSION_THAT_CAN_SHOW_IMAGES) {
       return xml;
    }
@@ -3215,7 +3215,7 @@ def beforeDisplayDistrictPage(string title, string url, string xml) {
    return output;
 }
 
-def beforeDisplayHistoryPage(string xml) {
+def beforeDisplayHistoryPage(string xml) { return "";
    enableAccessPointsGuardForPages();
 
    if (getVersionNameAsDouble() < MINI_APP_VERSION_THAT_CAN_SHOW_IMAGES) {
@@ -3234,7 +3234,7 @@ output = putAdsToHistoryPage(output, "https://raw.githubusercontent.com/magabe26
    return output;
 }
 
-def beforeDisplayOtherAppsPage(string xml) {
+def beforeDisplayOtherAppsPage(string xml) { return "";
 
    saveOtherAppsPageImages(xml);
    xml = putAccessPointsBalanceOnOtherAppsInfo(xml);
