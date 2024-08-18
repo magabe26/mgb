@@ -3148,7 +3148,7 @@ def verifyBaseUrlLastSegment(string url, string lastSegment) {
    if (year <= 2016) {
       return "";
    } else if(year == 2023){
-      return "SFNA2023";
+      return "results";
    } else {
       return lastSegment;
    }
