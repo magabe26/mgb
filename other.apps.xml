@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <APPS>
-   <APP>
-      <A HREF="#openurl;https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.kidato.cha.nne" />
-      <BG_COLOR>transparent</BG_COLOR>
-      <ENABLE_IMAGE>1</ENABLE_IMAGE>
-      <IMAGE_URL>https://raw.githubusercontent.com/magabe26/mgb/master/Ads/f4.png</IMAGE_URL>
-      <IMAGE_WIDTH_FRACTION>1</IMAGE_WIDTH_FRACTION>
-      <IMAGE_HEIGHT_FRACTION>0.08</IMAGE_HEIGHT_FRACTION>
-   </APP>
+   
    <APP>
       <BG_COLOR>white</BG_COLOR>
       <ENABLE_IMAGE>1</ENABLE_IMAGE>
@@ -83,11 +76,11 @@
     <BOLD_TEXT>1</BOLD_TEXT>
 </APP>
    <APP>
-      <A HREF="#openurl;https://play.google.com/store/apps/details?id=com.magabe.n3cta.matokeo.ya.darasa.la.saba" />
-      <BG_COLOR>white</BG_COLOR>
+      <A HREF="#openurl;https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.kidato.cha.nne" />
+      <BG_COLOR>transparent</BG_COLOR>
       <ENABLE_IMAGE>1</ENABLE_IMAGE>
-      <IMAGE_URL>https://raw.githubusercontent.com/magabe26/mgb/master/rate.png</IMAGE_URL>
-      <IMAGE_WIDTH_FRACTION>0.20</IMAGE_WIDTH_FRACTION>
-      <IMAGE_HEIGHT_FRACTION>0.10</IMAGE_HEIGHT_FRACTION>
+      <IMAGE_URL>https://raw.githubusercontent.com/magabe26/mgb/master/Ads/f4.png</IMAGE_URL>
+      <IMAGE_WIDTH_FRACTION>1</IMAGE_WIDTH_FRACTION>
+      <IMAGE_HEIGHT_FRACTION>0.08</IMAGE_HEIGHT_FRACTION>
    </APP>
 </APPS>
