@@ -939,8 +939,8 @@ global lifeQuotesAuthor = [
   
   //Jakaya Kikwete
   
-  "Jakaya Kikwete",
-  "Jakaya Kikwete",
+  "Dr. Jakaya Kikwete",
+  "Dr. Jakaya Kikwete",
   
   //Benjamin Mkapa
   
@@ -3686,8 +3686,8 @@ def beforeDisplayMenuPage(string xml) {
    var w = 0.85;
 
   // output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/natengeneza.gif", "#emailUs", w, 0.3, "middle");
-   output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/std7b.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabe.n3cta.matokeo.ya.darasa.la.saba", w, 0.16, "bottom");
-   output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/qt.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.qt", w, 0.16, "bottom");
+  // output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/std7b.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabe.n3cta.matokeo.ya.darasa.la.saba", w, 0.16, "bottom");
+ //  output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/qt.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.qt", w, 0.16, "bottom");
 output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/jaridalaelimu.png", "#mambo", 1, 0.8, "top");
 
    return output;
@@ -3697,9 +3697,9 @@ def beforeDisplaySFNAPage(string title, string url, string xml) {
    var output = xml;
    var w = 0.85;
 
-   output = putAdsToSFNAPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/form4.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.kidato.cha.nne", w, 0.16, "top");
-   output = putAdsToSFNAPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/tangaza2.gif", "#showAdvertiseWithUsDialog", w, 0.40, "middle");
-   output = putAdsToSFNAPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/DoctorMagic.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.doctormagic", w, 0.20, "bottom");
+ //  output = putAdsToSFNAPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/form4.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.kidato.cha.nne", w, 0.16, "top");
+ //  output = putAdsToSFNAPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/tangaza2.gif", "#showAdvertiseWithUsDialog", w, 0.40, "middle");
+//   output = putAdsToSFNAPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/DoctorMagic.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.doctormagic", w, 0.20, "bottom");
 
    return output;
 
@@ -3712,9 +3712,9 @@ def beforeDisplayRegionPage(string title, string url, string xml) {
    var output = xml;
    var w = 0.85;
 
-   output = putAdsToRegionPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/form6.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.kidato.cha.sita", w, 0.18, "top");
-   output = putAdsToRegionPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/tangaza2.gif", "#showAdvertiseWithUsDialog", w, 0.40, "bottom");
-   output = putAdsToRegionPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/magabelab1.gif", "#visitMagabeLab", w, 0.20, "bottom");
+ //  output = putAdsToRegionPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/form6.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.kidato.cha.sita", w, 0.18, "top");
+ //  output = putAdsToRegionPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/tangaza2.gif", "#showAdvertiseWithUsDialog", w, 0.40, "bottom");
+ //  output = putAdsToRegionPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/magabelab1.gif", "#visitMagabeLab", w, 0.20, "bottom");
 
    return output;
 }
@@ -3726,9 +3726,9 @@ def beforeDisplayDistrictPage(string title, string url, string xml) {
    var output = xml;
    var w = 0.85;
 
-   output = putAdsToDistrictPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/SomaKidigitali.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.somakidijitali", w, 0.18, "top");
-   output = putAdsToDistrictPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/tangaza2.gif", "#showAdvertiseWithUsDialog", w, 0.30, "bottom");
-   output = putAdsToDistrictPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/DoctorMagic.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.doctormagic", w, 0.20, "middle");
+ //  output = putAdsToDistrictPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/SomaKidigitali.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.somakidijitali", w, 0.18, "top");
+  // output = putAdsToDistrictPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/tangaza2.gif", "#showAdvertiseWithUsDialog", w, 0.30, "bottom");
+//   output = putAdsToDistrictPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/DoctorMagic.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.doctormagic", w, 0.20, "middle");
 
    return output;
 }
@@ -3742,12 +3742,12 @@ enableAccessPointsGuardForPages();
    var output = xml;
    var w = 0.85;
 
-output = putAdsToHistoryPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/elimu.png", "#mambo", 1, 0.8, "top");
+output = putAdsToHistoryPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/elimu.png", "#openurl;https://play.google.com/store/apps/developer?id=Magabe+Lab", 1, 0.8, "top");
 //output = putAdsToHistoryPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/changia.png", "#", 1, 0.8, "bottom");
 
   //output = putAdsToHistoryPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/tangaza2.gif", "#showAdvertiseWithUsDialog", w, 0.30, "bottom");
-   output = putAdsToHistoryPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/form2.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.kidato.cha.pili", w, 0.18, "bottom");
-   output = putAdsToHistoryPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/form4n6.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.matokeo.kidato.cha4na6", w, 0.18, "bottom");
+//   output = putAdsToHistoryPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/form2.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.kidato.cha.pili", w, 0.18, "bottom");
+ //  output = putAdsToHistoryPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/form4n6.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.matokeo.kidato.cha4na6", w, 0.18, "bottom");
 
 
    return output;
