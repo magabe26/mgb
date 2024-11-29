@@ -3155,7 +3155,7 @@ def verifyBaseUrlLastSegment(string url, string lastSegment) {
 }
 
 def getNectaMenuUrl() {
-   return "https://necta.go.tz/sfna_results";
+   return "https://necta.go.tz/results/view/sfna";
 }
 
 
