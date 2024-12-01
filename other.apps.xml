@@ -43,14 +43,6 @@
     <ICON_COLOR>#065961</ICON_COLOR>
     <BOLD_TEXT>1</BOLD_TEXT>
 </APP>
-<APP>
-    <A HREF="#showQuotes">Nukuu</A>
-    <COLOR>black</COLOR>
-    <BG_COLOR>white</BG_COLOR>
-    <ICON>fa::bell</ICON>
-    <ICON_COLOR>black</ICON_COLOR>
-    <BOLD_TEXT>1</BOLD_TEXT>
-</APP>
    <APP>
       <A HREF="https://www.mediafire.com/file/zqzc6w4hcu2ig1y/Matokeo+La7+v4.2+WinX64+Installer.exe/file">Pakua Aplikesheni hii kwa ajiri ya PC yako hapa</A>
       <COLOR>white</COLOR>
