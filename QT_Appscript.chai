@@ -2246,7 +2246,7 @@ def downloadUpdate() {
       if (versionName != LATEST_APP_VERSION_NAME) {
          requestDownloadUpdateDialog(message, url);
       }else{
-	     showNectaInfoOrLifeQuote();
+	    // showNectaInfoOrLifeQuote();
 	  }
 
    } catch {}
@@ -2516,7 +2516,7 @@ def beforeDisplayMenuPage(string xml) {
    var output = xml;
    var w = 0.85;
 
-output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/elimu.png", "#", 1, 0.8, "bottom");
+//output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/elimu.png", "#", 1, 0.8, "bottom");
 //output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/changia.png", "#", 1, 0.8, "top");
 //output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/natengeneza.gif", "#emailUs", w, 0.3, "bottom");
  //  output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/tangaza3.gif", "#showAdvertiseWithUsDialog", w, 0.3, "bottom");
