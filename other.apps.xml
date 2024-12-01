@@ -73,7 +73,7 @@
 Pakua aplikesheni zingine hapa
       </A>
       <BG_COLOR>transparent</BG_COLOR>
-      <ICON_ICON>fa::download</ICON_ICON>
+      <ICON_COLOR>green</ICON_COLOR>
       <ICON>fa::download</ICON>
       <COLOR>white</COLOR>
       <BOLD_TEXT>1</BOLD_TEXT>
