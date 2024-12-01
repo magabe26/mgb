@@ -54,9 +54,6 @@
     <SELECT_OPTION_ICON_COLOR>black</SELECT_OPTION_ICON_COLOR>
         
    </APP>
-   <APP>
-      <A HREF="#" />
-   </APP>
 <APP>
     <A HREF="#changeLoadingIndicator">Badilisha Kiashiria Cha Upakiaji</A>
     <COLOR>#102e04</COLOR>
