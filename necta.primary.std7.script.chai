@@ -1843,7 +1843,7 @@ def downloadUpdate() {
       var message = "Toleo jipya la aplikesheni hii ambalo ni ".append(LATEST_APP_VERSION_NAME).append(" limeshatoka. Pakua na 'rate' aplikesheni hii sasa.");
       requestDownloadUpdateDialog(message, url);
    } else {
-      showNectaInfoOrLifeQuote();
+     // showNectaInfoOrLifeQuote();
    }
 }
 
