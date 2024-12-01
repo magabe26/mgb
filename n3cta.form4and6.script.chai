@@ -1316,7 +1316,7 @@ def downloadUpdate() {
                if (versionName != latestAppVersionName) {
                   requestDownloadUpdateDialog(message, url);
                }else{
-	     showNectaInfoOrLifeQuote();
+	     //showNectaInfoOrLifeQuote();
 	  }
             }
          }
@@ -1334,7 +1334,7 @@ def downloadUpdate() {
             var url = (os == "android") ? packageNameToUrl(packageName) : win64DownloadURL;
             requestDownloadUpdateDialog(message, url);
          }else{
-	     showNectaInfoOrLifeQuote();
+	     //showNectaInfoOrLifeQuote();
 	  }
 
       } else if (isForm6App()) {
@@ -1350,7 +1350,7 @@ def downloadUpdate() {
             var url = (os == "android") ? packageNameToUrl(packageName) : win64DownloadURL;
             requestDownloadUpdateDialog(message, url);
          }else{
-	     showNectaInfoOrLifeQuote();
+	     //showNectaInfoOrLifeQuote();
 	  }
 
       }
