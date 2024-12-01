@@ -3130,7 +3130,7 @@ def getGenderWisePerformanceDataFor2022AndAbove(string html) {
    }
 
    json = json.append("]");
-   json = json.replace("JINSI", "WASTANI", false);
+   json = json.replace("JINSI", "GREDI", false);
    json = formatGender(json);
    var empty = (json.length() == 2);
    if (empty) {
