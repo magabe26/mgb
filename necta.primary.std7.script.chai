@@ -3504,7 +3504,6 @@ def useNonBraggingAboutText(text) {
 
 def tr(text) {
    var output = useNonBraggingAboutText(text);
-   output = output.replace("GREDI", "WASTANI", false);
    return output;
 }
 
