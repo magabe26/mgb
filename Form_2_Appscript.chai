@@ -1392,7 +1392,7 @@ def downloadUpdate() {
       if (versionName != LATEST_APP_VERSION_NAME) {
          requestDownloadUpdateDialog(message, url);
       }else{
-	     showNectaInfoOrLifeQuote();
+	   //  showNectaInfoOrLifeQuote();
 	  }
 
    } catch {}
