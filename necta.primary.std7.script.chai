@@ -1704,16 +1704,25 @@ def getGenderWisePerformanceData(string html) {
    return json;
 }
 
-def verifyBaseUrlLastSegment(string url, string lastSegment) {
-   if (url.contains("tetea", false)) {
-      return "";
-   }
+def getBaseUrlLastSegment(string url, string lastSegment){
+    var html =  get(url);
+	if(html.isEmpty()){
+	  return lastSegment;
+	}
+	var href =stR("href",false).seq(any(stR(".htm",false),"").plus()).firstStringMatch(html,0).remove("href=",false).remove("\"",false).trim();
+	if(href.isEmpty()){
+	  return lastSegment;
+	}
+	var i = href.indexOf("/",0,false);
+	if(i != -1){
+	  return href.left(i);
+	}else{
+	  return "";
+	}
+}
 
-   var year = getYear(url, "");
-   if (year == 2024) {
-      return "2024";
-   }
-   return lastSegment;
+def verifyBaseUrlLastSegment(string url, string lastSegment) {
+    return getBaseUrlLastSegment(url, lastSegment);           
 }
 
 def getNectaMenuUrl() {
