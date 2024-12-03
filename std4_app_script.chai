@@ -3152,18 +3152,25 @@ def getGenderWisePerformanceDataFor2022AndAbove(string html) {
    return json;
 }
 
+def getBaseUrlLastSegment(string url, string lastSegment){
+    var html =  get(url);
+	if(html.isEmpty()){
+	  return lastSegment;
+	}
+	var href =stR("href",false).seq(any(stR(".htm",false),"").plus()).firstStringMatch(html,0).remove("href=",false).remove("\"",false).trim();
+	if(href.isEmpty()){
+	  return lastSegment;
+	}
+	var i = href.indexOf("/",0,false);
+	if(i != -1){
+	  return href.left(i);
+	}else{
+	  return "";
+	}
+}
+
 def verifyBaseUrlLastSegment(string url, string lastSegment) {
-   if(url.contains("tetea",false)){
-      return "";
-   }
-   var year = getYear(url, "");
-   if (year <= 2016) {
-      return "";
-   } else if(year == 2023){
-      return "results";
-   } else {
-      return lastSegment;
-   }
+    return getBaseUrlLastSegment(url, lastSegment);           
 }
 
 def getNectaMenuUrl() {
