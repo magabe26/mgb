@@ -2870,9 +2870,35 @@ def getTdNodeTagNameForResults(int tdIndex, int tdCount, string tagText) {
 }
 
 
-def updateMenu(string menu) {
+/*
+ Stating from 2024,  the only use this in updateMenu function ,to update menu from website
+*/
+def addResultLinksToMenuFromNectaPage(string menu, string url) {
+   if(url.isEmpty()){
+     return menu;
+   }
+   var html = get(url);
+   if(html.isEmpty()){
+     return menu;
+   }
    var output = menu;
-   output = addResultLinksFromNectaFrontPage("sfna", output);
+   var end = stR(".htm", false);
+   stR("http", false).seq(any(end, "<>").plus()).seq(end).replaceInMapped(html, fun[output](string link) {
+	  var year = getYear("", link);
+      if (year != 0) {
+         var name = to_string(year);
+         if (!output.contains(name, false)) {
+            output = addLinkToMenuXML(name, link, output);
+         }
+      }
+      return link;
+   }, 0, -1);
+  
+   return output;
+}
+
+def updateMenu(string menu) {
+   var output = addResultLinksToMenuFromNectaPage(menu, "https://necta.go.tz/results/view/sfna");
    return output;
 }
 
