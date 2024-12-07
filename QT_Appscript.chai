@@ -204,7 +204,36 @@ global MINI_APP_VERSION_THAT_CAN_SHOW_IMAGES = 0.4
 def getVersionNameAsDouble() {
    return to_double(getVersionName(getAppPackageName()));
 }
+//----------HollydayAds--------------
+global ENABLE_HOLLYDAY_AD = true;
+global HOLLYDAY_IMG_1 = "xmas-new-year-2025.png";
+global HOLLYDAY_IMG_2 = "nipetano.png";
 
+def getHollydayAdFlag(){
+   var flag = getData("HollydayAdFlag");
+   return flag.isEmpty() ? 0 : to_int(flag);
+}
+
+def onShowHolidayAdCommand(cmd, argv, argc) {
+   if(!ENABLE_HOLLYDAY_AD){
+    return;
+   }
+   if (cmd.equals("donateMoney", false) || cmd.equals("changiaPesa", false)) {
+       var flag = getHollydayAdFlag();
+       saveOrUpdateData("HollydayAdFlag", flag == 0 ? "1" : "0");
+	   requestMenuPage();
+   }
+}
+
+def getMenuHolidayAd(string output){
+  if(!ENABLE_HOLLYDAY_AD){
+    return output;
+  }
+  var img = getHollydayAdFlag() == 0 ? HOLLYDAY_IMG_1 : HOLLYDAY_IMG_2  ;
+  return putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/".append(img), "#donateMoney;", 1, 0.6, "top");
+}
+
+//------------------
 //------------------
 
 global imagesToBeSaved = [];
@@ -2207,6 +2236,7 @@ onOpenURLCommand(cmd, argv, argc);
 //onContactCredboCommand(cmd, argv, argc);
    //onShowCredboAdCommand(cmd, argv, argc);
 onShowNectaInfoCommand(cmd, argv, argc);
+onShowHolidayAdCommand(cmd, argv, argc);
 }
 
 
@@ -2515,7 +2545,8 @@ def beforeDisplayMenuPage(string xml) {
    }
    var output = xml;
    var w = 0.85;
-output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/xmas-new-year-2025.png", "#donateMoney;", 1, 0.6, "top");
+output = getMenuHolidayAd(output);
+//output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/xmas-new-year-2025.png", "#donateMoney;", 1, 0.6, "top");
 //output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/elimu.png", "#", 1, 0.8, "bottom");
 //output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/changia.png", "#", 1, 0.8, "top");
 //output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/natengeneza.gif", "#emailUs", w, 0.3, "bottom");
