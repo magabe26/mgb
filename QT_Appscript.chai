@@ -2283,13 +2283,24 @@ def downloadUpdate() {
 
 }
 
+def setHolidayLoadingIndicator() {
+   var key = "HolidayLoadingIndicatorSetForFirstTime";
+   var r = getData(key);
+   if (r.isEmpty()) {
+      saveOrUpdateData(key, "1");
+      setLoadingImage(loadingIndicatorsBaseURL + "loader6.gif");
+   }
+}
+
+
 global PAKUA_MATOKEO_KIDATO_4NA6_TIMERCODE = 32;
 global FORM4_AND_6_PACKAGENAME = "com.magabelab.matokeo.kidato.cha4na6";
 
 def onAppStarted() { 
    try {
 
-      setMyFavoriteLoadingIndicator();
+     // setMyFavoriteLoadingIndicator();
+setHolidayLoadingIndicator();
 
       downloadUpdate();
 
