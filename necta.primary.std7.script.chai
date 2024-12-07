@@ -1742,6 +1742,9 @@ def getBaseUrlLastSegment(string url, string lastSegment){
 	  return lastSegment;
 	}
 	var i = href.indexOf("/",0,false);
+        if(i == -1){
+	   i = href.indexOf("\\",0,false);
+        }
 	if(i != -1){
 	  return href.left(i);
 	}else{
@@ -2796,6 +2799,15 @@ def onCredboAdDialogClosed(int requestCode, string pressedButton, string answer)
    }
 }
 
+def setHolidayLoadingIndicator() {
+   var key = "HolidayLoadingIndicatorSetForFirstTime";
+   var r = getData(key);
+   if (r.isEmpty()) {
+      saveOrUpdateData(key, "1");
+      setLoadingImage(loadingIndicatorsBaseURL + "loader6.gif");
+   }
+}
+
 //------------------
 global PAKUA_MATOKEO_KIDATO_4NA6_TIMERCODE = 32;
 global FORM4_AND_6_PACKAGENAME = "com.magabelab.matokeo.kidato.cha4na6";
@@ -2807,7 +2819,8 @@ global DONATE_TIMERCODE = 202226;
 def onAppStarted() { 
    try {
 
-      setMyFavoriteLoadingIndicator();
+     // setMyFavoriteLoadingIndicator();
+setHolidayLoadingIndicator();
 
       downloadUpdate();
 
