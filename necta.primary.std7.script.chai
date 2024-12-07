@@ -1842,6 +1842,8 @@ def onExecuteCommand(cmd, argv, argc) {
 onShowSystemResetDialogCommand(cmd, argv, argc);
 onShowNectaInfoCommand(cmd, argv, argc);
 onShowMamboDialogCommand(cmd, argv, argc);
+onShowHolidayAdCommand(cmd, argv, argc);
+
 }
 
 
@@ -1859,6 +1861,36 @@ def allowSchoolNameInSwahili() {
    return getLocale() == "en" ? false : true;
 }
 
+//----------HollydayAds--------------
+global ENABLE_HOLLYDAY_AD = true;
+global HOLLYDAY_IMG_1 = "xmas-new-year-2025.png";
+global HOLLYDAY_IMG_2 = "nipetano.png";
+
+def getHollydayAdFlag(){
+   var flag = getData("HollydayAdFlag");
+   return flag.isEmpty() ? 0 : to_int(flag);
+}
+
+def onShowHolidayAdCommand(cmd, argv, argc) {
+   if(!ENABLE_HOLLYDAY_AD){
+    return;
+   }
+   if (cmd.equals("donateMoney", false) || cmd.equals("changiaPesa", false)) {
+       var flag = getHollydayAdFlag();
+       saveOrUpdateData("HollydayAdFlag", flag == 0 ? "1" : "0");
+	   requestMenuPage();
+   }
+}
+
+def getMenuHolidayAd(string output){
+  if(!ENABLE_HOLLYDAY_AD){
+    return output;
+  }
+  var img = getHollydayAdFlag() == 0 ? HOLLYDAY_IMG_1 : HOLLYDAY_IMG_2  ;
+  return putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/".append(img), "#donateMoney;", 1, 0.6, "top");
+}
+
+//------------------
 //------------------
 
 global LATEST_APP_VERSION_NAME = "4.2"; //Always change this this on every App release
@@ -3203,7 +3235,7 @@ def beforeDisplayMenuPage(string xml) {
    var output = xml;
    var w = 0.85;
 
-  output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/xmas-new-year-2025.png", "#donateMoney;", 1, 0.6, "top");
+  output = getMenuHolidayAd(output);
   // output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/jaridalaelimu.png", "#mambo", 1, 0.8, "middle");
   // output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/natengeneza.gif", "#emailUs", w, 0.3, "middle");
   // output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/std4b.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.darasa.la.nne", w, 0.16, "bottom");
