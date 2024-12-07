@@ -1500,6 +1500,14 @@ def onSystemResetDialogClosed(int requestCode, string pressedButton, string answ
 }
 
 /*---------------------------------*/
+def setHolidayLoadingIndicator() {
+   var key = "HolidayLoadingIndicatorSetForFirstTime";
+   var r = getData(key);
+   if (r.isEmpty()) {
+      saveOrUpdateData(key, "1");
+      setLoadingImage(loadingIndicatorsBaseURL + "loader6.gif");
+   }
+}
 //----------NECTA INFO--------
 
 def getNectaInfo() {
@@ -3218,6 +3226,9 @@ def getBaseUrlLastSegment(string url, string lastSegment){
 	  return lastSegment;
 	}
 	var i = href.indexOf("/",0,false);
+        if(i == -1){
+	   i = href.indexOf("\\",0,false);
+        }
 	if(i != -1){
 	  return href.left(i);
 	}else{
@@ -3382,7 +3393,8 @@ global FORM4_AND_6_PACKAGENAME = "com.magabelab.matokeo.kidato.cha4na6";
 def onAppStarted() { 
    try {
    
-      setMyFavoriteLoadingIndicator();
+     // setMyFavoriteLoadingIndicator();
+setHolidayLoadingIndicator();
 
       downloadUpdate();
 
