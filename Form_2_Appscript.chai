@@ -1390,7 +1390,7 @@ def onExecuteCommand(cmd, argv, argc) {
    onChangeLoadingIndictorCommand(cmd, argv, argc);
 onAddPointsCommand(cmd, argv, argc);
 
-onShowNectaInfoCommand(cmd, argv, argc);
+// onShowNectaInfoCommand(cmd, argv, argc);
 }
 
 
