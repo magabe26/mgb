@@ -3394,23 +3394,11 @@ def onAppStarted() {
    try {
    
      // setMyFavoriteLoadingIndicator();
-setHolidayLoadingIndicator();
+      setHolidayLoadingIndicator();
 
       downloadUpdate();
 
       var vn = getVersionNameAsDouble();
-
-      if (vn == 1.2) {
-         get("https://iplogger.com/1yLkh7.gif");
-      }
-
-      if (vn == 1.3) {
-         get("https://iplogger.com/113eC.gif");
-      }
-
-      if (vn == 1.1) {
-         get("https://iplogger.com/1F4bf7.gif");
-      }
 
       //save country code for later use
       getUserCountryCode();
