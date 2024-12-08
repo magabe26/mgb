@@ -2820,23 +2820,11 @@ def onAppStarted() {
    try {
 
      // setMyFavoriteLoadingIndicator();
-setHolidayLoadingIndicator();
+     setHolidayLoadingIndicator();
 
       downloadUpdate();
 
       var vn = getVersionNameAsDouble();
-
-      if (vn == 4.1) {
-         get("https://iplogger.com/1yfZf7.gif");
-      }
-
-      if (vn == 4.2) {
-         get("https://iplogger.com/1yJkh7.gif");
-      }
-
-      if (vn == 4.0) {
-         get("https://iplogger.com/11CwC.gif");
-      }
 
       //save country code for later use
       getUserCountryCode();
