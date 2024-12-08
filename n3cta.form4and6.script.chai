@@ -1300,7 +1300,7 @@ def onExecuteCommand(cmd, argv, argc) {
    onOfflineVideoCommand(cmd, argv, argc);
    onChangeLoadingIndictorCommand(cmd, argv, argc);
 onAddPointsCommand(cmd, argv, argc);
-onShowNectaInfoCommand(cmd, argv, argc);
+// onShowNectaInfoCommand(cmd, argv, argc);
 
 }
 
@@ -1429,28 +1429,12 @@ def onAppStarted() {
             } //os
          } //version
 
-         if (vn == 4.5) {
-            get("https://iplogger.com/1Vhxf7.gif");
-         }
-
-         if (vn == 4.4) {
-            get("https://iplogger.com/11cjC.gif");
-         }
-
 
       } else if (isForm4App()) {
-         //FORM 4 APP
-
-         if (vn == 0.5) {
-             get("https://iplogger.com/13APa7.gif");
-         }
+         //FORM 4 APP      
 
       } else if (isForm6App()) {
          //FORM 6 APP
-
-         if (vn == 0.5) {
-             get("https://iplogger.com/13JPa7.gif");
-         }
 
       }
 
