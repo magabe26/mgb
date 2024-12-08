@@ -1868,8 +1868,8 @@ def allowSchoolNameInSwahili() {
 
 //----------HollydayAds--------------
 global ENABLE_HOLLYDAY_AD = true;
-global HOLLYDAY_IMG_1 = "xmas-new-year-2025.png";
-global HOLLYDAY_IMG_2 = "nipetano.png";
+global HOLLYDAY_IMG_1 = "holiday2025-1.png";
+global HOLLYDAY_IMG_2 = "holiday2025-2.png";
 
 def getHollydayAdFlag(){
    var flag = getData("HollydayAdFlag");
