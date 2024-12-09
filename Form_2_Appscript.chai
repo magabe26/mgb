@@ -1431,7 +1431,7 @@ def saveSplashImage(string url){
 	      var name = "splash"
 		  var splashFlag = "/splash.bmp"; 
 		  var savedSplash = getData(name);
-		  if(savedSplash.equals(url,false) && fileExists(getOfflineImagePath(splashFlag))){
+		  if(savedSplash.equals(url,false) && fileExists(getData(splashFlag))){
 		     rerurn;
 		  }
 		  var path = generateAppRootFilePath(name);
