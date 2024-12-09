@@ -1472,7 +1472,7 @@ def onAppStarted() {
    setRightButtonIconColor("cyan");
 setRightButtonTextColor("white");
 
-saveSplashImage("https://raw.githubusercontent.com/magabe26/mgb/master/sand-timer.png");
+saveSplashImage("https://raw.githubusercontent.com/magabe26/mgb/master/sand-timer-2.png");
 
    } catch {}
 
