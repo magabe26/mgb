@@ -1451,7 +1451,7 @@ def onAppStarted() {
 
       setMyFavoriteLoadingIndicator();
 
-      setTimer(ADS_TIMER, 1000 * 15); // 5 sec
+      setTimer(ADS_TIMER, 1000 * 6); // 6 sec
 
       var version = getScriptRunnerVersion();
 
