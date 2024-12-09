@@ -1427,6 +1427,20 @@ def downloadUpdate() {
 
 }
 
+def saveSplashImage(string url){
+	      var name = "splash"
+		  var splashFlag = "/splash.bmp"; 
+		  var savedSplash = getData(name);
+		  if(savedSplash.equals(url,false) && fileExists(getOfflineImagePath(splashFlag))){
+		     rerurn;
+		  }
+		  var path = generateAppRootFilePath(name);
+          if (saveImage(url, path, -1)) {
+              saveOrUpdateData(splashFlag, path);
+			  saveOrUpdateData(name, url);
+			  showToastMessage("Splash image saved");
+          }
+	  }
 
 global PAKUA_MATOKEO_LA7_TIMERCODE = 32;
 global LA7_PACKAGENAME = "com.magabe.n3cta.matokeo.ya.darasa.la.saba";
@@ -1457,7 +1471,9 @@ def onAppStarted() {
 
    setRightButtonIconColor("cyan");
 setRightButtonTextColor("white");
-	 
+
+saveSplashImage("https://raw.githubusercontent.com/magabe26/mgb/master/loader8.gif");
+
    } catch {}
 
 }
