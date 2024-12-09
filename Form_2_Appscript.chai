@@ -1472,7 +1472,7 @@ def onAppStarted() {
    setRightButtonIconColor("cyan");
 setRightButtonTextColor("white");
 
-saveSplashImage("https://raw.githubusercontent.com/magabe26/mgb/master/loader8.gif");
+saveSplashImage("https://raw.githubusercontent.com/magabe26/mgb/master/loading-wait.png");
 
    } catch {}
 
