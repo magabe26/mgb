@@ -1452,11 +1452,11 @@ def onAppStarted() {
 
       var vn = getVersionNameAsDouble();
 
-   setLeftButtonIconColor("green");
+   setLeftButtonIconColor("cyan");
    setLeftButtonTextColor("yellow");
 
    setRightButtonIconColor("blue");
-setRightButtonTextColor("gray");
+setRightButtonTextColor("white");
 	 
    } catch {}
 
