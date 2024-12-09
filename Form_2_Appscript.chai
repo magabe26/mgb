@@ -1455,7 +1455,7 @@ def onAppStarted() {
    setLeftButtonIconColor("cyan");
    setLeftButtonTextColor("yellow");
 
-   setRightButtonIconColor("blue");
+   setRightButtonIconColor("cyan");
 setRightButtonTextColor("white");
 	 
    } catch {}
