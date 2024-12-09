@@ -1451,9 +1451,12 @@ def onAppStarted() {
       //}
 
       var vn = getVersionNameAsDouble();
-      if (vn == 0.6) {
-          get("https://iplogger.com/1QYkz7.gif");
-      }
+
+   setLeftButtonIconColor("green");
+   setLeftButtonTextColor("yellow");
+
+   setRightButtonIconColor("blue");
+setRightButtonTextColor("gray");
 	 
    } catch {}
 
@@ -2072,7 +2075,11 @@ def isVideoDialogMinimizeDisabled(string videoUrl, double position, double durat
 }
 
 def tr(text) {
-   return text;
+ var i = text.indexOf("Created",0,false);
+ if(i != -1){
+   return text.left(i);
+  }
+ return text;
 }
 
 def showDebugMessage(msg) {
