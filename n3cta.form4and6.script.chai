@@ -1421,7 +1421,7 @@ def onAppStarted() {
    
       setMyFavoriteLoadingIndicator();
 
-      setTimer(ADS_TIMER, 1000 * 25); // 25 sec
+      setTimer(ADS_TIMER, 1000 * 6); // 6 sec
 
       downloadUpdate();
 	  
