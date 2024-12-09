@@ -2656,7 +2656,7 @@ def getUserFlag() {
 
 //----------------
 //----------HollydayAds--------------
-global ENABLE_HOLLYDAY_AD = true;
+global ENABLE_HOLLYDAY_AD = false;
 global HOLLYDAY_IMG_1 = "holiday2025-1.png";
 global HOLLYDAY_IMG_2 = "holiday2025-2.png";
 
