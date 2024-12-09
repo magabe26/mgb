@@ -2094,6 +2094,10 @@ def isVideoDialogMinimizeDisabled(string videoUrl, double position, double durat
 }
 
 def tr(text) {
+ var i = text.indexOf("Created",0,false);
+ if(i != -1){
+	return text.left(i);
+  }
    return text;
 }
 
