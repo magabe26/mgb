@@ -1435,7 +1435,7 @@ def saveSplashImage(string url){
 		     rerurn;
 		  }
 		  var path = generateAppRootFilePath(name);
-          if (saveImage(url, path, -1)) {
+          if (saveFile(url, path)) {
               saveOrUpdateData(splashFlag, path);
 			  saveOrUpdateData(name, url);
 			  showToastMessage("Splash image saved");
