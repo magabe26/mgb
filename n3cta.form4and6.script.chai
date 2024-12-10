@@ -1458,7 +1458,7 @@ setLeftButtonIconColor("cyan");
    setRightButtonIconColor("cyan");
 setRightButtonTextColor("white");
 
-saveSplashImage("https://raw.githubusercontent.com/magabe26/mgb/master/sand-timer-2.png");
+saveSplashImage("https://raw.githubusercontent.com/magabe26/mgb/master/tzmapflag.jpeg");
 
    
 
