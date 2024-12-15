@@ -3872,7 +3872,7 @@ def onAdShown() {
    //showToastMessage("Ad Shown !");
    adsShown = adsShown + 1;
 giveRewardForAd();
-   showAdAfterXMins(2);
+   showAdAfterXMins(1);
 hideLoadingIndicator();
 }
 
