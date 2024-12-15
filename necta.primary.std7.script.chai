@@ -3348,7 +3348,7 @@ def onAdShown() {
    //showToastMessage("Ad Shown !");
    adsShown = adsShown + 1;
    giveRewardForAd();
-   showAdAfterXMins(1);
+   setTimeOut(fun[]() {loadAd();},1000*60*1); //1 min
    hideLoadingIndicator();
 }
 
