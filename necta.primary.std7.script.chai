@@ -3244,7 +3244,7 @@ def beforeDisplayMenuPage(string xml) {
   // output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/std4b.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.darasa.la.nne", w, 0.16, "bottom");
   // output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/qt.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.qt", w, 0.16, "bottom");
   // output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/Credbo/credbo.jpeg", "#contactCredbo;", 1, 0.3, "top");
-  output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/Kilimanjaro3D.gif", "", 1, 0.6, "bottom");
+  // output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/Kilimanjaro3D.gif", "", 1, 0.6, "bottom");
   
    return output;
 }
