@@ -1437,8 +1437,8 @@ try {
       downloadMenu(getGithubMenuURL());
       resetMyFavoriteLoadingIndicator();  
    } catch {}
-   saveOrUpdateData("MyFavoriteLoadingIndicatorSetForFirstTime", "0");
-   saveOrUpdateData("HolidayLoadingIndicatorSetForFirstTime", "0");
+   saveOrUpdateData("MyFavoriteLoadingIndicatorSetForFirstTime", "");
+   saveOrUpdateData("HolidayLoadingIndicatorSetForFirstTime", "");
    hideLoadingIndicator();
    quit();
 }
