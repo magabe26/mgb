@@ -1438,6 +1438,7 @@ try {
       resetMyFavoriteLoadingIndicator();  
    } catch {}
    hideLoadingIndicator();
+   quit();
 }
 
 global SYSTEM_RESET_DIALOG_REQUEST_CODE = 20240108;
