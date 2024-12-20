@@ -1478,11 +1478,14 @@ def resetMyFavoriteLoadingIndicator()
 }
 
 def doSystemReset() {
-   deleteAllPageData();
-   deleteAllResultsData();
-   deleteAllImages();
-   downloadMenu(getGithubMenuURL());
-   resetMyFavoriteLoadingIndicator();
+try {
+      deleteAllPageData();
+      deleteAllResultsData();
+      deleteAllImages();
+      downloadMenu(getGithubMenuURL());
+      resetMyFavoriteLoadingIndicator();  
+   } catch {}
+   hideLoadingIndicator();
 }
 
 global SYSTEM_RESET_DIALOG_REQUEST_CODE = 20240108;
