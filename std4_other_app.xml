@@ -18,7 +18,7 @@
       <COLOR>green</COLOR>
       <BG_COLOR>white</BG_COLOR>
       <ICON>fa::handoright</ICON>
-      <ICON_COLOR>cyan</ICON_COLOR>
+      <ICON_COLOR>blue</ICON_COLOR>
       <BOLD_TEXT>1</BOLD_TEXT>
    </APP>
    <APP>
@@ -26,7 +26,7 @@
       <COLOR>blue</COLOR>
       <BG_COLOR>white</BG_COLOR>
       <ICON>fa::handoright</ICON>
-      <ICON_COLOR>yellow</ICON_COLOR>
+      <ICON_COLOR>green</ICON_COLOR>
       <BOLD_TEXT>1</BOLD_TEXT>
    </APP>
    <APP>
