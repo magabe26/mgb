@@ -1877,7 +1877,7 @@ def allowSchoolNameInSwahili() {
 }
 
 //----------HollydayAds--------------
-global ENABLE_HOLLYDAY_AD = true;
+global ENABLE_HOLLYDAY_AD = false;
 global HOLLYDAY_IMG_1 = "changia_1.png";
 global HOLLYDAY_IMG_2 = "changia_2.png";
 
