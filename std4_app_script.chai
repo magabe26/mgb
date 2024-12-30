@@ -3399,6 +3399,13 @@ def downloadUpdate() {
 
 }
 
+def playWelcomeVideo(string url){
+    var path = getOfflineVideoPath(url);
+    if (!path.isEmpty()) {
+	playVideo(path);
+     }
+}
+
 global PAKUA_MATOKEO_KIDATO_4NA6_TIMERCODE = 32;
 global FORM4_AND_6_PACKAGENAME = "com.magabelab.matokeo.kidato.cha4na6";
 
