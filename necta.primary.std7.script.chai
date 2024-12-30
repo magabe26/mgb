@@ -3457,6 +3457,8 @@ def onVideoPlayerStatusChanged(string videoUrl, int status) {
       case (VideoPlayerStatus.EndOfMedia) {
          log("VideoPlayerStatus.EndOfMedia");
 
+         playVideo(videoUrl);
+
          break;
       }
 
