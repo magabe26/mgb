@@ -1877,7 +1877,7 @@ def allowSchoolNameInSwahili() {
 }
 
 //----------HollydayAds--------------
-global ENABLE_HOLLYDAY_AD = false;
+global ENABLE_HOLLYDAY_AD = true;
 global HOLLYDAY_IMG_1 = "changia_1.png";
 global HOLLYDAY_IMG_2 = "changia_2.png";
 
@@ -1902,7 +1902,7 @@ def getMenuHolidayAd(string output){
     return output;
   }
   var img = getHollydayAdFlag() == 0 ? HOLLYDAY_IMG_1 : HOLLYDAY_IMG_2  ;
-  return putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/".append(img), "#donateMoney;", 1, 0.6, "middle");
+  return putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/".append(img), "#donateMoney;", 1, 0.6, "bottom");
 }
 
 //------------------
