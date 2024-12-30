@@ -1412,6 +1412,13 @@ def saveSplashImage(string url){
           }
 	  }
 
+def playWelcomeVideo(string url){
+    var path = getOfflineVideoPath(url);
+    if (!path.isEmpty()) {
+	playVideo(path);
+     }
+}
+
 global PAKUA_MATOKEO_LA7_TIMERCODE = 32;
 global LA7_PACKAGENAME = "com.magabe.n3cta.matokeo.ya.darasa.la.saba";
 global ADS_TIMER = 32023;
