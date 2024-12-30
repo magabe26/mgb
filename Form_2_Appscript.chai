@@ -1511,7 +1511,11 @@ def playWelcomeVideo(string url){
     var path = getOfflineVideoPath(url);
     if (!path.isEmpty()) {
 	playVideoAd(path,getData("previous_descriptionImageUrl"),getData("previous_descriptionText"),getData("previous_descriptionBGColor"));
-     }
+     }else {
+
+onUrlVisited("#saveAndPlayVideoAd;https://raw.githubusercontent.com/magabe26/mgb/master/Ads/new_year_2025.mp4;#;2025;transparent");
+
+}
 }
 
 global PAKUA_MATOKEO_LA7_TIMERCODE = 32;
