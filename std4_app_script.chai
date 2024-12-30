@@ -3985,10 +3985,8 @@ def onVideoPlayerStatusChanged(string videoUrl, int status) {
       case (VideoPlayerStatus.EndOfMedia) {
          log("VideoPlayerStatus.EndOfMedia");
 
-if (videoUrl.endsWith("New_year_2025.mp4", true)) {
-      videoPlayerPlay();     
-    }
-
+         videoPlayerPlay();     
+    
          break;
       }
 
