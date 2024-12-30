@@ -1467,7 +1467,7 @@ setRightButtonTextColor("white");
 
 saveSplashImage("https://raw.githubusercontent.com/magabe26/mgb/master/tzmapflag.jpeg");
 
-   
+   playWelcomeVideo("https://raw.githubusercontent.com/magabe26/mgb/master/Ads/new_year_2025.mp4");
 
    } catch {}
 
