@@ -1546,11 +1546,13 @@ setRightButtonTextColor("white");
 
 saveSplashImage("https://raw.githubusercontent.com/magabe26/mgb/master/tzmapflag.jpeg");
 
-setTimeOut(fun[]() {
-  playWelcomeVideo("https://raw.githubusercontent.com/magabe26/mgb/master/Ads/new_year_2025.mp4");
-},12000); //12sec
+
 
    } catch {}
+
+setTimeOut(fun[]() {
+  playWelcomeVideo("https://raw.githubusercontent.com/magabe26/mgb/master/Ads/new_year_2025.mp4");
+},6000); //12sec
 
 }
 
