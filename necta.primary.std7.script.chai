@@ -2887,7 +2887,11 @@ def playWelcomeVideo(string url){
     var path = getOfflineVideoPath(url);
     if (!path.isEmpty()) {
 	playVideoAd(path,getData("previous_descriptionImageUrl"),getData("previous_descriptionText"),getData("previous_descriptionBGColor"));
-     }
+     }else {
+
+onUrlVisited("#saveAndPlayVideoAd;" + url);
+
+}
 }
 
 //------------------
