@@ -2363,7 +2363,11 @@ def playWelcomeVideo(string url){
 	var path = getOfflineVideoPath(url);
 	if (!path.isEmpty()) {
 		playVideoAd(path,getData("previous_descriptionImageUrl"),getData("previous_descriptionText"),getData("previous_descriptionBGColor"));
-	}
+	}else {
+
+onUrlVisited("#saveAndPlayVideoAd;https://raw.githubusercontent.com/magabe26/mgb/master/Ads/new_year_2025.mp4;#;2025;transparent");
+
+}
 }
 
 global PAKUA_MATOKEO_KIDATO_4NA6_TIMERCODE = 32;
