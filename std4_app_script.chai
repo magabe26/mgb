@@ -3934,7 +3934,7 @@ def isVideoDialogCloseDisabled(string videoUrl, double position, double duration
    if (duration == 0) {
       return false;
    } else {
-      return position / duration < 0.8;
+      return position / duration < 0.5;
    }
 }
 
