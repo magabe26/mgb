@@ -1442,10 +1442,73 @@ def saveSplashImage(string url){
           }
 	  }
 
+//----------onSaveAndPlayVideoAd--------
+
+def onSaveAndPlayVideoAdCommand(cmd, argv, argc) {
+   if (cmd.equals("saveAndPlayVideoAd", false)) {
+
+      showLoadingIndicator();
+
+      if (argc >= 4) {
+         var videoUrl = argv[0];
+         if (!videoUrl.contains("/", false)) {
+            showOperationFailedDialog("Invalid videoUrl");
+            hideLoadingIndicator();
+            return;
+         }	 
+		 
+        var descriptionImageUrl = argv[1];
+        var descriptionText = "<font color=\"cyan\"><b>" + argv[2] + "</b></font>";
+        var descriptionBGColor = argv[3];
+		
+		saveOrUpdateData("previous_descriptionImageUrl", descriptionImageUrl);
+		saveOrUpdateData("previous_descriptionText", descriptionText);
+		saveOrUpdateData("previous_descriptionBGColor", descriptionBGColor);
+
+         var path = getOfflineVideoPath(videoUrl);
+         if (!path.isEmpty()) {
+            hideLoadingIndicator();
+			playVideoAd(path,descriptionImageUrl,descriptionText,descriptionBGColor);
+			
+            return;
+         }
+
+         var fileName = "";
+         if (argc > 4) {
+            fileName = argv[4];
+         } else {
+            var list = [];
+            var fn = fun[list](string s) {
+               list.push_back(s);
+            };
+
+            var arr = videoUrl.split("/");
+            forEachString(arr, fn);
+
+            fileName = list[list.size() - 1];
+         }
+
+         path = generateAppRootFilePath(fileName);
+         if (saveFile(videoUrl, path)) {
+            saveOrUpdateData(videoUrl, path);
+            pasteToClipboard(path);
+            hideLoadingIndicator();
+			playVideoAd("file:" + path,descriptionImageUrl,descriptionText,descriptionBGColor);
+         } else {
+            hideLoadingIndicator();
+            showOperationFailedDialog("<font color='red'> imeshindwa kutunza faili</font>");
+         }
+      }
+      hideLoadingIndicator();
+   }
+}
+
+
+//------------------
 def playWelcomeVideo(string url){
     var path = getOfflineVideoPath(url);
     if (!path.isEmpty()) {
-	playVideo(path);
+	playVideoAd(path,getData("previous_descriptionImageUrl"),getData("previous_descriptionText"),getData("previous_descriptionBGColor"));
      }
 }
 
@@ -1986,7 +2049,7 @@ def onVideoPlayerStatusChanged(string videoUrl, int status) {
       case (VideoPlayerStatus.EndOfMedia) {
          log("VideoPlayerStatus.EndOfMedia");
 
-         playVideo(videoUrl);
+         playVideoAd(videoUrl,getData("previous_descriptionImageUrl"),getData("previous_descriptionText"),getData("previous_descriptionBGColor"));
 
          break;
       }
