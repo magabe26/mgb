@@ -3394,7 +3394,9 @@ def showAdAfterXMins(int mins) {
 def onVideoDialogOpened(string videoUrl, string videoDescription, string redirectUrl) {
    //setVideoPlayerLoadingIndicator("https://raw.githubusercontent.com/magabe26/mgb/master/magabelab1.gif");
    //setVideoThumbnail("https://raw.githubusercontent.com/magabe26/mgb/master/magabelab1.gif")
-
+      
+   setVideoThumbnail("https://nothumbnail");
+ 
    videoPlayerPlay();
 }
 
