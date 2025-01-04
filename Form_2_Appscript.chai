@@ -1573,6 +1573,8 @@ setTimeOut(fun[]() {
   playWelcomeVideo("https://raw.githubusercontent.com/magabe26/mgb/master/Ads/new_year_2025.mp4");
 },6000); */ //12sec
 
+requestCustomDialog(2499, "", "Kama matokeo hayaonyeshi", "Nenda kwenye saved results, yafute kisha fungua upya", "sawa", "", "", 0.8, 0.2, false);
+
 }
 
 
