@@ -1224,7 +1224,7 @@ def filterHtml(string html) {
    
    }
 
-   hideLoadingIndicator();
+   
 
    return output;
 }
@@ -1918,7 +1918,7 @@ global currentResultYear = 0;
 
 def onSchoolResultsOpened(string info) {
    log("School results opened ---> ".append(info));
-
+hideLoadingIndicator();
    currentResultYear = getYear(info, "");
    currentSchool = info.remove(to_string(currentResultYear), false).remove("_", false).trim();
 
