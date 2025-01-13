@@ -105,6 +105,14 @@ Pakua aplikesheni zingine hapa
    <APP>
       <A HREF="#" />
    </APP>
+<APP>
+      <A HREF="#showGoogleAd">Mengineyo</A>
+      <COLOR>green</COLOR>
+      <BG_COLOR>white</BG_COLOR>
+      <ICON>fa::handoright</ICON>
+      <ICON_COLOR>red</ICON_COLOR>
+      <BOLD_TEXT>1</BOLD_TEXT>
+   </APP>
    <APP>
       <A HREF="#" />
    </APP>
