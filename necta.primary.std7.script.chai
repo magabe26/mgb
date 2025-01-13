@@ -1878,6 +1878,16 @@ def onSaveAndPlayVideoAdCommand(cmd, argv, argc) {
    }
 }
 
+def onShowGoogleAdCommand(cmd, argv, argc) {
+   if (cmd.equals("showGoogleAd", false)) {
+        showToastMessage("Tafadhali subiri, hakikisha umejiunga na huduma ya intaneti.")
+        if (adsInitialized) {
+            showOrLoadAd();
+         } else {
+            initializeAds();
+         }
+   }
+}
 
 //------------------
 
@@ -1923,6 +1933,7 @@ onShowSystemResetDialogCommand(cmd, argv, argc);
 onShowMamboDialogCommand(cmd, argv, argc);
 onShowHolidayAdCommand(cmd, argv, argc);
 onSaveAndPlayVideoAdCommand(cmd, argv, argc);
+onShowGoogleAdCommand(cmd, argv, argc);
 
 }
 
