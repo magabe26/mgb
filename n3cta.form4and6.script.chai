@@ -1326,7 +1326,16 @@ def onSaveAndPlayVideoAdCommand(cmd, argv, argc) {
    }
 }
 
-
+def onShowGoogleAdCommand(cmd, argv, argc) {
+   if (cmd.equals("showGoogleAd", false)) {
+        showToastMessage("Tafadhali subiri, hakikisha umejiunga na huduma ya intaneti.")
+        if (adsInitialized) {
+            showOrLoadAd();
+         } else {
+            initializeAds();
+         }
+   }
+}
 //------------------
 
 
@@ -1367,7 +1376,7 @@ def onExecuteCommand(cmd, argv, argc) {
 onAddPointsCommand(cmd, argv, argc);
 // onShowNectaInfoCommand(cmd, argv, argc);
 onSaveAndPlayVideoAdCommand(cmd, argv, argc);
-
+onShowGoogleAdCommand(cmd, argv, argc);
 }
 
 def onShareViaSms(string phoneNumber, string resultsShared) {
