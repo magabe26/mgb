@@ -1187,12 +1187,6 @@ def filterHtml(string html) {
    output = output.replace("results\\p", "results/p", false);
    output = fixRankingAndPerformanceDataForLatestResults(output);
 
-if(output.contains("<HTML>",false) && output.contains("<BODY     >",false) && output.contains("</BODY>",false)){
-    output = output.remove("<HTML>",false);
-    output = output.remove("<BODY     >",false);
-    output = output.replace("</BODY>", "</TABLE>", false);
- }
-
    return output;
 }
 
