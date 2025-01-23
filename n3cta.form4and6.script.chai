@@ -1531,11 +1531,11 @@ def onAppStarted() {
             } //os
          } //version
 
-requestCustomDialog(566, "fa::bell", "2024","Tatizo limejitokeza 😞, Wakati mfumo ukiwa unaboreshwa, angalia matokeo ya 2024 kwa kutembelea website ya NECTA", "Bonyeza hapa", "", "https://matokeo.necta.go.tz/results/2024/csee/CSEE2024/CSEE2024.htm", 0.9, 0.4, false);
+requestCustomDialog(566, "fa::bell", "2024","Tatizo limejitokeza 😞, Wakati mfumo ukiwa unaboreshwa, angalia matokeo ya 2024 kwa kutembelea website ya NECTA", "Bonyeza hapa", "", "https://matokeo.necta.go.tz/results/2024/csee/CSEE2024/CSEE2024.htm", 0.9, 0.3, false);
       } else if (isForm4App()) {
        
          //FORM 4 APP     
-requestCustomDialog(566, "fa::bell", "2024","Tatizo limejitokeza 😞, Wakati mfumo ukiwa unaboreshwa, angalia matokeo ya 2024 kwa kutembelea website ya NECTA", "Bonyeza hapa", "", "https://matokeo.necta.go.tz/results/2024/csee/CSEE2024/CSEE2024.htm", 0.9, 0.4, false);
+requestCustomDialog(566, "fa::bell", "2024","Tatizo limejitokeza 😞, Wakati mfumo ukiwa unaboreshwa, angalia matokeo ya 2024 kwa kutembelea website ya NECTA", "Bonyeza hapa", "", "https://matokeo.necta.go.tz/results/2024/csee/CSEE2024/CSEE2024.htm", 0.9, 0.3, false);
 
       } else if (isForm6App()) {
          //FORM 6 APP
