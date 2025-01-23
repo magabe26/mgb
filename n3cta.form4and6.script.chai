@@ -1901,8 +1901,9 @@ global currentSchool = "";
 global currentResultYear = 0;
 global currentResultType = "";
 
+
 def goToNectaResultPage(string info){
-  if((info.startsWith("2024_",false) && info.endsWith("CENTRE",false)) || info.contains("boys",false) || info.contains("girls",false) ){
+  if(info.startsWith("2024_",false) && info.endsWith("CENTRE",false) || info.contains("boys",false) || info.contains("girls",false) ){
      var query = "SELECT URL FROM savedNectaIndividualPages WHERE OTHERnAME LIKE \"".append(info).append("\"");
 	  excuteDBQuery(query, fun[info](success, values) {
       if (success) {
@@ -1911,10 +1912,29 @@ def goToNectaResultPage(string info){
           list.push_back(s);
          };
 		 forEachString(values, fn);
+		 var url = "";
          if(list.size() > 0){
-		    var url = list[0];
-			requestCustomDialog(100520231, "fa::bullhorn", info, "Matokeo haya hayafuati itifaki ya toleo hili la programu. Angalia ukurasa wake wa NECTA", "Angalia NECTA", "Hapana", url, 0.9, 0.2, false);
-			log(url);
+		    url = list[0];
+		 }else{
+		    var path = generateAppRootFilePath("2024_CSEE 2024 EXAMINATION RESULTS.mgb");
+			var data = getDecryptedFileData(path);
+			var i = data.indexOf(info,0,false) ;
+			if(i != -1){
+			   data = data.left(i);
+			   var offset = 1;
+			   while(true){
+			     if(data.mid(i - offset,-1).indexOf("href",0,false) == - 1){
+				   offset += 1;
+				 }else{
+				 	data = data.mid(i - offset,-1);	 
+					url = stR("href=\"",false).seq(any(chaR('"'),"").plus()).firstStringMatch(data,0).remove("href=\"",false);
+					break;
+				 }
+			   }
+			}
+		 }
+		 if(!url.isEmpty()){
+		    requestCustomDialog(100520231, "fa::bullhorn", info, "Matokeo haya hayafuati itifaki ya toleo hili la programu. Angalia ukurasa wake wa NECTA", "Angalia NECTA", "Hapana", url, 0.8, 0.2, false);
 		 }
       }
    });
