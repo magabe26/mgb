@@ -1901,6 +1901,27 @@ global currentSchool = "";
 global currentResultYear = 0;
 global currentResultType = "";
 
+def goToNectaResultPage(string info){
+  if(info.startsWith("2024_",false) && info.endsWith("CENTRE",false)){
+     var query = "SELECT URL FROM savedNectaIndividualPages WHERE OTHERnAME LIKE \"".append(info).append("\"");
+	  excuteDBQuery(query, fun[info](success, values) {
+      if (success) {
+         var list = [];
+         var fn = fun[list](string s) {
+          list.push_back(s);
+         };
+		 forEachString(values, fn);
+         if(list.size() > 0){
+		    var url = list[0];
+			requestCustomDialog(100520231, "fa::bullhorn", info, "Matokeo haya hayafuati itifaki ya toleo hili la programu. Angalia ukurasa wake wa NECTA", "Angalia NECTA", "Hapana", url, 0.8, 0.2, false);
+			log(url);
+		 }
+      }
+   });
+  }
+
+}
+
 def onSchoolResultsOpened(string info) {
    //log("School results opened ---> ".append(info));
 
@@ -1912,6 +1933,7 @@ def onSchoolResultsOpened(string info) {
     if (currentResultType.isEmpty()) {
       if (isForm4App()) {
          currentResultType = "CSEE";
+          goToNectaResultPage(info);
       } else if (isForm6App()) {
          currentResultType = "ACSEE";
       }
