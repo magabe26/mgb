@@ -1187,6 +1187,20 @@ def filterHtml(string html) {
    output = output.replace("results\\p", "results/p", false);
    output = fixRankingAndPerformanceDataForLatestResults(output);
 
+var index1 = output.indexOf("<HTML data-lt-installed\"true\">",0,false);
+   if(index1 != -1){
+      var index2 = output.indexOf("<TABLE  \" 4\" p  >",index1,false);
+	  if(index2 != -1){
+	     output = output.strReplaceAtPosition(index1,(index2 - index1) + 17, "<TABLE>");
+		 var index3 = output.indexOf("</TABLE></TABLE>",index1,false);
+		 if(index3 != -1){
+		   output = output.strReplaceAtPosition(index1,(index3 - index1) + 16, "");
+		 }
+	   
+	  }	  
+   
+   }
+
    return output;
 }
 
