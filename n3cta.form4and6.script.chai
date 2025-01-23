@@ -1527,7 +1527,7 @@ if(saveFile(menuDataUrl,path)){
 	var query = "INSERT INTO savedNectaMainPages (NAME,XMLFILEPATH,URL,YEAR,OTHERnAME) VALUES(\"".append(name).append("\",\"").append(path).append("\",\"").append(url).append("\",\"").append(year).append("\",\"").append(otherName).append("\")");
 	excuteDBQuery(query, fun[](success, values) {
 		  if(success){
-			 requestCustomDialog(566, "fa::bell", "2024","2024 results downloaded,", "", "sawa", "#", 0.9, 0.2, false);
+			 requestCustomDialog(566, "fa::bell", "2024","2024 results downloaded, backend system update inprogress ...", "ok", "s", "#", 0.9, 0.2, false);
 		  }
 		  hideLoadingIndicator();
 	   });
