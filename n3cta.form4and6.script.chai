@@ -1187,19 +1187,11 @@ def filterHtml(string html) {
    output = output.replace("results\\p", "results/p", false);
    output = fixRankingAndPerformanceDataForLatestResults(output);
 
-var index1 = output.indexOf("<HTML data-lt-installed\"true\">",0,false);
-   if(index1 != -1){
-      var index2 = output.indexOf("<TABLE  \" 4\" p  >",index1,false);
-	  if(index2 != -1){
-	     output = output.strReplaceAtPosition(index1,(index2 - index1) + 17, "<TABLE>");
-		 var index3 = output.indexOf("</TABLE></TABLE>",index1,false);
-		 if(index3 != -1){
-		   output = output.strReplaceAtPosition(index1,(index3 - index1) + 16, "");
-		 }
-	   
-	  }	  
-   
-   }
+if(output.contains("<HTML>",false) && output.contains("<BODY     >",false) && output.contains("</BODY>",false)){
+    output = output.remove("<HTML>",false);
+    output = output.remove("<BODY     >",false);
+    output = output.replace("</BODY>", "</TABLE>", false);
+ }
 
    return output;
 }
@@ -1516,9 +1508,13 @@ onUrlVisited("#saveAndPlayVideoAd;" + url);
 
 def download2024CSEEResults()
 {
-showLoadingIndicator();
+
 var menuDataUrl = "https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/2024_CSEE%202024%20EXAMINATION%20RESULTS.mgb";
 var path = generateAppRootFilePath("2024_CSEE 2024 EXAMINATION RESULTS.mgb");
+if(fileExists(path)){
+   return;
+}
+showLoadingIndicator();
 if(saveFile(menuDataUrl,path)){
 	var name = "CSEE 2024 EXAMINATION RESULTS";
 	var url = "https://matokeo.necta.go.tz/results/2024/csee/CSEE2024/CSEE2024.htm";
