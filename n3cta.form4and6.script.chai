@@ -1189,7 +1189,8 @@ def filterHtml(string html) {
 
    output = output.replace("GIRLS''", "GIRLS", false);
    output = output.replace("GIRLS'", "GIRLS", false);
-   
+   output = output.replace("BOYS''", "BOYS", false);
+   output = output.replace("BOYS'", "BOYS", false);
 
    return output;
 }
