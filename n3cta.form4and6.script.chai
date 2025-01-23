@@ -1686,12 +1686,12 @@ enableAccessPointsGuardForThisUsefullFeature();
 }
 
 def getNectaCSEEMenuUrl() {
-   return "https://www.necta.go.tz/csee_results";
+   return "localhost/fake";
 }
 
 
 def getNectaACSEEMenuUrl() {
-   return "https://www.necta.go.tz/acsee_results";
+   return "localhost/fake";
 }
 
 def getAbsoluteLinks(string html){
