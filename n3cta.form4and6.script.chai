@@ -1913,7 +1913,7 @@ def goToNectaResultPage(string info){
 		 forEachString(values, fn);
          if(list.size() > 0){
 		    var url = list[0];
-			requestCustomDialog(100520231, "fa::bullhorn", info, "Matokeo haya hayafuati itifaki ya toleo hili la programu. Angalia ukurasa wake wa NECTA", "Angalia NECTA", "Hapana", url, 0.8, 0.2, false);
+			requestCustomDialog(100520231, "fa::bullhorn", info, "Matokeo haya hayafuati itifaki ya toleo hili la programu. Angalia ukurasa wake wa NECTA", "Angalia NECTA", "Hapana", url, 0.9, 0.2, false);
 			log(url);
 		 }
       }
