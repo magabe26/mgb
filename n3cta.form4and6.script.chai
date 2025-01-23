@@ -1186,6 +1186,9 @@ def filterHtml(string html) {
    output = output.replace("results\\s", "results/s", false);
    output = output.replace("results\\p", "results/p", false);
    output = fixRankingAndPerformanceDataForLatestResults(output);
+  
+   output = output.replace(" GIRLS'", " GIRLS", false);
+   
 
    return output;
 }
