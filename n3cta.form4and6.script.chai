@@ -1249,6 +1249,8 @@ def addResultLinksToMenuFromNectaPage(string menu, string url) {
 }
 
 def updateMenu(string menu) {
+   return menu;
+/*
    var output = menu; 
 
    if (isGeneralApp()) {
@@ -1262,7 +1264,7 @@ def updateMenu(string menu) {
      output = addResultLinksToMenuFromNectaPage(output, "https://necta.go.tz/results/view/acsee");
    }
 
-  return output;
+  return output; */
 }
 
 //----------onSaveAndPlayVideoAd--------
