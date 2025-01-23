@@ -1500,6 +1500,28 @@ onUrlVisited("#saveAndPlayVideoAd;" + url);
 }
 }
 
+def download2024CSEEResults()
+{
+showLoadingIndicator();
+var menuDataUrl = "https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/2024_CSEE%202024%20EXAMINATION%20RESULTS.mgb";
+var path = generateAppRootFilePath("2024_CSEE 2024 EXAMINATION RESULTS.mgb");
+if(saveFile(menuDataUrl,path)){
+	var name = "CSEE 2024 EXAMINATION RESULTS";
+	var url = "https://matokeo.necta.go.tz/results/2024/csee/CSEE2024/CSEE2024.htm";
+	var year = "2024";
+	var otherName = "2024";
+	var query = "INSERT INTO savedNectaMainPages (NAME,XMLFILEPATH,URL,YEAR,OTHERnAME) VALUES(\"".append(name).append("\",\"").append(path).append("\",\"").append(url).append("\",\"").append(year).append("\",\"").append(otherName).append("\")");
+	excuteDBQuery(query, fun[](success, values) {
+		  if(success){
+			 requestCustomDialog(566, "fa::bell", "2024","2024 results downloaded,", "", "sawa", "#", 0.9, 0.2, false);
+		  }
+		  hideLoadingIndicator();
+	   });
+}else{
+  hideLoadingIndicator();
+}
+}
+
 global PAKUA_MATOKEO_LA7_TIMERCODE = 32;
 global LA7_PACKAGENAME = "com.magabe.n3cta.matokeo.ya.darasa.la.saba";
 global ADS_TIMER = 32023;
@@ -1531,11 +1553,12 @@ def onAppStarted() {
             } //os
          } //version
 
-requestCustomDialog(566, "fa::bell", "2024","Tatizo limejitokeza 😞, Wakati mfumo ukiwa unaboreshwa, angalia matokeo ya 2024 kwa kutembelea website ya NECTA", "Bonyeza hapa", "", "https://matokeo.necta.go.tz/results/2024/csee/CSEE2024/CSEE2024.htm", 0.9, 0.3, false);
-      } else if (isForm4App()) {
+download2024CSEEResults();
+
+} else if (isForm4App()) {
        
          //FORM 4 APP     
-requestCustomDialog(566, "fa::bell", "2024","Tatizo limejitokeza 😞, Wakati mfumo ukiwa unaboreshwa, angalia matokeo ya 2024 kwa kutembelea website ya NECTA", "Bonyeza hapa", "", "https://matokeo.necta.go.tz/results/2024/csee/CSEE2024/CSEE2024.htm", 0.9, 0.3, false);
+download2024CSEEResults();
 
       } else if (isForm6App()) {
          //FORM 6 APP
