@@ -1903,7 +1903,7 @@ global currentResultType = "";
 
 
 def goToNectaResultPage(string info){
-  if(info.startsWith("2024_",false) && info.endsWith("CENTRE",false) || info.contains("boys",false) || info.contains("girls",false) ){
+  if(info.startsWith("2024_",false) && info.endsWith("CENTRE",false) || info.contains("boys",false) || info.contains("girls",false)  || info.contains("'",false) ){
      var query = "SELECT URL FROM savedNectaIndividualPages WHERE OTHERnAME LIKE \"".append(info).append("\"");
 	  excuteDBQuery(query, fun[info](success, values) {
       if (success) {
