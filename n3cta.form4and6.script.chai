@@ -1534,7 +1534,7 @@ if(saveFile(menuDataUrl,path)){
 }
 
 //Maboresho
-requestCustomDialog(566, "fa::bell", "Matokeo ya 2024","Maboresho ya mfumo kwa ajili ya matokeo ya 2024 yamekamilika, kama umeanza kutumia aplikesheni hii kabla ya tarehe 25-1-2025 saa 9:00 mchana,ili kufaidika na maboresho hayo, nenda 'Saved Results' , futa matokeo yote, funga aplikesheni, kisha fungua upya aplikesheni. Asante. ", "sawa", "", "#", 0.9, 0.6, false);
+requestCustomDialog(566, "fa::bell", "Matokeo ya 2024","Maboresho ya mfumo kwa ajili ya matokeo ya kidato cha 4 (2024) yamekamilika, kama umeanza kutumia aplikesheni hii kabla ya tarehe 25-1-2025 saa 9:00 mchana,ili kufaidika na maboresho hayo, nenda 'Saved Results' , futa matokeo yote, funga aplikesheni, kisha fungua upya aplikesheni. Asante. ", "sawa", "", "#", 0.9, 0.6, false);
 
 }
 
