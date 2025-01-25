@@ -1510,6 +1510,14 @@ def download2024CSEEResults()
 
 var menuDataUrl = "https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/2024_CSEE%202024%20EXAMINATION%20RESULTS.mgb";
 var path = generateAppRootFilePath("2024_CSEE 2024 EXAMINATION RESULTS.mgb");
+
+// update
+if(getData("2024_csee_update_1").isEmpty()){
+   deleteFile(path);
+   saveOrUpdateData("2024_csee_update_1","1");
+   showToastMessage("Mfumo umeboreshwa kwa ajili ya matokeo ya 2024");
+}
+
 if(fileExists(path)){
    return;
 }
