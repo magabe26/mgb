@@ -935,7 +935,7 @@ def onAdRewardFailure(){
 	enableAdLoadingDialog = false;
 	if(previousRequiredPoints != 0.0){
 	   showInsuficientAccessPointDialog(previousRequiredPoints);
-	   showToastMessage("Imeshindwa kufungua tangazo!");
+	  // showToastMessage("Imeshindwa kufungua tangazo!");
 	}
 }
 
