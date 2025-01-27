@@ -1638,10 +1638,11 @@ saveSplashImage("https://raw.githubusercontent.com/magabe26/mgb/master/tzmapflag
 
    } catch {}
 
-
+/*
 setTimeOut(fun[]() {
   playWelcomeVideo("https://raw.githubusercontent.com/magabe26/mgb/master/Ads/samia-bday.mp4;#;President Samia Suluhu Hassan;transparent");
-},6000);  //12sec
+},6000);
+*/ 
 
 
 }
