@@ -2408,7 +2408,7 @@ setHolidayLoadingIndicator();
          }
       }
 
-playWelcomeVideo("https://raw.githubusercontent.com/magabe26/mgb/master/Ads/samia-bday.mp4;#;President Samia Suluhu Hassan;transparent");
+//playWelcomeVideo("https://raw.githubusercontent.com/magabe26/mgb/master/Ads/samia-bday.mp4;#;President Samia Suluhu Hassan;transparent");
 
    } catch {}
 
