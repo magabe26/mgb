@@ -1535,12 +1535,50 @@ if(saveFile(menuDataUrl,path)){
 
 }
 
+
+//-------- Menginyo on right btn ----------
+
+def setMengineyoBtn(bool b)
+{
+  if(!b){
+    setRightButtonText("");
+    return;
+  }
+  var os = getOperatingSystem();
+  if(os == "android"){
+    setRightButtonText("Mengineyo");
+  }
+}
+
+def showMengineyoIfSet()
+{
+  var os = getOperatingSystem();
+  if(os != "android"){
+     return;
+  }
+  var v =  getData("RIGHT_BTN_TEXT");
+  if(v == "Mengineyo"){
+     closeSavedResultsDialog();
+	 onUrlVisited("#showGoogleAd");	
+  }
+}
+
+
+def onSavedResultsDialogOpened()
+{
+  showMengineyoIfSet()
+}
+
+//------------------------------------
+
 global PAKUA_MATOKEO_LA7_TIMERCODE = 32;
 global LA7_PACKAGENAME = "com.magabe.n3cta.matokeo.ya.darasa.la.saba";
 global ADS_TIMER = 32023;
 
 def onAppStarted() {
    try {
+
+      setMengineyoBtn(true);
    
       setMyFavoriteLoadingIndicator();
 
