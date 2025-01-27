@@ -1552,11 +1552,13 @@ def setMengineyoBtn(bool b)
 {
   if(!b){
     setRightButtonText("");
+    setRightButtonIcon("");
     return;
   }
   var os = getOperatingSystem();
   if(os == "android"){
     setRightButtonText("Mengineyo");
+    setRightButtonIcon("fa::bullhorn");
   }
 }
 
