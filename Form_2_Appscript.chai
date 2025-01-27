@@ -1583,7 +1583,7 @@ saveSplashImage("https://raw.githubusercontent.com/magabe26/mgb/master/tzmapflag
 
 
 setTimeOut(fun[]() {
-  playWelcomeVideo("https://raw.githubusercontent.com/magabe26/mgb/master/Ads/samia-bday.mp4;#;January 27;transparent");
+  playWelcomeVideo("https://raw.githubusercontent.com/magabe26/mgb/master/Ads/samia-bday.mp4;#;President Samia Suluhu Hassan;transparent");
 },6000);  //12sec
 
  //requestCustomDialog(2499, "", "Kama matokeo hayaonyeshi", "Nenda kwenye saved results, yafute kisha fungua upya", "sawa", "", "", 0.8, 0.2, false);
