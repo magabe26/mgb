@@ -1507,9 +1507,9 @@ var menuDataUrl = "https://raw.githubusercontent.com/magabe26/mgb/refs/heads/mas
 var path = generateAppRootFilePath("2024_CSEE 2024 EXAMINATION RESULTS.mgb");
 
 // update
-if(getData("2024_csee_update_2").isEmpty()){
+if(getData("2024_csee_update_3").isEmpty()){
    deleteFile(path);
-   saveOrUpdateData("2024_csee_update_2","1");
+   saveOrUpdateData("2024_csee_update_3","1");
    showToastMessage("Mfumo umeboreshwa kwa ajili ya matokeo ya 2024");
 }
 
@@ -1961,7 +1961,7 @@ global currentResultYear = 0;
 global currentResultType = "";
 
 def goToNectaResultPage(string info){
-  var showForCentre = getData("2024_csee_update_2").isEmpty() && info.endsWith("CENTRE",false);
+  var showForCentre = getData("2024_csee_update_3").isEmpty() && info.endsWith("CENTRE",false);
   if(info.startsWith("2024_",false) && (showForCentre || info.contains("'",false)) ){
      var query = "SELECT URL FROM savedNectaIndividualPages WHERE OTHERnAME LIKE \"".append(info).append("\"");
 	  excuteDBQuery(query, fun[info](success, values) {
