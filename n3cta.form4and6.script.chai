@@ -1048,7 +1048,7 @@ def formatCandidateResult(string input) { //input = candidate tr
 }
 //----------NECTA INFO--------
 
-def getNectaInfo() {
+def getNectaInfo() { return "";
    var pageUrl = "https://necta.go.tz/"
    return stripTag(html_tag("marquee").firstStringMatch(get(pageUrl), 0), "marquee").trim();
 }
