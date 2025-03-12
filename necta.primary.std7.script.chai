@@ -3718,6 +3718,14 @@ def onConsentGranted() {
    initializeAds();
 }
 
+def onFormatCandidateNo(string cNo, bool isListItem)
+{
+   if(isListItem){
+      return cNo; //For Faster loading
+   }else{
+      return formatCandidateNo(cNo,"-","white","#168490","cyan");
+   }
+}
 //----------------------------------------
 
 def runTest(string input) {
