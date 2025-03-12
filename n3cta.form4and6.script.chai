@@ -643,6 +643,13 @@ def onOfflineVideoCommand(cmd, argv, argc) {
 }
 
 //------------------
+
+def safeRefreshUI(){
+   try {
+      refreshUI();
+   } catch {}
+}
+
 //------------------
 
 global lifeQuotes = [
@@ -1543,12 +1550,14 @@ def setMengineyoBtn(bool b)
   if(!b){
     setRightButtonText("");
     setRightButtonIcon("");
+    safeRefreshUI();
     return;
   }
   var os = getOperatingSystem();
   if(os == "android"){
     setRightButtonText("Mengineyo");
     setRightButtonIcon("fa::bullhorn");
+    safeRefreshUI();
   }
 }
 
