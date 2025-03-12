@@ -190,6 +190,12 @@ def string::equals(string other, bool caseSensitive) {
 
 /* -------------------------------------------------*/
 
+def safeRefreshUI(){
+   try {
+      refreshUI();
+   } catch {}
+}
+
 //------------------
 
 def saveOrUpdateData(string key, string value) {
@@ -1553,12 +1559,14 @@ def setMengineyoBtn(bool b)
   if(!b){
     setRightButtonText("");
     setRightButtonIcon("");
+    safeRefreshUI();
     return;
   }
   var os = getOperatingSystem();
   if(os == "android"){
     setRightButtonText("Mengineyo");
     setRightButtonIcon("fa::bullhorn");
+    safeRefreshUI();
   }
 }
 
