@@ -2301,6 +2301,11 @@ def beforeSchoolResultsXmlSubmittion(string xml, string name){
    }
 
 }
+
+def getMenuHeaderFontPointSize(string os){
+     return os.equals("android", false) ? 14 : 10;
+}
+
 //----------------------------------------
 
 def runTest(string input) {
