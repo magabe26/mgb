@@ -1647,6 +1647,8 @@ setLeftButtonIconColor("cyan");
    setRightButtonIconColor("cyan");
 setRightButtonTextColor("white");
 
+safeRefreshUI();
+
 saveSplashImage("https://raw.githubusercontent.com/magabe26/mgb/master/tzmapflag.jpeg");
   
 
