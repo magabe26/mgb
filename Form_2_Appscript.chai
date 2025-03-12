@@ -1593,7 +1593,7 @@ def onSavedResultsDialogOpened()
 
 def onInitConfigs(){
 
-    setMengineyoBtn(true);
+    setMengineyoBtn(false);
 	   
 }
 
