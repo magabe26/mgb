@@ -3460,7 +3460,7 @@ def downloadUpdate() {
    try {
 
       var packageName = getAppPackageName();
-      var message = "Toleo jipya la aplikesheni hii ambalo ni ".append(LATEST_APP_VERSION_NAME).append(" limeshatoka. Toleo hili linaonyesha taarifa ya ufaulu wa masomo katika makundi. Pakua sasa na pia usisahau ku-rate aplikesheni hii, Asante.");
+      var message = "Toleo jipya la aplikesheni hii ambalo ni ".append(LATEST_APP_VERSION_NAME).append(" limeshatoka. Pakua sasa na pia usisahau ku-rate aplikesheni hii, Asante.");
       var os = getOperatingSystem();
       var url = (os == "android") ? packageNameToUrl(packageName) : WIN64_DOWLOAD_URL;
       var versionName = getVersionName(packageName);
