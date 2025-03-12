@@ -2367,6 +2367,10 @@ def onConsentGranted() {
    initializeAds();
 }
 
+def getMenuHeaderFontPointSize(string os){
+     return os.equals("android", false) ? 14 : 10;
+}
+
 //----------------------------------------
 
 def runTest(string input) {
