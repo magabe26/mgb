@@ -2282,6 +2282,15 @@ def onConsentGranted() {
    initializeAds();
 }
 
+def beforeSchoolResultsXmlSubmittion(string xml, string name){
+ 
+   if(name.simplified().endsWith("CENTRE",false)){
+      return removeEmptyStudentResults(xml);
+   }else{
+      return xml;
+   }
+
+}
 //----------------------------------------
 
 def runTest(string input) {
