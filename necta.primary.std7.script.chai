@@ -1983,7 +1983,7 @@ def getMenuHolidayAd(string output){
 //------------------
 //------------------
 
-global LATEST_APP_VERSION_NAME = "4.4"; //Always change this this on every App release
+global LATEST_APP_VERSION_NAME = "4.5"; //Always change this this on every App release
 global WIN64_DOWLOAD_URL = "https://www.mediafire.com/file/zqzc6w4hcu2ig1y/Matokeo+La7+v4.2+WinX64+Installer.exe/file";
 global DOWNLOAD_UPDATE_REQUESTCODE = 201;
 
@@ -3723,9 +3723,23 @@ def onFormatCandidateNo(string cNo, bool isListItem)
    if(isListItem){
       return cNo; //For Faster loading
    }else{
-      return formatCandidateNo(cNo,"-","white","#168490","cyan");
+      return formatCandidateNo(cNo,"-","cyan","#168490","white");
    }
 }
+
+//----------------------------------------
+
+def getOtherAppsPageRightIcon()
+{
+  return "fa::youtubeplay";
+}
+
+def onOtherAppsPageRightIconClicked()
+{
+   onUrlVisited("#showGoogleAd");
+}
+
+//----------------------------------------
 //----------------------------------------
 
 def runTest(string input) {
