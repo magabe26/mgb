@@ -2961,6 +2961,19 @@ def onDownloadFailed(url, errorCode, errorString)
 
 //-------------------------------
 //----------------------------------------
+//----------------------------------------
+
+def getOtherAppsPageRightIcon()
+{
+  return "fa::youtubeplay";
+}
+
+def onOtherAppsPageRightIconClicked()
+{
+   onUrlVisited("#showGoogleAd");
+}
+
+//----------------------------------------
 
 def runTest(string input) {
    var output = input;
