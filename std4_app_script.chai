@@ -4255,6 +4255,20 @@ def onFormatCandidateNo(string cNo, bool isListItem)
       return formatCandidateNo(cNo,"-","white","#168490","cyan");
    }
 }
+
+//----------------------------------------
+
+def getOtherAppsPageRightIcon()
+{
+  return "fa::youtubeplay";
+}
+
+def onOtherAppsPageRightIconClicked()
+{
+   onUrlVisited("#showGoogleAd");
+}
+
+//----------------------------------------
 //----------------------------------------
 
 
