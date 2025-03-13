@@ -2316,12 +2316,24 @@ def isVideoDialogMinimizeDisabled(string videoUrl, double position, double durat
    }
 }
 
+def simplifyResultsHeaderTitles(string text){
+     if (text.equals("EXAMINATION CENTRE SUBJECTS PERFORMANCE", false)) {
+	     return "SUBJECTS PERFORMANCE";
+	 } else if (text.equals("EXAMINATION CENTRE CLASS/DIVISIONS PERFORMANCE", false)) {
+		 return "CLASS/DIVISIONS PERFORMANCE";
+	 } else if (text.equals("EXAMINATION CENTRE RANKING", false)) {
+		 return "RANKING";
+	 } else {
+	     return text;
+	 }
+}
+
 def tr(text) {
  var i = text.indexOf("Created",0,false);
  if(i != -1){
 	return text.left(i);
   }
-   return text;
+    return simplifyResultsHeaderTitles(text);
 }
 
 def showDebugMessage(msg) {
