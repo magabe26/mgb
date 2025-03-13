@@ -1605,36 +1605,17 @@ def onAppStarted() {
 	  var vn = getVersionNameAsDouble();
 
       if (isGeneralApp()) {
-         //GENERAL APP
-
-         var version = getScriptRunnerVersion();
-         if (version >= 4) {
-            var os = getOperatingSystem();
-            if (os == "android") {
-
-               if (!isPackageExisted(LA7_PACKAGENAME)) {
-                  setTimer(PAKUA_MATOKEO_LA7_TIMERCODE, 1000 * 60 * 0.5); //wait 30 sec
-               }
-
-
-            } //os
-         } //version
+         //GENERAL APP         
 
 download2024CSEEResults();
 
-//Maboresho
-/*
-requestCustomDialog(566, "fa::bell", "Matokeo ya 2024","Maboresho ya mfumo kwa ajili ya matokeo ya kidato cha 4 (2024) yamekamilika, kama umeanza kutumia aplikesheni hii kabla ya tarehe 25-1-2025 saa 9:00 mchana,ili kufaidika na maboresho hayo, nenda 'Saved Results' , futa matokeo yote, funga aplikesheni, kisha fungua upya aplikesheni. Asante. ", "sawa", "", "#", 0.9, 0.6, false);
-*/
 
 } else if (isForm4App()) {
        
-         //FORM 4 APP     
+         //FORM 4 APP 
+
 download2024CSEEResults();
-//Maboresho
-/*
-requestCustomDialog(566, "fa::bell", "Matokeo ya 2024","Maboresho ya mfumo kwa ajili ya matokeo ya kidato cha 4 (2024) yamekamilika, kama umeanza kutumia aplikesheni hii kabla ya tarehe 25-1-2025 saa 9:00 mchana,ili kufaidika na maboresho hayo, nenda 'Saved Results' , futa matokeo yote, funga aplikesheni, kisha fungua upya aplikesheni. Asante. ", "sawa", "", "#", 0.9, 0.6, false);
-*/
+
 
       } else if (isForm6App()) {
          //FORM 6 APP
