@@ -1591,8 +1591,21 @@ def onSavedResultsDialogOpened()
 
 //------------------------------------
 
+def setResultsDowloaderDialogIndicator(string githubImageName,string githubImagePath){
+    var key = "/info.png";
+	var path = generateAppRootFilePath(githubImageName);
+	if (!fileExists(path)) {
+	    if(saveFile(githubFile(githubImagePath.append(githubImageName)),path)){
+		   saveOrUpdateData(key,path);
+		}
+	}else{
+	    saveOrUpdateData(key,path);
+	}
+}
+
 def onInitConfigs(){
 
+    setResultsDowloaderDialogIndicator("processing.gif","");
     setMengineyoBtn(false);
 	   
 }
