@@ -3749,3 +3749,79 @@ def runTest(string input) {
 
    return output;
 }
+
+//----------------- Accesss Permissions -----------------------
+
+global LATEST_RESULTS_YEAR = 2024;
+global ACCESS_PERMISSIONS_FEATURE_ENABLED = false;
+global ACCESS_PERMISSIONS_FEATURE_LANG = "sw";
+
+def hasSchoolResultsOpenPermission(school,url)
+{
+  var year = getYear("",url);
+  if(year == 0){
+    return true;
+  }
+  return  (!ACCESS_PERMISSIONS_FEATURE_ENABLED) || accessCodePurchased(to_string(LATEST_RESULTS_YEAR)) || (year < LATEST_RESULTS_YEAR) || accessCodePurchased(to_string(year));
+}
+
+def onSchoolResultsOpenPermissionDenied(school,url)
+{
+   accessCodeDialogOpen();
+}
+
+def hasYearResultsOpenPermission(year,url)
+{
+  return  (!ACCESS_PERMISSIONS_FEATURE_ENABLED) || accessCodePurchased(to_string(LATEST_RESULTS_YEAR)) || (year < LATEST_RESULTS_YEAR) || accessCodePurchased(to_string(year));
+}
+
+def onYearResultsOpenPermissionDenied(year,url)
+{
+  accessCodeDialogOpen();
+}
+
+def onBuyAccessCode(){
+    accessCodeDialogClose();
+	accessCodeDialogSetCode("");
+	showDefaultPurchaseIntructions(ACCESS_PERMISSIONS_FEATURE_LANG);
+}
+
+def onEnterAccessCode(string accessCode)
+{
+   if(accessCode.isEmpty()){
+      showToastMessage(ACCESS_PERMISSIONS_FEATURE_LANG == "en" ? "Empty code" : "Code tupu");
+      return;
+   }
+   showLoadingIndicator();
+   verifyAccessCode(accessCode,to_string(LATEST_RESULTS_YEAR));
+}
+
+//-- Verification --
+
+def accessCodeEncryptedEndpoint() 
+{
+   return "AwIai0H9Zo2yfGF0NJAW6soBSR8E/nKC4yp3YnrLRvbYBkIdAaZkmLhhIw=="; //Actual
+}
+
+def onAccessCodeVerificationSuccess(accessCode)
+{
+  hideLoadingIndicator();
+  accessCodeDialogClose();
+  accessCodeDialogSetCode("");
+  showDefaultAccessCodeVerificationSuccessMessage(accessCode,ACCESS_PERMISSIONS_FEATURE_LANG,0.3);
+}
+
+def onAccessCodeVerificationFailure(accessCode,errorCode)
+{
+  hideLoadingIndicator();
+  showDefaultAccessCodeVerificationFailure(accessCode,errorCode,"en", 0.2);
+}
+
+def onAccessCodeRevoked(accessCode,note)
+{
+
+ log("onAccessCodeRevoked------ code = " + accessCode + "------- note = " + note);
+ 
+}
+
+//--------------------------------------------------
