@@ -4438,6 +4438,8 @@ def onAccessCodeVerificationSuccess(accessCode)
 def onAccessCodeVerificationFailure(accessCode,errorCode)
 {
   hideLoadingIndicator();
+ accessCodeDialogClose();
+  accessCodeDialogSetCode("");
   showVerificationFailure(accessCode,errorCode,"en", 0.2);
 }
 
