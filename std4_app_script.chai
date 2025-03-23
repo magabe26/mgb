@@ -4282,7 +4282,7 @@ def runTest(string input) {
 
 //----------------- Accesss Permissions -----------------------
 
-global LATEST_RESULTS_YEAR = 2022;
+global LATEST_RESULTS_YEAR = 2024;
 global ACCESS_PERMISSIONS_FEATURE_ENABLED = true;
 global ACCESS_PERMISSIONS_FEATURE_LANG = "sw";
 
@@ -4332,7 +4332,7 @@ def showVerificationSuccessMessage(accessCode,lang,h)
 {
 	var icon = "fa::bullhorn";
 	var w = 0.98;
-	if(lang == "en"){
+	if(lang.equals("en",false)){
 		requestCustomDialog(20250320, icon, " <font color=\"#00c000\">Verification Success</font>", "<font color=\"#00c000\"> " + accessCode + "</font> confirmed. Thank you for contributing to the development of this application.", "Ok", "", "#", w, h, false);
 	}else{
 		requestCustomDialog(20250320, icon, " <font color=\"#00c000\">Uthibitisho Umefanikiwa</font>", "<font color=\"#00c000\"> " + accessCode + "</font> imefanikiwa. Asante kwa kuchangia katika maendelea ya aplikesheni hii.", "Sawa", "", "#", w, h, false);
@@ -4342,7 +4342,7 @@ def showVerificationSuccessMessage(accessCode,lang,h)
     def showVerificationFailure(accessCode,errorCode,lang,h)
     {
         var msg;
-        if(lang == "en"){
+        if(lang.equals("en",false)){
             if(3 == errorCode){
                 msg = "Used code";
             }
@@ -4415,7 +4415,7 @@ def showVerificationSuccessMessage(accessCode,lang,h)
         }
         var icon = "fa::bullhorn";
         var w = 0.98;
-        if(lang == "en"){
+        if(lang.equals("en",false)){
             requestCustomDialog(20250320, icon, " <font color=\"red\">Verification of <font color=\"#00c000\">" +accessCode + "</font> failed</font>", msg, "Ok", "", "#", w, h, false);
         }else{
             requestCustomDialog(20250320, icon, " <font color=\"red\">Uthibitisho <font color=\"#00c000\">" +accessCode + "</font> umeshindikana</font>", msg, "Sawa", "", "#", w, h, false);
@@ -4437,10 +4437,10 @@ def onAccessCodeVerificationSuccess(accessCode)
 
 def onAccessCodeVerificationFailure(accessCode,errorCode)
 {
-  hideLoadingIndicator();
- accessCodeDialogClose();
+   hideLoadingIndicator();
+  accessCodeDialogClose();
   accessCodeDialogSetCode("");
-  showVerificationFailure(accessCode,errorCode,"en", 0.2);
+  showVerificationFailure(accessCode,errorCode,ACCESS_PERMISSIONS_FEATURE_LANG, 0.2);
 }
 
 def onAccessCodeRevoked(accessCode,note)
