@@ -3753,7 +3753,7 @@ def runTest(string input) {
 //----------------- Accesss Permissions -----------------------
 
 global LATEST_RESULTS_YEAR = 2024;
-global ACCESS_PERMISSIONS_FEATURE_ENABLED = false;
+global ACCESS_PERMISSIONS_FEATURE_ENABLED = true;
 global ACCESS_PERMISSIONS_FEATURE_LANG = "sw";
 
 def hasSchoolResultsOpenPermission(school,url)
@@ -3798,6 +3798,100 @@ def onEnterAccessCode(string accessCode)
 
 //-- Verification --
 
+def showVerificationSuccessMessage(accessCode,lang,h)
+{
+	var icon = "fa::bullhorn";
+	var w = 0.98;
+	if(lang.equals("en",false)){
+		requestCustomDialog(20250320, icon, " <font color=\"#00c000\">Verification Success</font>", "<font color=\"#00c000\"> " + accessCode + "</font> confirmed. Thank you for contributing to the development of this application.", "Ok", "", "#", w, h, false);
+	}else{
+		requestCustomDialog(20250320, icon, " <font color=\"#00c000\">Uthibitisho Umefanikiwa</font>", "<font color=\"#00c000\"> " + accessCode + "</font> imefanikiwa. Asante kwa kuchangia katika maendelea ya aplikesheni hii.", "Sawa", "", "#", w, h, false);
+	}
+}
+
+    def showVerificationFailure(accessCode,errorCode,lang,h)
+    {
+        var msg;
+        if(lang.equals("en",false)){
+            if(3 == errorCode){
+                msg = "Used code";
+            }
+            else if(4 == errorCode){
+                msg = "Revoked code";
+            }
+            else if(5 == errorCode){
+                msg = "Invalid code";
+            }
+            else if(6 == errorCode){
+                msg = "Empty code";
+            }
+            else if(7 == errorCode){
+                msg = "Empty hint";
+            }
+            else if(8 == errorCode){
+                msg = "Invalid end point";
+            }
+            else if(9 == errorCode){
+                msg = "Unknown";
+            }
+            else if(10 == errorCode){
+                msg = "Code mismatch";
+            }
+            else if(11 == errorCode){
+                msg = "Hint mismatch";
+            }
+            else if(12 == errorCode){
+                msg = "Invalid response";
+            }
+            else if(13 == errorCode){
+                msg = "Network error";
+            }
+            msg.prepend("<font color=\"red\">Error</font> : ");
+        }else{
+            if(3 == errorCode){
+                msg = "Code imeshatumika";
+            }
+            else if(4 == errorCode){
+                msg = "Code imesitishwa";
+            }
+            else if(5 == errorCode){
+                msg = "Code si sahihi";
+            }
+            else if(6 == errorCode){
+                msg = "Code ni tupu";
+            }
+            else if(7 == errorCode){
+                msg = "Kidokezo ni tupu";
+            }
+            else if(8 == errorCode){
+                msg = "Invalid end point";
+            }
+            else if(9 == errorCode){
+                msg = "Halijulikani";
+            }
+            else if(10 == errorCode){
+                msg = "Code hazifanani";
+            }
+            else if(11 == errorCode){
+                msg = "Vidokezo havifanani";
+            }
+            else if(12 == errorCode){
+                msg = "Jibu batili";
+            }
+            else if(13 == errorCode){
+                msg = "Matatizo ya mtandao";
+            }
+            msg.prepend("<font color=\"red\">Tatizo</font> : ");
+        }
+        var icon = "fa::bullhorn";
+        var w = 0.98;
+        if(lang.equals("en",false)){
+            requestCustomDialog(20250320, icon, " <font color=\"red\">Verification of <font color=\"#00c000\">" +accessCode + "</font> failed</font>", msg, "Ok", "", "#", w, h, false);
+        }else{
+            requestCustomDialog(20250320, icon, " <font color=\"red\">Uthibitisho <font color=\"#00c000\">" +accessCode + "</font> umeshindikana</font>", msg, "Sawa", "", "#", w, h, false);
+        }
+    }
+	
 def accessCodeEncryptedEndpoint() 
 {
    return "AwIai0H9Zo2yfGF0NJAW6soBSR8E/nKC4yp3YnrLRvbYBkIdAaZkmLhhIw=="; //Actual
@@ -3808,13 +3902,15 @@ def onAccessCodeVerificationSuccess(accessCode)
   hideLoadingIndicator();
   accessCodeDialogClose();
   accessCodeDialogSetCode("");
-  showDefaultAccessCodeVerificationSuccessMessage(accessCode,ACCESS_PERMISSIONS_FEATURE_LANG,0.3);
+  showVerificationSuccessMessage(accessCode,ACCESS_PERMISSIONS_FEATURE_LANG,0.3);
 }
 
 def onAccessCodeVerificationFailure(accessCode,errorCode)
 {
-  hideLoadingIndicator();
-  showDefaultAccessCodeVerificationFailure(accessCode,errorCode,"en", 0.2);
+   hideLoadingIndicator();
+  accessCodeDialogClose();
+  accessCodeDialogSetCode("");
+  showVerificationFailure(accessCode,errorCode,ACCESS_PERMISSIONS_FEATURE_LANG, 0.2);
 }
 
 def onAccessCodeRevoked(accessCode,note)
