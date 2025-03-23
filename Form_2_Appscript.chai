@@ -2350,6 +2350,11 @@ global LATEST_RESULTS_YEAR = 2024;
 global ACCESS_PERMISSIONS_FEATURE_ENABLED = true;
 global ACCESS_PERMISSIONS_FEATURE_LANG = "en";
 
+def accessCodeDialogBuyBtnText()
+{
+   return ACCESS_PERMISSIONS_FEATURE_LANG.equals("en",false) ? "Buy" : "Nunua";
+}
+
 def hasSchoolResultsOpenPermission(school,url)
 {
   var year = getYear("",url);
