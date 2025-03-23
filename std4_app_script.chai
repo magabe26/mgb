@@ -4339,7 +4339,8 @@ def onAccessCodeVerificationSuccess(accessCode)
   hideLoadingIndicator();
   accessCodeDialogClose();
   accessCodeDialogSetCode("");
-  showDefaultAccessCodeVerificationSuccessMessage(accessCode,ACCESS_PERMISSIONS_FEATURE_LANG,0.3);
+  showToastMessage("Imefanikiwa");
+  //showDefaultAccessCodeVerificationSuccessMessage(accessCode,ACCESS_PERMISSIONS_FEATURE_LANG,0.3);
 }
 
 def onAccessCodeVerificationFailure(accessCode,errorCode)
