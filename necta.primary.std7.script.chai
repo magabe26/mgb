@@ -3753,7 +3753,7 @@ def runTest(string input) {
 //----------------- Accesss Permissions -----------------------
 
 global LATEST_RESULTS_YEAR = 2024;
-global ACCESS_PERMISSIONS_FEATURE_ENABLED = true;
+global ACCESS_PERMISSIONS_FEATURE_ENABLED = false;
 global ACCESS_PERMISSIONS_FEATURE_LANG = "sw";
 
 def accessCodeDialogBuyBtnText()
