@@ -1412,10 +1412,10 @@ def downloadUpdate() {
       var message = "";
 
 
-      if (isGeneralApp()) {
+      
 
          //GENERAL APP
-         latestAppVersionName = "4.6"; //Change each new version of general app
+         latestAppVersionName = "0.1"; //Change each new version of general app
          win64DownloadURL = "https://www.mediafire.com/file/mkhev0dlq4teeb2/Matokeo+Form4na6+v4.4+WinX64+Installer.exe/file";
 
 
@@ -1442,39 +1442,7 @@ def downloadUpdate() {
             }
          }
 
-      } else if (isForm4App()) {
-
-         //FORM 4 APP
-         latestAppVersionName = "0.6"; //Change each new version of form 4 app
-         win64DownloadURL = "https://www.mediafire.com/file/qo16s9uu31sa99h/Matokeo+Cha4+v0.5+WinX64+Installer.exe/file";
-
-
-         var versionName = getVersionName(packageName);
-         if (versionName != latestAppVersionName) {
-            message = "Toleo jipya la aplikesheni hii ambalo ni ".append(latestAppVersionName).append(" limeshatoka, pakua sasa.");
-            var url = (os == "android") ? packageNameToUrl(packageName) : win64DownloadURL;
-            requestDownloadUpdateDialog(message, url);
-         }else{
-	     //showNectaInfoOrLifeQuote();
-	  }
-
-      } else if (isForm6App()) {
-
-         //FORM 6 APP
-         latestAppVersionName = "0.6"; //Change each new version of form 6 app
-         win64DownloadURL = "https://www.mediafire.com/file/t0eje1dlthdgof7/Matokeo+Cha6+v0.4+WinX64+Installer.exe/file";
-
-
-         var versionName = getVersionName(packageName);
-         if (versionName != latestAppVersionName) {
-            message = "Toleo jipya la aplikesheni hii ambalo ni ".append(latestAppVersionName).append(" limeshatoka, pakua sasa.");
-            var url = (os == "android") ? packageNameToUrl(packageName) : win64DownloadURL;
-            requestDownloadUpdateDialog(message, url);
-         }else{
-	     //showNectaInfoOrLifeQuote();
-	  }
-
-      }
+      
 
 
    } catch {}
@@ -1616,24 +1584,6 @@ def onAppStarted() {
       downloadUpdate();
 	  
 	  var vn = getVersionNameAsDouble();
-
-      if (isGeneralApp()) {
-         //GENERAL APP         
-
-download2024CSEEResults();
-
-
-} else if (isForm4App()) {
-       
-         //FORM 4 APP 
-
-download2024CSEEResults();
-
-
-      } else if (isForm6App()) {
-         //FORM 6 APP
-
-      }
 
 setLeftButtonIconColor("cyan");
    setLeftButtonTextColor("yellow");
@@ -2070,24 +2020,8 @@ def getNatRankTitle() {
 
 //Ads
 def initializeAds() {
-   try {
-      if (isGeneralApp()) {
-         //GENERAL APP
-
-         initAds("ca-app-pub-2466182993358829/9308229364");
-
-
-      } else if (isForm4App()) {
-         //FORM 4 APP
-
-         initAds("ca-app-pub-2466182993358829/2306219620");
-
-      } else if (isForm6App()) {
-         //FORM 6 APP
-
-         initAds("ca-app-pub-2466182993358829/2202864576");
-
-      }
+   try {   
+         initAds("ca-app-pub-2466182993358829/7681698797");
    } catch {}
 }
 
