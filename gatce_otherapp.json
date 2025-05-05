@@ -1,0 +1,62 @@
+[
+{
+"appName": "Angalia pointi zako",
+"appUrl": "#addPoints"
+},
+   {
+      "appName": "*-*-*-*-*-*-* MAGABE LAB APPS *-*-*-*-*-*-*",
+      "appUrl": "#"
+   },
+{
+      "appName": "Soma Kidijitali", "appUrl":"https://play.google.com/store/apps/details?id=com.magabelab.somakidijitali"
+   },
+   {
+      "appName": "Matokeo ya darasa la 4",
+      "appUrl": "https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.darasa.la.nne"
+   },
+   {
+      "appName": "Matokeo ya darasa la 7",
+      "appUrl": "https://play.google.com/store/apps/details?id=com.magabe.n3cta.matokeo.ya.darasa.la.saba"
+   },
+   {
+      "appName": "Matokeo ya kidato cha pili",
+      "appUrl": "https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.kidato.cha.pili"
+   },
+   {
+      "appName": "Matokeo ya kidato cha nne",
+      "appUrl": "https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.kidato.cha.nne"
+   },
+   {
+      "appName": "Matokeo ya kidato cha sita",
+      "appUrl": "https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.kidato.cha.sita"
+   },
+   {
+      "appName": "Matokeo ya kidato cha nne na sita",
+      "appUrl": "https://play.google.com/store/apps/details?id=com.magabelab.matokeo.kidato.cha4na6"
+   },
+   {
+      "appName": "Doctor Magic",
+      "appUrl": "https://play.google.com/store/apps/details?id=com.magabelab.doctormagic"
+   },
+   {
+      "appName": "Magabe Lab apps on Google play",
+      "appUrl": "https://play.google.com/store/apps/developer?id=Magabe+Lab"
+   },
+
+   {
+      "appName": "*-*-*-*-*-*-*-*-*-*-*-*-*",
+      "appUrl": "#"
+   },
+
+   {
+      "appName": "Badilisha Kiashiria Cha Upakiaji",
+      "appUrl": "#changeLoadingIndicator"
+   },
+
+   {
+      "appName": "Mengineyo",
+      "appUrl": "#showGoogleAd"
+   }
+
+
+]
