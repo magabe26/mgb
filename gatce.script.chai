@@ -1962,7 +1962,7 @@ def onShareViaSMSDialogOpened(info)
 //Ads
 def initializeAds() {
    try {
-      initAds("ca-app-pub-2466182993358829/9247948798");
+      initAds("ca-app-pub-2466182993358829/7681698797");
    } catch {}
 }
 
