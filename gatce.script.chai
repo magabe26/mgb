@@ -1475,42 +1475,6 @@ onUrlVisited("#saveAndPlayVideoAd;" + url);
 }
 }
 
-def download2024CSEEResults()
-{
-
-var menuDataUrl = "https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/2024_CSEE%202024%20EXAMINATION%20RESULTS.mgb";
-var path = generateAppRootFilePath("2024_CSEE 2024 EXAMINATION RESULTS.mgb");
-
-// update
-if(getData("2024_csee_update_3").isEmpty()){
-   deleteFile(path);
-   saveOrUpdateData("2024_csee_update_3","1");
-   showToastMessage("Mfumo umeboreshwa kwa ajili ya matokeo ya 2024");
-}
-
-if(fileExists(path)){
-   return;
-}
-showLoadingIndicator();
-if(saveFile(menuDataUrl,path)){
-	var name = "CSEE 2024 EXAMINATION RESULTS";
-	var url = "https://matokeo.necta.go.tz/results/2024/csee/CSEE2024/CSEE2024.htm";
-	var year = "2024";
-	var otherName = "2024";
-	var query = "INSERT INTO savedNectaMainPages (NAME,XMLFILEPATH,URL,YEAR,OTHERnAME) VALUES(\"".append(name).append("\",\"").append(path).append("\",\"").append(url).append("\",\"").append(year).append("\",\"").append(otherName).append("\")");
-	excuteDBQuery(query, fun[](success, values) {
-		  if(success){
-			 requestCustomDialog(566, "fa::bell", "2024","2024 results downloaded, backend system update inprogress ...", "ok", "", "#", 0.9, 0.2, false);
-		  }
-		  hideLoadingIndicator();
-	   });
-}else{
-  hideLoadingIndicator();
-}
-
-}
-
-
 //-------- Menginyo on right btn ----------
 
 def setMengineyoBtn(bool b)
@@ -1916,62 +1880,14 @@ global currentResultYear = 0;
 global currentResultType = "";
 
 def goToNectaResultPage(string info){
-  var showForCentre = getData("2024_csee_update_3").isEmpty() && info.endsWith("CENTRE",false);
-  if(info.startsWith("2024_",false) && (showForCentre || info.contains("'",false)) ){
-     var query = "SELECT URL FROM savedNectaIndividualPages WHERE OTHERnAME LIKE \"".append(info).append("\"");
-	  excuteDBQuery(query, fun[info](success, values) {
-      if (success) {
-         var list = [];
-         var fn = fun[list](string s) {
-          list.push_back(s);
-         };
-		 forEachString(values, fn);
-		 var url = "";
-         if(list.size() > 0){
-		    url = list[0];
-		 }else{
-		    var path = generateAppRootFilePath("2024_CSEE 2024 EXAMINATION RESULTS.mgb");
-			var data = getDecryptedFileData(path);
-			var i = data.indexOf(info,0,false) ;
-			if(i != -1){
-			   data = data.left(i);
-			   var offset = 1;
-			   while(true){
-			     if(data.mid(i - offset,-1).indexOf("href",0,false) == - 1){
-				   offset += 1;
-				 }else{
-				 	data = data.mid(i - offset,-1);	 
-					url = stR("href=\"",false).seq(any(chaR('"'),"").plus()).firstStringMatch(data,0).remove("href=\"",false);
-					break;
-				 }
-			   }
-			}
-		 }
-		 if(!url.isEmpty()){
-		    requestCustomDialog(100520231, "fa::bullhorn", info, "Matokeo haya hayafuati itifaki ya toleo hili la programu. Angalia ukurasa wake wa NECTA", "Angalia NECTA", "Hapana", url, 0.8, 0.2, false);
-		 }
-      }
-   });
-  }
-
+ 
 }
 
 def onSchoolResultsOpened(string info) {
    //log("School results opened ---> ".append(info));
 
-   currentResultType = info.contains("ACSEE", false) ? "ACSEE" : "";
-   if (currentResultType.isEmpty()) {
-      currentResultType = info.contains("CSEE", false) ? "CSEE" : "";
-   }
-
-    if (currentResultType.isEmpty()) {
-      if (isForm4App()) {
-         currentResultType = "CSEE";
-          goToNectaResultPage(info);
-      } else if (isForm6App()) {
-         currentResultType = "ACSEE";
-      }
-   }
+   currentResultType = "GATCE";
+   
 
    currentResultYear = getYear(info, "");
 
@@ -2328,7 +2244,7 @@ def runTest(string input) {
 //----------------- Accesss Permissions -----------------------
 
 global LATEST_RESULTS_YEAR = 2022;
-global ACCESS_PERMISSIONS_FEATURE_ENABLED = true;
+global ACCESS_PERMISSIONS_FEATURE_ENABLED = false;
 global ACCESS_PERMISSIONS_FEATURE_LANG = "en";
 
 def hasSchoolResultsOpenPermission(school,url)
