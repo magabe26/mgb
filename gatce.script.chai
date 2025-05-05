@@ -1,0 +1,2131 @@
+/**
+ * Copyright 2022-2025 MagabeLab (Tanzania). All Rights Reserved.
+ * Author Edwin Magabe    edyma24@gmail.com
+ */
+
+/* --------------  extensions  ---------------*/
+
+def getScriptRunnerVersion() {
+   try {
+      return scriptRunnerVersion();
+   } catch {
+      return 1;
+   }
+}
+
+def getAppPackageName() {
+   try {
+      return getPackageName();
+   } catch {
+      return "com.magabelab.matokeo.kidato.cha4na6"; //ok
+   }
+}
+
+def packageNameToUrl(string packageName) {
+   return "https://play.google.com/store/apps/details?id=".append(packageName);
+}
+
+def getVersionNameAsDouble() {
+   return to_double(getVersionName(getAppPackageName()));
+}
+
+def isMobile() {
+   var os = getOperatingSystem();
+   return os.equals("android", false) || os.equals("ios", false);
+}
+
+def boolToString(bool b) {
+   return b ? "true" : "false";
+}
+
+
+def string::indexOf(string s, int start, bool caseSensitive) {
+   return strIndexOf(this, s, start, caseSensitive);
+}
+
+def string::contains(string s, bool caseSensitive) {
+   return strContains(this, s, caseSensitive);
+}
+
+def string::remove(string s, bool caseSensitive) {
+   return strRemove(this, s, caseSensitive);
+}
+
+def string::right(int n) {
+   return strRight(this, n);
+}
+
+def string::left(int n) {
+   return strLeft(this, n);
+}
+
+def string::mid(int position, int n) {
+   return strMid(this, position, n);
+}
+
+def string::length() {
+   return strLength(this);
+}
+
+def string::replace(string before, string after, bool caseSensitive) {
+   return strReplace(this, before, after, caseSensitive);
+}
+
+def string::replaceAtPosition(int position, int n, string after) {
+   return strReplaceAtPosition(this, position, n, after);
+}
+
+def string::startsWith(string str, bool caseSensitive) {
+   return strStartsWith(this, str, caseSensitive);
+}
+
+def string::endsWith(string str, bool caseSensitive) {
+   return strEndsWith(this, str, caseSensitive);
+}
+
+def string::truncate(int position) {
+   return strTruncate(this, position);
+}
+
+def string::compare(string other, bool caseSensitive) {
+   return strCompare(this, other, caseSensitive);
+}
+
+def string::split(string sep) {
+   return strSplit(this, sep);
+}
+
+def string::append(string str) {
+   return strAppend(this, str);
+}
+
+def string::prepend(string str) {
+   return strPrepend(this, str);
+}
+
+def string::isLower() {
+   return strIsLower(this);
+}
+
+def string::isUpper() {
+   return strIsUpper(this);
+}
+
+def string::isEmpty() {
+   return strIsEmpty(this);
+}
+
+def string::simplified() {
+   return strSimplified(this);
+}
+
+def string::removeAtPosition(int position, int length) {
+   return strRemoveAtPosition(this, position, length);
+}
+
+class Tag {
+   def Tag(bool valid, int index, int length, string value) {
+      this.valid = valid;
+      this.index = index;
+      this.length = length;
+      this.value = value;
+   }
+   var valid;
+   var index;
+   var length;
+   var value;
+};
+
+def string::getTag(string t, int start) {
+   var closeTag = "</".append(t).append(">");
+   var tag = Tag(false, -1, -1, "");
+   var len = closeTag.length();
+   var firstIndex = this.indexOf("<".append(t), start, false);
+   if (firstIndex != -1) {
+      var lastIndex = this.indexOf(closeTag, firstIndex + 1, false);
+      if (lastIndex != -1) {
+         var n = (lastIndex - firstIndex) + len;
+         var value = this.mid(firstIndex, n);;
+         tag = Tag(true, firstIndex, n, value);
+      }
+   }
+   return tag;
+}
+
+def openTag(string tag) {
+   return chaR('<').seq(spaceOptional()).seq(stR(tag, false)).seq(spaceOptional()).seq(chaR('>'));
+}
+
+def closeTag(string tag) {
+   return chaR('<').seq(spaceOptional()).seq(chaR('/')).seq(spaceOptional()).seq(stR(tag, false)).seq(spaceOptional()).seq(chaR('>'));
+}
+
+def string::removeOpenTag(string t) {
+   var firstIndex = this.indexOf("<".append(t), 0, false);
+   if (firstIndex != -1) {
+      var lastIndex = this.indexOf(">", firstIndex + 1, false);
+      if (lastIndex != -1) {
+         var len = (lastIndex - firstIndex) + 1;
+         this = this.removeAtPosition(firstIndex, len);
+      }
+   }
+}
+
+// Only use this function on a small atring
+def string::removeCloseTag(string t) {
+   this = closeTag(t).removeFrom(this, 0, -1);
+}
+
+def string::removeRegex(string regex) {
+   this = strRemoveRegex(this, regex);
+}
+
+def string::replaceRegex(string regex, string replacement) {
+   this = strReplaceRegex(this, regex, replacement);
+}
+
+def string::equals(string other, bool caseSensitive) {
+   return this.length() == other.length() && strContains(this, other, caseSensitive);
+}
+
+/* -------------------------------------------------*/
+
+def githubFile(string name) {
+   return "https://raw.githubusercontent.com/magabe26/mgb/master/".append(name);
+}
+
+def getAppTitle() {
+   return "GATCE";
+}
+
+//------------------
+
+def saveOrUpdateData(string key, string value) {
+   if (!saveData(key, value)) {
+      return updateData(key, value);
+   } else {
+      return true;
+   }
+}
+
+//------------------
+
+
+global imagesToBeSaved = [];
+global savedImageIndex = 0;
+global SAVE_IMAGE_FOR_OFFLINE_TIMERCODE = 2023457;
+
+
+def saveImageForOffline(string imageUrl) {
+   imagesToBeSaved.push_back(imageUrl);
+   setTimer(SAVE_IMAGE_FOR_OFFLINE_TIMERCODE, 100);
+}
+
+def getOfflineImagePath(string imageUrl) {
+   var path = getData(imageUrl);
+   if (!path.isEmpty()) {
+      if (fileExists(path) && (getFileSize(path) > 0)) {
+         path = path.prepend("file:");
+      } else {
+         path = "";
+      }
+   }
+   return path;
+}
+
+//------------------
+global LOADING_IMAGE_RESOURCE_URL = "/loading.gif";
+global recentLoadingImageSet = "";
+
+def setLoadingImage(string url) {
+   var path = getOfflineImagePath(url).remove("file:", false);
+   if (!path.isEmpty()) {
+      saveOrUpdateData(LOADING_IMAGE_RESOURCE_URL, path);
+      loadingIndicatorImageChanged();
+   } else {
+      recentLoadingImageSet = url;
+      saveImageForOffline(url);
+   }
+}
+
+def setDefaultLoadingImage() {
+   saveOrUpdateData(LOADING_IMAGE_RESOURCE_URL, "");
+   loadingIndicatorImageChanged();
+}
+
+
+def onLoadingImageSaved(string url, string path) {
+   if (recentLoadingImageSet.equals(url, false)) {
+      saveOrUpdateData(LOADING_IMAGE_RESOURCE_URL, path);
+      loadingIndicatorImageChanged();
+      recentLoadingImageSet = "";
+      showOperationSuccessDialog("Kiashiria cha upakiaji kimebadilishwa.");
+
+      /* if(getData("firstTime").isEmpty()){
+         saveOrUpdateData("firstTime","no");
+         showLifeQuote();
+       }*/
+   }
+}
+
+global HIDE_LOADING_INDICATOR_TIMER_CODE = 130620232;
+global showLoadingIndicatorForXMillisCallback = fun[]() {};
+
+def showLoadingIndicatorForXMillis(double millis, cb) {
+   showLoadingIndicator();
+   showLoadingIndicatorForXMillisCallback = cb;
+   setTimer(HIDE_LOADING_INDICATOR_TIMER_CODE, millis);
+}
+
+def onShowLoadingIndicatorTimeOut(int timerCode) {
+   if (timerCode == HIDE_LOADING_INDICATOR_TIMER_CODE) {
+      ;
+      hideLoadingIndicator();
+      try {
+         showLoadingIndicatorForXMillisCallback();
+      } catch {}
+      showLoadingIndicatorForXMillisCallback = fun[]() {};
+   }
+}
+
+global CHANGE_LOADING_INDICATOR_REQUEST_CODE = 13062023;
+global loadingIndicators = [
+   "Kiashiria 0",
+   "Kiashiria 1",
+   "Kiashiria 2",
+   "Kiashiria 3",
+   "Kiashiria 4",
+   "Tafadhali Subiri"
+];
+
+global loadingIndicatorsBaseURL = "https://raw.githubusercontent.com/magabe26/mgb/master/";
+global loadingIndicatorsUrls = [
+   "",
+   "loader2.gif",
+   "loader3.gif",
+   "loader4.gif",
+   "loader5.gif",
+   "TafadhaliSubiri.gif"
+
+];
+
+
+def setMyFavoriteLoadingIndicator() {
+   var key = "MyFavoriteLoadingIndicatorSetForFirstTime";
+   var r = getData(key);
+   if (r.isEmpty()) {
+      saveOrUpdateData(key, "1");
+      setLoadingImage(loadingIndicatorsBaseURL + "loader4.gif");
+   }
+}
+
+
+def onChangeLoadingIndictorCommand(cmd, argv, argc) {
+   if (cmd.equals("changeLoadingIndicator", false) || cmd.contains("Upakiaji", false)) {
+      if (loadingIndicators.size() == loadingIndicatorsUrls.size()) {
+         var options = "";
+         for (var i = 0; i < loadingIndicators.size(); ++i) {
+            options = options.append("   <font color='#71f090'>" + to_string(i) + "</font> : ").append("<font color='white'>" + loadingIndicators[i] + "</font><br>");
+         }
+         requestCustomDialog(CHANGE_LOADING_INDICATOR_REQUEST_CODE, "fa::cogs", "<font color='#71f090'>Badilisha Kiashiria Cha Upakiaji</font>", "<br><font color='#71f090'>Viashiria Vya Upakiaji Vilivyopo:-<br>" + options + "<br><font color='#10dee6'>Chagua: </font> <font color='white'>Weka namba ya kiashiria</font>", "Badilisha", "Funga", "#", 0.8, 0.5, true);
+      } else {
+         log("onChangeLoadingIndictorCommand Error: Size does not match, LoadingIndicators = " + to_string(loadingIndicators.size()) + ", LoadingIndicatorsUrls = " + to_string(loadingIndicatorsUrls.size()));
+      }
+   }
+}
+
+def onChangeLoadingIndictorDialogClosed(int requestCode, string pressedButton, string answer) {
+
+   if (pressedButton == "no") {
+      return;
+   }
+
+   if (requestCode == CHANGE_LOADING_INDICATOR_REQUEST_CODE) {
+      var showPreview = fun[](int no, string url, cb) {
+         var sleepTime = 2000;
+         if (no == 0) {
+            showLoadingIndicatorForXMillis(sleepTime, cb);
+            return;
+         }
+
+         if (!url.isEmpty()) {
+            var path = getOfflineImagePath(url).remove("file:", false);
+            if (fileExists(path)) {
+               showLoadingIndicatorForXMillis(sleepTime, cb);
+               return;
+            }
+         }
+         showToastMessage("Tafadhali hakikisha umejiunga na huduma ya internet");
+      };
+
+      var no = to_int(answer);
+      if (no >= 0 && no < loadingIndicators.size()) {
+         var url = "";
+         if (no == 0) {
+            setDefaultLoadingImage();
+         } else {
+            url = loadingIndicatorsBaseURL + loadingIndicatorsUrls[no];
+            setLoadingImage(url);
+         }
+         showPreview(no, url, fun[no]() {
+            showOperationSuccessDialog("Kiashiria cha upakiaji sasa ni: <font color='#71f090'>" + loadingIndicators[no] + "</font>");
+         });
+      } else {
+         showOperationFailedDialog("Namba ya kiashiria si sahihi!");
+      }
+   }
+}
+
+//------------------
+
+global EMAIL_US_REQUEST_CODE = 706033328;
+
+def onShowAdvertiseWithUsDialogCommand(cmd, argv, argc) {
+   if (cmd.equals("showAdvertiseWithUsDialog", false) || cmd.equals("tangaza", false)) {
+      requestCustomDialog(EMAIL_US_REQUEST_CODE, "fa::vcardo", " TANGAZA", "Taganza katika aplikesheni hii. Tangaza <font color='green'><u>shule</u></font>, <font color='yellow'><u>stationery</u></font>, <font color='cyan'><u>kitabu</u></font> n.k  kwa kutumia mfumo wa picha au video. Kwa maelezo zaidi tutumie barua pepe.", "Tuma", "<font color='white'>Baadae</font> ", "#emailUs", 0.8, 0.3, false);
+   }
+}
+
+//------------------
+
+global VISIT_MAGABE_LAB_REQUEST_CODE = 320230506;
+
+def onVisitMagabeLabCommand(cmd, argv, argc) {
+   if (cmd.equals("visitMagabeLab", false) || cmd.equals("magabelab", false)) {
+      requestCustomDialog(VISIT_MAGABE_LAB_REQUEST_CODE, "fa::rocket", " TUTEMBELEE", "<font color='cyan'>Tembelea tovuti yetu.</font>", "Sawa", "<font color='white'>Baadae</font> ", "#visitMagabeLab", 0.8, 0.15, false);
+   }
+}
+//------------------
+//video
+class _VideoPlayerStatus {
+   def _VideoPlayerStatus() {
+      this.UnknownStatus = 0;
+      this.NoMedia = 1;
+      this.Loading = 2;
+      this.Loaded = 3;
+      this.Stalled = 4;
+      this.Buffering = 5;
+      this.Buffered = 6;
+      this.EndOfMedia = 7;
+      this.InvalidMedia = 8;
+   }
+   var NoMedia;
+   var Loading;
+   var Loaded;
+   var Buffering;
+   var Stalled;
+   var Buffered;
+   var EndOfMedia;
+   var InvalidMedia;
+   var UnknownStatus;
+};
+global VideoPlayerStatus = _VideoPlayerStatus();
+
+class _VideoPlayerPlaybackState {
+   def _VideoPlayerPlaybackState() {
+      this.StoppedState = 0;
+      this.PlayingState = 1;
+      this.PausedState = 2;
+   }
+   var PlayingState;
+   var PausedState;
+   var StoppedState;
+};
+global VideoPlayerPlaybackState = _VideoPlayerPlaybackState();
+
+class _VideoPlayerError {
+   def _VideoPlayerError() {
+      this.NoError = 0;
+      this.ResourceError = 1;
+      this.FormatError = 2;
+      this.NetworkError = 3;
+      this.AccessDenied = 4;
+      this.ServiceMissing = 5;
+   }
+   var NoError;
+   var ResourceError;
+   var FormatError;
+   var NetworkError;
+   var AccessDenied;
+   var ServiceMissing;
+};
+global VideoPlayerError = _VideoPlayerError();
+
+//------------------
+
+global SHOW_CONSOLE_REQUEST_CODE = 12052023;
+
+def onShowConsoleCommand(cmd, argv, argc) {
+   if (cmd.equals("showConsole", false)) {
+      requestCustomDialog(SHOW_CONSOLE_REQUEST_CODE, "fa::windowmaximize", "Console", "<font color='cyan'>Weka Amri <font color='white'>[ Mfano:  ongezapointi; au upakiaji;]</font> :- </font>", "Tuma", "", "#showConsole", 0.98, 0.5, true);
+   }
+}
+
+//------------------
+
+def getOfflineVideoPath(string url) {
+   var path = getData(url);
+   if (!path.isEmpty()) {
+      if (fileExists(path) && (getFileSize(path) > 0)) {
+         path = path.prepend("file:");
+      } else {
+         path = "";
+      }
+   }
+   return path;
+}
+
+def onPlayVideoCommand(cmd, argv, argc) {
+   if (cmd.equals("playVideo", false) || cmd.equals("onyeshaVideo", false)) {
+      if (argc > 0) {
+         var url = argv[0];
+         var path = getOfflineVideoPath(url);
+         if (!path.isEmpty()) {
+            playVideo(path);
+         } else {
+            playVideo(url);
+         }
+      }
+   }
+}
+
+//------------------
+def showOperationSuccessDialog(string message) {
+   requestCustomDialog(421, "fa::smileo", "<font color='white'>IMEFANIKIWA</font>", message, "Ok", "", "#", 0.8, 0.2, false);
+}
+
+def showOperationFailedDialog(string message) {
+   requestCustomDialog(421, "fa::close", "<font color='white'>IMESHINDWA</font>", "<font color='red'>" + message + "</font>", "Ok", "", "#", 0.8, 0.2, false);
+}
+
+//------------------
+
+def onSaveFileCommand(cmd, argv, argc) {
+   if (cmd.equals("saveFile", false) || cmd.equals("tunzaFaili", false)) {
+      showLoadingIndicator();
+      if (argc >= 1) {
+         var url = argv[0];
+         if (!url.contains("/", false)) {
+            hideLoadingIndicator();
+            showOperationFailedDialog("Invalid url");
+            return;
+         }
+
+         var fileName = "";
+         if (argc > 1) {
+            fileName = argv[1];
+         } else {
+            var list = [];
+            var fn = fun[list](string s) {
+               list.push_back(s);
+            };
+
+            var arr = url.split("/");
+            forEachString(arr, fn);
+
+            fileName = list[list.size() - 1];
+         }
+
+         var path = generateAppRootFilePath(fileName);
+         if (saveFile(url, path)) {
+            saveOrUpdateData(url, path);
+            pasteToClipboard(path);
+            hideLoadingIndicator();
+            showOperationSuccessDialog("<font color='green'> url: " + url + "<br>imetunzwa : " + path + "</font>");
+         } else {
+            hideLoadingIndicator();
+            showOperationFailedDialog("<font color='red'> imeshindwa kutunza faili</font>");
+         }
+
+      }
+      hideLoadingIndicator();
+   }
+}
+
+//------------------
+
+def onSaveAndPlayVideoCommand(cmd, argv, argc) {
+   if (cmd.equals("saveAndPlayVideo", false) || cmd.equals("tunzaNaOnyeshaVideo", false)) {
+
+      showLoadingIndicator();
+
+      if (argc >= 1) {
+         var url = argv[0];
+         if (!url.contains("/", false)) {
+            showOperationFailedDialog("Invalid url");
+            hideLoadingIndicator();
+            return;
+         }
+
+         var path = getOfflineVideoPath(url);
+         if (!path.isEmpty()) {
+            hideLoadingIndicator();
+            playVideo(path);
+            return;
+         }
+
+         var fileName = "";
+         if (argc > 1) {
+            fileName = argv[1];
+         } else {
+            var list = [];
+            var fn = fun[list](string s) {
+               list.push_back(s);
+            };
+
+            var arr = url.split("/");
+            forEachString(arr, fn);
+
+            fileName = list[list.size() - 1];
+         }
+
+         path = generateAppRootFilePath(fileName);
+         if (saveFile(url, path)) {
+            saveOrUpdateData(url, path);
+            pasteToClipboard(path);
+            hideLoadingIndicator();
+            playVideo("file:" + path);
+         } else {
+            hideLoadingIndicator();
+            showOperationFailedDialog("<font color='red'> imeshindwa kutunza faili</font>");
+         }
+      }
+      hideLoadingIndicator();
+   }
+}
+
+
+//------------------
+
+def onOfflineVideoCommand(cmd, argv, argc) {
+   if (cmd.equals("offlineVideo", false) || cmd.equals("videoIlipotuzwa", false)) {
+      showLoadingIndicator();
+      if (argc >= 1) {
+         var url = argv[0];
+         if (!url.contains("/", false)) {
+            showOperationFailedDialog("Invalid url");
+            hideLoadingIndicator();
+            return;
+         }
+
+         var path = getOfflineVideoPath(url);
+         pasteToClipboard(path);
+         requestCustomDialog(421, "fa::close", "VIDEO ILIPOTUNZWA", "Imetunzwa = " + path, "Ok", "", "#", 0.8, 0.2, false, 500);
+      }
+      hideLoadingIndicator();
+   }
+}
+
+//------------------
+
+def safeRefreshUI() {
+   try {
+      refreshUI();
+   } catch {}
+}
+
+//------------------
+
+global lifeQuotes = [
+   "A CONFIDENT PERSON AVOIDS TWO THINGS IN LIFE: IDLE GOSSIP AND PETTY CONFLICTS, CHOOSING INSTEAD TO CULTIVATE UNDERSTANDING AND FOSTER HARMONY",
+   "THE KEY IS TO KEEP COMPANY ONLY WITH PEOPLE WHO UPLIFT YOU, WHOSE PRESENCE CALLS FORTH YOUR BEST.",
+   "THE AIM OF THE WISE IS NOT TO SECURE PLEASURE BUT TO AVOID PAIN.",
+   "THE MISFORTUNE OF THE WISE IS BETTER THAN THE PROSPERITY OF THE FOOL.",
+   "WHAT IT LIES IN OUR POWER TO DO, IT LIES IN OUR POWER NOT TO DO.",
+   "COURAGE IS THE FIRST OF HUMAN QUALITIES BECAUSE IT IS THE QUALITY THAT GUARANTEES OTHERS.",
+   "NO ONE IS MORE HATED THAN HE WHO SPEAKS THE TRUTH.",
+   "BY DESIRING LITTLE, A POOR MAN MAKES HIMSELF RICH.",
+   "THE ONLY TRUE WISDOM IS IN KNOWING YOU KNOW NOTHINGS.",
+   "HE IS A MAN OF COURAGE WHO DOES NOT RUN AWAY BUT REMAINS AT HIS POST AND FIGHTS AGAINST THE ENEMY.",
+   "DO NOT CHASE AFTER HAPPINESS, IT IS ALWAYS IN YOU.",
+   "IN ANGER, WE SHOULD REFRAIN BOTH FROM SPEECH AND ACTION.",
+   "LET HIM THAT WOULD MOVE THE WORLD FIRST MOVE HIMSELF",
+   "A FOOL IS KNOWN BY HIS SPEECH, AND A WISE MAN BY SILENCE.",
+   "HE WHO LAUGHS AT HIMSELF NEVER RUNS OUT OF THINGS TO LAUGH AT.",
+   "IN OLD AGE, WE ALL REGRET NOT HAVING KILLED LAZINESS IN OURSELVES.",
+   "A WISE MAN SPEAKS BECAUSE HE HAS SOMETHING TO SAY, A FOOL BECAUSE HE HAS TO SAY SOMETHING.",
+   "MEN SHOULD STRIVE TO THINK MUCH AND KNOW LITTLE.",
+   "MANKIND IS MADE OF TWO KINDS OF PEOPLE: WISE PEOPLE WHO KNOW THEY`RE FOOLS, AND FOOLS WHO THINK THEY ARE WISE.",
+   "HE IS RICHEST WHO IS CONTENT WITH THE LEAST, FOR CONTENT IS THE WEALTH OF NATURE.",
+   "REST SATISFIED WITH DOING WELL, AND LEAVE OTHERS TO TALK OF YOU AS THEY PLEASE.",
+   "REALITY IS CREATED BY THE MIND, WE CAN CHANGE OUR REALITY BY CHANGING OUR MIND",
+   "EMPLOY YOUR TIME IN IMPROVING YOURSELF BY OTHER MEN`S WRITINGS, SO THAT YOU SHALL GAIN EASILY WHAT OTHERS HAVE LABORED HARD FOR.",
+   "THE OLDEST, SHORTEST WORDS -- `YES` AND `NO` ARE THOSE WHICH REQUIRE THE MOST THOUGHT.",
+   "MAN IS NOT WORRIED BY REAL PROBLEMS SO MUCH AS BY HIS IMAGINED ANXIETIES ABOUT REAL PROBLEMS.",
+   "SMALL-MINDED PEOPLE BLAME OTHERS. AVERAGE PEOPLE BLAME THEMSELVES. THE WISE SEE ALL BLAME AS FOOLISHNESS",
+   "SMART PEOPLE LEARN FROM EVERYTHING AND EVERYONE, AVERAGE PEOPLE FROM THEIR EXPERIENCES, STUPID PEOPLE ALREADY HAVE ALL THE ANSWERS.",
+   "STRONG MINDS DISCUSS IDEAS, AVERAGE MINDS DISCUSS EVENTS, WEAK MINDS DISCUSS PEOPLE.",
+
+   //Asha-Rose Migiro
+   "MORE AND MORE LEADERS AROUND THE WORLD ARE JOINING THE STRUGGLE. MORE AND MORE INDIVIDUALS UNDERSTAND THAT ANY ABUSE OF ANY WOMEN IS INTOLERABLE.",
+
+   //Jakaya Kikwete
+
+   "ROADS ARE THE BLOOD VESSELS OF THE ECONOMY.",
+   "AFRICA NEEDS ACCESS TO MARKETS.",
+
+   //Benjamin Mkapa
+   "THERE IS A THOUGHT THAT POVERTY IS A PUBLIC POLICY FAILURE; POVERTY IS MAN-MADE BY ACTION AND NON ACTION; POVERTY CAN BE ELIMINATED.",
+
+   //John Pombe Magufuli
+   "TUKO HAPA KWA AJILI YA KULINDA MASLAHI YA WATANZANIA. TUMECHEZEWA MNO.",
+   "MWIZI NI MWIZI TU! HATA KAMA AWE MZUNGU! WALIKUWA WANATUIBIA DHAHABU ZETU. NIMEWATUMBUA BILA AIBU... BILA WOGA!",
+
+   //President Samia Suluhu Hassan
+   "WE ARE NOT ENEMIES WITH ANYBODY. WE RESPECT THE VIEWS OF THOSE WE DO NOT AGREE WITH, EVEN AS WE CONTINUE TO DEFEND OURS AS A RESPONSIBILITY PASSED DOWN FROM OUR FOREFATHERS.",
+   "SUALA LA USALAMA BARABARANI HALINA BUDI KUPEWA UZITO MKUBWA NA KUWA AJENDA YA TAIFA. SUALA LA AJALI LINAMGUSA KILA MTU HALICHAGUI, NAOMBA MLIPE UZITO MKUBWA IWE AJENDA YA TAIFA",
+   "A WOMAN IS LIKE A TEA BAG; YOU CAN`T TELL HOW STRONG SHE IS UNTIL YOU PUT HER IN HOT WATER.",
+
+   // Julius Nyerere
+   "VIONGOZI WABOVU WENYE MIOYO YA KUKU, HULIZWA NA MATATIZO; BALI WATU MADHUBUTI, WENYE MIOYO THABITI, HUKOMAZWA NAYO ... HATIMA YA NCHI YETU NI JUKUMU LETU. KWA PAMOJA TUNAWEZA KUISAIDIA NCHI YETU KUSONGA MBELE KUELEKEA KWENYE HAKI ZAIDI NA USAWA ZAIDI KWA WATANZANIA WOTE.",
+   "TUNATAKA KUONA VIJANA JEURI KATIKA TAIFA HILI NA WENYE KUJIAMINI NA SIO WAOGA AKINA `NDIO BWANA MKUBWA`. TUNATAKA KUONA VIJANA WENYE UJASIRI WA KUHOJI NA KUPIGA VITA MIFUMO YA KIDHALIMU ISIYOSHABIHIANA NA MATAKWA NA MATARAJIO YA JAMII YA KITANZANIA.",
+   "NITASEMA KWELI DAIMA. FITINA KWANGU NI MWIKO.",
+   "INDEPENDENCE CANNOT BE REAL IF A NATION DEPENDS UPON GIFTS.",
+   "MAKOSA YETU MENGINE HUTOKANA NA WOGA; WOGA UNAOTUZUIA KUMLAUMU MKUBWA JAPO TUNAJUA KUWA KAKOSA, AU KUMTETEA MDOGO ANAYELAUMIWA NA WAKUBWA JAPO TUNAJUA KUWA HANA MAKOSA",
+   "THERE IS NO TIME TO WASTE. WE MUST EITHER UNITE NOW OR PERISH.",
+   "WATU WALIO HATARI SANA NI WALE AMBAO WANAFIKIRI KUWA WANAJUA KILA KITU, WALA HAWANA HAJA KUJIFUNZA ZAIDI. HII NI TABIA MBAYA AMBAYO HUZUIA KABISA MAENDELEO.",
+   "SMALL NATIONS ARE LIKE INDECENTLY DRESSED WOMEN. THEY TEMPT THE EVIL-MINDED.",
+   "WENGINE HUGAWA WATU KATIKA MAFUNGU. `FULANI` JAPO AKIFANYA KOSA KUBWA SANA HASEMWI, LAKINI `FULANI` WA PILI AKIFANYA KOSA JAPO DOGO, KOSA LILE HUKUZWA LIKAWA KAMA MLIMA KILIMANJARO.",
+   "YOU CANNOT DEVELOP PEOPLE. YOU MUST ALLOW PEOPLE TO DEVELOP THEMSELVES.",
+   "WENGINE HUMWONA MWENZAO ANAFANYA KOSA. BADALA YA KUMWAMBIA PALE PALE KIJAMAA KWAMBA ATENDALO NI KOSA, WATANYAMAZA KIMYA. LAKINI HAWANYAMAZI KIMYA KABISA! WATAKWENDA KUMTETA KATIKA VIKUNDI VYA SIRI SIRI.",
+   "IF REAL DEVELOPMENT IS TO TAKE PLACE, THE PEOPLE HAVE TO BE INVOLVED.",
+   "UKIONDOA MATATIZO WAYAPATAYO BINADAMU KWA SABABU YA MAMBO KAMA MAFURIKO, NZIGE, KIANGAZI N.K, MATATIZO YAO MENGI HUTOKANA NA UNAFSI.",
+   "EDUCATION IS NOT A WAY TO ESCAPE POVERTY, IT IS A WAY OF FIGHTING IT.",
+   "KUJIELIMISHA NI KUTAFUTA UKWELI WA MAMBO.",
+   "KOSA JINGINE NI KUTOJIELIMISHA. KANUNI YETU MOJA INASEMA: `NITAJIELIMISHA KWA KADIRI YA UWEZO WANGU WOTE NA KUTUMIA ELIMU YANGU KWA FAIDA YA WOTE`. WENGINE HUFIKIRI KUWA KUJIELIMISHA NI KUJUA KUSOMA NA KUANDIKA. HILO NI KOSA, LAKINI SI KUBWA KAMA LA PILI. WENGI WETU, HASA BAADHI YA VIONGOZI, HUFIKIRI KUWA TUNAJUA KILA KITU NA HATUNA HAJA KUJIFUNZA JAMBO LOLOTE ZAIDI."
+
+
+];
+
+global lifeQuotesAuthor = [
+   "Epicurus",
+   "Epictetus",
+   "Aristotle",
+   "Epicurus",
+   "Aristotle",
+   "Aristotle",
+   "Plato",
+   "Democritus",
+   "Socrates",
+   "Socrates",
+   "Pythagoras",
+   "Pythagoras",
+   "Socrates",
+   "Pythagoras",
+   "Epictetus",
+   "Epicurus",
+   "Plato",
+   "Democritus",
+   "Socrates",
+   "Socrates",
+   "Pythagoras",
+   "Plato",
+   "Socrates",
+   "Pythagoras",
+   "Epictetus",
+   "Epictetus",
+   "Socrates",
+   "Socrates",
+   //Asha-Rose Migiro
+
+   "Asha-Rose Migiro",
+
+   //Jakaya Kikwete
+
+   "Jakaya Kikwete",
+   "Jakaya Kikwete",
+
+   //Benjamin Mkapa
+
+   "Benjamin Mkapa",
+   //John Pombe Magufuli
+   "Dr. John Pombe Magufuli",
+   "Dr. John Pombe Magufuli",
+
+   //President Samia Suluhu Hassan
+
+   "Dr. Samia Suluhu Hassan <font color='gray'>[President Of United Republic Of Tanzania]</font>",
+   "Dr. Samia Suluhu Hassan <font color='gray'>[Rais Wa Tanzania]</font>",
+   "Dr. Samia Suluhu Hassan <font color='gray'>[President Of United Republic Of Tanzania]</font>",
+
+   // Julius Nyerere
+   "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
+   "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
+   "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
+   "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
+   "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
+   "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
+   "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
+   "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
+   "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
+   "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
+   "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
+   "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
+   "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
+   "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
+   "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
+   "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>"
+
+];
+
+global LIFE_QUOTE_REQUESTCODE = 1002023;
+
+def showLifeQuote() {
+   if (lifeQuotes.size() == lifeQuotesAuthor.size()) {
+      var key = "CurrentLifeQuote";
+      var len = lifeQuotes.size();
+      var indexStr = getData(key);
+      var index = len - 1;
+      if (!indexStr.isEmpty()) {
+         index = to_int(indexStr);
+      }
+
+      if (index < 0 || index >= len) {
+         index = len - 1;
+      }
+
+      requestCustomDialog(LIFE_QUOTE_REQUESTCODE, "fa::bell", "<br><font color='white'>NUKUU</font>", "<br><font color='cyan'>(" + to_string(index + 1) + ") </font>" + lifeQuotes[index] + "<br><i><u><font color='cyan'>" + lifeQuotesAuthor[index] + "</u></i></font><br><br><font color='yellow'>[Hiari]</font> Weka namba ya nukuu, mfano:- " + to_string(lifeQuotes.size()), "Nyingine", "Funga", "#", 0.9, 0.6, true);
+      saveOrUpdateData(key, to_string(index - 1));
+   } else {
+      log("ERROR: LIFE QUOTES LENGTH DOES NOT MARCH , lifeQuotes = " + to_string(lifeQuotes.size()) + ", lifeQuotesAuthor = " + to_string(lifeQuotesAuthor.size()));
+   }
+}
+
+
+def onLifeQuoteDialogClosed(int requestCode, string pressedButton, string answer) {
+   if (requestCode == LIFE_QUOTE_REQUESTCODE) {
+      if (pressedButton == "yes") {
+         var n = -1;
+         try {
+            n = to_int(answer);
+            if (n > 0) {
+               saveOrUpdateData("CurrentLifeQuote", to_string(n - 1));
+            }
+         } catch {}
+         showLifeQuote();
+      }
+   }
+}
+
+//------------------
+//------------------
+global adsInitialized = false;
+
+global ENABLE_ACCESS_POINTS_FEATURE = false;
+global ACCESS_POINTS_DIALOG_REQUEST_CODE = 260620231;
+global SCHOOL_RESULT_REQUIRED_ACCESS_POINTS = 5;
+global STUDENT_RESULT_REQUIRED_ACCESS_POINTS = 1.25;
+global REWARD_ACCESS_POINTS_FOR_AD = 50;
+global AD_LOADING_DIALOG_REQUEST_CODE = 280620231;
+
+global enableAdLoadingDialog = false;
+def showAdLoadingDialog() {
+   if (enableAdLoadingDialog) {
+      requestCustomDialog(AD_LOADING_DIALOG_REQUEST_CODE, "fa::clocko", "Inafungua tangazo ...", "Tafadhali subiri kidogo, pia hakikisha umejiunga na huduma ya intaneti.", "", "", "#", 0.98, 0.99, false);
+   }
+}
+
+def onAdLoadingDialogClosed(int requestCode, string pressedButton, string answer) {
+   if (requestCode == AD_LOADING_DIALOG_REQUEST_CODE) {
+      showAdLoadingDialog();
+   }
+}
+
+def saveAccessPoints(double points) {
+   saveOrUpdateData("ACCESS_POINTS", to_string(points));
+}
+
+def getAccessPoints() {
+   var points = getData("ACCESS_POINTS");
+   if (points.isEmpty()) {
+      return 0;
+   } else {
+      return to_double(points);
+   }
+}
+
+def incrementAccessPoints(double points) {
+   saveAccessPoints(points + getAccessPoints());
+}
+
+global previousRequiredPoints = 0.0;
+
+def showInsuficientAccessPointDialog(double requiredPoints) {
+   if (!isMobile() || !ENABLE_ACCESS_POINTS_FEATURE) {
+      return;
+   }
+   var points = getAccessPoints();
+   if (points < requiredPoints) {
+      var message = "Ili kufunguka unaitaji pointi <h1><font color='cyan'>" + to_string(requiredPoints) + "</font></h1><br> Kwa sasa una jumla ya pointi <font color='red'>" + to_string(points) + "</font><br> <font color='#71f090'>Angalia tangazo hili kuongeza pointi zako.</font>";
+      requestCustomDialog(ACCESS_POINTS_DIALOG_REQUEST_CODE, "fa::bullhorn", "<br><font color='white'>POINTI ZAKO HAZITOSHI</font>", message, "Ongeza pointi", "", "#", 0.98, 0.99, false);
+   }
+}
+
+def enableAccessPointsGuard(double requiredPoints, redirectFn) {
+   if (!isMobile()) {
+      return;
+   }
+   previousRequiredPoints = requiredPoints;
+   if (ENABLE_ACCESS_POINTS_FEATURE) {
+      var points = getAccessPoints();
+      if (points < requiredPoints) {
+         try {
+            redirectFn();
+         } catch {}
+         showInsuficientAccessPointDialog(requiredPoints);
+      } else {
+         incrementAccessPoints(-1 * requiredPoints);
+      }
+   }
+}
+
+def onAccessPointsDialogClosed(int requestCode, string pressedButton, string answer) {
+   if (requestCode == ACCESS_POINTS_DIALOG_REQUEST_CODE) {
+      if (pressedButton == "yes") {
+         showToastMessage("Tafadhali hakikisha umejiunga na huduma ya intaneti.");
+         if (adsInitialized) {
+            showOrLoadAd();
+         } else {
+            initializeAds();
+         }
+         enableAdLoadingDialog = true;
+         showAdLoadingDialog();
+         showLoadingIndicator();
+      } else {
+         showInsuficientAccessPointDialog(previousRequiredPoints);
+      }
+   }
+}
+
+def giveRewardForAd() {
+   if (!ENABLE_ACCESS_POINTS_FEATURE) {
+      return;
+   }
+   enableAdLoadingDialog = false;
+   incrementAccessPoints(REWARD_ACCESS_POINTS_FOR_AD);
+   var message = "Sasa una jumla ya pointi <font color='cyan'><h1>" + to_string(getAccessPoints()) + "</h1></font>";
+   requestCustomDialog(ACCESS_POINTS_DIALOG_REQUEST_CODE, "fa::coffee", "UMEPOKEA POINTI " + to_string(REWARD_ACCESS_POINTS_FOR_AD), message, "Ongeza pointi", "<font color='white'>Badae</font>", "#addPoints", 0.98, 0.2, false);
+}
+
+def onAdRewardFailure() {
+   hideLoadingIndicator();
+   var os = getOperatingSystem();
+   if (os != "android") {
+      return;
+   }
+   enableAdLoadingDialog = false;
+   if (previousRequiredPoints != 0.0) {
+      showInsuficientAccessPointDialog(previousRequiredPoints);
+      // showToastMessage("Imeshindwa kufungua tangazo!");
+   }
+}
+
+global disableSchoolGuardOnStartup = true;
+global recentChargedSchool = "";
+def enableAccessPointsGuardForSchoolResult(string displayName) {
+   if (!isMobile()) {
+      return;
+   }
+
+   if (disableSchoolGuardOnStartup) {
+      disableSchoolGuardOnStartup = false;
+      return;
+   }
+   var points = getAccessPoints();
+   var min = (STUDENT_RESULT_REQUIRED_ACCESS_POINTS < SCHOOL_RESULT_REQUIRED_ACCESS_POINTS) ? STUDENT_RESULT_REQUIRED_ACCESS_POINTS : SCHOOL_RESULT_REQUIRED_ACCESS_POINTS;
+   if ((!recentChargedSchool.isEmpty) && (recentChargedSchool == displayName) && (points >= min)) {
+      return;
+   }
+   enableAccessPointsGuard(SCHOOL_RESULT_REQUIRED_ACCESS_POINTS, fun[recentChargedSchool, displayName]() {
+      recentChargedSchool = displayName
+   });
+}
+
+def enableAccessPointsGuardForStudentResult() {
+   if (!isMobile()) {
+      return;
+   }
+   enableAccessPointsGuard(STUDENT_RESULT_REQUIRED_ACCESS_POINTS, fun[]() {});
+}
+
+def onAddPointsCommand(cmd, argv, argc) {
+   if (cmd.equals("addPoints", false) || cmd.equals("ongezaPointi", false)) {
+      var message = "Sasa una jumla ya pointi <font color='cyan'><h1>" + to_string(getAccessPoints()) + "</h1></font><br>";
+      message = message + "<font color='#71f090'>Angalia tangazo hili kuongeza pointi zako.</font><br><u><i>(Tafadhali hakikisha umejiunga na huduma ya intaneti)</i></u>";
+      requestCustomDialog(ACCESS_POINTS_DIALOG_REQUEST_CODE, "fa::coffee", "ONGEZA POINTI", message, "Ongeza pointi", "<font color='white'>Badae</font>", "#", 0.98, 0.4, false);
+   }
+}
+
+def enableAccessPointsGuardForThisUsefullFeature() {
+   if (ENABLE_ACCESS_POINTS_FEATURE && (getAccessPoints() >= 1)) {
+      incrementAccessPoints(-1);
+   }
+}
+//-----------------
+
+def arrayCount(array) {
+   var count = 0;
+   forEachString(array, fun[count](string) {
+      ++count
+   });
+   return count;
+}
+
+def getCandidateItemTag(string text) {
+   text = text.simplified();
+   if (text.equals("m", false) || text.equals("f", false) || text.equals("male", false) || text.equals("female", false) || text.equals("msichana", false) || text.equals("mvulana", false)) {
+      return "SEX";
+   } else if (text.equals("a", false) || text.equals("b", false) || text.equals("c", false) || text.equals("d", false) || text.equals("e", false) || text.equals("f", false) || text.equals("referred", false)) {
+      return "AVERAGE";
+   } else if (text.equals("i", false) || text.equals("ii", false) || text.equals("iii", false) || text.equals("iv", false) || text.equals("0", false) || text.equals("merit", false) || text.equals("demerit", false)) {
+      return "DIV";
+   } else {
+      var hasSpace = space().hasMatch(text, 0);
+      if (hasSpace) {
+         var wordCount = arrayCount(text.split(" "));
+
+         if (!(digit().hasMatch(text, 0)) && (wordCount == 2 || wordCount == 3) && ((!text.contains("-", false)) && (!text.contains(",", false)) && (!text.contains(";", false)))) {
+            return "CANDIDATE_NAME";
+         } else {
+            var separator = chaR('-').oR(chaR('~')).optional();
+            var quote = chaR('\'').oR(chaR('"')).optional();
+            var score = stR("a", false).oR(stR("b", false)).oR(stR("c", false)).oR(stR("d", false)).oR(stR("e", false)).oR(stR("f", false));
+            var containSubjectScore = letter().plus().seq(spaceOptional()).seq(separator).seq(spaceOptional()).seq(quote).seq(spaceOptional()).seq(score).seq(spaceOptional()).seq(quote).hasMatch(text, 0);
+            if (containSubjectScore) {
+               return "DETAILED_SUBJECTS";
+            }
+         }
+      } else {
+         if (text.contains("-", false) || text.contains("/", false) || (text.length() > 2 && text.length() <= 4)) {
+            return "CNO";
+         } else if ((text.length() > 4) && (!letter().hasMatch(text, 0))) {
+            return "PREM_NO";
+         } else if ((!letter().hasMatch(text, 0)) && (text.length() == 1 || text.length() == 2)) {
+            return "AGGT";
+         }
+      }
+   }
+   return "";
+}
+
+def getTagText(string input) {
+   return chaR('<').seq(any(chaR('>'), "<>").plus()).seq(chaR('>')).removeFrom(input, 0, -1).simplified();
+}
+
+def formatCandidateResult(string input) { //input = candidate tr
+   var output = "<CANDIDATE>";
+
+   stR("<td", false).seq(any(stR("td>", false), "").plus()).seq(stR("td>", false)).replaceInMapped(input, fun[output](string tag) {
+      var text = getTagText(tag);
+      var newTag = getCandidateItemTag(text);
+      if (!newTag.isEmpty()) {
+         var item = "<" + newTag + ">" + text + "</" + newTag + ">";
+         output += item;
+      }
+      return tag;
+   }, 0, -1);
+
+   output += "</CANDIDATE>";
+
+   return output;
+}
+//----------NECTA INFO--------
+
+def getNectaInfo() {
+   return "";
+   var pageUrl = "https://necta.go.tz/"
+   return stripTag(html_tag("marquee").firstStringMatch(get(pageUrl), 0), "marquee").trim();
+}
+
+def showNectaInfo(string info) {
+   if (info.isEmpty()) {
+      info = "HAKUNA TAARIFA YEYOTE ILIYOTOLEWA";
+   }
+   info = "<font color='cyan'>".append(info).append("</font>");
+   requestCustomDialog(411, "fa::bullhorn", "<br> <font color='yellow'>TAARIFA KUTOKA NECTA</font>", info, "sawa", "", "#", 0.98, 0.5, false);
+}
+
+def showNectaInfoOrLifeQuote() {
+   var info = getNectaInfo();
+   if (!info.isEmpty()) {
+      showNectaInfo(info);
+   } else {
+      showLifeQuote();
+   }
+}
+
+def onShowNectaInfoCommand(cmd, argv, argc) {
+   if (cmd.equals("showNectaInfo", false)) {
+      showLoadingIndicator();
+      showNectaInfo(getNectaInfo());
+      hideLoadingIndicator();
+   }
+}
+
+//------------------
+//------------------
+
+def removeSubString(string output, string start, string end) {
+   var firstIndex = output.indexOf(start, 0, false);
+   if (firstIndex != -1) {
+      var lastIndex = output.indexOf(end, firstIndex + 1, false);
+      if (lastIndex != -1) {
+         var len = (lastIndex - firstIndex) + 1;
+         return output.removeAtPosition(firstIndex, len);
+      }
+   }
+   return output;
+}
+
+def removeAllTags(string tag, string html) {
+   var output = html;
+   var open = "<".append(tag);
+   var close = "</".append(tag).append(">");
+   var i = output.indexOf(open, 0, false);
+   while (i != -1) {
+      output = removeOpenTag(output, open, ">");
+      output = output.remove(close, false);
+      i = output.indexOf(open, 0, false);
+   }
+   return output;
+}
+
+//------------------ 
+
+global _clickCountImageDialog = 0;
+def showImageDialogAfterXClicks(int clicks, string imageUrl, string redirectURL, double percentWidth, double percentHeight, bool showCloseButton, double showCloseButtonAfterXMills) {
+   ++_clickCountImageDialog;
+   if (_clickCountImageDialog > clicks) {
+      _clickCountImageDialog = 1;
+      return;
+   }
+   if (_clickCountImageDialog == clicks) {
+      var cachedImage = getOfflineImagePath(imageUrl);
+      if (cachedImage.isEmpty()) {
+         saveImageForOffline(imageUrl);
+      }
+      showImageDialog(cachedImage.isEmpty() ? imageUrl : cachedImage, redirectURL, percentWidth, percentHeight, showCloseButton, showCloseButtonAfterXMills);
+   }
+}
+
+//------------------ 
+
+
+/*  add filter logic inside this function  */
+def filterHtml(string html) {
+   var output = html;
+
+   var year = 0;
+   var title = "";
+   var titleTag = output.getTag("H1", 0);
+   if (titleTag.valid) {
+      title = titleTag.value;
+      year = getYear(title, "");
+   }
+
+   output = output.replace("results\\s", "results/s", false);
+   output = output.replace("results\\p", "results/p", false);
+
+   return output;
+}
+
+def moveMenuToTop(string menu, string type, string year, int loop) {
+   var tmp = menu;
+   var menuTag = Tag(false, -1, -1, "");
+   for (var i = 0; i <= loop; ++i) {
+      var tag = tmp.getTag("RESULTS", 0);
+      if (tag.valid) {
+         var identifier = type.append(" ").append(year);
+         if (tag.value.contains(identifier, false)) {
+            menuTag = tag;
+            break;
+         } else {
+            tmp = tmp.removeAtPosition(tag.index, tag.length);
+         }
+      } else {
+         break;
+      }
+   }
+
+   if (menuTag.valid) {
+      var s = "<NECTA_RESULTS>";
+      var i = menu.indexOf(s, 0, false);
+      if (i != -1) {
+         menu = menu.remove(menuTag.value, true);
+         //append to top
+         menu = menu.replaceAtPosition(i + s.length(), 1, menuTag.value.append("<"))
+      }
+   }
+
+   return menu;
+}
+
+/*
+ Stating from 2024,  the only use this in updateMenu function ,to update menu from website
+*/
+def addResultLinksToMenuFromNectaPage(string menu, string url) {
+   if (url.isEmpty()) {
+      return menu;
+   }
+   var html = get(url);
+   if (html.isEmpty()) {
+      return menu;
+   }
+   var output = menu;
+   var end = stR(".htm", false);
+   stR("http", false).seq(any(end, "<>").plus()).seq(end).replaceInMapped(html, fun[output](string link) {
+      var year = getYear("", link);
+      if (year != 0) {
+         var name = to_string(year);
+         if (!output.contains(name, false)) {
+            output = addLinkToMenuXML(name, link, output);
+         }
+      }
+      return link;
+   }, 0, -1);
+
+   return output;
+}
+
+def updateMenu(string menu) {
+   return menu;
+}
+
+//----------onSaveAndPlayVideoAd--------
+
+def onSaveAndPlayVideoAdCommand(cmd, argv, argc) {
+   if (cmd.equals("saveAndPlayVideoAd", false)) {
+
+      showLoadingIndicator();
+
+      if (argc >= 4) {
+         var videoUrl = argv[0];
+         if (!videoUrl.contains("/", false)) {
+            showOperationFailedDialog("Invalid videoUrl");
+            hideLoadingIndicator();
+            return;
+         }
+
+         var descriptionImageUrl = argv[1];
+         var descriptionText = "<font color=\"cyan\"><b>" + argv[2] + "</b></font>";
+         var descriptionBGColor = argv[3];
+
+         saveOrUpdateData("previous_descriptionImageUrl", descriptionImageUrl);
+         saveOrUpdateData("previous_descriptionText", descriptionText);
+         saveOrUpdateData("previous_descriptionBGColor", descriptionBGColor);
+
+         var path = getOfflineVideoPath(videoUrl);
+         if (!path.isEmpty()) {
+            hideLoadingIndicator();
+            playVideoAd(path, descriptionImageUrl, descriptionText, descriptionBGColor);
+
+            return;
+         }
+
+         var fileName = "";
+         if (argc > 4) {
+            fileName = argv[4];
+         } else {
+            var list = [];
+            var fn = fun[list](string s) {
+               list.push_back(s);
+            };
+
+            var arr = videoUrl.split("/");
+            forEachString(arr, fn);
+
+            fileName = list[list.size() - 1];
+         }
+
+         path = generateAppRootFilePath(fileName);
+         if (saveFile(videoUrl, path)) {
+            saveOrUpdateData(videoUrl, path);
+            pasteToClipboard(path);
+            hideLoadingIndicator();
+            playVideoAd("file:" + path, descriptionImageUrl, descriptionText, descriptionBGColor);
+         } else {
+            hideLoadingIndicator();
+            showOperationFailedDialog("<font color='red'> imeshindwa kutunza faili</font>");
+         }
+      }
+      hideLoadingIndicator();
+   }
+}
+
+def onShowGoogleAdCommand(cmd, argv, argc) {
+   if (cmd.equals("showGoogleAd", false)) {
+      showToastMessage("Tafadhali subiri, hakikisha umejiunga na huduma ya intaneti.")
+      if (adsInitialized) {
+         showOrLoadAd();
+      } else {
+         initializeAds();
+      }
+   }
+}
+//------------------
+
+
+def onUrlVisited(string url) {
+   if (url.startsWith("#", false)) {
+      var cmd = "";
+      var argv = [];
+      var i = 0;
+      var initVars = fun[i, cmd, argv](string s) {
+         if (i == 0) {
+            cmd = s.remove("#", false);
+         }
+
+         if (i > 0) {
+            argv.push_back(s);
+         }
+         ++i;
+      };
+
+      var arr = url.split(";");
+      forEachString(arr, initVars);
+
+      onExecuteCommand(cmd, argv, argv.size());
+   }
+
+}
+
+//argv is vector of strings whitch represents a list of command argurments
+def onExecuteCommand(cmd, argv, argc) {
+   onShowAdvertiseWithUsDialogCommand(cmd, argv, argc);
+   onVisitMagabeLabCommand(cmd, argv, argc);
+   onShowConsoleCommand(cmd, argv, argc);
+   onPlayVideoCommand(cmd, argv, argc);
+   onSaveFileCommand(cmd, argv, argc);
+   onSaveAndPlayVideoCommand(cmd, argv, argc);
+   onOfflineVideoCommand(cmd, argv, argc);
+   onChangeLoadingIndictorCommand(cmd, argv, argc);
+   onAddPointsCommand(cmd, argv, argc);
+   // onShowNectaInfoCommand(cmd, argv, argc);
+   onSaveAndPlayVideoAdCommand(cmd, argv, argc);
+   onShowGoogleAdCommand(cmd, argv, argc);
+}
+
+def onShareViaSms(string phoneNumber, string resultsShared) {
+
+
+}
+
+
+global DOWNLOAD_UPDATE_REQUESTCODE = 201;
+
+def requestDownloadUpdateDialog(string description, string url) {
+   requestCustomDialog(DOWNLOAD_UPDATE_REQUESTCODE, "fa::download", "Pakua toleo jipya!!", description, "Pakua", "Funga App", url, 0.8, 0.2, false);
+}
+
+
+def downloadUpdate() {
+   try {
+
+      var os = getOperatingSystem();
+      var version = getScriptRunnerVersion();
+      var packageName = getAppPackageName();
+      var latestAppVersionName = "";
+      var win64DownloadURL = "";
+      var message = "";
+
+      latestAppVersionName = "0.1"; //Change each new version 
+      win64DownloadURL = "#";
+
+
+      message = "Toleo jipya la aplikesheni hii ambalo ni ".append(latestAppVersionName).append(" limeshatoka, pakua sasa.");
+      if ((version >= 2) && (version < 4)) {
+         var isAndroid = generateAppRootFilePath("").replace("/", ".", false).contains(packageName, true);
+         if (isAndroid) {
+            showToastMessage(message);
+            openPage(packageNameToUrl(packageName));
+         } else {
+            openPage(win64DownloadURL);
+         }
+      } else if (version >= 4) {
+         var url = (os == "android") ? packageNameToUrl(packageName) : win64DownloadURL;
+         if (version == 4) {
+            requestDownloadUpdateDialog(message, url);
+         } else {
+            var versionName = getVersionName(packageName);
+            if (versionName != latestAppVersionName) {
+               requestDownloadUpdateDialog(message, url);
+            } else {
+               //showNectaInfoOrLifeQuote();
+            }
+         }
+      }
+
+   } catch {}
+
+}
+
+def saveSplashImage(string url) {
+   var name = "splash"
+   var splashFlag = "/splash.bmp";
+   var savedSplash = getData(name);
+   if (savedSplash.equals(url, false) && fileExists(getData(splashFlag))) {
+      rerurn;
+   }
+   var path = generateAppRootFilePath(name);
+   if (saveFile(url, path)) {
+      saveOrUpdateData(splashFlag, path);
+      saveOrUpdateData(name, url);
+      showToastMessage("Splash image saved");
+   }
+}
+
+def playWelcomeVideo(string url) {
+   var path = getOfflineVideoPath(url);
+   if (!path.isEmpty()) {
+      playVideoAd(path, getData("previous_descriptionImageUrl"), getData("previous_descriptionText"), getData("previous_descriptionBGColor"));
+   } else {
+
+      onUrlVisited("#saveAndPlayVideoAd;" + url);
+
+   }
+}
+
+//-------- Menginyo on right btn ----------
+
+def setMengineyoBtn(bool b) {
+   if (!b) {
+      setRightButtonText("");
+      setRightButtonIcon("");
+      safeRefreshUI();
+      return;
+   }
+   var os = getOperatingSystem();
+   if (os == "android") {
+      setRightButtonText("Mengineyo");
+      setRightButtonIcon("fa::bullhorn");
+      safeRefreshUI();
+   }
+}
+
+def showMengineyoIfSet() {
+   var os = getOperatingSystem();
+   if (os != "android") {
+      return;
+   }
+   var v = getData("RIGHT_BTN_TEXT");
+   if (v == "Mengineyo") {
+      closeSavedResultsDialog();
+      onUrlVisited("#showGoogleAd");
+   }
+}
+
+
+def onSavedResultsDialogOpened() {
+   showMengineyoIfSet()
+}
+
+//------------------------------------
+
+def setResultsDowloaderDialogIndicator(string githubImageName, string githubImagePath) {
+   var key = "/info.png";
+   var path = generateAppRootFilePath(githubImageName);
+   if (!fileExists(path)) {
+      if (saveFile(githubFile(githubImagePath.append(githubImageName)), path)) {
+         saveOrUpdateData(key, path);
+      }
+   } else {
+      saveOrUpdateData(key, path);
+   }
+}
+
+def onInitConfigs() {
+
+   setResultsDowloaderDialogIndicator("processing.gif", "");
+   setMengineyoBtn(false);
+
+}
+
+
+global PAKUA_MATOKEO_LA7_TIMERCODE = 32;
+global LA7_PACKAGENAME = "com.magabe.n3cta.matokeo.ya.darasa.la.saba";
+global ADS_TIMER = 32023;
+
+def onAppStarted() {
+   try {
+
+      setMyFavoriteLoadingIndicator();
+
+      setTimer(ADS_TIMER, 1000 * 6); // 6 sec
+
+      downloadUpdate();
+
+
+      setLeftButtonIconColor("cyan");
+      setLeftButtonTextColor("yellow");
+
+      setRightButtonIconColor("cyan");
+      setRightButtonTextColor("white");
+
+      safeRefreshUI();
+
+      saveSplashImage("https://raw.githubusercontent.com/magabe26/mgb/master/tzmapflag.jpeg");
+
+
+   } catch {}
+
+   /*
+   setTimeOut(fun[]() {
+     playWelcomeVideo("https://raw.githubusercontent.com/magabe26/mgb/master/Ads/samia-bday.mp4;#;President Samia Suluhu Hassan;transparent");
+   },6000);
+   */
+
+
+}
+
+
+def onAppExited(int status) {
+
+}
+
+def beforeHtmlJunkRemover(string html) {
+
+}
+
+def confirmHtmlJunkRemoval(string info) {
+   return true;
+}
+
+def getGenderWisePerformanceTableContent(string html) {
+   while (true) {
+      var table = html.getTag("table", 0);
+      if (table.valid) {
+         var content = table.value;
+         if (content.contains("SEX", false) &&
+            content.contains("F", false) &&
+            content.contains("M", false) &&
+            (!content.contains("CNO", false))) {
+            return content;
+         } else {
+            html = html.removeAtPosition(table.index, table.length);
+         }
+      } else {
+         return "";
+      }
+   }
+}
+
+def getGenderWisePerformanceData(string html) {
+   enableAccessPointsGuardForThisUsefullFeature();
+   var content = getGenderWisePerformanceTableContent(html);
+   var json = "[";
+   while (true) {
+      var tag = content.getTag("tr", 0);
+      if (!tag.valid) {
+         break;
+      }
+      var tr = tag.value;
+      var index = 0;
+      var item = "{";
+      while (true) {
+         var tdTag = tr.getTag("td", 0);
+         if (tdTag.valid) {
+            var text = tdTag.value.removeOpenTag("td").removeCloseTag("td").trim();
+            item = item.append("\"_").append(to_string(index)).append("\":\"").append(text).append("\"");
+            item = item.append(",");
+            tr = tr.removeAtPosition(tdTag.index, tdTag.length);
+         } else {
+            break;
+         }
+         index = index + 1;
+      }
+      if (item.endsWith(",", true)) {
+         item = item.mid(0, item.length() - 1);
+      }
+      item = item.append("}");
+      var empty = (item.length() == 2);
+      if (!empty) {
+         json = json.append(item);
+         json = json.append(",");
+      }
+      content = content.removeAtPosition(tag.index, tag.length);
+   }
+
+   if (json.endsWith(",", true)) {
+      json = json.mid(0, json.length() - 1);
+   }
+
+   json = json.append("]");
+
+   json = json.replace("SEX", "DIVISION", false);
+   //Start with Male first 
+   if (!json.contains("MALE", false)) {
+      json = json.replace("M", "MALE", false);
+   }
+   if (!json.contains("FEMALE", false)) {
+      json = json.replace("F", "FEMALE", false);
+   }
+   json = json.replace("T", "TOTAL", false);
+
+   var empty = (json.length() == 2);
+   if (empty) {
+      json = "";
+   }
+
+   return json;
+}
+
+
+def getAbsoluteLinks(string html) {
+   var output = html.replace("'", "\"", false);
+   var pos = 0;
+   var links = [];
+   var i1 = output.indexOf("http", pos, false);
+   while (i1 != -1) {
+      var i2 = output.indexOf("\"", i1, false);
+      if (i2 != -1) {
+         pos = i2;
+         var link = output.mid(i1, i2 - i1);
+         links.push_back(link);
+      } else {
+         pos = i1;
+      }
+      i1 = output.indexOf("http", pos, false);
+   }
+   return links;
+}
+
+
+def getResultAbsoluteLinks(string html) {
+   var links = getAbsoluteLinks(html);
+   var resultLinks = [];
+   for (var i = 0; i < links.size(); ++i) {
+      var link = links[i].simplified();
+      if (link.endsWith(".htm", false)) {
+         resultLinks.push_back(link);
+      }
+   }
+   return resultLinks;
+}
+
+def getNectaResultLinks(string html) {
+   var links = getResultAbsoluteLinks(html);
+   var menuLinks = [];
+   for (var i = 0; i < links.size(); ++i) {
+      var link = links[i];
+      var year = getYear("", link);
+      if (year != 0) {
+         var yearTag = "<year>".append(to_string(year)).append("</year>");
+         var aTag = "<a HREF=\"".append(link).append("\"></a>");
+         var linkTag = "<link>".append(yearTag).append(aTag).append("</link>");
+         menuLinks.push_back(linkTag);
+      }
+   }
+   return menuLinks;
+}
+
+global PAKUA_MATOKEO_LA7_REQUESTCODE = 89;
+
+/* pressedButton = no or yes */
+def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
+   switch (requestCode) {
+      case (PAKUA_MATOKEO_LA7_REQUESTCODE) {
+         if (pressedButton == "yes") {
+            showToastMessage("Tafadhali subiri");
+         } else {
+            showToastMessage("Sawa, nitakukumbusha baadae");
+            setTimer(PAKUA_MATOKEO_LA7_TIMERCODE, 1000 * 60 * 1.5); //wait 1.5 min
+         }
+         break;
+      }
+
+      case (DOWNLOAD_UPDATE_REQUESTCODE) {
+         if (pressedButton == "yes") {
+            showToastMessage("Tafadhali subiri");
+         } else {
+            showToastMessage(" :( "); //show sad face
+            var os = getOperatingSystem();
+            if (os == "android") {
+               quit();
+            }
+         }
+         break;
+      }
+
+      case (EMAIL_US_REQUEST_CODE) {
+         if (pressedButton == "yes") {
+            showToastMessage("Asante, Tafadhali subiri");
+            openPage("mailto:magabelab.tz@gmail.com");
+         } else {
+            showToastMessage("Sawa!");
+         }
+         break;
+      }
+
+      case (VISIT_MAGABE_LAB_REQUEST_CODE) {
+         if (pressedButton == "yes") {
+            showToastMessage("Asante, Tafadhali subiri");
+            openPage("https://magabelab-tz.web.app");
+         } else {
+            showToastMessage("Sawa!");
+         }
+         break;
+      }
+
+      case (SHOW_CONSOLE_REQUEST_CODE) {
+         if (answer.isEmpty()) {
+            return;
+         }
+
+         if (pressedButton == "yes") {
+            var cmd = "";
+            var argv = [];
+            var i = 0;
+            var initVars = fun[i, cmd, argv](string s) {
+               if (i == 0) {
+                  cmd = s.remove("#", false);
+               }
+
+               if (i > 0) {
+                  argv.push_back(s);
+               }
+               ++i;
+            };
+
+            var arr = answer.split(";");
+            forEachString(arr, initVars);
+
+            onExecuteCommand(cmd, argv, argv.size());
+         }
+         break;
+      }
+
+      default {
+         onLifeQuoteDialogClosed(requestCode, pressedButton, answer);
+         onChangeLoadingIndictorDialogClosed(requestCode, pressedButton, answer);
+         onAccessPointsDialogClosed(requestCode, pressedButton, answer);
+         onAdLoadingDialogClosed(requestCode, pressedButton, answer);
+         break;
+      }
+   }
+
+}
+
+def onTimeOut(int timerCode) {
+   switch (timerCode) {
+      case (PAKUA_MATOKEO_LA7_TIMERCODE) {
+         requestCustomDialog(PAKUA_MATOKEO_LA7_REQUESTCODE, "fa::download", "Matokeo ya darasa la 7", "Angalia matokeo ya darasa la 7 kwa kutumia aplikesheni hii ya kisasa", "Pakua sasa", "Baadae", packageNameToUrl(LA7_PACKAGENAME), 0.8, 0.2, false);
+         break;
+      }
+
+      case (ADS_TIMER) {
+
+         if (canShowAds()) {
+            initializeAds();
+         } else {
+            loadConsentForm();
+         }
+
+         break;
+      }
+
+      case (SAVE_IMAGE_FOR_OFFLINE_TIMERCODE) {
+         if (imagesToBeSaved.empty() || savedImageIndex >= imagesToBeSaved.size()) {
+            break;
+         }
+         var img = imagesToBeSaved[savedImageIndex];
+         ++savedImageIndex;
+
+         if (!img.isEmpty() && getOfflineImagePath(img).isEmpty()) {
+            var name = "";
+            var list = [];
+            var fn = fun[list](string s) {
+               list.push_back(s);
+            };
+
+            var arr = img.split("/");
+            forEachString(arr, fn);
+
+            name = list[list.size() - 1];
+
+            var path = generateAppRootFilePath(name);
+            if (saveFile(img, path)) {
+               saveOrUpdateData(img, path);
+               onImageSaved(img, path);
+            }
+         }
+         break;
+      }
+
+      default {
+         onShowLoadingIndicatorTimeOut(timerCode);
+         break;
+      }
+
+   }
+
+}
+
+def onImageSaved(string url, string path) {
+   log("Image saved: url = ".append(url).append(" , path = ").append(path));
+
+   onLoadingImageSaved(url, path);
+}
+
+global currentSchool = "";
+global currentResultYear = 0;
+global currentResultType = "";
+
+def goToNectaResultPage(string info) {
+
+}
+
+def onSchoolResultsOpened(string info) {
+   //log("School results opened ---> ".append(info));
+
+   currentResultType = "GATCE";
+
+
+   currentResultYear = getYear(info, "");
+
+   currentSchool = info.remove(to_string(currentResultYear), false).remove(currentResultType, false).remove("_", false).trim();
+
+   enableAccessPointsGuardForSchoolResult(currentSchool);
+
+   //log("CurrentResultYear == ".append(to_string(currentResultYear)));
+   //log("CurrentResultType == ".append(currentResultType));
+   //log("CurrentSchool == ".append(currentSchool));
+}
+
+def onCandidateResultOpened(string info) {
+   //log("Candidate result opened ---> ".append(info));
+   enableAccessPointsGuardForStudentResult();
+
+   //showImageDialogAfterXClicks(3,githubFile("Ads/changia.png"),"#",1,0.68,true,3000);
+
+}
+
+
+def getRegRankTitle() {
+   enableAccessPointsGuardForThisUsefullFeature();
+   if (currentResultType.equals("CSEE", false)) {
+      if (currentResultYear >= 2022) {
+         return "GRADE";
+      } else {
+         return "REG/RANK";
+      }
+   } else {
+      return "REG/RANK";
+   }
+}
+
+def getNatRankTitle() {
+   if (currentResultType.equals("CSEE", false)) {
+      if (currentResultYear >= 2022) {
+         return "CLEVEL";
+      } else {
+         return "NAT/RANK";
+      }
+   } else {
+      return "NAT/RANK";
+   }
+}
+
+//Ads
+def initializeAds() {
+   try {
+      // initAds("ca-app-pub-2466182993358829/2202864576");
+   } catch {}
+}
+
+def onAdsInitialized() {
+   //showToastMessage("Ads initialized");
+   loadAd();
+}
+
+def onLoadingAd() {
+   //showToastMessage("Loading Ad ...");
+}
+
+def onAdLoaded() {
+   //showToastMessage("Ad Loaded !");
+   adsInitialized = true;
+   showAd();
+}
+
+def onFailedToLoadAd(string error) {
+   //showToastMessage("Error:: Failed To LoadAd !".append(error));
+   onAdRewardFailure();
+}
+
+def onAdShown() {
+   //showToastMessage("Ad Shown !");
+   giveRewardForAd();
+   setTimeOut(fun[]() {
+      showOrLoadAd();
+   }, 1000 * 60 * 1); //1 min
+}
+
+def showOrLoadAd() {
+   if (adsInitialized) {
+      if (adLoaded()) {
+         showAd();
+      } else {
+         loadAd();
+      }
+   } else {
+      var cvn = 0.5;
+      var vn = getVersionNameAsDouble();
+      if ((vn < cvn) || canShowAds()) {
+         initializeAds();
+      }
+   }
+}
+
+def onFailedToShowAd(string error) {
+   //showToastMessage("Error:: Failed To ShowAd !".append(error));
+   onAdRewardFailure();
+}
+
+def onAdDismissed() {
+   //showToastMessage("Ad Dismissed!");
+   onAdRewardFailure();
+}
+
+//Video
+def onVideoDialogOpened(string videoUrl, string videoDescription, string redirectUrl) {
+   //setVideoPlayerLoadingIndicator("https://raw.githubusercontent.com/magabe26/mgb/master/magabelab1.gif");
+   //setVideoThumbnail("https://raw.githubusercontent.com/magabe26/mgb/master/magabelab1.gif")
+
+   videoPlayerPlay();
+}
+
+def onVideoDialogClosed(string videoUrl, string videoDescription, string redirectUrl) {
+   //log(" Video dialog closed"+ videoUrl);
+}
+
+def isVideoDialogCloseDisabled(string videoUrl, double position, double duration, bool errorOccured) {
+   if (duration == 0) {
+      return false;
+   } else {
+      return position / duration < 0.5;
+   }
+}
+
+def isVideoSeekForwardDisabled(string videoUrl, double position, double duration) {
+   return false;
+}
+
+def onVideoPlayerStatusChanged(string videoUrl, int status) {
+
+   switch (status) {
+
+      case (VideoPlayerStatus.NoMedia) {
+         log("VideoPlayerStatus.NoMedia");
+
+         break;
+      }
+
+      case (VideoPlayerStatus.Loading) {
+         log("VideoPlayerStatus.Loading");
+
+         break;
+      }
+
+      case (VideoPlayerStatus.Loaded) {
+         log("VideoPlayerStatus.Loaded");
+
+         break;
+      }
+
+      case (VideoPlayerStatus.Buffering) {
+         log("VideoPlayerStatus.Buffering");
+
+         break;
+      }
+
+      case (VideoPlayerStatus.Stalled) {
+         log("VideoPlayerStatus.Stalled");
+
+         break;
+      }
+
+      case (VideoPlayerStatus.Buffered) {
+         log("VideoPlayerStatus.Buffered");
+
+         break;
+      }
+
+      case (VideoPlayerStatus.EndOfMedia) {
+         log("VideoPlayerStatus.EndOfMedia");
+
+         playVideoAd(videoUrl, getData("previous_descriptionImageUrl"), getData("previous_descriptionText"), getData("previous_descriptionBGColor"));
+
+         break;
+      }
+
+      case (VideoPlayerStatus.InvalidMedia) {
+         log("VideoPlayerStatus.InvalidMedia");
+
+         break;
+      }
+
+      case (VideoPlayerStatus.UnknownStatus) {
+         log("VideoPlayerStatus.UnknownStatus");
+
+         break;
+      }
+
+      default {
+         break;
+      }
+
+   }
+}
+
+def onVideoPlaybackStateChanged(string videoUrl, int playbackState) {
+
+   switch (playbackState) {
+
+      case (VideoPlayerPlaybackState.PlayingState) {
+         log("VideoPlayerPlaybackState.PlayingState");
+
+         break;
+      }
+
+      case (VideoPlayerPlaybackState.PausedState) {
+         log("VideoPlayerPlaybackState.PausedState");
+
+         break;
+      }
+
+      case (VideoPlayerPlaybackState.StoppedState) {
+         log("VideoPlayerPlaybackState.StoppedState");
+
+         break;
+      }
+
+      default {
+         break;
+      }
+
+   }
+}
+
+def onVideoPlayerVolumeChanged(string videoUrl, double volume) {
+   //log("onVideoPlayerVolumeChanged , volume = "+ to_string(volume));
+}
+
+def onVideoPlayerError(string videoUrl, int errorCode, string error) {
+   closeVideoDialog();
+
+   var errorDisplay = "";
+
+   switch (errorCode) {
+
+      case (VideoPlayerError.NoError) {
+         errorDisplay = "VideoPlayerError.NoError";
+
+         break;
+      }
+
+      case (VideoPlayerError.ResourceError) {
+         errorDisplay = "VideoPlayerError.ResourceError";
+
+         break;
+      }
+
+      case (VideoPlayerError.FormatError) {
+         errorDisplay = "VideoPlayerError.FormatError";
+
+         break;
+      }
+
+      case (VideoPlayerError.NetworkError) {
+         errorDisplay = "VideoPlayerError.NetworkError";
+
+         break;
+      }
+
+      case (VideoPlayerError.AccessDenied) {
+         errorDisplay = "VideoPlayerError.AccessDenied";
+
+         break;
+      }
+
+      case (VideoPlayerError.ServiceMissing) {
+         errorDisplay = "VideoPlayerError.ServiceMissing";
+         break;
+      }
+
+      default {
+         break;
+      }
+   }
+
+   requestCustomDialog(100520231, "fa::close", "<font color='red'>Imeshindwa kuonyesha</font>", errorDisplay, "Sawa", "", "#", 0.8, 0.2, false);
+}
+
+
+def isVideoDialogMinimizeDisabled(string videoUrl, double position, double duration, bool errorOccured) {
+   if (duration == 0) {
+      return false;
+   } else {
+      return position / duration < 0.2;
+   }
+}
+
+def simplifyResultsHeaderTitles(string text) {
+   if (text.equals("EXAMINATION CENTRE SUBJECTS PERFORMANCE", false)) {
+      return "SUBJECTS PERFORMANCE";
+   } else if (text.equals("EXAMINATION CENTRE CLASS/DIVISIONS PERFORMANCE", false)) {
+      return "CLASS/DIVISIONS PERFORMANCE";
+   } else if (text.equals("EXAMINATION CENTRE RANKING", false)) {
+      return "RANKING";
+   } else {
+      return text;
+   }
+}
+
+def tr(text) {
+   var i = text.indexOf("Created", 0, false);
+   if (i != -1) {
+      return text.left(i);
+   }
+   return simplifyResultsHeaderTitles(text);
+}
+
+def showDebugMessage(msg) {
+   requestCustomDialog(411, "fa::coffee", "Debug message", msg, "ok", "", "#", 0.98, 0.6, false);
+}
+
+//-------------- ConsentManager -----------------
+
+def onConsentInfoUpdateSuccess() {}
+
+def onConsentInfoUpdateFailure(error) {}
+
+def onConsentFormLoaded() {
+   showConsentForm();
+}
+
+def onConsentFormLoadFailure(error) {}
+
+def onConsentFormShowFailure(error) {}
+
+def onConsentNotGranted(error) {}
+
+def onConsentGranted() {
+   initializeAds();
+}
+
+def getMenuHeaderFontPointSize(string os) {
+   return os.equals("android", false) ? 14 : 10;
+}
+
+//----------------------------------------
+
+def runTest(string input) {
+   var output = input;
+
+   //var output  boolToString(saveData("ip2","45.55.5.41"));
+   //var output = getData("ip2");
+   //updateData("ip2","no-ip");
+   //var output = getData("ip2");
+
+   return output;
+}
