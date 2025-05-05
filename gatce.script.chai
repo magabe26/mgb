@@ -190,12 +190,6 @@ def string::equals(string other, bool caseSensitive) {
 
 /* -------------------------------------------------*/
 
-def safeRefreshUI(){
-   try {
-      refreshUI();
-   } catch {}
-}
-
 //------------------
 
 def saveOrUpdateData(string key, string value) {
@@ -935,7 +929,7 @@ def onAdRewardFailure(){
 	
 	if(previousRequiredPoints != 0.0){
 	   showInsuficientAccessPointDialog(previousRequiredPoints);
-	  // showToastMessage("Imeshindwa kufungua tangazo!");
+	   showToastMessage("Imeshindwa kufungua tangazo!");
 	}
 }
 
@@ -1229,8 +1223,8 @@ def filterHtml(string html) {
 	  }	  
    
    }
-
    
+   log(output)
 
    return output;
 }
@@ -1375,16 +1369,6 @@ def getGenderWisePerformanceDialogColumnsWidths() {
    return "0.30, 0.14, 0.14, 0.14 , 0.14, 0.14";
 }
 
-def onShowGoogleAdCommand(cmd, argv, argc) {
-   if (cmd.equals("showGoogleAd", false)) {
-        showToastMessage("Tafadhali subiri, hakikisha umejiunga na huduma ya intaneti.")
-        if (adsInitialized) {
-            showOrLoadAd();
-         } else {
-            initializeAds();
-         }
-   }
-}
 
 def onUrlVisited(string url) {
 	if(url.startsWith("#",false)){
@@ -1424,7 +1408,6 @@ onAddPointsCommand(cmd, argv, argc);
 
 // onShowNectaInfoCommand(cmd, argv, argc);
 onSaveAndPlayVideoAdCommand(cmd, argv, argc);
-onShowGoogleAdCommand(cmd, argv, argc);
 
 }
 
@@ -1434,7 +1417,7 @@ def onShareViaSms(string phoneNumber, string resultsShared) {
 
 }
 
-global LATEST_APP_VERSION_NAME = "0.9"; //Always change this this on every App release
+global LATEST_APP_VERSION_NAME = "0.8"; //Always change this this on every App release
 global WIN64_DOWLOAD_URL = "https://www.mediafire.com/file/rx6m6cg0weqihxx/Matokeo+Cha2+v0.6+WinX64+Installer.exe/file";
 global DOWNLOAD_UPDATE_REQUESTCODE = 201;
 
@@ -1551,71 +1534,12 @@ onUrlVisited("#saveAndPlayVideoAd;" + url);
 }
 }
 
-
-//-------- Menginyo on right btn ----------
-
-def setMengineyoBtn(bool b)
-{
-  if(!b){
-    setRightButtonText("");
-    setRightButtonIcon("");
-    safeRefreshUI();
-    return;
-  }
-  var os = getOperatingSystem();
-  if(os == "android"){
-    setRightButtonText("Mengineyo");
-    setRightButtonIcon("fa::bullhorn");
-    safeRefreshUI();
-  }
-}
-
-def showMengineyoIfSet()
-{
-  var os = getOperatingSystem();
-  if(os != "android"){
-     return;
-  }
-  var v =  getData("RIGHT_BTN_TEXT");
-  if(v == "Mengineyo"){
-     closeSavedResultsDialog();
-	 onUrlVisited("#showGoogleAd");	
-  }
-}
-
-
-def onSavedResultsDialogOpened()
-{
-  showMengineyoIfSet()
-}
-
-//------------------------------------
-
-def setResultsDowloaderDialogIndicator(string githubImageName,string githubImagePath){
-    var key = "/info.png";
-	var path = generateAppRootFilePath(githubImageName);
-	if (!fileExists(path)) {
-	    if(saveFile(githubFile(githubImagePath.append(githubImageName)),path)){
-		   saveOrUpdateData(key,path);
-		}
-	}else{
-	    saveOrUpdateData(key,path);
-	}
-}
-
-def onInitConfigs(){
-
-    setResultsDowloaderDialogIndicator("processing.gif","");
-    setMengineyoBtn(false);
-	   
-}
-
 global PAKUA_MATOKEO_LA7_TIMERCODE = 32;
 global LA7_PACKAGENAME = "com.magabe.n3cta.matokeo.ya.darasa.la.saba";
 global ADS_TIMER = 32023;
 
 def onAppStarted() { 
-   try {    
+   try {
 
       setMyFavoriteLoadingIndicator();
 
@@ -1640,8 +1564,6 @@ def onAppStarted() {
    setRightButtonIconColor("cyan");
 setRightButtonTextColor("white");
 
-safeRefreshUI();
-
 saveSplashImage("https://raw.githubusercontent.com/magabe26/mgb/master/tzmapflag.jpeg");
 
 
@@ -1650,11 +1572,10 @@ saveSplashImage("https://raw.githubusercontent.com/magabe26/mgb/master/tzmapflag
 
 /*
 setTimeOut(fun[]() {
-  playWelcomeVideo("https://raw.githubusercontent.com/magabe26/mgb/master/Ads/samia-bday.mp4;#;President Samia Suluhu Hassan;transparent");
-},6000);  
-*/
+  playWelcomeVideo("https://raw.githubusercontent.com/magabe26/mgb/master/Ads/new_year_2025.mp4");
+},6000); */ //12sec
 
- //requestCustomDialog(2499, "", "Kama matokeo hayaonyeshi", "Nenda kwenye saved results, yafute kisha fungua upya", "sawa", "", "", 0.8, 0.2, false);
+hideLoadingIndicator()
 
 }
 
@@ -1855,14 +1776,12 @@ def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
          if (pressedButton == "yes") {
             showToastMessage("Tafadhali subiri");
          } else {
-            showToastMessage(" :( "); //show sad face  
+            showToastMessage(" :( "); //show sad face
+            var os = getOperatingSystem();
+            if (os == "android") {
+               quit();
+            }
          }
-
-         var os = getOperatingSystem();
-         if (os == "android") {
-             quit();
-          }
-
          break;
       }
 	  
@@ -1999,7 +1918,7 @@ global currentResultYear = 0;
 
 def onSchoolResultsOpened(string info) {
    log("School results opened ---> ".append(info));
-hideLoadingIndicator();
+
    currentResultYear = getYear(info, "");
    currentSchool = info.remove(to_string(currentResultYear), false).remove("_", false).trim();
 
@@ -2031,6 +1950,13 @@ def getNatRankTitle() {
    } else {
       return "NAT/RANK";
    }
+}
+
+
+def onShareViaSMSDialogOpened(info)
+{
+  //closeShareViaSMSDialog();
+  log(info);
 }
 
 //Ads
@@ -2275,24 +2201,12 @@ def isVideoDialogMinimizeDisabled(string videoUrl, double position, double durat
    }
 }
 
-def simplifyResultsHeaderTitles(string text){
-     if (text.equals("EXAMINATION CENTRE SUBJECTS PERFORMANCE", false)) {
-	     return "SUBJECTS PERFORMANCE";
-	 } else if (text.equals("EXAMINATION CENTRE CLASS/DIVISIONS PERFORMANCE", false)) {
-		 return "CLASS/DIVISIONS PERFORMANCE";
-	 } else if (text.equals("EXAMINATION CENTRE RANKING", false)) {
-		 return "RANKING";
-	 } else {
-	     return text;
-	 }
-}
-
 def tr(text) {
  var i = text.indexOf("Created",0,false);
  if(i != -1){
    return text.left(i);
   }
-  return simplifyResultsHeaderTitles(text);
+ return simplifyResultsHeaderTitles(text);
 }
 
 def showDebugMessage(msg) {
@@ -2319,21 +2233,36 @@ def onConsentGranted() {
    initializeAds();
 }
 
-def beforeSchoolResultsXmlSubmittion(string xml, string name){
- 
-   if(name.simplified().endsWith("CENTRE",false)){
-      return removeEmptyStudentResults(xml);
-   }else{
-      return xml;
-   }
-
-}
-
-def getMenuHeaderFontPointSize(string os){
-     return os.equals("android", false) ? 14 : 10;
-}
-
 //----------------------------------------
+def onSavedResultsDialogOpened()
+{//closeSavedResultsDialog();
+/*setIsFooterVisible(false);
+setIsMenuWindowVisible(false);
+ setIsMainResultsWindowVisible(false);
+setIsMenuBarVisible(false);*/
+
+setFullScreenOff();
+closeSavedResultsDialog();
+ var url = "file:/" + generateAppRootFilePath("test.qml");
+ requestCustomPage(url,"My title",true);
+ 
+   // loadMainResultsPage("test","<?xml version='1.0' encoding='UTF-8'?><NECTA_SCHOOLS_or_EXAM_CENTERS><SCHOOL_EXAM_CENTER><A HREF=\"https://matokeo.necta.go.tz/results/2024/ftna/FTNA2024/P0104.htm\">P0104 BWIRU BOYS SECONDARY SCHOOL CENTRE</A><OTHER_NAME>2024_P0104 BWIRU BOYS SECONDARY SCHOOL CENTRE</OTHER_NAME></SCHOOL_EXAM_CENTER></NECTA_SCHOOLS_or_EXAM_CENTERS>");
+
+//marqueeSetText("SEt from chai script");
+//marqueeStart();
+
+}
+
+def onWebsocketTextMessageReceived(message)
+{
+   log(message);
+
+}
+
+def onWebsocketStatusChanged(status)
+{
+  log(to_string(status)+"---"+getWebsocketErrorString());
+}
 
 def runTest(string input) {
    var output = input;
@@ -2346,16 +2275,45 @@ def runTest(string input) {
    return output;
 }
 
+def beforeSchoolResultsXmlSubmittion(string xml, string name){
+ 
+   if(name.simplified().endsWith("CENTRE",false)){
+      return removeEmptyStudentResults(xml);
+   }else{
+      return xml;
+   }
+
+}
+
+def simplifyResultsHeaderTitles(string text){
+     if (text.equals("EXAMINATION CENTRE SUBJECTS PERFORMANCE", false)) {
+	     return "SUBJECTS PERFORMANCE";
+	 } else if (text.equals("EXAMINATION CENTRE CLASS/DIVISIONS PERFORMANCE", false)) {
+		 return "CLASS/DIVISIONS PERFORMANCE";
+	 } else if (text.equals("EXAMINATION CENTRE RANKING", false)) {
+		 return "RANKING";
+	 } else {
+	     return text;
+	 }
+}
+
+def setResultsDowloaderDialogIndicator(string githubImageName,string githubImagePath){
+    var key = "/info.png";
+	var path = generateAppRootFilePath(githubImageName);
+	if (!fileExists(path)) {
+	    if(saveFile(githubFile(githubImagePath.append(githubImageName)),path)){
+		   saveOrUpdateData(key,path);
+		}
+	}else{
+	    saveOrUpdateData(key,path);
+	}
+}
+
 //----------------- Accesss Permissions -----------------------
 
-global LATEST_RESULTS_YEAR = 2024;
-global ACCESS_PERMISSIONS_FEATURE_ENABLED = false;
+global LATEST_RESULTS_YEAR = 2022;
+global ACCESS_PERMISSIONS_FEATURE_ENABLED = true;
 global ACCESS_PERMISSIONS_FEATURE_LANG = "en";
-
-def accessCodeDialogBuyBtnText()
-{
-   return ACCESS_PERMISSIONS_FEATURE_LANG.equals("en",false) ? "Buy" : "Nunua";
-}
 
 def hasSchoolResultsOpenPermission(school,url)
 {
@@ -2399,103 +2357,10 @@ def onEnterAccessCode(string accessCode)
 
 //-- Verification --
 
-def showVerificationSuccessMessage(accessCode,lang,h)
-{
-	var icon = "fa::bullhorn";
-	var w = 0.98;
-	if(lang.equals("en",false)){
-		requestCustomDialog(20250320, icon, " <font color=\"#00c000\">Verification Success</font>", "<font color=\"#00c000\"> " + accessCode + "</font> confirmed. Thank you for contributing to the development of this application.", "Ok", "", "#", w, h, false);
-	}else{
-		requestCustomDialog(20250320, icon, " <font color=\"#00c000\">Uthibitisho Umefanikiwa</font>", "<font color=\"#00c000\"> " + accessCode + "</font> imefanikiwa. Asante kwa kuchangia katika maendelea ya aplikesheni hii.", "Sawa", "", "#", w, h, false);
-	}
-}
-
-    def showVerificationFailure(accessCode,errorCode,lang,h)
-    {
-        var msg;
-        if(lang.equals("en",false)){
-            if(3 == errorCode){
-                msg = "Used code";
-            }
-            else if(4 == errorCode){
-                msg = "Revoked code";
-            }
-            else if(5 == errorCode){
-                msg = "Invalid code";
-            }
-            else if(6 == errorCode){
-                msg = "Empty code";
-            }
-            else if(7 == errorCode){
-                msg = "Empty hint";
-            }
-            else if(8 == errorCode){
-                msg = "Invalid end point";
-            }
-            else if(9 == errorCode){
-                msg = "Unknown";
-            }
-            else if(10 == errorCode){
-                msg = "Code mismatch";
-            }
-            else if(11 == errorCode){
-                msg = "Hint mismatch";
-            }
-            else if(12 == errorCode){
-                msg = "Invalid response";
-            }
-            else if(13 == errorCode){
-                msg = "Network error";
-            }
-            msg.prepend("<font color=\"red\">Error</font> : ");
-        }else{
-            if(3 == errorCode){
-                msg = "Code imeshatumika";
-            }
-            else if(4 == errorCode){
-                msg = "Code imesitishwa";
-            }
-            else if(5 == errorCode){
-                msg = "Code si sahihi";
-            }
-            else if(6 == errorCode){
-                msg = "Code ni tupu";
-            }
-            else if(7 == errorCode){
-                msg = "Kidokezo ni tupu";
-            }
-            else if(8 == errorCode){
-                msg = "Invalid end point";
-            }
-            else if(9 == errorCode){
-                msg = "Halijulikani";
-            }
-            else if(10 == errorCode){
-                msg = "Code hazifanani";
-            }
-            else if(11 == errorCode){
-                msg = "Vidokezo havifanani";
-            }
-            else if(12 == errorCode){
-                msg = "Jibu batili";
-            }
-            else if(13 == errorCode){
-                msg = "Matatizo ya mtandao";
-            }
-            msg.prepend("<font color=\"red\">Tatizo</font> : ");
-        }
-        var icon = "fa::bullhorn";
-        var w = 0.98;
-        if(lang.equals("en",false)){
-            requestCustomDialog(20250320, icon, " <font color=\"red\">Verification of <font color=\"#00c000\">" +accessCode + "</font> failed</font>", msg, "Ok", "", "#", w, h, false);
-        }else{
-            requestCustomDialog(20250320, icon, " <font color=\"red\">Uthibitisho <font color=\"#00c000\">" +accessCode + "</font> umeshindikana</font>", msg, "Sawa", "", "#", w, h, false);
-        }
-    }
-	
 def accessCodeEncryptedEndpoint() 
 {
-   return "AwIai0H9Zo2yfGF0NJAW6soBSR8E/nKC4yp3YnrLRvbYBkIdAaZkmLhhIw=="; //Actual
+   //return "AwIai0H9Zo2yfGF0NJAW6soBSR8E/nKC4yp3YnrLRvbYBkIdAaZkmLhhIw=="; //Actual
+   return "AwIW4Ntn/Bcor6eysQqGeFuOxo+Ub/AGKvip/P9fn3ddgorR3WrgDDCg5LG6Cw=="; //Test
 }
 
 def onAccessCodeVerificationSuccess(accessCode)
@@ -2503,15 +2368,13 @@ def onAccessCodeVerificationSuccess(accessCode)
   hideLoadingIndicator();
   accessCodeDialogClose();
   accessCodeDialogSetCode("");
-  showVerificationSuccessMessage(accessCode,ACCESS_PERMISSIONS_FEATURE_LANG,0.3);
+  showDefaultAccessCodeVerificationSuccessMessage(accessCode,ACCESS_PERMISSIONS_FEATURE_LANG,0.3);
 }
 
 def onAccessCodeVerificationFailure(accessCode,errorCode)
 {
-   hideLoadingIndicator();
-  accessCodeDialogClose();
-  accessCodeDialogSetCode("");
-  showVerificationFailure(accessCode,errorCode,ACCESS_PERMISSIONS_FEATURE_LANG, 0.2);
+  hideLoadingIndicator();
+  showDefaultAccessCodeVerificationFailure(accessCode,errorCode,"en", 0.2);
 }
 
 def onAccessCodeRevoked(accessCode,note)
