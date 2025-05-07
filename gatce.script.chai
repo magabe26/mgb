@@ -2179,16 +2179,12 @@ def isVideoDialogMinimizeDisabled(string videoUrl, double position, double durat
    }
 }
 
-def simplifyResultsHeaderTitles(string text){
-     if (text.equals("EXAMINATION CENTRE SUBJECTS PERFORMANCE", false)) {
-	     return "SUBJECTS PERFORMANCE";
-	 } else if (text.equals("EXAMINATION CENTRE CLASS/DIVISIONS PERFORMANCE", false)) {
-		 return "CLASS/DIVISIONS PERFORMANCE";
-	 } else if (text.equals("EXAMINATION CENTRE RANKING", false)) {
-		 return "RANKING";
-	 } else {
+def textChanges(string text){
+     if (text.equals("Search :: Enter `School Name or Number`", false)) {
+	     return "Search :: Enter `College Name or Number`";
+	 } 
 	     return text;
-	 }
+	 
 }
 
 def tr(text) {
@@ -2196,7 +2192,7 @@ def tr(text) {
  if(i != -1){
 	return text.left(i);
   }
-    return simplifyResultsHeaderTitles(text);
+    return textChanges(text);
 }
 
 def showDebugMessage(msg) {
