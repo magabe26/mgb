@@ -1815,19 +1815,10 @@ def onTimeOut(int timerCode) {
       }
 
       case (ADS_TIMER) {
-	      var cvn = 0.5;
-	      if (isGeneralApp()) {
-	          cvn = 4.5;
-	       }
-           var vn = getVersionNameAsDouble();
-          if (vn < cvn) {
-             initializeAds();
-           } else {
-          if (canShowAds()) {
+	      if (canShowAds()) {
             initializeAds();
            } else {
             loadConsentForm();
-          }
           }
          break;
       }
