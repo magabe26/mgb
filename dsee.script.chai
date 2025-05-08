@@ -218,13 +218,7 @@ def isGeneralApp() {
 }
 
 def getAppTitle(){
-    if (isGeneralApp()) {
-        return "MATOKEO";
-      } else if (isForm4App()) {
-        return "FORM 4";
-      } else if (isForm6App()) {
-        return "FORM 6";
-     }
+   return "DSEE";
 }
 
 //------------------
