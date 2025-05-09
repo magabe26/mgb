@@ -1237,7 +1237,7 @@ def filterHtml(string html) {
 
 
 def getAppTitle(){
-    return "FORM 2";
+    return "FTNA";
 }
 
 def getTdNodeTagNameForResults(int tdIndex, int tdCount, string tagText) {
