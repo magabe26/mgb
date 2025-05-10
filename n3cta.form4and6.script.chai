@@ -1594,10 +1594,15 @@ def setResultsDowloaderDialogIndicator(string githubImageName,string githubImage
 	}
 }
 
+def hasInternetAccess() {
+   var code = get("https://get.geojs.io/v1/ip/country");
+   return (!code.isEmpty());
+}
+
 def onInitConfigs(){
 
     setResultsDowloaderDialogIndicator("processing.gif","");
-    setMengineyoBtn(true);
+    setMengineyoBtn(hasInternetAccess());
 	   
 }
 
