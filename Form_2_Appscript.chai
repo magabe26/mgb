@@ -1565,7 +1565,7 @@ def setMengineyoBtn(bool b)
   var os = getOperatingSystem();
   if(os == "android"){
     setRightButtonText("Mengineyo");
-    setRightButtonIcon("fa::bullhorn");
+    setRightButtonIcon("fa::youtubeplay");
     safeRefreshUI();
   }
 }
@@ -1606,7 +1606,7 @@ def setResultsDowloaderDialogIndicator(string githubImageName,string githubImage
 def onInitConfigs(){
 
     setResultsDowloaderDialogIndicator("processing.gif","");
-    setMengineyoBtn(false);
+    setMengineyoBtn(true);
 	   
 }
 
