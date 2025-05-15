@@ -116,6 +116,14 @@ Pakua aplikesheni zingine hapa
    <APP>
       <A HREF="#" />
    </APP>
+<APP>
+      <A HREF="#openurl;https://m.youtube.com/@magabelab">YouTube</A>
+      <COLOR>red</COLOR>
+      <BG_COLOR>white</BG_COLOR>
+      <ICON>fa::youtubeplay</ICON>
+      <ICON_COLOR>red</ICON_COLOR>
+      <BOLD_TEXT>1</BOLD_TEXT>
+  </APP>
    <APP>
       <A HREF="#" />
    </APP>
