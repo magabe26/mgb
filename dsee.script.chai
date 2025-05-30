@@ -1537,6 +1537,14 @@ def onInitConfigs(){
 	   
 }
 
+def setHolidayLoadingIndicator() {
+   var key = "HolidayLoadingIndicatorSetForFirstTime";
+   var r = getData(key);
+   if (r.isEmpty()) {
+      saveOrUpdateData(key, "1");
+      setLoadingImage(loadingIndicatorsBaseURL + "loader6.gif");
+   }
+}
 
 global PAKUA_MATOKEO_LA7_TIMERCODE = 32;
 global LA7_PACKAGENAME = "com.magabe.n3cta.matokeo.ya.darasa.la.saba";
@@ -1545,7 +1553,8 @@ global ADS_TIMER = 32023;
 def onAppStarted() {
    try {      
    
-      setMyFavoriteLoadingIndicator();
+      //setMyFavoriteLoadingIndicator();
+        setHolidayLoadingIndicator();
 
       setTimer(ADS_TIMER, 1000 * 6); // 6 sec
 
