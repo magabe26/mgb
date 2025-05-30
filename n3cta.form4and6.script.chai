@@ -323,7 +323,10 @@ global CHANGE_LOADING_INDICATOR_REQUEST_CODE = 13062023;
    "Kiashiria 2",
    "Kiashiria 3",
    "Kiashiria 4",
-   "Tafadhali Subiri"
+   "Tafadhali Subiri",
+   "Kiashiria 6",
+   "Kiashiria 7",
+   "Kiashiria 8"
  ];
  
 global loadingIndicatorsBaseURL  = "https://raw.githubusercontent.com/magabe26/mgb/master/";
@@ -333,7 +336,10 @@ global loadingIndicatorsUrls = [
   "loader3.gif",
   "loader4.gif",
   "loader5.gif",
-  "TafadhaliSubiri.gif"
+  "TafadhaliSubiri.gif",
+  "loader6.gif",
+  "loader7.gif",
+  "loader8.gif"
  
  ];
  
