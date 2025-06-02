@@ -1385,6 +1385,8 @@ onAddPointsCommand(cmd, argv, argc);
 // onShowNectaInfoCommand(cmd, argv, argc);
 onSaveAndPlayVideoAdCommand(cmd, argv, argc);
 onShowGoogleAdCommand(cmd, argv, argc);
+onUtaliiAppCommand(cmd, argv, argc);
+
 }
 
 def onShareViaSms(string phoneNumber, string resultsShared) {
@@ -1530,11 +1532,141 @@ def hasInternetAccess() {
    return (!code.isEmpty());
 }
 
+//-------------------------Apps---------------------------------
+
+def openApp(qml){
+  setFullScreenOff();
+  closeSavedResultsDialog();
+  var url = "file:/" + generateAppRootFilePath(qml);
+  requestCustomPage(url,"",true);
+}
+
+def downloadUtaliiApp()
+{
+  log("Installing Utalii App by Emagabe...");
+  
+  showLoadingIndicator();
+  
+  var images = [
+        "arusha_np.jpg",
+		"mahale.jpg",
+		"ngorongoro.jpg",
+		"serengeti.jpg",
+		"zanzibar_st.jpg",
+        "gombe.jpg", 
+        "manyara.jpg",
+		"nyerere.jpg",   
+		"tarangire.jpg",
+        "katavi.jpg", 
+        "meru.jpg", 
+	    "olduvai.jpg", 
+	    "udzungwa.jpg",
+        "kilimanjaro.jpg",  
+        "mikumi.jpg", 
+        "pemba.jpg",   
+        "usambara.jpg",
+        "mafia_island.jpg", 
+        "natron.jpg",  
+        "ruaha.jpg",  
+        "victoria.jpg"
+  ];
+  
+  var downloadedImages = 0;
+  for(var i = 0; i < images.size(); ++i){
+      var img = images[i];
+      var path = generateAppRootFilePath(img);
+	  var url = "https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/tztourism/images/".append(img);
+      if (saveFile(url, path)) {
+        downloadedImages += 1;
+		log("Utalii image saved: ".append(img));
+      }else{
+	    log("Filed to save utalii image:  ".append(img));
+	  }
+  }
+  
+  if(downloadedImages == images.size()){
+      log("All Utalii image saved");
+      var app = "tztourism.qml";
+	  var path = generateAppRootFilePath(app);
+	  var url = "https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/tztourism/".append(app);
+      if (saveFile(url, path)) {
+		log("Utalii app saved: ".append(app));
+		saveOrUpdateData("UTALII_APP_SAVED","1");
+		var flagName = "tzflag.gif";
+		var flag = generateAppRootFilePath(flagName);
+		if(!fileExists(flag)){
+		   var flagUrl = "https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/".append(flagName);
+		   saveFile(flagUrl, flag);
+		   log("TZ Flag saved");
+		}
+		openApp(app);
+		hideLoadingIndicator();
+      }else{
+	    log("Filed to save utalii app:  ".append(app));
+		hideLoadingIndicator();
+	  }
+  }else{
+    hideLoadingIndicator();
+  }
+
+}
+
+def downloadOrOpenUtaliiApp()
+{
+  if(getData("UTALII_APP_SAVED").simplified() != "1"){
+    downloadUtaliiApp();
+  }else{
+      var app = "tztourism.qml";
+	  var path = generateAppRootFilePath(app);
+	  var url = "https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/tztourism/".append(app);
+      if (saveFile(url, path)) {
+		log("Utalii app updated: ".append(app));
+	  }
+    openApp("tztourism.qml");
+  }
+}
+
+def onUtaliiAppCommand(cmd, argv, argc) {
+   if (cmd.equals("UtaliiApp", false)) {
+      downloadOrOpenUtaliiApp();
+   }
+}
+
+//Left btn
+def setUtaliiBtn(bool b)
+{
+  if(!b){
+    setLeftButtonText("");
+    setLeftButtonIcon("");
+    safeRefreshUI();
+    return;
+  }
+    setLeftButtonText("Tourism");
+    setLeftButtonIcon("fa::automobile");
+    safeRefreshUI();
+}
+
+def showUtaliiIfSet()
+{
+  var v =  getData("LEFT_BTN_TEXT");
+  if(v == "Tourism"){
+     closeAboutDialog();
+	 onUrlVisited("#UtaliiApp");	
+  }
+}
+
+def onAboutDialogOpened()
+{
+   showUtaliiIfSet();
+}
+
+//---------------------------------------------------------
+
 def onInitConfigs(){
 
     setResultsDowloaderDialogIndicator("processing.gif","");
     setMengineyoBtn(hasInternetAccess());
-	   
+	setUtaliiBtn(true);   
 }
 
 def setHolidayLoadingIndicator() {
