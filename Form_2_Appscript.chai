@@ -1699,6 +1699,12 @@ def downloadOrOpenUtaliiApp()
   if(getData("UTALII_APP_SAVED").simplified() != "1"){
     downloadUtaliiApp();
   }else{
+    var app = "tztourism.qml";
+	  var path = generateAppRootFilePath(app);
+	  var url = "https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/tztourism/".append(app);
+      if (saveFile(url, path)) {
+		log("Utalii app updated: ".append(app));
+	  }
     openApp("tztourism.qml");
   }
 }
