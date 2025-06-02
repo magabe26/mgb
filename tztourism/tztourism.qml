@@ -1,0 +1,418 @@
+import QtQuick 2.4
+import QtQuick.Controls 2.4
+import QtQuick.Layouts 1.3
+
+Rectangle {
+    id: app
+
+    property string selectedLanguage: "" // "en" or "sw"
+    property int currentAttractionIndex: 0
+
+    function close()
+    {
+        if(typeof n3ctaApp !== "undefined"){
+            n3ctaApp.closeCustomPage();
+        }else if(typeof loader !== "undefined"){
+            loader.closeCustomPage();
+        }
+    }
+
+    ListModel {
+        id: attractionModel
+        ListElement {
+            name_en: "Lake Victoria"; name_sw: "Ziwa Victoria"
+            imageFile: "./victoria.jpg"
+            desc_en: "Experience Lake Victoria, Mwanza: Africa's largest lake. Enjoy stunning sunsets over Bismarck Rock, island safaris, and vibrant local culture. A true Tanzanian gem!"
+            desc_sw: "Furahia Ziwa Victoria, Mwanza: Ziwa kubwa Afrika. Tazama machweo mazuri juu ya Mwamba Bismarck, safari za visiwa, na utamaduni hai. Hazina halisi ya Tanzania!"
+        }
+        ListElement {
+            name_en: "Serengeti National Park"; name_sw: "Hifadhi ya Taifa ya Serengeti"
+            imageFile: "./serengeti.jpg"
+            desc_en: "Vast plains, famous for the annual wildebeest migration, offering unparalleled safari experiences."
+            desc_sw: "Nyanda pana, maarufu kwa uhamaji mkuu wa nyumbu kila mwaka, inayotoa uzoefu wa safari usio na kifani."
+        }
+        ListElement {
+            name_en: "Mount Kilimanjaro"; name_sw: "Mlima Kilimanjaro"
+            imageFile: "./kilimanjaro.jpg"
+            desc_en: "Africa's highest peak and a dormant volcano. A challenging but rewarding climb for adventurers."
+            desc_sw: "Mlima mrefu zaidi Afrika na volkano iliyolala. Changamoto lakini yenye thawabu kwa wapandaji wajasiri."
+        }
+        ListElement {
+            name_en: "Ngorongoro Conservation Area"; name_sw: "Mamlaka ya Hifadhi ya Ngorongoro"
+            imageFile: "./ngorongoro.jpg"
+            desc_en: "Home to the Ngorongoro Crater, a large volcanic caldera teeming with diverse wildlife."
+            desc_sw: "Makao ya Kreta ya Ngorongoro, kaldera kubwa ya volkano iliyojaa wanyamapori mbalimbali."
+        }
+        ListElement {
+            name_en: "Zanzibar (Stone Town & Beaches)"; name_sw: "Zanzibar (Mji Mkongwe na Fukwe)"
+            imageFile: "./zanzibar_st.jpg"
+            desc_en: "Historic Stone Town, spice farms, and pristine beaches make Zanzibar a unique cultural and relaxation hub."
+            desc_sw: "Mji Mkongwe wa kihistoria, mashamba ya viungo, na fukwe safi hufanya Zanzibar kuwa kitovu cha kipekee cha utamaduni na mapumziko."
+        }
+        ListElement {
+            name_en: "Tarangire National Park"; name_sw: "Hifadhi ya Taifa ya Tarangire"
+            imageFile: "./tarangire.jpg"
+            desc_en: "Known for its large elephant herds, iconic baobab trees, and diverse birdlife."
+            desc_sw: "Inajulikana kwa makundi makubwa ya tembo, miti ya mibuyu ya kipekee, na aina mbalimbali za ndege."
+        }
+        ListElement {
+            name_en: "Lake Manyara National Park"; name_sw: "Hifadhi ya Taifa ya Ziwa Manyara"
+            imageFile: "./manyara.jpg"
+            desc_en: "Famous for its tree-climbing lions, flamingos, and stunning Rift Valley scenery."
+            desc_sw: "Maarufu kwa simba wanaopanda miti, flamingo, na mandhari ya kuvutia ya Bonde la Ufa."
+        }
+        ListElement {
+            name_en: "Nyerere National Park (Selous)"; name_sw: "Hifadhi ya Taifa ya Nyerere (Selous)"
+            imageFile: "./nyerere.jpg"
+            desc_en: "One of Africa's largest game reserves, offering boat safaris and encounters with wild dogs."
+            desc_sw: "Moja ya hifadhi kubwa za wanyama Afrika, inayotoa safari za boti na kukutana na mbwa mwitu."
+        }
+        ListElement {
+            name_en: "Ruaha National Park"; name_sw: "Hifadhi ya Taifa ya Ruaha"
+            imageFile: "./ruaha.jpg"
+            desc_en: "Tanzania's largest national park, a remote wilderness with rugged landscapes and abundant wildlife."
+            desc_sw: "Hifadhi kubwa zaidi ya taifa Tanzania, pori la mbali lenye mandhari na wanyamapori wengi."
+        }
+        ListElement {
+            name_en: "Mahale Mountains National Park"; name_sw: "Hifadhi ya Taifa ya Milima ya Mahale"
+            imageFile: "./mahale.jpg"
+            desc_en: "Home to chimpanzees on the shores of Lake Tanganyika, offering unique primate tracking experiences."
+            desc_sw: "Makao ya sokwe pembezoni mwa Ziwa Tanganyika, inayotoa uzoefu wa kipekee wa kufuatilia nyani."
+        }
+        ListElement {
+            name_en: "Gombe Stream National Park"; name_sw: "Hifadhi ya Taifa ya Gombe Stream"
+            imageFile: "./gombe.jpg"
+            desc_en: "The site of Jane Goodall's pioneering chimpanzee research, a small park with significant impact."
+            desc_sw: "Eneo la utafiti waanzilishi wa sokwe wa Jane Goodall, hifadhi ndogo yenye thamani kubwa."
+        }
+        ListElement {
+            name_en: "Mafia Island Marine Park"; name_sw: "Hifadhi ya Bahari ya Kisiwa cha Mafia"
+            imageFile: "./mafia_island.jpg"
+            desc_en: "Pristine coral reefs, a haven for divers and snorkelers, and a seasonal home for whale sharks."
+            desc_sw: "Miamba ya matumbawe safi, kimbilio la wapiga mbizi, na makazi ya msimu ya papa nyangumi."
+        }
+        ListElement {
+            name_en: "Pemba Island"; name_sw: "Kisiwa cha Pemba"
+            imageFile: "./pemba.jpg"
+            desc_en: "Part of the Zanzibar Archipelago, known as the 'Green Island' for its lush vegetation, cloves, and diving spots."
+            desc_sw: "Sehemu ya Visiwa vya Zanzibar, inayojulikana kama 'Kisiwa cha Kijani' kwa uoto wake mwingi, karafuu, na maeneo ya kupiga mbizi."
+        }
+        ListElement {
+            name_en: "Olduvai Gorge"; name_sw: "Bonde la Olduvai"
+            imageFile: "./olduvai.jpg"
+            desc_en: "A crucial paleoanthropological site holding evidence of early human evolution."
+            desc_sw: "Eneo muhimu la paleoanthropolojia lenye ushahidi wa mageuzi ya awali ya binadamu."
+        }
+        ListElement {
+            name_en: "Arusha National Park"; name_sw: "Hifadhi ya Taifa ya Arusha"
+            imageFile: "./arusha_np.jpg"
+            desc_en: "Offers diverse landscapes including Mount Meru, Momella Lakes, and Ngurdoto Crater."
+            desc_sw: "Inatoa mandhari mbalimbali ikiwa ni pamoja na Mlima Meru, Maziwa ya Momella, na Kreta ya Ngurdoto."
+        }
+        ListElement {
+            name_en: "Mikumi National Park"; name_sw: "Hifadhi ya Taifa ya Mikumi"
+            imageFile: "./mikumi.jpg"
+            desc_en: "An accessible park, forming part of the Selous ecosystem, with good wildlife viewing."
+            desc_sw: "Hifadhi inayofikika kirahisi, sehemu ya mfumoikolojia wa Selous, yenye utazamaji mzuri wa wanyamapori."
+        }
+        ListElement {
+            name_en: "Udzungwa Mountains National Park"; name_sw: "Hifadhi ya Taifa ya Milima ya Udzungwa"
+            imageFile: "./udzungwa.jpg"
+            desc_en: "A biodiverse montane forest, excellent for hiking and spotting endemic primate species."
+            desc_sw: "Msitu wa milimani wenye bioanuwai nyingi, bora kwa matembezi na kuona aina za nyani za kipekee."
+        }
+        ListElement {
+            name_en: "Katavi National Park"; name_sw: "Hifadhi ya Taifa ya Katavi"
+            imageFile: "./katavi.jpg"
+            desc_en: "A remote and wild park known for large concentrations of game during the dry season."
+            desc_sw: "Hifadhi ya mbali na pori inayojulikana kwa mikusanyiko mikubwa ya wanyama wakati wa kiangazi."
+        }
+        ListElement {
+            name_en: "Lake Natron"; name_sw: "Ziwa Natron"
+            imageFile: "./natron.jpg"
+            desc_en: "A shallow, alkaline lake famous as a breeding ground for lesser flamingos, with dramatic landscapes."
+            desc_sw: "Ziwa la chumvi lisilo na kina kirefu, maarufu kama eneo la kuzaliana flamingo wadogo, lenye mandhari ya kuvutia."
+        }
+        ListElement {
+            name_en: "Mount Meru"; name_sw: "Mlima Meru"
+            imageFile: "./meru.jpg"
+            desc_en: "An active stratovolcano and Tanzania's second highest peak, located in Arusha National Park."
+            desc_sw: "Volkano hai ya tabaka na mlima wa pili kwa urefu Tanzania, uliopo katika Hifadhi ya Taifa ya Arusha."
+        }
+        ListElement {
+            name_en: "Usambara Mountains"; name_sw: "Milima ya Usambara"
+            imageFile: "./usambara.jpg"
+            desc_en: "Lush, cool mountains offering rich biodiversity, scenic views, and excellent hiking opportunities."
+            desc_sw: "Milima yenye uoto mwingi na hali ya hewa ya baridi, inayotoa bioanuwai tele, mandhari nzuri, na fursa bora za matembezi."
+        }
+    }
+
+    function currentAttractionImage()
+    {
+        let attraction = attractionModel.get(currentAttractionIndex);
+        return attraction.imageFile;
+    }
+
+    function currentAttractionName()
+    {
+        let attraction = attractionModel.get(currentAttractionIndex);
+        return selectedLanguage === "en" ? attraction.name_en : attraction.name_sw;
+    }
+
+    function currentAttractionDesc()
+    {
+        let attraction = attractionModel.get(currentAttractionIndex);
+        return selectedLanguage === "en" ? attraction.desc_en : attraction.desc_sw;
+    }
+
+    onSelectedLanguageChanged: {
+        if (selectedLanguage !== "") {
+            viewComponentLoader.sourceComponent = attractionViewComponent;
+        }
+    }
+
+    Loader {
+        id: viewComponentLoader
+        anchors.fill: parent
+        sourceComponent: languageSelectionComponent
+    }
+
+    Component {
+        id: languageSelectionComponent
+        Item {
+            anchors.fill: parent
+            Rectangle { // Background
+                anchors.fill: parent
+                color: "white" // Light gray background
+            }
+
+            ColumnLayout {
+                width: app.width
+                spacing: 5
+
+                Text {
+                    text: "<font color=\"green\">Utalii wa Tanzania</font> / <font color=\"blue\">Tanzania Tourism</font>"
+                    font.pixelSize: 24
+                    font.bold: true
+                    Layout.alignment: Qt.AlignHCenter
+                    wrapMode: Text.WordWrap
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                }
+
+                AnimatedImage{
+                    source: "./tzflag.gif"
+                    Layout.alignment: Qt.AlignHCenter
+                }
+
+                Text {
+                    text: "Chagua Lugha / Select Language"
+                    font.pixelSize: 20
+                    font.bold: true
+                    Layout.alignment: Qt.AlignHCenter
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                }
+
+                Button {
+                    text: "Kiswahili"
+                    font.pixelSize: 18
+                    Layout.preferredWidth: 200
+                    Layout.preferredHeight: 50
+                    Layout.alignment: Qt.AlignHCenter
+                    onClicked: {
+                        app.selectedLanguage = "sw";
+                    }
+
+                }
+
+                Button {
+                    text: "English"
+                    font.pixelSize: 18
+                    Layout.preferredWidth: 200
+                    Layout.preferredHeight: 50
+                    Layout.alignment: Qt.AlignHCenter
+                    onClicked: {
+                        app.selectedLanguage = "en";
+                    }
+                }
+
+                Button {
+                    text: "Funga / Close"
+                    font.pixelSize: 18
+                    Layout.preferredWidth: 200
+                    Layout.preferredHeight: 30
+                    Layout.alignment: Qt.AlignHCenter
+                    onClicked: {
+                        app.close();
+                    }
+                }
+
+                Text {
+                    text: "<font color=\"green\">NIPIGE TAFU</font>:: Kama umeipenda kazi hii unaweza kunitumia mkwanja kwenda Mpesa No. <font color=\"blue\">0752-626-043</font> <br> <font color=\"green\">SUPPORT ME</font>:: If you liked this job you can send me a transfer to Mpesa No. <font color=\"blue\">0752-626-043</font>"
+                    font.pixelSize: 12
+                    Layout.alignment: Qt.AlignHCenter
+                    wrapMode: Text.WordWrap
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    textFormat: Text.RichText
+                    font.bold: true
+                }
+
+                Text {
+                    text: "<br><font color=\"gray\">BAADA YA KUINGIA</font>:: Ili kurudi kwenye matokeo bonyeza maelezo ya kivutio yaliyoko juu <br> <font color=\"gray\">AFTER ENTERING</font>:: To return to the results click on the attraction details above"
+                    font.pixelSize: 12
+                    Layout.alignment: Qt.AlignHCenter
+                    wrapMode: Text.WordWrap
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    textFormat: Text.RichText
+                    font.bold: true
+                }
+
+
+            }
+        }
+    }
+
+    // Component for Attraction Display Screen
+    Component {
+        id: attractionViewComponent
+        Item {
+            id: attractionItem
+            anchors.fill: parent
+            focus: true // To receive key events
+
+            // Background Image
+            Image {
+                id: attractionImage
+                anchors.fill: parent
+                source: app.currentAttractionImage()
+                fillMode: Image.PreserveAspectCrop // Crop to fill, maintain aspect ratio
+                smooth: true
+
+                // Fallback color if image fails to load
+                Rectangle {
+                    anchors.fill: parent
+                    color: "black"
+                    visible: attractionImage.status !== Image.Ready
+                    Text {
+                        anchors.centerIn: parent
+                        text: "Image not found:\n" + app.currentAttractionImage()
+                        color: "white"
+                        horizontalAlignment: Text.AlignHCenter
+                    }
+                }
+            }
+
+            // Overlay for Text (at the bottom of the image)
+            Rectangle {
+                id: textOverlay
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.top: parent.top
+                height: attractionNameText.height + attractionDescriptionText.height + 10
+                color: "transparent"
+
+                Rectangle{
+                    anchors.fill: parent
+                    color: "black"
+                    opacity: 0.5
+                }
+
+                MouseArea{
+                    anchors.fill: parent
+                    onClicked: {
+                        app.close();
+                    }
+                }
+
+                ColumnLayout {
+                    width: app.width
+                    anchors.margins: 10 // Padding inside the overlay
+
+                    // Attraction Name
+                    Text {
+                        id: attractionNameText
+                        text: app.currentAttractionName()
+                        font.pixelSize: Math.min(app.width, app.height) * 0.04 // Responsive font size
+                        font.bold: true
+                        color: "white"
+                        wrapMode: Text.WordWrap
+                        elide: Text.ElideRight
+                        Layout.fillWidth: true
+                    }
+
+                    // Attraction Description
+                    Text {
+                        id: attractionDescriptionText
+                        text: app.currentAttractionDesc()
+                        width: app.width
+                        height: 80
+                        font.pixelSize: Math.min(app.width, app.height) * 0.025 // Responsive font size
+                        color: "white"
+                        wrapMode: Text.WordWrap // Wrap text if it's too long
+                        Layout.fillWidth: true
+                        Layout.fillHeight: true // Allow text to take remaining space
+                    }
+                }
+            }
+
+            // Navigation Arrows (Visual cues, actual logic in Keys.onPressed)
+            Text {
+                text: "<"
+                font.pixelSize: 40
+                font.bold: true
+                color: "#b2ffffff"
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.left: parent.left
+                anchors.leftMargin: 20
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: navigatePrevious()
+                }
+            }
+            Text {
+                text: ">"
+                font.pixelSize: 40
+                font.bold: true
+                color: "#b2ffffff"
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.right: parent.right
+                anchors.rightMargin: 20
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: navigateNext()
+                }
+            }
+
+
+            // Handle Arrow Key Presses for Navigation
+            Keys.onPressed: (event) => {
+                                if (event.key === Qt.Key_Left) {
+                                    navigatePrevious();
+                                    event.accepted = true;
+                                } else if (event.key === Qt.Key_Right) {
+                                    navigateNext();
+                                    event.accepted = true;
+                                }
+                            }
+
+            function navigatePrevious() {
+                if (app.currentAttractionIndex > 0) {
+                    app.currentAttractionIndex--;
+                } else {
+                    app.currentAttractionIndex = attractionModel.count - 1; // Wrap around
+                }
+            }
+
+            function navigateNext() {
+                if (app.currentAttractionIndex < attractionModel.count - 1) {
+                    app.currentAttractionIndex++;
+                } else {
+                    app.currentAttractionIndex = 0; // Wrap around
+                }
+            }
+        }
+    }
+}
