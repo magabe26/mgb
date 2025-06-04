@@ -4,6 +4,9 @@ import QtQuick.Layouts 1.3
 
 Rectangle {
     id: app
+    width: parent.width
+    height: parent.height
+    color: "transparent"
 
     property string selectedLanguage: "" // "en" or "sw"
     property int currentAttractionIndex: 0
@@ -183,40 +186,53 @@ Rectangle {
             anchors.fill: parent
             Rectangle { // Background
                 anchors.fill: parent
-                color: "white" // Light gray background
+                color: "transparent"
             }
 
             ColumnLayout {
                 width: app.width
-                spacing: 5
+                spacing: 10
 
-                Text {
-                    text: "<font color=\"green\">Utalii wa Tanzania</font> / <font color=\"blue\">Tanzania Tourism</font>"
-                    font.pixelSize: 24
-                    font.bold: true
+                Rectangle{
+                    width: parent.width
+                    height: header.height + flag.height
+                    color: "white"
                     Layout.alignment: Qt.AlignHCenter
-                    wrapMode: Text.WordWrap
                     Layout.fillWidth: true
-                    Layout.fillHeight: true
-                }
 
-                AnimatedImage{
-                    source: "./tzflag.gif"
-                    Layout.alignment: Qt.AlignHCenter
+                    Text {
+                        id: header
+                        text: "<font color=\"green\">Utalii wa Tanzania</font> / <font color=\"blue\">Tanzania Tourism</font>"
+                        anchors.top: parent.top
+                        font.pointSize: Qt.platform.os === "android" ? 16 : 14
+                        font.bold: true
+                        font.underline: true
+                        wrapMode: Text.WordWrap
+                        anchors.horizontalCenter: parent.horizontalCenter
+                    }
+
+                    AnimatedImage{
+                        id: flag
+                        source: "./tzflag.gif"
+                        anchors.top: header.bottom
+                        anchors.horizontalCenter: parent.horizontalCenter
+                    }
+
                 }
 
                 Text {
                     text: "Chagua Lugha / Select Language"
-                    font.pixelSize: 20
+                    font.pointSize: Qt.platform.os === "android" ? 16 : 14
                     font.bold: true
                     Layout.alignment: Qt.AlignHCenter
                     Layout.fillWidth: true
                     Layout.fillHeight: true
+                    color: "white"
                 }
 
                 Button {
                     text: "Kiswahili"
-                    font.pixelSize: 18
+                    font.pointSize: Qt.platform.os === "android" ? 14 : 12
                     Layout.preferredWidth: 200
                     Layout.preferredHeight: 50
                     Layout.alignment: Qt.AlignHCenter
@@ -228,7 +244,7 @@ Rectangle {
 
                 Button {
                     text: "English"
-                    font.pixelSize: 18
+                    font.pointSize: Qt.platform.os === "android" ? 14 : 12
                     Layout.preferredWidth: 200
                     Layout.preferredHeight: 50
                     Layout.alignment: Qt.AlignHCenter
@@ -237,9 +253,22 @@ Rectangle {
                     }
                 }
 
+
+                Text {
+                    text: "<font color=\"#00c000\">NIPIGE TAFU</font>:: Kama umeipenda kazi hii unaweza kunitumia mkwanja kwenda Mpesa No. <font color=\"#dadada\">0752-626-043</font> <br><br> <font color=\"#00c000\">SUPPORT ME</font>:: If you liked this job you can send me a transfer to Mpesa No. <font color=\"#dadada\">0752-626-043</font><br>"
+                    font.pointSize: Qt.platform.os === "android" ? 12 : 10
+                    Layout.alignment: Qt.AlignHCenter
+                    wrapMode: Text.WordWrap
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    textFormat: Text.RichText
+                    font.bold: true
+                    color: "white"
+                }
+
                 Button {
                     text: "Funga / Close"
-                    font.pixelSize: 18
+                    font.pointSize: Qt.platform.os === "android" ? 12 : 10
                     Layout.preferredWidth: 200
                     Layout.preferredHeight: 30
                     Layout.alignment: Qt.AlignHCenter
@@ -247,29 +276,6 @@ Rectangle {
                         app.close();
                     }
                 }
-
-                Text {
-                    text: "<font color=\"green\">NIPIGE TAFU</font>:: Kama umeipenda kazi hii unaweza kunitumia mkwanja kwenda Mpesa No. <font color=\"blue\">0752-626-043</font> <br> <font color=\"green\">SUPPORT ME</font>:: If you liked this job you can send me a transfer to Mpesa No. <font color=\"blue\">0752-626-043</font>"
-                    font.pixelSize: 12
-                    Layout.alignment: Qt.AlignHCenter
-                    wrapMode: Text.WordWrap
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
-                    textFormat: Text.RichText
-                    font.bold: true
-                }
-
-                Text {
-                    text: "<br><font color=\"gray\">BAADA YA KUINGIA</font>:: Ili kurudi kwenye matokeo bonyeza maelezo ya kivutio yaliyoko juu <br> <font color=\"gray\">AFTER ENTERING</font>:: To return to the results click on the attraction details above"
-                    font.pixelSize: 12
-                    Layout.alignment: Qt.AlignHCenter
-                    wrapMode: Text.WordWrap
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
-                    textFormat: Text.RichText
-                    font.bold: true
-                }
-
 
             }
         }
@@ -288,7 +294,7 @@ Rectangle {
                 id: attractionImage
                 anchors.fill: parent
                 source: app.currentAttractionImage()
-                fillMode: Image.PreserveAspectCrop // Crop to fill, maintain aspect ratio
+                fillMode: Image.PreserveAspectFit
                 smooth: true
 
                 // Fallback color if image fails to load
@@ -311,7 +317,7 @@ Rectangle {
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.top: parent.top
-                height: attractionNameText.height + attractionDescriptionText.height + 10
+                height: attractionNameText.height + attractionDescriptionText.height + 20
                 color: "transparent"
 
                 Rectangle{
@@ -335,7 +341,7 @@ Rectangle {
                     Text {
                         id: attractionNameText
                         text: app.currentAttractionName()
-                        font.pixelSize: Math.min(app.width, app.height) * 0.04 // Responsive font size
+                        font.pointSize: Qt.platform.os === "android" ? 16 : 14
                         font.bold: true
                         color: "white"
                         wrapMode: Text.WordWrap
@@ -349,9 +355,9 @@ Rectangle {
                         text: app.currentAttractionDesc()
                         width: app.width
                         height: 80
-                        font.pixelSize: Math.min(app.width, app.height) * 0.025 // Responsive font size
+                        font.pointSize: Qt.platform.os === "android" ? 12 : 10
                         color: "white"
-                        wrapMode: Text.WordWrap // Wrap text if it's too long
+                        wrapMode: Text.WordWrap
                         Layout.fillWidth: true
                         Layout.fillHeight: true // Allow text to take remaining space
                     }
@@ -361,10 +367,11 @@ Rectangle {
             // Navigation Arrows (Visual cues, actual logic in Keys.onPressed)
             Text {
                 text: "<"
-                font.pixelSize: 40
+                font.pixelSize: Qt.platform.os === "android"? 100 : 40
                 font.bold: true
                 color: "#b2ffffff"
-                anchors.verticalCenter: parent.verticalCenter
+                anchors.bottom: parent.bottom
+                anchors.bottomMargin: 10
                 anchors.left: parent.left
                 anchors.leftMargin: 20
                 MouseArea {
@@ -372,12 +379,29 @@ Rectangle {
                     onClicked: navigatePrevious()
                 }
             }
+
             Text {
-                text: ">"
-                font.pixelSize: 40
+                text: "::"
+                font.pixelSize: Qt.platform.os === "android"? 100 : 40
                 font.bold: true
                 color: "#b2ffffff"
-                anchors.verticalCenter: parent.verticalCenter
+                anchors.bottom: parent.bottom
+                anchors.bottomMargin: 10
+                anchors.horizontalCenter: parent.horizontalCenter
+
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: app.close()
+                }
+            }
+
+            Text {
+                text: ">"
+                font.pixelSize: Qt.platform.os === "android"? 100 : 40
+                font.bold: true
+                color: "#b2ffffff"
+                anchors.bottom: parent.bottom
+                anchors.bottomMargin: 10
                 anchors.right: parent.right
                 anchors.rightMargin: 20
                 MouseArea {
