@@ -1618,7 +1618,7 @@ def openApp(qml){
 
 def downloadUtaliiApp()
 {
-  log("Installing Utalii App by Emagabe...");
+  showToastMessage("Installing Utalii App by Emagabe...");
   
   showLoadingIndicator();
   
