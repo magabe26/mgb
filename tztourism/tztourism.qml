@@ -256,7 +256,7 @@ Rectangle {
                 }
 
 
-                Text {
+           /*     Text {
                     text: "<font color=\"#00c000\">NIPIGE TAFU</font>:: Kama umeipenda kazi hii, unaweza kunitumia mkwanja kwenda Mpesa No. <font color=\"#dadada\">0752 626 043</font> <br><br> <font color=\"#00c000\">SUPPORT ME</font>:: If you liked this product, you can send me a transfer to Mpesa No. <font color=\"#dadada\">0752 626 043</font><br>"
                     font.pointSize: Qt.platform.os === "android" ? 12 : 10
                     Layout.alignment: Qt.AlignHCenter
@@ -266,13 +266,13 @@ Rectangle {
                     textFormat: Text.RichText
                     font.bold: true
                     color: "white"
-                }
+                } */
 
                 Button {
                     text: "Funga / Close"
                     font.pointSize: Qt.platform.os === "android" ? 12 : 10
                     Layout.preferredWidth: 200
-                    Layout.preferredHeight: 30
+                    Layout.preferredHeight: 60
                     Layout.alignment: Qt.AlignHCenter
                     onClicked: {
                         app.close();
