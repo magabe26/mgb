@@ -268,12 +268,18 @@ Rectangle {
                     color: "white"
                 } */
 
+Rectangle {
+    width: app.width
+    height: 1
+    color: "#dadada"
+}
+
                 Button {
                     text: "Funga / Close"
                     font.pointSize: Qt.platform.os === "android" ? 12 : 10
                     Layout.preferredWidth: 200
                     Layout.preferredHeight: 60
-                   // Layout.alignment: Qt.AlignHCenter
+                   Layout.alignment: Qt.AlignHCenter
                     onClicked: {
                         app.close();
                     }
