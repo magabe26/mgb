@@ -3482,20 +3482,25 @@ def downloadUtaliiApp()
 
 }
 
+
 def downloadOrOpenUtaliiApp()
 {
-  if(getData("UTALII_APP_SAVED").simplified() != "1"){
+  if(false){
     downloadUtaliiApp();
   }else{
+    var app = "tztourism.qml";
+	var path = generateAppRootFilePath(app);
     if(hasInternetAccess()){
-	  var app = "tztourism.qml";
-	  var path = generateAppRootFilePath(app);
-	  var url = "https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/tztourism/".append(app);
-	  saveFile(url, path);
+	   deleteFile(path);
+	   var url = "https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/tztourism/".append(app);
+	   saveFile(url, path);
 	}
-    openApp("tztourism.qml");
+	if(fileExists(path)){
+	   openApp(app);
+	}
   }
 }
+
 
 def onUtaliiAppCommand(cmd, argv, argc) {
    if (cmd.equals("UtaliiApp", false)) {
