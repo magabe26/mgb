@@ -406,7 +406,7 @@ Rectangle {
 
                 MouseArea {
                     anchors.fill: parent
-                    onClicked: app.close()
+                    onClicked: viewComponentLoader.sourceComponent = languageSelectionComponent;
                 }
             }
 
