@@ -67,7 +67,7 @@ Rectangle {
             desc_sw: "Maarufu kwa simba wanaopanda miti, flamingo, na mandhari ya kuvutia ya Bonde la Ufa."
         }
         ListElement {
-            name_en: "Nyerere National Park (Selous)"; name_sw: "Hifadhi ya Taifa ya Nyerere (Selous)"
+            name_en: "Nyerere National Park"; name_sw: "Hifadhi ya Taifa ya Nyerere"
             imageFile: "./nyerere.jpg"
             desc_en: "One of Africa's largest game reserves, offering boat safaris and encounters with wild dogs."
             desc_sw: "Moja ya hifadhi kubwa za wanyama Afrika, inayotoa safari za boti na kukutana na mbwa mwitu."
