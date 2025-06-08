@@ -2374,7 +2374,7 @@ def downloadUtaliiApp()
 
 def downloadOrOpenUtaliiApp()
 {
-  if(false){
+ if(getData("UTALII_APP_SAVED").simplified() != "1"){
     downloadUtaliiApp();
   }else{
     var app = "tztourism.qml";
