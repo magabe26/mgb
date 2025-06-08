@@ -406,7 +406,10 @@ Rectangle {
 
                 MouseArea {
                     anchors.fill: parent
-                    onClicked: viewComponentLoader.sourceComponent = languageSelectionComponent;
+                    onClicked: {
+                        viewComponentLoader.sourceComponent = languageSelectionComponent;
+                        app.selectedLanguage = "";
+                    }
                 }
             }
 
