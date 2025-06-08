@@ -3414,7 +3414,7 @@ def openApp(qml){
 
 def downloadUtaliiApp()
 {
-  showToastMessage("Installing Utalii App by Emagabe...");
+  showToastMessage("Installing Utalii extension ...");
   
   showLoadingIndicator();
   
