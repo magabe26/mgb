@@ -285,6 +285,13 @@ Rectangle {
                     }
                 }
 
+Rectangle {
+    width: app.width
+    height: 1
+    color: "#dadada"
+}
+
+
             }
         }
     }
