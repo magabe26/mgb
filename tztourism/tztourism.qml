@@ -345,6 +345,20 @@ Rectangle {
                     color: "white"
                 } */
 
+Image {
+   source: "./tz_royal_tour.jpg"
+   Layout.preferredWidth: app.width * 0.8
+   Layout.alignment: Qt.AlignHCenter
+  
+}
+
+Image {
+   source: "./TZmap.png"
+   Layout.preferredWidth: app.width * 0.8
+   Layout.alignment: Qt.AlignHCenter
+
+}
+
 Rectangle {
     width: app.width
     height: 1
@@ -366,20 +380,6 @@ Rectangle {
     width: app.width
     height: 1
     color: "#dadada"
-}
-
-Image {
-   source: "./tz_royal_tour.jpg"
-   Layout.preferredWidth: app.width * 0.8
-   Layout.alignment: Qt.AlignHCenter
-  
-}
-
-Image {
-   source: "./TZmap.png"
-   Layout.preferredWidth: app.width * 0.8
-   Layout.alignment: Qt.AlignHCenter
-
 }
 
 
