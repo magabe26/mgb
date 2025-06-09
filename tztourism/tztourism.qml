@@ -368,6 +368,7 @@ Image {
    source: "./tz_royal_tour.jpg"
    Layout.preferredWidth: app.width * 0.86
    Layout.alignment: Qt.AlignHCenter
+Layout.alignment: Qt.AlignBottom 
   
 }
 
