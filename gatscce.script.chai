@@ -1592,7 +1592,8 @@ def getUtaliiImages(){
 		"selous.jpg",
 		"mkomazi.jpg",
 
-		"tz_royal_tour.jpg"
+		"tz_royal_tour.jpg",
+"TZmap.png"
 		
   ];
 }
