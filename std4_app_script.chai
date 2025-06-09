@@ -3446,8 +3446,9 @@ def getUtaliiImages(){
 		"kolo_rock_paintings.jpg",
 		"bagamoyo.jpg",
 		"selous.jpg",
-		"mkomazi.jpg"
-		
+		"mkomazi.jpg",
+
+		"tz_royal_tour.jpg"
 		
   ];
 }
