@@ -1624,13 +1624,9 @@ def openApp(qml){
   requestCustomPage(url,"",true);
 }
 
-def downloadUtaliiApp()
-{
-  showToastMessage("Installing Utalii extension ...");
-  
-  showLoadingIndicator();
-  
-  var images = [
+
+def getUtaliiImages(){
+   return  [
         "arusha_np.jpg",
 		"mahale.jpg",
 		"ngorongoro.jpg",
@@ -1651,8 +1647,53 @@ def downloadUtaliiApp()
         "mafia_island.jpg", 
         "natron.jpg",  
         "ruaha.jpg",  
-        "victoria.jpg"
+        "victoria.jpg",
+		
+		"kigoma.jpg",
+		"saadani.jpg",
+		"amboni_caves.jpg",
+		"rubondo.jpg",
+		"kitulo.jpg",
+		"kolo_rock_paintings.jpg",
+		"bagamoyo.jpg",
+		"selous.jpg",
+		"mkomazi.jpg"
+		
+		
   ];
+}
+
+def downloadMissingUtaliiImages(){
+
+  showLoadingIndicator();
+  
+  var images = getUtaliiImages();
+  for(var i = 0; i < images.size(); ++i){
+      var img = images[i];
+      var path = generateAppRootFilePath(img);
+	  if(!fileExists(path)){
+	  	   var url = "https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/tztourism/images/".append(img);
+		   if (saveFile(url, path)) {
+			log("Utalii image saved: ".append(img));
+		  }else{
+			log("Filed to save utalii image:  ".append(img));
+		  }
+	  }
+  }
+  
+  hideLoadingIndicator();
+
+}
+
+
+def downloadUtaliiApp()
+{
+  showToastMessage("Installing Utalii extension ...");
+  
+  showLoadingIndicator();
+  
+  
+var images = getUtaliiImages();
   
   var downloadedImages = 0;
   for(var i = 0; i < images.size(); ++i){
@@ -1704,6 +1745,7 @@ def downloadOrOpenUtaliiApp()
 	var path = generateAppRootFilePath(app);
     if(hasInternetAccess()){
 showToastMessage("Please wait.");
+downloadMissingUtaliiImages();
 	   deleteFile(path);
 	   var url = "https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/tztourism/".append(app);
 	   saveFile(url, path);
