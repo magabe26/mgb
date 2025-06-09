@@ -293,6 +293,14 @@ ListElement {
                     color: "#dadada"
                 }
 
+
+Image {
+   source: "./TZmap.png"
+   Layout.preferredWidth: app.width * 0.8
+   Layout.alignment: Qt.AlignHCenter
+
+}
+
 Rectangle {
     width: app.width
     height: 1
@@ -363,12 +371,7 @@ Image {
   
 }
 
-Image {
-   source: "./TZmap.png"
-   Layout.preferredWidth: app.width * 0.8
-   Layout.alignment: Qt.AlignHCenter
 
-}
 
 
             }
