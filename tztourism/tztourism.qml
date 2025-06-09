@@ -368,6 +368,13 @@ Rectangle {
     color: "#dadada"
 }
 
+Image {
+   source: "./tz_royal_tour.jpg"
+   Layout.preferredWidth: app.width * 0.9
+   Layout.alignment: Qt.AlignHCenter
+  
+}
+
 
             }
         }
