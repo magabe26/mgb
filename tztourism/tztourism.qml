@@ -282,7 +282,7 @@ ListElement {
 
 
                 Text {
-                    text: "IDADI YA VIVUTIO VILIVYOORODHESHWA:: <font color=\"white\">"+ attractionModel.count + "</font><br>"+"NUMBER OF LISTED ATTRACTIONS:: <font color=\"white\">"+ attractionModel.count + "</font>"
+                    text: "IDADI YA VIVUTIO VILIVYOORODHESHWA / NUMBER OF LISTED ATTRACTIONS:: <font color=\"white\">"+ attractionModel.count + "</font>"
                     font.pointSize: Qt.platform.os === "android" ? 12 : 10
                     Layout.alignment: Qt.AlignHCenter
                     wrapMode: Text.WordWrap
