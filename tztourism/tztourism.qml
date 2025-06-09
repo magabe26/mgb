@@ -377,7 +377,7 @@ Image {
 
 Image {
    source: "./TZmap.png"
-   Layout.preferredWidth: app.width * 0.9
+   Layout.preferredWidth: app.width * 0.8
    Layout.alignment: Qt.AlignHCenter
 
 }
