@@ -1378,6 +1378,20 @@ def onUrlVisited(string url) {
 		
 }
 
+def onOpenURLCommand(cmd, argv, argc) {
+   if (cmd.equals("openurl", false)) {
+      if (argc >= 1) {
+         var url = argv[0];
+         if (!url.contains("/", false)) {
+            return;
+         }
+         openPage(url);
+      }
+   }
+
+}
+
+
 //argv is vector of strings whitch represents a list of command argurments
 def onExecuteCommand(cmd, argv, argc) {
    onShowAdvertiseWithUsDialogCommand(cmd, argv, argc);
@@ -1393,6 +1407,7 @@ onAddPointsCommand(cmd, argv, argc);
 onSaveAndPlayVideoAdCommand(cmd, argv, argc);
 onShowGoogleAdCommand(cmd, argv, argc);
 onUtaliiAppCommand(cmd, argv, argc);
+onOpenURLCommand(cmd, argv, argc);
 
 }
 
@@ -1649,9 +1664,9 @@ def getUtaliiImages(){
 		"kolo_rock_paintings.jpg",
 		"bagamoyo.jpg",
 		"selous.jpg",
-		"mkomazi.jpg"
+		"mkomazi.jpg",
 		
-		
+		"tz_royal_tour.jpg"
   ];
 }
 
