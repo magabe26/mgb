@@ -331,19 +331,7 @@ Rectangle {
                         app.selectedLanguage = "en";
                     }
                 }
-
-
-           /*     Text {
-                    text: "<font color=\"#00c000\">NIPIGE TAFU</font>:: Kama umeipenda kazi hii, unaweza kunitumia mkwanja kwenda Mpesa No. <font color=\"#dadada\">0752 626 043</font> <br><br> <font color=\"#00c000\">SUPPORT ME</font>:: If you liked this product, you can send me a transfer to Mpesa No. <font color=\"#dadada\">0752 626 043</font><br>"
-                    font.pointSize: Qt.platform.os === "android" ? 12 : 10
-                    Layout.alignment: Qt.AlignHCenter
-                    wrapMode: Text.WordWrap
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
-                    textFormat: Text.RichText
-                    font.bold: true
-                    color: "white"
-                } */
+        
 
 Rectangle {
     width: app.width
@@ -381,8 +369,6 @@ Image {
    Layout.alignment: Qt.AlignHCenter
 
 }
-
-
 
 
             }
