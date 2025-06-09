@@ -4025,7 +4025,7 @@ def beforeDisplayMenuPage(string xml) {
   // output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/natengeneza.gif", "#emailUs", w, 0.3, "middle");
   // output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/std7b.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabe.n3cta.matokeo.ya.darasa.la.saba", w, 0.16, "bottom");
  //  output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/qt.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.qt", w, 0.16, "bottom");
-//output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/jaridalaelimu.png", "#mambo", 1, 0.8, "top");
+output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/jaridalaelimu.png", "#mambo", 1, 0.8, "top");
 
    return output;
 }
@@ -4079,7 +4079,7 @@ enableAccessPointsGuardForPages();
    var output = xml;
    var w = 0.85;
 
-// output = putAdsToHistoryPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/elimu.png", "#openurl;https://play.google.com/store/apps/developer?id=Magabe+Lab", 1, 0.8, "bottom");
+output = putAdsToHistoryPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/elimu.png", "#openurl;https://play.google.com/store/apps/developer?id=Magabe+Lab", 1, 0.8, "bottom");
 //output = putAdsToHistoryPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/changia.png", "#", 1, 0.8, "bottom");
 
   //output = putAdsToHistoryPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/tangaza2.gif", "#showAdvertiseWithUsDialog", w, 0.30, "bottom");
