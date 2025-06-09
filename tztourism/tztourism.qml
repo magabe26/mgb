@@ -280,6 +280,25 @@ ListElement {
 
                 }
 
+
+                Text {
+                    text: "IDADI YA VIVUTIO VILIVYOORODHESHWA:: <font color=\"white\">"+ attractionModel.count + "</font><br>"+"NUMBER OF LISTED ATTRACTIONS:: <font color=\"white\">"+ attractionModel.count + "</font><br><br>"
+                    font.pointSize: Qt.platform.os === "android" ? 12 : 10
+                    Layout.alignment: Qt.AlignHCenter
+                    wrapMode: Text.WordWrap
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    textFormat: Text.RichText
+                    font.bold: true
+                    color: "#dadada"
+                }
+
+Rectangle {
+    width: app.width
+    height: 1
+    color: "#dadada"
+}
+
                 Text {
                     text: "Chagua Lugha / Select Language"
                     font.pointSize: Qt.platform.os === "android" ? 16 : 14
