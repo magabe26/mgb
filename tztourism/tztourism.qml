@@ -366,7 +366,7 @@ Rectangle {
 
 Image {
    source: "./tz_royal_tour.jpg"
-   Layout.preferredWidth: app.width * 0.8
+   Layout.preferredWidth: app.width * 0.86
    Layout.alignment: Qt.AlignHCenter
   
 }
