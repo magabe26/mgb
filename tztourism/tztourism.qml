@@ -375,6 +375,13 @@ Image {
   
 }
 
+Image {
+   source: "./TZmap.png"
+   Layout.preferredWidth: app.width * 0.9
+   Layout.alignment: Qt.AlignHCenter
+
+}
+
 
             }
         }
