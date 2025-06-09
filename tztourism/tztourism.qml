@@ -30,6 +30,13 @@ Rectangle {
             desc_en: "Experience Lake Victoria, Mwanza: Africa's largest lake. Enjoy stunning sunsets over Bismarck Rock, island safaris, and vibrant local culture. A true Tanzanian gem!"
             desc_sw: "Furahia Ziwa Victoria, Mwanza: Ziwa kubwa Afrika. Tazama machweo mazuri juu ya Mwamba Bismarck, safari za visiwa, na utamaduni hai. Hazina halisi ya Tanzania!"
         }
+ListElement {
+            name_en: "Rubondo Island National Park"; name_sw: "Hifadhi ya Taifa ya Kisiwa cha Rubondo"
+            imageFile: "./rubondo.jpg"
+            desc_en: "An island sanctuary on Lake Victoria, home to elephats, chimpanzees, sitatunga, and a diverse birdlife, ideal for walking safaris."
+            desc_sw: "Hifadhi ya kisiwa kwenye Ziwa Victoria, makazi ya tembo, sokwe, sitatunga, na ndege mbalimbali, inayofaa kwa safari za kutembea."
+        }
+
         ListElement {
             name_en: "Serengeti National Park"; name_sw: "Hifadhi ya Taifa ya Serengeti"
             imageFile: "./serengeti.jpg"
@@ -151,12 +158,7 @@ Rectangle {
             desc_en: "A vast limestone cave system near Tanga, significant culturally and historically, with impressive formations."
             desc_sw: "Mfumo mkubwa wa mapango ya chokaa karibu na Tanga, muhimu kiutamaduni na kihistoria, na maumbo ya kuvutia."
         }
-        ListElement {
-            name_en: "Rubondo Island National Park"; name_sw: "Hifadhi ya Taifa ya Kisiwa cha Rubondo"
-            imageFile: "./rubondo.jpg"
-            desc_en: "An island sanctuary on Lake Victoria, home to elephats, chimpanzees, sitatunga, and a diverse birdlife, ideal for walking safaris."
-            desc_sw: "Hifadhi ya kisiwa kwenye Ziwa Victoria, makazi ya tembo, sokwe, sitatunga, na ndege mbalimbali, inayofaa kwa safari za kutembea."
-        }
+        
         ListElement {
             name_en: "Kitulo National Park"; name_sw: "Hifadhi ya Taifa ya Kitulo"
             imageFile: "./kitulo.jpg"
