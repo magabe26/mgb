@@ -132,6 +132,62 @@ Rectangle {
             desc_en: "A remote and wild park known for large concentrations of game during the dry season."
             desc_sw: "Hifadhi ya mbali na pori inayojulikana kwa mikusanyiko mikubwa ya wanyama wakati wa kiangazi."
         }
+
+        ListElement {
+            name_en: "Kigoma Town & Lake Tanganyika"; name_sw: "Mji wa Kigoma & Ziwa Tanganyika"
+            imageFile: "./kigoma.jpg"
+            desc_en: "A historic port town on Lake Tanganyika, offering boat trips, fishing, and a glimpse into local life by the world's second deepest lake."
+            desc_sw: "Mji wa bandari wa kihistoria kwenye Ziwa Tanganyika, unaotoa safari za boti, uvuvi, na fursa ya kuona maisha ya wenyeji karibu na ziwa la pili kwa kina duniani."
+        }
+        ListElement {
+            name_en: "Saadani National Park"; name_sw: "Hifadhi ya Taifa ya Saadani"
+            imageFile: "./saadani.jpg"
+            desc_en: "Tanzania's only coastal national park, where the bush meets the beach, offering unique land and boat safaris."
+            desc_sw: "Hifadhi ya pekee ya taifa ya pwani Tanzania, ambapo msitu hukutana na fukwe, ikitoa safari za kipekee za ardhini na majini."
+        }
+        ListElement {
+            name_en: "Amboni Caves"; name_sw: "Mapango ya Amboni"
+            imageFile: "./amboni_caves.jpg"
+            desc_en: "A vast limestone cave system near Tanga, significant culturally and historically, with impressive formations."
+            desc_sw: "Mfumo mkubwa wa mapango ya chokaa karibu na Tanga, muhimu kiutamaduni na kihistoria, na maumbo ya kuvutia."
+        }
+        ListElement {
+            name_en: "Rubondo Island National Park"; name_sw: "Hifadhi ya Taifa ya Kisiwa cha Rubondo"
+            imageFile: "./rubondo.jpg"
+            desc_en: "An island sanctuary on Lake Victoria, home to elephats, chimpanzees, sitatunga, and a diverse birdlife, ideal for walking safaris."
+            desc_sw: "Hifadhi ya kisiwa kwenye Ziwa Victoria, makazi ya tembo, sokwe, sitatunga, na ndege mbalimbali, inayofaa kwa safari za kutembea."
+        }
+        ListElement {
+            name_en: "Kitulo National Park"; name_sw: "Hifadhi ya Taifa ya Kitulo"
+            imageFile: "./kitulo.jpg"
+            desc_en: "Known as the 'Garden of God', this unique montane grassland is famous for its spectacular seasonal wildflower displays."
+            desc_sw: "Inajulikana kama 'Bustani ya Mungu', nyanda hii ya kipekee ya milimani ni maarufu kwa maonyesho yake mazuri ya maua ya porini ya msimu."
+        }
+        ListElement {
+            name_en: "Kolo Rock Paintings"; name_sw: "Michoro ya Miamba ya Kolo"
+            imageFile: "./kolo_rock_paintings.jpg"
+            desc_en: "Ancient rock art sites in Kondoa Irangi, offering insights into early human history and culture in Tanzania."
+            desc_sw: "Maeneo ya kale ya sanaa ya miamba huko Kondoa Irangi, yakitoa ufafanuzi wa historia na utamaduni wa awali wa binadamu nchini Tanzania."
+        }
+        ListElement {
+            name_en: "Bagamoyo"; name_sw: "Bagamoyo"
+            imageFile: "./bagamoyo.jpg"
+            desc_en: "A historic coastal town with a rich past as a former slave trade port, featuring colonial architecture and cultural sites."
+            desc_sw: "Mji wa kihistoria wa pwani wenye historia tajiri kama bandari ya zamani ya biashara ya watumwa, yenye usanifu wa kikoloni na maeneo ya kitamaduni."
+        }
+        ListElement {
+            name_en: "Selous Game Reserve (part of Nyerere NP)"; name_sw: "Hifadhi ya Wanyama ya Selous"
+            imageFile: "./selous.jpg"
+            desc_en: "One of Africa's largest protected areas (now largely Nyerere NP), known for its vastness, wildness, and diverse wildlife."
+            desc_sw: "Moja ya maeneo makubwa zaidi yaliyohifadhiwa barani Afrika (sasa sehemu kubwa ni Hifadhi ya Taifa ya Nyerere), inayojulikana kwa ukubwa wake, pori, na wanyamapori mbalimbali."
+        }
+        ListElement {
+            name_en: "Mkomazi National Park"; name_sw: "Hifadhi ya Taifa ya Mkomazi"
+            imageFile: "./mkomazi.jpg"
+            desc_en: "A semi-arid park bordering Tsavo in Kenya, crucial for black rhino and wild dog conservation, offering a rugged safari experience."
+            desc_sw: "Hifadhi ya nusu-jangwa inayopakana na Tsavo nchini Kenya, muhimu kwa uhifadhi wa faru weusi na mbwa mwitu, ikitoa uzoefu mgumu wa safari."
+        }
+
         ListElement {
             name_en: "Lake Natron"; name_sw: "Ziwa Natron"
             imageFile: "./natron.jpg"
