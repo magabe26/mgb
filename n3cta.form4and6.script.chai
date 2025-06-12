@@ -1878,6 +1878,8 @@ if (isGeneralApp()) {
 
 downloadComputedMainPages("https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/computed/CSEE/CSEE.txt");
 
+downloadComputedMainPages("https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/computed/ACSEE/ACSEE.txt");
+
 } else if (isForm4App()) {
        
          //FORM 4 APP 
@@ -1886,6 +1888,9 @@ downloadComputedMainPages("https://raw.githubusercontent.com/magabe26/mgb/refs/h
 
       } else if (isForm6App()) {
          //FORM 6 APP
+
+downloadComputedMainPages("https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/computed/ACSEE/ACSEE.txt");
+
 
       }
 
