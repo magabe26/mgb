@@ -1530,42 +1530,6 @@ onUrlVisited("#saveAndPlayVideoAd;" + url);
 }
 }
 
-def download2024CSEEResults()
-{
-
-var menuDataUrl = "https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/2024_CSEE%202024%20EXAMINATION%20RESULTS.mgb";
-var path = generateAppRootFilePath("2024_CSEE 2024 EXAMINATION RESULTS.mgb");
-
-// update
-if(getData("2024_csee_update_3").isEmpty()){
-   deleteFile(path);
-   saveOrUpdateData("2024_csee_update_3","1");
-   showToastMessage("Mfumo umeboreshwa kwa ajili ya matokeo ya 2024");
-}
-
-if(fileExists(path)){
-   return;
-}
-showLoadingIndicator();
-if(saveFile(menuDataUrl,path)){
-	var name = "CSEE 2024 EXAMINATION RESULTS";
-	var url = "https://matokeo.necta.go.tz/results/2024/csee/CSEE2024/CSEE2024.htm";
-	var year = "2024";
-	var otherName = "2024";
-	var query = "INSERT INTO savedNectaMainPages (NAME,XMLFILEPATH,URL,YEAR,OTHERnAME) VALUES(\"".append(name).append("\",\"").append(path).append("\",\"").append(url).append("\",\"").append(year).append("\",\"").append(otherName).append("\")");
-	excuteDBQuery(query, fun[](success, values) {
-		  if(success){
-			 requestCustomDialog(566, "fa::bell", "2024","2024 results downloaded, backend system update inprogress ...", "ok", "", "#", 0.9, 0.2, false);
-		  }
-		  hideLoadingIndicator();
-	   });
-}else{
-  hideLoadingIndicator();
-}
-
-}
-
-
 //-------- Menginyo on right btn ----------
 
 def setMengineyoBtn(bool b)
