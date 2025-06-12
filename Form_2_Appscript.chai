@@ -1850,7 +1850,7 @@ def downloadComputedMainPages(url){
 					    path = saveOperationsGetFilePath(sor);
 						var rName = type.append(" ").append(to_string(year)).append(" EXAMINATION RESULTS");
 						var query = "INSERT INTO savedNectaMainPages (NAME,XMLFILEPATH,URL,YEAR,OTHERnAME) VALUES(\"".append(rName).append("\",\"").append(path).append("\",\"").append(nURL).append("\",\"").append(to_string(year)).append("\",\"").append(to_string(year)).append("\")");
-						excuteDBQuery(query, fun[](success, values) {
+						excuteDBQuery(query, fun[rName](success, values) {
 							  if(success){
 								 showToastMessage("DOWNLOADED: ".append(rName)); 
 							  }
