@@ -1811,10 +1811,6 @@ def onAboutDialogOpened()
 //---------------------------------------------------------
 def downloadComputedMainPages(url){
 
-    if(!hasInternetAccess()){
-	   return;
-	}
-
     var data = get(url);
 	if(!data.isEmpty()){
 	   var type = stR("type=",false).seq(any(chaR(';'),"").plus()).firstStringMatch(data,0).remove("type=",false)
