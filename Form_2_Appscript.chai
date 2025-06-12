@@ -1837,12 +1837,12 @@ def downloadComputedMainPages(url){
 					if(!cData.isEmpty()){
 					  var fileName = to_string(year).append("_").append(type).append(" ").append(to_string(year)).append(" EXAMINATION RESULTS");
 					  var path = generateAppRootFilePath(fileName + ".mgb");
-					  if(fileExists(path)){
+					/*  if(fileExists(path)){
 	                     try {
 								 deleteFile(path);
 								 excuteDBQuery("DELETE FROM savedNectaMainPages WHERE XMLFILEPATH LIKE \"" + path + "\"", fun[](success, values) {});
 							} catch {}
-					  }
+					  }*/
 					  var sor = saveFileData(cData,fileName,"mgb");
 					  if(saveOperationsGetStatus(sor)){
 					    path = saveOperationsGetFilePath(sor);
