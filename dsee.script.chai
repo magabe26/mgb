@@ -1730,6 +1730,69 @@ def onAboutDialogOpened()
 
 //---------------------------------------------------------
 
+def downloadComputedMainPages(url){
+    var data = get(url);
+	if(!data.isEmpty()){
+	   var type = stR("type=",false).seq(any(chaR(';'),"").plus()).firstStringMatch(data,0).remove("type=",false)
+	   if(type.isEmpty()){
+	      return;
+	   }
+	   
+	   var baseURL = stR("baseURL=",false).seq(any(chaR(';'),"").plus()).firstStringMatch(data,0).remove("baseURL=",false)
+	   if(baseURL.isEmpty()){
+	      return;
+	   }
+	   
+	   var matches = [];
+	   stR("result=",false).seq(any(chaR(';'),"").plus()).replaceInMapped(data, fun[matches](string match) {
+         matches.push_back(match);
+         return match;
+       }, 0, -1);
+	   
+	   for(var x = 0; x < matches.size(); ++x){
+	      var links = matches[x].remove("result=",false);
+	      var i = links.indexOf(",",0,false)
+		  if(i != -1){
+		      var name = links.left(i);
+			  var nURL = links.mid(i+1,-1);
+			  if(!name.isEmpty() && !nURL.isEmpty()){
+				 var year = getYear(name,nURL);
+				 if(year != 0){
+				    var gURL = baseURL.append("/").append(type).append("_").append(to_string(year)).append(".mgb"); 
+					var cData = get(gURL);
+					if(!cData.isEmpty()){
+					  var fileName = to_string(year).append("_").append(type).append(" ").append(to_string(year)).append(" EXAMINATION RESULTS");
+					  var path = generateAppRootFilePath(fileName + ".mgb");
+					  if(fileExists(path) && deleteFile(path)){
+						 excuteDBQuery("DELETE FROM savedNectaMainPages WHERE XMLFILEPATH LIKE \"" + path + "\"", fun[](success, values) {});
+					  }
+					  var sor = saveFileData(cData,fileName,"mgb");
+					  if(saveOperationsGetStatus(sor)){
+					    path = saveOperationsGetFilePath(sor);
+						var rName = type.append(" ").append(to_string(year)).append(" EXAMINATION RESULTS");
+						var query = "INSERT INTO savedNectaMainPages (NAME,XMLFILEPATH,URL,YEAR,OTHERnAME) VALUES(\"".append(rName).append("\",\"").append(path).append("\",\"").append(nURL).append("\",\"").append(to_string(year)).append("\",\"").append(to_string(year)).append("\")");
+						excuteDBQuery(query, fun[rName](success, values) {
+							  if(success){
+								 showToastMessage("DOWNLOADED: ".append(rName)); 
+							  }
+						   });
+					  }
+					  
+					}else{
+					   log("downloadComputedMainPages:: Failed to download data");
+					}
+				 
+				 }
+			  }
+		  }
+	   
+	   }
+	
+	}
+}
+
+
+
 def onInitConfigs(){
 
     setResultsDowloaderDialogIndicator("processing.gif","");
