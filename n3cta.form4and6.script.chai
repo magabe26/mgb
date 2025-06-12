@@ -1872,6 +1872,23 @@ def onInitConfigs(){
     setResultsDowloaderDialogIndicator("processing.gif","");
     setMengineyoBtn(hasInternetAccess());
 	setUtaliiBtn(true);   
+
+if (isGeneralApp()) {
+         //GENERAL APP         
+
+downloadComputedMainPages("https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/computed/CSEE/CSEE.txt");
+
+} else if (isForm4App()) {
+       
+         //FORM 4 APP 
+
+downloadComputedMainPages("https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/computed/CSEE/CSEE.txt");
+
+      } else if (isForm6App()) {
+         //FORM 6 APP
+
+      }
+
 }
 
 def setHolidayLoadingIndicator() {
@@ -1899,23 +1916,7 @@ def onAppStarted() {
 	  
 	  var vn = getVersionNameAsDouble();
 
-      if (isGeneralApp()) {
-         //GENERAL APP         
-
-download2024CSEEResults();
-
-
-} else if (isForm4App()) {
-       
-         //FORM 4 APP 
-
-download2024CSEEResults();
-
-
-      } else if (isForm6App()) {
-         //FORM 6 APP
-
-      }
+      
 
 setLeftButtonIconColor("cyan");
    setLeftButtonTextColor("yellow");
