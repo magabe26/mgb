@@ -2271,7 +2271,7 @@ def onSchoolResultsOpened(string info) {
     if (currentResultType.isEmpty()) {
       if (isForm4App()) {
          currentResultType = "CSEE";
-          goToNectaResultPage(info);
+         // goToNectaResultPage(info);
       } else if (isForm6App()) {
          currentResultType = "ACSEE";
       }
