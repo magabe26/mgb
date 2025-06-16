@@ -3476,8 +3476,29 @@ def onGetNewImageUrl(string previousImageUrl) {
    return getOfflineImagePath(previousImageUrl);
 }
 
+
+//Targets those results that has ' in their names
+def saveUnsavedResultsToDB(string displayName, int year, string url){
+    if(!getResultPathUsingUrl(url).isEmpty()){
+	   return;
+	}
+    var hint = displayName.remove(to_string(year),false).simplified().replace(" ","_",false);
+	forEachString(getFiles(getAppRootPath()),fun[displayName,year,url,hint](file){
+	   if(stR(hint,false).hasMatch(file,0)){
+		  var sqlFullName = file.replace("'","''",true);
+		  var sqlDisplayName = displayName.replace("'","''",true);
+		  var sqlPath = generateAppRootFilePath(file).replace("'","''",true);;
+		  if(saveResultRecord(url,sqlDisplayName,sqlFullName,sqlPath,year)){
+		     log("Result record saved to DB");
+		  }
+	   }
+	});
+
+}
+
+
 def beforeDisplayResults(string displayName, int year, string url, string xml) {
-   enableAccessPointsGuardForSchoolResult(displayName);
+  saveUnsavedResultsToDB(displayName,year,url); enableAccessPointsGuardForSchoolResult(displayName);
    return xml.simplified();
 }
 
