@@ -3104,7 +3104,7 @@ def onConsentGranted() {
 //-------------------------------
 
 def hasInternetAccess() {
-   var code = get("https://get.geojs.io/v1/ip/country");
+   var code = get("https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/internet-test");
    return (!code.isEmpty());
 }
 
