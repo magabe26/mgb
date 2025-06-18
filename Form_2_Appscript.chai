@@ -1383,7 +1383,7 @@ def getGenderWisePerformanceDialogColumnsWidths() {
 
 def onShowGoogleAdCommand(cmd, argv, argc) {
    if (cmd.equals("showGoogleAd", false)) {
-        showToastMessage("Tafadhali subiri, hakikisha umejiunga na huduma ya intaneti.")
+        //showToastMessage("Tafadhali subiri, hakikisha umejiunga na huduma ya intaneti.")
         if (adsInitialized) {
             showOrLoadAd();
          } else {
