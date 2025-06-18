@@ -1488,7 +1488,7 @@ try {
    saveOrUpdateData("MyFavoriteLoadingIndicatorSetForFirstTime", "");
    saveOrUpdateData("HolidayLoadingIndicatorSetForFirstTime", "");
    hideLoadingIndicator();
-   quit();
+   restartApp();
 }
 
 global SYSTEM_RESET_DIALOG_REQUEST_CODE = 20240108;
