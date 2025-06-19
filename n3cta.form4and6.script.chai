@@ -4,11 +4,11 @@
  */
 
 
-
 global SHOW_ADS_AFTER_SCHOOL_RESULTS_OPENED = true;
+global APP_STARTED = false;
 
 def showAdsAfterSRO(){
-    if(SHOW_ADS_AFTER_SCHOOL_RESULTS_OPENED){ 
+    if(SHOW_ADS_AFTER_SCHOOL_RESULTS_OPENED && APP_STARTED){ 
 	   onUrlVisited("#showGoogleAd");	
 	}
 }
@@ -1887,6 +1887,9 @@ global ADS_TIMER = 32023;
 
 def onAppStarted() {
    try {      
+
+APP_STARTED = true;
+
    
       //setMyFavoriteLoadingIndicator();
         setHolidayLoadingIndicator();
