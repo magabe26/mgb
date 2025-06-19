@@ -3,6 +3,16 @@
  * Author Edwin Magabe    edyma24@gmail.com
  */
 
+
+global SHOW_ADS_AFTER_SCHOOL_RESULTS_OPENED = true;
+
+def showAdsAfterSRO(){
+    if(SHOW_ADS_AFTER_SCHOOL_RESULTS_OPENED){ 
+	   onUrlVisited("#showGoogleAd");	
+	}
+}
+
+
 //------------------
 
 def getScriptRunnerVersion() {
