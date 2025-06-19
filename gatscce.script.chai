@@ -1826,6 +1826,8 @@ global ADS_TIMER = 32023;
 
 def onAppStarted() {
    try {      
+
+APP_STARTED = true;
    
       //setMyFavoriteLoadingIndicator();
         setHolidayLoadingIndicator();
