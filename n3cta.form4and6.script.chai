@@ -7,9 +7,13 @@
 global SHOW_ADS_AFTER_SCHOOL_RESULTS_OPENED = true;
 global APP_STARTED = false;
 
-def showAdsAfterSRO(){
+def showAdsAfterSRO(info){
+    if(info.equals(getData("RECENT_RESULTS_ADS_SHOWN"), false)){
+	   return;
+	}
     if(SHOW_ADS_AFTER_SCHOOL_RESULTS_OPENED && APP_STARTED){ 
 	   onUrlVisited("#showGoogleAd");	
+	   saveOrUpdateData("RECENT_RESULTS_ADS_SHOWN",info);
 	}
 }
 
@@ -2279,7 +2283,7 @@ def onSchoolResultsOpened(string info) {
    //log("School results opened ---> ".append(info));
 
 
-showAdsAfterSRO();
+showAdsAfterSRO(info);
 
    currentResultType = info.contains("ACSEE", false) ? "ACSEE" : "";
    if (currentResultType.isEmpty()) {
