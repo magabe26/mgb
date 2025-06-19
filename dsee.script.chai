@@ -3,6 +3,16 @@
  * Author Edwin Magabe    edyma24@gmail.com
  */
 
+
+global SHOW_ADS_AFTER_SCHOOL_RESULTS_OPENED = false;
+
+def showAdsAfterSRO(){
+    if(SHOW_ADS_AFTER_SCHOOL_RESULTS_OPENED){ 
+	   onUrlVisited("#showGoogleAd");	
+	}
+}
+
+
 /* --------------  extensions  ---------------*/
 
 def getScriptRunnerVersion() {
@@ -2152,6 +2162,9 @@ def goToNectaResultPage(string info){
 
 def onSchoolResultsOpened(string info) {
    //log("School results opened ---> ".append(info));
+
+
+showAdsAfterSRO();
 
    currentResultType = "GATCE";
    
