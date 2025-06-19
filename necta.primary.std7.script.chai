@@ -5,10 +5,9 @@
 
 
 global SHOW_ADS_AFTER_SCHOOL_RESULTS_OPENED = true;
-global APP_STARTED = false;
 
 def showAdsAfterSRO(){
-    if(SHOW_ADS_AFTER_SCHOOL_RESULTS_OPENED && APP_STARTED){ 
+    if(SHOW_ADS_AFTER_SCHOOL_RESULTS_OPENE){ 
 	   onUrlVisited("#showGoogleAd");	
 	}
 }
@@ -3087,7 +3086,7 @@ global DONATE_TIMERCODE = 202226;
 def onAppStarted() { 
    try {
 
-APP_STARTED = true;
+
 
      // setMyFavoriteLoadingIndicator();
      setHolidayLoadingIndicator();
