@@ -3972,9 +3972,7 @@ enableAccessPointsGuardForPages();
 
 def onDisplaySchool(string schoolName, string title, string url) {
    currentResultYear = getYear(schoolName, title);
-   if (adsShown == 0) {
-      showOrLoadAd();
-   }
+   showAdsAfterSRO();
 enableAccessPointsGuardForPages();
 }
 
