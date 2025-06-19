@@ -18,7 +18,7 @@ Rectangle {
             n3ctaApp.onUrlVisited("#showGoogleAd");
         }else if(typeof loader !== "undefined"){
             loader.closeCustomPage();
-            //loader.onUrlVisited("#showGoogleAd");
+            loader.onUrlVisited("#showGoogleAd");
         }
     }
 
