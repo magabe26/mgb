@@ -3467,13 +3467,10 @@ def onDisplayDistrict(string districtName, string title, string url) {
 }
 
 def onDisplaySchool(string schoolName, string title, string url) {
-   if (adsShown == 0) {
-      showOrLoadAd();
-   } else {
-     showAdsAfterSRO();
 
-}
+   showAdsAfterSRO();
    enableAccessPointsGuardForPages();
+
 }
 
 def getOtherAppsPageTitle() { 
