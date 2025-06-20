@@ -7,9 +7,13 @@
 
 global SHOW_ADS_AFTER_SCHOOL_RESULTS_OPENED = true;
 
-def showAdsAfterSRO(){
+def showAdsAfterSRO(schoolName){
+    if(schoolName.equals(getData("RECENT_RESULTS_ADS_SHOWN"), false)){
+	   return;
+	}
     if(SHOW_ADS_AFTER_SCHOOL_RESULTS_OPENED){ 
 	   onUrlVisited("#showGoogleAd");	
+	   saveOrUpdateData("RECENT_RESULTS_ADS_SHOWN",schoolName);
 	}
 }
 
@@ -3471,7 +3475,7 @@ def onDisplayDistrict(string districtName, string title, string url) {
 
 def onDisplaySchool(string schoolName, string title, string url) {
 
-   showAdsAfterSRO();
+   showAdsAfterSRO(schoolName);
    enableAccessPointsGuardForPages();
 
 }
