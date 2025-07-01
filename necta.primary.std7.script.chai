@@ -1554,7 +1554,7 @@ def confirmHtmlJunkRemoval(string info) {
 }
 
 def getPremNoName() {
-   return "PREM No";
+   return "PReM No";
 }
 
 def removeOpenTag(string output, string start, string end) {
