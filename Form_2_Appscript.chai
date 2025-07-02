@@ -1345,7 +1345,7 @@ def removeMenuItem(string menu, string year, int loop) {
 }
 
 def getPremNoName() {
-   return "PReM No";
+   return "PReM NO";
 }
 
 /*
