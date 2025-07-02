@@ -1287,7 +1287,7 @@ def onOpenURLCommand(cmd, argv, argc) {
 
 //--------------------------
 def getPremNoName() {
-   return "PReM No";
+   return "PReM NO";
 }
 
 /*---------------------------------*/
