@@ -1435,47 +1435,20 @@ def requestDownloadUpdateDialog(string description, string url) {
 
 def downloadUpdate() {
    try {
-
       var os = getOperatingSystem();
       var version = getScriptRunnerVersion();
       var packageName = getAppPackageName();
-      var latestAppVersionName = "";
+      var latestAppVersionName = "0.1"; //Change each new version 
+	  var url = "https://play.google.com/store/apps/details?id=com.magabelab.matokeo.gatscce";
       var win64DownloadURL = "";
-      var message = "";
-
-
-      
-
-         //GENERAL APP
-         latestAppVersionName = "0.1"; //Change each new version of general app
-         win64DownloadURL = "https://www.mediafire.com/file/mkhev0dlq4teeb2/Matokeo+Form4na6+v4.4+WinX64+Installer.exe/file";
-
-
-         message = "Toleo jipya la aplikesheni hii ambalo ni ".append(latestAppVersionName).append(" limeshatoka, pakua sasa.");
-         if ((version >= 2) && (version < 4)) {
-            var isAndroid = generateAppRootFilePath("").replace("/", ".", false).contains(packageName, true);
-            if (isAndroid) {
-               showToastMessage(message);
-               openPage(packageNameToUrl(packageName));
-            } else {
-               openPage(win64DownloadURL);
-            }
-         } else if (version >= 4) {
-            var url = (os == "android") ? packageNameToUrl(packageName) : win64DownloadURL;
-            if (version == 4) {
-               requestDownloadUpdateDialog(message, url);
-            } else {
-               var versionName = getVersionName(packageName);
-               if (versionName != latestAppVersionName) {
-                  requestDownloadUpdateDialog(message, url);
-               }else{
+      var message = "Toleo jipya la aplikesheni hii ambalo ni ".append(latestAppVersionName).append(" limeshatoka, pakua sasa.");
+      var versionName = getVersionName(packageName); 
+           
+      if (versionName != latestAppVersionName) {
+            requestDownloadUpdateDialog(message, url);
+        }else{
 	     //showNectaInfoOrLifeQuote();
-	  }
-            }
-         }
-
-      
-
+	   }
 
    } catch {}
 
