@@ -1452,30 +1452,14 @@ def downloadUpdate() {
 
 
          message = "Toleo jipya la aplikesheni hii ambalo ni ".append(latestAppVersionName).append(" limeshatoka, pakua sasa.");
-         if ((version >= 2) && (version < 4)) {
-            var isAndroid = generateAppRootFilePath("").replace("/", ".", false).contains(packageName, true);
-            if (isAndroid) {
-               showToastMessage(message);
-               openPage(packageNameToUrl(packageName));
-            } else {
-               openPage(win64DownloadURL);
-            }
-         } else if (version >= 4) {
-            var url = (os == "android") ? packageNameToUrl(packageName) : win64DownloadURL;
-            if (version == 4) {
-               requestDownloadUpdateDialog(message, url);
-            } else {
-               var versionName = getVersionName(packageName);
-               if (versionName != latestAppVersionName) {
+
+         if (versionName != latestAppVersionName) {
                   requestDownloadUpdateDialog(message, url);
                }else{
 	     //showNectaInfoOrLifeQuote();
 	  }
-            }
-         }
-
+         
       
-
 
    } catch {}
 
