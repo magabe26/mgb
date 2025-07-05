@@ -1443,7 +1443,7 @@ def downloadUpdate() {
       var win64DownloadURL = "";
       var message = "";
 
-
+      var versionName = getVersionName(packageName); 
       
 
          //GENERAL APP
