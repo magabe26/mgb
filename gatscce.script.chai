@@ -1677,7 +1677,7 @@ def setUtaliiBtn(bool b)
     safeRefreshUI();
     return;
   }
-    setLeftButtonText("Tourism");
+    setLeftButtonText("TZ Tourism");
     setLeftButtonIcon("fa::automobile");
     safeRefreshUI();
 }
@@ -1685,7 +1685,7 @@ def setUtaliiBtn(bool b)
 def showUtaliiIfSet()
 {
   var v =  getData("LEFT_BTN_TEXT");
-  if(v == "Tourism"){
+  if(v == "TZ Tourism"){
      closeAboutDialog();
 	 onUrlVisited("#UtaliiApp");	
   }
@@ -1797,7 +1797,7 @@ APP_STARTED = true;
 	  var vn = getVersionNameAsDouble();
 
 setLeftButtonIconColor("cyan");
-   setLeftButtonTextColor("yellow");
+   setLeftButtonTextColor("#00c000");
 
    setRightButtonIconColor("cyan");
 setRightButtonTextColor("white");
