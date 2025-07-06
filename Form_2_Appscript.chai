@@ -1069,6 +1069,7 @@ def formatCandidateResult(string input) { //input = candidate tr
 }
 
 //------------------
+
 //----------NECTA INFO--------
 
 def getNectaInfo() {
