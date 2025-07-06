@@ -2449,11 +2449,12 @@ def tr(text) {
 	return text.left(i);
   }
   
-  text = textChanges(text):
+  text = textChanges(text);
   text = useSavedResultStrings(text);
   
   return  text;
 }
+
 
 def showDebugMessage(msg) {
    requestCustomDialog(411, "fa::coffee", "Debug message", msg, "ok", "", "#", 0.98, 0.6, false);
