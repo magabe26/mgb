@@ -2449,7 +2449,7 @@ def tr(text) {
 	return text.left(i);
   }
   
-  text = simplifyResultsHeaderTitles(text);
+  text = textChanges(text):
   text = useSavedResultStrings(text);
   
   return  text;
