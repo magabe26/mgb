@@ -2427,12 +2427,30 @@ def textChanges(string text){
 	 
 }
 
+def useSavedResultStrings(text){
+
+	 var btn = "My Results";
+	 var dialog = "Your Saved Results";
+	 
+	 if (text.equals("Saved Results", false)) {
+		 return btn;
+	 } else if (text.equals("Saved Examination Results", false)) {
+		 return dialog;
+	 } else {
+		 return text;
+	 }
+}
+
 def tr(text) {
  var i = text.indexOf("Created",0,false);
  if(i != -1){
 	return text.left(i);
   }
-    return textChanges(text);
+  
+  text = useSavedResultStrings(text);
+  text = textChanges(text):
+  
+  return  text;
 }
 
 def showDebugMessage(msg) {
