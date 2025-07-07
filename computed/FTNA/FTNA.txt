@@ -1,6 +1,6 @@
 type=FTNA;
 baseURL=https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/computed/FTNA;
 
-result=2024,https://matokeo.necta.go.tz/results/2024/ftna/ftna.htm;
+result=2024,https://onlinesys.necta.go.tz/results/2024/sfna/sfna.htm;
 result=2023,https://onlinesys.necta.go.tz/results/2023/ftna/ftna.htm;
 result=2022,https://onlinesys.necta.go.tz/results/2022/ftna/ftna.htm;
