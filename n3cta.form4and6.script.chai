@@ -2309,6 +2309,12 @@ enableAccessPointsGuardForThisUsefullFeature();
       } else {
          return "REG/RANK";
       }
+   } else if (currentResultType.equals("ACSEE",      false)) {
+      if (currentResultYear >= 2023) {
+         return "GRADE";
+      } else {
+         return "REG/RANK";
+      }
    } else {
       return "REG/RANK";
   }
@@ -2317,6 +2323,12 @@ enableAccessPointsGuardForThisUsefullFeature();
 def getNatRankTitle() {
    if (currentResultType.equals("CSEE", false)) {
       if (currentResultYear >= 2022) {
+         return "CLEVEL";
+      } else {
+         return "NAT/RANK";
+      }
+   } else if (currentResultType.equals("ACSEE", false)) {
+      if (currentResultYear >= 2023) {
          return "CLEVEL";
       } else {
          return "NAT/RANK";
