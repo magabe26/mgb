@@ -2267,19 +2267,16 @@ def onSchoolResultsOpened(string info) {
 
 showAdsAfterSRO(info);
 
-   currentResultType = info.contains("ACSEE", false) ? "ACSEE" : "";
-   if (currentResultType.isEmpty()) {
-      currentResultType = info.contains("CSEE", false) ? "CSEE" : "";
-   }
-
-    if (currentResultType.isEmpty()) {
+   
       if (isForm4App()) {
          currentResultType = "CSEE";
-         // goToNectaResultPage(info);
       } else if (isForm6App()) {
          currentResultType = "ACSEE";
+      } else {
+        currentResultType = info.contains("ACSEE", false) ? "ACSEE" : "CSEE";
+      
       }
-   }
+   
 
    currentResultYear = getYear(info, "");
 
