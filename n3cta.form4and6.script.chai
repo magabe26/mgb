@@ -2300,36 +2300,20 @@ enableAccessPointsGuardForStudentResult();
 
 def getRegRankTitle() {
 enableAccessPointsGuardForThisUsefullFeature();
-   if (currentResultType.equals("CSEE", false)) {
-      if (currentResultYear >= 2022) {
-         return "GRADE";
-      } else {
-         return "REG/RANK";
-      }
-   } else if (currentResultType.equals("ACSEE",      false)) {
-      if (currentResultYear >= 2023) {
-         return "GRADE";
-      } else {
-         return "REG/RANK";
-      }
+   if (currentResultType.equals("CSEE", false) && (currentResultYear >= 2022)) {
+      return "GRADE";
+   } else if (currentResultType.equals("ACSEE",      false) && (currentResultYear >= 2023)) {
+      return "GRADE";   
    } else {
       return "REG/RANK";
   }
 }
 
 def getNatRankTitle() {
-   if (currentResultType.equals("CSEE", false)) {
-      if (currentResultYear >= 2022) {
-         return "CLEVEL";
-      } else {
-         return "NAT/RANK";
-      }
-   } else if (currentResultType.equals("ACSEE", false)) {
-      if (currentResultYear >= 2023) {
-         return "CLEVEL";
-      } else {
-         return "NAT/RANK";
-      }
+   if (currentResultType.equals("CSEE", false) && (currentResultYear >= 2022)) {   
+      return "CLEVEL";
+   } else if (currentResultType.equals("ACSEE", false) && (currentResultYear >= 2023)) {
+      return "CLEVEL";
    } else {
       return "NAT/RANK";
    }
