@@ -2272,10 +2272,7 @@ showAdsAfterSRO(info);
          currentResultType = "CSEE";
       } else if (isForm6App()) {
          currentResultType = "ACSEE";
-      } else {
-        currentResultType = info.contains("ACSEE", false) ? "ACSEE" : "CSEE";
-      
-      }
+      } 
    
 
    currentResultYear = getYear(info, "");
@@ -2299,23 +2296,35 @@ enableAccessPointsGuardForStudentResult();
 
 
 def getRegRankTitle() {
+
 enableAccessPointsGuardForThisUsefullFeature();
+
    if (currentResultType.equals("CSEE", false) && (currentResultYear >= 2022)) {
       return "GRADE";
    } else if (currentResultType.equals("ACSEE",      false) && (currentResultYear >= 2023)) {
       return "GRADE";   
    } else {
-      return "REG/RANK";
+      if(currentResultYear >= 2023){
+         return "GRADE";
+       } else {
+         return "REG/RANK";
+       }
   }
 }
 
-def getNatRankTitle() {
+def getNatRankTitle() {  
+
    if (currentResultType.equals("CSEE", false) && (currentResultYear >= 2022)) {   
       return "CLEVEL";
    } else if (currentResultType.equals("ACSEE", false) && (currentResultYear >= 2023)) {
       return "CLEVEL";
    } else {
-      return "NAT/RANK";
+      if(currentResultYear >= 2023){
+           return "CLEVEL";
+       } else {
+           return "NAT/RANK";
+     }
+
    }
 }
 
