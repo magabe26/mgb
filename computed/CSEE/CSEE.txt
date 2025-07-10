@@ -7,6 +7,6 @@ baseURL=https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/compute
 
 result=2024,https://onlinesys.necta.go.tz/results/2024/csee/index.htm;
 result=2023,https://onlinesys.necta.go.tz/results/2023/csee/index.htm;
-result*=2022,https://onlinesys.necta.go.tz/results/2022/csee/index.htm;
-result*=2021,https://onlinesys.necta.go.tz/results/2021/csee/csee.htm;
+result=2022,https://onlinesys.necta.go.tz/results/2022/csee/index.htm;
+result=2021,https://onlinesys.necta.go.tz/results/2021/csee/csee.htm;
 
