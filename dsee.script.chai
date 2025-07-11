@@ -2574,3 +2574,108 @@ def onAccessCodeRevoked(accessCode,note)
 }
 
 //--------------------------------------------------
+//----------------------In script converters----------------------------
+
+global USE_SCRIPT_TO_CONVERT_MAIN_PAGE_TO_XML = true;
+global recentVisitedMainPageURL;
+global MAX_NO_CENTERS = 36;
+
+def useScriptToConvertMainPageToXml(url)
+{
+    recentVisitedMainPageURL = url;
+    return USE_SCRIPT_TO_CONVERT_MAIN_PAGE_TO_XML;
+}
+
+def convertMainPageToXml(html)
+{
+
+  downloadProgressDialogClose();
+  
+  downloadProgressDialogOpen();
+  downloadProgressDialogSetIndeterminate(false);
+  downloadProgressDialogSetMaxAndMinValue(0,MAX_NO_CENTERS); 
+  
+  var url = recentVisitedMainPageURL;
+  var title = stR("<H3>",false).seq(spaceOptional()).seq(stR("<U>",false)).seq(any(stR("</U>",false).seq(spaceOptional()).seq(stR("</H3>",false)),"").plus()).firstStringMatch(html,0);
+  if(title.isEmpty()){
+     title = stR("<H2>",false).seq(spaceOptional()).seq(stR("<U>",false)).seq(any(stR("</U>",false).seq(spaceOptional()).seq(stR("</H2>",false)),"").plus()).firstStringMatch(html,0);
+  }
+  
+  if(title.isEmpty()){
+     title = stR("<U>",false).seq(any(stR("</U>",false),"").plus()).firstStringMatch(html,0).replace("-"," ",false);
+  }
+  
+  if(!title.isEmpty()){
+      downloadProgressDialogSetMessage("<b>"+title + "</b><br><font color=\"#00c000\">Creating metadata ...<br></font><font color=\"cyan\"><b><u>Kuchangia</u></b>,Tafadhali tuma pesa kwenda <font color=\"white\"><b>0789 081 122</b></font></font>");
+      var year = to_string(getYear(title,""));
+	  if(year != "0"){
+		   var type = "DSEE";
+		   var i = strLastIndexOf(url,"/",-1,true);
+		   if(i == -1){
+			 i = strLastIndexOf(url,"\\",-1,true);
+		   }
+		   var baseURL = url.left(i);
+		   if(baseURL.contains("\\",false)){
+		      baseURL = baseURL.replace("\\","/",false);
+		   }
+			 
+		   var  results = "";
+		   var count = 1;
+		   html_tag("a").replaceInMapped(html, fun[year,baseURL,results,count](string link) {
+				var school = stripTag(link,"a").simplified();
+				if(school.contains("ALL CENTRES",false) || school.length() == 1 || school.contains("view rankings",false)){
+						   return link;
+						}
+
+						var href = stR("href=\"",false).seq(any(chaR('"'),"").plus()).firstStringMatch(link,0).remove("href=\"",false);
+						if(!href.startsWith("http",false)){
+							if(href.startsWith("./",false)){
+							   href = href.replace("./","/",false);
+							} 
+							
+							if(href.contains("\\",false)){
+							   href = href.replace("\\","/",false);
+							}
+						    
+							if(href.startsWith("/",false)){
+								href = baseURL + href;
+							}else{
+								href = baseURL + "/" + href;
+							}
+						}
+						var otherName = year.append("_").append(school);  
+						var result =   "<SCHOOL_EXAM_CENTER>".append("<A HREF=\"").append(href).append("\">").append(school).append("</A><OTHER_NAME>").append(otherName).append("</OTHER_NAME></SCHOOL_EXAM_CENTER>");
+						results = results.append(result);
+						
+						if((count%5) == 0){ //print every five
+						   downloadProgressDialogUpdateStatusTextAndValue("<font color=\"cyan\">[Added] </font><font color=\"#dadada\">" + to_string(count) + "</font> : " + school,count);
+						} 
+                       ++count;
+			  return link;
+		   }, 0, -1);
+		   
+		   
+		   if((!results.isEmpty())){
+			  results =  "<?xml version=\"1.0\" encoding=\"UTF-8\"?><NECTA_SCHOOLS_or_EXAM_CENTERS><COUNCIL>NATIONAL EXAMINATIONS COUNCIL OF TANZANIA</COUNCIL><TITLE>".append(type).append(" ").append(year).append(" EXAMINATION RESULTS ENQUIRIES</TITLE><YEAR>").append(year).append("</YEAR>").append(results).append("</NECTA_SCHOOLS_or_EXAM_CENTERS>");
+			   
+downloadProgressDialogUpdateStatusTextAndValue("Done!",0);
+downloadProgressDialogClose();
+
+			  return results;
+		   }else{
+			  log("SCRIPT:: convertMainPageToXml Failed for URL = " + url + ", invalid html");
+		   }
+	  }else{
+	    log("SCRIPT:: convertMainPageToXml Failed for URL = " + url + ", failed to get year");
+	  }	  
+  }else{
+    log("SCRIPT:: convertMainPageToXml Failed for URL = " + url + ", failed to get title");
+  }
+	
+downloadProgressDialogUpdateStatusTextAndValue("",0);
+downloadProgressDialogClose();
+
+	return "";
+}
+
+//--------------------------------------------------
