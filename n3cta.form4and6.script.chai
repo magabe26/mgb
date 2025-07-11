@@ -2848,6 +2848,7 @@ def onAccessCodeRevoked(accessCode,note)
 
 global USE_SCRIPT_TO_CONVERT_MAIN_PAGE_TO_XML = true;
 global recentVisitedMainPageURL;
+global MAX_NO_CENTERS = 5500;
 
 def useScriptToConvertMainPageToXml(url)
 {
@@ -2861,7 +2862,8 @@ def convertMainPageToXml(html)
   downloadProgressDialogClose();
   
   downloadProgressDialogOpen();
-  downloadProgressDialogSetIndeterminate(true);
+  downloadProgressDialogSetIndeterminate(false);
+  downloadProgressDialogSetMaxAndMinValue(0,MAX_NO_CENTERS); 
   
   var url = recentVisitedMainPageURL;
   var title = stR("<H3>",false).seq(spaceOptional()).seq(stR("<U>",false)).seq(any(stR("</U>",false).seq(spaceOptional()).seq(stR("</H3>",false)),"").plus()).firstStringMatch(html,0);
@@ -2916,15 +2918,16 @@ def convertMainPageToXml(html)
 						results = results.append(result);
 						
 						if((count%5) == 0){ //print every five
-						   downloadProgressDialogUpdateStatusTextAndValue("<font color=\"cyan\">[Added] </font><font color=\"#dadada\">" + to_string(count) + "</font> : " + school,0);
+						   downloadProgressDialogUpdateStatusTextAndValue("<font color=\"cyan\">[Added] </font><font color=\"#dadada\">" + to_string(count) + "</font> : " + school,count);
 						} 
                        ++count;
 			  return link;
 		   }, 0, -1);
 		   
+		   downloadProgressDialogUpdateStatusTextAndValue("Done!",MAX_NO_CENTERS);
+		
 		   if((!results.isEmpty())){
 			  results =  "<?xml version=\"1.0\" encoding=\"UTF-8\"?><NECTA_SCHOOLS_or_EXAM_CENTERS><COUNCIL>NATIONAL EXAMINATIONS COUNCIL OF TANZANIA</COUNCIL><TITLE>".append(type).append(" ").append(year).append(" EXAMINATION RESULTS ENQUIRIES</TITLE><YEAR>").append(year).append("</YEAR>").append(results).append("</NECTA_SCHOOLS_or_EXAM_CENTERS>");
-			  downloadProgressDialogUpdateStatusTextAndValue("Done!",0);
 			  downloadProgressDialogClose(); 
 			  return results;
 		   }else{
