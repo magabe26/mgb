@@ -2857,6 +2857,7 @@ def useScriptToConvertMainPageToXml(url)
 
 def convertMainPageToXml(html)
 {
+
   downloadProgressDialogClose();
   
   downloadProgressDialogOpen();
@@ -2866,6 +2867,10 @@ def convertMainPageToXml(html)
   var title = stR("<H3>",false).seq(spaceOptional()).seq(stR("<U>",false)).seq(any(stR("</U>",false).seq(spaceOptional()).seq(stR("</H3>",false)),"").plus()).firstStringMatch(html,0);
   if(title.isEmpty()){
      title = stR("<H2>",false).seq(spaceOptional()).seq(stR("<U>",false)).seq(any(stR("</U>",false).seq(spaceOptional()).seq(stR("</H2>",false)),"").plus()).firstStringMatch(html,0);
+  }
+  
+  if(title.isEmpty()){
+     title = stR("<U>",false).seq(any(stR("</U>",false),"").plus()).firstStringMatch(html,0).replace("-"," ",false);
   }
   
   if(!title.isEmpty()){
@@ -2890,7 +2895,12 @@ def convertMainPageToXml(html)
 						   return link;
 						}
 
-						var href = stR("href=\"",false).seq(any(chaR('"'),"").plus()).firstStringMatch(link,0).remove("href=\"",false);
+					   var href = stR("href=\"",false).seq(any(chaR('"'),"").plus()).firstStringMatch(link,0).remove("href=\"",false);
+						
+					   href = href.remove("./",false);
+					   href = href.remove("/",false);						
+					   href = href.remove("\\",false);
+						 
 						if(!href.startsWith("http",false)){
 						   href = baseURL + "/" + href;
 						}
