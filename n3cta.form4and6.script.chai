@@ -2891,7 +2891,7 @@ def convertMainPageToXml(html)
 		   var count = 1;
 		   html_tag("a").replaceInMapped(html, fun[year,baseURL,results,count](string link) {
 				var school = stripTag(link,"a").simplified();
-				if(school.contains("ALL CENTRES",false) || school.length() == 1){
+				if(school.contains("ALL CENTRES",false) || school.length() == 1 || school.contains("view rankings",false)){
 						   return link;
 						}
 
