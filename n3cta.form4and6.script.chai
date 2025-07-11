@@ -2877,6 +2877,10 @@ def convertMainPageToXml(html)
   }
   
   if(!title.isEmpty()){
+
+
+      title = title.remove("<H3>",false).remove("<H2>",false).remove("<U>",false).trim();
+
       downloadProgressDialogSetMessage("<b>"+title + "</b><br><font color=\"#00c000\">Creating metadata ...<br><br></font><font color=\"cyan\"><b><u>Kuchangia</u></b>,<br>Tafadhali tuma pesa kwenda <font color=\"white\"><b>0789 081 122</b></font></font>");
       var year = to_string(getYear(title,""));
 	  if(year != "0"){
