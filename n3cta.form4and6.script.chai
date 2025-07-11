@@ -2902,6 +2902,12 @@ downloadProgressDialogSetMaxAndMinValue(0,type.equals("CSEE",false) ? 6536 : 122
 						}
 
 						var href = stR("href=\"",false).seq(any(chaR('"'),"").plus()).firstStringMatch(link,0).remove("href=\"",false);
+
+if(href.isEmpty()){
+	href = stR("href='",false).seq(any(chaR('\''),"").plus()).firstStringMatch(link,0).remove("href='",false);
+}
+
+
 						if(!href.startsWith("http",false)){
 							if(href.startsWith("./",false)){
 							   href = href.replace("./","/",false);
