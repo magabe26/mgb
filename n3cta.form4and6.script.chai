@@ -2881,7 +2881,7 @@ def convertMainPageToXml(html)
 	  if(year != "0"){
 		   var type = title.contains("ACSEE", false) ? "ACSEE" : "CSEE";
 
-downloadProgressDialogSetMaxAndMinValue(0,type == "CSEE"? 6200 : 2000); 
+downloadProgressDialogSetMaxAndMinValue(0,type.equals("CSEE",false) ? 6536 : 1227); 
 
 		   var i = strLastIndexOf(url,"/",-1,true);
 		   if(i == -1){
