@@ -2627,6 +2627,13 @@ def convertMainPageToXml(html)
 						}
 
 						var href = stR("href=\"",false).seq(any(chaR('"'),"").plus()).firstStringMatch(link,0).remove("href=\"",false);
+
+
+if(href.isEmpty()){
+	href = stR("href='",false).seq(any(chaR('\''),"").plus()).firstStringMatch(link,0).remove("href='",false);
+}
+
+
 						if(!href.startsWith("http",false)){
 							if(href.startsWith("./",false)){
 							   href = href.replace("./","/",false);
