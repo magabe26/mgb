@@ -2831,7 +2831,7 @@ def onAccessCodeRevoked(accessCode,note)
 
 global USE_SCRIPT_TO_CONVERT_MAIN_PAGE_TO_XML = true;
 global recentVisitedMainPageURL;
-global MAX_NO_CENTERS = 5800;
+global MAX_NO_CENTERS = 6200;
 
 def useScriptToConvertMainPageToXml(url)
 {
@@ -2859,7 +2859,7 @@ def convertMainPageToXml(html)
   }
   
   if(!title.isEmpty()){
-      downloadProgressDialogSetMessage("<b>"+title + "</b><br><font color=\"#00c000\">Creating metadata ...<br><br></font><font color=\"cyan\"><b><u>Kuchangia</u></b>,<br>Tafadhali tuma pesa kwenda <font color=\"white\"><b>0789 081 122</b></font></font>");
+      downloadProgressDialogSetMessage("<b>"+title + "</b><br><font color=\"#00c000\">Creating metadata ...<br></font><font color=\"cyan\"><b><u>Kuchangia</u></b>,<br>Tafadhali tuma pesa kwenda <font color=\"white\"><b>0789 081 122</b></font></font>");
       var year = to_string(getYear(title,""));
 	  if(year != "0"){
 		   var type = "FTNA";
