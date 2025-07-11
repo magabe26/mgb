@@ -1835,6 +1835,7 @@ def onInitConfigs(){
     setMengineyoBtn(!SHOW_ADS_AFTER_SCHOOL_RESULTS_OPENED &&  hasInternetAccess());
 	setUtaliiBtn(true);   
 
+/*
 if (isGeneralApp()) {
          //GENERAL APP         
 
@@ -1854,7 +1855,7 @@ downloadComputedMainPages("https://raw.githubusercontent.com/magabe26/mgb/refs/h
 downloadComputedMainPages("https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/computed/ACSEE/ACSEE.txt");
 
 
-      }
+      } */
 
 }
 
