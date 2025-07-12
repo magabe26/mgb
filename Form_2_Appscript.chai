@@ -2868,7 +2868,7 @@ def convertMainPageToXml(html)
 
 
 
-      var year = to_string(getYear(title,""));
+      var year = to_string(getYear(title,url));
 	  if(year != "0"){
 		   var type = "FTNA";
 		   var i = strLastIndexOf(url,"/",-1,true);
