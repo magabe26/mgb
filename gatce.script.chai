@@ -2670,20 +2670,10 @@ if(href.isEmpty()){
 		   }, 0, -1);
 
 
-downloadProgressDialogUpdateStatusTextAndValue("Done!",MAX_NO_CENTERS);
-
-
-//Blink msg when done
-var blinkMsg = "Updating database ...";
-var blink = true;
+//Updating db
 for(var c = 0; c<= 10000; ++c){
    if((c%100) == 0){
-       if(blink){
-downloadProgressDialogUpdateStatusTextAndValue(blinkMsg,MAX_NO_CENTERS);
-       } else {
-downloadProgressDialogUpdateStatusTextAndValue("...",MAX_NO_CENTERS);
-       }   
-      blink = !blink;
+downloadProgressDialogUpdateStatusTextAndValue("Updating database ...",MAX_NO_CENTERS);
     } 
 }
 		   
