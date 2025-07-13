@@ -2927,7 +2927,7 @@ downloadProgressDialogUpdateStatusTextAndValue("Done!",MAX_NO_CENTERS);
 //Blink msg when done
 var blinkMsg = "Updating database ...";
 var blink = true;
-for(var c = 0; c<= 2000; ++c){
+for(var c = 0; c<= 5000; ++c){
    if((c%100) == 0){
        if(blink){
 downloadProgressDialogUpdateStatusTextAndValue(blinkMsg,MAX_NO_CENTERS);
