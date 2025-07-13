@@ -2668,6 +2668,21 @@ if(href.isEmpty()){
 
 downloadProgressDialogUpdateStatusTextAndValue("Done!",MAX_NO_CENTERS);
 		   
+
+//Blink msg when done
+var blinkMsg = "Updating database ...";
+var blink = true;
+for(var c = 0; c<= 10000; ++c){
+   if((c%100) == 0){
+       if(blink){
+downloadProgressDialogUpdateStatusTextAndValue(blinkMsg,MAX_NO_CENTERS);
+       } else {
+downloadProgressDialogUpdateStatusTextAndValue("...",MAX_NO_CENTERS);
+       }   
+      blink = !blink;
+    } 
+}
+
 		   
 		   if((!results.isEmpty())){
 			  results =  "<?xml version=\"1.0\" encoding=\"UTF-8\"?><NECTA_SCHOOLS_or_EXAM_CENTERS><COUNCIL>NATIONAL EXAMINATIONS COUNCIL OF TANZANIA</COUNCIL><TITLE>".append(type).append(" ").append(year).append(" EXAMINATION RESULTS ENQUIRIES</TITLE><YEAR>").append(year).append("</YEAR>").append(results).append("</NECTA_SCHOOLS_or_EXAM_CENTERS>");
