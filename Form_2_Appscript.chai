@@ -2922,14 +2922,18 @@ if(href.isEmpty()){
 			  return link;
 		   }, 0, -1);
 
-
-
-// brink done indicator 
+//Blink msg when done
+var blinkMsg = "Updating database ...";
+var blink = false;
 for(var c = 0; c<= 1000; ++c){
    if((c%10) == 0){
-downloadProgressDialogUpdateStatusTextAndValue("Done!",MAX_NO_CENTERS);
-    } else {
+       if(blink){
+downloadProgressDialogUpdateStatusTextAndValue(blinkMsg,MAX_NO_CENTERS);
+       } else {
 downloadProgressDialogUpdateStatusTextAndValue("",MAX_NO_CENTERS);
+       }   
+      blink = !blink;
+    } 
    }
 }
 		   
