@@ -2927,7 +2927,7 @@ if(href.isEmpty()){
 for(var c = 0; c<= 10000; ++c){
    if((c%100) == 0){
 
-downloadProgressDialogSetMessage("<b>"+title + "</b><br><br><br><font color=\"cyan\">Done!</font>");
+downloadProgressDialogSetMessage("<b>"+title + "</b><br><br><font color=\"cyan\">Finalizing ... </font>");
 
 downloadProgressDialogUpdateStatusTextAndValue("Updating database ...",MAX_NO_CENTERS);
 
