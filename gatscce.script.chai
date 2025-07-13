@@ -2614,7 +2614,7 @@ def convertMainPageToXml(html)
       downloadProgressDialogSetMessage("<b>"+title + "</b><br><font color=\"cyan\">Data received!</font><br><br><font color=\"#00c000\">Creating metadata ... </font>");
 
 
-      var year = to_string(getYear(title,""));
+      var year = to_string(getYear(title,url));
 	  if(year != "0"){
 		   var type = "GATSCCE";
 		   var i = strLastIndexOf(url,"/",-1,true);
@@ -2667,6 +2667,9 @@ if(href.isEmpty()){
                        ++count;
 			  return link;
 		   }, 0, -1);
+
+
+downloadProgressDialogUpdateStatusTextAndValue("Done!",MAX_NO_CENTERS);
 		   
 		   
 		   if((!results.isEmpty())){
