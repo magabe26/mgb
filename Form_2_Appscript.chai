@@ -1634,12 +1634,10 @@ def setResultsDowloaderDialogIndicator(string githubImageName,string githubImage
 	var path = generateAppRootFilePath(githubImageName);
 	if (!fileExists(path)) {
 	    if(saveFile(githubFile(githubImagePath.append(githubImageName)),path)){
-		   saveOrUpdateData(key,path);
-      safeRefreshUI();
+		   saveOrUpdateData(key,path); 
 		}
 	}else{
-	    saveOrUpdateData(key,path);
-     safeRefreshUI();
+	    saveOrUpdateData(key,path); 
 	}
 }
 
