@@ -2863,6 +2863,9 @@ def convertMainPageToXml(html)
   downloadProgressDialogClose();
   
   downloadProgressDialogOpen();
+
+  safeRefreshUI();
+
   downloadProgressDialogSetIndeterminate(false);
   
   
