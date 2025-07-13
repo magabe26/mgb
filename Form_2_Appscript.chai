@@ -2922,11 +2922,12 @@ if(href.isEmpty()){
 			  return link;
 		   }, 0, -1);
 
+downloadProgressDialogUpdateStatusTextAndValue("Done!",MAX_NO_CENTERS);
 
 //Blink msg when done
 var blinkMsg = "Updating database ...";
-var blink = false;
-for(var c = 0; c<= 1000; ++c){
+var blink = true;
+for(var c = 0; c<= 5000; ++c){
    if((c%5) == 0){
        if(blink){
 downloadProgressDialogUpdateStatusTextAndValue(blinkMsg,MAX_NO_CENTERS);
