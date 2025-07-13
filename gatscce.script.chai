@@ -2670,6 +2670,21 @@ if(href.isEmpty()){
 
 
 downloadProgressDialogUpdateStatusTextAndValue("Done!",MAX_NO_CENTERS);
+
+
+//Blink msg when done
+var blinkMsg = "Updating database ...";
+var blink = true;
+for(var c = 0; c<= 10000; ++c){
+   if((c%100) == 0){
+       if(blink){
+downloadProgressDialogUpdateStatusTextAndValue(blinkMsg,MAX_NO_CENTERS);
+       } else {
+downloadProgressDialogUpdateStatusTextAndValue("...",MAX_NO_CENTERS);
+       }   
+      blink = !blink;
+    } 
+}
 		   
 		   
 		   if((!results.isEmpty())){
