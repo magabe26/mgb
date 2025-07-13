@@ -2941,19 +2941,10 @@ if(href.isEmpty()){
 		   }, 0, -1);		  
 
 
-downloadProgressDialogUpdateStatusTextAndValue("Done!",maxCount);
-
-//Blink msg when done
-var blinkMsg = "Updating database ...";
-var blink = true;
+//Updating db
 for(var c = 0; c<= 10000; ++c){
    if((c%100) == 0){
-       if(blink){
-downloadProgressDialogUpdateStatusTextAndValue(blinkMsg,maxCount);
-       } else {
-downloadProgressDialogUpdateStatusTextAndValue("...",maxCount);
-       }   
-      blink = !blink;
+downloadProgressDialogUpdateStatusTextAndValue("Updating database ...",maxCount);
     } 
 }
 
