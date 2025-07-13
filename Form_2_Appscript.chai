@@ -2921,6 +2921,9 @@ if(href.isEmpty()){
                        ++count;
 			  return link;
 		   }, 0, -1);
+
+
+downloadProgressDialogUpdateStatusTextAndValue("Done!",MAX_NO_CENTERS);
 		   
 		   
 		   if((!results.isEmpty())){
