@@ -2140,7 +2140,7 @@ def getMenuHolidayAd(string output){
 //------------------
 //------------------
 
-global LATEST_APP_VERSION_NAME = "4.7"; //Always change this this on every App release
+global LATEST_APP_VERSION_NAME = "4.6"; //Always change this this on every App release
 global WIN64_DOWLOAD_URL = "https://www.mediafire.com/file/zqzc6w4hcu2ig1y/Matokeo+La7+v4.2+WinX64+Installer.exe/file";
 global DOWNLOAD_UPDATE_REQUESTCODE = 201;
 
