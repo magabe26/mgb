@@ -1765,7 +1765,7 @@ def downloadComputedMainPages(url){
 
 def onInitConfigs(){
 
-    setResultsDowloaderDialogIndicator("processing.gif","");
+    
     setMengineyoBtn(!SHOW_ADS_AFTER_SCHOOL_RESULTS_OPENED &&  hasInternetAccess());
 	setUtaliiBtn(true);   
 }
