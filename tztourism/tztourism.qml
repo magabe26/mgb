@@ -351,7 +351,29 @@ Rectangle {
 */
 
 Text {
-                    text: "Kumekuwa na changamoto, huduma zitaendelea mara tu itakapotatuliwa. Kwa sasa, kwaheri."
+                    text: "Kumekuwa na changamoto,"
+                    font.pointSize: Qt.platform.os === "android" ? 18 : 14
+                    wrapMode: Text.WordWrap
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    textFormat: Text.RichText
+                    font.bold: true
+                    color: "white"
+                }
+
+Text {
+                    text: "huduma zitaendelea mara tu itakapotatuliwa."
+                    font.pointSize: Qt.platform.os === "android" ? 18 : 14
+                    wrapMode: Text.WordWrap
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    textFormat: Text.RichText
+                    font.bold: true
+                    color: "white"
+                }
+
+Text {
+                    text: "Kwa sasa, kwaheri."
                     font.pointSize: Qt.platform.os === "android" ? 18 : 14
                     wrapMode: Text.WordWrap
                     Layout.fillWidth: true
