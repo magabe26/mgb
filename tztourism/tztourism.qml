@@ -349,6 +349,16 @@ Rectangle {
     color: "#dadada"
 }
 */
+Text {
+                        id: header
+                        text: "Kumekuwa na changamoto, huduma zitaendelea mara tu itakapotatuliwa. Kwa sasa, kwaheri.": parent.top
+                        font.pointSize: Qt.platform.os === "android" ? 18 : 14
+                        font.bold: true
+                        font.underline: true
+                        wrapMode: Text.WordWrap
+                        anchors.horizontalCenter: parent.horizontalCenter
+                    }
+
                 Button {
                     text: "Funga / Close"
                     font.pointSize: Qt.platform.os === "android" ? 12 : 10
