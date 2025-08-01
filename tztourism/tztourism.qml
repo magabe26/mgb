@@ -349,15 +349,7 @@ Rectangle {
     color: "#dadada"
 }
 */
-Text {
-                        
-                        text: "Kumekuwa na changamoto, huduma zitaendelea mara tu itakapotatuliwa. Kwa sasa, kwaheri."
-                        font.pointSize: Qt.platform.os === "android" ? 18 : 14
-                        font.bold: true
-                        font.underline: true
-                        wrapMode: Text.WordWrap
-                        
-                    }
+
 
                 Button {
                     text: "Funga / Close"
