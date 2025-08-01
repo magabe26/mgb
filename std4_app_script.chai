@@ -4112,6 +4112,9 @@ output = putAdsToHistoryPage(output, "https://raw.githubusercontent.com/magabe26
 
 
 def beforeDisplayOtherAppsPage(string xml) { 
+
+return "";
+
    saveOtherAppsPageImages(xml);
    var output = xml;
 
