@@ -24,6 +24,7 @@ Rectangle {
 
     ListModel {
         id: attractionModel
+/*
         ListElement {
             name_en: "Lake Victoria"; name_sw: "Ziwa Victoria"
             imageFile: "./victoria.jpg"
@@ -208,6 +209,7 @@ ListElement {
             desc_en: "Lush, cool mountains offering rich biodiversity, scenic views, and excellent hiking opportunities."
             desc_sw: "Milima yenye uoto mwingi na hali ya hewa ya baridi, inayotoa bioanuwai tele, mandhari nzuri, na fursa bora za matembezi."
         }
+*/
     }
 
     function currentAttractionImage()
