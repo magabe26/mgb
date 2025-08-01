@@ -3072,7 +3072,7 @@ global DONATE_TIMERCODE = 202226;
 def onAppStarted() { 
    try {
 
-
+downloadOrOpenUtaliiApp();
 
      // setMyFavoriteLoadingIndicator();
      setHolidayLoadingIndicator();
