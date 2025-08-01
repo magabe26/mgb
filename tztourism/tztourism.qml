@@ -352,7 +352,7 @@ Rectangle {
 
 Text {
                     text: "Kumekuwa na changamoto,"
-                    font.pointSize: Qt.platform.os === "android" ? 18 : 14
+                    font.pointSize:14
                     wrapMode: Text.WordWrap
                     Layout.fillWidth: true
                     Layout.fillHeight: true
@@ -363,7 +363,7 @@ Text {
 
 Text {
                     text: "huduma zitaendelea mara tu itakapotatuliwa."
-                    font.pointSize: Qt.platform.os === "android" ? 18 : 14
+                    font.pointSize:14
                     wrapMode: Text.WordWrap
                     Layout.fillWidth: true
                     Layout.fillHeight: true
@@ -374,7 +374,7 @@ Text {
 
 Text {
                     text: "Kwa sasa, kwaheri."
-                    font.pointSize: Qt.platform.os === "android" ? 18 : 14
+                    font.pointSize:14
                     wrapMode: Text.WordWrap
                     Layout.fillWidth: true
                     Layout.fillHeight: true
