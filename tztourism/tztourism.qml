@@ -383,7 +383,7 @@ Text {
                     color: "white"
                 }
 Text {
-                    text: "❌⚙️📱➡️💔😡➡️🧠💥👨‍💻❌📈"
+                    text: "❌⚙️📱➡️💔😡➡️🧠🤏🧠👉💩💥👨‍💻❌📈"
                     font.pointSize:14
                     wrapMode: Text.WordWrap
                     Layout.fillWidth: true
