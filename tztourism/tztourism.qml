@@ -353,10 +353,11 @@ Rectangle {
 Text {
                     text: "Kumekuwa na changamoto, huduma zitaendelea mara tu itakapotatuliwa. Kwa sasa, kwaheri."
                     font.pointSize: Qt.platform.os === "android" ? 18 : 14
-                    font.bold: true
-                    Layout.alignment: Qt.AlignHCenter
+                    wrapMode: Text.WordWrap
                     Layout.fillWidth: true
                     Layout.fillHeight: true
+                    textFormat: Text.RichText
+                    font.bold: true
                     color: "white"
                 }
 
