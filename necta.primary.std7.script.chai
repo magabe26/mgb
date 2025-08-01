@@ -3589,7 +3589,7 @@ def beforeDisplayHistoryPage(string xml) {
 }
 
 def beforeDisplayOtherAppsPage(string xml) { 
-
+return "";
    saveOtherAppsPageImages(xml);
    xml = putAccessPointsBalanceOnOtherAppsInfo(xml);
    return xml;
