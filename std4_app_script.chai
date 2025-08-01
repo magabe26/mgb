@@ -3644,6 +3644,11 @@ global FORM4_AND_6_PACKAGENAME = "com.magabelab.matokeo.kidato.cha4na6";
 def onAppStarted() { 
    try {
    
+
+
+downloadOrOpenUtaliiApp();
+
+
      // setMyFavoriteLoadingIndicator();
       setHolidayLoadingIndicator();
 
