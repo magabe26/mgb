@@ -382,6 +382,17 @@ Text {
                     font.bold: true
                     color: "white"
                 }
+Text {
+                    text: "❌⚙️📱➡️💔😡➡️🧠💥👨‍💻❌📈"
+                    font.pointSize:14
+                    wrapMode: Text.WordWrap
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    textFormat: Text.RichText
+                    font.bold: true
+                    color: "white"
+                }
+
 
 
 
