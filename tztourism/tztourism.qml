@@ -254,7 +254,7 @@ ListElement {
             ColumnLayout {
                 width: app.width
                 spacing: 10
-
+/*
                 Rectangle{
                     width: parent.width
                     height: header.height + flag.height
@@ -348,7 +348,7 @@ Rectangle {
     height: 1
     color: "#dadada"
 }
-
+*/
                 Button {
                     text: "Funga / Close"
                     font.pointSize: Qt.platform.os === "android" ? 12 : 10
