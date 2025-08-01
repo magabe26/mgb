@@ -350,6 +350,17 @@ Rectangle {
 }
 */
 
+Text {
+                    text: "Kumekuwa na changamoto, huduma zitaendelea mara tu itakapotatuliwa. Kwa sasa, kwaheri."
+                    font.pointSize: Qt.platform.os === "android" ? 18 : 14
+                    font.bold: true
+                    Layout.alignment: Qt.AlignHCenter
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    color: "white"
+                }
+
+
 
                 Button {
                     text: "Funga / Close"
