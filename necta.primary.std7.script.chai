@@ -1632,19 +1632,20 @@ def getTdNodeTagNameForResults(int tdIndex, int tdCount, string tagText) {
 
 
    if (tdCount == 4) {
-      switch (tdIndex) {
+       switch (tdIndex) {
          case (0) {
             return "CNO";
          }
          case (1) {
-            return "SEX";
+            return "PREM_NO";
          }
          case (2) {
-            return "CANDIDATE_NAME";
+            return "SEX";
          }
          case (3) {
             return "DETAILED_SUBJECTS";
          }
+      }
       }
 
    } else if (tdCount == 5) {
@@ -3094,7 +3095,7 @@ def onAppStarted() {
          }
       }
 
-  requestCustomDialog(20250320, "fa::cogs", "", "Mfumo huko kwenye maboresho!", "Sawa", "", "#",  0.98, 0.2, false);
+//  requestCustomDialog(20250320, "fa::cogs", "", "Mfumo huko kwenye maboresho!", "Sawa", "", "#",  0.98, 0.2, false);
 
 
    } catch {}
