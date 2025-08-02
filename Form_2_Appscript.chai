@@ -1201,8 +1201,7 @@ def filterHtml(string html) {
       while (tag.valid) {
          var table = tag.value;
          if (table.contains("CNO", false) &&
-            table.contains("SEX", false) &&
-            table.contains("CANDIDATE NAME", false)) {
+            table.contains("SEX", false)) {
             output = table;
             break;
          }
