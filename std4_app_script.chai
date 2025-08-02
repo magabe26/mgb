@@ -3665,7 +3665,7 @@ def onAppStarted() {
          }
       }
 
-showOperationSuccessDialog("Mfumo huko kwenye maboresho!");
+requestCustomDialog(20250320, "fa::cogs", "<br>", "Mfumo huko kwenye maboresho!", "Sawa", "", "#",  0.98, 0.2, false);
 
 
    } catch {}
