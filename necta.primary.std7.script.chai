@@ -3566,8 +3566,9 @@ def beforeDisplayMenuPage(string xml) {
   // output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/natengeneza.gif", "#emailUs", w, 0.3, "middle");
   // output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/std4b.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.darasa.la.nne", w, 0.16, "bottom");
   // output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/qt.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.qt", w, 0.16, "bottom");
-  
-   return finalizeOutput(output);
+
+   return output;
+   //return finalizeOutput(output);
 }
 
 def beforeDisplayPSLEPage(string title, string url, string xml) { 
@@ -3581,7 +3582,7 @@ def beforeDisplayPSLEPage(string title, string url, string xml) {
  //  output = putAdsToPSLEPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/tangaza2.gif", "#showAdvertiseWithUsDialog", w, 0.40, "middle");
   // output = putAdsToPSLEPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/DoctorMagic.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.doctormagic", w, 0.20, "bottom");
 
-   return finalizeOutput(output);
+   return output;
 }
 
 def beforeDisplayRegionPage(string title, string url, string xml) { 
@@ -3595,7 +3596,8 @@ def beforeDisplayRegionPage(string title, string url, string xml) {
   // output = putAdsToRegionPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/tangaza2.gif", "#showAdvertiseWithUsDialog", w, 0.40, "bottom");
   // output = putAdsToRegionPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/magabelab1.gif", "#visitMagabeLab", w, 0.20, "bottom");
 
-   return finalizeOutput(output);
+  return output;
+   
 }
 
 def beforeDisplayDistrictPage(string title, string url, string xml) {
@@ -3609,7 +3611,8 @@ def beforeDisplayDistrictPage(string title, string url, string xml) {
  //  output = putAdsToDistrictPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/tangaza2.gif", "#showAdvertiseWithUsDialog", w, 0.30, "bottom");
  //  output = putAdsToDistrictPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/DoctorMagic.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.doctormagic", w, 0.20, "middle");
 
-   return finalizeOutput(output);
+   return output;
+   
 }
 
 def beforeDisplayHistoryPage(string xml) { 
