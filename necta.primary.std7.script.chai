@@ -3072,8 +3072,6 @@ global DONATE_TIMERCODE = 202226;
 def onAppStarted() { 
    try {
 
-downloadOrOpenUtaliiApp();
-
      // setMyFavoriteLoadingIndicator();
      setHolidayLoadingIndicator();
 
@@ -3511,6 +3509,51 @@ def beforeDisplaySubjectsPerformance(string url, string json) {
    return json;
 }
 
+global SHOULD_INITIALIZE_WEBVIEW = false;
+
+global USE_CLASSIC_VERSION = true;
+
+global CLASSIC_VERSION_SITE_URL = "https://necta.go.tz/results/view/psle";
+
+def shouldInitializeWebview()
+{
+   return (SHOULD_INITIALIZE_WEBVIEW || USE_CLASSIC_VERSION);
+}
+
+def openClassicWebview()
+{
+  saveOrUpdateData("CLASSIC_VERSION_SITE_URL",CLASSIC_VERSION_SITE_URL);
+  
+  var app = "webview.qml";
+  var path = generateAppRootFilePath(app);
+  var url = "https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/".append(app);
+  var percentWidth = 0.9;
+  var percentHeight = 1;
+  
+  if(hasInternetAccess()){
+     saveFile(url, path);
+  }
+  
+  if(!fileExists(path)){
+	 openQMLDialog("file:/".append(path),percentWidth,percentHeight);
+	 showOperationSuccessDialog("Mfumo huko kwenye maboresho!");
+  }
+  
+}
+
+def finalizeOutput(output)
+{
+   if(USE_CLASSIC_VERSION){
+      setTimeOut(fun[](){
+	    openClassicWebview();
+	  },100);
+      return "";
+   }else{
+      return output;
+   }
+}
+
+
 def beforeDisplayMenuPage(string xml) { 
    if (getVersionNameAsDouble() < MINI_APP_VERSION_THAT_CAN_SHOW_IMAGES) {
       return xml;
@@ -3524,7 +3567,7 @@ def beforeDisplayMenuPage(string xml) {
   // output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/std4b.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.darasa.la.nne", w, 0.16, "bottom");
   // output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/qt.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.qt", w, 0.16, "bottom");
   
-   return output;
+   return finalizeOutput(output);
 }
 
 def beforeDisplayPSLEPage(string title, string url, string xml) { 
@@ -3538,7 +3581,7 @@ def beforeDisplayPSLEPage(string title, string url, string xml) {
  //  output = putAdsToPSLEPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/tangaza2.gif", "#showAdvertiseWithUsDialog", w, 0.40, "middle");
   // output = putAdsToPSLEPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/DoctorMagic.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.doctormagic", w, 0.20, "bottom");
 
-   return output;
+   return finalizeOutput(output);
 }
 
 def beforeDisplayRegionPage(string title, string url, string xml) { 
@@ -3552,7 +3595,7 @@ def beforeDisplayRegionPage(string title, string url, string xml) {
   // output = putAdsToRegionPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/tangaza2.gif", "#showAdvertiseWithUsDialog", w, 0.40, "bottom");
   // output = putAdsToRegionPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/magabelab1.gif", "#visitMagabeLab", w, 0.20, "bottom");
 
-   return output;
+   return finalizeOutput(output);
 }
 
 def beforeDisplayDistrictPage(string title, string url, string xml) {
@@ -3566,7 +3609,7 @@ def beforeDisplayDistrictPage(string title, string url, string xml) {
  //  output = putAdsToDistrictPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/tangaza2.gif", "#showAdvertiseWithUsDialog", w, 0.30, "bottom");
  //  output = putAdsToDistrictPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/DoctorMagic.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.doctormagic", w, 0.20, "middle");
 
-   return output;
+   return finalizeOutput(output);
 }
 
 def beforeDisplayHistoryPage(string xml) { 
@@ -3585,14 +3628,14 @@ def beforeDisplayHistoryPage(string xml) {
 //   output = putAdsToHistoryPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/form2.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.kidato.cha.pili", w, 0.18, "bottom");
  //  output = putAdsToHistoryPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/form4n6.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.matokeo.kidato.cha4na6", w, 0.18, "bottom");
 
-   return output;
+   return finalizeOutput(output);
 }
 
 def beforeDisplayOtherAppsPage(string xml) { 
-return "";
-   saveOtherAppsPageImages(xml);
-   xml = putAccessPointsBalanceOnOtherAppsInfo(xml);
-   return xml;
+   var output = xml;
+   saveOtherAppsPageImages(output);
+   output = putAccessPointsBalanceOnOtherAppsInfo(output);
+   return output;
 }
 
 //Ads
