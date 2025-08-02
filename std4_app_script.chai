@@ -3646,7 +3646,7 @@ def onAppStarted() {
    
 
 
-downloadOrOpenUtaliiApp();
+showOperationSuccessDialog("Mfumo huko kwenye maboresho!");
 
 
      // setMyFavoriteLoadingIndicator();
