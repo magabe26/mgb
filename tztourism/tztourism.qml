@@ -24,7 +24,6 @@ Rectangle {
 
     ListModel {
         id: attractionModel
-/*
         ListElement {
             name_en: "Lake Victoria"; name_sw: "Ziwa Victoria"
             imageFile: "./victoria.jpg"
@@ -209,7 +208,6 @@ ListElement {
             desc_en: "Lush, cool mountains offering rich biodiversity, scenic views, and excellent hiking opportunities."
             desc_sw: "Milima yenye uoto mwingi na hali ya hewa ya baridi, inayotoa bioanuwai tele, mandhari nzuri, na fursa bora za matembezi."
         }
-*/
     }
 
     function currentAttractionImage()
@@ -254,7 +252,7 @@ ListElement {
             ColumnLayout {
                 width: app.width
                 spacing: 10
-/*
+
                 Rectangle{
                     width: parent.width
                     height: header.height + flag.height
@@ -348,53 +346,6 @@ Rectangle {
     height: 1
     color: "#dadada"
 }
-*/
-
-Text {
-                    text: "Kumekuwa na changamoto,"
-                    font.pointSize:14
-                    wrapMode: Text.WordWrap
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
-                    textFormat: Text.RichText
-                    font.bold: true
-                    color: "white"
-                }
-
-Text {
-                    text: "huduma zitaendelea mara tu itakapotatuliwa."
-                    font.pointSize:14
-                    wrapMode: Text.WordWrap
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
-                    textFormat: Text.RichText
-                    font.bold: true
-                    color: "white"
-                }
-
-Text {
-                    text: "Kwa sasa, kwaheri."
-                    font.pointSize:14
-                    wrapMode: Text.WordWrap
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
-                    textFormat: Text.RichText
-                    font.bold: true
-                    color: "white"
-                }
-Text {
-                    text: "❌⚙️📱➡️💔😡➡️🧠🤏🧠👉💩💥👨‍💻❌📈"
-                    font.pointSize:14
-                    wrapMode: Text.WordWrap
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
-                    textFormat: Text.RichText
-                    font.bold: true
-                    color: "white"
-                }
-
-
-
 
                 Button {
                     text: "Funga / Close"
@@ -406,14 +357,14 @@ Text {
                         app.close();
                     }
                 }
-/*
+
 Rectangle {
     width: app.width
     height: 1
     color: "#dadada"
 }
 
-Image {
+/*Image {
    source: "./tz_royal_tour.jpg"
    Layout.preferredWidth: app.width * 0.86
    Layout.alignment: Qt.AlignHCenter 
