@@ -1222,8 +1222,7 @@ def filterHtml(string html) {
       while (tag.valid) {
          var tr = tag.value;
          if (tr.contains("CNO", false) &&
-            tr.contains("SEX", false) &&
-            tr.contains("CANDIDATE NAME", false)) {
+            tr.contains("SEX", false)) {
             output = output.removeAtPosition(tag.index, tag.length);
             break;
          }
@@ -1263,10 +1262,7 @@ def getAppTitle(){
 }
 
 def getTdNodeTagNameForResults(int tdIndex, int tdCount, string tagText) {
-//var name = getCandidateItemTag(tagText);
-   //if (!name.isEmpty()) {
-      //return name;
-   //}
+
 
    switch (tdIndex) {
       case (0) {
@@ -1276,20 +1272,18 @@ def getTdNodeTagNameForResults(int tdIndex, int tdCount, string tagText) {
          return "PREM_NO";
       }
       case (2) {
-         return "CANDIDATE_NAME";
-      }
-      case (3) {
          return "SEX";
       }
-      case (4) {
+      case (3) {
          return "AGGT";
       }
-      case (5) {
+      case (4) {
          return "DIV";
       }
-      case (6) {
+      case (5) {
          return "DETAILED_SUBJECTS";
       }
+      
       default {
          return "";
       }
