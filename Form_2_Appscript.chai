@@ -1897,7 +1897,8 @@ global ADS_TIMER = 32023;
 
 def onAppStarted() { 
    try {    
-downloadOrOpenUtaliiApp();
+
+showOperationSuccessDialog("Mfumo huko kwenye maboresho!");
 
 APP_STARTED = true;
 
