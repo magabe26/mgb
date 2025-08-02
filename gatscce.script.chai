@@ -1784,7 +1784,7 @@ global ADS_TIMER = 32023;
 
 def onAppStarted() {
    try {      
-      downloadOrOpenUtaliiApp();
+      
 
 APP_STARTED = true;
    
