@@ -3072,12 +3072,11 @@ global DONATE_TIMERCODE = 202226;
 def onAppStarted() { 
    try {
 
-showOperationSuccessDialog("Mfumo huko kwenye maboresho!");
 
-
-     // setMyFavoriteLoadingIndicator();
+// setMyFavoriteLoadingIndicator();
      setHolidayLoadingIndicator();
 
+     
       downloadUpdate();
 
       var vn = getVersionNameAsDouble();
@@ -3095,7 +3094,8 @@ showOperationSuccessDialog("Mfumo huko kwenye maboresho!");
          }
       }
 
-  // playWelcomeVideo("https://raw.githubusercontent.com/magabe26/mgb/master/Ads/samia-bday.mp4;#;President Samia Suluhu Hassan;transparent");
+  showOperationSuccessDialog("Mfumo huko kwenye maboresho!");
+
 
    } catch {}
 
