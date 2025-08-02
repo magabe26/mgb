@@ -1632,7 +1632,7 @@ def getTdNodeTagNameForResults(int tdIndex, int tdCount, string tagText) {
 
 
    if (tdCount == 4) {
-       switch (tdIndex) {
+      switch (tdIndex) {
          case (0) {
             return "CNO";
          }
@@ -1646,8 +1646,6 @@ def getTdNodeTagNameForResults(int tdIndex, int tdCount, string tagText) {
             return "DETAILED_SUBJECTS";
          }
       }
-      }
-
    } else if (tdCount == 5) {
       switch (tdIndex) {
          case (0) {
