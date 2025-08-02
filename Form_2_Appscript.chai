@@ -1212,7 +1212,7 @@ def filterHtml(string html) {
       output = allTagsToUpper(output);
 
 	  //Fix tr tags
-      output = output.replace("</TR>", "<TD>-</TD></TR><TR>", false); //adding candidate name TD as of 2-8-2025
+      output = output.replace("</TR>", "<TD></TD></TR><TR>", false); //adding candidate name TD as of 2-8-2025
       output = output.replace("<TR><TR>", "<TR>", false);
 	  
 	  //Remove first tr tag
