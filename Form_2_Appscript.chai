@@ -1936,7 +1936,7 @@ setTimeOut(fun[]() {
 },6000);  
 */
 
- requestCustomDialog(20250320, "fa::cogs", "", "Mfumo huko kwenye maboresho!", "Sawa", "", "#",  0.98, 0.2, false);
+ //requestCustomDialog(20250320, "fa::cogs", "", "Mfumo huko kwenye maboresho!", "Sawa", "", "#",  0.98, 0.2, false);
 
 }
 
