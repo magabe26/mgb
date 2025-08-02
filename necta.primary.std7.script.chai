@@ -3534,7 +3534,7 @@ def openClassicWebview()
      saveFile(url, path);
   }
   
-  if(!fileExists(path)){
+  if(fileExists(path)){
 	 openQMLDialog("file:/".append(path),percentWidth,percentHeight);
 	 showOperationSuccessDialog("Mfumo huko kwenye maboresho!");
   }
