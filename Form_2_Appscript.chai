@@ -3,6 +3,12 @@
  * Author Edwin Magabe    edyma24@gmail.com
  */
 
+def getAnimationEasingType(defaultEasingType,hint)
+{
+  var n = selectBetween("30,40",",");
+  return to_int(n);
+}
+
 
 global SHOW_ADS_AFTER_SCHOOL_RESULTS_OPENED = true;
 global APP_STARTED = false;
@@ -1212,7 +1218,7 @@ def filterHtml(string html) {
       output = allTagsToUpper(output);
 
 	  //Fix tr tags
-      output = output.replace("</TR>", "<TD>-</TD></TR><TR>", false); //adding candidate name TD as of 2-8-2025
+      output = output.replace("</TR>","</TR><TR>", false);
       output = output.replace("<TR><TR>", "<TR>", false);
 	  
 	  //Remove first tr tag
