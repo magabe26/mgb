@@ -386,10 +386,10 @@ MouseArea {
                     onClicked: {
 if(typeof n3ctaApp !== "undefined"){
             n3ctaApp.pasteToClipboard("8647491");
-n3ctaApp.showToastMessage("Changisha number copied.");   
+n3ctaApp.showToastMessage("Namba ya changisha imenakiliwa.");   
         }else if(typeof loader !== "undefined"){         
             loader.pasteToClipboard("8647491");
-loader.showToastMessage("Namba ya changisha imenakiliwa.");
+loader.showToastMessage("Changisha number copied.");
         }
 
 }
