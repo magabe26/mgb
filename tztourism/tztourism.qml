@@ -372,7 +372,7 @@ Rectangle {
 
 Text {
                     text: "Mambo 🇹🇿<br> Changia maboresho na matunzo ya mfumo huu 🙏🏾<br>
-Namba ya kuchangia ni  <font color=\"cyan\"><b>8647491</b></font>📎
+Namba ya kuchangia ni  <font color=\"cyan\"><b>8647491</b></font>
 <br> (Vodacom changisha)
 "
                     font.pointSize: 14
