@@ -1839,7 +1839,7 @@ def filterHtml(string html) {
    output = cleanSFNAPage(output);
    output = cleanRegionPage(output);
    output = cleanDistrictPage(output);
-output = output.remove("ABSENT",false);
+
 
    return output;
 }
@@ -2875,6 +2875,7 @@ def filterHtmlForYear2022AndAbove(string html) {
    output = output.replace("- A", "- A;", false).replace("- B", "- B;", false).replace("- C", "- C;", false).replace("- D", "- D;", false).replace("- E", "- E;", false).replace("- F", "- F;", false);
 
    output = output.replace("&", "AND", false);
+output = output.remove("ABSENT",false);
 
    return output;
 }
