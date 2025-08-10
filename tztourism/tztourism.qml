@@ -372,7 +372,7 @@ Rectangle {
 
 Text {
                     text: "Mambo 🇹🇿<br> Changia maboresho na matunzo ya mfumo huu 🙏🏾<br>
-Namba ya kuchangia ni  <font color=\"cyan\"><b>8647491</b></font>
+Namba ya kuchangia ni  <font color=\"cyan\"><b>8647491</b></font>📎
 <br> (Vodacom changisha)
 "
                     font.pointSize: 14
@@ -381,6 +381,20 @@ Namba ya kuchangia ni  <font color=\"cyan\"><b>8647491</b></font>
                     Layout.fillWidth: true
                     Layout.fillHeight: true
                     color: "white"
+MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+if(typeof n3ctaApp !== "undefined"){
+            n3ctaApp.pasteToClipboard("8647491");
+n3ctaApp.showToastMessage("Changisha number copied.");   
+        }else if(typeof loader !== "undefined"){         
+            loader.pasteToClipboard("8647491");
+loader.showToastMessage("Namba ya changisha imenakiliwa.");
+        }
+
+}
+                }
+
                 }
 
 
