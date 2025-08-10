@@ -4,6 +4,18 @@
  */
 
 
+global EASING_TYPES_SLOW = "1,4,5,7,9,12,13,16,17,19,21,25,41,42,45";
+global EASING_TYPES_NORMAL = "2,3,6,8,11,15,18,20,23,27,28,33,35,36,37,39";
+global EASING_TYPES_FAST = "10,14,22,24,26,29,30,31,32,34,38,40";
+
+def getAnimationEasingType(defaultEasingType,hint)
+{
+  var n = selectBetween(EASING_TYPES_FAST,",");
+  return to_int(n);
+}
+
+
+
 global SHOW_ADS_AFTER_SCHOOL_RESULTS_OPENED = true;
 global APP_STARTED = false;
 
