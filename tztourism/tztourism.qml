@@ -370,7 +370,17 @@ Rectangle {
    Layout.alignment: Qt.AlignHCenter 
 }*/
 
-
+Text {
+                    text: "Mambo 🇹🇿, changia maboresho na matunzo ya mfumo huu 🙏🏾<br>
+Namba ya kuchangia ni  <font color=\"cyan\"><b>8647491</b>(Vodacom)</font> 
+"
+                    font.pointSize: 14
+                    font.bold: true
+                    Layout.alignment: Qt.AlignHCenter
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    color: "white"
+                }
 
 
             }
