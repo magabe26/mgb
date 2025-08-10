@@ -1620,6 +1620,7 @@ def filterHtml(string html) {
 
    output = output.replace("&", "AND", false);
    output = separateGradeSectionInSummary(output);
+   output = output.remove("ABSENT",false);
 
    return output;
 }
