@@ -2843,13 +2843,13 @@ def onAccessCodeRevoked(accessCode,note)
 
 global USE_SCRIPT_TO_CONVERT_MAIN_PAGE_TO_XML = true;
 global recentVisitedMainPageURL;
-global MAX_NO_CENTERS = 6568;
 
 def useScriptToConvertMainPageToXml(url)
 {
     recentVisitedMainPageURL = url;
     return USE_SCRIPT_TO_CONVERT_MAIN_PAGE_TO_XML;
 }
+
 
 def convertMainPageToXml(html)
 {
@@ -2858,7 +2858,7 @@ def convertMainPageToXml(html)
   
   downloadProgressDialogOpen();
   downloadProgressDialogSetIndeterminate(false);
-  downloadProgressDialogSetMaxAndMinValue(0,MAX_NO_CENTERS); 
+  
   
   var url = recentVisitedMainPageURL;
   var title = stR("<H3>",false).seq(spaceOptional()).seq(stR("<U>",false)).seq(any(stR("</U>",false).seq(spaceOptional()).seq(stR("</H3>",false)),"").plus()).firstStringMatch(html,0);
@@ -2872,16 +2872,31 @@ def convertMainPageToXml(html)
   
   if(!title.isEmpty()){
 
+
       title = title.remove("<H3>",false).remove("<H2>",false).remove("<U>",false).trim();
 
-
       downloadProgressDialogSetMessage("<b>"+title + "</b><br><font color=\"cyan\">Data received!</font><br><br><font color=\"#00c000\">Creating metadata ... </font>");
-
-
 
       var year = to_string(getYear(title,url));
 	  if(year != "0"){
 		   var type = "FTNA";
+		   
+		  downloadProgressDialogUpdateStatusTextAndValue("<font color=\"cyan\">Counting centres ... </font>",0);
+
+          var maxCount = 0;
+		  var needle = "href=";
+		  var index = html.indexOf(needle,0,false);
+		  while (index != -1) {
+				++maxCount;
+				index = html.indexOf(needle,index + needle.length(),false);
+		   }
+		   //remove shortcut links count
+		   if((maxCount > 27) && (html.indexOf("CLICK ANY LETTER",0,false) != -1)){
+		      maxCount = maxCount - 27; 
+		   }
+
+downloadProgressDialogSetMaxAndMinValue(0,maxCount); 
+
 		   var i = strLastIndexOf(url,"/",-1,true);
 		   if(i == -1){
 			 i = strLastIndexOf(url,"\\",-1,true);
@@ -2895,7 +2910,7 @@ def convertMainPageToXml(html)
 		   var count = 1;
 		   html_tag("a").replaceInMapped(html, fun[year,baseURL,results,count](string link) {
 				var school = stripTag(link,"a").simplified();
-				if(school.contains("ALL CENTRES",false) || school.length() == 1 || school.contains("view rankings",false)){
+				if(school.contains("ALL CENTRES",false) || school.length() == 1 || school.contains("Press to",false) || school.contains("Description of",false)){
 						   return link;
 						}
 
@@ -2904,7 +2919,6 @@ def convertMainPageToXml(html)
 if(href.isEmpty()){
 	href = stR("href='",false).seq(any(chaR('\''),"").plus()).firstStringMatch(link,0).remove("href='",false);
 }
-
 
 
 						if(!href.startsWith("http",false)){
@@ -2931,7 +2945,7 @@ if(href.isEmpty()){
 						} 
                        ++count;
 			  return link;
-		   }, 0, -1);
+		   }, 0, -1);		  
 
 
 //Finalize
@@ -2940,17 +2954,16 @@ for(var c = 0; c<= 10000; ++c){
 
 downloadProgressDialogSetMessage("<b>"+title + "</b><br><br><font color=\"cyan\">Finalizing ... </font>");
 
-downloadProgressDialogUpdateStatusTextAndValue("Updating database ...",MAX_NO_CENTERS);
+downloadProgressDialogUpdateStatusTextAndValue("Updating database ...",maxCount);
 
 
     } 
 }
 
-		   
+
 		   if((!results.isEmpty())){
 			  results =  "<?xml version=\"1.0\" encoding=\"UTF-8\"?><NECTA_SCHOOLS_or_EXAM_CENTERS><COUNCIL>NATIONAL EXAMINATIONS COUNCIL OF TANZANIA</COUNCIL><TITLE>".append(type).append(" ").append(year).append(" EXAMINATION RESULTS ENQUIRIES</TITLE><YEAR>").append(year).append("</YEAR>").append(results).append("</NECTA_SCHOOLS_or_EXAM_CENTERS>");
-			   
-downloadProgressDialogUpdateStatusTextAndValue("Done!",0);
+			    downloadProgressDialogUpdateStatusTextAndValue("Done!",0);
 downloadProgressDialogClose();
 
 			  return results;
@@ -2969,5 +2982,6 @@ downloadProgressDialogClose();
 
 	return "";
 }
+
 
 //--------------------------------------------------
