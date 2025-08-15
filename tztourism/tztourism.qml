@@ -17,6 +17,11 @@ Rectangle {
             n3ctaApp.closeCustomPage();
             n3ctaApp.onUrlVisited("#showGoogleAd");
         }else if(typeof loader !== "undefined"){
+loader.isMenuWindowVisible = true;
+  loader.isMainResultsWindowVisible = true;
+  if((typeof loader.mode !== "undefined") && (loader.mode !== 1) && (loader.mode !== 3)){
+       loader.isFooterVisible = true;
+  }
             loader.closeCustomPage();
             loader.onUrlVisited("#showGoogleAd");
         }
