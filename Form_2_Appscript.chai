@@ -2880,20 +2880,9 @@ def convertMainPageToXml(html)
       var year = to_string(getYear(title,url));
 	  if(year != "0"){
 		   var type = "FTNA";
-		   
-		  downloadProgressDialogUpdateStatusTextAndValue("<font color=\"cyan\">Counting centres ... </font>",0);
-
-          var maxCount = 0;
-		  var needle = "href=";
-		  var index = html.indexOf(needle,0,false);
-		  while (index != -1) {
-				++maxCount;
-				index = html.indexOf(needle,index + needle.length(),false);
-		   }
-		   //remove shortcut links count
-		   if((maxCount > 27) && (html.indexOf("CLICK ANY LETTER",0,false) != -1)){
-		      maxCount = maxCount - 27; 
-		   }
+		    
+          var maxCount = 6568;
+		  
 
 downloadProgressDialogSetMaxAndMinValue(0,maxCount); 
 
