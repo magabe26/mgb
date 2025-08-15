@@ -22,7 +22,7 @@ loader.isMenuWindowVisible = true;
   if((typeof loader.mode !== "undefined") && (loader.mode !== 1) && (loader.mode !== 3)){
        loader.isFooterVisible = true;
   }
-            loader.closeCustomPage();
+          //  loader.closeCustomPage();
             loader.onUrlVisited("#showGoogleAd");
         }
     }
