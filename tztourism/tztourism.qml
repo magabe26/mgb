@@ -377,10 +377,7 @@ Rectangle {
 }*/
 
 Text {
-                    text: "Mambo 🇹🇿<br> Changia maboresho na matunzo ya mfumo huu 🙏🏾<br>
-Namba ya kuchangia ni  <font color=\"cyan\"><b><u>8647491</u></b></font>
-<br> (Vodacom Changisha)
-"
+                    text: ""
                     font.pointSize: 14
                     font.bold: true
                     Layout.alignment: Qt.AlignHCenter
