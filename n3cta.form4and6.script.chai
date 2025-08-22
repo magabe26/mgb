@@ -2099,7 +2099,7 @@ def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
 
          var os = getOperatingSystem();
          if (os == "android") {
-               quit();
+             //  quit();
           }
 
          break;
