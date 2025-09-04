@@ -54,15 +54,24 @@
     <SELECT_OPTION_ICON_COLOR>black</SELECT_OPTION_ICON_COLOR>
         
    </APP>
+
 <APP>
-    <A HREF="#changeLoadingIndicator">Badilisha Kiashiria Cha Upakiaji</A>
-    <COLOR>#102e04</COLOR>
-    <BG_COLOR>#9af075</BG_COLOR>
+      <A HREF="#" />
+   </APP>
+
+<APP>
+    <A HREF="#changeLoadingIndicator">Badilisha kiashiria cha upakiaji</A>
+    <COLOR>#1fb8ba</COLOR>
+    <BG_COLOR>white</BG_COLOR>
     <ICON>fa::cogs</ICON>
     <ICON_COLOR>#065961</ICON_COLOR>
     <BOLD_TEXT>1</BOLD_TEXT>
 </APP>
    
+
+<APP>
+      <A HREF="#" />
+   </APP>
    
    <APP>
       <A HREF="https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.darasa.la.nne">Tafadhali rate aplikesheni hii hapa</A>
@@ -71,6 +80,10 @@
       <ICON>fa::thumbsup</ICON>
       <ICON_COLOR>white</ICON_COLOR>
       <BOLD_TEXT>1</BOLD_TEXT>
+   </APP>
+
+<APP>
+      <A HREF="#" />
    </APP>
    
 <APP>
@@ -81,20 +94,6 @@
     <ICON_COLOR>black</ICON_COLOR>
     <BOLD_TEXT>1</BOLD_TEXT>
 </APP>
-   <APP>
-      <A HREF="#" />
-   </APP>
-   <APP>
-      <A HREF="#openurl;https://play.google.com/store/apps/developer?id=Magabe+Lab">
-Pakua aplikesheni zingine hapa
-      </A>
-      <BG_COLOR>white</BG_COLOR>
-      <ICON_COLOR>green</ICON_COLOR>
-      <ICON>fa::download</ICON>
-      <COLOR>black</COLOR>
-      <BOLD_TEXT>1</BOLD_TEXT>
-</APP>
-
    <APP>
       <A HREF="#" />
    </APP>
@@ -120,6 +119,16 @@ Pakua aplikesheni zingine hapa
    <APP>
       <A HREF="#" />
    </APP>
+<APP>
+      <A HREF="#openurl;https://play.google.com/store/apps/developer?id=Magabe+Lab">
+Pakua aplikesheni zingine hapa
+      </A>
+      <BG_COLOR>white</BG_COLOR>
+      <ICON_COLOR>green</ICON_COLOR>
+      <ICON>fa::download</ICON>
+      <COLOR>#00c000</COLOR>
+      <BOLD_TEXT>0</BOLD_TEXT>
+</APP>
    <APP>
       <A HREF="#" />
    </APP>
