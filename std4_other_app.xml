@@ -129,7 +129,7 @@ Pakua aplikesheni zingine hapa
       <ICON_COLOR>green</ICON_COLOR>
       <ICON>fa::download</ICON>
       <COLOR>#00c000</COLOR>
-      <BOLD_TEXT>0</BOLD_TEXT>
+      <BOLD_TEXT>1</BOLD_TEXT>
 </APP>
    <APP>
       <A HREF="#" />
