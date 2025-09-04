@@ -37,8 +37,8 @@
    </APP>
 <APP>
     <A HREF="#changeLoadingIndicator">Badilisha Kiashiria Cha Upakiaji</A>
-    <COLOR>#102e04</COLOR>
-    <BG_COLOR>#9af075</BG_COLOR>
+    <COLOR>#1fb8ba</COLOR>
+    <BG_COLOR>white</BG_COLOR>
     <ICON>fa::cogs</ICON>
     <ICON_COLOR>#065961</ICON_COLOR>
     <BOLD_TEXT>1</BOLD_TEXT>
