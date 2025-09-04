@@ -62,14 +62,7 @@
     <ICON_COLOR>#065961</ICON_COLOR>
     <BOLD_TEXT>1</BOLD_TEXT>
 </APP>
-   <APP>
-      <A HREF="https://www.mediafire.com/file/xxjoim0oeg9jrzl/Matokeo+La4+v1.3+WinX64+Installer.exe/file">Pakua Aplikesheni hii kwa ajiri ya PC yako hapa</A>
-      <COLOR>white</COLOR>
-      <BG_COLOR>green</BG_COLOR>
-      <ICON>fa::windowrestore</ICON>
-      <ICON_COLOR>white</ICON_COLOR>
-      <BOLD_TEXT>0</BOLD_TEXT>
-   </APP>
+   
    
    <APP>
       <A HREF="https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.darasa.la.nne">Tafadhali rate aplikesheni hii hapa</A>
