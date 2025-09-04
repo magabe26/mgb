@@ -92,8 +92,8 @@ Pakua aplikesheni zingine hapa
       <BG_COLOR>white</BG_COLOR>
       <ICON_COLOR>green</ICON_COLOR>
       <ICON>fa::download</ICON>
-      <COLOR>black</COLOR>
-      <BOLD_TEXT>1</BOLD_TEXT>
+      <COLOR>#00c000</COLOR>
+      <BOLD_TEXT>0</BOLD_TEXT>
 </APP>
    <APP>
       <A HREF="#" />
