@@ -40,7 +40,7 @@
       <COLOR>#00c000</COLOR>
       <BG_COLOR>white</BG_COLOR>
       <ICON>fa::thumbsup</ICON>
-      <ICON_COLOR>white</ICON_COLOR>
+      <ICON_COLOR>green</ICON_COLOR>
       <BOLD_TEXT>1</BOLD_TEXT>
    </APP>
 <APP>
