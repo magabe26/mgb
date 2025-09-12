@@ -1766,7 +1766,7 @@ def setUtaliiBtn(bool b)
     safeRefreshUI();
     return;
   }
-    setLeftButtonText("TZ Tourism");
+    setLeftButtonText(⚽⚽⚽⚽yanga&simnba🇹🇿");
     setLeftButtonIcon("fa::automobile");
     safeRefreshUI();
 }
