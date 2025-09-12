@@ -1774,7 +1774,7 @@ def setUtaliiBtn(bool b)
 def showUtaliiIfSet()
 {
   var v =  getData("LEFT_BTN_TEXT");
-  if(v == "TZ Tourism"){
+  if(v == "⚽⚽⚽⚽yanga&simnba🇹🇿"){
      closeAboutDialog();
 	 onUrlVisited("#UtaliiApp");	
   }
