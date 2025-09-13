@@ -1766,7 +1766,7 @@ def setUtaliiBtn(bool b)
     safeRefreshUI();
     return;
   }
-    setLeftButtonText("⚽⚽⚽Simba&Yanga🇹🇿");
+    setLeftButtonText("TZ Tourism");
     setLeftButtonIcon("fa::automobile");
     safeRefreshUI();
 }
@@ -1774,7 +1774,7 @@ def setUtaliiBtn(bool b)
 def showUtaliiIfSet()
 {
   var v =  getData("LEFT_BTN_TEXT");
-  if(v == "⚽⚽⚽Simba&Yanga🇹🇿"){
+  if(v == "TZ Tourism"){
      closeAboutDialog();
 	 onUrlVisited("#UtaliiApp");	
   }
