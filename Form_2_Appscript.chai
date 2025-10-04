@@ -7,7 +7,7 @@
 
 def showSplashScreen(os)
 {
-  return true;
+  return false;
 }
 
 
