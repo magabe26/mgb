@@ -56,8 +56,8 @@ ListElement {
 ListElement {
     name_en: "Mikumi National Park"; name_sw: "Hifadhi ya Taifa ya Mikumi"
     imageFile: "./mikumi.jpg"
-    desc_en: "Escape the city! It's an easy drive: dar mpaka moro and beyond. See lions, elephants, giraffes, zebras, and wildebeest. The wild awaits!"
-    desc_sw: "Toroka jiji! Ni safari rahisi: dar mpaka moro na kuendelea. Tazama simba, tembo, twiga, punda milia, na nyumbu. Pori linakusubiri!"
+    desc_en: "Escape the city! It's an easy drive: dar mpaka moro and beyond. See giraffes, lions, elephants, zebras, and wildebeest. The wild awaits!"
+    desc_sw: "Toroka jiji! Ni safari rahisi: dar mpaka moro na kuendelea. Tazama twiga, simba, tembo, punda milia, na nyumbu. Pori linakusubiri!"
 }
 
 
