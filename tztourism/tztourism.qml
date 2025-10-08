@@ -30,6 +30,15 @@ loader.mode = 2;
 
     ListModel {
         id: attractionModel
+
+ListElement {
+            name_en: "Zanzibar (Stone Town & Beaches)"; name_sw: "Zanzibar (Mji Mkongwe na Fukwe)"
+            imageFile: "./zanzibar_st.jpg"
+            desc_en: "Historic Stone Town, spice farms, and pristine beaches make Zanzibar a unique cultural and relaxation hub."
+            desc_sw: "Mji Mkongwe wa kihistoria, mashamba ya viungo, na fukwe safi hufanya Zanzibar kuwa kitovu cha kipekee cha utamaduni na mapumziko."
+        }
+
+
         ListElement {
             name_en: "Lake Victoria"; name_sw: "Ziwa Victoria"
             imageFile: "./victoria.jpg"
@@ -38,10 +47,10 @@ loader.mode = 2;
         }
 
 ListElement {
-            name_en: "Zanzibar (Stone Town & Beaches)"; name_sw: "Zanzibar (Mji Mkongwe na Fukwe)"
-            imageFile: "./zanzibar_st.jpg"
-            desc_en: "Historic Stone Town, spice farms, and pristine beaches make Zanzibar a unique cultural and relaxation hub."
-            desc_sw: "Mji Mkongwe wa kihistoria, mashamba ya viungo, na fukwe safi hufanya Zanzibar kuwa kitovu cha kipekee cha utamaduni na mapumziko."
+            name_en: "Arusha National Park"; name_sw: "Hifadhi ya Taifa ya Arusha"
+            imageFile: "./arusha_np.jpg"
+            desc_en: "Offers diverse landscapes including Mount Meru, Momella Lakes, and Ngurdoto Crater."
+            desc_sw: "Inatoa mandhari mbalimbali ikiwa ni pamoja na Mlima Meru, Maziwa ya Momella, na Kreta ya Ngurdoto."
         }
 
 ListElement {
@@ -124,12 +133,7 @@ ListElement {
             desc_en: "A crucial paleoanthropological site holding evidence of early human evolution."
             desc_sw: "Eneo muhimu la paleoanthropolojia lenye ushahidi wa mageuzi ya awali ya binadamu."
         }
-        ListElement {
-            name_en: "Arusha National Park"; name_sw: "Hifadhi ya Taifa ya Arusha"
-            imageFile: "./arusha_np.jpg"
-            desc_en: "Offers diverse landscapes including Mount Meru, Momella Lakes, and Ngurdoto Crater."
-            desc_sw: "Inatoa mandhari mbalimbali ikiwa ni pamoja na Mlima Meru, Maziwa ya Momella, na Kreta ya Ngurdoto."
-        }
+        
         ListElement {
             name_en: "Mikumi National Park"; name_sw: "Hifadhi ya Taifa ya Mikumi"
             imageFile: "./mikumi.jpg"
