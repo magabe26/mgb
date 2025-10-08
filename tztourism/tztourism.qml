@@ -76,11 +76,11 @@ ListElement {
         }
         
 ListElement {
-            name_en: "Mikumi National Park"; name_sw: "Hifadhi ya Taifa ya Mikumi"
-            imageFile: "./mikumi.jpg"
-            desc_en: "An accessible park, forming part of the Selous ecosystem, with good wildlife viewing."
-            desc_sw: "Hifadhi inayofikika kirahisi, sehemu ya mfumoikolojia wa Selous, yenye utazamaji mzuri wa wanyamapori."
-        }
+    name_en: "Mikumi National Park"; name_sw: "Hifadhi ya Taifa ya Mikumi"
+    imageFile: "./mikumi.jpg"
+    desc_en: "Escape the city! It's an easy drive: dar mpaka moro and beyond. See lions, elephants, giraffes, zebras, and wildebeest. The wild awaits!"
+    desc_sw: "Toroka jiji! Ni safari rahisi: dar mpaka moro na kuendelea. Tazama simba, tembo, twiga, punda milia, na nyumbu. Pori linakusubiri!"
+}
 
         ListElement {
             name_en: "Tarangire National Park"; name_sw: "Hifadhi ya Taifa ya Tarangire"
