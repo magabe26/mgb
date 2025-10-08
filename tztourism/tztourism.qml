@@ -110,12 +110,7 @@ ListElement {
             desc_en: "Tanzania's largest national park, a remote wilderness with rugged landscapes and abundant wildlife."
             desc_sw: "Hifadhi kubwa zaidi ya taifa Tanzania, pori la mbali lenye mandhari na wanyamapori wengi."
         }
-        ListElement {
-            name_en: "Mahale Mountains National Park"; name_sw: "Hifadhi ya Taifa ya Milima ya Mahale"
-            imageFile: "./mahale.jpg"
-            desc_en: "Home to chimpanzees on the shores of Lake Tanganyika, offering unique primate tracking experiences."
-            desc_sw: "Makao ya sokwe pembezoni mwa Ziwa Tanganyika, inayotoa uzoefu wa kipekee wa kufuatilia nyani."
-        }
+        
 
 ListElement {
             name_en: "Arusha National Park"; name_sw: "Hifadhi ya Taifa ya Arusha"
@@ -220,6 +215,14 @@ ListElement {
             desc_en: "An active stratovolcano and Tanzania's second highest peak, located in Arusha National Park."
             desc_sw: "Volkano hai ya tabaka na mlima wa pili kwa urefu Tanzania, uliopo katika Hifadhi ya Taifa ya Arusha."
         }
+
+ListElement {
+            name_en: "Mahale Mountains National Park"; name_sw: "Hifadhi ya Taifa ya Milima ya Mahale"
+            imageFile: "./mahale.jpg"
+            desc_en: "Home to chimpanzees on the shores of Lake Tanganyika, offering unique primate tracking experiences."
+            desc_sw: "Makao ya sokwe pembezoni mwa Ziwa Tanganyika, inayotoa uzoefu wa kipekee wa kufuatilia nyani."
+        }
+
         ListElement {
             name_en: "Usambara Mountains"; name_sw: "Milima ya Usambara"
             imageFile: "./usambara.jpg"
@@ -227,12 +230,13 @@ ListElement {
             desc_sw: "Milima yenye uoto mwingi na hali ya hewa ya baridi, inayotoa bioanuwai tele, mandhari nzuri, na fursa bora za matembezi."
         }
 
+
 ListElement {
             name_en: "Gombe Stream National Park"; name_sw: "Hifadhi ya Taifa ya Gombe Stream"
             imageFile: "./gombe.jpg"
             desc_en: "The site of Jane Goodall's pioneering chimpanzee research, a small park with significant impact."
             desc_sw: "Eneo la utafiti waanzilishi wa sokwe wa Jane Goodall, hifadhi ndogo yenye thamani kubwa."
-        }
+        } 
 
     }
 
