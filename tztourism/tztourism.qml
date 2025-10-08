@@ -84,6 +84,7 @@ ListElement {
             desc_en: "Known for its large elephant herds, iconic baobab trees, and diverse birdlife."
             desc_sw: "Inajulikana kwa makundi makubwa ya tembo, miti ya mibuyu ya kipekee, na aina mbalimbali za ndege."
         }
+
         ListElement {
             name_en: "Lake Manyara National Park"; name_sw: "Hifadhi ya Taifa ya Ziwa Manyara"
             imageFile: "./manyara.jpg"
@@ -104,6 +105,7 @@ ListElement {
             desc_en: "One of Africa's largest game reserves, offering boat safaris and encounters with wild dogs."
             desc_sw: "Moja ya hifadhi kubwa za wanyama Afrika, inayotoa safari za boti na kukutana na mbwa mwitu."
         }
+
         ListElement {
             name_en: "Ruaha National Park"; name_sw: "Hifadhi ya Taifa ya Ruaha"
             imageFile: "./ruaha.jpg"
@@ -111,14 +113,6 @@ ListElement {
             desc_sw: "Hifadhi kubwa zaidi ya taifa Tanzania, pori la mbali lenye mandhari na wanyamapori wengi."
         }
         
-
-ListElement {
-            name_en: "Arusha National Park"; name_sw: "Hifadhi ya Taifa ya Arusha"
-            imageFile: "./arusha_np.jpg"
-            desc_en: "Offers diverse landscapes including Mount Meru, Momella Lakes, and Ngurdoto Crater."
-            desc_sw: "Inatoa mandhari mbalimbali ikiwa ni pamoja na Mlima Meru, Maziwa ya Momella, na Kreta ya Ngurdoto."
-        }
-
         
         ListElement {
             name_en: "Mafia Island Marine Park"; name_sw: "Hifadhi ya Bahari ya Kisiwa cha Mafia"
@@ -126,12 +120,21 @@ ListElement {
             desc_en: "Pristine coral reefs, a haven for divers and snorkelers, and a seasonal home for whale sharks."
             desc_sw: "Miamba ya matumbawe safi, kimbilio la wapiga mbizi, na makazi ya msimu ya papa nyangumi."
         }
+
         ListElement {
             name_en: "Pemba Island"; name_sw: "Kisiwa cha Pemba"
             imageFile: "./pemba.jpg"
             desc_en: "Part of the Zanzibar Archipelago, known as the 'Green Island' for its lush vegetation, cloves, and diving spots."
             desc_sw: "Sehemu ya Visiwa vya Zanzibar, inayojulikana kama 'Kisiwa cha Kijani' kwa uoto wake mwingi, karafuu, na maeneo ya kupiga mbizi."
         }
+
+ListElement {
+            name_en: "Katavi National Park"; name_sw: "Hifadhi ya Taifa ya Katavi"
+            imageFile: "./katavi.jpg"
+            desc_en: "A remote and wild park known for large concentrations of game during the dry season."
+            desc_sw: "Hifadhi ya mbali na pori inayojulikana kwa mikusanyiko mikubwa ya wanyama wakati wa kiangazi."
+        }
+
         ListElement {
             name_en: "Olduvai Gorge"; name_sw: "Bonde la Olduvai"
             imageFile: "./olduvai.jpg"
@@ -146,12 +149,8 @@ ListElement {
             desc_en: "A biodiverse montane forest, excellent for hiking and spotting endemic primate species."
             desc_sw: "Msitu wa milimani wenye bioanuwai nyingi, bora kwa matembezi na kuona aina za nyani za kipekee."
         }
-        ListElement {
-            name_en: "Katavi National Park"; name_sw: "Hifadhi ya Taifa ya Katavi"
-            imageFile: "./katavi.jpg"
-            desc_en: "A remote and wild park known for large concentrations of game during the dry season."
-            desc_sw: "Hifadhi ya mbali na pori inayojulikana kwa mikusanyiko mikubwa ya wanyama wakati wa kiangazi."
-        }
+
+        
 
         ListElement {
             name_en: "Kigoma Town & Lake Tanganyika"; name_sw: "Mji wa Kigoma & Ziwa Tanganyika"
@@ -159,12 +158,14 @@ ListElement {
             desc_en: "A historic port town on Lake Tanganyika, offering boat trips, fishing, and a glimpse into local life by the world's second deepest lake."
             desc_sw: "Mji wa bandari wa kihistoria kwenye Ziwa Tanganyika, unaotoa safari za boti, uvuvi, na fursa ya kuona maisha ya wenyeji karibu na ziwa la pili kwa kina duniani."
         }
+
         ListElement {
             name_en: "Saadani National Park"; name_sw: "Hifadhi ya Taifa ya Saadani"
             imageFile: "./saadani.jpg"
             desc_en: "Tanzania's only coastal national park, where the bush meets the beach, offering unique land and boat safaris."
             desc_sw: "Hifadhi ya pekee ya taifa ya pwani Tanzania, ambapo msitu hukutana na fukwe, ikitoa safari za kipekee za ardhini na majini."
         }
+
         ListElement {
             name_en: "Amboni Caves"; name_sw: "Mapango ya Amboni"
             imageFile: "./amboni_caves.jpg"
@@ -178,24 +179,28 @@ ListElement {
             desc_en: "Known as the 'Garden of God', this unique montane grassland is famous for its spectacular seasonal wildflower displays."
             desc_sw: "Inajulikana kama 'Bustani ya Mungu', nyanda hii ya kipekee ya milimani ni maarufu kwa maonyesho yake mazuri ya maua ya porini ya msimu."
         }
+
         ListElement {
             name_en: "Kolo Rock Paintings"; name_sw: "Michoro ya Miamba ya Kolo"
             imageFile: "./kolo_rock_paintings.jpg"
             desc_en: "Ancient rock art sites in Kondoa Irangi, offering insights into early human history and culture in Tanzania."
             desc_sw: "Maeneo ya kale ya sanaa ya miamba huko Kondoa Irangi, yakitoa ufafanuzi wa historia na utamaduni wa awali wa binadamu nchini Tanzania."
         }
+
         ListElement {
             name_en: "Bagamoyo"; name_sw: "Bagamoyo"
             imageFile: "./bagamoyo.jpg"
             desc_en: "A historic coastal town with a rich past as a former slave trade port, featuring colonial architecture and cultural sites."
             desc_sw: "Mji wa kihistoria wa pwani wenye historia tajiri kama bandari ya zamani ya biashara ya watumwa, yenye usanifu wa kikoloni na maeneo ya kitamaduni."
         }
+
         ListElement {
             name_en: "Selous Game Reserve (part of Nyerere NP)"; name_sw: "Hifadhi ya Wanyama ya Selous"
             imageFile: "./selous.jpg"
             desc_en: "One of Africa's largest protected areas (now largely Nyerere NP), known for its vastness, wildness, and diverse wildlife."
             desc_sw: "Moja ya maeneo makubwa zaidi yaliyohifadhiwa barani Afrika (sasa sehemu kubwa ni Hifadhi ya Taifa ya Nyerere), inayojulikana kwa ukubwa wake, pori, na wanyamapori mbalimbali."
         }
+
         ListElement {
             name_en: "Mkomazi National Park"; name_sw: "Hifadhi ya Taifa ya Mkomazi"
             imageFile: "./mkomazi.jpg"
@@ -209,6 +214,7 @@ ListElement {
             desc_en: "A shallow, alkaline lake famous as a breeding ground for lesser flamingos, with dramatic landscapes."
             desc_sw: "Ziwa la chumvi lisilo na kina kirefu, maarufu kama eneo la kuzaliana flamingo wadogo, lenye mandhari ya kuvutia."
         }
+
         ListElement {
             name_en: "Mount Meru"; name_sw: "Mlima Meru"
             imageFile: "./meru.jpg"
@@ -237,6 +243,13 @@ ListElement {
             desc_en: "The site of Jane Goodall's pioneering chimpanzee research, a small park with significant impact."
             desc_sw: "Eneo la utafiti waanzilishi wa sokwe wa Jane Goodall, hifadhi ndogo yenye thamani kubwa."
         } 
+
+ListElement {
+            name_en: "Arusha National Park"; name_sw: "Hifadhi ya Taifa ya Arusha"
+            imageFile: "./arusha_np.jpg"
+            desc_en: "Offers diverse landscapes including Mount Meru, Momella Lakes, and Ngurdoto Crater."
+            desc_sw: "Inatoa mandhari mbalimbali ikiwa ni pamoja na Mlima Meru, Maziwa ya Momella, na Kreta ya Ngurdoto."
+        }
 
     }
 
