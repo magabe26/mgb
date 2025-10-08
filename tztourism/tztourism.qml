@@ -120,12 +120,7 @@ ListElement {
             desc_sw: "Inatoa mandhari mbalimbali ikiwa ni pamoja na Mlima Meru, Maziwa ya Momella, na Kreta ya Ngurdoto."
         }
 
-        ListElement {
-            name_en: "Gombe Stream National Park"; name_sw: "Hifadhi ya Taifa ya Gombe Stream"
-            imageFile: "./gombe.jpg"
-            desc_en: "The site of Jane Goodall's pioneering chimpanzee research, a small park with significant impact."
-            desc_sw: "Eneo la utafiti waanzilishi wa sokwe wa Jane Goodall, hifadhi ndogo yenye thamani kubwa."
-        }
+        
         ListElement {
             name_en: "Mafia Island Marine Park"; name_sw: "Hifadhi ya Bahari ya Kisiwa cha Mafia"
             imageFile: "./mafia_island.jpg"
@@ -227,6 +222,14 @@ ListElement {
             desc_en: "Lush, cool mountains offering rich biodiversity, scenic views, and excellent hiking opportunities."
             desc_sw: "Milima yenye uoto mwingi na hali ya hewa ya baridi, inayotoa bioanuwai tele, mandhari nzuri, na fursa bora za matembezi."
         }
+
+ListElement {
+            name_en: "Gombe Stream National Park"; name_sw: "Hifadhi ya Taifa ya Gombe Stream"
+            imageFile: "./gombe.jpg"
+            desc_en: "The site of Jane Goodall's pioneering chimpanzee research, a small park with significant impact."
+            desc_sw: "Eneo la utafiti waanzilishi wa sokwe wa Jane Goodall, hifadhi ndogo yenye thamani kubwa."
+        }
+
     }
 
     function currentAttractionImage()
