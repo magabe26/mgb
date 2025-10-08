@@ -47,11 +47,12 @@ ListElement {
         }
 
 ListElement {
-            name_en: "Arusha National Park"; name_sw: "Hifadhi ya Taifa ya Arusha"
-            imageFile: "./arusha_np.jpg"
-            desc_en: "Offers diverse landscapes including Mount Meru, Momella Lakes, and Ngurdoto Crater."
-            desc_sw: "Inatoa mandhari mbalimbali ikiwa ni pamoja na Mlima Meru, Maziwa ya Momella, na Kreta ya Ngurdoto."
+            name_en: "Mount Kilimanjaro"; name_sw: "Mlima Kilimanjaro"
+            imageFile: "./kilimanjaro.jpg"
+            desc_en: "Africa's highest peak and a dormant volcano. A challenging but rewarding climb for adventurers."
+            desc_sw: "Mlima mrefu zaidi Afrika na volkano iliyolala. Changamoto lakini yenye thawabu kwa wapandaji wajasiri."
         }
+
 
 ListElement {
             name_en: "Rubondo Island National Park"; name_sw: "Hifadhi ya Taifa ya Kisiwa cha Rubondo"
@@ -66,12 +67,7 @@ ListElement {
             desc_en: "Vast plains, famous for the annual wildebeest migration, offering unparalleled safari experiences."
             desc_sw: "Nyanda pana, maarufu kwa uhamaji mkuu wa nyumbu kila mwaka, inayotoa uzoefu wa safari usio na kifani."
         }
-        ListElement {
-            name_en: "Mount Kilimanjaro"; name_sw: "Mlima Kilimanjaro"
-            imageFile: "./kilimanjaro.jpg"
-            desc_en: "Africa's highest peak and a dormant volcano. A challenging but rewarding climb for adventurers."
-            desc_sw: "Mlima mrefu zaidi Afrika na volkano iliyolala. Changamoto lakini yenye thawabu kwa wapandaji wajasiri."
-        }
+        
         ListElement {
             name_en: "Ngorongoro Conservation Area"; name_sw: "Mamlaka ya Hifadhi ya Ngorongoro"
             imageFile: "./ngorongoro.jpg"
@@ -79,6 +75,13 @@ ListElement {
             desc_sw: "Makao ya Kreta ya Ngorongoro, kaldera kubwa ya volkano iliyojaa wanyamapori mbalimbali."
         }
         
+ListElement {
+            name_en: "Mikumi National Park"; name_sw: "Hifadhi ya Taifa ya Mikumi"
+            imageFile: "./mikumi.jpg"
+            desc_en: "An accessible park, forming part of the Selous ecosystem, with good wildlife viewing."
+            desc_sw: "Hifadhi inayofikika kirahisi, sehemu ya mfumoikolojia wa Selous, yenye utazamaji mzuri wa wanyamapori."
+        }
+
         ListElement {
             name_en: "Tarangire National Park"; name_sw: "Hifadhi ya Taifa ya Tarangire"
             imageFile: "./tarangire.jpg"
@@ -109,6 +112,14 @@ ListElement {
             desc_en: "Home to chimpanzees on the shores of Lake Tanganyika, offering unique primate tracking experiences."
             desc_sw: "Makao ya sokwe pembezoni mwa Ziwa Tanganyika, inayotoa uzoefu wa kipekee wa kufuatilia nyani."
         }
+
+ListElement {
+            name_en: "Arusha National Park"; name_sw: "Hifadhi ya Taifa ya Arusha"
+            imageFile: "./arusha_np.jpg"
+            desc_en: "Offers diverse landscapes including Mount Meru, Momella Lakes, and Ngurdoto Crater."
+            desc_sw: "Inatoa mandhari mbalimbali ikiwa ni pamoja na Mlima Meru, Maziwa ya Momella, na Kreta ya Ngurdoto."
+        }
+
         ListElement {
             name_en: "Gombe Stream National Park"; name_sw: "Hifadhi ya Taifa ya Gombe Stream"
             imageFile: "./gombe.jpg"
@@ -134,12 +145,7 @@ ListElement {
             desc_sw: "Eneo muhimu la paleoanthropolojia lenye ushahidi wa mageuzi ya awali ya binadamu."
         }
         
-        ListElement {
-            name_en: "Mikumi National Park"; name_sw: "Hifadhi ya Taifa ya Mikumi"
-            imageFile: "./mikumi.jpg"
-            desc_en: "An accessible park, forming part of the Selous ecosystem, with good wildlife viewing."
-            desc_sw: "Hifadhi inayofikika kirahisi, sehemu ya mfumoikolojia wa Selous, yenye utazamaji mzuri wa wanyamapori."
-        }
+        
         ListElement {
             name_en: "Udzungwa Mountains National Park"; name_sw: "Hifadhi ya Taifa ya Milima ya Udzungwa"
             imageFile: "./udzungwa.jpg"
