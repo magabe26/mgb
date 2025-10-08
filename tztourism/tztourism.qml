@@ -53,13 +53,14 @@ ListElement {
             desc_sw: "Mlima mrefu zaidi Afrika na volkano iliyolala. Changamoto lakini yenye thawabu kwa wapandaji wajasiri."
         }
 
-
 ListElement {
-            name_en: "Rubondo Island National Park"; name_sw: "Hifadhi ya Taifa ya Kisiwa cha Rubondo"
-            imageFile: "./rubondo.jpg"
-            desc_en: "An island sanctuary on Lake Victoria, home to elephats, chimpanzees, sitatunga, and a diverse birdlife, ideal for walking safaris."
-            desc_sw: "Hifadhi ya kisiwa kwenye Ziwa Victoria, makazi ya tembo, sokwe, sitatunga, na ndege mbalimbali, inayofaa kwa safari za kutembea."
-        }
+    name_en: "Mikumi National Park"; name_sw: "Hifadhi ya Taifa ya Mikumi"
+    imageFile: "./mikumi.jpg"
+    desc_en: "Escape the city! It's an easy drive: dar mpaka moro and beyond. See lions, elephants, giraffes, zebras, and wildebeest. The wild awaits!"
+    desc_sw: "Toroka jiji! Ni safari rahisi: dar mpaka moro na kuendelea. Tazama simba, tembo, twiga, punda milia, na nyumbu. Pori linakusubiri!"
+}
+
+
 
         ListElement {
             name_en: "Serengeti National Park"; name_sw: "Hifadhi ya Taifa ya Serengeti"
@@ -75,12 +76,7 @@ ListElement {
             desc_sw: "Makao ya Kreta ya Ngorongoro, kaldera kubwa ya volkano iliyojaa wanyamapori mbalimbali."
         }
         
-ListElement {
-    name_en: "Mikumi National Park"; name_sw: "Hifadhi ya Taifa ya Mikumi"
-    imageFile: "./mikumi.jpg"
-    desc_en: "Escape the city! It's an easy drive: dar mpaka moro and beyond. See lions, elephants, giraffes, zebras, and wildebeest. The wild awaits!"
-    desc_sw: "Toroka jiji! Ni safari rahisi: dar mpaka moro na kuendelea. Tazama simba, tembo, twiga, punda milia, na nyumbu. Pori linakusubiri!"
-}
+
 
         ListElement {
             name_en: "Tarangire National Park"; name_sw: "Hifadhi ya Taifa ya Tarangire"
@@ -94,6 +90,14 @@ ListElement {
             desc_en: "Famous for its tree-climbing lions, flamingos, and stunning Rift Valley scenery."
             desc_sw: "Maarufu kwa simba wanaopanda miti, flamingo, na mandhari ya kuvutia ya Bonde la Ufa."
         }
+
+ListElement {
+            name_en: "Rubondo Island National Park"; name_sw: "Hifadhi ya Taifa ya Kisiwa cha Rubondo"
+            imageFile: "./rubondo.jpg"
+            desc_en: "An island sanctuary on Lake Victoria, home to elephats, chimpanzees, sitatunga, and a diverse birdlife, ideal for walking safaris."
+            desc_sw: "Hifadhi ya kisiwa kwenye Ziwa Victoria, makazi ya tembo, sokwe, sitatunga, na ndege mbalimbali, inayofaa kwa safari za kutembea."
+        }
+
         ListElement {
             name_en: "Nyerere National Park"; name_sw: "Hifadhi ya Taifa ya Nyerere"
             imageFile: "./nyerere.jpg"
