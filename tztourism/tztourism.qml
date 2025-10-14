@@ -417,11 +417,11 @@ Rectangle {
     color: "#dadada"
 }
 
-/*Image {
+Image {
    source: "./tz_royal_tour.jpg"
    Layout.preferredWidth: app.width * 0.86
    Layout.alignment: Qt.AlignHCenter 
-}*/
+}
 
 Text {
                     text: ""
