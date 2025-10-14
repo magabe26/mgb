@@ -324,13 +324,13 @@ ListElement {
                 }
 
 Text {
-                    text: "🕯️🕯️🕯️🕯️🕯️<br>Heri ya kumbukizi ya Miaka 26<br>Tangu kifo cha Hayati <br> Mwalimu <font color=\"green\"><b>Julius Kambarage Nyerere</b></font><br> Oktoba 14, 2025<br>"
+                    text: "🕯️🕯️🕯️🕯️🕯️<br>Heri ya kumbukizi ya Miaka 26<br>Tangu kifo cha Hayati <br> Mwalimu <font color=\"white\"><b>Julius Kambarage Nyerere</b></font><br> Oktoba 14, 2025<br>"
                     font.pointSize: 14
                     font.bold: true
                     Layout.alignment: Qt.AlignHCenter
                     Layout.fillWidth: true
                     Layout.fillHeight: true
-                    color: "white"
+                    color: "#dadada"
 }
 
 
