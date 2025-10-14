@@ -323,6 +323,16 @@ ListElement {
 
                 }
 
+Text {
+                    text: "Heri ya kumbukizi ya Miaka 26 tangu kifo cha Hayati Mwalimu Julius Kambarage Nyerere. Oktoba 14, 2025"
+                    font.pointSize: 14
+                    font.bold: true
+                    Layout.alignment: Qt.AlignHCenter
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    color: "white"
+}
+
 
                 Text {
                     text: "IDADI YA VIVUTIO VILIVYOORODHESHWA / NUMBER OF LISTED ATTRACTIONS:: <font color=\"white\">"+ attractionModel.count + "</font>"
