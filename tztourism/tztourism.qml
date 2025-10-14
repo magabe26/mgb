@@ -324,7 +324,7 @@ ListElement {
                 }
 
 Text {
-                    text: "Heri ya kumbukizi ya Miaka 26 tangu kifo cha Hayati Mwalimu Julius Kambarage Nyerere. Oktoba 14, 2025"
+                    text: "🕯️🕯️🕯️🕯️🕯️<br>Heri ya kumbukizi ya Miaka 26<br>Tangu kifo cha Hayati <br> Mwalimu Julius Kambarage Nyerere.<br> Oktoba 14, 2025"
                     font.pointSize: 14
                     font.bold: true
                     Layout.alignment: Qt.AlignHCenter
