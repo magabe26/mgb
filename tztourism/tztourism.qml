@@ -323,17 +323,6 @@ ListElement {
 
                 }
 
-Text {
-                    text: "🕯️🕯️🕯️🕯️🕯️<br>Heri ya kumbukizi ya Miaka 26<br>Tangu kifo cha Hayati <br> Mwalimu <font color=\"white\"><b>Julius Kambarage Nyerere</b></font><br>Tarehe: 14 Oktoba 1999<br>"
-                    font.pointSize: 14
-                    font.bold: true
-                    Layout.alignment: Qt.AlignHCenter
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
-                    color: "#dadada"
-}
-
-
                 Text {
                     text: "IDADI YA VIVUTIO VILIVYOORODHESHWA / NUMBER OF LISTED ATTRACTIONS:: <font color=\"white\">"+ attractionModel.count + "</font>"
                     font.pointSize: Qt.platform.os === "android" ? 12 : 10
@@ -417,11 +406,11 @@ Rectangle {
     color: "#dadada"
 }
 
-Image {
+/*Image {
    source: "./tz_royal_tour.jpg"
    Layout.preferredWidth: app.width * 0.86
    Layout.alignment: Qt.AlignHCenter 
-}
+}*/
 
 Text {
                     text: ""
