@@ -236,14 +236,8 @@ ListElement {
             desc_sw: "Milima yenye uoto mwingi na hali ya hewa ya baridi, inayotoa bioanuwai tele, mandhari nzuri, na fursa bora za matembezi."
         }
 
-/*
-ListElement {
-            name_en: ""
-            name_sw: "Sanamu ya Mayunga"
-            imageFile: "./mayunga.jpeg"
-            desc_en: ""
-            desc_sw: "Sanamu ya Mayunga Kama Kumbukumbu ya Uhuru Iliyopo Katikati ya Mji wa Bukoba Katika Kiwanja cha Uhuru."
-        } */
+ListElement {             name_en: "Mayunga Statue"             name_sw: "Sanamu ya Mayunga"             imageFile: "./mayunga.jpeg"             desc_en: "The Mayunga Statue, a memorial to the Tanzania-Uganda War (Kagera War) contributors, located in Uhuru Stadium (formerly Uhuru Stadium, now often called Mayunga Stadium) in the center of Bukoba town."            
+ desc_sw: "Sanamu ya Mayunga Kama Kumbukumbu ya Uhuru Iliyopo Katikati ya Mji wa Bukoba Katika Kiwanja cha Uhuru."         }
 
 ListElement {
             name_en: "Arusha National Park"; name_sw: "Hifadhi ya Taifa ya Arusha"
