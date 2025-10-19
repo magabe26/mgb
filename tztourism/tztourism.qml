@@ -238,9 +238,10 @@ ListElement {
 
 /*
 ListElement {
-            name_en: "Gombe Stream National Park"; name_sw: "Hifadhi ya Taifa ya Gombe Stream"
-            imageFile: "./gombe.jpg"
-            desc_en: "The site of Jane Goodall's pioneering chimpanzee research, a small park with significant impact."
+            name_en: ""
+            name_sw: ""
+            imageFile: "./mayunga.jpeg"
+            desc_en: ""
             desc_sw: "Eneo la utafiti waanzilishi wa sokwe wa Jane Goodall, hifadhi ndogo yenye thamani kubwa."
         } */
 
