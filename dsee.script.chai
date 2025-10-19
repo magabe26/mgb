@@ -1559,8 +1559,13 @@ def hasInternetAccess() {
 //-------------------------Apps---------------------------------
 
 def openApp(qml){
-  setFullScreenOff();
+  
   closeSavedResultsDialog();
+
+setIsMenuWindowVisible(false);
+  setIsMainResultsWindowVisible(false);
+  setIsFooterVisible(false);
+
   var url = "file:/" + generateAppRootFilePath(qml);
   requestCustomPage(url,"",true);
 }
