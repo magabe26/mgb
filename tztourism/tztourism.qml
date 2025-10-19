@@ -239,10 +239,10 @@ ListElement {
 /*
 ListElement {
             name_en: ""
-            name_sw: ""
+            name_sw: "Sanamu ya Mayunga"
             imageFile: "./mayunga.jpeg"
             desc_en: ""
-            desc_sw: "Eneo la utafiti waanzilishi wa sokwe wa Jane Goodall, hifadhi ndogo yenye thamani kubwa."
+            desc_sw: "Sanamu ya Mayunga Kama Kumbukumbu ya Uhuru Iliyopo Katikati ya Mji wa Bukoba Katika Kiwanja cha Uhuru."
         } */
 
 ListElement {
