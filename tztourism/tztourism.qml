@@ -244,6 +244,14 @@ ListElement {
             desc_sw: "Inatoa mandhari mbalimbali ikiwa ni pamoja na Mlima Meru, Maziwa ya Momella, na Kreta ya Ngurdoto."
         }
 
+ListElement {            
+ name_en: "Mayunga Statue"             
+ name_sw: "Sanamu ya Mayunga"            
+ imageFile: "./mayunga.jpeg"            
+ desc_en: "The Mayunga Statue, a memorial to the Tanzania-Uganda War (Kagera War) contributors, located in Uhuru Stadium (formerly Uhuru Stadium, now often called Mayunga Stadium) in the center of Bukoba town."            
+ desc_sw: "Sanamu ya Mayunga Kama Kumbukumbu ya Uhuru Iliyopo Katikati ya Mji wa Bukoba Katika Kiwanja cha Uhuru."       
+  }
+
     }
 
     function currentAttractionImage()
