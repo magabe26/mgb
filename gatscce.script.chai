@@ -1793,6 +1793,10 @@ def onInitConfigs(){
     
     setMengineyoBtn(!SHOW_ADS_AFTER_SCHOOL_RESULTS_OPENED &&  hasInternetAccess());
 	setUtaliiBtn(true);   
+
+//set sharedialog image
+saveOrUpdateData("/magabelab.png",generateAppRootFilePath("splash"));
+
 }
 
 def setHolidayLoadingIndicator() {
