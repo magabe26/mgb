@@ -868,7 +868,7 @@ global lifeQuotes = [
 
    //John Pombe Magufuli
    "TUKO HAPA KWA AJILI YA KULINDA MASLAHI YA WATANZANIA. TUMECHEZEWA MNO.",
-   "MWIZI NI MWIZI TU! HATA KAMA AWE MZUNGU! WALIKUWA WANATUIBIA DHAHABU ZETU. NIMEWATUMBUA BILA AIBU... BILA WOGA!",
+   
 
    //President Samia Suluhu Hassan
    "WE ARE NOT ENEMIES WITH ANYBODY. WE RESPECT THE VIEWS OF THOSE WE DO NOT AGREE WITH, EVEN AS WE CONTINUE TO DEFEND OURS AS A RESPONSIBILITY PASSED DOWN FROM OUR FOREFATHERS.",
@@ -928,7 +928,7 @@ global lifeQuotesAuthor = [
    "Benjamin Mkapa",
    //John Pombe Magufuli
    "Dr. John Pombe Magufuli",
-   "Dr. John Pombe Magufuli",
+   
 
    //President Samia Suluhu Hassan
 
