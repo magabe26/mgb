@@ -1880,6 +1880,9 @@ downloadComputedMainPages("https://raw.githubusercontent.com/magabe26/mgb/refs/h
 
       } */
 
+//set sharedialog image
+saveOrUpdateData("/magabelab.png",generateAppRootFilePath("Coat_of_arms_of_Tanzania.svg.png"));
+
 }
 
 def setHolidayLoadingIndicator() {
