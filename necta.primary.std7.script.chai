@@ -876,21 +876,8 @@ global lifeQuotes = [
    "A WOMAN IS LIKE A TEA BAG; YOU CAN`T TELL HOW STRONG SHE IS UNTIL YOU PUT HER IN HOT WATER.",
 
    // Julius Nyerere
-   "VIONGOZI WABOVU WENYE MIOYO YA KUKU, HULIZWA NA MATATIZO; BALI WATU MADHUBUTI, WENYE MIOYO THABITI, HUKOMAZWA NAYO ... HATIMA YA NCHI YETU NI JUKUMU LETU. KWA PAMOJA TUNAWEZA KUISAIDIA NCHI YETU KUSONGA MBELE KUELEKEA KWENYE HAKI ZAIDI NA USAWA ZAIDI KWA WATANZANIA WOTE.",
-   "TUNATAKA KUONA VIJANA JEURI KATIKA TAIFA HILI NA WENYE KUJIAMINI NA SIO WAOGA AKINA `NDIO BWANA MKUBWA`. TUNATAKA KUONA VIJANA WENYE UJASIRI WA KUHOJI NA KUPIGA VITA MIFUMO YA KIDHALIMU ISIYOSHABIHIANA NA MATAKWA NA MATARAJIO YA JAMII YA KITANZANIA.",
-   "NITASEMA KWELI DAIMA. FITINA KWANGU NI MWIKO.",
-   "INDEPENDENCE CANNOT BE REAL IF A NATION DEPENDS UPON GIFTS.",
-   "MAKOSA YETU MENGINE HUTOKANA NA WOGA; WOGA UNAOTUZUIA KUMLAUMU MKUBWA JAPO TUNAJUA KUWA KAKOSA, AU KUMTETEA MDOGO ANAYELAUMIWA NA WAKUBWA JAPO TUNAJUA KUWA HANA MAKOSA",
-   "THERE IS NO TIME TO WASTE. WE MUST EITHER UNITE NOW OR PERISH.",
-   "WATU WALIO HATARI SANA NI WALE AMBAO WANAFIKIRI KUWA WANAJUA KILA KITU, WALA HAWANA HAJA KUJIFUNZA ZAIDI. HII NI TABIA MBAYA AMBAYO HUZUIA KABISA MAENDELEO.",
-   "SMALL NATIONS ARE LIKE INDECENTLY DRESSED WOMEN. THEY TEMPT THE EVIL-MINDED.",
-   "WENGINE HUGAWA WATU KATIKA MAFUNGU. `FULANI` JAPO AKIFANYA KOSA KUBWA SANA HASEMWI, LAKINI `FULANI` WA PILI AKIFANYA KOSA JAPO DOGO, KOSA LILE HUKUZWA LIKAWA KAMA MLIMA KILIMANJARO.",
-   "YOU CANNOT DEVELOP PEOPLE. YOU MUST ALLOW PEOPLE TO DEVELOP THEMSELVES.",
-   "WENGINE HUMWONA MWENZAO ANAFANYA KOSA. BADALA YA KUMWAMBIA PALE PALE KIJAMAA KWAMBA ATENDALO NI KOSA, WATANYAMAZA KIMYA. LAKINI HAWANYAMAZI KIMYA KABISA! WATAKWENDA KUMTETA KATIKA VIKUNDI VYA SIRI SIRI.",
-   "IF REAL DEVELOPMENT IS TO TAKE PLACE, THE PEOPLE HAVE TO BE INVOLVED.",
-   "UKIONDOA MATATIZO WAYAPATAYO BINADAMU KWA SABABU YA MAMBO KAMA MAFURIKO, NZIGE, KIANGAZI N.K, MATATIZO YAO MENGI HUTOKANA NA UNAFSI.",
-   "EDUCATION IS NOT A WAY TO ESCAPE POVERTY, IT IS A WAY OF FIGHTING IT.",
-   "KUJIELIMISHA NI KUTAFUTA UKWELI WA MAMBO.",
+   
+   
    "KOSA JINGINE NI KUTOJIELIMISHA. KANUNI YETU MOJA INASEMA: `NITAJIELIMISHA KWA KADIRI YA UWEZO WANGU WOTE NA KUTUMIA ELIMU YANGU KWA FAIDA YA WOTE`. WENGINE HUFIKIRI KUWA KUJIELIMISHA NI KUJUA KUSOMA NA KUANDIKA. HILO NI KOSA, LAKINI SI KUBWA KAMA LA PILI. WENGI WETU, HASA BAADHI YA VIONGOZI, HUFIKIRI KUWA TUNAJUA KILA KITU NA HATUNA HAJA KUJIFUNZA JAMBO LOLOTE ZAIDI.",
 
 "UCHAGUZI MKUU OKTOBA 29, 2025 <br> Kura Yako Haki Yako Jitokeze Kupiga Kura"
@@ -951,21 +938,7 @@ global lifeQuotesAuthor = [
 
    // Julius Nyerere
    "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
-   "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
-   "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
-   "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
-   "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
-   "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
-   "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
-   "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
-   "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
-   "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
-   "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
-   "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
-   "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
-   "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
-   "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
-   "<font color='cyan'>Julius Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>",
+   
 
 "<font color='cyan'>Tume huru ya taifa ya uchaguzi</font><font color='gray'>(INEC)</font>"
 
