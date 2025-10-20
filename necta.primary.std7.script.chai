@@ -979,6 +979,9 @@ def onLifeQuoteDialogClosed(int requestCode, string pressedButton, string answer
             }
          } catch {}
          showLifeQuote();
+
+      } else {
+         onUrlVisited("#showGoogleAd");
       }
    }
 }
