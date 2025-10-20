@@ -35,6 +35,20 @@
    <APP>
       <A HREF="#" />
    </APP>
+
+   <APP>
+      <A HREF="#nukuu">Nukuu</A>
+      <COLOR>green</COLOR>
+      <BG_COLOR>white</BG_COLOR>
+      <ICON>fa::bullhorn</ICON>
+      <ICON_COLOR>blue</ICON_COLOR>
+      <BOLD_TEXT>1</BOLD_TEXT>
+   </APP>
+
+<APP>
+      <A HREF="#" />
+   </APP>
+
 <APP>
       <A HREF="https://play.google.com/store/apps/details?id=com.magabe.n3cta.matokeo.ya.darasa.la.saba">Tafadhali rate aplikesheni hii hapa</A>
       <COLOR>#00c000</COLOR>
