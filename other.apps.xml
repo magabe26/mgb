@@ -38,10 +38,10 @@
 
    <APP>
       <A HREF="#nukuu">Nukuu</A>
-      <COLOR>green</COLOR>
+      <COLOR>black</COLOR>
       <BG_COLOR>white</BG_COLOR>
       <ICON>fa::bullhorn</ICON>
-      <ICON_COLOR>blue</ICON_COLOR>
+      <ICON_COLOR>#00c000</ICON_COLOR>
       <BOLD_TEXT>1</BOLD_TEXT>
    </APP>
 
