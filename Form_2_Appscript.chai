@@ -1898,6 +1898,9 @@ setUtaliiBtn(true);
 downloadComputedMainPages("https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/computed/FTNA/FTNA.txt");
 */
 
+//set sharedialog image
+saveOrUpdateData("/magabelab.png",generateAppRootFilePath("splash"));
+
 }
 
 def setHolidayLoadingIndicator() {
