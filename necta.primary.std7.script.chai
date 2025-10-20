@@ -3070,6 +3070,15 @@ onUrlVisited("#saveAndPlayVideoAd;" + url);
 }
 }
 
+
+def onInitConfigs(){
+
+//set sharedialog image
+saveOrUpdateData("images/magabelab.png",generateAppRootFilePath("Coat_of_arms_of_Tanzania.svg.png"));
+
+}
+
+
 //------------------
 global PAKUA_MATOKEO_KIDATO_4NA6_TIMERCODE = 32;
 global FORM4_AND_6_PACKAGENAME = "com.magabelab.matokeo.kidato.cha4na6";
@@ -3104,9 +3113,6 @@ def onAppStarted() {
       }
 
 //  requestCustomDialog(20250320, "fa::cogs", "", "Mfumo huko kwenye maboresho!", "Sawa", "", "#",  0.98, 0.2, false);
-
-//set sharedialog image
-saveOrUpdateData("images/magabelab.png",generateAppRootFilePath("Coat_of_arms_of_Tanzania.svg.png"));
 
    } catch {}
 
