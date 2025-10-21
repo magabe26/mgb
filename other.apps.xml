@@ -110,13 +110,18 @@
 <APP>
       <A HREF="#" />
    </APP>
+
+<APP>
+      <A HREF="#" />
+   </APP>
+
    <APP>
       <A HREF="#openurl;https://play.google.com/store/apps/developer?id=Magabe+Lab">
 Pakua aplikesheni zingine hapa
       </A>
       <BG_COLOR>white</BG_COLOR>
       <ICON_COLOR>green</ICON_COLOR>
-      <ICON>fa::download</ICON>
+      <ICON>fa::cubes</ICON>
       <COLOR>#00c000</COLOR>
       <BOLD_TEXT>1</BOLD_TEXT>
 </APP>
