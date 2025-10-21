@@ -60,19 +60,8 @@
    <APP>
       <A HREF="#" />
    </APP>
+
 <APP>
-    <A HREF="#showConsole">Console</A>
-    <COLOR>gray</COLOR>
-    <BG_COLOR>white</BG_COLOR>
-    <ICON>fa::windowmaximize</ICON>
-    <ICON_COLOR>black</ICON_COLOR>
-    <BOLD_TEXT>1</BOLD_TEXT>
-</APP>
-   
-   <APP>
-      <A HREF="#" />
-   </APP>
-   <APP>
       <A HREF="#showGoogleAd">Mengineyo</A>
       <COLOR>green</COLOR>
       <BG_COLOR>white</BG_COLOR>
@@ -96,6 +85,20 @@
    <APP>
       <A HREF="#" />
    </APP>
+
+<APP>
+    <A HREF="#showConsole">Console</A>
+    <COLOR>gray</COLOR>
+    <BG_COLOR>white</BG_COLOR>
+    <ICON>fa::windowmaximize</ICON>
+    <ICON_COLOR>black</ICON_COLOR>
+    <BOLD_TEXT>1</BOLD_TEXT>
+</APP>
+   
+   <APP>
+      <A HREF="#" />
+   </APP>
+   
 
 <APP>
       <A HREF="#nukuu">Nukuu</A>
