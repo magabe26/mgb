@@ -457,7 +457,11 @@ if( pressedButton == "no" ){ return;}
 		    setLoadingImage(url);
 		  }
 		 showPreview(no,url,fun[no](){
+
 		     showOperationSuccessDialog("Kiashiria cha upakiaji sasa ni: <font color='#71f090'>" + loadingIndicators[no] + "</font>");
+
+onUrlVisited("#showGoogleAd");
+
 		  });
 	   }else{
 	      showOperationFailedDialog("Namba ya kiashiria si sahihi!");
