@@ -390,9 +390,9 @@ def onChangeLoadingIndictorCommand(cmd, argv, argc) {
             options = options.append("&nbsp;&nbsp;&nbsp;<font color='#71f090'>" + to_string(i) + "</font> : ").append("<font color='white'>" + loadingIndicators[i] + "</font><br>");
          }
          if (cmd.contains("Upakiaji", false)) {
-            showCustomDialogAfterXMillis(CHANGE_LOADING_INDICATOR_REQUEST_CODE, "fa::cogs", "<font color='#71f090'>Badilisha Kiashiria Cha Upakiaji</font>", "<br><font color='#71f090'>Viashiria Vya Upakiaji Vilivyopo:-<br>" + options + "<br><font color='#10dee6'>Chagua: </font> <font color='white'>Weka namba ya kiashiria</font>", "Badilisha", "Funga", "#", 0.8, 0.6, true, 500);
+            showCustomDialogAfterXMillis(CHANGE_LOADING_INDICATOR_REQUEST_CODE, "fa::cogs", "<font color='#71f090'>BADILISHA KIASHIRIA CHA UPAKIAJI</font>", "<br><font color='#71f090'>Viashiria vya upakiaji vilivyopo:-<br>" + options + "<br><font color='#10dee6'>Chagua: </font> <font color='white'>Weka namba ya kiashiria</font>", "Badilisha", "Funga", "#", 0.8, 0.6, true, 500);
          } else {
-            requestCustomDialog(CHANGE_LOADING_INDICATOR_REQUEST_CODE, "fa::cogs", "<font color='#71f090'>Badilisha Kiashiria Cha Upakiaji</font>", "<br><font color='#71f090'>Viashiria Vya Upakiaji Vilivyopo:-<br>" + options + "<br><font color='#10dee6'>Chagua: </font> <font color='white'>Weka namba ya kiashiria</font>", "Badilisha", "Funga", "#", 0.8, 0.6, true);
+            requestCustomDialog(CHANGE_LOADING_INDICATOR_REQUEST_CODE, "fa::cogs", "<font color='#71f090'>BADILISHA KIASHIRIA CHA UPAKIAJI</font>", "<br><font color='#71f090'>Viashiria vya upakiaji vilivyopo:-<br>" + options + "<br><font color='#10dee6'>Chagua: </font> <font color='white'>Weka namba ya kiashiria</font>", "Badilisha", "Funga", "#", 0.8, 0.6, true);
          }
       } else {
          log("onChangeLoadingIndictorCommand Error: Size does not match, LoadingIndicators = " + to_string(loadingIndicators.size()) + ", LoadingIndicatorsUrls = " + to_string(loadingIndicatorsUrls.size()));
