@@ -51,30 +51,6 @@
       <A HREF="#" />
    </APP>
 
-   <APP>
-    <A HREF="#changeFailureIdentifier">Kitambulisho cha kushindwa:</A>
-    <ICON>fa::cube</ICON>
-    <ICON_COLOR>green</ICON_COLOR>
-	<COLOR>green</COLOR>
-	<BG_COLOR>white</BG_COLOR>
-	<ENABLE_BUTTON>0</ENABLE_BUTTON>
-	<BUTTON_TEXT>Badilisha</BUTTON_TEXT>
-	<BUTTON_TEXT_COLOR>white</BUTTON_TEXT_COLOR>
-	<BUTTON_BG_COLOR>blue</BUTTON_BG_COLOR>
-	<BOLD_TEXT>1</BOLD_TEXT>
-	<ENABLE_SELECT>1</ENABLE_SELECT>
-    <SELECT_ID>changeFailureIdentifier</SELECT_ID>
-    <SELECT_TEXT>REFERRED</SELECT_TEXT>
-    <SELECT_OPTIONS>REFERRED,E</SELECT_OPTIONS>
-	<SELECT_OPTION_ICON>fa::star</SELECT_OPTION_ICON>
-    <SELECT_OPTION_ICON_COLOR>black</SELECT_OPTION_ICON_COLOR>
-        
-   </APP>
-
-<APP>
-      <A HREF="#" />
-   </APP>
-
 <APP>
     <A HREF="#changeLoadingIndicator">Badilisha kiashiria cha upakiaji</A>
     <COLOR>#1fb8ba</COLOR>
@@ -136,6 +112,30 @@
 <APP>
       <A HREF="#" />
    </APP>
+<APP>
+      <A HREF="#" />
+   </APP>
+
+   <APP>
+    <A HREF="#changeFailureIdentifier">Kitambulisho cha kushindwa:</A>
+    <ICON>fa::cube</ICON>
+    <ICON_COLOR>green</ICON_COLOR>
+	<COLOR>green</COLOR>
+	<BG_COLOR>white</BG_COLOR>
+	<ENABLE_BUTTON>0</ENABLE_BUTTON>
+	<BUTTON_TEXT>Badilisha</BUTTON_TEXT>
+	<BUTTON_TEXT_COLOR>white</BUTTON_TEXT_COLOR>
+	<BUTTON_BG_COLOR>blue</BUTTON_BG_COLOR>
+	<BOLD_TEXT>1</BOLD_TEXT>
+	<ENABLE_SELECT>1</ENABLE_SELECT>
+    <SELECT_ID>changeFailureIdentifier</SELECT_ID>
+    <SELECT_TEXT>REFERRED</SELECT_TEXT>
+    <SELECT_OPTIONS>REFERRED,E</SELECT_OPTIONS>
+	<SELECT_OPTION_ICON>fa::star</SELECT_OPTION_ICON>
+    <SELECT_OPTION_ICON_COLOR>black</SELECT_OPTION_ICON_COLOR>
+        
+   </APP>
+
 <APP>
       <A HREF="#" />
    </APP>
