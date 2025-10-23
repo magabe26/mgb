@@ -254,6 +254,9 @@ def onChangeLocaleCommand(cmd, argv, argc) {
          } else {
             requestCustomDialog(421, "fa::gear", "<font color='#4dff12'>MPANGILIO UMEBADILISHWA</font>", "Sasa majina ya shule yatasomeka kwa lugha ya <font color='#4d12ff'><u>Kiingereza</u></font>", "Sawa", "", "#", 0.8, 0.2, false);
          }
+
+         onUrlVisited("#showGoogleAd");
+
       }
    }
 }
