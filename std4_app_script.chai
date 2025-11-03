@@ -4035,6 +4035,8 @@ def getOtherAppsPageTitle() {
   var code = getData("CountryCode");
    var flag = getFlag(code);
    return "HABARI " + flag; 
+}
+
 
 def getOtherAppsDelegateSpacing() {
    return 0;
