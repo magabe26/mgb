@@ -3623,7 +3623,7 @@ def onExecuteCommand(cmd, argv, argc) {
    onSaveFileCommand(cmd, argv, argc);
    onSaveAndPlayVideoCommand(cmd, argv, argc);
    onOfflineVideoCommand(cmd, argv, argc);
-  // onShowQuotesCommand(cmd, argv, argc);
+   onShowQuotesCommand(cmd, argv, argc);
 onChangeLoadingIndictorCommand(cmd, argv, argc);
 onAddPointsCommand(cmd, argv, argc);
 onEmailUsCommand(cmd, argv, argc);
