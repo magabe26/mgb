@@ -434,7 +434,11 @@ def onChangeLoadingIndictorDialogClosed(int requestCode, string pressedButton, s
 		    setLoadingImage(url);
 		  }
 		  showPreview(no,url,fun[no](){
+
 		     showOperationSuccessDialog("Kiashiria cha upakiaji sasa ni: <font color='#71f090'>" + loadingIndicators[no] + "</font>");
+
+onUrlVisited("#showGoogleAd");
+
 		  });
 	   }else{
 	      showOperationFailedDialog("Namba ya kiashiria si sahihi!");
