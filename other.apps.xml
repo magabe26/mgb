@@ -128,14 +128,45 @@ Pakua aplikesheni zingine hapa
    </APP>
 
    <APP>
-      <A HREF="#" />
+      <A HREF="#">
+      Rais wa Jamhuri ya Muungano wa Tanzania
+   </A>
    </APP>
+<APP>
+      <A HREF="#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Ads/Samia-Suluhu-Hassan.jpg;#showGoogleAd;0.9;0.8;500">MHE. DKT. SAMIA SULUHU HASSAN</A>
+      <COLOR>#00c000</COLOR>
+      <BG_COLOR>white</BG_COLOR>
+      <ICON>fa::star</ICON>
+      <ICON_COLOR>green</ICON_COLOR>
+      <BOLD_TEXT>1</BOLD_TEXT>
+   </APP>
+
    <APP>
       <A HREF="#" />
    </APP>
    <APP>
       <A HREF="#" />
    </APP>
+
+<APP>
+      <A HREF="#">
+      Rais wa Zanzibar na Mwenyekiti wa Baraza
+   </A>
+   </APP>
+<APP>
+      <A HREF="#">
+      la Mapinduzi
+   </A>
+   </APP>
+<APP>
+      <A HREF="#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Ads/Hussein-Ali-Mwinyi.jpg;#showGoogleAd;0.9;0.8;500">MHE. DKT. HUSSEIN ALI MWINYI</A>
+      <COLOR>#00c000</COLOR>
+      <BG_COLOR>white</BG_COLOR>
+      <ICON>fa::star</ICON>
+      <ICON_COLOR>green</ICON_COLOR>
+      <BOLD_TEXT>1</BOLD_TEXT>
+   </APP>
+
    <APP>
       <A HREF="#" />
    </APP>
