@@ -2010,8 +2010,8 @@ def onAppStarted() {
 
 APP_STARTED = true;
 
-      //setMyFavoriteLoadingIndicator();
-        setHolidayLoadingIndicator();
+      setMyFavoriteLoadingIndicator();
+       // setHolidayLoadingIndicator();
 
       setTimer(ADS_TIMER, 1000 * 6); // 6 sec
 
