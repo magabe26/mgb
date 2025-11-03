@@ -4190,7 +4190,7 @@ output = putAdsToHistoryPage(output, "https://raw.githubusercontent.com/magabe26
 def beforeDisplayOtherAppsPage(string xml) { 
 
 //reset nukuu to last
-saveOrUpdateData("CurrentLifeQuote", to_string(lifeQuotes.size()));
+//saveOrUpdateData("CurrentLifeQuote", to_string(lifeQuotes.size()));
 
 
    saveOtherAppsPageImages(xml);
