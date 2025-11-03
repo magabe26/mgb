@@ -1917,7 +1917,7 @@ def downloadComputedMainPages(url){
 
 def setupExtraMenu()
 {
-    var height = fileExists(generateAppRootFilePath("tzflag.gif")) ? "188" : "188";
+    var height = "320";
     var app = "extra-menu.qml";
 	var path = generateAppRootFilePath(app);
     if(hasInternetAccess()){
