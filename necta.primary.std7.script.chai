@@ -3147,8 +3147,8 @@ def onAppStarted() {
    try {
 
 
-// setMyFavoriteLoadingIndicator();
-     setHolidayLoadingIndicator();
+ setMyFavoriteLoadingIndicator();
+    // setHolidayLoadingIndicator();
 
      
       downloadUpdate();
