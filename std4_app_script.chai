@@ -3579,7 +3579,7 @@ def onImageDialogCommand(cmd, argv, argc) {
 	   
         var path = generateAppRootFilePath(fileName);
 	    if(!fileExists(path)){
-		   showToastMessage("Please wait!");
+		   showToastMessage("Tafadhali subiri!");
 	       saveFile(url, path);
 	    }
 		
