@@ -42,6 +42,8 @@ Rectangle{
 
             Image {
                 id: icon2
+                width: 68
+                height: width
                 anchors.top: parent.top
                 anchors.left: parent.left
                 anchors.leftMargin: menu.imgLeftMargin
@@ -105,6 +107,8 @@ Rectangle{
 
             Image {
                 id: icon3
+                width: 68
+                height: width
                 anchors.top: parent.top
                 anchors.left: parent.left
                 anchors.leftMargin: menu.imgLeftMargin
