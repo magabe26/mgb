@@ -72,6 +72,8 @@ Rectangle{
 
             Image {
                 id: icon1
+                width: 68
+                height: width
                 anchors.top: parent.top
                 anchors.left: parent.left
                 anchors.leftMargin: menu.imgLeftMargin
