@@ -389,7 +389,7 @@ def onChangeLoadingIndictorCommand(cmd, argv, argc) {
 		       for (var i = 0; i < loadingIndicators.size(); ++i) {
 			      options = options.append("&nbsp;&nbsp;&nbsp;<font color='#71f090'>"+to_string(i)+"</font>&nbsp;:&nbsp;").append("<font color='white'>"+loadingIndicators[i]+"</font><br>");
 			   }
-			   requestCustomDialog(CHANGE_LOADING_INDICATOR_REQUEST_CODE, "fa::cogs", "<font color='#71f090'>Badilisha Kiashiria Cha Upakiaji</font>", "<br><font color='#71f090'>Viashiria Vya Upakiaji Vilivyopo:-<br>" + options + "<br><font color='#10dee6'>Chagua:&nbsp;</font> <font color='white'>Weka namba ya kiashiria</font>", "Badilisha", "Funga", "#", 0.8, 0.5, true);
+			   requestCustomDialog(CHANGE_LOADING_INDICATOR_REQUEST_CODE, "fa::cogs", "<font color='#71F090'>BADILISHA KIASHIRIA CHA UPAKIAJI</font>", "<br><font color='#71f090'>Viashiria vya upakiaji vilivyopo:-<br>" + options + "<br><font color='#10dee6'>Chagua:&nbsp;</font> <font color='white'>Weka namba ya kiashiria</font>", "Badilisha", "Funga", "#", 0.8, 0.5, true);
 		 }else{
              log("onChangeLoadingIndictorCommand Error: Size does not match, LoadingIndicators = " + to_string(loadingIndicators.size()) + ", LoadingIndicatorsUrls = " + to_string(loadingIndicatorsUrls.size()));
 		 }	    
@@ -1419,6 +1419,70 @@ def onOpenURLCommand(cmd, argv, argc) {
 
 }
 
+def onImageDialogCommand(cmd, argv, argc) {
+   if (cmd.equals("imageDialog", false) && (argc >= 1)) {
+         var url = argv[0];
+         if (!url.contains("/", false)) {
+            return;
+         }
+         
+		var list = [];
+		var fn = fun[list](string s) {
+		   list.push_back(s);
+		};
+
+		var arr = url.split("/");
+		forEachString(arr, fn);
+
+	    var fileName = list[list.size() - 1];
+	   
+	    var redirectURL = "#";
+	    if(argc >= 2){
+	      redirectURL = argv[1];
+	    }
+	   
+        var path = generateAppRootFilePath(fileName);
+	    if(!fileExists(path)){
+		   showToastMessage("Please wait!");
+	       saveFile(url, path);
+	    }
+		
+		var wf = 1.0;
+		if(argc >= 3){
+	      wf = to_float(argv[2]);
+		  if(wf <= 0 || wf > 1){
+		     wf = 1;
+		  }
+	    }
+		
+		var hf = 1.0;
+		if(argc >= 4){
+	      hf = to_float(argv[3]);
+		  if(hf <= 0 || hf > 1){
+		    hf = 1;
+		  }
+	    }
+		
+		var timeout = 3000;
+		if(argc >= 5){
+	      timeout = to_int(argv[4]);
+		  if(timeout <= 0 || timeout > 10000){
+		    timeout = 3000;
+		  }
+	    }
+		 
+		if(fileExists(path)){
+	       showImageDialog("file:/" + path,redirectURL,wf,hf,true,timeout);
+	    }	  
+   }
+}
+
+
+def onShowQuotesCommand(cmd, argv, argc) {
+   if (cmd.equals("showQuotes", false) || cmd.equals("nukuu", false) || cmd.equals("quotes", false) || cmd.equals("quote", false)) {
+      showLifeQuote();
+   }
+}
 
 //argv is vector of strings whitch represents a list of command argurments
 def onExecuteCommand(cmd, argv, argc) {
@@ -1436,6 +1500,9 @@ onSaveAndPlayVideoAdCommand(cmd, argv, argc);
 onShowGoogleAdCommand(cmd, argv, argc);
 onUtaliiAppCommand(cmd, argv, argc);
 onOpenURLCommand(cmd, argv, argc);
+onImageDialogCommand(cmd, argv, argc);
+
+onShowQuotesCommand(cmd, argv, argc);
 
 }
 
@@ -1784,11 +1851,28 @@ def downloadComputedMainPages(url){
 	}
 }
 
+def setupExtraMenu()
+{
+    var height = fileExists(generateAppRootFilePath("tzflag.gif")) ? "188" : "188";
+    var app = "extra-menu.qml";
+	var path = generateAppRootFilePath(app);
+    if(hasInternetAccess()){
+	   deleteFile(path);
+	   var url = "https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/".append(app);
+	   saveFile(url, path);
+	}
+	
+	if(fileExists(path)){
+	   saveOrUpdateData("CONFIG_MENU_QML_LOADER_HEIGHT",height);
+       saveOrUpdateData("CONFIG_MENU_QML_LOADER_SOURCE","file:/" + path);
+	}
+}
 
 
 
 def onInitConfigs(){
 
+setupExtraMenu();
     
     setMengineyoBtn(!SHOW_ADS_AFTER_SCHOOL_RESULTS_OPENED &&  hasInternetAccess());
 	setUtaliiBtn(true);   
