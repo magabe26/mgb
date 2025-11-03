@@ -3605,7 +3605,7 @@ def onImageDialogCommand(cmd, argv, argc) {
 	    }
 		 
 		if(fileExists(path)){
-	       showImageDialog("file:/" + path,redirectURL,wf,hf,true,timeout);
+	       showImageDialog("file:/" + path,redirectURL,wf,hf,false,timeout);
 	    }	  
    }
 }
