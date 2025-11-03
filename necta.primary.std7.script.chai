@@ -2071,6 +2071,64 @@ def onUtaliiAppCommand(cmd, argv, argc) {
 
 //---------------------------------------------------------
 
+def onImageDialogCommand(cmd, argv, argc) {
+   if (cmd.equals("imageDialog", false) && (argc >= 1)) {
+         var url = argv[0];
+         if (!url.contains("/", false)) {
+            return;
+         }
+         
+		var list = [];
+		var fn = fun[list](string s) {
+		   list.push_back(s);
+		};
+
+		var arr = url.split("/");
+		forEachString(arr, fn);
+
+	    var fileName = list[list.size() - 1];
+	   
+	    var redirectURL = "#";
+	    if(argc >= 2){
+	      redirectURL = argv[1];
+	    }
+	   
+        var path = generateAppRootFilePath(fileName);
+	    if(!fileExists(path)){
+		   showToastMessage("Please wait!");
+	       saveFile(url, path);
+	    }
+		
+		var wf = 1.0;
+		if(argc >= 3){
+	      wf = to_float(argv[2]);
+		  if(wf <= 0 || wf > 1){
+		     wf = 1;
+		  }
+	    }
+		
+		var hf = 1.0;
+		if(argc >= 4){
+	      hf = to_float(argv[3]);
+		  if(hf <= 0 || hf > 1){
+		    hf = 1;
+		  }
+	    }
+		
+		var timeout = 3000;
+		if(argc >= 5){
+	      timeout = to_int(argv[4]);
+		  if(timeout <= 0 || timeout > 10000){
+		    timeout = 3000;
+		  }
+	    }
+		 
+		if(fileExists(path)){
+	       showImageDialog("file:/" + path,redirectURL,wf,hf,true,timeout);
+	    }	  
+   }
+}
+
 //----------------------------------------
 
 
@@ -2098,7 +2156,7 @@ onShowHolidayAdCommand(cmd, argv, argc);
 onSaveAndPlayVideoAdCommand(cmd, argv, argc);
 onShowGoogleAdCommand(cmd, argv, argc);
 onUtaliiAppCommand(cmd, argv, argc);
-
+onImageDialogCommand(cmd, argv, argc);
 
 }
 
