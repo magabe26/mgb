@@ -134,7 +134,7 @@ Rectangle{
         AnimatedImage{
             anchors.horizontalCenter: parent.horizontalCenter
             width: root.width
-            height: 86
+            height: 90
             source: "./tzflag.gif"
             onStatusChanged: {
                 visible = (status !==  AnimatedImage.Error);
