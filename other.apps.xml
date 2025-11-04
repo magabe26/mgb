@@ -131,6 +131,9 @@ Pakua aplikesheni zingine hapa
    <APP>
       <A HREF="#" />
    </APP>
+<APP>
+      <A HREF="#" />
+   </APP>
 
 <APP>
       <BG_COLOR>white</BG_COLOR>
@@ -183,9 +186,7 @@ Pakua aplikesheni zingine hapa
    <APP>
       <A HREF="#" />
    </APP>
-   <APP>
-      <A HREF="#" />
-   </APP>
+   
    
    
 </APPS>
