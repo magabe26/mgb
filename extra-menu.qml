@@ -34,7 +34,7 @@ Rectangle{
         property real imgLeftMargin: 2
         property real textLeftMargin: 6
 
-      /*  Rectangle{
+       Rectangle{
             z: root.z + 1
             color: "transparent"
             width: root.width
@@ -64,7 +64,7 @@ Rectangle{
                     root.executeCommand("nukuu", []);
                 }
             }
-        }*/
+        }
 
         Rectangle{
             z: root.z + 1
