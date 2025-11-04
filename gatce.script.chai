@@ -867,7 +867,9 @@ if(requestCode == LIFE_QUOTE_REQUESTCODE){
 		 }
 	   }catch{}	   
       showLifeQuote();
-   }
+   }else {
+         onUrlVisited("#showGoogleAd");
+      }
   }
 }
 
