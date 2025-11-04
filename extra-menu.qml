@@ -34,6 +34,7 @@ Rectangle{
         property real imgLeftMargin: 2
         property real textLeftMargin: 6
 
+
        Rectangle{
             z: root.z + 1
             color: "transparent"
@@ -65,6 +66,7 @@ Rectangle{
                 }
             }
         }
+
 
         Rectangle{
             z: root.z + 1
