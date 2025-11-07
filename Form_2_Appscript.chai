@@ -1415,12 +1415,9 @@ def getUpdatedMenu(string url, string xml, string label)
 	   }, 0, -1);
 	   
    
-	if(linkFound && !output.isEmpty()){
+	if(linkFound){
 	   output = "<?xml version='1.0' encoding='UTF-8'?><NECTA_RESULTS>" + output;
-	   var name = "N3ctaMenu.mgb";
-	   var path = generateAppRootFilePath(name);
-	   deleteFile(path);
-	   encryptAndSaveToFile(output,name);
+	   
 	}   
 	return (!linkFound) ? xml : output;
 }
