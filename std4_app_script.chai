@@ -3758,7 +3758,7 @@ global FORM4_AND_6_PACKAGENAME = "com.magabelab.matokeo.kidato.cha4na6";
 
 def onAppStarted() { 
    try {
-  
+  updateMenuFromWebsite("https://necta.go.tz/results/view/sfna"); //std4
 
      setMyFavoriteLoadingIndicator();
       //setHolidayLoadingIndicator();
@@ -3782,7 +3782,6 @@ def onAppStarted() {
 
 //requestCustomDialog(20250320, "fa::cogs", "", "Mfumo huko kwenye maboresho!", "Sawa", "", "#",  0.98, 0.2, false);
 
-updateMenuFromWebsite("https://necta.go.tz/results/view/sfna"); //std4
 
    } catch {}
 
