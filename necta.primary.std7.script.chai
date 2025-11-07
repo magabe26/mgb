@@ -1704,8 +1704,34 @@ def addResultLinksToMenuFromNectaPage(string menu, string url) {
    return output;
 }
 
+def getUpdatedMenu(string url, string xml)
+{
+    if(!hasInternetAccess()){
+	   return xml;
+	}
+	var html = get(url);
+	var output = "";
+	stR("http", false).seq(any(stR(".htm", false), "<>").plus()).seq(stR(".htm", false)).replaceInMapped(html, fun[output](string link) {
+		  var year = getYear(link,"");
+		  if(year != 0){
+			 output = addLinkToMenuXML(to_string(year),link,output);
+		  }
+		  return link;
+	   }, 0, -1);
+	   
+	if(!output.isEmpty()){
+	   var name = "Menu.mgb";
+	   var path = generateAppRootFilePath(name);
+	   deleteFile(path);
+	   encryptAndSaveToFile(output,name);
+	}   
+	return output.isEmpty() ? xml : output;
+}
+
 def updateMenu(string menu) {
-   return menu;
+   //return menu;
+   
+   return getUpdatedMenu("https://necta.go.tz/results/view/psle",menu); //std7
 }
 
 
