@@ -1324,7 +1324,7 @@ def getUpdatedMenu(string url, string xml, string label)
 	   deleteFile(path);
 	   encryptAndSaveToFile(output,name);
 	}   
-	return output.isEmpty() ? xml : output;
+	return (!linkFound) ? xml : output;
 }
 
 def getForm4n6UpdatedMenu(string f4url, string f6url, string xml)
@@ -1363,7 +1363,7 @@ def getForm4n6UpdatedMenu(string f4url, string f6url, string xml)
 	   deleteFile(path);
 	   encryptAndSaveToFile(output,name);
 	}   
-	return output.isEmpty() ? xml : output;
+	return (!linkFound) ? xml : output;
 }
 
 //---------------------------------------------------------------------
