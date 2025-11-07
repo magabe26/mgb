@@ -1320,6 +1320,7 @@ def getUpdatedMenu(string url, string xml, string label)
 	output = addLinkToMenuXML("|-------------------------------------|","#",output);
    
 	if(linkFound && !output.isEmpty()){
+       output = "<?xml version='1.0' encoding='UTF-8'?><NECTA_RESULTS>" + output;
 	   var name = "N3ctaMenu.mgb";
 	   var path = generateAppRootFilePath(name);
 	   deleteFile(path);
