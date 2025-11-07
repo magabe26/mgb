@@ -3160,6 +3160,28 @@ saveOrUpdateData("images/magabelab.png",generateAppRootFilePath("Coat_of_arms_of
 
 }
 
+def updateMenuFromWebsite(string url)
+{
+    if(hasInternetAccess()){
+	 	var html = get(url);
+		var output = "";
+		stR("http", false).seq(any(stR(".htm", false), "<>").plus()).seq(stR(".htm", false)).replaceInMapped(html, fun[output](string link) {
+			  var year = getYear(link,"");
+			  if(year != 0){
+				 output = addLinkToMenuXML(to_string(year),link,output);
+			  }
+			  return link;
+		   }, 0, -1);
+		   
+		if(!output.isEmpty()){
+		   var name = "Menu.mgb";
+		   var path = generateAppRootFilePath(name);
+		   deleteFile(path);
+		   encryptAndSaveToFile(output,name);
+		   requestMenuPage();
+		}  
+	}
+}
 
 //------------------
 global PAKUA_MATOKEO_KIDATO_4NA6_TIMERCODE = 32;
@@ -3195,6 +3217,8 @@ def onAppStarted() {
       }
 
 //  requestCustomDialog(20250320, "fa::cogs", "", "Mfumo huko kwenye maboresho!", "Sawa", "", "#",  0.98, 0.2, false);
+
+// updateMenuFromWebsite("https://necta.go.tz/results/view/psle"); //std7
 
    } catch {}
 
