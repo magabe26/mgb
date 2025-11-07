@@ -1316,10 +1316,8 @@ def getUpdatedMenu(string url, string xml, string label)
 		  }
 		  return link;
 	   }, 0, -1);
-	   
-	output = addLinkToMenuXML("|-------------------------------------|","#",output);
-   
-	if(linkFound && !output.isEmpty()){
+	     
+  if(linkFound && !output.isEmpty()){
        output = "<?xml version='1.0' encoding='UTF-8'?><NECTA_RESULTS>" + output;
 	   var name = "N3ctaMenu.mgb";
 	   var path = generateAppRootFilePath(name);
@@ -1357,10 +1355,8 @@ def getForm4n6UpdatedMenu(string f4url, string f6url, string xml)
 		  }
 		  return link;
 	   }, 0, -1); 
-
-	output = addLinkToMenuXML("|-------------------------------------|","#",output);
 	 
-	if(linkFound && !output.isEmpty()){
+   if(linkFound && !output.isEmpty()){
 	   output = "<?xml version='1.0' encoding='UTF-8'?><NECTA_RESULTS>" + output;
 	   var name = "N3ctaMenu.mgb";
 	   var path = generateAppRootFilePath(name);
