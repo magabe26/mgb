@@ -1282,24 +1282,53 @@ def addResultLinksToMenuFromNectaPage(string menu, string url) {
    return output;
 }
 
-def updateMenu(string menu) {
-   return menu;
-/*
-   var output = menu; 
+//---------------------------------------------------------------------
 
-   if (isGeneralApp()) {
-
-   } else if (isForm4App()) {
-
-     output =  addResultLinksToMenuFromNectaPage(output, "https://necta.go.tz/results/view/csee");
-
-   } else if (isForm6App()) {
-
-     output = addResultLinksToMenuFromNectaPage(output, "https://necta.go.tz/results/view/acsee");
-   }
-
-  return output; */
+def addLinkToMenuXML(name,link,xml)
+{
+  var output = xml.remove("</NECTA_RESULTS>",false);
+  var result = "<RESULTS><A HREF=\"" + link + "\">" + name + "</A></RESULTS>";
+  output = output + result;
+  return output + "</NECTA_RESULTS>";;  
 }
+
+def getUpdatedMenu(string url, string xml, string label)
+{
+    if(!hasInternetAccess()){
+	   return xml;
+	}
+	var html = get(url);
+	var output = "";
+	var linkFound = false;
+	output = addLinkToMenuXML("|-------------- " +  label +" --------------|","#",output);
+
+	stR("http", false).seq(any(stR(".htm", false), "<>").plus()).seq(stR(".htm", false)).replaceInMapped(html, fun[output,linkFound](string link) {
+		  var year = getYear(link,"");
+		  if(year != 0){
+			 output = addLinkToMenuXML(to_string(year),link,output);
+			 linkFound = true;
+		  }
+		  return link;
+	   }, 0, -1);
+	   
+   
+	if(linkFound && !output.isEmpty()){
+	   output = "<?xml version='1.0' encoding='UTF-8'?><NECTA_RESULTS>" + output;
+	   var name = "N3ctaMenu.mgb";
+	   var path = generateAppRootFilePath(name);
+	   deleteFile(path);
+	   encryptAndSaveToFile(output,name);
+	}   
+	return output.isEmpty() ? xml : output;
+}
+
+
+def updateMenu(string menu) { 
+   //return menu;
+     
+   return getUpdatedMenu("https://www.necta.go.tz/results/view/dsee",menu,"DSEE"); 
+}
+
 
 //----------onSaveAndPlayVideoAd--------
 
