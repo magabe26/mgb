@@ -1300,7 +1300,7 @@ def getUpdatedMenu(string url, string xml, string label)
 	var html = get(url);
 	var output = "";
 	var linkFound = false;
-	output = addLinkToMenuXML("|-------------- " +  label +" --------------|","#",output);
+	output = addLinkToMenuXML("|-------------- " +  label,"#",output);
 
 	stR("http", false).seq(any(stR(".htm", false), "<>").plus()).seq(stR(".htm", false)).replaceInMapped(html, fun[output,linkFound](string link) {
 		  var year = getYear(link,"");
