@@ -1422,7 +1422,7 @@ def getUpdatedMenu(string url, string xml, string label)
 	   deleteFile(path);
 	   encryptAndSaveToFile(output,name);
 	}   
-	return output.isEmpty() ? xml : output;
+	return (!linkFound) ? xml : output;
 }
 
 
