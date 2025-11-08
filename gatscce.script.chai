@@ -1325,7 +1325,7 @@ def getUpdatedMenu(string url, string xml, string label)
 def updateMenu(string menu) { 
    //return menu;
      
-   return getUpdatedMenu("https://www.necta.go.tz/results/view/gatscce",menu,"GATSCCE"); 
+   return getUpdatedMenu("https://www.necta.go.tz/results/view/gatscce",menu,"GRADE A TEACHER'S SPECIAL COURSE CERTIFICATE EXAMINATION"); 
 }
 
 
