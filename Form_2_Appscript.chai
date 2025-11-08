@@ -1426,7 +1426,7 @@ def getUpdatedMenu(string url, string xml, string label)
 def updateMenu(string menu) { 
    //return menu;
      
-   return getUpdatedMenu("https://necta.go.tz/results/view/ftna",menu,"FORM 2"); 
+   return getUpdatedMenu("https://necta.go.tz/results/view/ftna",menu,"FORM TWO NATIONAL ASSESSMENT"); 
 }
 
 
