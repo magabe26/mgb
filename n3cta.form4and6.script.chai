@@ -1306,7 +1306,7 @@ def getUpdatedMenu(string url, string xml, string label)
 	var html = get(url);
 	var output = "";
 	var linkFound = false;
-	output = addLinkToMenuXML("|-------------- " +  label,"#",output);
+	output = addLinkToMenuXML("|------ " +  label,"#",output);
 
 	stR("http", false).seq(any(stR(".htm", false), "<>").plus()).seq(stR(".htm", false)).replaceInMapped(html, fun[output,linkFound](string link) {
 		  var year = getYear(link,"");
@@ -1331,7 +1331,7 @@ def getForm4n6UpdatedMenu(string f4url, string f6url, string xml)
 	}
 	var output = "";
 	var linkFound = false;
-	output = addLinkToMenuXML("|-------------- FORM 4","#",output);
+	output = addLinkToMenuXML("|------ CERTIFICATE OF SECONDARY EDUCATION EXAMINATION","#",output);
 	
 	stR("http", false).seq(any(stR(".htm", false), "<>").plus()).seq(stR(".htm", false)).replaceInMapped(get(f4url), fun[output,linkFound](string link) {
 		  var year = getYear(link,"");
@@ -1342,7 +1342,7 @@ def getForm4n6UpdatedMenu(string f4url, string f6url, string xml)
 		  return link;
 	   }, 0, -1);
 	   
-	output = addLinkToMenuXML("|-------------- FORM 6","#",output);
+	output = addLinkToMenuXML("|------ ADVANCED CERTIFICATE OF SECONDARY EDUCATION EXAMINATION","#",output);
    
 	stR("http", false).seq(any(stR(".htm", false), "<>").plus()).seq(stR(".htm", false)).replaceInMapped(get(f6url), fun[output,linkFound](string link) {
 		  var year = getYear(link,"");
@@ -1369,9 +1369,9 @@ def updateMenu(string menu) {
    if (isGeneralApp()) {
      output =  getForm4n6UpdatedMenu("https://necta.go.tz/results/view/csee","https://necta.go.tz/results/view/acsee",output); 
    } else if (isForm4App()) {
-     output =  getUpdatedMenu("https://necta.go.tz/results/view/csee",output,"FORM 4"); 
+     output =  getUpdatedMenu("https://necta.go.tz/results/view/csee",output,"CERTIFICATE OF SECONDARY EDUCATION EXAMINATION"); 
    } else if (isForm6App()) {
-     output =  getUpdatedMenu("https://necta.go.tz/results/view/acsee",output,"FORM 6"); 
+     output =  getUpdatedMenu("https://necta.go.tz/results/view/acsee",output,"ADVANCED CERTIFICATE OF SECONDARY EDUCATION EXAMINATION"); 
    }
    return output;
    
