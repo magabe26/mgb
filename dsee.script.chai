@@ -1323,7 +1323,8 @@ def getUpdatedMenu(string url, string xml, string label)
 def updateMenu(string menu) { 
    //return menu;
      
-   return getUpdatedMenu("https://www.necta.go.tz/results/view/dsee",menu,"DSEE"); 
+   return getUpdatedMenu("https://www.necta.go.tz/results/view/dsee",menu,"MATOKEO YA UALIMU NGAZI YA STASHAHADA
+"); 
 }
 
 
