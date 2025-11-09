@@ -3237,7 +3237,7 @@ def updateMenuFromWebsite(string url)
 requestOtherAppsPage(); //make the update take effect at startup
 
            var timeStamp = getTimestamp();
-           saveOrUpdateData("menu-updated","Menyu kuu imesasishwa tarehe: " + getDate(timeStamp).remove("today,",false) + " " + timeToSwahili(getTime(timeStamp)));
+           saveOrUpdateData("menu-updated","Menyu kuu imesasishwa tarehe " + getDate(timeStamp).remove("today,",false) + " " + timeToSwahili(getTime(timeStamp)));
 
 requestMenuPage();
 
