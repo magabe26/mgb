@@ -3,6 +3,61 @@
  * Author Edwin Magabe    edyma24@gmail.com
  */
 
+def timeToSwahili(timeStr) {
+    // 1. Parsing the string parts
+    var hour_str = timeStr.substr(0, 2);
+    var minute_str = timeStr.substr(3, 2);
+    var ampm = timeStr.substr(6, 2);
+
+    var H = to_int(hour_str);
+    var M = to_int(minute_str);
+
+    // Basic validation
+    if (H < 1 || H > 12 || M < 0 || M > 59) {
+        return "Hitilafu: Muundo wa saa si sahihi (HH:MM XM).";
+    }
+	
+    var swahili_hour_vec = ["Moja","Mbili","Tatu","Nne","Tano","Sita","Saba","Nane","Tisa","Kumi","Kumi na Moja","Kumi na Mbili"];
+
+    // 2. Calculate Swahili Hour
+    // Swahili Hour = (Standard Hour + 6) mod 12. If result is 0, it is 12.
+    var swahili_H_raw = H + 6;
+    var swahili_H_mod = swahili_H_raw % 12;
+    var swahili_H = (swahili_H_mod == 0) ? 12 : swahili_H_mod;
+
+    // 3. Convert 12h to 24h for accurate Period mapping
+    var H_24;
+    if (ampm == "pm") {
+        H_24 = (H == 12) ? 12 : H + 12;
+    } else { // "am"
+        H_24 = (H == 12) ? 0 : H; // 12 AM (Midnight) is 00:00
+    }
+   
+    // 4. Determine Swahili Period based on 24-hour time
+    var period_name;
+
+    if (H_24 >= 0 && H_24 < 6) {
+        period_name = "Usiku"; // 12:00 AM (6 Usiku) to 5:59 AM (11 Usiku)
+    } else if (H_24 >= 6 && H_24 < 12) {
+        period_name = "Asubuhi"; // 6:00 AM (1 Asubuhi) to 11:59 AM (6 Asubuhi)
+    } else if (H_24 >= 12 && H_24 < 18) {
+        period_name = "Mchana"; // 12:00 PM (7 Mchana) to 5:59 PM (12 Mchana)
+    } else { // H_24 >= 18 && H_24 < 24
+        period_name = "Jioni"; // 6:00 PM (1 Jioni) to 11:59 PM (6 Jioni)
+    }
+   
+    // 5. Format the minutes
+    var minute_text = "";
+    if (M > 0) {
+        minute_text = " na dakika " + to_string(M);
+    }
+
+    // 6. Final assembly: Saa [Namba] [na dakika XX] [Kipindi]
+    var hour_text = "Saa " + swahili_hour_vec[swahili_H - 1];
+   
+    return hour_text + minute_text + " " + period_name;
+}
+
 //global EASING_TYPES_SLOW = [1,4,5,7,9,12,13,16,17,19,21,25,41,42,45];
 //global EASING_TYPES_NORMAL = [2,3,6,8,11,15,18,20,23,27,28,33,35,36,37,39];
 //global EASING_TYPES_FAST = [10,14,22,24,26,29,30,31,32,34,38,40];
