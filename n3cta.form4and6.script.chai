@@ -1316,6 +1316,10 @@ def getUpdatedMenu(string url, string xml, string label)
 		  }
 		  return link;
 	   }, 0, -1);
+
+ var timeStamp = getTimestamp();
+ var lastUpdated = "Menu updated on: " + getDate(timeStamp).remove("today,",false) + " " + getTime(timeStamp);
+ output = addLinkToMenuXML("|--------- " + lastUpdated,"#",output);
 	     
   if(linkFound){
        output = "<?xml version='1.0' encoding='UTF-8'?><NECTA_RESULTS>" + output;
@@ -1352,6 +1356,10 @@ def getForm4n6UpdatedMenu(string f4url, string f6url, string xml)
 		  }
 		  return link;
 	   }, 0, -1); 
+
+ var timeStamp = getTimestamp();
+ var lastUpdated = "Menu updated on: " + getDate(timeStamp).remove("today,",false) + " " + getTime(timeStamp);
+ output = addLinkToMenuXML("|--------- " + lastUpdated,"#",output);
 	 
    if(linkFound){
 	   output = "<?xml version='1.0' encoding='UTF-8'?><NECTA_RESULTS>" + output;
