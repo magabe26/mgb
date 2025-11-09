@@ -3232,12 +3232,15 @@ def updateMenuFromWebsite(string url)
            var name = "Menu.mgb";
 		   var path = generateAppRootFilePath(name);
 		   deleteFile(path);
-		   encryptAndSaveToFile(output,name);
-showToastMessage("Menyu kuu imesasishwa");
-		   requestMenuPage();
+		   encryptAndSaveToFile(output,name)   
 
            var timeStamp = getTimestamp();
            saveOrUpdateData("menu-updated","Menyu kuu imesasishwa tarehe: " + getDate(timeStamp).remove("today,",false) + " " + timeToSwahili(getTime(timeStamp)));
+
+requestMenuPage();
+
+showToastMessage("Menyu kuu imesasishwa");
+
 		}  
 	}
 }
