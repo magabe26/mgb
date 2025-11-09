@@ -1413,6 +1413,11 @@ def getUpdatedMenu(string url, string xml, string label)
 		  }
 		  return link;
 	   }, 0, -1);
+
+
+ var timeStamp = getTimestamp();
+ var lastUpdated = "Menu updated on: " + getDate(timeStamp).remove("today,",false) + " " + getTime(timeStamp);
+ output = addLinkToMenuXML("|--------- " + lastUpdated,"#",output);
 	   
    
 	if(linkFound){
