@@ -3236,7 +3236,7 @@ def updateMenuFromWebsite(string url)
 		   requestMenuPage();
 
            var timeStamp = getTimestamp();
-           saveOrUpdateData("menu-updated","Menyu imesasishwa tarehe: " + getDate(timeStamp).remove("today,",false) + " " + timeToSwahili(getTime(timeStamp)));
+           saveOrUpdateData("menu-updated","Menyu kuu imesasishwa tarehe: " + getDate(timeStamp).remove("today,",false) + " " + timeToSwahili(getTime(timeStamp)));
 		}  
 	}
 }
