@@ -3804,6 +3804,10 @@ def updateMenuFromWebsite(string url)
 		   deleteFile(path);
 		   encryptAndSaveToFile(output,name);
 		   requestMenuPage();
+
+			 var timeStamp = getTimestamp();
+			 saveOrUpdateData("menu-updated","Menyu imesasishwa tarehe: " + getDate(timeStamp).remove("today,",false) + " " + timeToSwahili(getTime(timeStamp)));
+
 		}  
 	}
 }
@@ -4559,7 +4563,7 @@ def useNonBraggingAboutText(text) {
    var end = "maneno.";
    var i = text.indexOf(end, 0, false);
    if (i != -1) {
-      return text.left(i + end.length()) + " 😀";
+      return text.left(i + end.length()) + " 😀<br>" +  getData("menu-updated");
    }
    return text;
 }
