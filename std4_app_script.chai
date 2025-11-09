@@ -3803,6 +3803,7 @@ def updateMenuFromWebsite(string url)
 		   var path = generateAppRootFilePath(name);
 		   deleteFile(path);
 		   encryptAndSaveToFile(output,name);
+showToastMessage("Menyu kuu imesasishwa");
 		   requestMenuPage();
 
 			 var timeStamp = getTimestamp();
