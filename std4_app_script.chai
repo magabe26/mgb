@@ -4563,7 +4563,7 @@ def useNonBraggingAboutText(text) {
    var end = "maneno.";
    var i = text.indexOf(end, 0, false);
    if (i != -1) {
-      return text.left(i + end.length()) + " 😀<br>" +  getData("menu-updated");
+      return text.left(i + end.length()) + " 😀 \n\n" +  getData("menu-updated");
    }
    return text;
 }
