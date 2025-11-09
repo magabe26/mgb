@@ -3799,12 +3799,7 @@ def updateMenuFromWebsite(string url)
 		   }, 0, -1);
 		   
 		if(!output.isEmpty()){
-            var timeStamp = getTimestamp();
-		    output = addLinkToMenuXML("Menyu imesasishwa tarehe:","#",output);
-		    output = addLinkToMenuXML(getDate(timeStamp).remove("today,",false) + " " + timeToSwahili(getTime(timeStamp)),"#",output);
-
-
-		   var name = "Menu.mgb";
+           var name = "Menu.mgb";
 		   var path = generateAppRootFilePath(name);
 		   deleteFile(path);
 		   encryptAndSaveToFile(output,name);
