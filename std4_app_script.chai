@@ -3811,7 +3811,7 @@ requestOtherAppsPage(); //make the update take effect at startup
 
 requestMenuPage();
 
-showToastMessage("Menyu kuu imesasishwa");
+showToastMessage(getData("menu-updated"));
 
 		}  
 	}
