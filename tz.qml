@@ -48,7 +48,7 @@ Rectangle {
             text: "<font color=\"gray\"><i>Rais wa Jamhuri ya Muungano wa Tanzania</i></font>"
             width: app.width
             anchors.top: parent.top
-            font.pointSize: 10
+            font.pointSize: 12
             font.bold: true
             textFormat: Text.RichText
             wrapMode: Text.WordWrap
@@ -76,6 +76,7 @@ Rectangle {
     }
 
     Rectangle{
+        id: rec2
         anchors.top: rec1.bottom
         anchors.topMargin: 18
         width: parent.width
@@ -87,7 +88,7 @@ Rectangle {
             text: "<font color=\"gray\"><i>Rais wa Zanzibar na Mwenyekiti wa Baraza la Mapinduzi</i></font>"
             width: app.width
             anchors.top: parent.top
-            font.pointSize: 10
+            font.pointSize: 12
             font.bold: true
             textFormat: Text.RichText
             wrapMode: Text.WordWrap
@@ -112,5 +113,58 @@ Rectangle {
             }
         }
 
+    }
+
+    Rectangle{
+        id:rec3
+        width: parent.width
+        height: txt5.height + txt6.height
+        anchors.top: rec2.bottom
+        color: "transparent"
+        anchors.topMargin: 10
+
+        Text {
+            id:txt5
+            text: "<font color=\"gray\"><i>Makamu wa Rais wa Jamhuri ya Muungano wa Tanzania</i></font>"
+            width: app.width
+            anchors.top: parent.top
+            font.pointSize: 12
+            font.bold: true
+            textFormat: Text.RichText
+            wrapMode: Text.WordWrap
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
+        Text {
+            id:txt6
+            text: "<font color=\"green\">MHE. DKT. EMMANUEL JOHN NCHIMBI</font>"
+            width: app.width
+            anchors.top: txt5.bottom
+            font.pointSize: Qt.platform.os === "android" ? 16 : 14
+            font.bold: true
+            textFormat: Text.RichText
+            wrapMode: Text.WordWrap
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
+
+        MouseArea{
+            anchors.fill: parent
+            onClicked: {
+                app.executeCommand("#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Ads/H.E_E.J.NCHIMBI.jpeg;#showGoogleAd;0.9;0.45;500");
+            }
+        }
+
+    }
+
+    Text {
+        text: "*** <i>Amani na Umoja <font color=\"gray\">==</font> Ma-vibe ya Kijanja</i> ***"
+        anchors.topMargin: 18
+        width: app.width
+        anchors.top: rec3.bottom
+        font.pointSize: 8
+        font.bold: true
+        textFormat: Text.RichText
+        wrapMode: Text.WordWrap
+        anchors.horizontalCenter: parent.horizontalCenter
+        color: "blue"
     }
 }
