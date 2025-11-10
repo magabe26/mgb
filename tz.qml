@@ -172,7 +172,7 @@ Rectangle {
     Text {
         text: "*** <i>Amani na Umoja <font color=\"gray\">==</font> Ma-vibe ya Kijanja</i> ***"
         anchors.topMargin: 26
-        
+        width: app.width
         anchors.top: rec3.bottom
         font.pointSize: 12
         font.bold: true
