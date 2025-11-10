@@ -25,7 +25,8 @@ Rectangle {
 
     Text {
         id:header
-        text: "TANZANIA"
+        text: "<font color=\"green\">TA</font>
+<font color=\"yellow\">N</font><font color=\"black\">ZA</font><font color=\"yellow\">N</font><font color=\"blue\">IA</font>"
         font.pointSize: Qt.platform.os === "android" ? 24 : 22
         wrapMode: Text.WordWrap
         font.bold: true
