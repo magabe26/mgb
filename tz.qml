@@ -28,7 +28,8 @@ Rectangle{
         anchors.rightMargin: 1
         anchors.topMargin: 1
         height: header.height
-        color: "gray"
+        color: "#003333"
+        opacity: 0.2
         anchors.top: app.top
         
     Text {
