@@ -136,6 +136,7 @@ Pakua aplikesheni zingine hapa
    </APP>
 
 <APP>
+<A HREF="#tz"></A>
       <BG_COLOR>white</BG_COLOR>
       <ENABLE_IMAGE>1</ENABLE_IMAGE>
       <IMAGE_URL>https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/tz.gif</IMAGE_URL>
