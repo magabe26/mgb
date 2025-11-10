@@ -29,7 +29,7 @@ Rectangle{
         anchors.topMargin: 1
         height: header.height
         color: "#003333"
-        opacity: 0.2
+        opacity: 0.6
         anchors.top: app.top
         
     Text {
