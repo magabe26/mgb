@@ -39,6 +39,18 @@ Rectangle {
         height: parent.height * 0.4
         anchors.top: header.bottom
         anchors.horizontalCenter: parent.horizontalCenter
+
+MouseArea{
+            anchors.fill: parent
+            onClicked: {
+                if(typeof n3ctaApp !== "undefined"){
+			
+			n3ctaApp.closeQMLDialog();
+        }else if(typeof loader !== "undefined"){
+				nectaMainResultsPageDownloaderHtmlToXmlConveterAndSaver.closeQMLDialog();
+        }
+            }
+        }
     }
 
 
