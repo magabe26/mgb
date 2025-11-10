@@ -6,8 +6,7 @@ Rectangle {
     id: app
     width: parent.width
     height: parent.height
-    color: "white"
-    //color: "#003333"
+    color: "#003333"
     border.color: "cyan"
     border.width: 1
 
