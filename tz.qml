@@ -160,7 +160,7 @@ Rectangle {
         anchors.topMargin: 26
         width: app.width
         anchors.top: rec3.bottom
-        font.pointSize: 8
+        font.pointSize: 12
         font.bold: true
         textFormat: Text.RichText
         wrapMode: Text.WordWrap
