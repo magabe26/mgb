@@ -6,7 +6,7 @@ Rectangle {
     id: app
     width: parent.width
     height: parent.height
-    color: "transparent"
+    color: "white"
 
     function executeCommand(url)
     {
