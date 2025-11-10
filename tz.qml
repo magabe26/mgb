@@ -35,7 +35,9 @@ Rectangle {
     AnimatedImage{
         id: flag
         source: "./tzflag.gif"
-        width: parent.width
+        width: parent.width - 2
+        anchors.leftMargin: 1
+        anchors.rightMargin: 1
         height: parent.height * 0.4
         anchors.top: header.bottom
         anchors.horizontalCenter: parent.horizontalCenter
