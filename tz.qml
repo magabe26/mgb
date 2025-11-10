@@ -44,7 +44,10 @@ Rectangle {
 
     Rectangle{
         id:rec1
-        width: parent.width
+        width: parent.width - 2
+        anchors.leftMargin: 1
+        anchors.rightMargin: 1
+
         height: txt1.height + txt2.height
         color: "#055152"
         anchors.top: flag.bottom
@@ -86,7 +89,9 @@ Rectangle {
         id: rec2
         anchors.top: rec1.bottom
         anchors.topMargin: 22
-        width: parent.width
+        width: parent.width - 2
+        anchors.leftMargin: 1
+        anchors.rightMargin: 1
         height: txt3.height + txt4.height
         color: "#055152"
 
@@ -124,7 +129,9 @@ Rectangle {
 
     Rectangle{
         id:rec3
-        width: parent.width
+        width: parent.width - 2
+        anchors.leftMargin: 1
+        anchors.rightMargin: 1
         height: txt5.height + txt6.height
         anchors.top: rec2.bottom
         color: "#055152"
