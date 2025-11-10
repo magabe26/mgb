@@ -44,7 +44,7 @@ Rectangle {
 
     Rectangle{
         id:rec1
-        width: parent.width - 2
+        width: parent.width - 4
         anchors.leftMargin: 1
         anchors.rightMargin: 1
 
@@ -89,7 +89,7 @@ Rectangle {
         id: rec2
         anchors.top: rec1.bottom
         anchors.topMargin: 22
-        width: parent.width - 2
+        width: parent.width - 4
         anchors.leftMargin: 1
         anchors.rightMargin: 1
         height: txt3.height + txt4.height
@@ -129,7 +129,7 @@ Rectangle {
 
     Rectangle{
         id:rec3
-        width: parent.width - 2
+        width: parent.width - 4
         anchors.leftMargin: 1
         anchors.rightMargin: 1
         height: txt5.height + txt6.height
