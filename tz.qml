@@ -46,7 +46,7 @@ Rectangle {
         height: txt1.height + txt2.height
         color: "transparent"
         anchors.top: flag.bottom
-        anchors.topMargin: 10
+        anchors.topMargin: 12
 
         Text {
             id:txt1
@@ -83,7 +83,7 @@ Rectangle {
     Rectangle{
         id: rec2
         anchors.top: rec1.bottom
-        anchors.topMargin: 18
+        anchors.topMargin: 22
         width: parent.width
         height: txt3.height + txt4.height
         color: "transparent"
@@ -126,7 +126,7 @@ Rectangle {
         height: txt5.height + txt6.height
         anchors.top: rec2.bottom
         color: "transparent"
-        anchors.topMargin: 10
+        anchors.topMargin: 22
 
         Text {
             id:txt5
