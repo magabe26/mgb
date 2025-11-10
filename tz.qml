@@ -9,6 +9,7 @@ Rectangle {
     color: "#003333"
     border.color: "cyan"
     border.width: 1
+    border.radius: 8
 
     function executeCommand(url)
     {
