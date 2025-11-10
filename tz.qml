@@ -63,7 +63,7 @@ MouseArea{
         height: txt1.height + txt2.height
         color: "#055152"
         anchors.top: flag.bottom
-        anchors.topMargin: 12
+        anchors.topMargin: 22
 
         Text {
             id:txt1
