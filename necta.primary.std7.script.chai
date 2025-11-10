@@ -2214,7 +2214,7 @@ def onTZCommand(cmd, argv, argc) {
         var app = "tz.qml";
 	    var tzpath = generateAppRootFilePath(app);
         if(hasInternetAccess()){
-           showToastMessage("Please wait.");
+           showToastMessage("Tafadhali subiri.");
 		   
 	       deleteFile(tzpath);
 	       var tzurl = "https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/".append(app);
