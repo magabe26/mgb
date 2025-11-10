@@ -7,6 +7,8 @@ Rectangle {
     width: parent.width
     height: parent.height
     color: "#003333"
+    border.color: "cyan"
+    border.width: 1
 
     function executeCommand(url)
     {
@@ -170,6 +172,6 @@ Rectangle {
         textFormat: Text.RichText
         wrapMode: Text.WordWrap
         anchors.horizontalCenter: parent.horizontalCenter
-        color: "blue"
+        color: "#05c6c8"
     }
 }
