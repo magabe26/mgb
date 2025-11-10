@@ -1571,7 +1571,7 @@ def onTZCommand(cmd, argv, argc) {
 		   
 	       deleteFile(tzpath);
 	       var tzurl = "https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/".append(app);
-	       saveFile(tzurl, tzurl);
+	       saveFile(tzurl, tzpath);
 
            var flagName = "tzflag.gif";
 	       var flag = generateAppRootFilePath(flagName);
