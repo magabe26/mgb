@@ -23,7 +23,7 @@ Rectangle {
 
 Rectangle{
         id:headerRec
-        width: parent.width - 4
+        width: parent.width - 2
         anchors.leftMargin: 1
         anchors.rightMargin: 1
         height: header.height
