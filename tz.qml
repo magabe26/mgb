@@ -10,8 +10,13 @@ Rectangle {
 
     function executeCommand(url)
     {
-        n3ctaQmlConnectionsPipe.onUrlVisited(url);
-        nectaMainResultsPageDownloaderHtmlToXmlConveterAndSaver.closeQMLDialog();
+	  if(typeof n3ctaApp !== "undefined"){
+			n3ctaApp.onUrlVisited(url);
+			n3ctaApp.closeQMLDialog();
+        }else if(typeof loader !== "undefined"){
+			n3ctaQmlConnectionsPipe.onUrlVisited(url);
+			nectaMainResultsPageDownloaderHtmlToXmlConveterAndSaver.closeQMLDialog();
+        }
     }
 
     Text {
