@@ -68,7 +68,7 @@ MouseArea{
         Text {
             id:txt1
             text: "<font color=\"gray\"><i>Rais wa Jamhuri ya Muungano wa Tanzania</i></font>"
-            width: app.width * 0.8
+            width: app.width * 0.98
             anchors.top: parent.top
             font.pointSize: 12
             font.bold: true
@@ -79,7 +79,7 @@ MouseArea{
         Text {
             id:txt2
             text: "<font color=\"green\">MHE. DKT. SAMIA SULUHU HASSAN</font>"
-            width: app.width * 0.8
+            width: app.width * 0.98
             anchors.top: txt1.bottom
             font.pointSize: Qt.platform.os === "android" ? 16 : 14
             font.bold: true
@@ -110,7 +110,7 @@ MouseArea{
         Text {
             id:txt3
             text: "<font color=\"gray\"><i>Rais wa Zanzibar na Mwenyekiti wa Baraza la Mapinduzi</i></font>"
-            width: app.width * 0.8
+            width: app.width * 0.98
             anchors.top: parent.top
             font.pointSize: 12
             font.bold: true
@@ -121,7 +121,7 @@ MouseArea{
         Text {
             id:txt4
             text: "<font color=\"green\">MHE. DKT. HUSSEIN ALI MWINYI</font>"
-            width: app.width * 0.8
+            width: app.width * 0.98
             anchors.top: txt3.bottom
             font.pointSize: Qt.platform.os === "android" ? 16 : 14
             font.bold: true
@@ -152,7 +152,7 @@ MouseArea{
         Text {
             id:txt5
             text: "<font color=\"gray\"><i>Makamu wa Rais wa Jamhuri ya Muungano wa Tanzania</i></font>"
-            width: app.width * 0.8
+            width: app.width * 0.98
             anchors.top: parent.top
             font.pointSize: 12
             font.bold: true
@@ -163,7 +163,7 @@ MouseArea{
         Text {
             id:txt6
             text: "<font color=\"green\">MHE. DKT. EMMANUEL JOHN NCHIMBI</font>"
-            width: app.width * 0.8
+            width: app.width * 0.98
             anchors.top: txt5.bottom
             font.pointSize: Qt.platform.os === "android" ? 16 : 14
             font.bold: true
