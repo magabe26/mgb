@@ -26,6 +26,7 @@ Rectangle{
         width: parent.width - 2
         anchors.leftMargin: 1
         anchors.rightMargin: 1
+        anchors.topMargin: 1
         height: header.height
         color: "white"
         anchors.top: app.top
