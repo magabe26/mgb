@@ -8,9 +8,7 @@ Rectangle {
     height: parent.height
     color: "#003333"
     border.color: "cyan"
-    border.width: 1
-    
-
+    border.width: 1  
 
     function executeCommand(url)
     {
@@ -23,17 +21,26 @@ Rectangle {
         }
     }
 
+Rectangle{
+        id:headerRec
+        width: parent.width - 4
+        anchors.leftMargin: 1
+        anchors.rightMargin: 1
+        height: header.height
+        color: "white"
+        anchors.top: app.top
+        
     Text {
         id:header
         text: "<font color=\"green\">TA</font>
 <font color=\"yellow\">N</font><font color=\"black\">ZA</font><font color=\"yellow\">N</font><font color=\"blue\">IA</font>"
         font.pointSize: Qt.platform.os === "android" ? 24 : 22
         wrapMode: Text.WordWrap
-        font.bold: true
-        color: "#00c000"
-        anchors.top: app.top
+        font.bold: true         
         anchors.horizontalCenter: parent.horizontalCenter
     }
+
+}
 
     AnimatedImage{
         id: flag
@@ -42,7 +49,7 @@ Rectangle {
         anchors.leftMargin: 1
         anchors.rightMargin: 1
         height: parent.height * 0.4
-        anchors.top: header.bottom
+        anchors.top: headerRec.bottom
         anchors.horizontalCenter: parent.horizontalCenter
 
 MouseArea{
