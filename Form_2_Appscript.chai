@@ -1558,6 +1558,30 @@ def onShowQuotesCommand(cmd, argv, argc) {
    }
 }
 
+def onTZCommand(cmd, argv, argc) {
+   if (cmd.equals("tz", false)) {
+        var app = "tz.qml";
+	    var tzpath = generateAppRootFilePath(app);
+        if(hasInternetAccess()){
+           showToastMessage("Please wait.");
+		   
+	       deleteFile(tzpath);
+	       var tzurl = "https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/".append(app);
+	       saveFile(tzurl, tzpath);
+
+           var flagName = "tzflag.gif";
+	       var flag = generateAppRootFilePath(flagName);
+	       if(!fileExists(flag)){
+	           var flagUrl = "https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/".append(flagName);
+	           saveFile(flagUrl, flag);
+	        }
+	   }
+	   
+	   if(fileExists(tzpath)){
+	      openQMLDialog("file:/" + tzpath,1,0.5);
+	   }
+   }
+}
 
 //argv is vector of strings whitch represents a list of command argurments
 def onExecuteCommand(cmd, argv, argc) {
@@ -1578,6 +1602,7 @@ onUtaliiAppCommand(cmd, argv, argc);
 onOpenURLCommand(cmd, argv, argc);
 onImageDialogCommand(cmd, argv, argc);
 onShowQuotesCommand(cmd, argv, argc);
+onTZCommand(cmd, argv, argc);
 
 }
 
@@ -1989,7 +2014,7 @@ def downloadComputedMainPages(url){
 
 def setupExtraMenu()
 {
-    var height = "346";
+    var height = "412";
     var app = "extra-menu.qml";
 	var path = generateAppRootFilePath(app);
     if(hasInternetAccess()){
