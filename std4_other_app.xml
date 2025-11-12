@@ -51,10 +51,6 @@
    </APP>
     
 
-<APP>
-      <A HREF="#" />
-   </APP>
-
    <APP>
       <A HREF="https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.darasa.la.nne">Tafadhali rate aplikesheni hii hapa</A>
       <COLOR>#00c000</COLOR>
@@ -90,6 +86,11 @@
       <ICON_COLOR>red</ICON_COLOR>
       <BOLD_TEXT>1</BOLD_TEXT>
    </APP>
+
+<APP>
+      <A HREF="#" />
+   </APP>
+
    
 <APP>
       <A HREF="#openurl;https://m.youtube.com/@magabelab">YouTube</A>
