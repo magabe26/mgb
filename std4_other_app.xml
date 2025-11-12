@@ -9,11 +9,6 @@
       <IMAGE_WIDTH_FRACTION>1</IMAGE_WIDTH_FRACTION>
       <IMAGE_HEIGHT_FRACTION>0.25</IMAGE_HEIGHT_FRACTION>
    </APP>
-   <APP>
-      <A HREF="#">Jina la shule lisomekeje?</A>
-      <ICON_COLOR>red</ICON_COLOR>
-      <BOLD_TEXT>1</BOLD_TEXT>
-   </APP>
 
 <APP>
       <A HREF="#saveAndPlayVideoAd;https://github.com/magabe26/mgb/blob/master/Ads/nyerere.mp4;#;Baba wa Taifa la Tanzania;#004040;">Baba wa Taifa la Tanzania</A>
@@ -28,7 +23,12 @@
 <APP>
       <A HREF="#" />
    </APP>
-    
+
+   <APP>
+      <A HREF="#">Jina la shule lisomekeje?</A>
+      <ICON_COLOR>red</ICON_COLOR>
+      <BOLD_TEXT>1</BOLD_TEXT>
+   </APP> 
 
    <APP>
       <A HREF="#setLocale;sw">(a) SHULE YA MSINGI TZ</A>
@@ -90,9 +90,7 @@
       <ICON_COLOR>red</ICON_COLOR>
       <BOLD_TEXT>1</BOLD_TEXT>
    </APP>
-   <APP>
-      <A HREF="#" />
-   </APP>
+   
 <APP>
       <A HREF="#openurl;https://m.youtube.com/@magabelab">YouTube</A>
       <COLOR>red</COLOR>
