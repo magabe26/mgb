@@ -138,8 +138,14 @@ Pakua aplikesheni zingine hapa
       <COLOR>#00c000</COLOR>
       <BOLD_TEXT>1</BOLD_TEXT>
 </APP>
+
    <APP>
-      <A HREF="#" />
+      <A HREF="#saveAndPlayVideoAd;https://github.com/magabe26/mgb/blob/master/Ads/nyerere.mp4;#;Baba wa Taifa la Tanzania;#004040;">Baba wa Taifa la Tanzania</A>
+      <COLOR>black</COLOR>
+      <BG_COLOR>white</BG_COLOR>
+      <ICON>fa::star</ICON>
+      <ICON_COLOR>green</ICON_COLOR>
+      <BOLD_TEXT>1</BOLD_TEXT>
    </APP>
 
 
