@@ -196,7 +196,7 @@ MouseArea{
     }
 
     Text {
-        text: "*** <i>Amani na Umoja <font color=\"gray\">==</font> Ma-vibe ya Kijanja</i> ***"
+        text: "*** <i>Amani, Upendo na Umoja <font color=\"gray\">==</font> Ma-vibe ya Kijanja</i> ***"
         anchors.topMargin: 26
         width: app.width * 0.75
         anchors.top: rec3.bottom
