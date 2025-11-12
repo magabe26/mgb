@@ -2018,7 +2018,7 @@ def downloadComputedMainPages(url){
 
 def setupExtraMenu()
 {
-    var height = "412";
+    var height = "456";
     var app = "extra-menu.qml";
 	var path = generateAppRootFilePath(app);
     if(hasInternetAccess()){
