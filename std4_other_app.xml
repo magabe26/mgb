@@ -222,7 +222,10 @@ Pakua aplikesheni zingine hapa
       <ICON_COLOR>green</ICON_COLOR>
       <BOLD_TEXT>1</BOLD_TEXT>
    </APP>
- 
+
+ <APP>
+      <A HREF="#" />
+   </APP>
      
 
 </APPS>
