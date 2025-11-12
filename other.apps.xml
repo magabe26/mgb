@@ -10,6 +10,19 @@
       <IMAGE_HEIGHT_FRACTION>0.25</IMAGE_HEIGHT_FRACTION>
    </APP>
 
+<APP>
+      <A HREF="#saveAndPlayVideoAd;https://github.com/magabe26/mgb/blob/master/Ads/nyerere.mp4;#;Baba wa Taifa la Tanzania;#004040;">Baba wa Taifa la Tanzania</A>
+      <COLOR>black</COLOR>
+      <BG_COLOR>white</BG_COLOR>
+      <ICON>fa::star</ICON>
+      <ICON_COLOR>black</ICON_COLOR>
+      <BOLD_TEXT>1</BOLD_TEXT>
+   </APP>
+
+<APP>
+      <A HREF="#" />
+   </APP>
+
    <APP>
       <A HREF="#">Jina la shule lisomekeje?</A>
       <ICON_COLOR>red</ICON_COLOR>
@@ -139,15 +152,6 @@ Pakua aplikesheni zingine hapa
       <BOLD_TEXT>1</BOLD_TEXT>
 </APP>
 
-   <APP>
-      <A HREF="#saveAndPlayVideoAd;https://github.com/magabe26/mgb/blob/master/Ads/nyerere.mp4;#;Baba wa Taifa la Tanzania;#004040;">Baba wa Taifa la Tanzania</A>
-      <COLOR>black</COLOR>
-      <BG_COLOR>white</BG_COLOR>
-      <ICON>fa::star</ICON>
-      <ICON_COLOR>green</ICON_COLOR>
-      <BOLD_TEXT>1</BOLD_TEXT>
-   </APP>
-
 
 <APP>
 <A HREF="#tz"></A>
@@ -195,9 +199,7 @@ Pakua aplikesheni zingine hapa
    <APP>
       <A HREF="#" />
    </APP>
-   <APP>
-      <A HREF="#" />
-   </APP>
+   
    
    
 </APPS>
