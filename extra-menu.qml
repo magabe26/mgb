@@ -160,7 +160,7 @@ Rectangle{
             MouseArea{
                 anchors.fill: parent
                 onClicked: {
-                    root.executeCommand("#saveAndPlayVideoAd;https://raw.githubusercontent.com/magabe26/mgb/master/Ads/nyerere.mp4;#;Baba wa Taifa la Tanzania;#004040;", []);
+                    root.executeCommand("#saveAndPlayVideoAd;https://raw.githubusercontent.com/magabe26/mgb/master/Ads/nyerere.mp4;#;Baba wa Taifa la Tanzania;#004040;nyerere.mp4;", []);
 
                 }
             }
