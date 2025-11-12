@@ -140,6 +140,39 @@ Rectangle{
             height: icon1.paintedHeight
 
             Image {
+                id: icon0
+                width: 68
+                height: width
+                anchors.top: parent.top
+                anchors.left: parent.left
+                anchors.leftMargin: menu.imgLeftMargin
+                source: getIconSource("fa::star","#00e6e6")
+            }
+
+            Text {
+                anchors.left: icon0.right
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.leftMargin: menu.textLeftMargin
+                color: Qt.lighter("gray",1.7)
+                text: "Nyerere"
+            }
+
+            MouseArea{
+                anchors.fill: parent
+                onClicked: {
+                    root.executeCommand("saveAndPlayVideoAd",[https://github.com/magabe26/mgb/blob/master/Ads/nyerere.mp4","#","Baba wa Taifa la Tanzania","#004040;"]);
+                }
+            }
+        }
+
+
+Rectangle{
+            z: root.z + 1
+            color: "transparent"
+            width: root.width
+            height: icon1.paintedHeight
+
+            Image {
                 id: icon4
                 width: 68
                 height: width
