@@ -198,7 +198,7 @@ MouseArea{
     Text {
         text: "*** Amani, Upendo, Ushirikiano na Umoja <font color=\"gray\">==</font> Ma-vibe ya Kijanja</i> ***"
         anchors.topMargin: 26
-        width: app.width * 0.75
+        width: app.width * 0.98
         anchors.top: rec3.bottom
         font.pointSize: 12
         font.bold: true
