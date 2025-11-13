@@ -3854,6 +3854,9 @@ global FORM4_AND_6_PACKAGENAME = "com.magabelab.matokeo.kidato.cha4na6";
 
 def onAppStarted() { 
    try {
+
+setFailureIdentifier("E");
+
   updateMenuFromWebsite("https://necta.go.tz/results/view/sfna"); //std4
 
      setMyFavoriteLoadingIndicator();
