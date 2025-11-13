@@ -222,7 +222,7 @@ app.executeCommand("#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/
         }
         Text {
             id:txt8
-            text: "<font color=\"green\">MHE. DKT. MWIGULU NCHEMBA</font>"
+            text: "<font color=\"green\">MHE. DKT. MWIGULU LAMECK NCHEMBA</font>"
             width: app.width * 0.96
             anchors.top: txt7.bottom
             font.pointSize: Qt.platform.os === "android" ? 16 : 14
