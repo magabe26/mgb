@@ -199,11 +199,53 @@ app.executeCommand("#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/
 
     }
 
+    Rectangle{
+        id:rec7
+        width: parent.width - 4
+        anchors.leftMargin: 1
+        anchors.rightMargin: 1
+        height: txt5.height + txt6.height
+        anchors.top: rec3.bottom
+        color: "#055152"
+        anchors.topMargin: 22
+
+        Text {
+            id:txt7
+            text: "<font color=\"gray\"><i>Waziri mkuu wa Jamhuri ya Muungano wa Tanzania</i></font>"
+            width: app.width * 0.96
+            anchors.top: parent.top
+            font.pointSize: 12
+            font.bold: true
+            textFormat: Text.RichText
+            wrapMode: Text.WordWrap
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
+        Text {
+            id:txt8
+            text: "<font color=\"green\">MHE. DKT. MWIGULU NCHEMBA</font>"
+            width: app.width * 0.96
+            anchors.top: txt7.bottom
+            font.pointSize: Qt.platform.os === "android" ? 16 : 14
+            font.bold: true
+            textFormat: Text.RichText
+            wrapMode: Text.WordWrap
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
+
+        MouseArea{
+            anchors.fill: parent
+            onClicked: {
+                app.executeCommand("#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Ads/DKT.-MWIGULU-NCHEMBA.jpg;#showGoogleAd;0.9;0.45;500");
+            }
+        }
+
+    }
+
     Text {
         text: "*** Amani, Upendo, Ushirikiano, Uhuru na Umoja <font color=\"gray\">ni</font> Ma-vibe ya Kijanja</i> ***"
         anchors.topMargin: 26
         width: app.width * 0.98
-        anchors.top: rec3.bottom
+        anchors.top: rec7.bottom
         font.pointSize: 12
         font.bold: true
         textFormat: Text.RichText
