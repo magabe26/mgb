@@ -211,7 +211,7 @@ app.executeCommand("#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/
 
         Text {
             id:txt7
-            text: "<font color=\"gray\"><i>Waziri mkuu wa Jamhuri ya Muungano wa Tanzania</i></font>"
+            text: "<font color=\"gray\"><i>Waziri Mkuu wa Jamhuri ya Muungano wa Tanzania</i></font>"
             width: app.width * 0.96
             anchors.top: parent.top
             font.pointSize: 12
