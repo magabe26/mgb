@@ -284,7 +284,7 @@ Rectangle {
     }
 
     Text {
-        text: "*** Amani, Upendo, Ushirikiano, Uhuru na Umoja <font color=\"gray\">ni</font> Ma-vibe ya Kijanja</i> ***"
+        text: "*** Amani, Upendo, Ushirikiano, Uhuru na Umoja ***"
         anchors.topMargin: 26
         width: app.width * 0.98
         anchors.top: rec9.bottom
