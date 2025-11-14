@@ -8,20 +8,20 @@ Rectangle {
     height: parent.height
     color: "#003333"
     border.color: "cyan"
-    border.width: 1  
+    border.width: 1
 
     function executeCommand(url)
     {
-	  if(typeof n3ctaApp !== "undefined"){
-			n3ctaApp.onUrlVisited(url);
-			n3ctaApp.closeQMLDialog();
+        if(typeof n3ctaApp !== "undefined"){
+            n3ctaApp.onUrlVisited(url);
+            n3ctaApp.closeQMLDialog();
         }else if(typeof loader !== "undefined"){
-			n3ctaQmlConnectionsPipe.onUrlVisited(url);
-			nectaMainResultsPageDownloaderHtmlToXmlConveterAndSaver.closeQMLDialog();
+            n3ctaQmlConnectionsPipe.onUrlVisited(url);
+            nectaMainResultsPageDownloaderHtmlToXmlConveterAndSaver.closeQMLDialog();
         }
     }
 
-Rectangle{
+    Rectangle{
         id:headerRec
         width: parent.width - 2
         anchors.leftMargin: 1
@@ -32,17 +32,17 @@ Rectangle{
         opacity: 0.6
         anchors.top: app.top
         
-    Text {
-        id:header
-        text: "<font color=\"green\">TA</font>
+        Text {
+            id:header
+            text: "<font color=\"green\">TA</font>
 <font color=\"yellow\">N</font><font color=\"black\">ZA</font><font color=\"yellow\">N</font><font color=\"blue\">IA</font>"
-        font.pointSize: Qt.platform.os === "android" ? 24 : 22
-        wrapMode: Text.WordWrap
-        font.bold: true         
-        anchors.horizontalCenter: parent.horizontalCenter
-    }
+            font.pointSize: Qt.platform.os === "android" ? 24 : 22
+            wrapMode: Text.WordWrap
+            font.bold: true
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
 
-}
+    }
 
     AnimatedImage{
         id: flag
@@ -54,15 +54,15 @@ Rectangle{
         anchors.top: headerRec.bottom
         anchors.horizontalCenter: parent.horizontalCenter
 
-MouseArea{
+        MouseArea{
             anchors.fill: parent
             onClicked: {
                 if(typeof n3ctaApp !== "undefined"){
-			
-			n3ctaApp.closeQMLDialog();
-        }else if(typeof loader !== "undefined"){
-				nectaMainResultsPageDownloaderHtmlToXmlConveterAndSaver.closeQMLDialog();
-        }
+
+                    n3ctaApp.closeQMLDialog();
+                }else if(typeof loader !== "undefined"){
+                    nectaMainResultsPageDownloaderHtmlToXmlConveterAndSaver.closeQMLDialog();
+                }
             }
         }
     }
@@ -107,8 +107,8 @@ MouseArea{
             onClicked: {
                 //app.executeCommand("#saveAndPlayVideoAd;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Ads/rais-samia.mp4;#;Rais wa Tanzania;#004040;samia.mp4;");
 
-app.executeCommand("#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Ads/Samia-Suluhu-Hassan-2.jpg.jpg;#showGoogleAd;0.9;0.45;500");
-    
+                app.executeCommand("#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Ads/Samia-Suluhu-Hassan-2.jpg.jpg;#showGoogleAd;0.9;0.45;500");
+
 
             }
         }
@@ -241,11 +241,53 @@ app.executeCommand("#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/
 
     }
 
+    Rectangle{
+        id:rec9
+        width: parent.width - 4
+        anchors.leftMargin: 1
+        anchors.rightMargin: 1
+        height: txt5.height + txt6.height
+        anchors.top: rec7.bottom
+        color: "#055152"
+        anchors.topMargin: 22
+
+        Text {
+            id:txt9
+            text: "<font color=\"gray\"><i>Spika wa Bunge la Jamhuri ya Muungano wa Tanzania</i></font>"
+            width: app.width * 0.96
+            anchors.top: parent.top
+            font.pointSize: 12
+            font.bold: true
+            textFormat: Text.RichText
+            wrapMode: Text.WordWrap
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
+        Text {
+            id:txt10
+            text: "<font color=\"green\">MHE. MUSSA AZZAN ZUNGU</font>"
+            width: app.width * 0.96
+            anchors.top: txt9.bottom
+            font.pointSize: Qt.platform.os === "android" ? 16 : 14
+            font.bold: true
+            textFormat: Text.RichText
+            wrapMode: Text.WordWrap
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
+
+        MouseArea{
+            anchors.fill: parent
+            onClicked: {
+                app.executeCommand("#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Ads/MHE-MUSA-AZZAN-ZUNGU.jpg;#showGoogleAd;0.9;0.45;500");
+            }
+        }
+
+    }
+
     Text {
         text: "*** Amani, Upendo, Ushirikiano, Uhuru na Umoja <font color=\"gray\">ni</font> Ma-vibe ya Kijanja</i> ***"
         anchors.topMargin: 26
         width: app.width * 0.98
-        anchors.top: rec7.bottom
+        anchors.top: rec9.bottom
         font.pointSize: 12
         font.bold: true
         textFormat: Text.RichText
