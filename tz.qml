@@ -286,7 +286,7 @@ Rectangle {
     Text {
         text: "*** Amani, Upendo, Ushirikiano, Uhuru na Umoja ***"
         anchors.topMargin: 26
-        width: app.width * 0.98
+        width: app.width * 0.80
         anchors.top: rec9.bottom
         font.pointSize: 12
         font.bold: true
