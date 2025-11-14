@@ -3715,7 +3715,7 @@ def onTZCommand(cmd, argv, argc) {
 	   }
 	   
 	   if(fileExists(tzpath)){
-	      openQMLDialog("file:/" + tzpath,1,0.6);
+	      openQMLDialog("file:/" + tzpath,1,0.7);
 	   }
    }
 }
