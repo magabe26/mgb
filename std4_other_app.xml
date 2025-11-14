@@ -148,10 +148,10 @@ Pakua aplikesheni zingine hapa
       <A HREF="#" />
    </APP>
 <APP>
-    <A HREF="#tz">Ma-vibe ya Kijanja</A>
+    <A HREF="#openurl;https://olas.heslb.go.tz/olams/pre-applicant/apply-for-scholarship">Samia scholarship</A>
     <COLOR>#1fb8ba</COLOR>
     <BG_COLOR>white</BG_COLOR>
-    <ICON>fa::flag</ICON>
+    <ICON>fa::graduationcap</ICON>
     <ICON_COLOR>#065961</ICON_COLOR>
     <BOLD_TEXT>1</BOLD_TEXT>
 </APP>
