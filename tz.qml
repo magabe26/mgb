@@ -277,7 +277,7 @@ Rectangle {
         MouseArea{
             anchors.fill: parent
             onClicked: {
-                app.executeCommand("#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Ads/MHE-MUSA-AZZAN-ZUNGU.jpg;#showGoogleAd;0.9;0.45;500");
+                app.executeCommand("#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Ads/MHE-MUSA-AZZAN-ZUNGU.jpg;#showGoogleAd;0.94;0.45;500");
             }
         }
 
