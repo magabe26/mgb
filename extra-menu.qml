@@ -35,7 +35,7 @@ Rectangle{
         property real textLeftMargin: 6
 
 
-       Rectangle{
+        Rectangle{
             z: root.z + 1
             color: "transparent"
             width: root.width
@@ -128,46 +128,45 @@ Rectangle{
             MouseArea{
                 anchors.fill: parent
                 onClicked: {
-                    root.executeCommand("#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/master/Ads/elimu2.png;#showGoogleAd;0.9;0.8;500", []);
+                    root.executeCommand("#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/master/Ads/elimu.png;#showGoogleAd;0.9;0.8;500", []);
                 }
             }
         }
 
-Rectangle{
+        Rectangle{
             z: root.z + 1
             color: "transparent"
             width: root.width
             height: icon1.paintedHeight
 
             Image {
-                id: icon0
+                id: icon5
                 width: 68
                 height: width
                 anchors.top: parent.top
                 anchors.left: parent.left
                 anchors.leftMargin: menu.imgLeftMargin
-                source: getIconSource("fa::star","#00e6e6")
+                source: getIconSource("fa::graduationcap","#00e6e6")
             }
 
             Text {
-                anchors.left: icon0.right
+                anchors.left: icon5.right
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.leftMargin: menu.textLeftMargin
                 color: Qt.lighter("gray",1.7)
-                text: "Nyerere"
+                text: "SAMIA SCHOLARSHIP"
             }
 
             MouseArea{
                 anchors.fill: parent
                 onClicked: {
-                    root.executeCommand("#saveAndPlayVideoAd;https://raw.githubusercontent.com/magabe26/mgb/master/Ads/nyerere.mp4;#;Baba wa Taifa la Tanzania;#004040;nyerere.mp4;", []);
-
+                    root.executeCommand("#openurl;https://olas.heslb.go.tz/olams/pre-applicant/apply-for-scholarship", []);
                 }
             }
         }
 
 
-Rectangle{
+        Rectangle{
             z: root.z + 1
             color: "transparent"
             width: root.width
