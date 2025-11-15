@@ -1402,7 +1402,7 @@ def onSaveAndPlayVideoAdCommand(cmd, argv, argc) {
          }	 
 		 
         var descriptionImageUrl = argv[1];
-        var descriptionText = "<font color=\"cyan\"><b>" + argv[2] + "</b></font>";
+        var descriptionText = argv[2];
         var descriptionBGColor = argv[3];
 		
 		saveOrUpdateData("previous_descriptionImageUrl", descriptionImageUrl);
@@ -1412,7 +1412,7 @@ def onSaveAndPlayVideoAdCommand(cmd, argv, argc) {
          var path = getOfflineVideoPath(videoUrl);
          if (!path.isEmpty()) {
             hideLoadingIndicator();
-			playVideoAd(path,descriptionImageUrl,descriptionText,descriptionBGColor);
+			playVideoAd(path,descriptionImageUrl,"<font color=\"cyan\"><b>" + getData("previous_descriptionText") + "</b></font>",descriptionBGColor);
 			
             return;
          }
@@ -1437,7 +1437,7 @@ def onSaveAndPlayVideoAdCommand(cmd, argv, argc) {
             saveOrUpdateData(videoUrl, path);
             pasteToClipboard(path);
             hideLoadingIndicator();
-			playVideoAd("file:" + path,descriptionImageUrl,descriptionText,descriptionBGColor);
+			playVideoAd("file:" + path,descriptionImageUrl,"<font color=\"cyan\"><b>" + getData("previous_descriptionText") + "</b></font>",descriptionBGColor);
          } else {
             hideLoadingIndicator();
             showOperationFailedDialog("<font color='red'> imeshindwa kutunza faili</font>");
@@ -1721,7 +1721,7 @@ def saveSplashImage(string url){
 def playWelcomeVideo(string url){
     var path = getOfflineVideoPath(url);
     if (!path.isEmpty()) {
-	playVideoAd(path,getData("previous_descriptionImageUrl"),getData("previous_descriptionText"),getData("previous_descriptionBGColor"));
+	playVideoAd(path,getData("previous_descriptionImageUrl"),"<font color=\"cyan\"><b>" + getData("previous_descriptionText") + "</b></font>",getData("previous_descriptionBGColor"));
      } else {
 
 onUrlVisited("#saveAndPlayVideoAd;" + url);
@@ -2682,7 +2682,7 @@ def onVideoPlayerStatusChanged(string videoUrl, int status) {
       case (VideoPlayerStatus.EndOfMedia) {
          log("VideoPlayerStatus.EndOfMedia");
 
-         playVideoAd(videoUrl,getData("previous_descriptionImageUrl"),getData("previous_descriptionText"),getData("previous_descriptionBGColor"));
+         playVideoAd(videoUrl,getData("previous_descriptionImageUrl"),"<font color=\"cyan\"><b>" + getData("previous_descriptionText") + "</b></font>",getData("previous_descriptionBGColor"));
 
          break;
       }
