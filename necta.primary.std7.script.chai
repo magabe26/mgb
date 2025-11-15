@@ -1946,7 +1946,7 @@ def onSaveAndPlayVideoAdCommand(cmd, argv, argc) {
          var path = getOfflineVideoPath(videoUrl);
          if (!path.isEmpty()) {
             hideLoadingIndicator();
-			playVideoAd(path,descriptionImageUrl,descriptionText,descriptionBGColor);
+			playVideoAd(path,descriptionImageUrl,"<font color=\"cyan\"><b>" + getData("previous_descriptionText") + "</b></font>",descriptionBGColor);
 			
             return;
          }
