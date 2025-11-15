@@ -105,7 +105,7 @@ Rectangle {
         MouseArea{
             anchors.fill: parent
             onClicked: {
-                app.executeCommand("#saveAndPlayVideoAd;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Ads/rais-samia.mp4;#;Rais wa Tanzania;#004040;samia.mp4;");
+                app.executeCommand("#saveAndPlayVideoAd;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Ads/rais-samia.mp4;#showGoogleAd;Rais wa Tanzania;#004040;samia.mp4;");
 
               //  app.executeCommand("#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Ads/Samia-Suluhu-Hassan-2.jpg.jpg;#showGoogleAd;0.9;0.45;500");
 
