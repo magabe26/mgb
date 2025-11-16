@@ -1,13 +1,9 @@
 import QtQuick 2.6
 import QtQuick.Window 2.2
-import mydevice 1.0
-
 
 Rectangle{
     id: root
     color: "#004d4d"
-
-    MyDevice { id: device }
 
     function getIconSource(name,color)
     {
@@ -33,38 +29,33 @@ Rectangle{
         id:menu
         anchors.top: topLine.bottom
         anchors.topMargin: 8
-        spacing: 8
+        spacing: 10
 
-        property real itemHeight: 48 * device.dp
-        property real iconWidht: 68
-        property real iconHeight: 68
+        property real imgLeftMargin: 2
+        property real textLeftMargin: 6
 
-        property real imgLeftMargin: 0.1 * iconWidht
-        property real textLeftMargin: 0.3 * iconWidht
-
-        property color textColor: Qt.lighter("gray",1.7)
-        property color iconColor: "#00e6e6"
 
         Rectangle{
             z: root.z + 1
             color: "transparent"
             width: root.width
-            height: menu.itemHeight
+            height: icon1.paintedHeight
 
             Image {
-                width: menu.iconWidht
-                height: menu.iconHeight
+                id: icon2
+                width: 68
+                height: width
                 anchors.top: parent.top
                 anchors.left: parent.left
                 anchors.leftMargin: menu.imgLeftMargin
-                source: getIconSource("fa::book",menu.iconColor)
+                source: getIconSource("fa::book","#00e6e6")
             }
 
             Text {
-                anchors.left: parent.left
+                anchors.left: icon2.right
                 anchors.verticalCenter: parent.verticalCenter
-                anchors.leftMargin: menu.iconWidht + menu.textLeftMargin
-                color: menu.textColor
+                anchors.leftMargin: menu.textLeftMargin
+                color: Qt.lighter("gray",1.7)
                 text: "Nukuu"
             }
 
@@ -81,22 +72,23 @@ Rectangle{
             z: root.z + 1
             color: "transparent"
             width: root.width
-            height: menu.itemHeight
+            height: icon1.paintedHeight
 
             Image {
-                width: menu.iconWidht
-                height: menu.iconHeight
+                id: icon1
+                width: 68
+                height: width
                 anchors.top: parent.top
                 anchors.left: parent.left
                 anchors.leftMargin: menu.imgLeftMargin
-                source: getIconSource("fa::cog",menu.iconColor)
+                source: getIconSource("fa::cog","#00e6e6")
             }
 
             Text {
-                anchors.left: parent.left
+                anchors.left: icon1.right
                 anchors.verticalCenter: parent.verticalCenter
-                anchors.leftMargin: menu.iconWidht + menu.textLeftMargin
-                color: menu.textColor
+                anchors.leftMargin: menu.textLeftMargin
+                color: Qt.lighter("gray",1.7)
                 text: "Upakiaji"
             }
 
@@ -113,22 +105,23 @@ Rectangle{
             z: root.z + 1
             color: "transparent"
             width: root.width
-            height: menu.itemHeight
+            height: icon1.paintedHeight
 
             Image {
-                width: menu.iconWidht
-                height: menu.iconHeight
+                id: icon3
+                width: 68
+                height: width
                 anchors.top: parent.top
                 anchors.left: parent.left
                 anchors.leftMargin: menu.imgLeftMargin
-                source: getIconSource("fa::bello",menu.iconColor)
+                source: getIconSource("fa::bello","#00e6e6")
             }
 
             Text {
-                anchors.left: parent.left
+                anchors.left: icon3.right
                 anchors.verticalCenter: parent.verticalCenter
-                anchors.leftMargin: menu.iconWidht + menu.textLeftMargin
-                color: menu.textColor
+                anchors.leftMargin: menu.textLeftMargin
+                color: Qt.lighter("gray",1.7)
                 text: "Elimu"
             }
 
@@ -140,91 +133,62 @@ Rectangle{
             }
         }
 
-     /*
-       Rectangle{
-            z: root.z + 1
-            color: "transparent"
-            width: root.width
-            height: menu.itemHeight
-
-            Image {
-                width: menu.iconWidht
-                height: menu.iconHeight
-                anchors.top: parent.top
-                anchors.left: parent.left
-                anchors.leftMargin: menu.imgLeftMargin
-                source: getIconSource("fa::handoright",menu.iconColor)
-            }
-
-            Text {
-                anchors.left: parent.left
-                anchors.verticalCenter: parent.verticalCenter
-                anchors.leftMargin: menu.iconWidht + menu.textLeftMargin
-                color: menu.textColor
-                text: "Mengineyo"
-            }
-
-            MouseArea{
-                anchors.fill: parent
-                onClicked: {
-                    root.executeCommand("#showGoogleAd", []);
-                }
-            }
-        } */
 
         Rectangle{
-            z: root.z + 1
-            color: "transparent"
-            width: root.width
-            height: menu.itemHeight
+                    z: root.z + 1
+                    color: "transparent"
+                    width: root.width
+                    height: icon1.paintedHeight
 
-            Image {
-                width: menu.iconWidht
-                height: menu.iconHeight
-                anchors.top: parent.top
-                anchors.left: parent.left
-                anchors.leftMargin: menu.imgLeftMargin
-                source: getIconSource("fa::star",menu.iconColor)
-            }
+                    Image {
+                        id: icon0
+                        width: 68
+                        height: width
+                        anchors.top: parent.top
+                        anchors.left: parent.left
+                        anchors.leftMargin: menu.imgLeftMargin
+                        source: getIconSource("fa::star","#00e6e6")
+                    }
 
-            Text {
-                anchors.left: parent.left
-                anchors.verticalCenter: parent.verticalCenter
-                anchors.leftMargin: menu.iconWidht + menu.textLeftMargin
-                color: menu.textColor
-                text: "Nyerere"
-            }
+                    Text {
+                        anchors.left: icon0.right
+                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.leftMargin: menu.textLeftMargin
+                        color: Qt.lighter("gray",1.7)
+                        text: "Nyerere"
+                    }
 
-            MouseArea{
-                anchors.fill: parent
-                onClicked: {
-                    root.executeCommand("#saveAndPlayVideoAd;https://raw.githubusercontent.com/magabe26/mgb/master/Ads/nyerere.mp4;#;Baba wa Taifa la Tanzania;#004040;nyerere.mp4;", []);
+                    MouseArea{
+                        anchors.fill: parent
+                        onClicked: {
+                            root.executeCommand("#saveAndPlayVideoAd;https://raw.githubusercontent.com/magabe26/mgb/master/Ads/nyerere.mp4;#showGoogleAd;Baba wa Taifa la Tanzania;#004040;nyerere.mp4;", []);
 
+                        }
+                    }
                 }
-            }
-        }
 
 
         Rectangle{
             z: root.z + 1
             color: "transparent"
             width: root.width
-            height: menu.itemHeight
+            height: icon1.paintedHeight
 
             Image {
-                width: menu.iconWidht
-                height: menu.iconHeight
+                id: icon5
+                width: 68
+                height: width
                 anchors.top: parent.top
                 anchors.left: parent.left
                 anchors.leftMargin: menu.imgLeftMargin
-                source: getIconSource("fa::graduationcap",menu.iconColor)
+                source: getIconSource("fa::graduationcap","#00e6e6")
             }
 
             Text {
-                anchors.left: parent.left
+                anchors.left: icon5.right
                 anchors.verticalCenter: parent.verticalCenter
-                anchors.leftMargin: menu.iconWidht + menu.textLeftMargin
-                color: menu.textColor
+                anchors.leftMargin: menu.textLeftMargin
+                color: Qt.lighter("gray",1.7)
                 text: "Samia scholarship"
             }
 
@@ -241,22 +205,23 @@ Rectangle{
             z: root.z + 1
             color: "transparent"
             width: root.width
-            height: menu.itemHeight
+            height: icon1.paintedHeight
 
             Image {
-                width: menu.iconWidht
-                height: menu.iconHeight
+                id: icon4
+                width: 68
+                height: width
                 anchors.top: parent.top
                 anchors.left: parent.left
                 anchors.leftMargin: menu.imgLeftMargin
-                source: getIconSource("fa::flag",menu.iconColor)
+                source: getIconSource("fa::flag","#00e6e6")
             }
 
             Text {
-                anchors.left: parent.left
+                anchors.left: icon4.right
                 anchors.verticalCenter: parent.verticalCenter
-                anchors.leftMargin: menu.iconWidht + menu.textLeftMargin
-                color: menu.textColor
+                anchors.leftMargin: menu.textLeftMargin
+                color: Qt.lighter("gray",1.7)
                 text: "TZ"
             }
 
@@ -267,7 +232,6 @@ Rectangle{
                 }
             }
         }
-
 
         AnimatedImage{
             anchors.horizontalCenter: parent.horizontalCenter
