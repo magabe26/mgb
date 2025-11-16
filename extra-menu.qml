@@ -140,7 +140,8 @@ Rectangle{
             }
         }
 
-        Rectangle{
+     /*
+       Rectangle{
             z: root.z + 1
             color: "transparent"
             width: root.width
@@ -169,7 +170,7 @@ Rectangle{
                     root.executeCommand("#showGoogleAd", []);
                 }
             }
-        }
+        } */
 
         Rectangle{
             z: root.z + 1
