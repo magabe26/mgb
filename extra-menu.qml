@@ -36,8 +36,8 @@ Rectangle{
         spacing: 8
 
         property real itemHeight: 48 * device.dp
-        property real iconWidht: 26
-        property real iconHeight: 28
+        property real iconWidht: 68
+        property real iconHeight: 68
 
         property real imgLeftMargin: 0.1 * iconWidht
         property real textLeftMargin: 0.3 * iconWidht
