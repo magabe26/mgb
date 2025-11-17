@@ -3767,7 +3767,7 @@ def beforeDisplayRegionPage(string title, string url, string xml) {
    var output = xml;
    var w = 0.85;
 
-output = putAdsToRegionPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/jaridalaelimu2.png", "#", 1, 0.8, "bottom");
+output = putAdsToRegionPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/jaridalaelimu3.png", "#", 1, 0.8, "bottom");
 
 // output = putAdsToRegionPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/form6.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.kidato.cha.sita", w, 0.18, "bottom");
 
