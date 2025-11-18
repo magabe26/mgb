@@ -794,34 +794,36 @@ global lifeQuotesAuthor = [
 
 "Dr. Edwin H. Land",
 
-  //Asha-Rose Migiro
+ 
+   //Asha-Rose Migiro
 
-   "DR. ASHA-ROSE MIGIRO",
+   "Dr. Asha-Rose Migiro",
 
    //Jakaya Kikwete
 
-   "DR. JAKAYA KIKWETE",
-   "DR. JAKAYA KIKWETE",
+   "Dr. Jakaya Kikwete",
+   "Dr. Jakaya Kikwete",
 
    //Benjamin Mkapa
-   "DR. BENJAMIN WILLIAM MKAPA",
+   "Dr. Benjamin William Mkapa",
 
    //John Pombe Magufuli
-   "DR. JOHN POMBE MAGUFULI",
+   "Dr. John Pombe Magufuli",
    
 
    //President Samia Suluhu Hassan
 
-   "DR. SAMIA SULUHU HASSAN <font color='gray'>[PRESIDENT OF UNITED REPUBLIC OF TANZANIA]</font>",
-   "DR. SAMIA SULUHU HASSAN <font color='gray'>[RAIS WA TANZANIA]</font>",
-   "DR. SAMIA SULUHU HASSAN <font color='gray'>[PRESIDENT OF UNITED REPUBLIC OF TANZANIA]</font>",
+   "Dr. Samia Suluhu Hassan <font color='gray'>[President Of United Republic Of Tanzania]</font>",
+   "Dr. Samia Suluhu Hassan <font color='gray'>[Rais Wa Tanzania]</font>",
+   "Dr. Samia Suluhu Hassan <font color='gray'>[President Of United Republic Of Tanzania]</font>",
 
 //Sheikh Abeid Amani Karume
-"<font color='blue'>SHEIKH</font> <font color='cyan'>ABEID AMANI KARUME</font><font color='gray'>[RAIS WA KWANZA WA ZANZIBAR]</font>",
+"<font color='blue'>Sheikh</font> <font color='cyan'>Abeid Amani Karume</font><font color='gray'>[Rais wa kwanza wa Zanzibar]</font>",
 
 
    // Julius Nyerere
-   "<font color='blue'>MWALIMU</font> <font color='cyan'>JULIUS KAMBARAGE NYERERE</font><font color='gray'>[BABA WA TAIFA LA TANZANIA]</font>"
+   "<font color='blue'>Mwalimu</font> <font color='cyan'>Julius Kambarage Nyerere</font><font color='gray'>[Baba Wa Taifa La Tanzania]</font>"
+   
    
 
 ];
