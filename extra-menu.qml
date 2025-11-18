@@ -128,7 +128,7 @@ Rectangle{
             MouseArea{
                 anchors.fill: parent
                 onClicked: {
-                    root.executeCommand("#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/master/Ads/elimu4.png;#showGoogleAd;0.9;0.8;500", []);
+                    root.executeCommand("#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/master/Ads/elimu4.png;#showGoogleAd;0.98;0.8;500", []);
                 }
             }
         }
