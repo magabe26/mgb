@@ -421,7 +421,7 @@ Rectangle {
 
 Image {
    source: "./travel.png"
-   Layout.preferredWidth: app.width * 0.86
+   Layout.preferredWidth: app.width * 0.8
    Layout.alignment: Qt.AlignHCenter 
 
 MouseArea{
