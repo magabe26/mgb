@@ -28,6 +28,17 @@ loader.mode = 2;
         }
     }
 
+
+function ad()
+    {
+        if(typeof n3ctaApp !== "undefined"){          
+           n3ctaApp.onUrlVisited("#showGoogleAd");
+        }else if(typeof loader !== "undefined"){   
+            loader.onUrlVisited("#showGoogleAd");
+        }
+    }
+
+
     ListModel {
         id: attractionModel
 
@@ -407,11 +418,20 @@ Rectangle {
     color: "#dadada"
 }
 
-/*Image {
-   source: "./tz_royal_tour.jpg"
+
+Image {
+   source: "./travel.png"
    Layout.preferredWidth: app.width * 0.86
    Layout.alignment: Qt.AlignHCenter 
-}*/
+
+MouseArea{
+                    anchors.fill: parent
+                    onClicked: {
+                        app.ad();
+                    }
+                }
+}
+
 
 Text {
                     text: ""
