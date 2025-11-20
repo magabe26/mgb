@@ -2326,7 +2326,7 @@ def downloadUpdate() {
    if (versionName != LATEST_APP_VERSION_NAME) {
       var os = getOperatingSystem();
       var url = (os == "android") ? packageNameToUrl(packageName) : WIN64_DOWLOAD_URL;
-      var message = "Toleo jipya la aplikesheni hii ambalo ni ".append(LATEST_APP_VERSION_NAME).append(" limeshatoka. Pakua na 'rate' aplikesheni hii sasa.");
+      var message = "Toleo jipya la aplikesheni hii ambalo ni ".append(LATEST_APP_VERSION_NAME).append(" limeshatoka. Sasisha sasa ili kupata huduma bora.");
       requestDownloadUpdateDialog(message, url);
    } else {
      // showNectaInfoOrLifeQuote();
