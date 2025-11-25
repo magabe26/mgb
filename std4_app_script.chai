@@ -3390,18 +3390,14 @@ def getResultAbsoluteLinks(string html) {
 }
 
 def getNectaResultLinks(string html) {
-   var links = getResultAbsoluteLinks(html);
-   var menuLinks = [];
-   for (var i = 0; i < links.size(); ++i) {
-      var link = links[i];
-      var year = getYear("", link);
-      if (year != 0) {
-         var yearTag = "<year>".append(to_string(year)).append("</year>");
-         var aTag = "<a HREF=\"".append(link).append("\"></a>");
-         var linkTag = "<link>".append(yearTag).append(aTag).append("</link>");
-         menuLinks.push_back(linkTag);
-      }
-   }
+    var menuLinks = [];
+   	stR("http", false).seq(any(stR(".htm", false), "<>").plus()).seq(stR(".htm", false)).replaceInMapped(html, fun[menuLinks](string link) {
+	    var year = getYear(link,"");
+	    if(year != 0){
+			menuLinks.push_back(link);	
+		}
+		return link;
+    }, 0, -1);
    return menuLinks;
 }
 
