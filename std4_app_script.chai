@@ -3047,9 +3047,7 @@ def getUpdatedMenu(string url, string xml)
 }
 
 def updateMenu(string menu) {
-   //return menu;
-   
-   return getUpdatedMenu("https://necta.go.tz/results/view/sfna",menu); //std4
+   return menu;
 }
 
 def formatGender(string input) {
