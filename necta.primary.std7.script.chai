@@ -1871,7 +1871,9 @@ def verifyBaseUrlLastSegment(string url, string lastSegment) {
 }
 
 def getNectaMenuUrl() {
-   return "localhost/fakeURL";
+   return "https://necta.go.tz/results/view/psle"; //std7
+
+  // return "localhost/fakeURL";
 }
 
 def getAbsoluteLinks(string html) {
