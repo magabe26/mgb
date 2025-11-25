@@ -1785,10 +1785,9 @@ def getUpdatedMenu(string url, string xml)
 	return output.isEmpty() ? xml : output;
 }
 
+
 def updateMenu(string menu) {
-   //return menu;
-   
-   return getUpdatedMenu("https://necta.go.tz/results/view/psle",menu); //std7
+   return menu;
 }
 
 
