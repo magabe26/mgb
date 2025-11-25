@@ -3351,7 +3351,10 @@ def verifyBaseUrlLastSegment(string url, string lastSegment) {
 }
 
 def getNectaMenuUrl() {
-   return "localhost/fakeURL";
+
+   return "https://necta.go.tz/results/view/sfna"; //std4
+
+   // return "localhost/fakeURL";
 }
 
 
