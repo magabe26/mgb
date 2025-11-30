@@ -46,7 +46,7 @@ function ad()
 
 ListElement {
             name_en: "Zanzibar (Stone Town & Beaches)"; name_sw: "Zanzibar (Mji Mkongwe na Fukwe)"
-            imageFile: "./zanzibar_st.jpg"
+            imageFile: "./zanzibar_st2.jpg"
             desc_en: "Historic Stone Town, spice farms, and pristine beaches make Zanzibar a unique cultural and relaxation hub."
             desc_sw: "Mji Mkongwe wa kihistoria, mashamba ya viungo, na fukwe safi hufanya Zanzibar kuwa kitovu cha kipekee cha utamaduni na mapumziko."
         }
