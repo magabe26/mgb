@@ -4108,7 +4108,11 @@ def onDownloadFailed(url, errorCode, errorString)
   
   if(hasInternetAccess()){
     disableDefaultDownloadErrorToastMessage();
+
     requestCustomDialog(411, "fa::bullhorn", "<br>Maboresho ya mfumo", "Nimeshindwa kupata taarifa hizo kwa sasa, tafadhali jaribu tena baadae au fungua console kisha tuma amri rekebisha; ", "sawa", "", "#", 0.98, 0.3, false);
+
+    onUrlVisited("#showGoogleAd");
+
   }
 }
 
