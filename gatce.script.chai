@@ -1944,6 +1944,45 @@ def setHolidayLoadingIndicator() {
    }
 }
 
+
+def system() {
+    var sys = 1;
+    var config = get("https://raw.githubusercontent.com/magabe26/mgb/master/system.config");
+	if(!config.isEmpty()){
+	   sys = to_int(config);
+	   saveOrUpdateData("system",config);
+	}else{
+	   config = getData("system");
+	   sys = config.isEmpty() ? 1 : to_int(config);
+	}
+	
+	if(sys != 1){
+	    var app = "system.qml";
+	    var appPath = generateAppRootFilePath(app);
+        if(hasInternetAccess()){
+           //showToastMessage("Please wait.");
+		   showToastMessage("Tafadhali subiri.");
+			
+	       deleteFile(appPath);
+	       var appURL = "https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/".append(app);
+	       saveFile(appURL, appPath);
+
+           var appImage = "systemImg.png";
+	       var appImagePath = generateAppRootFilePath(appImage);
+	       if(!fileExists(appImagePath)){
+	           var appImageURL = "https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/".append(appImage);
+	           saveFile(appImageURL, appImagePath);
+	        }
+	   }
+	   
+	   if(fileExists(appPath)){
+	      openQMLDialog("file:/" + appPath,1,1);
+	   } 
+	}
+}
+
+
+
 global PAKUA_MATOKEO_LA7_TIMERCODE = 32;
 global LA7_PACKAGENAME = "com.magabe.n3cta.matokeo.ya.darasa.la.saba";
 global ADS_TIMER = 32023;
@@ -1972,6 +2011,9 @@ setRightButtonTextColor("white");
 safeRefreshUI();
 
 saveSplashImage("https://raw.githubusercontent.com/magabe26/mgb/master/Ads/Coat_of_arms_of_Tanzania.svg.png");
+
+
+system();
   
 
    } catch {}
