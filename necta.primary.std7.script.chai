@@ -4,7 +4,7 @@
  */
 
 def getPageTitle(string year){
-    var start = "🎄 ";
+    var start = "🎄🌲🎄 ";
 	var end = "";
 	var title = getAppPackageName().endsWith("la.nne", false) ? "MATOKEO YA DARASA LA NNE" : "MATOKEO YA DARASA LA SABA";
     var header = "<font color=\"cyan\"><b>" + title + "</b></font> 🇹🇿 ";
