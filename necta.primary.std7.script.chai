@@ -3,6 +3,19 @@
  * Author Edwin Magabe    edyma24@gmail.com
  */
 
+def getPageTitle(string year){
+    var start = "🎄🎁🎆<br/>";
+	var end = "";
+	var title = getAppPackageName().endsWith("la.nne", false) ? "MATOKEO YA DARASA LA NNE" : "MATOKEO YA DARASA LA SABA";
+    var header = "<font color=\"cyan\"><b>" + title + "</b></font> 🇹🇿 ";
+    if(!year.isEmpty()){
+	 	return start + header +  "<font color=\"#168485\"> - </font>"  + "<font color=\"white\"><b>" + year + "</b></font>" + end;
+	} else {
+	    return  start + header + end;
+	}
+}
+
+
 def timeToSwahili(timeStr) {
     // 1. Parsing the string parts
     var hour_str = timeStr.substr(0, 2);
