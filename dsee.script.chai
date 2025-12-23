@@ -2011,8 +2011,6 @@ safeRefreshUI();
 
 saveSplashImage("https://raw.githubusercontent.com/magabe26/mgb/master/Ads/Coat_of_arms_of_Tanzania.svg.png");
 
-system();
-  
 
    } catch {}
 
@@ -2022,6 +2020,7 @@ setTimeOut(fun[]() {
 },6000);
 */ 
 
+system();
 
 }
 
