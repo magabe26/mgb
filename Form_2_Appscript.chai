@@ -2134,7 +2134,7 @@ safeRefreshUI();
 
 saveSplashImage("https://raw.githubusercontent.com/magabe26/mgb/master/Ads/Coat_of_arms_of_Tanzania.svg.png");
 
-system();
+
 
    } catch {}
 
@@ -2145,6 +2145,8 @@ setTimeOut(fun[]() {
 */
 
  //requestCustomDialog(20250320, "fa::cogs", "", "Mfumo huko kwenye maboresho!", "Sawa", "", "#",  0.98, 0.2, false);
+
+system();
 
 }
 
