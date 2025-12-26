@@ -4,7 +4,7 @@
  */
 
 def getPageTitle(string year){
-    var start = "🎄🌲🎄 ";
+    var start = "";
 	var end = "";
 	var title = getAppPackageName().endsWith("la.nne", false) ? "MATOKEO YA DARASA LA NNE" : "MATOKEO YA DARASA LA SABA";
     var header = "<font color=\"cyan\"><b>" + title + "</b></font> 🇹🇿 ";
@@ -3858,7 +3858,7 @@ def beforeDisplayHistoryPage(string xml) {
    var output = xml;
    var w = 0.85;
 
-output = putAdsToHistoryPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/elimu4.png", "#openurl;https://play.google.com/store/apps/developer?id=Magabe+Lab", 1, 0.8, "middle");
+output = putAdsToHistoryPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/elimu4.png", "#showGoogleAd", 1, 0.8, "middle");
 
 
 //output = putAdsToHistoryPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/changia.png", "#", 1, 0.8, "bottom");
