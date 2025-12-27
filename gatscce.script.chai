@@ -29,7 +29,7 @@ def onDownloadFailedMessageDialogClosed(int requestCode, string pressedButton, s
 
 def showSplashScreen(os)
 {
-  return true;
+  return false;
 }
 
 
