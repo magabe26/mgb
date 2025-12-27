@@ -200,7 +200,7 @@ Rectangle{
             }
         }
 
-
+/*
         Rectangle{
             z: root.z + 1
             color: "transparent"
@@ -231,7 +231,7 @@ Rectangle{
                     root.executeCommand("#tz", []);
                 }
             }
-        }
+        } */
 
         AnimatedImage{
             anchors.horizontalCenter: parent.horizontalCenter
