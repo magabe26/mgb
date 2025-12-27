@@ -1667,7 +1667,10 @@ def showMengineyoIfSet()
 
 def onSavedResultsDialogOpened()
 {
-  showMengineyoIfSet()
+
+  showMengineyoIfSet();
+
+  onUrlVisited("#showGoogleAd");
 }
 
 //------------------------------------
