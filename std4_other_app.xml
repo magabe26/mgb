@@ -10,15 +10,7 @@
       <IMAGE_HEIGHT_FRACTION>0.25</IMAGE_HEIGHT_FRACTION>
    </APP>
 
-<APP>
-      <A HREF="#saveAndPlayVideoAd;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Ads/nyerere.mp4;#showGoogleAd;Baba wa Taifa la Tanzania;#004040;nyerere.mp4;">Baba wa Taifa la Tanzania</A>
-      <COLOR>black</COLOR>
-      <BG_COLOR>white</BG_COLOR>
-      <ICON>fa::star</ICON>
-      <ICON_COLOR>black</ICON_COLOR>
-      <BOLD_TEXT>1</BOLD_TEXT>
-   </APP>
-
+<APP>    
 
 <APP>
       <A HREF="#" />
@@ -164,40 +156,6 @@ Pakua aplikesheni zingine hapa
       <IMAGE_URL>https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/tz.gif</IMAGE_URL>
       <IMAGE_WIDTH_FRACTION>1</IMAGE_WIDTH_FRACTION>
       <IMAGE_HEIGHT_FRACTION>0.1</IMAGE_HEIGHT_FRACTION>
-   </APP>
-
-<APP>
-      <A HREF="#">
-      Rais wa Jamhuri ya Muungano wa Tanzania
-   </A>
-   </APP>
-<APP>
-      <A HREF="#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Ads/Samia-Suluhu-Hassan-2.jpg.jpg;#showGoogleAd;0.9;0.45;500">MHE. DKT. SAMIA SULUHU HASSAN</A>
-      <COLOR>#00c000</COLOR>
-      <BG_COLOR>white</BG_COLOR>
-      <ICON>fa::star</ICON>
-      <ICON_COLOR>green</ICON_COLOR>
-      <BOLD_TEXT>1</BOLD_TEXT>
-   </APP>
-
-   <APP>
-      <A HREF="#" />
-   </APP>
-   
-
-<APP>
-      <A HREF="#">
-      Rais wa Zanzibar na Mwenyekiti wa Baraza la Mapinduzi
-   </A>
-   </APP>
-
-<APP>
-      <A HREF="#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Ads/Hussein-Ali-Mwinyi.jpg;#showGoogleAd;0.9;0.45;500">MHE. DKT. HUSSEIN ALI MWINYI</A>
-      <COLOR>#00c000</COLOR>
-      <BG_COLOR>white</BG_COLOR>
-      <ICON>fa::star</ICON>
-      <ICON_COLOR>green</ICON_COLOR>
-      <BOLD_TEXT>1</BOLD_TEXT>
    </APP>
 
  <APP>
