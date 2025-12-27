@@ -138,17 +138,25 @@ Pakua aplikesheni zingine hapa
       <IMAGE_WIDTH_FRACTION>1</IMAGE_WIDTH_FRACTION>
       <IMAGE_HEIGHT_FRACTION>0.1</IMAGE_HEIGHT_FRACTION>
    </APP>
-
-   
+ 
 
    <APP>
       <A HREF="#" />
    </APP>
    
-
-
-
    <APP>
+      <A HREF="#" />
+   </APP>
+
+<APP>
+      <A HREF="#" />
+   </APP>
+
+<APP>
+      <A HREF="#" />
+   </APP>
+
+<APP>
       <A HREF="#" />
    </APP>
    
