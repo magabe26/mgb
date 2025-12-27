@@ -167,7 +167,7 @@ Rectangle{
                     }
                 }
 */
-
+/*
         Rectangle{
             z: root.z + 1
             color: "transparent"
@@ -199,7 +199,7 @@ Rectangle{
                 }
             }
         }
-
+*/
 /*
         Rectangle{
             z: root.z + 1
