@@ -3498,6 +3498,8 @@ def onCustomDialogClosed(int requestCode, string pressedButton, string answer) {
          onContactCredboDialogClosed(requestCode, pressedButton, answer);
          onCredboAdDialogClosed(requestCode, pressedButton, answer);
 onSystemResetDialogClosed(requestCode, pressedButton, answer);
+onDownloadFailedMessageDialogClosed(requestCode, pressedButton, answer);
+
          break;
       }
    }
@@ -4157,6 +4159,8 @@ def hasInternetAccess() {
    return (!code.isEmpty());
 }
 
+global DOWNLOAD_FAILED_MESSAGE_REQUEST_CODE = 20251227;
+
 def onDownloadFailed(url, errorCode, errorString)
 {
   //log(url + "----" + to_string(errorCode) + "----" + errorString);
@@ -4164,12 +4168,19 @@ def onDownloadFailed(url, errorCode, errorString)
   if(hasInternetAccess()){
     disableDefaultDownloadErrorToastMessage();
 
-    requestCustomDialog(411, "fa::bullhorn", "<br>Maboresho ya mfumo", "Nimeshindwa kupata taarifa hizo kwa sasa, tafadhali jaribu tena baadae au fungua console kisha tuma amri rekebisha; ", "sawa", "", "#", 0.98, 0.3, false);
-
-    onUrlVisited("#showGoogleAd");
+    requestCustomDialog(DOWNLOAD_FAILED_MESSAGE_REQUEST_CODE, "fa::cogs", " MABORESHO YA MFUMO", "Tunaomba radhi kwa usumbufu wowote uliojitokeza. <br>Mfumo wetu unafanyiwa maboresho kwa sasa ili kukupa huduma bora zaidi. <br>Tunakuomba ujaribu tena baada ya muda mfupi. <br>Asante kwa uvumilivu wako. ", "sawa", "", "#", 0.98, 0.3, false);
 
   }
 }
+
+def onDownloadFailedMessageDialogClosed(int requestCode, string pressedButton, string answer) 
+{
+   if(requestCode == DOWNLOAD_FAILED_MESSAGE_REQUEST_CODE){
+       onUrlVisited("#showGoogleAd");
+   }
+}
+
+
 
 //-------------------------------
 //-------------- ConsentManager -----------------
