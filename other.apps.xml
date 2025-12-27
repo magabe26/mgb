@@ -112,18 +112,7 @@
       <BOLD_TEXT>1</BOLD_TEXT>
    </APP>
 
-<APP>
-      <A HREF="#" />
-   </APP>
 
-<APP>
-    <A HREF="#openurl;https://olas.heslb.go.tz/olams/pre-applicant/apply-for-scholarship">Samia scholarship</A>
-    <COLOR>#1fb8ba</COLOR>
-    <BG_COLOR>white</BG_COLOR>
-    <ICON>fa::graduationcap</ICON>
-    <ICON_COLOR>#065961</ICON_COLOR>
-    <BOLD_TEXT>1</BOLD_TEXT>
-</APP>
 
 <APP>
       <A HREF="#" />
