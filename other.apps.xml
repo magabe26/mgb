@@ -114,6 +114,36 @@ Pakua aplikesheni zingine hapa
       <BOLD_TEXT>1</BOLD_TEXT>
 </APP>
 
+<APP>
+      <A HREF="#" />
+   </APP>
+
+<APP>
+      <A HREF="#nukuu">Nukuu</A>
+      <COLOR>black</COLOR>
+      <BG_COLOR>white</BG_COLOR>
+      <ICON>fa::bullhorn</ICON>
+      <ICON_COLOR>black</ICON_COLOR>
+      <BOLD_TEXT>1</BOLD_TEXT>
+   </APP>
+
+
+<APP>
+      <A HREF="#" />
+</APP>
+
+<APP>
+    <A HREF="#openurl;https://olas.heslb.go.tz/olams/pre-applicant/apply-for-scholarship">Samia scholarship</A>
+    <COLOR>#1fb8ba</COLOR>
+    <BG_COLOR>white</BG_COLOR>
+    <ICON>fa::graduationcap</ICON>
+    <ICON_COLOR>#065961</ICON_COLOR>
+    <BOLD_TEXT>1</BOLD_TEXT>
+</APP>
+
+<APP>
+      <A HREF="#" />
+   </APP>
 
 <APP>
 <A HREF="#"></A>
@@ -123,11 +153,7 @@ Pakua aplikesheni zingine hapa
       <IMAGE_WIDTH_FRACTION>1</IMAGE_WIDTH_FRACTION>
       <IMAGE_HEIGHT_FRACTION>0.1</IMAGE_HEIGHT_FRACTION>
    </APP>
- 
-
-   <APP>
-      <A HREF="#" />
-   </APP>
+   
    
    <APP>
       <A HREF="#" />
@@ -149,12 +175,5 @@ Pakua aplikesheni zingine hapa
       <A HREF="#" />
    </APP>
 
-<APP>
-      <A HREF="#" />
-   </APP>
-   
-<APP>
-      <A HREF="#" />
-   </APP>
 
 </APPS>
