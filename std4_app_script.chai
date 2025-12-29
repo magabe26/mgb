@@ -4308,7 +4308,7 @@ def beforeDisplayMenuPage(string xml) {
   output = getMenuHolidayAd(output);
 
 
-// output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/Coat_of_arms_of_Tanzania.svg.png", "#tz", 1, 0.8, "bottom");
+ output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/Coat_of_arms_of_Tanzania.svg.png", "#", 1, 0.8, "bottom");
 
 
 
