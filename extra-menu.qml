@@ -141,6 +141,72 @@ Rectangle{
             height: icon1.paintedHeight
 
             Image {
+                id: icon4
+                width: 68
+                height: width
+                anchors.top: parent.top
+                anchors.left: parent.left
+                anchors.leftMargin: menu.imgLeftMargin
+                source: getIconSource("fa::star","#00e6e6")
+            }
+
+            Text {
+                anchors.left: icon4.right
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.leftMargin: menu.textLeftMargin
+                color: Qt.lighter("gray",1.7)
+                text: "Nyerere"
+            }
+
+            MouseArea{
+                anchors.fill: parent
+                onClicked: {
+                    root.executeCommand("#saveAndPlayVideoAd;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Ads/nyerere.mp4;#showGoogleAd;Baba wa Taifa la Tanzania;#004040;nyerere.mp4;", []);
+                }
+            }
+        }
+
+
+        Rectangle{
+            z: root.z + 1
+            color: "transparent"
+            width: root.width
+            height: icon1.paintedHeight
+
+            Image {
+                id: icon6
+                width: 68
+                height: width
+                anchors.top: parent.top
+                anchors.left: parent.left
+                anchors.leftMargin: menu.imgLeftMargin
+                source: getIconSource("fa::star","#00e6e6")
+            }
+
+            Text {
+                anchors.left: icon6.right
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.leftMargin: menu.textLeftMargin
+                color: Qt.lighter("gray",1.7)
+                text: "Samia"
+            }
+
+            MouseArea{
+                anchors.fill: parent
+                onClicked: {
+                    root.executeCommand("#saveAndPlayVideoAd;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Ads/samia.mp4;#;Rais wa Tanzania;#004040;samia.mp4;", []);
+                }
+            }
+        }
+
+
+        Rectangle{
+            z: root.z + 1
+            color: "transparent"
+            width: root.width
+            height: icon1.paintedHeight
+
+            Image {
                 id: icon5
                 width: 68
                 height: width
