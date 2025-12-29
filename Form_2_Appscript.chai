@@ -1794,7 +1794,7 @@ def onSavedResultsDialogOpened()
 
   showMengineyoIfSet();
 
-  onUrlVisited("#showGoogleAd");
+ // onUrlVisited("#showGoogleAd");
 
 }
 
