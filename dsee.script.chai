@@ -9,7 +9,7 @@ global DOWNLOAD_FAILED_MESSAGE_REQUEST_CODE = 20251227;
 def onDownloadFailed(url,pageType,errorCode,errorString)
 {
 
-if(!hasInternetAccess()){
+if(!hasInternetAccess() || pageType.equals("menu",false)){
 	   return;
 }
     requestCustomDialog(DOWNLOAD_FAILED_MESSAGE_REQUEST_CODE, "fa::cogs", " MABORESHO YA MFUMO", "Tunaomba radhi kwa usumbufu wowote uliojitokeza. <br>Mfumo wetu unafanyiwa maboresho kwa sasa ili kukupa huduma bora zaidi. <br>Tunakuomba ujaribu tena baada ya muda mfupi. <br>Asante kwa uvumilivu wako.", "Sawa", "", "#", 0.8, 0.3, false);
@@ -1674,7 +1674,7 @@ def onSavedResultsDialogOpened()
 
   showMengineyoIfSet();
 
-  onUrlVisited("#showGoogleAd");
+  // onUrlVisited("#showGoogleAd");
 }
 
 //------------------------------------
