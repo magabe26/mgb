@@ -33,7 +33,40 @@ Rectangle{
 
         property real imgLeftMargin: 2
         property real textLeftMargin: 6
-    
+
+
+        Rectangle{
+            z: root.z + 1
+            color: "transparent"
+            width: root.width
+            height: icon1.paintedHeight
+
+            Image {
+                id: icon2
+                width: 68
+                height: width
+                anchors.top: parent.top
+                anchors.left: parent.left
+                anchors.leftMargin: menu.imgLeftMargin
+                source: getIconSource("fa::book","#00e6e6")
+            }
+
+            Text {
+                anchors.left: icon2.right
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.leftMargin: menu.textLeftMargin
+                color: Qt.lighter("gray",1.7)
+                text: "Nukuu"
+            }
+
+            MouseArea{
+                anchors.fill: parent
+                onClicked: {
+                    root.executeCommand("nukuu", []);
+                }
+            }
+        }
+
 
         Rectangle{
             z: root.z + 1
@@ -95,11 +128,43 @@ Rectangle{
             MouseArea{
                 anchors.fill: parent
                 onClicked: {
-                    root.executeCommand("#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/master/Ads/elimu.png;#showGoogleAd;0.98;0.8;500", []);
+                    root.executeCommand("#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/master/Ads/elimu2.png;#showGoogleAd;0.98;0.8;500", []);
                 }
             }
         }
 
+
+        Rectangle{
+            z: root.z + 1
+            color: "transparent"
+            width: root.width
+            height: icon1.paintedHeight
+
+            Image {
+                id: icon5
+                width: 68
+                height: width
+                anchors.top: parent.top
+                anchors.left: parent.left
+                anchors.leftMargin: menu.imgLeftMargin
+                source: getIconSource("fa::graduationcap","#00e6e6")
+            }
+
+            Text {
+                anchors.left: icon5.right
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.leftMargin: menu.textLeftMargin
+                color: Qt.lighter("gray",1.7)
+                text: "Samia scholarship"
+            }
+
+            MouseArea{
+                anchors.fill: parent
+                onClicked: {
+                    root.executeCommand("#openurl;https://olas.heslb.go.tz/olams/pre-applicant/apply-for-scholarship", []);
+                }
+            }
+        }
 
         AnimatedImage{
             anchors.horizontalCenter: parent.horizontalCenter
