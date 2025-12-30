@@ -141,6 +141,42 @@ Rectangle{
             height: icon1.paintedHeight
 
             Image {
+                id: icon9
+                width: 68
+                height: width
+                anchors.top: parent.top
+                anchors.left: parent.left
+                anchors.leftMargin: menu.imgLeftMargin
+                source: getIconSource("fa::bello","#00e6e6")
+            }
+
+            Text {
+                anchors.left: icon9.right
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.leftMargin: menu.textLeftMargin
+                color: Qt.lighter("gray",1.7)
+                text: "Baada ya kufaulu"
+            }
+
+
+            MouseArea{
+                anchors.fill: parent
+                property string img: "dr-samia1.png"
+                onClicked: {
+                    root.executeCommand("#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/master/Ads/" + img + ";#showGoogleAd;0.98;0.8;500", []);
+                    img = (img === "dr-samia1.png") ? "dr-samia2.png" : "dr-samia1.png";
+                }
+            }
+        }
+
+
+        Rectangle{
+            z: root.z + 1
+            color: "transparent"
+            width: root.width
+            height: icon1.paintedHeight
+
+            Image {
                 id: icon4
                 width: 68
                 height: width
