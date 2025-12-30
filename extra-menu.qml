@@ -147,7 +147,7 @@ Rectangle{
                 anchors.top: parent.top
                 anchors.left: parent.left
                 anchors.leftMargin: menu.imgLeftMargin
-                source: getIconSource("fa::bello","#00e6e6")
+                source: getIconSource("fa::group","#00e6e6")
             }
 
             Text {
