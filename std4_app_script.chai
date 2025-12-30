@@ -4306,7 +4306,7 @@ def beforeDisplayMenuPage(string xml) {
    var w = 0.85;
 
 
- output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/Coat_of_arms_of_Tanzania.svg.png", "#saveAndPlayVideoAd;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Ads/samia.mp4;#showGoogleAd;Rais wa Tanzania;#004040;samia.mp4;", 1, 0.8, "bottom");
+ output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/Coat_of_arms_of_Tanzania.svg.png", "#saveAndPlayVideoAd;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Ads/samia.mp4;#showGoogleAd;Rais wa Tanzania;#004040;samia.mp4;", 1, 0.8, "top");
 
 
 output = getMenuHolidayAd(output);
