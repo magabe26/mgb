@@ -2756,9 +2756,9 @@ def getUserFlag() {
 
 //----------------
 //----------HollydayAds--------------
-global ENABLE_HOLLYDAY_AD = false;
-global HOLLYDAY_IMG_1 = "newChangia1.png";
-global HOLLYDAY_IMG_2 = "newChangia2.png";
+global ENABLE_HOLLYDAY_AD = true;
+global HOLLYDAY_IMG_1 = "em1.png";
+global HOLLYDAY_IMG_2 = "em2.png";
 
 def getHollydayAdFlag(){
    var flag = getData("HollydayAdFlag");
