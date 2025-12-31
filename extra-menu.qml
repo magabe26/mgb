@@ -163,7 +163,7 @@ Rectangle{
                 anchors.fill: parent
                 property string img: "dr-samia1.png"
                 onClicked: {
-                    root.executeCommand("#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/master/Ads/" + img + ";#showGoogleAd;0.98;0.8;500", []);
+                    root.executeCommand("#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/master/Ads/" + img + ";#showGoogleAd;0.98;0.5;500", []);
                     img = (img === "dr-samia1.png") ? "dr-samia2.png" : "dr-samia1.png";
                 }
             }
