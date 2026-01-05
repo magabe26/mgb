@@ -55,7 +55,7 @@ def showAdsAfterSRO(info){
 	   onUrlVisited("#showGoogleAd");	
 	   saveOrUpdateData("RECENT_RESULTS_ADS_SHOWN",info);
 
-onUrlVisited("#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/master/Ads/faulu.gif;#;1;0.11;100");
+onUrlVisited("#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/master/Ads/faulu.gif;#;1;0.12;400");
 
 	}
 }
