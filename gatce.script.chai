@@ -52,6 +52,10 @@ def showAdsAfterSRO(info){
     if(SHOW_ADS_AFTER_SCHOOL_RESULTS_OPENED && APP_STARTED){ 
 	   onUrlVisited("#showGoogleAd");	
 	   saveOrUpdateData("RECENT_RESULTS_ADS_SHOWN",info);
+
+onUrlVisited("#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/master/Ads/faulu.gif;#;1;0.12;400");
+
+
 	}
 }
 
