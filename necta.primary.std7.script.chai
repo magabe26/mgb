@@ -3816,6 +3816,9 @@ def beforeDisplayPSLEPage(string title, string url, string xml) {
  //  output = putAdsToPSLEPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/tangaza2.gif", "#showAdvertiseWithUsDialog", w, 0.40, "middle");
   // output = putAdsToPSLEPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/DoctorMagic.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.doctormagic", w, 0.20, "bottom");
 
+output = putAdsToPSLEPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/faulu.gif", "#", 1, 0.14, "bottom");
+
+
    return output;
 }
 
@@ -3844,6 +3847,7 @@ def beforeDisplayDistrictPage(string title, string url, string xml) {
    var output = xml;
    var w = 0.85;
 
+output = putAdsToDistrictPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/faulu.gif", "#", 1, 0.14, "top");
 
 // output = putAdsToDistrictPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/SomaKidigitali.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.somakidijitali", w, 0.18, "top");
 
