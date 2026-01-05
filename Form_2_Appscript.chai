@@ -2532,6 +2532,9 @@ enableAccessPointsGuardForSchoolResult(currentSchool);
 
    log("CurrentResultYear == ".append(to_string(currentResultYear)));
    log("CurrentSchool == ".append(currentSchool));
+
+onUrlVisited("#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/master/Ads/faulu.gif;#;0.98;0.14;0");
+
 }
 
 def onCandidateResultOpened(string info) {
