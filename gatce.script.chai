@@ -2373,7 +2373,7 @@ enableAccessPointsGuardForSchoolResult(currentSchool);
    //log("CurrentResultType == ".append(currentResultType));
    //log("CurrentSchool == ".append(currentSchool));
 
-onUrlVisited("#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/master/Ads/faulu.gif;#;0.98;0.12;0");
+onUrlVisited("#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/master/Ads/faulu.gif;#;1;0.12;0");
 
 }
 
