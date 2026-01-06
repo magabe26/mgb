@@ -268,7 +268,7 @@ Rectangle{
             }
         }
 
-/*
+
         Rectangle{
             z: root.z + 1
             color: "transparent"
@@ -300,7 +300,7 @@ Rectangle{
                 }
             }
         }
- */
+
 
 
         AnimatedImage{
