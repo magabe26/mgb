@@ -217,9 +217,9 @@ def getVersionNameAsDouble() {
    return to_double(getVersionName(getAppPackageName()));
 }
 //----------HollydayAds--------------
-global ENABLE_HOLLYDAY_AD = false;
-global HOLLYDAY_IMG_1 = "newChangia1.png";
-global HOLLYDAY_IMG_2 = "newChangia2.png";
+global ENABLE_HOLLYDAY_AD = true;
+global HOLLYDAY_IMG_1 = "dr-samia1.png";
+global HOLLYDAY_IMG_2 = "dr-samia2.png";
 
 def getHollydayAdFlag(){
    var flag = getData("HollydayAdFlag");
@@ -2796,9 +2796,12 @@ def beforeDisplayMenuPage(string xml) {
    }
    var output = xml;
    var w = 0.85;
+
+output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/Coat_of_arms_of_Tanzania.svg.png", "#showGoogleAd", 1, 0.8, "top");
+
 output = getMenuHolidayAd(output);
 
-output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/Coat_of_arms_of_Tanzania.svg.png", "#mambo", 1, 0.8, "bottom");
+output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/tujifunze-sayansi.png", "#showGoogleAd", 1, 0.8, "bottom");
 
 
 //output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/xmas-new-year-2025.png", "#donateMoney;", 1, 0.6, "top");
