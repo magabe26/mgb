@@ -1931,7 +1931,7 @@ def downloadComputedMainPages(url){
 
 def setupExtraMenu()
 {
-    var height = "638";
+    var height = "800";
     var app = "extra-menu.qml";
 	var path = generateAppRootFilePath(app);
     if(hasInternetAccess()){
