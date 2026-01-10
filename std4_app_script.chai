@@ -3908,7 +3908,7 @@ def onAppStarted() {
 
 setFailureIdentifier("E");
 
-  updateMenuFromWebsite("https://necta.go.tz/results/view/sfna"); //std4
+   //updateMenuFromWebsite("https://necta.go.tz/results/view/sfna"); //std4
 
      setMyFavoriteLoadingIndicator();
       //setHolidayLoadingIndicator();
