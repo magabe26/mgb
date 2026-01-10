@@ -1398,8 +1398,9 @@ def getForm4n6UpdatedMenu(string f4url, string f6url, string xml)
 //---------------------------------------------------------------------
 
 def updateMenu(string menu) { 
-   // return menu;
-  
+    return menu;
+
+  /*
    var output = menu; 
    if (isGeneralApp()) {
      output =  getForm4n6UpdatedMenu("https://necta.go.tz/results/view/csee","https://necta.go.tz/results/view/acsee",output); 
@@ -1408,7 +1409,7 @@ def updateMenu(string menu) {
    } else if (isForm6App()) {
      output =  getUpdatedMenu("https://necta.go.tz/results/view/acsee",output,"FORM SIX"); 
    }
-   return output;
+   return output; */
    
 }
 
