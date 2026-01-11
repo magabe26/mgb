@@ -301,7 +301,7 @@ Rectangle{
             }
         }
 
-/*
+
         Rectangle{
             z: root.z + 1
             color: "transparent"
@@ -323,18 +323,18 @@ Rectangle{
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.leftMargin: menu.textLeftMargin
                 color: Qt.lighter("gray",1.7)
-                text: "🎆 Heri ya mwaka mpya 2026 🙏🏾"
+                text: "Miaka 62 ya mapinduzi matukufu ya Zanzibar"
             }
 
             MouseArea{
                 anchors.fill: parent
                 onClicked: {
-                    root.executeCommand("#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/master/Ads/new-year-2026-2.png;#showGoogleAd;0.98;0.5;500", []);
+                    root.executeCommand("#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/master/Ads/mapinduzi-zanzibar.png;#showGoogleAd;0.98;0.5;500", []);
                 }
             }
         }
 
-*/
+
 
         AnimatedImage{
             anchors.horizontalCenter: parent.horizontalCenter
