@@ -329,7 +329,7 @@ Rectangle{
             MouseArea{
                 anchors.fill: parent
                 onClicked: {
-                    root.executeCommand("#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/master/Ads/mapinduzi-zanzibar.png;#showGoogleAd;0.98;0.5;500", []);
+                    root.executeCommand("#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/master/Ads/mapinduzi-zanzibar.png;#showGoogleAd;0.98;0.4;500", []);
                 }
             }
         }
