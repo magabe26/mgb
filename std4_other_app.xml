@@ -3,6 +3,15 @@
   
 
 
+<APP>
+<A HREF="#showGoogleAd"></A>
+      <BG_COLOR>white</BG_COLOR>
+      <ENABLE_IMAGE>1</ENABLE_IMAGE>
+      <IMAGE_URL>https://raw.githubusercontent.com/magabe26/mgb/master/Ads/mapinduzi-zanzibar.png</IMAGE_URL>
+      <IMAGE_WIDTH_FRACTION>1</IMAGE_WIDTH_FRACTION>
+      <IMAGE_HEIGHT_FRACTION>0.30</IMAGE_HEIGHT_FRACTION>
+   </APP>
+
    <APP>
 <A HREF="#"></A>
       <BG_COLOR>white</BG_COLOR>
