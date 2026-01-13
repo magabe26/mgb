@@ -300,7 +300,7 @@ Rectangle{
                 }
             }
         }
-
+/*
 
         Rectangle{
             z: root.z + 1
@@ -334,7 +334,7 @@ Rectangle{
             }
         }
 
-
+*/
 
         AnimatedImage{
             anchors.horizontalCenter: parent.horizontalCenter
