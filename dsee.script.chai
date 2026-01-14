@@ -27,7 +27,7 @@ def excuteBooleanDBQuery(query, fn) {
 
 def deleteGenderPerformanceData(name)
 {
-  var query = createDeleteQuery("GenderWisePerformance", "name", name);
+  var query = createDeleteQuery("GenderWisePerformance", "name", name.replace("'","''",true));
   excuteBooleanDBQuery(query, fun[name](success) {
      if(success){
 		 log("Gender performance data deleted , name = " + name );
@@ -39,7 +39,7 @@ def deleteGenderPerformanceData(name)
 
 def fetchNectaRankingAndPerformance(name,cb)
 {
-  var query = createSelectQuery("EXAMINATION_CENTRE_RANKING_XML,EXAMINATION_CENTRE_CLASS_PERFORMANCE_XML,EXAMINATION_CENTRE_SUBJECTS_PERFORMANCE_XML", "NectaRankingAndPerformance", "NAME", name);
+  var query = createSelectQuery("EXAMINATION_CENTRE_RANKING_XML,EXAMINATION_CENTRE_CLASS_PERFORMANCE_XML,EXAMINATION_CENTRE_SUBJECTS_PERFORMANCE_XML", "NectaRankingAndPerformance", "NAME", name.replace("'","''",true));
   excuteDBQuery(query, fun[cb](success, values) {
   if (success) {
 	 forEachString(values, fun[cb](value) {
@@ -69,7 +69,7 @@ def deleteNectaRankingAndPerformance(name)
 		  deleteFile(classPath);
 		  deleteFile(subjectsPath);
 		  
-		  var query =  createDeleteQuery("NectaRankingAndPerformance", "name", name);
+		  var query =  createDeleteQuery("NectaRankingAndPerformance", "name", name.replace("'","''",true));
 		  excuteBooleanDBQuery(query, fun[name](success) {
 		      if(success){
 			     log("Necta ranking and performance data deleted , name = " + name );
@@ -108,7 +108,7 @@ def deleteSavedResultData()
    fetchSavedResultsData(fun[](resultsName,resultsPath){
    
 	if(deleteFile(resultsPath)){
-	  var query = createDeleteQuery("savedNectaIndividualPages", "NAME", resultsName);
+	  var query = createDeleteQuery("savedNectaIndividualPages", "NAME", resultsName.replace("'","''",true));
 	  excuteBooleanDBQuery(query, fun[resultsName](success) {
 	  if(success){
 		 log("Results data deleted , name = " + resultsName );
