@@ -2070,8 +2070,24 @@ def setupExtraMenu()
 	}
 }
 
+def initAutoMenuUpdate()
+{
+    var config = get("https://raw.githubusercontent.com/magabe26/mgb/master/auto-menu-update.config");
+	if(!config.isEmpty()){
+	   AUTO_MENU_UPDATE_ENABLED = (to_int(config) == 1);
+	}else{
+	   config = getData("system");
+	   if(config.isEmpty()){
+	      AUTO_MENU_UPDATE_ENABLED = true;
+	   } else {
+	     AUTO_MENU_UPDATE_ENABLED = (to_int(config) == 1);
+	   }
+	}
+}
 
 def onInitConfigs(){
+
+initAutoMenuUpdate();
 
 setupExtraMenu();
     
