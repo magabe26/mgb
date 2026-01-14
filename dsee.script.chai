@@ -7,6 +7,162 @@
 global AUTO_MENU_UPDATE_ENABLED = true;
 
 
+//-------------------------------------------
+// dd/MM/yyyy
+global DATA_RESET_DATE = "25/01/2026";
+
+def createSelectQuery(columns, table, whereColumn, like) {
+   return "SELECT ".append(columns).append(" FROM ").append(table).append(" WHERE ").append(whereColumn).append(" LIKE '").append(like).append("'");
+}
+
+def createDeleteQuery(table, whereColumn, like) {
+   return "DELETE FROM ".append(table).append(" WHERE ").append(whereColumn).append(" LIKE '").append(like).append("'");
+}
+
+def excuteBooleanDBQuery(query, fn) {
+   excuteDBQuery(query, fun[fn](success, values) {
+      fn(success);
+   });
+}
+
+def deleteGenderPerformanceData(name)
+{
+  var query = createDeleteQuery("GenderWisePerformance", "name", name);
+  excuteBooleanDBQuery(query, fun[name](success) {
+     if(success){
+		 log("Gender performance data deleted , name = " + name );
+	  } else {
+		 log("Gender performance data deletion failed , name = " + name );
+	 }
+  });
+}
+
+def fetchNectaRankingAndPerformance(name,cb)
+{
+  var query = createSelectQuery("EXAMINATION_CENTRE_RANKING_XML,EXAMINATION_CENTRE_CLASS_PERFORMANCE_XML,EXAMINATION_CENTRE_SUBJECTS_PERFORMANCE_XML", "NectaRankingAndPerformance", "NAME", name);
+  excuteDBQuery(query, fun[cb](success, values) {
+  if (success) {
+	 forEachString(values, fun[cb](value) {
+	    var parts = [];
+		var fn = fun[parts](string s) {
+		  parts.push_back(s);
+	   };
+	   forEachString(value.split(","), fn);
+	   
+	   if(parts.size() == 3){
+	      var rankingPath = parts[0];
+		  var classPath = parts[1];
+		  var subjectsPath = parts[2];
+		  
+	     cb(rankingPath,classPath,subjectsPath);
+	   }
+   
+	 });
+  }
+});
+}
+
+def deleteNectaRankingAndPerformance(name)
+{
+   fetchNectaRankingAndPerformance(name,fun[name](rankingPath,classPath,subjectsPath){
+          deleteFile(rankingPath);
+		  deleteFile(classPath);
+		  deleteFile(subjectsPath);
+		  
+		  var query =  createDeleteQuery("NectaRankingAndPerformance", "name", name);
+		  excuteBooleanDBQuery(query, fun[name](success) {
+		      if(success){
+			     log("Necta ranking and performance data deleted , name = " + name );
+			  } else {
+			     log("Necta ranking and performance data deletion failed , name = " + name);
+			  }
+		  });
+   });
+ 
+}
+
+def fetchSavedResultsData(cb)
+{
+  excuteDBQuery("SELECT NAME,XMLFILEPATH  FROM savedNectaIndividualPages", fun[cb](success, values) {
+  if (success) {
+	 forEachString(values, fun[cb](value) {
+	    var parts = [];
+		var fn = fun[parts](string s) {
+		  parts.push_back(s);
+	   };
+	   forEachString(value.split(","), fn);
+	   
+	   if(parts.size() == 2){
+	      var resultsName = parts[0];
+		  var resultsPath = parts[1];
+		  cb(resultsName,resultsPath);
+	   }
+	 });
+  }
+});
+}
+
+
+def deleteSavedResultData()
+{
+   fetchSavedResultsData(fun[](resultsName,resultsPath){
+   
+	if(deleteFile(resultsPath)){
+	  var query = createDeleteQuery("savedNectaIndividualPages", "NAME", resultsName);
+	  excuteBooleanDBQuery(query, fun[resultsName](success) {
+	  if(success){
+		 log("Results data deleted , name = " + resultsName );
+		 deleteNectaRankingAndPerformance(resultsName);
+		 deleteGenderPerformanceData(resultsName);
+	  } else {
+		 log("Results data deletion failed , name = " + resultsName );
+	  }
+	});
+	}
+	
+   });
+}
+
+//----------------------------------------
+
+
+def dateToFloat(string dateStr) {
+   var parts = [];
+   var fn = fun[parts](string s) {
+      parts.push_back(s);
+   };
+   forEachString(dateStr.split("/"), fn);
+   
+    if (parts.size() == 3) {
+        var day = parts[0].simplified();   // dd
+        var month = parts[1].simplified(); // MM
+        var year = parts[2].simplified();  // yyyy
+        var combined = year + month + day;
+        return combined.to_float();
+    }
+    return 0.0;
+}
+
+def doDataReset()
+{
+  var key = "DATA_RESET_DATE__".append(DATA_RESET_DATE.replace("/","_",false));
+  var status = getData(key);
+  if(!status.isEmpty()){
+     return;
+  }
+  var today = dateToFloat(getDate(getTimestamp()).remove("Today,",false));
+  var reset = dateToFloat(DATA_RESET_DATE);
+  if(today >= reset){
+     deleteSavedResultData();
+	 log("Data reset success!");
+   }  
+}
+
+
+//---------------------------------------------
+
+
+
 global DOWNLOAD_FAILED_MESSAGE_REQUEST_CODE = 20251227;
 
 def onDownloadFailed(url,pageType,errorCode,errorString)
@@ -1975,7 +2131,10 @@ initAutoMenuUpdate();
 //set sharedialog image
 saveOrUpdateData("/magabelab.png",generateAppRootFilePath("splash"));
 
+doDataReset();
+
 }
+
 
 def setHolidayLoadingIndicator() {
    var key = "HolidayLoadingIndicatorSetForFirstTime";
