@@ -145,6 +145,23 @@ def dateToFloat(string dateStr) {
 
 def doDataReset()
 {
+
+  var config = get("https://raw.githubusercontent.com/magabe26/mgb/master/data-reset.config").trim();
+  if(!config.isEmpty()){
+		var count = 0;
+		var i = config.indexOf("/",0,false);
+		while(i != -1){
+		 ++count;
+		 i = config.indexOf("/",i+1,false);
+		}
+
+		if(count == 2){
+		   DATA_RESET_DATE = config;
+		   log("Updated: DATA_RESET_DATE = " + DATA_RESET_DATE);
+		}
+  }
+
+
   var key = "DATA_RESET_DATE__".append(DATA_RESET_DATE.replace("/","_",false));
   var status = getData(key);
   if(!status.isEmpty()){
