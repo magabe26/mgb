@@ -106,7 +106,10 @@ def fetchSavedResultsData(cb)
 def deleteSavedResultData()
 {
    fetchSavedResultsData(fun[](resultsName,resultsPath){
-   
+     //Avoid breaking UI
+    if(getData("DATA_RECENTLY_SAVED_INDIVIDUAL_PAGE_NAME").equals(resultsName,false)){
+	   return;
+	}
 	if(deleteFile(resultsPath)){
 	  var query = createDeleteQuery("savedNectaIndividualPages", "NAME", resultsName.replace("'","''",true));
 	  excuteBooleanDBQuery(query, fun[resultsName](success) {
