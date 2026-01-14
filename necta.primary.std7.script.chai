@@ -3342,6 +3342,8 @@ if(AUTO_MENU_UPDATE_ENABLED){
    
 updateMenuFromWebsite("https://necta.go.tz/results/view/psle"); //std7
 
+} else {
+  	saveOrUpdateData("menu-updated","");
 }
 
  setMyFavoriteLoadingIndicator();
