@@ -3913,6 +3913,8 @@ setFailureIdentifier("E");
   if(AUTO_MENU_UPDATE_ENABLED){
  updateMenuFromWebsite("https://necta.go.tz/results/view/sfna"); //std4
 
+} else {
+  	saveOrUpdateData("menu-updated","");
 }
 
      setMyFavoriteLoadingIndicator();
