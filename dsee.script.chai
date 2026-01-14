@@ -4,6 +4,9 @@
  */
 
 
+global AUTO_MENU_UPDATE_ENABLED = true;
+
+
 global DOWNLOAD_FAILED_MESSAGE_REQUEST_CODE = 20251227;
 
 def onDownloadFailed(url,pageType,errorCode,errorString)
@@ -1350,10 +1353,14 @@ def getUpdatedMenu(string url, string xml, string label)
 
 
 def updateMenu(string menu) { 
-   //return menu;
-     
+  
+if(!AUTO_MENU_UPDATE_ENABLED){
+   return menu;
+} else {
    return getUpdatedMenu("https://www.necta.go.tz/results/view/dsee",menu,"MATOKEO YA UALIMU NGAZI YA STASHAHADA
 "); 
+}
+
 }
 
 
