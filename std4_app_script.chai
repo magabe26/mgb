@@ -4,7 +4,7 @@
  */
 
 
-global AUTO_MENU_UPDATE_ENABLED = true;
+global AUTO_MENU_UPDATE_ENABLED = false;
 
 
 def getPageTitle(string year){
