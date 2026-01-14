@@ -7,6 +7,48 @@
 global AUTO_MENU_UPDATE_ENABLED = true;
 
 
+//----------------------------------------
+
+// dd/MM/yyyy
+global DATA_RESET_DATE = "25/01/2026";
+
+def dateToFloat(string dateStr) {
+   var parts = [];
+   var fn = fun[parts](string s) {
+      parts.push_back(s);
+   };
+   forEachString(dateStr.split("/"), fn);
+   
+    if (parts.size() == 3) {
+        var day = parts[0].simplified();   // dd
+        var month = parts[1].simplified(); // MM
+        var year = parts[2].simplified();  // yyyy
+        var combined = year + month + day;
+        return combined.to_float();
+    }
+    return 0.0;
+}
+
+def doDataReset()
+{
+  var key = "DATA_RESET_DATE__".append(DATA_RESET_DATE.replace("/","_",false));
+  var status = getData(key);
+  if(!status.isEmpty()){
+     return;
+  }
+  var today = dateToFloat(getDate(getTimestamp()).remove("Today,",false));
+  var reset = dateToFloat(DATA_RESET_DATE);
+  if(today >= reset){
+	 deleteAllPageData();
+     deleteAllResultsData();
+	 saveOrUpdateData(key,"1");
+	 log("Data reset success!");
+   }  
+}
+
+//------------------------------------------
+
+
 def getPageTitle(string year){
     var start = "";
 	var end = "";
@@ -3268,6 +3310,8 @@ saveOrUpdateData("images/magabelab.png",generateAppRootFilePath("Coat_of_arms_of
 if(!AUTO_MENU_UPDATE_ENABLED){
   	saveOrUpdateData("menu-updated","");
 }
+
+doDataReset();
 
 }
 
