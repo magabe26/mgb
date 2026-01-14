@@ -172,7 +172,7 @@ def doDataReset()
   var reset = dateToFloat(DATA_RESET_DATE);
   if(today >= reset){
      deleteSavedResultData();
-     saveOrUpdateData(key,"1")
+     saveOrUpdateData(key,"1");
 	   log("Data reset success!");
    }  
 }
