@@ -4,7 +4,7 @@
  */
 
 
-global AUTO_MENU_UPDATE_ENABLED = false;
+global AUTO_MENU_UPDATE_ENABLED = true;
 
 
 def getPageTitle(string year){
@@ -3828,6 +3828,10 @@ def onInitConfigs(){
 
 //set sharedialog image
 saveOrUpdateData("images/magabelab.png",generateAppRootFilePath("Coat_of_arms_of_Tanzania.svg.png"));
+
+if(!AUTO_MENU_UPDATE_ENABLED){
+  	saveOrUpdateData("menu-updated","");
+}
 
 }
 
