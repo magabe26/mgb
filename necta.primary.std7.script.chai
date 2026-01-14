@@ -4,6 +4,9 @@
  */
 
 
+global AUTO_MENU_UPDATE_ENABLED = true;
+
+
 def getPageTitle(string year){
     var start = "";
 	var end = "";
@@ -3335,8 +3338,11 @@ global DONATE_TIMERCODE = 202226;
 def onAppStarted() { 
    try {
 
+if(AUTO_MENU_UPDATE_ENABLED){
+   
 updateMenuFromWebsite("https://necta.go.tz/results/view/psle"); //std7
 
+}
 
  setMyFavoriteLoadingIndicator();
     // setHolidayLoadingIndicator();
