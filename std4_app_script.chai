@@ -4,6 +4,8 @@
  */
 
 
+global AUTO_MENU_UPDATE_ENABLED = true;
+
 
 def getPageTitle(string year){
     var start = "";
@@ -3908,7 +3910,10 @@ def onAppStarted() {
 
 setFailureIdentifier("E");
 
-   updateMenuFromWebsite("https://necta.go.tz/results/view/sfna"); //std4
+  if(AUTO_MENU_UPDATE_ENABLED){
+ updateMenuFromWebsite("https://necta.go.tz/results/view/sfna"); //std4
+
+}
 
      setMyFavoriteLoadingIndicator();
       //setHolidayLoadingIndicator();
