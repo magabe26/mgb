@@ -208,9 +208,19 @@ def onDownloadFailedMessageDialogClosed(int requestCode, string pressedButton, s
 
 
 
+global SHOW_SPLASH_SCREEN = true;
+
 def showSplashScreen(os)
 {
-  return true;
+  return SHOW_SPLASH_SCREEN;
+}
+
+def initShowSplashScreen()
+{
+    var config = get("https://raw.githubusercontent.com/magabe26/mgb/master/show-splash-screen.config");
+	if(!config.isEmpty()){
+	   SHOW_SPLASH_SCREEN = (to_int(config) == 1);
+	}
 }
 
 
