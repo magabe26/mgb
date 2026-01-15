@@ -2167,6 +2167,8 @@ setupExtraMenu();
 saveOrUpdateData("/magabelab.png",generateAppRootFilePath("splash"));
 doDataReset();
 
+initShowSplashScreen();
+
 }
 
 def setHolidayLoadingIndicator() {
