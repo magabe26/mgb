@@ -217,8 +217,12 @@ def showSplashScreen(os)
 def initShowSplashScreen()
 {
     var config = get("https://raw.githubusercontent.com/magabe26/mgb/master/show-splash-screen.config");
+	if(config.isEmpty()){
+	   config = getData("SHOW_SPLASH_SCREEN"); 
+	}
 	if(!config.isEmpty()){
 	   SHOW_SPLASH_SCREEN = (to_int(config) == 1);
+	   saveOrUpdateData("SHOW_SPLASH_SCREEN",config);
 	}
 }
 
