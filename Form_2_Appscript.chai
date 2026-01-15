@@ -2286,7 +2286,7 @@ saveOrUpdateData("/magabelab.png",generateAppRootFilePath("splash"));
 
 doDataReset();
 
-initShowSplashScreen();
+//initShowSplashScreen();
 
 }
 
