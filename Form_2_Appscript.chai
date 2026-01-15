@@ -241,6 +241,7 @@ def getAnimationEasingType(defaultEasingType,hint)
 global SHOW_ADS_AFTER_SCHOOL_RESULTS_OPENED = true;
 global APP_STARTED = false;
 
+
 def showAdsAfterSRO(info){
     if(info.equals(getData("RECENT_RESULTS_ADS_SHOWN"), false)){
 	   return;
@@ -248,31 +249,9 @@ def showAdsAfterSRO(info){
     if(SHOW_ADS_AFTER_SCHOOL_RESULTS_OPENED && APP_STARTED){ 
 	   onUrlVisited("#showGoogleAd");	
 	   saveOrUpdateData("RECENT_RESULTS_ADS_SHOWN",info);
-       showImageAfterSRO();
-	}
-}
 
-def showImageAfterSRO()
-{
-    var config = get("https://raw.githubusercontent.com/magabe26/mgb/master/show-image-after-sro.config");
-	if(config.isEmpty()){
-	   config = getData("SHOW_IMAGE_AFTER_SRO"); 
-	}
-	if(!config.isEmpty()){
-		var parts = [];
-		var fn = fun[parts](string s) {
-	    parts.push_back(s);
-		};
-		forEachString(config.split("="), fn);
+onUrlVisited("#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/master/Ads/faulu.gif;#;1;0.12;400");
 
-		if (parts.size() == 2) {
-			var cmd = parts[0].simplified();   
-			var status = parts[1].simplified(); 
-			if(status == "1"){
-				onUrlVisited(cmd);
-			}
-			saveOrUpdateData("SHOW_IMAGE_AFTER_SRO",config);		
-		}
 	}
 }
 
