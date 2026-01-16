@@ -2254,6 +2254,8 @@ doDataReset();
 
 initShowSplashScreen();
 
+saveAppMessages();
+
 }
 
 
