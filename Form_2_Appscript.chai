@@ -244,7 +244,7 @@ def showAppMessage(year,pageName)
 		   height = 0.5;
 		}
 		
-		requestCustomDialog(20250320, icon, title, message, "Sawa", "", "#", width, height, false);
+		requestCustomDialog(20250320, icon, title, message, "Ok", "", "#", width, height, false);
 	}
 }
 
