@@ -3272,6 +3272,13 @@ def onSchoolResultsOpenPermissionDenied(school,url)
 
 def hasYearResultsOpenPermission(year,url)
 {
+
+if(stR("/csee/",false).hasMatch(url,0)){
+      showAppMessage(year,"CSEE-Main");
+   } else if(stR("/acsee/",false).hasMatch(url,0)){
+      showAppMessage(year,"ACSEE-Main");
+   }
+
   return  (!ACCESS_PERMISSIONS_FEATURE_ENABLED) || accessCodePurchased(to_string(LATEST_RESULTS_YEAR)) || (year < LATEST_RESULTS_YEAR) || accessCodePurchased(to_string(year));
 }
 
