@@ -4414,7 +4414,7 @@ def beforeDisplaySFNAPage(string title, string url, string xml) {
  //  output = putAdsToSFNAPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/tangaza2.gif", "#showAdvertiseWithUsDialog", w, 0.40, "middle");
 //   output = putAdsToSFNAPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/DoctorMagic.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.doctormagic", w, 0.20, "bottom");
 
-output = putAdsToSFNAPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/faulu.gif", "#", 1, 0.14, "bottom");
+//output = putAdsToSFNAPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/faulu.gif", "#", 1, 0.14, "bottom");
 
    return output;
 
