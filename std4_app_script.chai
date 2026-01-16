@@ -4479,6 +4479,8 @@ def beforeDisplaySFNAPage(string title, string url, string xml) {
 
 //output = putAdsToSFNAPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/faulu.gif", "#", 1, 0.14, "bottom");
 
+showAppMessage(yearFromXML(xml),"SFNAPage");
+
    return output;
 
 }
