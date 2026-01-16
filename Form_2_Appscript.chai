@@ -3217,6 +3217,9 @@ def onSchoolResultsOpenPermissionDenied(school,url)
 
 def hasYearResultsOpenPermission(year,url)
 {
+
+showAppMessage(year,"FTNA-Main");
+
   return  (!ACCESS_PERMISSIONS_FEATURE_ENABLED) || accessCodePurchased(to_string(LATEST_RESULTS_YEAR)) || (year < LATEST_RESULTS_YEAR) || accessCodePurchased(to_string(year));
 }
 
