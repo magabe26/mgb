@@ -67,6 +67,67 @@ def doDataReset()
    }  
 }
 
+//-------------------------------------------------
+def yearFromXML(xml)
+{
+    return getYear(stR("HREF=\"",false).seq(any(chaR('"'),"").plus()).firstStringMatch(xml,0),"");
+}
+
+def saveAppMessages()
+{
+    var file = "messages.xml";
+	var path = generateAppRootFilePath(file);
+	var url = "https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/".append(file);
+    deleteFile(path);
+	saveFile(url, path);
+}
+
+def getAppMessages()
+{
+   var file = "messages.xml";
+   var path = generateAppRootFilePath(file);
+   return getFileData(path);
+}
+
+def showAppMessage(year,pageName)
+{
+    var xml = getAppMessages();
+	var package = getAppPackageName();
+	var status = "1";
+
+	var packageParser = stR("PACKAGE=\"".append(package).append("\""),false);
+	var statusParser = stR("STATUS=\"".append(to_string(status)).append("\""),false);	
+	var yearParser = stR("YEAR=\"".append(to_string(year)).append("\""),false);
+	var startTag = stR("<MESSAGE",false).seq(spaceOptional()).seq(packageParser).seq(spaceOptional()).seq(statusParser).seq(spaceOptional()).seq(yearParser).seq(spaceOptional()).seq(any(chaR('>'),"").plus()).seq(chaR('>'));
+	var endTag = stR("</MESSAGE>",false);
+
+	var messageTag = "";
+	startTag.seq(any(endTag,"").plus()).seq(endTag).replaceInMapped(xml, fun[messageTag,pageName](string tag) {
+	   if(stR("PAGE=\"".append(to_string(pageName)).append("\""),false).hasMatch(tag,0)){
+		 messageTag = tag;
+	   }
+	  return tag;
+	}, 0, -1);
+
+	if(!messageTag.isEmpty()){
+		var title = stR("TITLE=\"",false).seq(any(chaR('"'),"").plus()).firstStringMatch(messageTag,0).remove("TITLE=\"",false);
+		var message = stripTag(messageTag, "MESSAGE");
+		var icon = stR("ICON=\"",false).seq(any(chaR('"'),"").plus()).firstStringMatch(messageTag,0).remove("ICON=\"",false);
+		var width = to_double(stR("WIDTH=\"",false).seq(any(chaR('"'),"").plus()).firstStringMatch(messageTag,0).remove("WIDTH=\"",false));
+		var height = to_double(stR("HEIGHT=\"",false).seq(any(chaR('"'),"").plus()).firstStringMatch(messageTag,0).remove("HEIGHT=\"",false));
+		if(width <= 0.0){
+		   width = 0.98;
+		}
+		
+		if(height <= 0.0){
+		   height = 0.5;
+		}
+		
+		requestCustomDialog(20250320, icon, title, message, "Sawa", "", "#", width, height, false);
+	}
+}
+
+//-------------------------------------------------
 //------------------------------------------
 
 def getPageTitle(string year){
