@@ -51,3 +51,37 @@ Ufaulu wa jumla wa Mtihani wa Kumaliza Elimu ya Msingi (PSLE) kwa mwaka 2023 uli
 <MESSAGE PACKAGE="com.magabelab.matokeo.ya.kidato.cha.pili" STATUS="1" YEAR="2023" TITLE="FORM TWO NATIONAL ASSESSMENT, 2023" ICON="fa::bullhorn" PAGE="FTNA-Main" WIDTH="0.9" HEIGHT="0.6">
 The National Examinations Council of Tanzania announced the 2023 FTNA results with a pass rate of 84.29%. Statistics indicate that 531,011 students passed out of 630,001 candidates. The assessment recorded a significant pass rate in Kiswahili and Civics. However, NECTA highlighted that 15% of students still struggle with basic competency in Mathematics and English, calling for more focused teaching in those areas.
 </MESSAGE>
+
+
+
+<MESSAGE PACKAGE="com.magabelab.matokeo.ya.kidato.cha.nne" STATUS="1" YEAR="2022" TITLE="CSEE, 2022" ICON="fa::bullhorn" PAGE="CSEE-Main" WIDTH="0.9" HEIGHT="0.6">
+The 2022 CSEE results showed an overall pass rate of 87.79%. Out of 520,391 candidates who sat for the exam, 456,857 passed. Statistics reveal that 152,109 candidates (29.2%) scored between Division I and III. NECTA noted a consistent performance in Kiswahili and Social Science subjects, while highlighting the need for more investment in laboratory equipment to improve Science practical scores.
+</MESSAGE>
+
+<MESSAGE PACKAGE="com.magabelab.matokeo.ya.kidato.cha.nne" STATUS="1" YEAR="2023" TITLE="CSEE, 2023" ICON="fa::bullhorn" PAGE="CSEE-Main" WIDTH="0.9" HEIGHT="0.6">
+For the year 2023, the CSEE pass rate slightly increased to 89.12%. A total of 543,332 candidates were examined, with 484,823 candidates reaching the pass mark. There was a notable improvement in the performance of girl students, especially in STEM subjects. National top-performing schools were largely dominated by the Lake Zone and Coast regions, with a significant rise in Division I and II grades.
+</MESSAGE>
+
+<MESSAGE PACKAGE="com.magabelab.matokeo.ya.kidato.cha.nne" STATUS="1" YEAR="2024" TITLE="CSEE, 2024" ICON="fa::bullhorn" PAGE="CSEE-Main" WIDTH="0.9" HEIGHT="0.6">
+The 2024 CSEE results reflected a pass rate of 91.04%, the highest in recent years. Out of 565,110 candidates, 514,484 passed. This year saw a major shift in Mathematics performance, which increased by 3.4% compared to 2023. Vocational subjects also recorded high ufaulu, aligning with the government's new education policy of emphasizing technical skills alongside academic excellence.
+</MESSAGE>
+
+
+
+<MESSAGE PACKAGE="com.magabelab.matokeo.ya.kidato.cha.sita" STATUS="1" YEAR="2022" TITLE="ACSEE, 2022" ICON="fa::bullhorn" PAGE="ACSEE-Main" WIDTH="0.9" HEIGHT="0.6">
+In the 2022 ACSEE, the general pass rate was 98.97%. A total of 93,136 candidates sat for the exams, with 92,187 passing. Statistics show that 94.2% of the candidates scored Division I, II, and III, qualifying for university entrance. The Science combinations (PCM, PCB, PGM) recorded a high ufaulu rate of 97.5%, while Arts combinations maintained their traditional lead in high-grade distributions.
+</MESSAGE>
+
+<MESSAGE PACKAGE="com.magabelab.matokeo.ya.kidato.cha.sita" STATUS="1" YEAR="2023" TITLE="ACSEE, 2023" ICON="fa::bullhorn" PAGE="ACSEE-Main" WIDTH="0.9" HEIGHT="0.6">
+The 2023 ACSEE results remained stable with an impressive pass rate of 99.23%. Out of 104,435 candidates, 103,630 passed. There was a recorded 1.4% increase in candidates opting for Science combinations. NECTA reported that the quality of performance improved, with Division I earners increasing by 2.1%. Top-performing schools included traditional government giants and private seminaries.
+</MESSAGE>
+
+<MESSAGE PACKAGE="com.magabelab.matokeo.ya.kidato.cha.sita" STATUS="1" YEAR="2024" TITLE="ACSEE, 2024" ICON="fa::bullhorn" PAGE="ACSEE-Main" WIDTH="0.9" HEIGHT="0.6">
+The 2024 ACSEE results showed a near-perfect pass rate of 99.51%. A total of 113,504 candidates were examined, and 112,946 were successful. This year marked a historic milestone where girls slightly outshone boys in Science and Mathematics combinations. Furthermore, the number of candidates qualifying for direct university admission (Division I-III) reached an all-time high of 96.8%.
+</MESSAGE>
+
+<MESSAGE PACKAGE="com.magabelab.matokeo.ya.kidato.cha.sita" STATUS="1" YEAR="2025" TITLE="ACSEE, 2025" ICON="fa::bullhorn" PAGE="ACSEE-Main" WIDTH="0.9" HEIGHT="0.6">
+The 2025 Advanced Certificate of Secondary Education Examination (ACSEE) results have maintained an excellent performance trend with a general pass rate of 99.63%. A total of 122,840 candidates sat for the examinations nationwide.
+
+Data shows that 118,537 candidates (96.5%) scored between Division I and III, making them eligible for direct university admission. There has been a significant 3.2% increase in high-quality grades (Division I) compared to 2024, particularly in Science and Mathematics combinations (PCM, PCB, and PGM). NECTA also highlighted that 2025 saw the highest number of candidates registered for technical-related combinations in the history of the assessment.
+</MESSAGE>
