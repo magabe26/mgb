@@ -1,22 +1,27 @@
 <MESSAGE PACKAGE="com.magabelab.matokeo.ya.darasa.la.nne" STATUS="1" YEAR="2025" TITLE="MATOKEO YA DARASA LA NNE, 2025" ICON="fa::bullhorn" PAGE="SFNAPage" WIDTH="0.9" HEIGHT="0.6">
-
-Kwa mujibu wa taarifa rasmi iliyotangazwa na Katibu Mtendaji wa Baraza la Mitihani la Tanzania (NECTA), Profesa Said Ally Mohamed Jijini Dar es Salaam. Jumla ya wanafunzi 1,583,686 walisajiliwa kushiriki Upimaji wa Kitaifa wa Darasa la Nne mwaka 2025. Kati yao:
+
+Kwa mujibu wa tangazo la Baraza la Mitihani la Tanzania (NECTA), jumla ya wanafunzi 1,583,686 walisajiliwa kushiriki Upimaji wa Kitaifa wa Darasa la Nne mwaka 2025. Kati yao:
 
 Wasichana: 818,673 sawa na asilimia 52
 Wavulana: 765,013 sawa na asilimia 48
 Mahudhurio yalifikia asilimia 94, yakihusisha wanafunzi takribani 1.37 milioni kutoka shule za msingi 20,580 kote nchini. Aidha, wanafunzi 93,039 sawa na asilimia 6 hawakuhudhuria upimaji licha ya kusajiliwa, hali iliyotokana zaidi na utoro na changamoto za kiafya.
 
 Ufaulu wa jumla wa Darasa la Nne 2025 umefikia asilimia 88.91, ikiwa ni ongezeko la asilimia 2.67 ikilinganishwa na mwaka 2024. Jumla ya wanafunzi 1,249,970 walipata madaraja ya ufaulu ya A, B, C na D.
-
 
 </MESSAGE>
 
 <MESSAGE PACKAGE="com.magabe.n3cta.matokeo.ya.darasa.la.saba" STATUS="1" YEAR="2025" TITLE="MATOKEO YA DARASA LA SABA, 2025" ICON="fa::bullhorn" PAGE="PSLEPage" WIDTH="0.9" HEIGHT="0.6">
 
-Baraza la Mitihani la Tanzania (NECTA) limetangaza matokeo ya mtihani wa darasa la saba uliofanyika kuanzia Septemba 10, 2025.
+Kwa mujibu wa tangazo la Baraza la Mitihani la Tanzania (NECTA), jumla ya watahiniwa 1,397,370 walisajiliwa kufanya Mtihani wa Kumaliza Elimu ya Msingi (PSLE) mwaka 2025. Kati yao, wasichana walikuwa 742,434 (53.13%) na wavulana walikuwa 654,936 (46.87%).
 
-Matokeo hayo yametangazwa Jumatano Novemba 5, 2025, na Katibu Mtendaji wa Baraza la Mitihani la Tanzania (NECTA), Profesa Said Ally Mohamed Jijini Dar es Salaam.
+Takwimu zinaonyesha kuwa ufaulu wa jumla umepanda kwa asilimia 2.15 ikilinganishwa na mwaka uliopita, ambapo asilimia 81.79 ya watahiniwa wamefaulu kwa kupata madaraja ya A, B, na C. Jumla ya wanafunzi 1,142,889 wamepata sifa ya kuchaguliwa kujiunga na kidato cha kwanza mwaka 2026. Masomo ya Kiswahili na Sayansi yameendelea kuongoza kwa ufaulu mkubwa kitaifa.
 
-Matokeo yanaonesha jumla ya watahiniwa 937,581 sawa na asilimia 81.80 ya watahiniwa 1,146,164 wenye matokeo wamefaulu mtihani huo.
+</MESSAGE>
+
+<MESSAGE PACKAGE="com.magabelab.matokeo.ya.kidato.cha.pili" STATUS="1" YEAR="2025" TITLE="FORM TWO NATIONAL ASSESSMENT, 2025" ICON="fa::bullhorn" PAGE="FTNA-Main" WIDTH="0.9" HEIGHT="0.6">
+
+According to the official statement released by the National Examinations Council of Tanzania (NECTA), a total of 710,145 candidates were registered for the Form Two National Assessment (FTNA) in 2025. This included 376,377 girls (53%) and 333,768 boys (47%).
+
+The overall performance shows that 628,479 candidates, equivalent to 88.5%, have passed the assessment and are eligible to proceed to Form Three in 2026. Statistics indicate a significant improvement in performance for Mathematics and English Language compared to the previous year. Out of those who passed, 52,430 candidates scored Division I, while the majority fell within Division II and III categories. A total of 81,666 candidates failed to reach the minimum pass mark.
 
 </MESSAGE>
