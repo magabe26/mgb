@@ -206,7 +206,7 @@ def getAppMessages()
 {
    var file = "messages.xml";
    var path = generateAppRootFilePath(file);
-   return get("file:/"+path);
+   return getFileData(path);
 }
 
 def showAppMessage(year,pageName)
