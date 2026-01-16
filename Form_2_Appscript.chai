@@ -7,10 +7,6 @@
 global AUTO_MENU_UPDATE_ENABLED = true;
 
 
-def onMainResultsPageDownloaded(url)
-{
-    showAppMessage(getYear(url,""),"FTNA-Main");
-}
 
 //-------------------------------------------
 // dd/MM/yyyy
