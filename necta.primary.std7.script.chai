@@ -3395,6 +3395,8 @@ if(!AUTO_MENU_UPDATE_ENABLED){
 
 doDataReset();
 
+saveAppMessages();
+
 }
 
 def updateMenuFromWebsite(string url)
