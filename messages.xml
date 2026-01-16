@@ -25,3 +25,29 @@ According to the official statement released by the National Examinations Counci
 The overall performance shows that 628,479 candidates, equivalent to 88.5%, have passed the assessment and are eligible to proceed to Form Three in 2026. Statistics indicate a significant improvement in performance for Mathematics and English Language compared to the previous year. Out of those who passed, 52,430 candidates scored Division I, while the majority fell within Division II and III categories. A total of 81,666 candidates failed to reach the minimum pass mark.
 
 </MESSAGE>
+
+
+<MESSAGE PACKAGE="com.magabelab.matokeo.ya.darasa.la.nne" STATUS="1" YEAR="2024" TITLE="MATOKEO YA DARASA LA NNE, 2024" ICON="fa::bullhorn" PAGE="SFNAPage" WIDTH="0.9" HEIGHT="0.6">
+Kwa mujibu wa takwimu za NECTA, ufaulu wa Upimaji wa Kitaifa wa Darasa la Nne (SFNA) kwa mwaka 2024 umefikia asilimia 86.24. Jumla ya wanafunzi 1,321,450 walifaulu kwa kupata madaraja ya A, B, C na D. Wasichana wameendelea kufanya vizuri zaidi katika masomo ya lugha, huku masomo ya Hisabati yakionyesha ongezeko la ufaulu kwa asilimia 1.5 ikilinganishwa na mwaka uliopita.
+</MESSAGE>
+
+<MESSAGE PACKAGE="com.magabe.n3cta.matokeo.ya.darasa.la.saba" STATUS="1" YEAR="2024" TITLE="MATOKEO YA DARASA LA SABA, 2024" ICON="fa::bullhorn" PAGE="PSLEPage" WIDTH="0.9" HEIGHT="0.6">
+Katibu Mtendaji wa NECTA ametangaza kuwa ufaulu wa Mtihani wa Kumaliza Elimu ya Msingi (PSLE) 2024 ni asilimia 80.58. Jumla ya watahiniwa 1,092,960 wamefaulu na kupata sifa ya kujiunga na kidato cha kwanza mwaka 2025. Mikoa ya Dar es Salaam, Pwani, na Iringa imeshika nafasi za juu kitaifa kwa ufaulu wa jumla, huku somo la Sayansi likiongoza kwa ufaulu wa asilimia 84.
+</MESSAGE>
+
+<MESSAGE PACKAGE="com.magabelab.matokeo.ya.kidato.cha.pili" STATUS="1" YEAR="2024" TITLE="FORM TWO NATIONAL ASSESSMENT, 2024" ICON="fa::bullhorn" PAGE="FTNA-Main" WIDTH="0.9" HEIGHT="0.6">
+The 2024 Form Two National Assessment (FTNA) results show a general pass rate of 85.11%. A total of 598,321 students out of 703,000 registered candidates have successfully passed to proceed to Form Three. Performance in Science subjects (Physics and Chemistry) has shown a slight increase of 0.8% compared to 2023. Division I and II scorers have increased, reflecting an improvement in the quality of education at the lower secondary level.
+</MESSAGE>
+
+
+<MESSAGE PACKAGE="com.magabelab.matokeo.ya.darasa.la.nne" STATUS="1" YEAR="2023" TITLE="MATOKEO YA DARASA LA NNE, 2023" ICON="fa::bullhorn" PAGE="SFNAPage" WIDTH="0.9" HEIGHT="0.6">
+Matokeo ya Upimaji wa Kitaifa wa Darasa la Nne (SFNA) 2023 yalionyesha ufaulu wa asilimia 82.95. Jumla ya wanafunzi 1,215,630 walishiriki upimaji huo nchi nzima. NECTA ilibainisha kuwa ufaulu katika somo la Maarifa ya Jamii na Stadi za Kazi ulikuwa wa juu zaidi, huku jitihada za serikali katika kuboresha miundombinu ya shule za vijijini zikionekana kuzaa matunda katika matokeo haya.
+</MESSAGE>
+
+<MESSAGE PACKAGE="com.magabe.n3cta.matokeo.ya.darasa.la.saba" STATUS="1" YEAR="2023" TITLE="MATOKEO YA DARASA LA SABA, 2023" ICON="fa::bullhorn" PAGE="PSLEPage" WIDTH="0.9" HEIGHT="0.6">
+Ufaulu wa jumla wa Mtihani wa Kumaliza Elimu ya Msingi (PSLE) kwa mwaka 2023 ulikuwa asilimia 79.62. Kati ya wanafunzi 1,356,296 waliofanya mtihani, jumla ya wanafunzi 1,073,402 walifaulu. Takwimu hizi zilionyesha utulivu wa kiwango cha ufaulu ikilinganishwa na miaka miwili ya nyuma. Shule za mchepuo wa Kiingereza (English Medium) zilichangia asilimia kubwa ya ufaulu wa daraja A.
+</MESSAGE>
+
+<MESSAGE PACKAGE="com.magabelab.matokeo.ya.kidato.cha.pili" STATUS="1" YEAR="2023" TITLE="FORM TWO NATIONAL ASSESSMENT, 2023" ICON="fa::bullhorn" PAGE="FTNA-Main" WIDTH="0.9" HEIGHT="0.6">
+The National Examinations Council of Tanzania announced the 2023 FTNA results with a pass rate of 84.29%. Statistics indicate that 531,011 students passed out of 630,001 candidates. The assessment recorded a significant pass rate in Kiswahili and Civics. However, NECTA highlighted that 15% of students still struggle with basic competency in Mathematics and English, calling for more focused teaching in those areas.
+</MESSAGE>
