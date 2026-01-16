@@ -209,13 +209,18 @@ def getAppMessages()
    return getFileData(path);
 }
 
-def showAppMessage(year,pageName)
+def showAppMessage(year,pageName,url)
 {
     var xml = getAppMessages();
-	var package = getAppPackageName();
 	var status = "1";
 
-	var packageParser = stR("PACKAGE=\"".append(package).append("\""),false);
+	var packageParser;
+	if(stR("/acsee/",false).hasMatch(url,0)){
+        packageParser = stR("PACKAGE=\"".append("com.magabelab.matokeo.ya.kidato.cha.sita").append("\""),false);
+    }else{
+       packageParser = stR("PACKAGE=\"".append("com.magabelab.matokeo.ya.kidato.cha.nne").append("\""),false);
+    }
+
 	var statusParser = stR("STATUS=\"".append(to_string(status)).append("\""),false);	
 	var yearParser = stR("YEAR=\"".append(to_string(year)).append("\""),false);
 	var startTag = stR("<MESSAGE",false).seq(spaceOptional()).seq(packageParser).seq(spaceOptional()).seq(statusParser).seq(spaceOptional()).seq(yearParser).seq(spaceOptional()).seq(any(chaR('>'),"").plus()).seq(chaR('>'));
@@ -229,7 +234,7 @@ def showAppMessage(year,pageName)
 	  return tag;
 	}, 0, -1);
 
-	if(!messageTag.isEmpty()){
+	if(!messageTag.isEmpty()){ 
 		var title = stR("TITLE=\"",false).seq(any(chaR('"'),"").plus()).firstStringMatch(messageTag,0).remove("TITLE=\"",false);
 		var message = stripTag(messageTag, "MESSAGE");
 		var icon = stR("ICON=\"",false).seq(any(chaR('"'),"").plus()).firstStringMatch(messageTag,0).remove("ICON=\"",false);
@@ -243,7 +248,7 @@ def showAppMessage(year,pageName)
 		   height = 0.5;
 		}
 		
-		requestCustomDialog(20250320, icon, title, message, "Sawa", "", "#", width, height, false);
+		requestCustomDialog(20250320, icon, title, message, "Ok", "", "#", width, height, false);
 	}
 }
 
@@ -3277,10 +3282,10 @@ def onSchoolResultsOpenPermissionDenied(school,url)
 def hasYearResultsOpenPermission(year,url)
 {
 
-if(stR("/csee/",false).hasMatch(url,0)){
-      showAppMessage(year,"CSEE-Main");
-   } else if(stR("/acsee/",false).hasMatch(url,0)){
-      showAppMessage(year,"ACSEE-Main");
+   if(stR("/csee/",false).hasMatch(url,0)){
+      showAppMessage(year,"CSEE-Main",url);
+   } else if(stR("/acsee/",false).hasMatch(url,0)){ 
+      showAppMessage(year,"ACSEE-Main",url);
    }
 
   return  (!ACCESS_PERMISSIONS_FEATURE_ENABLED) || accessCodePurchased(to_string(LATEST_RESULTS_YEAR)) || (year < LATEST_RESULTS_YEAR) || accessCodePurchased(to_string(year));
