@@ -3970,6 +3970,7 @@ def beforeDisplayPSLEPage(string title, string url, string xml) {
 
 //output = putAdsToPSLEPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/faulu.gif", "#", 1, 0.14, "bottom");
 
+showAppMessage(yearFromXML(xml),"PSLEPage");
 
    return output;
 }
