@@ -191,6 +191,10 @@ def yearFromXML(xml)
 
 def saveAppMessages()
 {
+if(!hasInternetAccess()){
+	   return;
+	}
+
     var file = "messages.xml";
 	var path = generateAppRootFilePath(file);
 	var url = "https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/".append(file);
