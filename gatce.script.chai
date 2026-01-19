@@ -3046,6 +3046,10 @@ global ACCESS_PERMISSIONS_FEATURE_LANG = "en";
 
 def hasSchoolResultsOpenPermission(school,url)
 {
+
+ var schooolNo = chaR('/').seq(any(stR(".htm",false),"./").plus()).seq(stR(".htm",false)).firstStringMatch(url,0).remove("/",false).remove(".htm",false);
+ showToastMessage(schooolNo + " Loading ... ");
+
   var year = getYear("",url);
   if(year == 0){
     return true;
