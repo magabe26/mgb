@@ -3420,7 +3420,7 @@ def convertMainPageToXml(html)
 	  if(year != "0"){
 		   var type = "FTNA";
 		    
-          var maxCount = 6568;
+          var maxCount = 6800;
 		  
 
 downloadProgressDialogSetMaxAndMinValue(0,maxCount); 
