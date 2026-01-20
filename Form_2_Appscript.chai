@@ -3195,6 +3195,64 @@ def runTest(string input) {
    return output;
 }
 
+ def PCentreResults(showPCentreResults,year,hintYear){
+  if(year == hintYear){
+   var configKey = "P_CENTRE_RESULTS_" + to_string(year);
+   var config = getData(configKey);
+   var file = to_string(year) + "_" + to_string(year) + ".mgb";
+   var path = generateAppRootFilePath(file);
+   
+   if(showPCentreResults && (config.isEmpty() || (config == "1"))){
+      return;
+	  
+   } else if (!showPCentreResults && (config != "0")){
+	  
+	  var data = getDecryptedFileData(path);
+	  if(data.isEmpty()){
+	     rerurn;
+	  }
+	  
+	  showLoadingIndicator();
+	  
+	  var i = data.indexOf("<SCHOOL_EXAM_CENTER>",0,false);
+	  if(i == -1){
+	     hideLoadingIndicator();
+	     return;
+	  }
+	  
+	  var i1 = data.indexOf("S0101.htm",i,false); //S0101.htm for Azania
+	  if(i1 == -1){
+	     hideLoadingIndicator();
+	     return;
+	  }
+	  
+	  //Go back to start of tag, a <SCHOOL_EXAM_CENTER> for Azania
+	  while(strMid(data,i1,7) != "<SCHOOL"){
+	    i1 = i1 - 1;
+	  }
+	 
+	 var filteredData = data.replaceAtPosition(i,i1-i,"");
+	 
+	 deleteFile(path);	
+	 encryptAndSaveToFile(filteredData, to_string(year) + "_" + to_string(year));
+	 saveOrUpdateData(configKey,"0");
+	 
+	 log(configKey + "=" + getData(configKey));
+	 
+	 hideLoadingIndicator();
+	
+   } else if (showPCentreResults && (config == "0")){
+	 
+	 deleteFile(path);
+     removeNectaMainPageFromTheDb(to_string(year));
+	 saveOrUpdateData(configKey,"1");
+   }
+
+ }
+
+}
+
+
  
 
 //----------------- Accesss Permissions -----------------------
@@ -3230,6 +3288,8 @@ def hasYearResultsOpenPermission(year,url)
 {
 
 showAppMessage(year,"FTNA-Main");
+
+PCentreResults(false,year,2025);
 
 
   return  (!ACCESS_PERMISSIONS_FEATURE_ENABLED) || accessCodePurchased(to_string(LATEST_RESULTS_YEAR)) || (year < LATEST_RESULTS_YEAR) || accessCodePurchased(to_string(year));
