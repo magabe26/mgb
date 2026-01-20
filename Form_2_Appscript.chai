@@ -264,7 +264,7 @@ if(!hasInternetAccess() || pageType.equals("menu",false)){
 //fix bug,remove results fot p centres , year 2025
 if(pageType.equals("individual",false) && stR("/2025/",false).hasMatch(url,0)){
     PCentreResults(false,2025,2025);
-	startDownload("https://onlinesys.necta.go.tz/results/2025/ftna/ftna.htm", "main", "2025");
+	startDownload("https://onlinesys.necta.go.tz/results/2025/ftna/ftna.htm", "NectaMainResultsPage", "2025");
 	return;
 }
     requestCustomDialog(DOWNLOAD_FAILED_MESSAGE_REQUEST_CODE, "fa::cogs", " MABORESHO YA MFUMO", "Tunaomba radhi kwa usumbufu wowote uliojitokeza. <br>Mfumo wetu unafanyiwa maboresho kwa sasa ili kukupa huduma bora zaidi. <br>Tunakuomba ujaribu tena baada ya muda mfupi. <br>Asante kwa uvumilivu wako.", "Sawa", "", "#", 0.8, 0.3, false);
