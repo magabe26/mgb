@@ -264,7 +264,7 @@ if(!hasInternetAccess() || pageType.equals("menu",false)){
 //fix bug,remove results fot p centres , year 2025
 if(pageType.equals("individual",false) && stR("/2025/",false).hasMatch(url,0)){
     PCentreResults(false,2025,2025);
-		requestCustomDialog(DOWNLOAD_FAILED_MESSAGE_REQUEST_CODE, "fa::cogs", " SYSTEM IMPROVEMENTS", "We apologize for any inconvenience caused. <br>Click again on the 2025 results.", "Ok", "", "#", 0.8, 0.3, false);
+		requestCustomDialog(DOWNLOAD_FAILED_MESSAGE_REQUEST_CODE, "fa::cogs", " SYSTEM IMPROVEMENTS", "We apologize for any inconvenience caused. <br>Click again on the 2025 results main menu.", "Ok", "", "#", 0.8, 0.2, false);
 
 	return;
 }
