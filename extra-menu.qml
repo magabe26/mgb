@@ -315,7 +315,7 @@ Rectangle{
                 anchors.top: parent.top
                 anchors.left: parent.left
                 anchors.leftMargin: menu.imgLeftMargin
-                source: getIconSource("fa::info","#00e6e6")
+                source: getIconSource("fa::bullhorn","#00e6e6")
             }
 
             Text {
