@@ -300,7 +300,7 @@ Rectangle{
                 }
             }
         }
-/*
+
 
         Rectangle{
             z: root.z + 1
@@ -315,7 +315,7 @@ Rectangle{
                 anchors.top: parent.top
                 anchors.left: parent.left
                 anchors.leftMargin: menu.imgLeftMargin
-                source: getIconSource("fa::flag","#00e6e6")
+                source: getIconSource("fa::info","#00e6e6")
             }
 
             Text {
@@ -323,18 +323,18 @@ Rectangle{
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.leftMargin: menu.textLeftMargin
                 color: Qt.lighter("gray",1.7)
-                text: "Miaka 62 ya mapinduzi matukufu ya Zanzibar 🎆"
+                text: "Siku ya Elimu duniani"
             }
 
             MouseArea{
                 anchors.fill: parent
                 onClicked: {
-                    root.executeCommand("#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/master/Ads/mapinduzi-zanzibar.png;#showGoogleAd;0.98;0.4;500", []);
+                    root.executeCommand("#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/master/Ads/24janElimu.png;#showGoogleAd;0.98;0.4;500", []);
                 }
             }
         }
 
-*/
+
 
         AnimatedImage{
             anchors.horizontalCenter: parent.horizontalCenter
