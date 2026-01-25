@@ -4536,7 +4536,7 @@ enableAccessPointsGuardForPages();
 
 output = putAdsToHistoryPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/tujifunze-sayansi.png", "#showGoogleAd", 1, 0.8, "middle");
 
-output = putAdsToHistoryPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/elimu.png", "#showGoogleAd", 1, 0.8, "middle");
+output = putAdsToHistoryPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/elimu.png", "#showGoogleAd", 1, 0.8, "bottom");
 
 //output = putAdsToHistoryPage(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/changia.png", "#", 1, 0.8, "bottom");
 
