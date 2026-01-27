@@ -1071,6 +1071,9 @@ def onOfflineVideoCommand(cmd, argv, argc) {
 //------------------
 
 global lifeQuotes = [
+
+"Make Africa’s Generation Achieve Beyond Expectations. (MAGABE)",
+
   "A CONFIDENT PERSON AVOIDS TWO THINGS IN LIFE: IDLE GOSSIP AND PETTY CONFLICTS, CHOOSING INSTEAD TO CULTIVATE UNDERSTANDING AND FOSTER HARMONY",
   "THE KEY IS TO KEEP COMPANY ONLY WITH PEOPLE WHO UPLIFT YOU, WHOSE PRESENCE CALLS FORTH YOUR BEST.",
   "THE AIM OF THE WISE IS NOT TO SECURE PLEASURE BUT TO AVOID PAIN.",
@@ -1133,6 +1136,9 @@ global lifeQuotes = [
 ];
 
 global lifeQuotesAuthor = [
+
+"Fanya Kizazi cha Afrika Kufikia Mafanikio Zaidi ya Matarajio.",
+
   "Epicurus",
   "Epictetus",
   "Aristotle",
