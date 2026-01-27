@@ -301,7 +301,7 @@ Rectangle{
             }
         }
 
-
+/*
         Rectangle{
             z: root.z + 1
             color: "transparent"
@@ -315,7 +315,7 @@ Rectangle{
                 anchors.top: parent.top
                 anchors.left: parent.left
                 anchors.leftMargin: menu.imgLeftMargin
-                source: getIconSource("fa::birthdaycake","#00e6e6")
+                source: getIconSource("fa::cogs","#00e6e6")
             }
 
             Text {
@@ -323,17 +323,17 @@ Rectangle{
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.leftMargin: menu.textLeftMargin
                 color: Qt.lighter("gray",1.7)
-                text: "Happy birth day 🎂"
+                text: "---- "
             }
 
             MouseArea{
                 anchors.fill: parent
                 onClicked: {
-                    root.executeCommand("#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/master/Ads/jan27.png;#showGoogleAd;0.98;0.4;500", []);
+                    root.executeCommand("#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/master/Ads/mmmm.png;#showGoogleAd;0.98;0.4;500", []);
                 }
             }
         }
-
+*/
 
         AnimatedImage{
             anchors.horizontalCenter: parent.horizontalCenter
