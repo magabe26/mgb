@@ -158,12 +158,16 @@ Rectangle{
                 text: "Tujifunze Sayansi"
             }
 
-            MouseArea{
+MouseArea{
                 anchors.fill: parent
+                property string img: "tujifunze-sayansi.png"
                 onClicked: {
-                    root.executeCommand("#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/master/Ads/tujifunze-sayansi.png;#showGoogleAd;0.98;0.6;500", []);
+                    root.executeCommand("#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/master/Ads/" + img + ";#showGoogleAd;0.98;0.5;500", []);
+                    img = (img === "tujifunze-sayansi.png") ? "sayansi-2.png" : "tujifunze-sayansi.png";
                 }
             }
+
+            
         }
 
 
