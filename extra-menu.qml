@@ -163,7 +163,7 @@ MouseArea{
                 property string img: "tujifunze-sayansi.png"
                 onClicked: {
                     root.executeCommand("#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/master/Ads/" + img + ";#showGoogleAd;0.98;0.5;500", []);
-                    img = (img === "tujifunze-sayansi.png") ? "sayansi-2.png" : "tujifunze-sayansi.png";
+                    img = (img === "tujifunze-sayansi.png") ? "sayansi-3.png" : "tujifunze-sayansi.png";
                 }
             }
 
