@@ -3490,7 +3490,7 @@ def convertMainPageToXml(html)
 	  if(year != "0"){
 		   var type = title.contains("ACSEE", false) ? "ACSEE" : "CSEE";
 		   
-		        var maxCount = type.equals("CSEE",false) ? 6536 : 1227;
+		        var maxCount = type.equals("CSEE",false) ? 6700 : 1227;
 
 downloadProgressDialogSetMaxAndMinValue(0,maxCount); 
 
