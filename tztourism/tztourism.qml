@@ -356,10 +356,11 @@ Text {
 
                     font.pointSize: Qt.platform.os === "android" ? 12 : 10
                     font.bold: true
-                    Layout.alignment: Qt.AlignHCenter
                     Layout.fillWidth: true
                     Layout.fillHeight: true
                     color: "white"
+                    wrapMode: Text.WordWrap
+                    elide: Text.ElideRight       
                 }
 
 Image {
