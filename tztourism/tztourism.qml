@@ -361,7 +361,7 @@ Image {
    id: imgNo1
    source: "./wanyama-tz-3.png"
    width: app.width 
-   height: app.height * 0.5
+   height: 320
    Layout.alignment: Qt.AlignHCenter
 }
 
