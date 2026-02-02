@@ -351,7 +351,8 @@ ListElement {            
 
 
 Image {
-   source: "./TZmap.png"
+   //source: "./TZmap.png"
+   source: "./wanyama-tz.png"
    Layout.preferredWidth: app.width * 0.8
    Layout.alignment: Qt.AlignHCenter
 
@@ -422,8 +423,10 @@ Rectangle {
 
 
 Image {
-   source: "./travel.png"
+   //source: "./travel.png"
+   source: "./TZmap.png"
    Layout.preferredWidth: app.width * 0.8
+   Layout.preferredHeight: app.width * 0.1
    Layout.alignment: Qt.AlignHCenter 
 
 MouseArea{
