@@ -2212,6 +2212,8 @@ def getUtaliiImages(){
 		"mkomazi.jpg",
 "travel.png",
 
+"wanyama-tz.png",
+
 		"TZmap.png"
 		
   ];
