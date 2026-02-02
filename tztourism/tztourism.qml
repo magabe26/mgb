@@ -398,7 +398,7 @@ Rectangle {
                 }
 
 Row {
-spacing: 20
+spacing: 40
 
 Layout.preferredWidth: 200
                     Layout.preferredHeight: 50
