@@ -396,12 +396,16 @@ Rectangle {
                     color: "white"
                 }
 
+Row {
+
+Layout.preferredWidth: 200
+                    Layout.preferredHeight: 50
+                    Layout.alignment: Qt.AlignHCenter
+
                 Button {
                     text: "Kiswahili"
                     font.pointSize: Qt.platform.os === "android" ? 14 : 12
-                    Layout.preferredWidth: 200
-                    Layout.preferredHeight: 50
-                    Layout.alignment: Qt.AlignHCenter
+                    
                     onClicked: {
                         app.selectedLanguage = "sw";
                     }
@@ -411,13 +415,13 @@ Rectangle {
                 Button {
                     text: "English"
                     font.pointSize: Qt.platform.os === "android" ? 14 : 12
-                    Layout.preferredWidth: 200
-                    Layout.preferredHeight: 50
-                    Layout.alignment: Qt.AlignHCenter
+                    
                     onClicked: {
                         app.selectedLanguage = "en";
                     }
                 }
+
+}
         
 
 Rectangle {
