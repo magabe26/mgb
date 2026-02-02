@@ -408,7 +408,7 @@ Layout.preferredWidth: 200
                     text: "Kiswahili"
                     font.pointSize: Qt.platform.os === "android" ? 14 : 12
 background: Rectangle {
-        implicitWidth: app.width * 0.4
+        
         implicitHeight: 40
         color: "green" 
         radius: 5
@@ -432,7 +432,7 @@ background: Rectangle {
                     font.pointSize: Qt.platform.os === "android" ? 14 : 12
 
 background: Rectangle {
-        implicitWidth: app.width * 0.4
+        
         implicitHeight: 40
         color: "blue" 
         radius: 5
