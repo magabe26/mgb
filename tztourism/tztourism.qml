@@ -407,6 +407,19 @@ Layout.preferredWidth: 200
                 Button {
                     text: "Kiswahili"
                     font.pointSize: Qt.platform.os === "android" ? 14 : 12
+background: Rectangle {
+        implicitWidth: app.width * 0.6
+        implicitHeight: 40
+        color: "green" 
+        radius: 5
+    }
+    
+    contentItem: Text {
+        text: parent.text
+        color: "white" 
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+    }
                     
                     onClicked: {
                         app.selectedLanguage = "sw";
@@ -417,6 +430,20 @@ Layout.preferredWidth: 200
                 Button {
                     text: "English"
                     font.pointSize: Qt.platform.os === "android" ? 14 : 12
+
+background: Rectangle {
+        implicitWidth: app.width * 0.4
+        implicitHeight: 40
+        color: "blue" 
+        radius: 5
+    }
+    
+    contentItem: Text {
+        text: parent.text
+        color: "white" 
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+    }
                     
                     onClicked: {
                         app.selectedLanguage = "en";
@@ -438,6 +465,20 @@ Rectangle {
                     Layout.preferredWidth: 200
                     Layout.preferredHeight: 60
                    Layout.alignment: Qt.AlignHCenter
+
+background: Rectangle {
+        implicitWidth: app.width * 0.6
+        implicitHeight: 40
+        color: "red" 
+        radius: 5
+    }
+    
+    contentItem: Text {
+        text: parent.text
+        color: "white" 
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+    }
                     onClicked: {
                         app.close();
                     }
