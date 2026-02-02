@@ -352,11 +352,16 @@ ListElement {            
 */
 
 Image {
-   //source: "./TZmap.png"
    source: "./wanyama-tz.png"
    Layout.preferredWidth: app.width 
    Layout.alignment: Qt.AlignHCenter
+}
 
+Image {
+   source: "./TZmap.png"
+   width: app.width * 0.6
+   height: app.height * 0.4
+   Layout.alignment: Qt.AlignHCenter 
 }
 
 Rectangle {
@@ -423,9 +428,9 @@ Rectangle {
 }
 
 
+/*
 Image {
-   //source: "./travel.png"
-   source: "./TZmap.png"
+   source: "./travel.png"
    width: app.width * 0.6
    height: app.height * 0.4
    Layout.alignment: Qt.AlignHCenter 
@@ -433,10 +438,10 @@ Image {
 MouseArea{
                     anchors.fill: parent
                     onClicked: {
-                      //  app.ad();
+                        app.ad();
                     }
                 }
-}
+} */
 
 
 Text {
