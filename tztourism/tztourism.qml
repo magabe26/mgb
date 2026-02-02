@@ -358,6 +358,7 @@ Rectangle {
 }
 
 Image {
+   id: imgNo1
    source: "./wanyama-tz-3.png"
    width: app.width 
    height: app.height * 0.5
@@ -366,8 +367,8 @@ Image {
 
 Image {
    source: "wanyama-tz-3-b.png"
-   width: app.width 
-   height: app.height * 0.5
+   width: imgNo1.width 
+   height: imgNo1.height
    Layout.alignment: Qt.AlignHCenter 
 }
 
