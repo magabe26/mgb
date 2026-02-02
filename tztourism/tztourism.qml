@@ -352,7 +352,7 @@ ListElement {            
 */
 
 Text {
-                    text: "Kusafiri ni elimu. Tembelea hifadhi zetu, jifunze thamani ya mazingira yetu, na uwe balozi wa uzuri wa nyumbani."
+                    text: "Kusafiri ni elimu. Tembelea hifadhi za Tanzania, jifunze thamani ya mazingira ya Tanzania, na uwe balozi wa uzuri wa Tanzania."
 
                     font.pointSize: Qt.platform.os === "android" ? 12 : 10
                     font.bold: true
