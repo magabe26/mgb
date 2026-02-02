@@ -388,7 +388,7 @@ Rectangle {
 
                 Text {
 
-                    text: "Chagua Lugha / Select Language"
+                    text: "Chagua Lugha <font color=\"cyan\">/</font> <font color=\"#dadada\"> Select Language </font>"
                     font.pointSize: Qt.platform.os === "android" ? 16 : 14
                     font.bold: true
                     Layout.alignment: Qt.AlignHCenter
