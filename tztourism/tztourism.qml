@@ -351,16 +351,22 @@ ListElement {            
                 }
 */
 
+Rectangle {
+    width: app.width
+    height: 1
+    color: "transparent"
+}
+
 Image {
    source: "./wanyama-tz-3.png"
-   width: app.width 
+   Layout.preferredWidth: app.width 
    height: app.height * 0.5
    Layout.alignment: Qt.AlignHCenter
 }
 
 Image {
    source: "wanyama-tz-3-b.png"
-   width: app.width 
+   Layout.preferredWidth: app.width 
    height: app.height * 0.5
    Layout.alignment: Qt.AlignHCenter 
 }
