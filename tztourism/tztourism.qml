@@ -352,7 +352,7 @@ ListElement {            
 */
 
 Text {
-                    text: "Watalii wanakuja Tanzania kutoka mbali, wewe upo hapa hapa unamsubiri nani? Hata Simba anashangaa kwanini hujaja kumsalimia!"
+                    text: "Kusafiri ni elimu. Tembelea hifadhi zetu, jifunze thamani ya mazingira yetu, na uwe balozi wa uzuri wa nyumbani."
 
                     font.pointSize: Qt.platform.os === "android" ? 12 : 10
                     font.bold: true
