@@ -353,14 +353,15 @@ ListElement {            
 
 Image {
    source: "./wanyama-tz-3.png"
-   Layout.preferredWidth: app.width 
+   width: app.width 
+   height: app.height * 0.5
    Layout.alignment: Qt.AlignHCenter
 }
 
 Image {
    source: "wanyama-tz-3-b.png"
-   width: app.width * 0.6
-   height: app.height * 0.4
+   width: app.width 
+   height: app.height * 0.5
    Layout.alignment: Qt.AlignHCenter 
 }
 
