@@ -352,7 +352,7 @@ ListElement {            
 */
 
 Image {
-   source: "./wanyama-tz.png"
+   source: "./wanyama-tz-2.png"
    Layout.preferredWidth: app.width 
    Layout.alignment: Qt.AlignHCenter
 }
