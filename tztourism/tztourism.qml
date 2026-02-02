@@ -352,7 +352,7 @@ ListElement {            
 */
 
 Text {
-                    text: "Kusafiri ni elimu. Tembelea hifadhi za Tanzania, jifunze thamani ya mazingira ya Tanzania, na uwe balozi wa uzuri wa Tanzania."
+                    text: "** Kusafiri ni elimu. Tembelea hifadhi za Tanzania, jifunze thamani ya mazingira ya Tanzania, na uwe balozi wa uzuri wa Tanzania.<br>** Travel is a form of learning. Explore Tanzania's national parks, discover the value of our environment, and become an ambassador for the beauty of Tanzania. "
 
                     font.pointSize: Qt.platform.os === "android" ? 12 : 10
                     font.bold: true
@@ -360,7 +360,9 @@ Text {
                     Layout.fillHeight: true
                     color: "white"
                     wrapMode: Text.WordWrap
-                    elide: Text.ElideRight       
+                    elide: Text.ElideRight 
+                    textFormat: Text.RichText
+                    
                 }
 
 Image {
