@@ -433,7 +433,7 @@ Image {
 MouseArea{
                     anchors.fill: parent
                     onClicked: {
-                        app.ad();
+                      //  app.ad();
                     }
                 }
 }
