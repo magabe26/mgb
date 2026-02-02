@@ -351,11 +351,16 @@ ListElement {            
                 }
 */
 
-Rectangle {
-    width: app.width
-    height: 1
-    color: "transparent"
-}
+Text {
+                    text: "Watalii wanakuja Tanzania kutoka mbali, wewe upo hapa hapa unamsubiri nani? Hata Simba anashangaa kwanini hujaja kumsalimia!"
+
+                    font.pointSize: Qt.platform.os === "android" ? 12 : 10
+                    font.bold: true
+                    Layout.alignment: Qt.AlignHCenter
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    color: "white"
+                }
 
 Image {
    id: imgNo1
