@@ -358,7 +358,7 @@ Image {
 }
 
 Image {
-   source: "./TZmap.png"
+   source: "wanyama-tz-3-b.png",
    width: app.width * 0.6
    height: app.height * 0.4
    Layout.alignment: Qt.AlignHCenter 
