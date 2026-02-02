@@ -359,14 +359,14 @@ Rectangle {
 
 Image {
    source: "./wanyama-tz-3.png"
-   Layout.preferredWidth: app.width 
+   width: app.width 
    height: app.height * 0.5
    Layout.alignment: Qt.AlignHCenter
 }
 
 Image {
    source: "wanyama-tz-3-b.png"
-   Layout.preferredWidth: app.width 
+   width: app.width 
    height: app.height * 0.5
    Layout.alignment: Qt.AlignHCenter 
 }
