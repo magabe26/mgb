@@ -352,6 +352,10 @@ ListElement {            
 */
 
 Text {
+
+leftPadding: 4
+rightPadding: 4
+
                     text: "** Kusafiri ni elimu. Tembelea hifadhi za Tanzania, jifunze thamani ya mazingira ya Tanzania, na uwe balozi wa uzuri wa Tanzania.<br><br>** Travel is a form of learning. Explore Tanzania's national parks, discover the value of our environment, and become an ambassador for the beauty of Tanzania. "
 
                     font.pointSize: Qt.platform.os === "android" ? 12 : 10
@@ -387,6 +391,10 @@ Rectangle {
 }
 
                 Text {
+leftPadding: 4
+rightPadding: 4
+
+
                     text: "Chagua Lugha / Select Language"
                     font.pointSize: Qt.platform.os === "android" ? 16 : 14
                     font.bold: true
