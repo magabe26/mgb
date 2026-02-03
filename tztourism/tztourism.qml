@@ -325,7 +325,7 @@ ListElement {            
 
                     Text {
                         id: header
-                        text: "<font color=\"green\">Utalii wa Tanzania</font> / <font color=\"blue\">Tanzania Tourism</font>"
+                        text: "<font color=\"green\">Utalii wa Tanzania</font> (<font color=\"blue\">Tanzania Tourism</font>)"
                         anchors.top: parent.top
                         font.pointSize: Qt.platform.os === "android" ? 16 : 14
                         font.bold: true
@@ -388,7 +388,7 @@ Rectangle {
 }
               
 Text {
-                    text: "Idadi ya vivutio vilivyoorodheshwa / Number of listed attractions : <font color=\"white\">"+ attractionModel.count + "</font>"
+                    text: "Idadi ya vivutio vilivyoorodheshwa (Number of listed attractions) : <font color=\"white\">"+ attractionModel.count + "</font>"
                     font.pointSize: Qt.platform.os === "android" ? 12 : 10
                     Layout.alignment: Qt.AlignHCenter
                     wrapMode: Text.WordWrap
@@ -462,7 +462,7 @@ Rectangle {
 }
 
                 Button {
-                    text: "Funga / Close"
+                    text: "Funga (Close)"
                     font.pointSize: Qt.platform.os === "android" ? 12 : 10
                     Layout.preferredWidth: 200
                     Layout.preferredHeight: 60
