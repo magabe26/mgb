@@ -464,7 +464,7 @@ Rectangle {
                 Button {
                     text: "Funga (Close)"
                     font.pointSize: Qt.platform.os === "android" ? 12 : 10
-                    Layout.preferredWidth: 200
+                    Layout.preferredWidth: app.width * 0.4
                     Layout.preferredHeight: 60
                    Layout.alignment: Qt.AlignHCenter
 
