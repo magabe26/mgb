@@ -349,14 +349,7 @@ Image {
    Layout.alignment: Qt.AlignHCenter
 
 }
-              
-        
-Rectangle {
-    width: app.width
-    height: 1
-    color: "#dadada"
-}
-
+                    
 
 Text {
                 text: "Kusafiri ni elimu. Tembelea hifadhi za Tanzania, jifunze thamani ya mazingira ya Tanzania, na uwe balozi wa uzuri wa Tanzania.<br><br><font color=\"#dadada\"> Travel is a form of learning. Explore Tanzania's national parks, discover the value of our environment, and become an ambassador for the beauty of Tanzania. </font>"
