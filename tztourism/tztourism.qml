@@ -389,7 +389,7 @@ Rectangle {
               
 Text {
                     text: "Idadi ya vivutio vilivyoorodheshwa (Number of listed attractions) : <font color=\"white\">"+ attractionModel.count + "</font>"
-                    font.pointSize: Qt.platform.os === "android" ? 12 : 10
+                    font.pointSize: Qt.platform.os === "android" ? 13 : 11
                     Layout.alignment: Qt.AlignHCenter
                     wrapMode: Text.WordWrap
                     Layout.fillWidth: true
