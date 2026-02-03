@@ -329,7 +329,7 @@ ListElement {            
                         anchors.top: parent.top
                         font.pointSize: Qt.platform.os === "android" ? 16 : 14
                         font.bold: true
-                        font.underline: true
+                       // font.underline: true
                         wrapMode: Text.WordWrap
                         anchors.horizontalCenter: parent.horizontalCenter
                     }
