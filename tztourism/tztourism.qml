@@ -438,11 +438,7 @@ Text {
                     textFormat: Text.RichText
                     
                 }
-Rectangle {
-    width: app.width
-    height: 1
-    color: "#dadada"
-}
+
 
 Image {
    id: imgNo1
