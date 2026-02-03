@@ -625,7 +625,7 @@ loader.showToastMessage("Changisha number copied.");
                 text: "<"
                 font.pixelSize: Qt.platform.os === "android"? 100 : 40
                 font.bold: true
-                color: "#b2ffffff"
+                color: "blue"
                 anchors.bottom: parent.bottom
                 anchors.bottomMargin: 10
                 anchors.left: parent.left
@@ -640,7 +640,8 @@ loader.showToastMessage("Changisha number copied.");
                 text: "::"
                 font.pixelSize: Qt.platform.os === "android"? 100 : 40
                 font.bold: true
-                color: "#b2ffffff"
+                //color: "#b2ffffff"
+                color: "red"
                 anchors.bottom: parent.bottom
                 anchors.bottomMargin: 10
                 anchors.horizontalCenter: parent.horizontalCenter
@@ -658,7 +659,7 @@ loader.showToastMessage("Changisha number copied.");
                 text: ">"
                 font.pixelSize: Qt.platform.os === "android"? 100 : 40
                 font.bold: true
-                color: "#b2ffffff"
+                color: "green"
                 anchors.bottom: parent.bottom
                 anchors.bottomMargin: 10
                 anchors.right: parent.right
