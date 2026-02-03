@@ -638,8 +638,8 @@ loader.showToastMessage("Changisha number copied.");
                 text: "::"
                 font.pixelSize: Qt.platform.os === "android"? 100 : 40
                 font.bold: true
-                //color: "#b2ffffff"
-                color: "blue"
+                color: "#b2ffffff"
+                
                 anchors.bottom: parent.bottom
                 anchors.bottomMargin: 10
                 anchors.horizontalCenter: parent.horizontalCenter
