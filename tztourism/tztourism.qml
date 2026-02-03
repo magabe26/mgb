@@ -351,45 +351,6 @@ ListElement {            
                 }
 */
 
-Text {
-                text: "Kusafiri ni elimu. Tembelea hifadhi za Tanzania, jifunze thamani ya mazingira ya Tanzania, na uwe balozi wa uzuri wa Tanzania.<br><br><font color=\"#dadada\"> Travel is a form of learning. Explore Tanzania's national parks, discover the value of our environment, and become an ambassador for the beauty of Tanzania. </font>"
-
-                    font.pointSize: Qt.platform.os === "android" ? 12 : 10
-                    font.bold: true
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
-                    color: "white"
-                    wrapMode: Text.WordWrap
-                    elide: Text.ElideRight 
-                    textFormat: Text.RichText
-                    
-                }
-Rectangle {
-    width: app.width
-    height: 1
-    color: "#dadada"
-}
-
-Image {
-   id: imgNo1
-   source: "./wanyama-tz-3.png"
-   width: app.width 
-   height: 320
-   Layout.alignment: Qt.AlignHCenter
-}
-
-Image {
-   source: "wanyama-tz-3-b.png"
-   width: imgNo1.width 
-   height: imgNo1.height
-   Layout.alignment: Qt.AlignHCenter 
-}
-
-Rectangle {
-    width: app.width
-    height: 1
-    color: "#dadada"
-}
 
                 Text {
 
@@ -457,6 +418,47 @@ background: Rectangle {
 
 }
         
+Rectangle {
+    width: app.width
+    height: 1
+    color: "#dadada"
+}
+
+
+Text {
+                text: "Kusafiri ni elimu. Tembelea hifadhi za Tanzania, jifunze thamani ya mazingira ya Tanzania, na uwe balozi wa uzuri wa Tanzania.<br><br><font color=\"#dadada\"> Travel is a form of learning. Explore Tanzania's national parks, discover the value of our environment, and become an ambassador for the beauty of Tanzania. </font>"
+
+                    font.pointSize: Qt.platform.os === "android" ? 12 : 10
+                    font.bold: true
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    color: "white"
+                    wrapMode: Text.WordWrap
+                    elide: Text.ElideRight 
+                    textFormat: Text.RichText
+                    
+                }
+Rectangle {
+    width: app.width
+    height: 1
+    color: "#dadada"
+}
+
+Image {
+   id: imgNo1
+   source: "./wanyama-tz-3.png"
+   width: app.width 
+   height: 320
+   Layout.alignment: Qt.AlignHCenter
+}
+
+Image {
+   source: "wanyama-tz-3-b.png"
+   width: imgNo1.width 
+   height: imgNo1.height
+   Layout.alignment: Qt.AlignHCenter 
+}
+
 
 Rectangle {
     width: app.width
