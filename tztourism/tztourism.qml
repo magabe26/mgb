@@ -691,9 +691,12 @@ Rectangle {
                     height: header.height + flag.height
                     color: "white"
 
+                    Component.onCompleted: {
+                        header.text =  app.selectedLanguage === "sw" ? "<font color=\"green\">Utalii wa Tanzania</font>" : "<font color=\"blue\">Tanzania Tourism</font>"
+                    }
+
                     Text {
                         id: header
-                        text: "<font color=\"green\">Utalii wa Tanzania</font> (<font color=\"blue\">Tanzania Tourism</font>)"
                         anchors.top: parent.top
                         font.pointSize: Qt.platform.os === "android" ? 16 : 14
                         font.bold: true
@@ -717,9 +720,14 @@ Rectangle {
                     height:delegateTitle.height + delegateDesc.height + delegateImg.height
                     anchors.topMargin: 2
 
-                    property string name: app.appMode === 1 ? name_en : name_sw;
-                    property string desc: app.appMode === 1 ? desc_en : desc_sw;
+                    property string name: ""
+                    property string desc: ""
                     property string path: imageFile
+
+                    Component.onCompleted: {
+                        delegate.name = app.selectedLanguage === "en" ? name_en : name_sw;
+                        delegate.desc = app.selectedLanguage === "en" ? desc_en : desc_sw;
+                    }
 
                     Text {
                         id:delegateTitle
@@ -763,7 +771,7 @@ Rectangle {
 
                 footer: Button {
                     id: backButton
-                    text: "<- Nyuma (Back)"
+                    text: app.selectedLanguage === "en" ? "<- Back" : "<- Nyuma"
                     anchors.topMargin: 4
                     font.pointSize: Qt.platform.os === "android" ? 12 : 10
 
