@@ -369,29 +369,15 @@ Rectangle {
     height: 1
     color: "#dadada"
 }
+              
 
-
-                Text {
-
-                    text: "Chagua Lugha <font color=\"cyan\">/</font> <font color=\"#dadada\"> Select Language </font>"
+                Button {
+                    text: "Furahia upekee wa Tanzania"
                     font.pointSize: Qt.platform.os === "android" ? 14 : 12
-                    font.bold: true
-                    Layout.alignment: Qt.AlignHCenter
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
-                    color: "white"
-                }
-
-Row {
-spacing: 40
-
 Layout.preferredWidth: 200
                     Layout.preferredHeight: 50
                     Layout.alignment: Qt.AlignHCenter
 
-                Button {
-                    text: "Kiswahili"
-                    font.pointSize: Qt.platform.os === "android" ? 14 : 12
 background: Rectangle {
         
         implicitHeight: 40
@@ -412,9 +398,13 @@ background: Rectangle {
 
                 }
 
+
                 Button {
-                    text: "English"
+                    text: "Experience the uniqueness of Tanzania"
                     font.pointSize: Qt.platform.os === "android" ? 14 : 12
+Layout.preferredWidth: 200
+                    Layout.preferredHeight: 50
+                    Layout.alignment: Qt.AlignHCenter
 
 background: Rectangle {
         
@@ -435,7 +425,7 @@ background: Rectangle {
                     }
                 }
 
-}
+
         
 Rectangle {
     width: app.width
