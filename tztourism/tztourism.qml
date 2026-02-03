@@ -299,14 +299,19 @@ ListElement {            
 
     Component {
         id: languageSelectionComponent
-        Item {
+
+        Flickable {
             anchors.fill: parent
+            contentWidth: frontPageColumn.width
+            contentHeight: frontPageColumn.height
+
             Rectangle { // Background
                 anchors.fill: parent
                 color: "transparent"
             }
 
             ColumnLayout {
+                id: frontPageColumn
                 width: app.width
                 spacing: 10
 
