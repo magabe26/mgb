@@ -625,7 +625,7 @@ loader.showToastMessage("Changisha number copied.");
                 text: "<"
                 font.pixelSize: Qt.platform.os === "android"? 100 : 40
                 font.bold: true
-                color: "blue"
+                color: "green"
                 anchors.bottom: parent.bottom
                 anchors.bottomMargin: 10
                 anchors.left: parent.left
@@ -641,7 +641,7 @@ loader.showToastMessage("Changisha number copied.");
                 font.pixelSize: Qt.platform.os === "android"? 100 : 40
                 font.bold: true
                 //color: "#b2ffffff"
-                color: "red"
+                color: "blue"
                 anchors.bottom: parent.bottom
                 anchors.bottomMargin: 10
                 anchors.horizontalCenter: parent.horizontalCenter
