@@ -315,7 +315,7 @@ ListElement {            
                 width: app.width
                 spacing: 10
 
-/*
+
                 Rectangle{
                     width: parent.width
                     height: header.height + flag.height
@@ -354,7 +354,7 @@ ListElement {            
                     font.bold: true
                     color: "#dadada"
                 }
-*/
+
 
 
                 Text {
