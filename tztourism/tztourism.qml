@@ -343,17 +343,9 @@ ListElement {            
 
                 }
 
-Image {
-   source: "./TZmap.png"
-   Layout.preferredWidth: app.width * 0.8
-   Layout.alignment: Qt.AlignHCenter
-
-}
-
-
-                Text {
-                    text: "IDADI YA VIVUTIO VILIVYOORODHESHWA / NUMBER OF LISTED ATTRACTIONS:: <font color=\"white\">"+ attractionModel.count + "</font>"
-                    font.pointSize: Qt.platform.os === "android" ? 10 : 8
+Text {
+                    text: "Idadi ya vivutio vilivyoorodheshwa / Number of listed attractions : <font color=\"white\">"+ attractionModel.count + "</font>"
+                    font.pointSize: Qt.platform.os === "android" ? 12 : 10
                     Layout.alignment: Qt.AlignHCenter
                     wrapMode: Text.WordWrap
                     Layout.fillWidth: true
@@ -364,6 +356,13 @@ Image {
                 }
 
 
+Image {
+   source: "./TZmap.png"
+   Layout.preferredWidth: app.width * 0.8
+   Layout.alignment: Qt.AlignHCenter
+
+}
+              
 
 Rectangle {
     width: app.width
