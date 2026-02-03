@@ -343,19 +343,6 @@ ListElement {            
 
                 }
 
-Text {
-                    text: "Idadi ya vivutio vilivyoorodheshwa / Number of listed attractions : <font color=\"white\">"+ attractionModel.count + "</font>"
-                    font.pointSize: Qt.platform.os === "android" ? 12 : 10
-                    Layout.alignment: Qt.AlignHCenter
-                    wrapMode: Text.WordWrap
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
-                    textFormat: Text.RichText
-                    font.bold: true
-                    color: "#dadada"
-                }
-
-
 Image {
    source: "./TZmap.png"
    Layout.preferredWidth: app.width * 0.8
@@ -407,6 +394,17 @@ Rectangle {
     color: "#dadada"
 }
               
+Text {
+                    text: "Idadi ya vivutio vilivyoorodheshwa / Number of listed attractions : <font color=\"white\">"+ attractionModel.count + "</font>"
+                    font.pointSize: Qt.platform.os === "android" ? 12 : 10
+                    Layout.alignment: Qt.AlignHCenter
+                    wrapMode: Text.WordWrap
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    textFormat: Text.RichText
+                    font.bold: true
+                    color: "#dadada"
+                }
 
                 Button {
                     text: "Furahia upekee wa Tanzania"
@@ -631,7 +629,7 @@ loader.showToastMessage("Changisha number copied.");
                 text: "<"
                 font.pixelSize: Qt.platform.os === "android"? 100 : 40
                 font.bold: true
-                color: "green"
+                color: "#b2ffffff"
                 anchors.bottom: parent.bottom
                 anchors.bottomMargin: 10
                 anchors.left: parent.left
@@ -646,8 +644,8 @@ loader.showToastMessage("Changisha number copied.");
                 text: "::"
                 font.pixelSize: Qt.platform.os === "android"? 100 : 40
                 font.bold: true
-                //color: "#b2ffffff"
-                color: "cyan"
+                color: "#b2ffffff"
+                
                 
                 anchors.bottom: parent.bottom
                 anchors.bottomMargin: 10
@@ -666,7 +664,7 @@ loader.showToastMessage("Changisha number copied.");
                 text: ">"
                 font.pixelSize: Qt.platform.os === "android"? 100 : 40
                 font.bold: true
-                color: "green"
+                color: "#b2ffffff"
                 anchors.bottom: parent.bottom
                 anchors.bottomMargin: 10
                 anchors.right: parent.right
