@@ -381,11 +381,6 @@ Image {
    Layout.alignment: Qt.AlignHCenter 
 }
 
-Rectangle {
-    width: app.width
-    height: 1
-    color: "#dadada"
-}
               
 Text {
                     text: "Idadi ya vivutio vilivyoorodheshwa (Number of listed attractions) : <font color=\"white\">"+ attractionModel.count + "</font>"
