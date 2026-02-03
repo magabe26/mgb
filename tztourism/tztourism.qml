@@ -374,8 +374,8 @@ Rectangle {
                 Button {
                     text: "Furahia upekee wa Tanzania"
                     font.pointSize: Qt.platform.os === "android" ? 14 : 12
-Layout.preferredWidth: 200
-                    Layout.preferredHeight: 50
+Layout.preferredWidth: app.width * 0.8
+                    Layout.preferredHeight: 68
                     Layout.alignment: Qt.AlignHCenter
 
 background: Rectangle {
@@ -402,8 +402,8 @@ background: Rectangle {
                 Button {
                     text: "Experience the uniqueness of Tanzania"
                     font.pointSize: Qt.platform.os === "android" ? 14 : 12
-Layout.preferredWidth: 200
-                    Layout.preferredHeight: 50
+Layout.preferredWidth: app.width * 0.8
+                    Layout.preferredHeight: 68
                     Layout.alignment: Qt.AlignHCenter
 
 background: Rectangle {
