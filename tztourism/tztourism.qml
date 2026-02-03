@@ -10,31 +10,32 @@ Rectangle {
 
     property string selectedLanguage: "" // "en" or "sw"
     property int currentAttractionIndex: 0
+    property int appMode: 2
 
-     function close()
+    function close()
     {
         if(typeof n3ctaApp !== "undefined"){
             n3ctaApp.closeCustomPage();
             n3ctaApp.onUrlVisited("#showGoogleAd");
         }else if(typeof loader !== "undefined"){
-loader.isMenuWindowVisible = true;
-  loader.isMainResultsWindowVisible = true;
-loader.isFooterVisible = true;
-  if(typeof loader.mode !== "undefined"){     
-loader.mode = 2;
-  }
+            loader.isMenuWindowVisible = true;
+            loader.isMainResultsWindowVisible = true;
+            loader.isFooterVisible = true;
+            if(typeof loader.mode !== "undefined"){
+                loader.mode = 2;
+            }
             loader.closeCustomPage();
             loader.onUrlVisited("#showGoogleAd");
         }
     }
 
 
-function ad()
+    function ad()
     {
-        if(typeof n3ctaApp !== "undefined"){          
-           n3ctaApp.onUrlVisited("#showGoogleAd");
-           n3ctaApp.showToastMessage("Tafadhali subiri.");
-        }else if(typeof loader !== "undefined"){   
+        if(typeof n3ctaApp !== "undefined"){
+            n3ctaApp.onUrlVisited("#showGoogleAd");
+            n3ctaApp.showToastMessage("Tafadhali subiri.");
+        }else if(typeof loader !== "undefined"){
             loader.onUrlVisited("#showGoogleAd");
             loader.showToastMessage("Please wait.");
         }
@@ -44,13 +45,12 @@ function ad()
     ListModel {
         id: attractionModel
 
-ListElement {
+        ListElement {
             name_en: "Zanzibar (Stone Town & Beaches)"; name_sw: "Zanzibar (Mji Mkongwe na Fukwe)"
             imageFile: "./zanzibar_st2.jpg"
             desc_en: "Historic Stone Town, spice farms, and pristine beaches make Zanzibar a unique cultural and relaxation hub."
             desc_sw: "Mji Mkongwe wa kihistoria, mashamba ya viungo, na fukwe safi hufanya Zanzibar kuwa kitovu cha kipekee cha utamaduni na mapumziko."
         }
-
 
         ListElement {
             name_en: "Lake Victoria"; name_sw: "Ziwa Victoria"
@@ -59,21 +59,19 @@ ListElement {
             desc_sw: "Furahia Ziwa Victoria, Mwanza: Ziwa kubwa Afrika. Tazama machweo mazuri juu ya Mwamba Bismarck, safari za visiwa, na utamaduni hai. Hazina halisi ya Tanzania!"
         }
 
-ListElement {
+        ListElement {
             name_en: "Mount Kilimanjaro"; name_sw: "Mlima Kilimanjaro"
             imageFile: "./kilimanjaro.jpg"
             desc_en: "Africa's highest peak and a dormant volcano. A challenging but rewarding climb for adventurers."
             desc_sw: "Mlima mrefu zaidi Afrika na volkano iliyolala. Changamoto lakini yenye thawabu kwa wapandaji wajasiri."
         }
 
-ListElement {
-    name_en: "Mikumi National Park"; name_sw: "Hifadhi ya Taifa ya Mikumi"
-    imageFile: "./mikumi.jpg"
-    desc_en: "Escape the city! It's an easy drive: dar mpaka moro and beyond. See giraffes, lions, elephants, zebras, and wildebeest. The wild awaits!"
-    desc_sw: "Toroka jiji! Ni safari rahisi: dar mpaka moro na kuendelea. Tazama twiga, simba, tembo, punda milia, na nyumbu. Pori linakusubiri!"
-}
-
-
+        ListElement {
+            name_en: "Mikumi National Park"; name_sw: "Hifadhi ya Taifa ya Mikumi"
+            imageFile: "./mikumi.jpg"
+            desc_en: "Escape the city! It's an easy drive: dar mpaka moro and beyond. See giraffes, lions, elephants, zebras, and wildebeest. The wild awaits!"
+            desc_sw: "Toroka jiji! Ni safari rahisi: dar mpaka moro na kuendelea. Tazama twiga, simba, tembo, punda milia, na nyumbu. Pori linakusubiri!"
+        }
 
         ListElement {
             name_en: "Serengeti National Park"; name_sw: "Hifadhi ya Taifa ya Serengeti"
@@ -88,8 +86,6 @@ ListElement {
             desc_en: "Home to the Ngorongoro Crater, a large volcanic caldera teeming with diverse wildlife."
             desc_sw: "Makao ya Kreta ya Ngorongoro, kaldera kubwa ya volkano iliyojaa wanyamapori mbalimbali."
         }
-        
-
 
         ListElement {
             name_en: "Tarangire National Park"; name_sw: "Hifadhi ya Taifa ya Tarangire"
@@ -105,7 +101,7 @@ ListElement {
             desc_sw: "Maarufu kwa simba wanaopanda miti, flamingo, na mandhari ya kuvutia ya Bonde la Ufa."
         }
 
-ListElement {
+        ListElement {
             name_en: "Rubondo Island National Park"; name_sw: "Hifadhi ya Taifa ya Kisiwa cha Rubondo"
             imageFile: "./rubondo.jpg"
             desc_en: "An island sanctuary on Lake Victoria, home to elephats, chimpanzees, sitatunga, and a diverse birdlife, ideal for walking safaris."
@@ -141,7 +137,7 @@ ListElement {
             desc_sw: "Sehemu ya Visiwa vya Zanzibar, inayojulikana kama 'Kisiwa cha Kijani' kwa uoto wake mwingi, karafuu, na maeneo ya kupiga mbizi."
         }
 
-ListElement {
+        ListElement {
             name_en: "Katavi National Park"; name_sw: "Hifadhi ya Taifa ya Katavi"
             imageFile: "./katavi.jpg"
             desc_en: "A remote and wild park known for large concentrations of game during the dry season."
@@ -162,8 +158,6 @@ ListElement {
             desc_en: "A biodiverse montane forest, excellent for hiking and spotting endemic primate species."
             desc_sw: "Msitu wa milimani wenye bioanuwai nyingi, bora kwa matembezi na kuona aina za nyani za kipekee."
         }
-
-        
 
         ListElement {
             name_en: "Kigoma Town & Lake Tanganyika"; name_sw: "Mji wa Kigoma & Ziwa Tanganyika"
@@ -235,7 +229,7 @@ ListElement {
             desc_sw: "Volkano hai ya tabaka na mlima wa pili kwa urefu Tanzania, uliopo katika Hifadhi ya Taifa ya Arusha."
         }
 
-ListElement {
+        ListElement {
             name_en: "Mahale Mountains National Park"; name_sw: "Hifadhi ya Taifa ya Milima ya Mahale"
             imageFile: "./mahale.jpg"
             desc_en: "Home to chimpanzees on the shores of Lake Tanganyika, offering unique primate tracking experiences."
@@ -249,21 +243,20 @@ ListElement {
             desc_sw: "Milima yenye uoto mwingi na hali ya hewa ya baridi, inayotoa bioanuwai tele, mandhari nzuri, na fursa bora za matembezi."
         }
 
-
-ListElement {
+        ListElement {
             name_en: "Arusha National Park"; name_sw: "Hifadhi ya Taifa ya Arusha"
             imageFile: "./arusha_np.jpg"
             desc_en: "Offers diverse landscapes including Mount Meru, Momella Lakes, and Ngurdoto Crater."
             desc_sw: "Inatoa mandhari mbalimbali ikiwa ni pamoja na Mlima Meru, Maziwa ya Momella, na Kreta ya Ngurdoto."
         }
 
-ListElement {            
- name_en: "Mayunga Statue"             
- name_sw: "Sanamu ya Mayunga"            
- imageFile: "./mayunga.jpeg"            
- desc_en: "The Mayunga Statue, a memorial to the Tanzania-Uganda War (Kagera War) contributors, located in Uhuru Stadium (formerly Uhuru Stadium, now often called Mayunga Stadium) in the center of Bukoba town."            
- desc_sw: "Sanamu ya Mayunga Kama Kumbukumbu ya Uhuru Iliyopo Katikati ya Mji wa Bukoba Katika Kiwanja cha Uhuru."       
-  }
+        ListElement {
+            name_en: "Mayunga Statue"
+            name_sw: "Sanamu ya Mayunga"
+            imageFile: "./mayunga.jpeg"
+            desc_en: "The Mayunga Statue, a memorial to the Tanzania-Uganda War (Kagera War) contributors, located in Uhuru Stadium (formerly Uhuru Stadium, now often called Mayunga Stadium) in the center of Bukoba town."
+            desc_sw: "Sanamu ya Mayunga Kama Kumbukumbu ya Uhuru Iliyopo Katikati ya Mji wa Bukoba Katika Kiwanja cha Uhuru."
+        }
 
     }
 
@@ -287,7 +280,11 @@ ListElement {            
 
     onSelectedLanguageChanged: {
         if (selectedLanguage !== "") {
-            viewComponentLoader.sourceComponent = attractionViewComponent;
+            if(app.appMode === 1){
+                viewComponentLoader.sourceComponent = attractionViewComponent1;
+            } else if(app.appMode === 2){
+                viewComponentLoader.sourceComponent = attractionViewComponent2;
+            }
         }
     }
 
@@ -329,7 +326,7 @@ ListElement {            
                         anchors.top: parent.top
                         font.pointSize: Qt.platform.os === "android" ? 16 : 14
                         font.bold: true
-                       // font.underline: true
+                        // font.underline: true
                         wrapMode: Text.WordWrap
                         anchors.horizontalCenter: parent.horizontalCenter
                     }
@@ -343,16 +340,16 @@ ListElement {            
 
                 }
 
-Image {
-   source: "./TZmap.png"
-   Layout.preferredWidth: app.width * 0.8
-   Layout.alignment: Qt.AlignHCenter
+                Image {
+                    source: "./TZmap.png"
+                    Layout.preferredWidth: app.width * 0.8
+                    Layout.alignment: Qt.AlignHCenter
 
-}
-                    
+                }
 
-Text {
-                text: "Kusafiri ni elimu. Tembelea hifadhi za Tanzania, jifunze thamani ya mazingira ya Tanzania, na uwe balozi wa uzuri wa Tanzania.<br><br>(<font color=\"#dadada\"> Travel is a form of learning. Explore Tanzania's national parks, discover the value of our environment, and become an ambassador for the beauty of Tanzania. </font>)"
+
+                Text {
+                    text: "Kusafiri ni elimu. Tembelea hifadhi za Tanzania, jifunze thamani ya mazingira ya Tanzania, na uwe balozi wa uzuri wa Tanzania.<br><br>(<font color=\"#dadada\"> Travel is a form of learning. Explore Tanzania's national parks, discover the value of our environment, and become an ambassador for the beauty of Tanzania. </font>)"
 
                     font.pointSize: Qt.platform.os === "android" ? 12 : 10
                     font.bold: true
@@ -360,29 +357,29 @@ Text {
                     Layout.fillHeight: true
                     color: "white"
                     wrapMode: Text.WordWrap
-                    elide: Text.ElideRight 
+                    elide: Text.ElideRight
                     textFormat: Text.RichText
                     
                 }
 
 
-Image {
-   id: imgNo1
-   source: "./wanyama-tz-3.png"
-   width: app.width 
-   height: 320
-   Layout.alignment: Qt.AlignHCenter
-}
+                Image {
+                    id: imgNo1
+                    source: "./wanyama-tz-3.png"
+                    width: app.width
+                    height: 320
+                    Layout.alignment: Qt.AlignHCenter
+                }
 
-Image {
-   source: "wanyama-tz-3-b.png"
-   width: imgNo1.width 
-   height: imgNo1.height
-   Layout.alignment: Qt.AlignHCenter 
-}
+                Image {
+                    source: "wanyama-tz-3-b.png"
+                    width: imgNo1.width
+                    height: imgNo1.height
+                    Layout.alignment: Qt.AlignHCenter
+                }
 
-              
-Text {
+
+                Text {
                     text: "Idadi ya vivutio vilivyoorodheshwa (Number of listed attractions) : <font color=\"white\">"+ attractionModel.count + "</font>"
                     font.pointSize: Qt.platform.os === "android" ? 13 : 11
                     Layout.alignment: Qt.AlignHCenter
@@ -397,23 +394,23 @@ Text {
                 Button {
                     text: "Furahia upekee wa Tanzania"
                     font.pointSize: Qt.platform.os === "android" ? 14 : 12
-Layout.preferredWidth: app.width * 0.8
+                    Layout.preferredWidth: app.width * 0.8
                     Layout.preferredHeight: 68
                     Layout.alignment: Qt.AlignHCenter
 
-background: Rectangle {
-        
-        implicitHeight: 40
-        color: "green" 
-        radius: 5
-    }
-    
-    contentItem: Text {
-        text: parent.text
-        color: "white" 
-        horizontalAlignment: Text.AlignHCenter
-        verticalAlignment: Text.AlignVCenter
-    }
+                    background: Rectangle {
+
+                        implicitHeight: 40
+                        color: "green"
+                        radius: 5
+                    }
+
+                    contentItem: Text {
+                        text: parent.text
+                        color: "white"
+                        horizontalAlignment: Text.AlignHCenter
+                        verticalAlignment: Text.AlignVCenter
+                    }
                     
                     onClicked: {
                         app.selectedLanguage = "sw";
@@ -425,23 +422,23 @@ background: Rectangle {
                 Button {
                     text: "Experience the uniqueness of Tanzania"
                     font.pointSize: Qt.platform.os === "android" ? 14 : 12
-Layout.preferredWidth: app.width * 0.8
+                    Layout.preferredWidth: app.width * 0.8
                     Layout.preferredHeight: 68
                     Layout.alignment: Qt.AlignHCenter
 
-background: Rectangle {
-        
-        implicitHeight: 40
-        color: "blue" 
-        radius: 5
-    }
-    
-    contentItem: Text {
-        text: parent.text
-        color: "white" 
-        horizontalAlignment: Text.AlignHCenter
-        verticalAlignment: Text.AlignVCenter
-    }
+                    background: Rectangle {
+
+                        implicitHeight: 40
+                        color: "blue"
+                        radius: 5
+                    }
+
+                    contentItem: Text {
+                        text: parent.text
+                        color: "white"
+                        horizontalAlignment: Text.AlignHCenter
+                        verticalAlignment: Text.AlignVCenter
+                    }
                     
                     onClicked: {
                         app.selectedLanguage = "en";
@@ -450,57 +447,38 @@ background: Rectangle {
 
 
 
-Rectangle {
-    width: app.width
-    height: 1
-    color: "#dadada"
-}
+                Rectangle {
+                    width: app.width
+                    height: 1
+                    color: "#dadada"
+                }
 
                 Button {
                     text: "Funga (Close)"
                     font.pointSize: Qt.platform.os === "android" ? 12 : 10
                     Layout.preferredWidth: app.width * 0.4
                     Layout.preferredHeight: 60
-                   Layout.alignment: Qt.AlignHCenter
+                    Layout.alignment: Qt.AlignHCenter
 
-background: Rectangle {
-        
-        implicitHeight: 40
-        color: "red" 
-        radius: 5
-    }
-    
-    contentItem: Text {
-        text: parent.text
-        color: "white" 
-        horizontalAlignment: Text.AlignHCenter
-        verticalAlignment: Text.AlignVCenter
-    }
+                    background: Rectangle {
+
+                        implicitHeight: 40
+                        color: "red"
+                        radius: 5
+                    }
+
+                    contentItem: Text {
+                        text: parent.text
+                        color: "white"
+                        horizontalAlignment: Text.AlignHCenter
+                        verticalAlignment: Text.AlignVCenter
+                    }
                     onClicked: {
                         app.close();
                     }
                 }
 
-
-
-
-/*
-Image {
-   source: "./travel.png"
-   width: app.width * 0.6
-   height: app.height * 0.4
-   Layout.alignment: Qt.AlignHCenter 
-
-MouseArea{
-                    anchors.fill: parent
-                    onClicked: {
-                        app.ad();
-                    }
-                }
-} */
-
-
-Text {
+                Text {
                     text: ""
                     font.pointSize: 14
                     font.bold: true
@@ -508,19 +486,19 @@ Text {
                     Layout.fillWidth: true
                     Layout.fillHeight: true
                     color: "white"
-MouseArea {
-                    anchors.fill: parent
-                    onClicked: {
-if(typeof n3ctaApp !== "undefined"){
-            n3ctaApp.pasteToClipboard("8647491");
-n3ctaApp.showToastMessage("Namba ya changisha imenakiliwa.");   
-        }else if(typeof loader !== "undefined"){         
-            loader.pasteToClipboard("8647491");
-loader.showToastMessage("Changisha number copied.");
-        }
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: {
+                            if(typeof n3ctaApp !== "undefined"){
+                                n3ctaApp.pasteToClipboard("8647491");
+                                n3ctaApp.showToastMessage("Namba ya changisha imenakiliwa.");
+                            }else if(typeof loader !== "undefined"){
+                                loader.pasteToClipboard("8647491");
+                                loader.showToastMessage("Changisha number copied.");
+                            }
 
-}
-                }
+                        }
+                    }
 
                 }
 
@@ -529,9 +507,9 @@ loader.showToastMessage("Changisha number copied.");
         }
     }
 
-    // Component for Attraction Display Screen
+    // Attraction View Component 1
     Component {
-        id: attractionViewComponent
+        id: attractionViewComponent1
         Item {
             id: attractionItem
             anchors.fill: parent
@@ -690,6 +668,129 @@ loader.showToastMessage("Changisha number copied.");
                     app.currentAttractionIndex = 0; // Wrap around
                 }
             }
+        }
+    }
+
+    // Attraction View Component 1
+    Component {
+        id: attractionViewComponent2
+
+        Rectangle{
+            anchors.fill: parent
+            color: "transparent"
+
+            ListView{
+                id: attractionList
+                anchors.fill: parent
+                anchors.margins: 2
+                model: attractionModel
+                clip: true
+
+                header: Rectangle{
+                    width: parent.width
+                    height: header.height + flag.height
+                    color: "white"
+
+                    Text {
+                        id: header
+                        text: "<font color=\"green\">Utalii wa Tanzania</font> (<font color=\"blue\">Tanzania Tourism</font>)"
+                        anchors.top: parent.top
+                        font.pointSize: Qt.platform.os === "android" ? 16 : 14
+                        font.bold: true
+                        wrapMode: Text.WordWrap
+                        anchors.horizontalCenter: parent.horizontalCenter
+                    }
+
+                    AnimatedImage{
+                        id: flag
+                        source: "./tzflag.gif"
+                        anchors.top: header.bottom
+                        anchors.horizontalCenter: parent.horizontalCenter
+                    }
+
+                }
+
+                delegate: Rectangle{
+                    id: delegate
+                    color: "transparent"
+                    width: parent.width
+                    height:delegateTitle.height + delegateDesc.height + delegateImg.height
+                    anchors.topMargin: 2
+
+                    property string name: app.appMode === 1 ? name_en : name_sw;
+                    property string desc: app.appMode === 1 ? desc_en : desc_sw;
+                    property string path: imageFile
+
+                    Text {
+                        id:delegateTitle
+                        width: parent.width
+                        anchors.top: parent.top
+                        text: String(index + 1) + ": "+ delegate.name
+                        font.pointSize: Qt.platform.os === "android" ? 14 : 12
+                        font.bold: true
+                        font.underline: true
+                        color: "white"
+                        wrapMode: Text.WordWrap
+                        elide: Text.ElideRight
+                        textFormat: Text.RichText
+                    }
+
+                    Text {
+                        id:delegateDesc
+                        width: parent.width
+                        anchors.top: delegateTitle.bottom
+                        text: delegate.desc
+                        font.pointSize: Qt.platform.os === "android" ? 12 : 10
+                        font.bold: true
+                        color: "white"
+                        wrapMode: Text.WordWrap
+                        elide: Text.ElideRight
+                        textFormat: Text.RichText
+                    }
+
+                    Image {
+                        id: delegateImg
+                        anchors.top: delegateDesc.bottom
+                        anchors.topMargin: 2
+                        source: delegate.path
+                        width: parent.width * 0.92
+                        height: width * 0.8
+                        fillMode: Image.PreserveAspectFit
+                        anchors.horizontalCenter: parent.horizontalCenter
+                    }
+
+                }
+
+                footer: Button {
+                    id: backButton
+                    text: "<- Nyuma (Back)"
+                    anchors.topMargin: 4
+                    font.pointSize: Qt.platform.os === "android" ? 12 : 10
+
+                    background: Rectangle {
+                        anchors.topMargin: 4
+                        implicitHeight: 40
+                        color: "transparent"
+                        radius: 5
+                    }
+
+                    contentItem: Text {
+                        anchors.topMargin: 4
+                        text: parent.text
+                        color: "black"
+                        font.bold: true
+                        horizontalAlignment: Text.AlignHCenter
+                        verticalAlignment: Text.AlignVCenter
+                    }
+
+                    onClicked: {
+                        viewComponentLoader.sourceComponent = languageSelectionComponent;
+                        app.selectedLanguage = "";
+                    }
+                }
+
+            }
+
         }
     }
 }
