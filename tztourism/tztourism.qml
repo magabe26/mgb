@@ -352,7 +352,7 @@ Rectangle {
                 anchors.topMargin: 4
                 anchors.bottomMargin: 6
                 anchors.horizontalCenter: parent.horizontalCenter
-                text: "Kiseke"
+                text: "Kigala"
                 font.pointSize: Qt.platform.os === "android" ? 14 : 12
 
                 background: Rectangle {
