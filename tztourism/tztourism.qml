@@ -1,6 +1,7 @@
 import QtQuick 2.4
 import QtQuick.Controls 2.4
 import QtQuick.Layouts 1.3
+import QtQuick.Dialogs 1.2
 
 Rectangle {
     id: app
@@ -294,6 +295,109 @@ Rectangle {
         sourceComponent: languageSelectionComponent
     }
 
+    Dialog {
+        id: modeSelectionDialog
+        property string lag
+        property real dialogWidth: app.width * 0.6
+        property color btnColor: "#003333"
+
+        contentItem: Rectangle {
+            color: "#001413"
+            border.color: "cyan"
+            border.width: 1
+            implicitWidth: modeSelectionDialog.dialogWidth
+            implicitHeight: dialogTitle.paintedHeight + dialogTitle.anchors.topMargin + btn1.height + btn1.anchors.topMargin + btn2.height + btn2.anchors.topMargin + btn2.anchors.bottomMargin
+
+            Text {
+                id: dialogTitle
+                anchors.top: parent.top
+                anchors.topMargin: 4
+                color: "cyan"
+                font.pointSize: Qt.platform.os === "android" ? 14 : 12
+                font.bold: true
+                anchors.horizontalCenter: parent.horizontalCenter
+            }
+
+            Button {
+                id: btn1
+                anchors.top: dialogTitle.bottom
+                anchors.topMargin: 4
+                anchors.horizontalCenter: parent.horizontalCenter
+                text: "Kizimkazi"
+                font.pointSize: Qt.platform.os === "android" ? 14 : 12
+                background: Rectangle {
+                    implicitWidth: modeSelectionDialog.dialogWidth * 0.8
+                    implicitHeight: 40
+                    color: modeSelectionDialog.btnColor
+                    radius: 5
+                }
+
+                contentItem: Text {
+                    text: parent.text
+                    color: "white"
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                }
+
+                onClicked: {
+                    modeSelectionDialog.setMode2();
+                }
+
+            }
+
+
+            Button {
+                id: btn2
+                anchors.top: btn1.bottom
+                anchors.topMargin: 4
+                anchors.bottomMargin: 6
+                anchors.horizontalCenter: parent.horizontalCenter
+                text: "Kiseke"
+                font.pointSize: Qt.platform.os === "android" ? 14 : 12
+
+                background: Rectangle {
+                    implicitWidth: modeSelectionDialog.dialogWidth * 0.8
+                    implicitHeight: 40
+                    color: modeSelectionDialog.btnColor
+                    radius: 5
+                }
+
+                contentItem: Text {
+                    text: parent.text
+                    color: "white"
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                }
+
+                onClicked: {
+                    modeSelectionDialog.setMode1();
+                }
+            }
+
+        }
+
+        function doOpen(lag,btnColor){
+            modeSelectionDialog.lag = lag;
+            modeSelectionDialog.btnColor = btnColor;
+            dialogTitle.text = lag === "sw" ? "Chagua mpangilio" : "Select layout";
+            open();
+        }
+
+        function setMode1(){
+            app.appMode = 1;
+            close();
+            app.selectedLanguage = modeSelectionDialog.lag;
+        }
+
+        function setMode2(){
+            app.appMode = 2;
+            close();
+            app.selectedLanguage = modeSelectionDialog.lag;
+        }
+
+
+    }
+
     Component {
         id: languageSelectionComponent
 
@@ -399,7 +503,6 @@ Rectangle {
                     Layout.alignment: Qt.AlignHCenter
 
                     background: Rectangle {
-
                         implicitHeight: 40
                         color: "green"
                         radius: 5
@@ -413,7 +516,7 @@ Rectangle {
                     }
                     
                     onClicked: {
-                        app.selectedLanguage = "sw";
+                        modeSelectionDialog.doOpen("sw","green");
                     }
 
                 }
@@ -427,7 +530,6 @@ Rectangle {
                     Layout.alignment: Qt.AlignHCenter
 
                     background: Rectangle {
-
                         implicitHeight: 40
                         color: "blue"
                         radius: 5
@@ -441,7 +543,7 @@ Rectangle {
                     }
                     
                     onClicked: {
-                        app.selectedLanguage = "en";
+                        modeSelectionDialog.doOpen("en","blue");
                     }
                 }
 
