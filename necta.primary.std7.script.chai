@@ -2221,7 +2221,13 @@ def getUtaliiImages(){
 "kizimkazi-d.jpeg",
 "livingstones-tabora.jpg",
 "nyerere.jpeg",
-"kondoa.jpg"
+"kondoa.jpg",
+
+
+"kalambo.jpeg",
+"Materuni.jpg",
+"sanje.jpg",
+"marangu.jpeg"
 		
   ];
 }
