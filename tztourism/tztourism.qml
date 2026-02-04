@@ -172,13 +172,7 @@ ListElement {
         }
         
         
-        ListElement {
-            name_en: "Udzungwa Mountains National Park"; name_sw: "Hifadhi ya Taifa ya Milima ya Udzungwa"
-            imageFile: "./udzungwa.jpg"
-            desc_en: "A biodiverse montane forest, excellent for hiking and spotting endemic primate species."
-            desc_sw: "Msitu wa milimani wenye bioanuwai nyingi, bora kwa matembezi na kuona aina za nyani za kipekee."
-        }
-
+        
         ListElement {
             name_en: "Kigoma Town & Lake Tanganyika"; name_sw: "Mji wa Kigoma & Ziwa Tanganyika"
             imageFile: "./kigoma.jpg"
@@ -280,6 +274,14 @@ ListElement {
         desc_en: "Experience the beauty of the Ndoro and Monjo falls in Marangu. Learn about the rich Chagga culture and enjoy the serene atmosphere of these hidden gems."
         desc_sw: "Shuhudia uzuri wa maporomoko ya Ndoro na Monjo kule Marangu. Jifunze utamaduni tajiri wa Wachagga na ufurahie utulivu wa hazina hizi zilizojificha."
     }
+
+
+ListElement {
+            name_en: "Udzungwa Mountains National Park"; name_sw: "Hifadhi ya Taifa ya Milima ya Udzungwa"
+            imageFile: "./udzungwa.jpg"
+            desc_en: "A biodiverse montane forest, excellent for hiking and spotting endemic primate species."
+            desc_sw: "Msitu wa milimani wenye bioanuwai nyingi, bora kwa matembezi na kuona aina za nyani za kipekee."
+        }
 
 
         ListElement {
