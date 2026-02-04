@@ -265,13 +265,6 @@ ListElement {
     }
 
 
-ListElement {
-            name_en: "Mount Meru"; name_sw: "Mlima Meru"
-            imageFile: "./meru.jpg"
-            desc_en: "An active stratovolcano and Tanzania's second highest peak, located in Arusha National Park."
-            desc_sw: "Volkano hai ya tabaka na mlima wa pili kwa urefu Tanzania, uliopo katika Hifadhi ya Taifa ya Arusha."
-        }
-
 
 ListElement {
             name_en: "Udzungwa Mountains National Park"; name_sw: "Hifadhi ya Taifa ya Milima ya Udzungwa"
@@ -280,20 +273,27 @@ ListElement {
             desc_sw: "Msitu wa milimani wenye bioanuwai nyingi, bora kwa matembezi na kuona aina za nyani za kipekee."
         }
 
-
-        ListElement {
-            name_en: "Mahale Mountains National Park"; name_sw: "Hifadhi ya Taifa ya Milima ya Mahale"
-            imageFile: "./mahale.jpg"
-            desc_en: "Home to chimpanzees on the shores of Lake Tanganyika, offering unique primate tracking experiences."
-            desc_sw: "Makao ya sokwe pembezoni mwa Ziwa Tanganyika, inayotoa uzoefu wa kipekee wa kufuatilia nyani."
+ListElement {
+            name_en: "Mount Meru"; name_sw: "Mlima Meru"
+            imageFile: "./meru.jpg"
+            desc_en: "An active stratovolcano and Tanzania's second highest peak, located in Arusha National Park."
+            desc_sw: "Volkano hai ya tabaka na mlima wa pili kwa urefu Tanzania, uliopo katika Hifadhi ya Taifa ya Arusha."
         }
-
+        
         ListElement {
             name_en: "Usambara Mountains"; name_sw: "Milima ya Usambara"
             imageFile: "./usambara.jpg"
             desc_en: "Lush, cool mountains offering rich biodiversity, scenic views, and excellent hiking opportunities."
             desc_sw: "Milima yenye uoto mwingi na hali ya hewa ya baridi, inayotoa bioanuwai tele, mandhari nzuri, na fursa bora za matembezi."
         }
+
+ListElement {
+            name_en: "Mahale Mountains National Park"; name_sw: "Hifadhi ya Taifa ya Milima ya Mahale"
+            imageFile: "./mahale.jpg"
+            desc_en: "Home to chimpanzees on the shores of Lake Tanganyika, offering unique primate tracking experiences."
+            desc_sw: "Makao ya sokwe pembezoni mwa Ziwa Tanganyika, inayotoa uzoefu wa kipekee wa kufuatilia nyani."
+        }
+
 
         ListElement {
             name_en: "Arusha National Park"; name_sw: "Hifadhi ya Taifa ya Arusha"
