@@ -150,12 +150,7 @@ ListElement {
             desc_sw: "Miamba ya matumbawe safi, kimbilio la wapiga mbizi, na makazi ya msimu ya papa nyangumi."
         }
 
-        ListElement {
-            name_en: "Pemba Island"; name_sw: "Kisiwa cha Pemba"
-            imageFile: "./pemba.jpg"
-            desc_en: "Part of the Zanzibar Archipelago, known as the 'Green Island' for its lush vegetation, cloves, and diving spots."
-            desc_sw: "Sehemu ya Visiwa vya Zanzibar, inayojulikana kama 'Kisiwa cha Kijani' kwa uoto wake mwingi, karafuu, na maeneo ya kupiga mbizi."
-        }
+        
 
         ListElement {
             name_en: "Katavi National Park"; name_sw: "Hifadhi ya Taifa ya Katavi"
@@ -236,13 +231,7 @@ ListElement {
             desc_sw: "Ziwa la chumvi lisilo na kina kirefu, maarufu kama eneo la kuzaliana flamingo wadogo, lenye mandhari ya kuvutia."
         }
 
-        ListElement {
-            name_en: "Mount Meru"; name_sw: "Mlima Meru"
-            imageFile: "./meru.jpg"
-            desc_en: "An active stratovolcano and Tanzania's second highest peak, located in Arusha National Park."
-            desc_sw: "Volkano hai ya tabaka na mlima wa pili kwa urefu Tanzania, uliopo katika Hifadhi ya Taifa ya Arusha."
-        }
-
+        
 
     ListElement {
         name_en: "Kalambo Falls, Rukwa"; name_sw: "Maporomoko ya Kalambo, Rukwa"
@@ -274,6 +263,14 @@ ListElement {
         desc_en: "Experience the beauty of the Ndoro and Monjo falls in Marangu. Learn about the rich Chagga culture and enjoy the serene atmosphere of these hidden gems."
         desc_sw: "Shuhudia uzuri wa maporomoko ya Ndoro na Monjo kule Marangu. Jifunze utamaduni tajiri wa Wachagga na ufurahie utulivu wa hazina hizi zilizojificha."
     }
+
+
+ListElement {
+            name_en: "Mount Meru"; name_sw: "Mlima Meru"
+            imageFile: "./meru.jpg"
+            desc_en: "An active stratovolcano and Tanzania's second highest peak, located in Arusha National Park."
+            desc_sw: "Volkano hai ya tabaka na mlima wa pili kwa urefu Tanzania, uliopo katika Hifadhi ya Taifa ya Arusha."
+        }
 
 
 ListElement {
@@ -313,6 +310,13 @@ ListElement {
         desc_en: "Relax at Matema Beach in Mbeya, where the clear waters of Lake Nyasa meet the majestic Livingstone Mountains. Perfect for swimming and mountain hiking!"
         desc_sw: "Pumzika kwenye ufukwe wa Matema, Mbeya, ambapo maji safi ya Ziwa Nyasa hukutana na Milima ya Livingstone. Ni mahali safi kwa kuogelea na kupanda milima!"
     }
+
+ListElement {
+            name_en: "Pemba Island"; name_sw: "Kisiwa cha Pemba"
+            imageFile: "./pemba.jpg"
+            desc_en: "Part of the Zanzibar Archipelago, known as the 'Green Island' for its lush vegetation, cloves, and diving spots."
+            desc_sw: "Sehemu ya Visiwa vya Zanzibar, inayojulikana kama 'Kisiwa cha Kijani' kwa uoto wake mwingi, karafuu, na maeneo ya kupiga mbizi."
+        }
 
    
     ListElement {
