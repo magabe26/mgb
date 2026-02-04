@@ -2360,7 +2360,12 @@ def getUtaliiImages(){
 
 "wanyama-tz-3.png",
 "wanyama-tz-3-b.png",
-"TZmap.png"
+"TZmap.png",
+
+"kalambo.jpeg",
+"Materuni.jpg",
+"sanje.jpg",
+"marangu.jpeg"
 		
 		
   ];
