@@ -321,7 +321,7 @@ Rectangle {
             Button {
                 id: btn1
                 anchors.top: dialogTitle.bottom
-                anchors.topMargin: 4
+                anchors.topMargin: 8
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: "Kizimkazi"
                 font.pointSize: Qt.platform.os === "android" ? 14 : 12
@@ -349,8 +349,8 @@ Rectangle {
             Button {
                 id: btn2
                 anchors.top: btn1.bottom
-                anchors.topMargin: 4
-                anchors.bottomMargin: 6
+                anchors.topMargin: 8
+                anchors.bottomMargin: 12
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: "Kigala"
                 font.pointSize: Qt.platform.os === "android" ? 14 : 12
