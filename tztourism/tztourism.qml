@@ -349,8 +349,8 @@ Rectangle {
             Button {
                 id: btn2
                 anchors.top: btn1.bottom
-                anchors.topMargin: 8
-                anchors.bottomMargin: 12
+                anchors.topMargin: 12
+                anchors.bottomMargin: 16
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: "Kigala"
                 font.pointSize: Qt.platform.os === "android" ? 14 : 12
