@@ -980,7 +980,7 @@ Rectangle {
                     id: backButton
                     text: app.selectedLanguage === "en" ? "<- Back" : "<- Nyuma"
                     anchors.topMargin: 4
-                    font.pointSize: Qt.platform.os === "android" ? 16 : 14
+                    font.pointSize: Qt.platform.os === "android" ? 18 : 16
 
                     background: Rectangle {
                         anchors.topMargin: 4
