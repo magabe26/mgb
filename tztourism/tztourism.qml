@@ -381,7 +381,7 @@ Rectangle {
             border.color: "cyan"
             border.width: 1
             implicitWidth: modeSelectionDialog.dialogWidth
-            implicitHeight: dialogTitle.paintedHeight + dialogTitle.anchors.topMargin + btn1.height + btn1.anchors.topMargin + btn2.height + btn2.anchors.topMargin + btnClose.height + btnClose.anchors.bottomMargin
+            implicitHeight: dialogTitle.paintedHeight + dialogTitle.anchors.topMargin + btn1.height + btn1.anchors.topMargin + btn2.height + btn2.anchors.topMargin + btnClose.height +  btnClose.anchors.topMargin + btnClose.anchors.bottomMargin;
 
             Text {
                 id: dialogTitle
