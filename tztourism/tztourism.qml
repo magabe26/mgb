@@ -374,14 +374,14 @@ Rectangle {
         property color btnColor: "#003333"
         property string btn1Text
         property string btn2Text
+        property string btnCloseText
 
         contentItem: Rectangle {
             color: "#001413"
             border.color: "cyan"
             border.width: 1
             implicitWidth: modeSelectionDialog.dialogWidth
-            implicitHeight: dialogTitle.paintedHeight + dialogTitle.anchors.topMargin + btn1.height + btn1.anchors.topMargin + btn2.height + btn2.anchors.topMargin + btn2.anchors.bottomMargin
-
+            implicitHeight: dialogTitle.paintedHeight + dialogTitle.anchors.topMargin + btn1.height + btn1.anchors.topMargin + btn2.height + btn2.anchors.topMargin + btnClose.height + btnClose.anchors.bottomMargin
 
             Text {
                 id: dialogTitle
@@ -425,7 +425,6 @@ Rectangle {
                 id: btn2
                 anchors.top: btn1.bottom
                 anchors.topMargin: 12
-                anchors.bottomMargin: 16
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: modeSelectionDialog.btn2Text
                 font.pointSize: Qt.platform.os === "android" ? 14 : 12
@@ -449,6 +448,34 @@ Rectangle {
                 }
             }
 
+            Button {
+                id: btnClose
+                anchors.top: btn2.bottom
+                anchors.topMargin: 12
+                anchors.bottomMargin: 16
+                anchors.horizontalCenter: parent.horizontalCenter
+                text: modeSelectionDialog.btnCloseText
+                font.pointSize: Qt.platform.os === "android" ? 14 : 12
+
+                background: Rectangle {
+                    implicitWidth: modeSelectionDialog.dialogWidth * 0.8
+                    implicitHeight: 40
+                    color: "red"
+                    radius: 5
+                }
+
+                contentItem: Text {
+                    text: parent.text
+                    color: "white"
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                }
+
+                onClicked: {
+                    modeSelectionDialog.close();
+                }
+            }
+
         }
 
         function doOpen(lag,btnColor){
@@ -457,6 +484,7 @@ Rectangle {
             dialogTitle.text = lag === "sw" ? "Chagua mpangilio" : "Select layout";
             modeSelectionDialog.btn1Text = lag === "sw" ? "Kawaida" : "Default";
             modeSelectionDialog.btn2Text = lag === "sw" ? "Orodha" : "List";
+            modeSelectionDialog.btnCloseText = lag === "sw" ? "Funga" : "Close";
             open();
         }
 
