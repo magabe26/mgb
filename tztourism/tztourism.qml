@@ -414,7 +414,7 @@ ListElement {
                 anchors.top: dialogTitle.bottom
                 anchors.topMargin: 8
                 anchors.horizontalCenter: parent.horizontalCenter
-                text: "Kizimkazi"
+                text: "Chenza"
                 font.pointSize: Qt.platform.os === "android" ? 14 : 12
                 background: Rectangle {
                     implicitWidth: modeSelectionDialog.dialogWidth * 0.8
@@ -443,7 +443,7 @@ ListElement {
                 anchors.topMargin: 12
                 anchors.bottomMargin: 16
                 anchors.horizontalCenter: parent.horizontalCenter
-                text: "Kigala"
+                text: "Embe"
                 font.pointSize: Qt.platform.os === "android" ? 14 : 12
 
                 background: Rectangle {
