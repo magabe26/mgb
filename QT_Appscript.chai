@@ -2465,7 +2465,7 @@ def onUtaliiAppCommand(cmd, argv, argc) {
 def onCreatorCommand(cmd, argv, argc) {
    if (cmd.equals("magabe", false) || cmd.equals("mtengenezaji", false) || cmd.equals("creator", false) || cmd.equals("master", false) || cmd.equals("chura", false) || cmd.equals("developer", false)) {
        var img = "Edwin Magabe.png";
-       var cmd = "#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/master/Ads/" + img + ";#showGoogleAd;0.98;0.5;500";
+       var cmd = "#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/master/Ads/" + img + ";#showGoogleAd;0.98;0.6;500";
        onUrlVisited(cmd);
    }
 }
