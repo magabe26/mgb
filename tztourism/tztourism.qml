@@ -452,7 +452,7 @@ Rectangle {
                 id: btnClose
                 anchors.top: btn2.bottom
                 anchors.topMargin: 12
-                anchors.bottomMargin: 16
+                anchors.bottomMargin: 18
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: modeSelectionDialog.btnCloseText
                 font.pointSize: Qt.platform.os === "android" ? 14 : 12
