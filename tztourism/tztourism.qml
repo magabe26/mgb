@@ -54,15 +54,12 @@ Rectangle {
             desc_sw: "Mji Mkongwe wa kihistoria, mashamba ya viungo, na fukwe safi hufanya Zanzibar kuwa kitovu cha kipekee cha utamaduni na mapumziko."
         }
 
-
-ListElement {
-        name_en: "Kizimkazi Dolphin Safari"; name_sw: "Utalii wa Pomboo Kizimkazi"
-        imageFile: "./kizimkazi-d.jpeg"
-        desc_en: "Dive into the blue waters of Kizimkazi, Zanzibar. Experience the thrill of swimming with wild dolphins in their natural habitat and visit historical mosques."
-        desc_sw: "Zama kwenye maji ya bluu ya Kizimkazi, Zanzibar. Shuhudia msisimko wa kuogelea na pomboo katika mazingira yao ya asili na utembelee misikiti ya kihistoria."
-    }
-
-
+        ListElement {
+            name_en: "Kizimkazi Dolphin Safari"; name_sw: "Utalii wa Pomboo Kizimkazi"
+            imageFile: "./kizimkazi-d.jpeg"
+            desc_en: "Dive into the blue waters of Kizimkazi, Zanzibar. Experience the thrill of swimming with wild dolphins in their natural habitat and visit historical mosques."
+            desc_sw: "Zama kwenye maji ya bluu ya Kizimkazi, Zanzibar. Shuhudia msisimko wa kuogelea na pomboo katika mazingira yao ya asili na utembelee misikiti ya kihistoria."
+        }
 
         ListElement {
             name_en: "Lake Victoria"; name_sw: "Ziwa Victoria"
@@ -71,13 +68,12 @@ ListElement {
             desc_sw: "Furahia Ziwa Victoria, Mwanza: Ziwa kubwa Afrika. Tazama machweo mazuri juu ya Mwamba Bismarck, safari za visiwa, na utamaduni hai. Hazina halisi ya Tanzania!"
         }
 
-ListElement {
-        name_en: "Rubya Forest, Ukerewe"; name_sw: "Msitu wa Rubya, Ukerewe"
-        imageFile: "./rubya.jpeg"
-        desc_en: "Discover the hidden tranquility of Ukerewe Island. Explore the lush Rubya Forest and enjoy the serene beaches of Africa's largest inland island."
-        desc_sw: "Gundua utulivu wa siri wa Kisiwa cha Ukerewe. Pekua Msitu mnene wa Rubya na ufurahie fukwe tulivu za kisiwa kikubwa zaidi cha ndani nchini Afrika."
-    }
-    
+        ListElement {
+            name_en: "Rubya Forest, Ukerewe"; name_sw: "Msitu wa Rubya, Ukerewe"
+            imageFile: "./rubya.jpeg"
+            desc_en: "Discover the hidden tranquility of Ukerewe Island. Explore the lush Rubya Forest and enjoy the serene beaches of Africa's largest inland island."
+            desc_sw: "Gundua utulivu wa siri wa Kisiwa cha Ukerewe. Pekua Msitu mnene wa Rubya na ufurahie fukwe tulivu za kisiwa kikubwa zaidi cha ndani nchini Afrika."
+        }
 
         ListElement {
             name_en: "Mount Kilimanjaro"; name_sw: "Mlima Kilimanjaro"
@@ -142,15 +138,12 @@ ListElement {
             desc_sw: "Hifadhi kubwa zaidi ya taifa Tanzania, pori la mbali lenye mandhari na wanyamapori wengi."
         }
         
-        
         ListElement {
             name_en: "Mafia Island Marine Park"; name_sw: "Hifadhi ya Bahari ya Kisiwa cha Mafia"
             imageFile: "./mafia_island.jpg"
             desc_en: "Pristine coral reefs, a haven for divers and snorkelers, and a seasonal home for whale sharks."
             desc_sw: "Miamba ya matumbawe safi, kimbilio la wapiga mbizi, na makazi ya msimu ya papa nyangumi."
         }
-
-        
 
         ListElement {
             name_en: "Katavi National Park"; name_sw: "Hifadhi ya Taifa ya Katavi"
@@ -165,9 +158,7 @@ ListElement {
             desc_en: "A crucial paleoanthropological site holding evidence of early human evolution."
             desc_sw: "Eneo muhimu la paleoanthropolojia lenye ushahidi wa mageuzi ya awali ya binadamu."
         }
-        
-        
-        
+
         ListElement {
             name_en: "Kigoma Town & Lake Tanganyika"; name_sw: "Mji wa Kigoma & Ziwa Tanganyika"
             imageFile: "./kigoma.jpg"
@@ -231,49 +222,44 @@ ListElement {
             desc_sw: "Ziwa la chumvi lisilo na kina kirefu, maarufu kama eneo la kuzaliana flamingo wadogo, lenye mandhari ya kuvutia."
         }
 
-        
+        ListElement {
+            name_en: "Kalambo Falls, Rukwa"; name_sw: "Maporomoko ya Kalambo, Rukwa"
+            imageFile: "./kalambo.jpeg"
+            desc_en: "Visit Africa's second-highest single-drop waterfall on the border of Tanzania and Zambia. A breathtaking 221-meter plunge into the depths of the gorge!"
+            desc_sw: "Tembelea maporomoko ya pili kwa urefu barani Afrika yaliyo mpakani mwa Tanzania na Zambia. Shuhudia maji yakiporomoka mita 221 kuelekea chini ya korongo!"
+        }
 
-    ListElement {
-        name_en: "Kalambo Falls, Rukwa"; name_sw: "Maporomoko ya Kalambo, Rukwa"
-        imageFile: "./kalambo.jpeg"
-        desc_en: "Visit Africa's second-highest single-drop waterfall on the border of Tanzania and Zambia. A breathtaking 221-meter plunge into the depths of the gorge!"
-        desc_sw: "Tembelea maporomoko ya pili kwa urefu barani Afrika yaliyo mpakani mwa Tanzania na Zambia. Shuhudia maji yakiporomoka mita 221 kuelekea chini ya korongo!"
-    }
-
-    
-    ListElement {
-        name_en: "Materuni Falls, Moshi"; name_sw: "Maporomoko ya Materuni, Moshi"
-        imageFile: "./Materuni.jpg"
-        desc_en: "Hidden at the foot of Mt. Kilimanjaro, Materuni is a lush paradise. Enjoy a scenic hike through coffee plantations followed by a refreshing dip in the cool waters."
-        desc_sw: "Yakiwa yamejificha chini ya mlima Kilimanjaro, Materuni ni paradiso ya kijani. Furahia safari ya miguu kupitia mashamba ya kahawa na kuogelea kwenye maji baridi."
-    }
-
-    
-    ListElement {
-        name_en: "Sanje Falls, Udzungwa"; name_sw: "Maporomoko ya Sanje, Udzungwa"
-        imageFile: "./sanje.jpg"
-        desc_en: "Located in the Udzungwa Mountains National Park, Sanje Falls drops 170 meters through a misty rainforest. Home to rare primates and stunning biodiversity."
-        desc_sw: "Yapo ndani ya Hifadhi ya Taifa ya Udzungwa, maporomoko ya Sanje yanashuka mita 170 katikati ya msitu wa mvua wenye kima adimu na viumbe wa kipekee."
-    }
-
-    
-    ListElement {
-        name_en: "Marangu Falls, Kilimanjaro"; name_sw: "Maporomoko ya Marangu, Kilimanjaro"
-        imageFile: "./marangu.jpeg"
-        desc_en: "Experience the beauty of the Ndoro and Monjo falls in Marangu. Learn about the rich Chagga culture and enjoy the serene atmosphere of these hidden gems."
-        desc_sw: "Shuhudia uzuri wa maporomoko ya Ndoro na Monjo kule Marangu. Jifunze utamaduni tajiri wa Wachagga na ufurahie utulivu wa hazina hizi zilizojificha."
-    }
+        ListElement {
+            name_en: "Materuni Falls, Moshi"; name_sw: "Maporomoko ya Materuni, Moshi"
+            imageFile: "./Materuni.jpg"
+            desc_en: "Hidden at the foot of Mt. Kilimanjaro, Materuni is a lush paradise. Enjoy a scenic hike through coffee plantations followed by a refreshing dip in the cool waters."
+            desc_sw: "Yakiwa yamejificha chini ya mlima Kilimanjaro, Materuni ni paradiso ya kijani. Furahia safari ya miguu kupitia mashamba ya kahawa na kuogelea kwenye maji baridi."
+        }
 
 
+        ListElement {
+            name_en: "Sanje Falls, Udzungwa"; name_sw: "Maporomoko ya Sanje, Udzungwa"
+            imageFile: "./sanje.jpg"
+            desc_en: "Located in the Udzungwa Mountains National Park, Sanje Falls drops 170 meters through a misty rainforest. Home to rare primates and stunning biodiversity."
+            desc_sw: "Yapo ndani ya Hifadhi ya Taifa ya Udzungwa, maporomoko ya Sanje yanashuka mita 170 katikati ya msitu wa mvua wenye kima adimu na viumbe wa kipekee."
+        }
 
-ListElement {
+
+        ListElement {
+            name_en: "Marangu Falls, Kilimanjaro"; name_sw: "Maporomoko ya Marangu, Kilimanjaro"
+            imageFile: "./marangu.jpeg"
+            desc_en: "Experience the beauty of the Ndoro and Monjo falls in Marangu. Learn about the rich Chagga culture and enjoy the serene atmosphere of these hidden gems."
+            desc_sw: "Shuhudia uzuri wa maporomoko ya Ndoro na Monjo kule Marangu. Jifunze utamaduni tajiri wa Wachagga na ufurahie utulivu wa hazina hizi zilizojificha."
+        }
+
+        ListElement {
             name_en: "Udzungwa Mountains National Park"; name_sw: "Hifadhi ya Taifa ya Milima ya Udzungwa"
             imageFile: "./udzungwa.jpg"
             desc_en: "A biodiverse montane forest, excellent for hiking and spotting endemic primate species."
             desc_sw: "Msitu wa milimani wenye bioanuwai nyingi, bora kwa matembezi na kuona aina za nyani za kipekee."
         }
 
-ListElement {
+        ListElement {
             name_en: "Mount Meru"; name_sw: "Mlima Meru"
             imageFile: "./meru.jpg"
             desc_en: "An active stratovolcano and Tanzania's second highest peak, located in Arusha National Park."
@@ -287,13 +273,12 @@ ListElement {
             desc_sw: "Milima yenye uoto mwingi na hali ya hewa ya baridi, inayotoa bioanuwai tele, mandhari nzuri, na fursa bora za matembezi."
         }
 
-ListElement {
+        ListElement {
             name_en: "Mahale Mountains National Park"; name_sw: "Hifadhi ya Taifa ya Milima ya Mahale"
             imageFile: "./mahale.jpg"
             desc_en: "Home to chimpanzees on the shores of Lake Tanganyika, offering unique primate tracking experiences."
             desc_sw: "Makao ya sokwe pembezoni mwa Ziwa Tanganyika, inayotoa uzoefu wa kipekee wa kufuatilia nyani."
         }
-
 
         ListElement {
             name_en: "Arusha National Park"; name_sw: "Hifadhi ya Taifa ya Arusha"
@@ -302,45 +287,41 @@ ListElement {
             desc_sw: "Inatoa mandhari mbalimbali ikiwa ni pamoja na Mlima Meru, Maziwa ya Momella, na Kreta ya Ngurdoto."
         }
 
+        ListElement {
+            name_en: "Matema Beach, Lake Nyasa"; name_sw: "Ufukwe wa Matema, Ziwa Nyasa"
+            imageFile: "./matema.jpeg"
+            desc_en: "Relax at Matema Beach in Mbeya, where the clear waters of Lake Nyasa meet the majestic Livingstone Mountains. Perfect for swimming and mountain hiking!"
+            desc_sw: "Pumzika kwenye ufukwe wa Matema, Mbeya, ambapo maji safi ya Ziwa Nyasa hukutana na Milima ya Livingstone. Ni mahali safi kwa kuogelea na kupanda milima!"
+        }
 
-   
-    ListElement {
-        name_en: "Matema Beach, Lake Nyasa"; name_sw: "Ufukwe wa Matema, Ziwa Nyasa"
-        imageFile: "./matema.jpeg"
-        desc_en: "Relax at Matema Beach in Mbeya, where the clear waters of Lake Nyasa meet the majestic Livingstone Mountains. Perfect for swimming and mountain hiking!"
-        desc_sw: "Pumzika kwenye ufukwe wa Matema, Mbeya, ambapo maji safi ya Ziwa Nyasa hukutana na Milima ya Livingstone. Ni mahali safi kwa kuogelea na kupanda milima!"
-    }
-
-ListElement {
+        ListElement {
             name_en: "Pemba Island"; name_sw: "Kisiwa cha Pemba"
             imageFile: "./pemba.jpg"
             desc_en: "Part of the Zanzibar Archipelago, known as the 'Green Island' for its lush vegetation, cloves, and diving spots."
             desc_sw: "Sehemu ya Visiwa vya Zanzibar, inayojulikana kama 'Kisiwa cha Kijani' kwa uoto wake mwingi, karafuu, na maeneo ya kupiga mbizi."
         }
 
-   
-    ListElement {
-        name_en: "Livingstone House, Kwihara"; name_sw: "Nyumba ya Livingstone, Kwihara"
-        imageFile: "./livingstones-tabora.jpg"
-        desc_en: "Step back in time in Tabora at the Kwihara Museum. Visit the historic home of David Livingstone and learn about Central Africa's ancient trade routes."
-        desc_sw: "Rudi nyuma kitalii mjini Tabora kwenye makumbusho ya Kwihara. Tembelea nyumba ya kihistoria ya David Livingstone na ujifunze kuhusu njia za kale za biashara."
-    }
+        ListElement {
+            name_en: "Livingstone House, Kwihara"; name_sw: "Nyumba ya Livingstone, Kwihara"
+            imageFile: "./livingstones-tabora.jpg"
+            desc_en: "Step back in time in Tabora at the Kwihara Museum. Visit the historic home of David Livingstone and learn about Central Africa's ancient trade routes."
+            desc_sw: "Rudi nyuma kitalii mjini Tabora kwenye makumbusho ya Kwihara. Tembelea nyumba ya kihistoria ya David Livingstone na ujifunze kuhusu njia za kale za biashara."
+        }
 
-   
-    ListElement {
-        name_en: "Nyerere Museum, Butiama"; name_sw: "Makumbusho ya Nyerere, Butiama"
-        imageFile: "./nyerere.jpeg"
-        desc_en: "Visit the home of Tanzania's founder, Mwalimu Julius K. Nyerere in Butiama. A journey of history, leadership, and the humble roots of a great statesman."
-        desc_sw: "Tembelea nyumbani kwa muasisi wa Tanzania, Mwalimu Julius K. Nyerere kule Butiama. Safari ya kihistoria, uongozi, na asili ya kiongozi mkuu wa Taifa."
-    }
+        ListElement {
+            name_en: "Nyerere Museum, Butiama"; name_sw: "Makumbusho ya Nyerere, Butiama"
+            imageFile: "./nyerere.jpeg"
+            desc_en: "Visit the home of Tanzania's founder, Mwalimu Julius K. Nyerere in Butiama. A journey of history, leadership, and the humble roots of a great statesman."
+            desc_sw: "Tembelea nyumbani kwa muasisi wa Tanzania, Mwalimu Julius K. Nyerere kule Butiama. Safari ya kihistoria, uongozi, na asili ya kiongozi mkuu wa Taifa."
+        }
 
-    
-    ListElement {
-        name_en: "Kondoa Rock Art Sites"; name_sw: "Michoro ya Mapangoni, Kondoa"
-        imageFile: "./kondoa.jpg"
-        desc_en: "Explore the UNESCO World Heritage site in Dodoma. Marvel at ancient rock paintings in Kondoa that tell stories of thousands of years of human history."
-        desc_sw: "Gundua urithi wa dunia wa UNESCO mkoani Dodoma. Shuhudia michoro ya kale ya mapangoni Kondoa inayoelezea maelfu ya miaka ya historia ya mwanadamu."
-    }
+
+        ListElement {
+            name_en: "Kondoa Rock Art Sites"; name_sw: "Michoro ya Mapangoni, Kondoa"
+            imageFile: "./kondoa.jpg"
+            desc_en: "Explore the UNESCO World Heritage site in Dodoma. Marvel at ancient rock paintings in Kondoa that tell stories of thousands of years of human history."
+            desc_sw: "Gundua urithi wa dunia wa UNESCO mkoani Dodoma. Shuhudia michoro ya kale ya mapangoni Kondoa inayoelezea maelfu ya miaka ya historia ya mwanadamu."
+        }
 
         ListElement {
             name_en: "Mayunga Statue"
@@ -391,6 +372,8 @@ ListElement {
         property string lag
         property real dialogWidth: app.width * 0.6
         property color btnColor: "#003333"
+        property string btn1Text
+        property string btn2Text
 
         contentItem: Rectangle {
             color: "#001413"
@@ -398,6 +381,7 @@ ListElement {
             border.width: 1
             implicitWidth: modeSelectionDialog.dialogWidth
             implicitHeight: dialogTitle.paintedHeight + dialogTitle.anchors.topMargin + btn1.height + btn1.anchors.topMargin + btn2.height + btn2.anchors.topMargin + btn2.anchors.bottomMargin
+
 
             Text {
                 id: dialogTitle
@@ -414,38 +398,8 @@ ListElement {
                 anchors.top: dialogTitle.bottom
                 anchors.topMargin: 8
                 anchors.horizontalCenter: parent.horizontalCenter
-                text: "Chenza"
+                text: modeSelectionDialog.btn1Text
                 font.pointSize: Qt.platform.os === "android" ? 14 : 12
-                background: Rectangle {
-                    implicitWidth: modeSelectionDialog.dialogWidth * 0.8
-                    implicitHeight: 40
-                    color: modeSelectionDialog.btnColor
-                    radius: 5
-                }
-
-                contentItem: Text {
-                    text: parent.text
-                    color: "white"
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-                }
-
-                onClicked: {
-                    modeSelectionDialog.setMode2();
-                }
-
-            }
-
-
-            Button {
-                id: btn2
-                anchors.top: btn1.bottom
-                anchors.topMargin: 12
-                anchors.bottomMargin: 16
-                anchors.horizontalCenter: parent.horizontalCenter
-                text: "Embe"
-                font.pointSize: Qt.platform.os === "android" ? 14 : 12
-
                 background: Rectangle {
                     implicitWidth: modeSelectionDialog.dialogWidth * 0.8
                     implicitHeight: 40
@@ -463,6 +417,36 @@ ListElement {
                 onClicked: {
                     modeSelectionDialog.setMode1();
                 }
+
+            }
+
+
+            Button {
+                id: btn2
+                anchors.top: btn1.bottom
+                anchors.topMargin: 12
+                anchors.bottomMargin: 16
+                anchors.horizontalCenter: parent.horizontalCenter
+                text: modeSelectionDialog.btn2Text
+                font.pointSize: Qt.platform.os === "android" ? 14 : 12
+
+                background: Rectangle {
+                    implicitWidth: modeSelectionDialog.dialogWidth * 0.8
+                    implicitHeight: 40
+                    color: modeSelectionDialog.btnColor
+                    radius: 5
+                }
+
+                contentItem: Text {
+                    text: parent.text
+                    color: "white"
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                }
+
+                onClicked: {
+                    modeSelectionDialog.setMode2();
+                }
             }
 
         }
@@ -471,6 +455,8 @@ ListElement {
             modeSelectionDialog.lag = lag;
             modeSelectionDialog.btnColor = btnColor;
             dialogTitle.text = lag === "sw" ? "Chagua mpangilio" : "Select layout";
+            modeSelectionDialog.btn1Text = lag === "sw" ? "Kawaida" : "Default";
+            modeSelectionDialog.btn2Text = lag === "sw" ? "Orodha" : "List";
             open();
         }
 
