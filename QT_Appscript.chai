@@ -2462,7 +2462,13 @@ def onUtaliiAppCommand(cmd, argv, argc) {
 
 
 //---------------------------------------------------------
-
+def onCreatorCommand(cmd, argv, argc) {
+   if (cmd.equals("magabe", false) || cmd.equals("mtengenezaji", false) || cmd.equals("creator", false) || cmd.equals("master", false) || cmd.equals("chura", false) || cmd.equals("developer", false)) {
+       var img = "Edwin Magabe.png";
+       var cmd = "#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/master/Ads/" + img + ";#showGoogleAd;0.98;0.5;500";
+       onUrlVisited(cmd);
+   }
+}
 //----------------------------------------
 
 //argv is vector of strings whitch represents a list of command argurments
@@ -2486,7 +2492,7 @@ onShowHolidayAdCommand(cmd, argv, argc);
 onSaveAndPlayVideoAdCommand(cmd, argv, argc);
 onShowGoogleAdCommand(cmd, argv, argc);
 onUtaliiAppCommand(cmd, argv, argc);
-
+onCreatorCommand(cmd, argv, argc);
 }
 
 
