@@ -878,7 +878,7 @@ Rectangle {
         }
     }
 
-    // Attraction View Component 1
+    // Attraction View Component 2
     Component {
         id: attractionViewComponent2
 
@@ -980,7 +980,7 @@ Rectangle {
                     id: backButton
                     text: app.selectedLanguage === "en" ? "<- Back" : "<- Nyuma"
                     anchors.topMargin: 4
-                    font.pointSize: Qt.platform.os === "android" ? 12 : 10
+                    font.pointSize: Qt.platform.os === "android" ? 16 : 14
 
                     background: Rectangle {
                         anchors.topMargin: 4
