@@ -13,7 +13,7 @@ Rectangle {
     // --- APP PROPERTIES ---
     property int currentIdx: 0
     property int totalScore: 0
-    property int timerValue: 15
+    property int timerValue: 20
     property string viewState: "START"
     property int maxQuestions: 26 // Tunataka maswali 26 tu kila mchezo
     property int noOfPassedQuestion: 0
@@ -422,7 +422,7 @@ ListElement { q: "Kitendawili: Mvua hapa, mvua kule, lakini katikati pakavu."; a
         }
         if (currentIdx < quizModel.count - 1) {
             currentIdx++;
-            timerValue = 15;
+            timerValue = 20;
         } else {
             mainTimer.stop();
             viewState = "END";
@@ -521,7 +521,7 @@ ListElement { q: "Kitendawili: Mvua hapa, mvua kule, lakini katikati pakavu."; a
                 radius: 5
                 color: "#111"
                 Rectangle {
-                    width: (timerValue / 15/*must be equal to initial set timerValue*/) * parent.width
+                    width: (timerValue / 20/*must be equal to initial set timerValue*/) * parent.width
                     height: parent.height
                     radius: 5
                     color: timerValue < 4 ? "red" : "#00ffff"
