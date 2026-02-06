@@ -381,6 +381,62 @@ ListElement { q: "Kitendawili: Babu amebeba gitaa mgongoni."; a: "Kobe"; b: "Kon
 ListElement { q: "Kitendawili: Daima anatazama juu."; a: "Nyasi"; b: "Moshi"; c: "Mvua"; d: "Mbuyu"; correct: "Nyasi" }
 ListElement { q: "Kitendawili: Ana meno mengi lakini hali chakula."; a: "Kitana"; b: "Simba"; c: "Msumeno"; d: "Paka"; correct: "Kitana" }
 
+ListElement { q: "Kifupi cha teknolojia ya 'Wi-Fi' inamaanisha nini?"; a: "Wireless Fidelity"; b: "Wireless Fiber"; c: "Wire Filter"; d: "Wide Field"; correct: "Wireless Fidelity" }
+ListElement { q: "Ni kampuni gani ilitengeneza mfumo wa uendeshaji wa Windows?"; a: "Apple"; b: "Microsoft"; c: "IBM"; d: "Google"; correct: "Microsoft" }
+ListElement { q: "Sehemu ya siri ya mtandao ambayo haionekani kirahisi kwenye search engines huitwa?"; a: "Dark Web"; b: "Public Web"; c: "Safe Web"; d: "Open Web"; correct: "Dark Web" }
+ListElement { q: "Kifaa kinachotumika kubadilisha nishati ya jua kuwa umeme huitwa?"; a: "Solar Panel"; b: "Generator"; c: "Battery"; d: "Inverter"; correct: "Solar Panel" }
+ListElement { q: "Katika email, kirefu cha 'BCC' ni nini?"; a: "Blind Carbon Copy"; b: "Best Carbon Copy"; c: "Basic Clear Copy"; d: "Business Case Copy"; correct: "Blind Carbon Copy" }
+ListElement { q: "Ni lugha gani ya programu (Coding) inayotumika zaidi kutengeneza kurasa za tovuti (Websites)?"; a: "HTML"; b: "C++"; c: "Swift"; d: "Kotlin"; correct: "HTML" }
+ListElement { q: "Kifaa kinachounganisha kompyuta yako na mtandao wa intaneti huitwa?"; a: "Router"; b: "Scanner"; c: "Printer"; d: "Monitor"; correct: "Router" }
+ListElement { q: "Teknolojia ya kuratibu maeneo kwa kutumia satelaiti inaitwa?"; a: "GPS"; b: "SMS"; c: "UPS"; d: "CCTV"; correct: "GPS" }
+ListElement { q: "Namba ya utambulisho wa kipekee kwa kila simu (IMEI) ina tarakimu ngapi?"; a: "10"; b: "15"; c: "12"; d: "16"; correct: "15" }
+ListElement { q: "Kitufe cha 'F5' kwenye keyboard ya kompyuta mara nyingi hutumika kwa kazi gani?"; a: "Kufuta"; b: "Ku-Refresh"; c: "Kuzima"; d: "Kuhifadhi"; correct: "Ku-Refresh" }
+ListElement { q: "Ni nini kazi ya 'Firewall' kwenye kompyuta?"; a: "Kuzuia virusi na wadukuzi"; b: "Kupunguza joto"; c: "Kuongeza kasi"; d: "Kupiga picha"; correct: "Kuzuia virusi na wadukuzi" }
+ListElement { q: "Teknolojia ya kuhifadhi data kwenye mtandao badala ya diski ya kompyuta huitwa?"; a: "Cloud Storage"; b: "Hard Drive"; c: "Flash Disk"; d: "RAM"; correct: "Cloud Storage" }
+ListElement { q: "Ni nani anayefahamika kama mwanzilishi wa Facebook (Meta)?"; a: "Mark Zuckerberg"; b: "Bill Gates"; c: "Elon Musk"; d: "Jeff Bezos"; correct: "Mark Zuckerberg" }
+
+ListElement { q: "Ni kiungo gani cha mwili kinachohusika na kusafisha damu?"; a: "Moyo"; b: "Figo"; c: "Mapafu"; d: "Tumbo"; correct: "Figo" }
+ListElement { q: "Damu ya binadamu ina rangi nyekundu kwa sababu ya protini iitwayo?"; a: "Hemoglobin"; b: "Insulin"; c: "Keratin"; d: "Melanin"; correct: "Hemoglobin" }
+ListElement { q: "Ni tunda gani lina vitamini C kwa wingi zaidi?"; a: "Chungwa"; b: "Ndizi"; c: "Tikiti"; d: "Tufaha (Apple)"; correct: "Chungwa" }
+ListElement { q: "Binadamu ana jozi ngapi za kromozomu (Chromosomes)?"; a: "23"; b: "46"; c: "20"; d: "30"; correct: "23" }
+ListElement { q: "Ni aina gani ya damu (Blood Group) inayoweza kutoa kwa makundi yote (Universal Donor)?"; a: "Group A"; b: "Group B"; c: "Group AB"; d: "Group O"; correct: "Group O" }
+ListElement { q: "Mifupa ya binadamu mtu mzima imegawanyika katika vipande vingapi?"; a: "100"; b: "206"; c: "300"; d: "150"; correct: "206" }
+ListElement { q: "Kiungo kikubwa zaidi cha nje cha mwili wa binadamu ni?"; a: "Ngozi"; b: "Mapafu"; c: "Ini"; d: "Miguu"; correct: "Ngozi" }
+ListElement { q: "Viumbe hai wanaokula mimea pekee huitwa?"; a: "Herbivores"; b: "Carnivores"; c: "Omnivores"; d: "Parasites"; correct: "Herbivores" }
+ListElement { q: "Ni vitamini gani inayopatikana kwa wingi kupitia mwanga wa jua la asubuhi?"; a: "Vitamini A"; b: "Vitamini C"; c: "Vitamini D"; d: "Vitamini K"; correct: "Vitamini D" }
+ListElement { q: "Sehemu ya jicho inayohusika na kuingiza mwanga huitwa?"; a: "Pupil"; b: "Retina"; c: "Lens"; d: "Iris"; correct: "Pupil" }
+ListElement { q: "Ni wadudu gani wanaosafirisha chavua (Pollination) kwa kiasi kikubwa duniani?"; a: "Nyuki"; b: "Mbu"; c: "Mende"; d: "Nzi"; correct: "Nyuki" }
+ListElement { q: "Zoezi la mimea kutengeneza chakula chake kwa kutumia mwanga wa jua huitwa?"; a: "Photosynthesis"; b: "Respiration"; c: "Digestion"; d: "Osmosis"; correct: "Photosynthesis" }
+ListElement { q: "Mapigo ya moyo ya binadamu mwenye afya kwa dakika ni wastani wa?"; a: "40-60"; b: "70-80"; c: "100-120"; d: "20-30"; correct: "70-80" }
+
+ListElement { q: "Ni chombo gani kinatumika kupima kiasi cha mvua iliyonyesha?"; a: "Thermometer"; b: "Rain Gauge"; c: "Barometer"; d: "Anemometer"; correct: "Rain Gauge" }
+ListElement { q: "Radi hutokea kwa sababu ya msuguano wa nini angani?"; a: "Mawingu"; b: "Ndege"; c: "Nyota"; d: "Mwezi"; correct: "Mawingu" }
+ListElement { q: "Mvua inayonyesha baada ya maji ya bahari kupata joto na kupaisha mvuke huitwa?"; a: "Convectional Rain"; b: "Relief Rain"; c: "Cyclonic Rain"; d: "Acid Rain"; correct: "Convectional Rain" }
+ListElement { q: "Ni gesi gani inatengeneza asilimia 21 ya hewa ya anga (Atmosphere)?"; a: "Nitrogen"; b: "Oxygen"; c: "Carbon Dioxide"; d: "Hydrogen"; correct: "Oxygen" }
+ListElement { q: "Mstari wa kidhahania unaogawanya dunia katika ncha ya kaskazini na kusini ni?"; a: "Equator (Ikweta)"; b: "Longitude"; c: "Tropic of Cancer"; d: "Prime Meridian"; correct: "Equator (Ikweta)" }
+ListElement { q: "Sauti ya kishindo inayosikika baada ya mwanga wa radi huitwa?"; a: "Umeme"; b: "Mngurumo"; c: "Upepo"; d: "Mwangwi"; correct: "Mngurumo" }
+ListElement { q: "Zoezi la maji kugeuka kuwa mvuke kutokana na joto huitwa?"; a: "Evaporation"; b: "Condensation"; c: "Freezing"; d: "Melting"; correct: "Evaporation" }
+ListElement { q: "Ni bahari gani iliyo kubwa zaidi duniani?"; a: "Hindi"; b: "Pasifiki (Pacific)"; c: "Atlantiki"; d: "Shamu"; correct: "Pasifiki (Pacific)" }
+ListElement { q: "Safu ya milima mirefu zaidi duniani inaitwa?"; a: "Himalayas"; b: "Andes"; c: "Alps"; d: "Kilimanjaro"; correct: "Himalayas" }
+ListElement { q: "Ni mkoa gani nchini Tanzania unaosifika kwa kuwa na mvua nyingi karibu mwaka mzima?"; a: "Dodoma"; b: "Njombe"; c: "Singida"; d: "Simiyu"; correct: "Njombe" }
+ListElement { q: "Chombo kinachopima kasi ya upepo huitwa?"; a: "Anemometer"; b: "Hygrometer"; c: "Seismograph"; d: "Compass"; correct: "Anemometer" }
+ListElement { q: "Vumbi na moshi vikichanganyika na ukungu angani huitwa?"; a: "Smog"; b: "Snow"; c: "Ice"; d: "Dew"; correct: "Smog" }
+ListElement { q: "Maji ya chumvi duniani yanapatikana kwa kiasi gani?"; a: "50%"; b: "97%"; c: "10%"; d: "75%"; correct: "97%" }
+
+ListElement { q: "Ni mbu yupi anayeeneza vimelea vya ugonjwa wa Malaria?"; a: "Anopheles Jike"; b: "Anopheles Dume"; c: "Culex"; d: "Aedes"; correct: "Anopheles Jike" }
+ListElement { q: "Vimelea vinavyosababisha ugonjwa wa Malaria huitwa?"; a: "Plasmodium"; b: "Amoeba"; c: "Virusi"; d: "Bacteria"; correct: "Plasmodium" }
+ListElement { q: "Ni njia ipi bora ya kuzuia mbu wa malaria wasikufikie ukiwa umelala?"; a: "Chandarua"; b: "Kipepeo"; c: "Kufunga mlango"; d: "Kupaka mafuta ya nazi"; correct: "Chandarua" }
+ListElement { q: "Malaria inashambulia zaidi seli zipi mwilini?"; a: "Seli nyekundu za damu"; b: "Seli nyeupe"; c: "Seli za ubongo"; d: "Seli za mifupa"; correct: "Seli nyekundu za damu" }
+ListElement { q: "Ni ipi dalili ya kawaida ya ugonjwa wa Malaria?"; a: "Homa na baridi"; b: "Kupoteza nywele"; c: "Kuumwa meno"; d: "Kuvimba miguu"; correct: "Homa na baridi" }
+ListElement { q: "Dawa inayopendekezwa na Serikali ya TZ kwa matibabu ya kwanza ya Malaria kwa sasa ni?"; a: "AL (Mseto)"; b: "Quinine"; c: "Panadol"; d: "Asprin"; correct: "AL (Mseto)" }
+ListElement { q: "Ni kundi lipi lililo hatarini zaidi kupata madhara makubwa ya Malaria?"; a: "Watoto chini ya miaka 5"; b: "Vijana"; c: "Wanaume"; d: "Wanariadha"; correct: "Watoto chini ya miaka 5" }
+ListElement { q: "Mbu wa malaria hupenda kuzaliana sehemu gani?"; a: "Maji yaliyotuama"; b: "Kwenye mchanga"; c: "Ndani ya chupa"; d: "Juu ya miti"; correct: "Maji yaliyotuama" }
+ListElement { q: "Kipimo cha haraka cha Malaria kinachotumika kwenye vituo vya afya huitwa?"; a: "mRDT"; b: "X-Ray"; c: "Ultrasound"; d: "MRI"; correct: "mRDT" }
+ListElement { q: "Ni kiungo gani mwilini kinachoweza kuvimba kutokana na malaria kali?"; a: "Wengu (Spleen)"; b: "Moyo"; c: "Kidole"; d: "Sikio"; correct: "Wengu (Spleen)" }
+ListElement { q: "Kufyeka nyasi na kufukia madimbwi ni njia ya?"; a: "Kuharibu mazalia ya mbu"; b: "Kupamba mji"; c: "Kupata mbolea"; d: "Kuongeza joto"; correct: "Kuharibu mazalia ya mbu" }
+ListElement { q: "Siku ya Malaria Duniani huadhimishwa kila mwaka tarehe ngapi?"; a: "Aprili 25"; b: "Desemba 1"; c: "Machi 8"; d: "Januari 1"; correct: "Aprili 25" }
+ListElement { q: "Ni mkoa upi Tanzania unaotajwa kuwa na maambukizi makubwa ya Malaria kutokana na hali ya hewa?"; a: "Kigoma/Geita"; b: "Dodoma"; c: "Arusha"; d: "Manyara"; correct: "Kigoma/Geita" }
+
     }
 
     Settings{
