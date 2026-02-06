@@ -452,7 +452,7 @@ Rectangle {
                     text: getCategory(finalScoreDisplay.finalIQ)
                     color: "white"
                     font.bold: true
-                    font.pixelSize: 18
+                    font.pixelSize: 18 * (Qt.platform.os === "android" ? 3 : 1)
                     horizontalAlignment: Text.AlignHCenter
                 }
             }
