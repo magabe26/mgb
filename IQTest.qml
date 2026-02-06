@@ -319,6 +319,68 @@ ListElement { q: "Kirefu cha neno NECTA ni nini kwa Kiswahili?"; a: "Baraza la M
 ListElement { q: "Katika mfumo wa NECTA, daraja 'A' kwenye mtihani wa kidato cha nne huanzia alama ngapi?"; a: "70"; b: "75"; c: "81"; d: "65"; correct: "75" }
 ListElement { q: "Ni mwaka gani Tanzania ilianza rasmi mfumo wa elimu ya bila malipo kwa shule za msingi na sekondari?"; a: "2010"; b: "2015"; c: "2020"; d: "2005"; correct: "2015" }
 
+ListElement { q: "Siku ya kwanza ya mzunguko wa hedhi huhesabiwa kuanzia lini?"; a: "Siku hedhi inapoisha"; b: "Siku ya kwanza kuona damu"; c: "Siku ya 14"; d: "Siku yoyote"; correct: "Siku ya kwanza kuona damu" }
+ListElement { q: "Kirusi kinachosababisha UKIMWI kinaitwa?"; a: "Bacteria"; b: "VVU (HIV)"; c: "Plasmodium"; d: "Fungi"; correct: "VVU (HIV)" }
+ListElement { q: "Ni ugonjwa upi wa zinaa unaweza kusababisha upofu kwa mtoto wakati wa kuzaliwa?"; a: "Kaswende"; b: "Kisonono (Gonorrhea)"; c: "Homa ya Ini"; d: "Teepee"; correct: "Kisonono (Gonorrhea)" }
+ListElement { q: "Njia ya uhakika zaidi ya kuzuia mimba na magonjwa ya zinaa kwa wakati mmoja ni?"; a: "Vidonge"; b: "Kondomu"; c: "Sindano"; d: "Kalenda"; correct: "Kondomu" }
+ListElement { q: "Kipindi ambacho yai la mwanamke linatoka tayari kurutubishwa huitwa?"; a: "Hedhi"; b: "Ovulation (Upevushaji)"; c: "Mimba"; d: "Kukoma hedhi"; correct: "Ovulation (Upevushaji)" }
+
+ListElement { q: "Ugonjwa wa Kaswende husababishwa na nini?"; a: "Virusi"; b: "Bacteria"; c: "Uchafu"; d: "Minyoo"; correct: "Bacteria" }
+ListElement { q: "Chanjo ya HPV hutolewa ili kuzuia saratani gani kwa wanawake?"; a: "Saratani ya matiti"; b: "Saratani ya mlango wa uzazi"; c: "Saratani ya ini"; d: "Saratani ya ngozi"; correct: "Saratani ya mlango wa uzazi" }
+ListElement { q: "Mimba ya kawaida ya binadamu huchukua wastani wa wiki ngapi?"; a: "30"; b: "36"; c: "40"; d: "45"; correct: "40" }
+ListElement { q: "Ni vimelea gani husababisha ugonjwa wa Trichomoniasis?"; a: "Virusi"; b: "Bacteria"; c: "Protozoa"; d: "Fungi"; correct: "Protozoa" }
+ListElement { q: "Upasuaji mdogo kwa wanaume ili kuzuia uwezo wa kutoa mbegu za uzazi huitwa?"; a: "Vasectomy"; b: "Circumcision"; c: "Dialysis"; d: "Biopsy"; correct: "Vasectomy" }
+ListElement { q: "Kifupi cha PID katika afya ya uzazi inamaanisha?"; a: "Pelvic Inflammatory Disease"; b: "Private Internal Disease"; c: "Period Internal Delay"; d: "Pain In Digestion"; correct: "Pelvic Inflammatory Disease" }
+ListElement { q: "Je, mwanamke anaweza kupata mimba akishiriki tendo la ndoa mara moja pekee?"; a: "Hapana"; b: "Ndiyo"; c: "Inategemea umri"; d: "Haiwezekani"; correct: "Ndiyo" }
+ListElement { q: "Ni ugonjwa gani wa zinaa unaoshambulia zaidi Ini?"; a: "Kisonono"; b: "Homa ya Ini B (Hepatitis B)"; c: "Kaswende"; d: "Vifundo"; correct: "Homa ya Ini B (Hepatitis B)" }
+ListElement { q: "Mbegu za kiume hutengenezwa sehemu gani ya mwili?"; a: "Kibofu"; b: "Mapumbu (Testes)"; c: "Uume"; d: "Mifuko ya mkojo"; correct: "Mapumbu (Testes)" }
+ListElement { q: "Kukoma kwa hedhi kabisa kwa mwanamke (Menopause) hutokea wastani wa umri gani?"; a: "20-30"; b: "45-55"; c: "30-40"; d: "60-70"; correct: "45-55" }
+ListElement { q: "Ni ipi dalili ya kawaida ya Kisonono kwa wanaume?"; a: "Kutoa usaha kwenye uume"; b: "Kukohoa"; c: "Maumivu ya mgongo"; d: "Kupoteza nywele"; correct: "Kutoa usaha kwenye uume" }
+ListElement { q: "Upungufu wa damu kwa mama mjamzito mara nyingi husababishwa na ukosefu wa?"; a: "Sukari"; b: "Madini ya Chuma"; c: "Chumvi"; d: "Mafuta"; correct: "Madini ya Chuma" }
+ListElement { q: "Neno 'Uziwi' wa mtoto mchanga unaweza kusababishwa na maambukizi ya?"; a: "Rubella"; b: "Mafua"; c: "Kikohozi"; d: "Fangasi"; correct: "Rubella" }
+ListElement { q: "Tendo la kuunganisha yai la kike na mbegu ya kiume huitwa?"; a: "Urutubishaji (Fertilization)"; b: "Upevushaji"; c: "Hedhi"; d: "Uzazi"; correct: "Urutubishaji (Fertilization)" }
+ListElement { q: "Je, mtu anaweza kuwa na ugonjwa wa zinaa bila kuonyesha dalili zozote?"; a: "Hapana"; b: "Ndiyo"; c: "Ni nadra"; d: "Haiwezekani"; correct: "Ndiyo" }
+
+ListElement { q: "Tendo la kutoa damu kila mwezi kwa wasichana huitwa?"; a: "Kuvunja ungo"; b: "Hedhi"; c: "Ovulation"; d: "Mimba"; correct: "Hedhi" }
+ListElement { q: "Ni homoni ipi inawajibika kwa mabadiliko ya kiume wakati wa kubalehe?"; a: "Estrogen"; b: "Progesterone"; c: "Testosterone"; d: "Insulin"; correct: "Testosterone" }
+ListElement { q: "Mabadiliko ya sauti kuwa nzito kwa wavulana ni ishara ya?"; a: "Kubalehe"; b: "Ugonjwa"; c: "Uchovu"; d: "Kukua kwa mapafu"; correct: "Kubalehe" }
+ListElement { q: "Kukua kwa matiti na kuanza hedhi ni ishara za kubalehe kwa?"; a: "Wavulana"; b: "Wasichana"; c: "Wote wawili"; d: "Watoto wachanga"; correct: "Wasichana" }
+ListElement { q: "Tezi inayodhibiti mwanzo wa mchakato wa kubalehe inaitwa?"; a: "Pituitary"; b: "Thyroid"; c: "Adrenal"; d: "Pancreas"; correct: "Pituitary" }
+
+ListElement { q: "Ni homoni ipi kuu inayosababisha mabadiliko kwa wasichana?"; a: "Estrogen"; b: "Testosterone"; c: "Adrenaline"; d: "Thyroxine"; correct: "Estrogen" }
+ListElement { q: "Kuota chunusi wakati wa kubalehe mara nyingi husababishwa na?"; a: "Mabadiliko ya homoni"; b: "Kutokunawa uso"; c: "Kula sukari"; d: "Baridi"; correct: "Mabadiliko ya homoni" }
+ListElement { q: "Ndoto za usiku zinazopelekea kutoa mbegu za kiume (Wet dreams) ni jambo la?"; a: "Kawaida/Kutokua"; b: "Kawaida/Afya"; c: "Hatari"; d: "Ugonjwa"; correct: "Kawaida/Afya" }
+ListElement { q: "Wastani wa umri wa kuanza kubalehe kwa wasichana ni?"; a: "5-7"; b: "10-14"; c: "18-21"; d: "25-30"; correct: "10-14" }
+ListElement { q: "Kupanuka kwa mabega ni tabia ya mabadiliko ya kubalehe kwa?"; a: "Wavulana"; b: "Wasichana"; c: "Wazee"; d: "Hakuna"; correct: "Wavulana" }
+ListElement { q: "Mabadiliko ya kihisia na kuanza kuvutiwa na jinsia tofauti huanza kipindi cha?"; a: "Utoto"; b: "Kubalehe"; c: "Uzee"; d: "Uzaliwa"; correct: "Kubalehe" }
+ListElement { q: "Kukua kwa 'Adam's Apple' shingoni ni ishara kwa?"; a: "Wavulana"; b: "Wasichana"; c: "Wote"; d: "Wanyama"; correct: "Wavulana" }
+
+
+ListElement { q: "Kirefu cha AI ni nini?"; a: "Art Intelligent"; b: "Artificial Intelligence"; c: "Automated Info"; d: "Advanced Intel"; correct: "Artificial Intelligence" }
+ListElement { q: "Ni mfumo upi wa AI uliotengenezwa na kampuni ya OpenAI?"; a: "Siri"; b: "ChatGPT"; c: "Alexa"; d: "Bixby"; correct: "ChatGPT" }
+ListElement { q: "Uwezo wa AI kujifunza kupitia data bila kupewa maelekezo ya kila hatua huitwa?"; a: "Machine Learning"; b: "Coding"; c: "Typing"; d: "Hardware"; correct: "Machine Learning" }
+
+
+ListElement { q: "AI inayoweza kutengeneza picha au maandishi mapya huitwa?"; a: "Static AI"; b: "Generative AI"; c: "Old AI"; d: "Manual AI"; correct: "Generative AI" }
+ListElement { q: "Robot maarufu mwenye uraia wa Saudi Arabia anaitwa?"; a: "Sophia"; b: "Alexa"; c: "Siri"; d: "Jarvis"; correct: "Sophia" }
+ListElement { q: "Kampuni ya Google imetengeneza AI inayoitwa?"; a: "Gemini"; b: "ChatGPT"; c: "Claude"; d: "Llama"; correct: "Gemini" }
+ListElement { q: "Ni kifaa gani kinatumia AI kutambua uso wa mtu (Face ID)?"; a: "Simu Janja"; b: "Pasi ya umeme"; c: "Redio"; d: "Saa ya ukutani"; correct: "Simu Janja" }
+ListElement { q: "AI inayotumika kuendesha magari bila dereva inaitwa?"; a: "Manual Driving"; b: "Autonomous Driving"; c: "Remote Control"; d: "Flying AI"; correct: "Autonomous Driving" }
+ListElement { q: "Turing Test inatumika kupima nini?"; a: "Uwezo wa AI kufikiri kama binadamu"; b: "Kasi ya intaneti"; c: "Ukubwa wa betri"; d: "Ubora wa kioo"; correct: "Uwezo wa AI kufikiri kama binadamu" }
+ListElement { q: "Lugha ya kompyuta inayotumika zaidi kwenye AI ni?"; a: "Python"; b: "HTML"; c: "CSS"; d: "SQL"; correct: "Python" }
+ListElement { q: "Kifaa kinachotumia AI nyumbani kutoa taarifa kwa sauti (mfano Alexa) huitwa?"; a: "Smart Speaker"; b: "Microphone"; c: "Radio"; d: "TV"; correct: "Smart Speaker" }
+ListElement { q: "AI inaweza kupata 'Hallucinations'. Hii inamaanisha nini?"; a: "Inatoa majibu ya uongo kwa kujiamini"; b: "Inazima yenyewe"; c: "Inapata virusi"; d: "Inafanya kazi haraka"; correct: "Inatoa majibu ya uongo kwa kujiamini" }
+ListElement { q: "Mwasisi wa AI anayefahamika kama baba wa AI ni?"; a: "Alan Turing"; b: "Bill Gates"; c: "Elon Musk"; d: "Steve Jobs"; correct: "Alan Turing" }
+ListElement { q: "Deep Learning ni sehemu ya nini?"; a: "Machine Learning"; b: "Hardware"; c: "Agriculture"; d: "Physics"; correct: "Machine Learning" }
+ListElement { q: "AI inatumia nini ili kufanya maamuzi haraka?"; a: "Algorithms"; b: "Maji"; c: "Upepo"; d: "Petroli"; correct: "Algorithms" }
+
+
+ListElement { q: "Kitendawili: Nyumba yangu haina mlango."; a: "Yai"; b: "Chupa"; c: "Kaburi"; d: "Tango"; correct: "Yai" }
+ListElement { q: "Kitendawili: Kila nikienda ananifuata."; a: "Kivuli"; b: "Mbwa"; c: "Rafiki"; d: "Upepo"; correct: "Kivuli" }
+ListElement { q: "Kitendawili: Babu amebeba gitaa mgongoni."; a: "Kobe"; b: "Konokono"; c: "Mzee"; d: "Kiti"; correct: "Kobe" }
+ListElement { q: "Kitendawili: Daima anatazama juu."; a: "Nyasi"; b: "Moshi"; c: "Mvua"; d: "Mbuyu"; correct: "Nyasi" }
+ListElement { q: "Kitendawili: Ana meno mengi lakini hali chakula."; a: "Kitana"; b: "Simba"; c: "Msumeno"; d: "Paka"; correct: "Kitana" }
+
     }
 
     Settings{
