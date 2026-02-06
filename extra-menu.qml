@@ -305,7 +305,7 @@ MouseArea{
             }
         }
 
-/*
+
         Rectangle{
             z: root.z + 1
             color: "transparent"
@@ -319,7 +319,7 @@ MouseArea{
                 anchors.top: parent.top
                 anchors.left: parent.left
                 anchors.leftMargin: menu.imgLeftMargin
-                source: getIconSource("fa::cogs","#00e6e6")
+                source: getIconSource("fa::hourglass","#00e6e6")
             }
 
             Text {
@@ -327,17 +327,17 @@ MouseArea{
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.leftMargin: menu.textLeftMargin
                 color: Qt.lighter("gray",1.7)
-                text: "---- "
+                text: "Pima uwezo wa akili 🧠"
             }
 
             MouseArea{
                 anchors.fill: parent
                 onClicked: {
-                    root.executeCommand("#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/master/Ads/mmmm.png;#showGoogleAd;0.98;0.4;500", []);
+                    root.executeCommand("#IQTest;", []);
                 }
             }
         }
-*/
+
 
         AnimatedImage{
             anchors.horizontalCenter: parent.horizontalCenter
