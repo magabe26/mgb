@@ -529,6 +529,29 @@ Rectangle {
                     }
                 }
             }
+
+            Button {
+                text: "FUNGA"
+                Layout.preferredWidth: app.width * 0.8
+                Layout.preferredHeight: 50
+                Layout.alignment: Qt.AlignHCenter
+                background: Rectangle {
+                    color: "red"
+                    radius: 10
+                }
+
+                contentItem: Text {
+                    text: parent.text
+                    color: "white"
+                    font.bold: true
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                }
+
+                onClicked: {
+                    app.close();
+                }
+            }
         }
 
         // VIEW END
