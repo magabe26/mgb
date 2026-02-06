@@ -296,31 +296,51 @@ Rectangle {
 
     // --- LOGIC YA KUCHANGANYA MASWALI ---
     function startNewGame() {
+        // 1. Safisha quizModel ya mchezo uliopita
         quizModel.clear();
-        var allIndexes = [];
-        for (var i = 0; i < iqModel.count; i++) {
-            allIndexes.push(i);
+
+        // 2. Angalia kama iqModel ina maswali ya kutosha
+        if (iqModel.count === 0) {
+            console.log("Benki ya maswali imeisha!");
+
+            // Unaweza kuweka logic ya ku-reload maswali hapa kama ukitaka
+            if(typeof n3ctaApp !== "undefined"){
+                n3ctaApp.closeCustomPage();
+                n3ctaApp.onUrlVisited("#IQTest");
+            }else if(typeof loader !== "undefined"){
+                loader.closeCustomPage();
+                loader.onUrlVisited("#IQTest");
+            }
+            return;
         }
 
-        // Shuffle logic
-        for (var j = allIndexes.length - 1; j > 0; j--) {
-            var k = Math.floor(Math.random() * (j + 1));
-            var temp = allIndexes[j];
-            allIndexes[j] = allIndexes[k];
-            allIndexes[k] = temp;
-        }
-
-        // Chagua
+        // 3. Piga Shuffle kwenye iqModel nzima kwanza (Optional lakini salama zaidi)
+        // Au chagua maswali ya mwanzo baada ya kuchanganya index
         var limit = Math.min(maxQuestions, iqModel.count);
-        for (var m = 0; m < limit; m++) {
-            quizModel.append(iqModel.get(allIndexes[m]));
+
+        for (var i = 0; i < limit; i++) {
+            // Tunachagua swali la random kutoka kwenye iqModel
+            var randomIndex = Math.floor(Math.random() * iqModel.count);
+
+            // Tunachukua data ya swali hilo
+            var selectedQuestion = iqModel.get(randomIndex);
+
+            // Tunaliweka kwenye model ya mchezo wa sasa
+            quizModel.append(selectedQuestion);
+
+            // MUHIMU: Tunafuta swali hili kwenye benki kuu (iqModel)
+            // ili lisitokee tena mchezo ujao
+            iqModel.remove(randomIndex);
         }
 
+        // 4. Reset Variables za mchezo
         currentIdx = 0;
         totalScore = 0;
         timerValue = 15;
         noOfPassedQuestion = 0;
-        viewState = "QUIZ"; // UI itabadilika hapa baada ya data kupatikana
+
+        // 5. Anza Mchezo
+        viewState = "QUIZ";
         mainTimer.start();
     }
 
