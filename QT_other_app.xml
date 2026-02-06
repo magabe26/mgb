@@ -95,7 +95,16 @@ Download other apps here
   </APP>
    <APP>
       <A HREF="#" />
-   </APP>
+</APP>
+
+<APP>
+    <A HREF="#IQTest">Pima uwezo wa akili yako sasa.</A>
+    <COLOR>#1fb8ba</COLOR>
+    <BG_COLOR>white</BG_COLOR>
+    <ICON>fa::hourglass</ICON>
+    <ICON_COLOR>#065961</ICON_COLOR>
+    <BOLD_TEXT>1</BOLD_TEXT>
+</APP>
    <APP>
       <A HREF="#" />
    </APP>
