@@ -158,7 +158,7 @@ Pakua aplikesheni zingine hapa
 
 <APP>
     <A HREF="#IQTest">Pima uwezo wa akili yako sasa.</A>
-    <COLOR>#1fb8ba</COLOR>
+    <COLOR>blue</COLOR>
     <BG_COLOR>white</BG_COLOR>
     <ICON>fa::hourglass</ICON>
     <ICON_COLOR>green</ICON_COLOR>
