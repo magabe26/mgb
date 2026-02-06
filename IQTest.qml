@@ -511,6 +511,32 @@ ListElement { q: "Ni mfumo upi wa uendeshaji (OS) ambao App za Magabe Lab zinawe
 
 ListElement { q: "Lengo kuu la Magabe Lab katika kuleta teknolojia nchini Tanzania ni?"; a: "Kutoa burudani na elimu kidijitali"; b: "Kuuza simu zilizotumika"; c: "Kufundisha udereva wa malori"; d: "Kutengeneza michezo ya kamari pekee"; correct: "Kutoa burudani na elimu kidijitali" }
 
+ListElement { q: "Msanii gani wa Tanzania alikuwa wa kwanza kushinda tuzo ya BET (Viewer's Choice Best New International Act)?"; a: "Diamond Platnumz"; b: "Rayvanny"; c: "Harmonize"; d: "Ali Kiba"; correct: "Rayvanny" }
+
+ListElement { q: "Kundi la vichekesho lililojizolea umaarufu mkubwa nchini Tanzania kuanzia miaka ya 2000 linaitwa?"; a: "Orijino Komedi"; b: "Vituko Show"; c: "Mizengwe"; d: "Ze Komedi"; correct: "Orijino Komedi" }
+
+ListElement { q: "Marehemu Steven Kanumba alikuwa mwigizaji maarufu aliyejulikana pia kwa jina lipi la kisanii?"; a: "The Great"; b: "The King"; c: "Director"; d: "Chairman"; correct: "The Great" }
+
+ListElement { q: "Msanii wa kike wa Bongo Flava anayeshikilia rekodi ya kutazamwa zaidi (Most Viewed) YouTube ni?"; a: "Nandy"; b: "Zuchu"; c: "Shilole"; d: "Maua Sama"; correct: "Zuchu" }
+
+ListElement { q: "Mchekeshaji gani nchini Tanzania anajulikana kwa mtindo wake wa kuvaa kama mwanamke na kutumia jina la 'Mkude Simba'?"; a: "Joti"; b: "Kitale"; c: "Mpoki"; d: "Mwijaku"; correct: "Kitale" }
+
+ListElement { q: "Filamu ya kwanza ya Kitanzania kuingia katika mashindano makubwa ya 'Oscars' nchini Marekani inaitwa?"; a: "Tug of War (Vuta N'kuvute)"; b: "Bulyanhulu"; c: "Siri ya Mtungi"; d: "Dar ni Njema"; correct: "Tug of War (Vuta N'kuvute)" }
+
+ListElement { q: "Msanii wa muziki anayefahamika kama 'King of Bongo Flava' na mmiliki wa lebo ya Kings Music ni?"; a: "Ali Kiba"; b: "Marioo"; c: "Dully Sykes"; d: "Professor Jay"; correct: "Ali Kiba" }
+
+ListElement { q: "Mwigizaji gani wa kike nchini Tanzania alishinda tuzo ya 'Best Actress' katika tamasha la AMVCA nchini Nigeria?"; a: "Wema Sepetu"; b: "Elizabeth Michael (Lulu)"; c: "Jacqueline Wolper"; d: "Irene Uwoya"; correct: "Elizabeth Michael (Lulu)" }
+
+ListElement { q: "Msanii gani wa vichekesho anayesifika kwa uwezo wa kuigiza sauti za viongozi mbalimbali na watu maarufu?"; a: "Mpoki"; b: "Joti"; c: "Ebitoke"; d: "Bwakila"; correct: "Joti" }
+
+ListElement { q: "Lebo ya muziki inayomilikiwa na Diamond Platnumz inaitwa?"; a: "WCB Wasafi"; b: "Konde Gang"; c: "Kings Music"; d: "Next Level"; correct: "WCB Wasafi" }
+
+ListElement { q: "Marehemu ambae alikuwa mwigizaji nguli wa maigizo ya runinga na kiongozi wa kundi la Kaole Sanaa Group ni?"; a: "Mzee Small"; b: "Mzee Majuto"; c: "Sajuki"; d: "Steve Kanumba"; correct: "Mzee Majuto" }
+
+ListElement { q: "Wimbo wa 'Number One' uliomtangaza Diamond Platnumz kimataifa alimshirikisha msanii gani kutoka Nigeria?"; a: "Davido"; b: "Wizkid"; c: "Burna Boy"; d: "P-Square"; correct: "Davido" }
+
+ListElement { q: "Mchekeshaji Coy Mzero anajulikana zaidi kupitia jukwaa gani la vichekesho nchini?"; a: "Cheka Tu"; b: "Comedy Knights"; c: "Stand Up Tanzania"; d: "Funny Fellas"; correct: "Cheka Tu" }
+
     }
 
     Settings{
