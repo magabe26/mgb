@@ -102,31 +102,6 @@ Rectangle {
         ListElement { q: "Kama 3 ni 9, na 4 ni 16, basi 6 ni nini?"; a: "36"; b: "24"; c: "12"; d: "30"; correct: "36" }
         ListElement { q: "Nusu ya robo ya 400 ni ngapi?"; a: "100"; b: "50"; c: "25"; d: "200"; correct: "50" }
 
-// --- LOGIC ZA KUTEGA (Short & Quick) ---
-
-ListElement { q: "Kitu gani kina mikono lakini hakiwezi kupiga makofi?"; a: "Saa"; b: "Mti"; c: "Kiti"; d: "Sharti"; correct: "Saa" }
-
-ListElement { q: "Kipi kina meno lakini hakina mdomo?"; a: "Simba"; b: "Kitana"; c: "Msumeno"; d: "Nyoka"; correct: "Kitana" }
-
-ListElement { q: "Kitu gani kinalowa wakati kinakausha?"; a: "Taulo"; b: "Sifongo"; c: "Mvua"; d: "Sabuni"; correct: "Taulo" }
-
-ListElement { q: "Kitu gani kina shingo lakini hakina kichwa?"; a: "Chupa"; b: "Sharti"; c: "Shetani"; d: "Zulia"; correct: "Chupa" }
-
-ListElement { q: "Kipi kina tundu juu na chini, lakini kinakaa na maji?"; a: "Sufuria"; b: "Sifongo"; c: "Chujio"; d: "Bomba"; correct: "Sifongo" }
-
-// --- VITENDAWILI MAFUPI ---
-
-ListElement { q: "Kitendawili: Kaka yangu mweusi hagusiki."; a: "Makaa"; b: "Kivuli"; c: "Usiku"; d: "Moshi"; correct: "Kivuli" }
-
-ListElement { q: "Kitendawili: Askari wangu hulinda nyumba bila silaha."; a: "Macho"; b: "Kufuli"; c: "Mbwa"; d: "Ukuta"; correct: "Kufuli" }
-
-ListElement { q: "Kitendawili: Hucheka bila meno."; a: "Mtoto"; b: "Mahindi"; c: "Zulia"; d: "Unga"; correct: "Mahindi" }
-
-ListElement { q: "Kitendawili: Daima nakuita lakini hunijibu."; a: "Jina"; b: "Mwangwi"; c: "Sauti"; d: "Simu"; correct: "Jina" }
-
-ListElement { q: "Kitendawili: Nyama nje, ngozi ndani."; a: "Maini"; b: "Firigisi"; c: "Moyo"; d: "Utumbo"; correct: "Firigisi" }
-
-
         //KILIMO NA UVUVI
         ListElement { q: "Zao lipi ni 'Dhahabu ya Kijani' mkoani Kagera na Kilimanjaro?"; a: "Kahawa"; b: "Pamba"; c: "Karafuu"; d: "Chai"; correct: "Kahawa" }
         ListElement { q: "Ziwa lipi linaongoza kwa uzalishaji wa Sangara Tanzania?"; a: "Victoria"; b: "Tanganyika"; c: "Nyasa"; d: "Eyasi"; correct: "Victoria" }
@@ -344,25 +319,22 @@ ListElement { q: "Kitendawili: Nyama nje, ngozi ndani."; a: "Maini"; b: "Firigis
 
         // 2. Angalia kama iqModel ina maswali ya kutosha
         var count = iqModel.count;
-        if (count < 3) {
-            console.log("Benki haina maswali ya kutosha!");
+        if (count < maxQuestions) {
+            console.log("Benki haina maswali ya kutosha! Maswali yameisha.");
 
-            // Unaweza kuweka logic ya ku-reload maswali hapa kama ukitaka
+            // Kama maswali yameisha, rudi kwenye ukurasa mkuu au fanya reload
             if(typeof n3ctaApp !== "undefined"){
                 n3ctaApp.closeCustomPage();
-                n3ctaApp.onUrlVisited("#IQTest");
-            }else if(typeof loader !== "undefined"){
+            } else if(typeof loader !== "undefined"){
                 loader.closeCustomPage();
-                loader.onUrlVisited("#IQTest");
             }
             return;
         }
 
-        // 1. Gawanya Index katika makundi matatu
+        // 3. Complex Shuffle Logic: Gawanya index zilizopo sasa hivi
         var beginPart = [];
         var middlePart = [];
         var endPart = [];
-
         var segmentSize = Math.floor(count / 3);
 
         for (var i = 0; i < count; i++) {
@@ -371,7 +343,6 @@ ListElement { q: "Kitendawili: Nyama nje, ngozi ndani."; a: "Maini"; b: "Firigis
             else endPart.push(i);
         }
 
-        // 2. Local Shuffle: Changanya kila kundi peke yake (Fisher-Yates)
         var shuffleArray = function(arr) {
             for (var j = arr.length - 1; j > 0; j--) {
                 var k = Math.floor(Math.random() * (j + 1));
@@ -385,44 +356,51 @@ ListElement { q: "Kitendawili: Nyama nje, ngozi ndani."; a: "Maini"; b: "Firigis
         shuffleArray(middlePart);
         shuffleArray(endPart);
 
-        // 3. Randomize Segment Order: Chagua kundi gani lianze (Mwanzo, Kati, au Mwisho)
-        var segments = [];
-        const order = Math.floor(Math.random() * 4);
-        if(order === 0){
-            segments = [beginPart, endPart,middlePart];
-        } else if(order === 1){
-            segments = [middlePart, beginPart, endPart];
-        } else if(order === 2){
-            segments = [endPart, middlePart, beginPart];
-        } else if(order === 3){
-            segments = [beginPart, middlePart, endPart];
-        }
+        // Changanya mpangilio wa makundi
+        var segments = [beginPart, middlePart, endPart];
+        shuffleArray(segments);
 
-        shuffleArray(segments); // Tunazivuruga zile sehemu zenyewe
-
-        // 4. Merge: Unganisha kuwa list moja kuu
         var finalIndexes = [];
         for (var s = 0; s < segments.length; s++) {
             finalIndexes = finalIndexes.concat(segments[s]);
         }
 
-        // 5. Hamishia kwenye quizModel (kwa kufuata limit yako ya maswali 26)
-        quizModel.clear();
+        // 4. CHAGUA NA ONDOA (Remove Items from iqModel)
+        // Tunachukua maswali 26 ya mwanzo kutoka kwenye list iliyovurugwa
         var limit = Math.min(maxQuestions, finalIndexes.length);
-        var takenIndexies = [];
+
+        /* Muhimu: Tunapofuta vitu kwenye ListModel, index zinahama.
+               Ili kuwa salama, tunakusanya data kwanza, kisha tunafuta
+               kwa kutumia kitambulisho cha kipekee au tunafuta kwa kurudi nyuma.
+            */
+
+        var tempStorage = [];
         for (var m = 0; m < limit; m++) {
-            var idx = finalIndexes[m];
-            quizModel.append(iqModel.get(idx));
-            takenIndexies.push(idx);
+            var targetIdx = finalIndexes[m];
+            tempStorage.push(iqModel.get(targetIdx));
         }
 
-        // 4. Reset Variables za mchezo
+        // Sasa hamishia kwenye quizModel na ufute kwenye iqModel
+        for (var k = 0; k < tempStorage.length; k++) {
+            quizModel.append(tempStorage[k]);
+
+            // Tafuta upya index ya swali hili kwenye iqModel ili kulifuta
+            // Hii inahakikisha hata kama index zilihama, tunafuta swali sahihi
+            for (var n = 0; n < iqModel.count; n++) {
+                if (iqModel.get(n).q === tempStorage[k].q) {
+                    iqModel.remove(n);
+                    break;
+                }
+            }
+        }
+
+        // 5. Reset Variables
         currentIdx = 0;
         totalScore = 0;
         timerValue = timeInterval;
         noOfPassedQuestion = 0;
 
-        // 5. Anza Mchezo
+        // 6. Anza Mchezo
         viewState = "QUIZ";
         mainTimer.start();
     }
