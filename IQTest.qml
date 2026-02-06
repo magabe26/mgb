@@ -51,6 +51,19 @@ Rectangle {
         }
     }
 
+    function indexToLetter(i){
+        let letter;
+        if(i === 0){
+            letter = "A";
+        } else if(i === 1){
+            letter = "B";
+        }else if(i === 2){
+            letter = "C";
+        }else if(i === 3){
+            letter = "D";
+        }
+        return letter;
+    }
 
     // --- QUESTION MODEL (Maswali 26) ---
     ListModel {
@@ -436,7 +449,7 @@ Rectangle {
         ColumnLayout {
             visible: viewState === "QUIZ" && quizModel.count > 0
             anchors.fill: parent
-            spacing: 25
+            spacing: 5
 
             // Circular Timer Placeholder (Progress Bar)
             Rectangle {
@@ -466,18 +479,18 @@ Rectangle {
                 font.bold: true
                 wrapMode: Text.WordWrap
                 Layout.fillWidth: true
-                Layout.preferredHeight: 120 * 0.8
+                Layout.preferredHeight: 120
             }
 
             // Options list
             ColumnLayout {
-                Layout.fillWidth: true; spacing: 12
+                Layout.fillWidth: true; spacing: 14
                 Repeater {
                     model: (quizModel.count > currentIdx) ? shuffleOptions(quizModel.get(currentIdx).a, quizModel.get(currentIdx).b, quizModel.get(currentIdx).c, quizModel.get(currentIdx).d) : []
                     delegate: Button {
-                        text: modelData
+                        text: "<font color=\"cyan\"> (" + app.indexToLetter(index) + ")</font> " + modelData
                         Layout.fillWidth: true
-                        Layout.preferredHeight: 60
+                        Layout.preferredHeight: (Qt.platform.os === "android" ? 69 : 60)
                         onClicked: processAnswer(modelData)
                         background: Rectangle {
                             color: parent.pressed ? ((modelData === quizModel.get(currentIdx).correct) ? "green" : "red") : "#121a1d"
@@ -491,6 +504,7 @@ Rectangle {
                             horizontalAlignment: Text.AlignLeft
                             anchors.leftMargin: 20
                             verticalAlignment: Text.AlignVCenter
+                            textFormat: Text.RichText
                         }
                     }
                 }
