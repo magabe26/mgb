@@ -56,35 +56,6 @@ Rectangle {
     ListModel {
         id: iqModel
 
-        //MARAIS WA TZ
-        ListElement { q: "Nani alikuwa Rais wa awamu ya pili wa Tanzania?"; a: "Nyerere"; b: "Mwinyi"; c: "Mkapa"; d: "Kikwete"; correct: "Mwinyi" }
-        ListElement { q: "Rais gani wa Tanzania alizaliwa Chato?"; a: "Mkapa"; b: "Mwinyi"; c: "Magufuli"; d: "Samia"; correct: "Magufuli" }
-        ListElement { q: "Samia Suluhu Hassan alikula kiapo kuwa Rais mwaka gani?"; a: "2020"; b: "2021"; c: "2019"; d: "2022"; correct: "2021" }
-
-        //HISTORIA YA TZ
-        ListElement { q: "Muungano wa Tanganyika na Zanzibar uliundwa mwaka gani?"; a: "1961"; b: "1964"; c: "1962"; d: "1963"; correct: "1964" }
-        ListElement { q: "Zanzibar ilipata Mapinduzi yake mwezi gani?"; a: "Januari"; b: "Aprili"; c: "Desemba"; d: "Machi"; correct: "Januari" }
-        ListElement { q: "Mji mkuu wa kwanza wa Tanganyika ulikuwa?"; a: "Dodoma"; b: "Bagamoyo"; c: "Dar es Salaam"; d: "Tanga"; correct: "Bagamoyo" }
-
-        //LOGIC & MATH
-        ListElement { q: "Kama Juma ana miaka 12, na mdogo wake ana nusu ya umri wake. Juma akifikisha miaka 40, mdogo wake atakuwa na mingapi?"; a: "20"; b: "34"; c: "26"; d: "30"; correct: "34" }
-        ListElement { q: "Tafuta namba inayofuata:\n80, 40, 20, ..."; a: "10"; b: "5"; c: "15"; d: "0"; correct: "10" }
-        ListElement { q: "Namba gani haina 'pacha' (Prime number) kati ya hizi?"; a: "9"; b: "13"; c: "15"; d: "21"; correct: "13" }
-        ListElement { q: "Matokeo ya 7 + 7 ÷ 7 + 7 x 7 - 7 ni?"; a: "50"; b: "0"; c: "57"; d: "49"; correct: "50" }
-        ListElement { q: "Kama neno 'SIMBA' ni 5, basi neno 'TEMBO' ni?"; a: "4"; b: "5"; c: "6"; d: "10"; correct: "5" }
-
-        //UTALII WA TZ
-        ListElement { q: "Hifadhi gani inajulikana kwa uhamiaji wa nyumbu?"; a: "Mikumi"; b: "Serengeti"; c: "Ruaha"; d: "Tarangire"; correct: "Serengeti" }
-        ListElement { q: "Kilele kirefu zaidi cha Mlima Kilimanjaro kinaitwa?"; a: "Mawenzi"; b: "Uhuru"; c: "Shira"; d: "Kibo"; correct: "Uhuru" }
-        ListElement { q: "Hifadhi ya Ngorongoro ipo mkoa gani?"; a: "Manyara"; b: "Arusha"; c: "Mara"; d: "Tabora"; correct: "Arusha" }
-        ListElement { q: "Zanzibar inajulikana duniani kama visiwa vya?"; a: "Dhahabu"; b: "Viungo (Spice)"; c: "Chumvi"; d: "Almasi"; correct: "Viungo (Spice)" }
-
-        //MIKOA YA TZ
-        ListElement { q: "Mkoa gani unaongoza kwa ukubwa wa eneo Tanzania?"; a: "Tabora"; b: "Morogoro"; c: "Dodoma"; d: "Lindi"; correct: "Tabora" }
-        ListElement { q: "Mkoa gani unaitwa mji wa miamba (Rock City)?"; a: "Mbeya"; b: "Mwanza"; c: "Arusha"; d: "Kigoma"; correct: "Mwanza" }
-        ListElement { q: "Mkoa wa Geita ulimegwa kutoka mikoa ipi?"; a: "Mwanza/Shinyanga"; b: "Kagera/Mara"; c: "Mwanza/Kagera"; d: "Shinyanga/Mara"; correct: "Mwanza/Shinyanga" }
-        ListElement { q: "Makao makuu ya nchi (Dodoma) yapo kanda gani?"; a: "Kaskazini"; b: "Kati"; c: "Magharibi"; d: "Kusini"; correct: "Kati" }
-
         //SAYANSI
         ListElement { q: "Ni gesi gani binadamu anahitaji ili kuishi?"; a: "Nitrogen"; b: "Oxygen"; c: "Carbon"; d: "Hydrogen"; correct: "Oxygen" }
         ListElement { q: "Sayari ya karibu zaidi na Jua inaitwa?"; a: "Dunia"; b: "Mercury"; c: "Mars"; d: "Venus"; correct: "Mercury" }
@@ -294,6 +265,17 @@ Rectangle {
 
     }
 
+    function shuffleOptions(a, b, c, d) {
+        var opts = [a, b, c, d];
+        for (var i = opts.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var temp = opts[i];
+            opts[i] = opts[j];
+            opts[j] = temp;
+        }
+        return opts;
+    }
+
     // --- LOGIC YA KUCHANGANYA MASWALI ---
     function startNewGame() {
         // 1. Safisha quizModel ya mchezo uliopita
@@ -491,7 +473,7 @@ Rectangle {
             ColumnLayout {
                 Layout.fillWidth: true; spacing: 12
                 Repeater {
-                    model: (quizModel.count > currentIdx) ? [quizModel.get(currentIdx).a, quizModel.get(currentIdx).b, quizModel.get(currentIdx).c, quizModel.get(currentIdx).d] : []
+                    model: (quizModel.count > currentIdx) ? shuffleOptions(quizModel.get(currentIdx).a, quizModel.get(currentIdx).b, quizModel.get(currentIdx).c, quizModel.get(currentIdx).d) : []
                     delegate: Button {
                         text: modelData
                         Layout.fillWidth: true
