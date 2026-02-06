@@ -515,7 +515,7 @@ Rectangle {
         ColumnLayout {
             visible: viewState === "END"
             anchors.centerIn: parent
-            spacing: 15
+            spacing: 16
 
             Text {
                 text: "MATOKEO YA JARIBIO"
@@ -538,7 +538,6 @@ Rectangle {
             }
 
 
-
             Rectangle {
                 Layout.preferredWidth: app.width * 0.92
                 Layout.preferredHeight: 70
@@ -559,15 +558,38 @@ Rectangle {
             Text {
                 text: "Umepata maswali  " + app.noOfPassedQuestion + " kati ya " + app.maxQuestions
                 color: "white"
-                font.pointSize: 12
+                font.pointSize: 13
                 font.bold: true
                 Layout.alignment: Qt.AlignHCenter
             }
 
             Button {
+                text: "JARIBU TENA"
+                Layout.preferredWidth: app.width * 0.8
+                Layout.preferredHeight: 60
+                Layout.alignment: Qt.AlignHCenter
+                background: Rectangle {
+                    color: "blue"
+                    radius: 10
+                }
+
+                contentItem: Text {
+                    text: parent.text
+                    color: "white"
+                    font.bold: true
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                }
+
+                onClicked: {
+                    app.startNewGame();
+                }
+            }
+
+            Button {
                 text: "SHARE KWA WHATSAPP"
                 Layout.preferredWidth: app.width * 0.8
-                Layout.preferredHeight: 50
+                Layout.preferredHeight: 60
                 Layout.alignment: Qt.AlignHCenter
 
                 background: Rectangle {
@@ -592,32 +614,9 @@ Rectangle {
             // Text { text: "Developer: Edwin Magabe Ngosso"; color: "#44ffffff"; Layout.alignment: Qt.AlignHCenter }
 
             Button {
-                text: "JARIBU TENA"
-                Layout.preferredWidth: app.width * 0.8
-                Layout.preferredHeight: 50
-                Layout.alignment: Qt.AlignHCenter
-                background: Rectangle {
-                    color: "blue"
-                    radius: 10
-                }
-
-                contentItem: Text {
-                    text: parent.text
-                    color: "white"
-                    font.bold: true
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-                }
-
-                onClicked: {
-                    app.startNewGame();
-                }
-            }
-
-            Button {
                 text: "FUNGA"
                 Layout.preferredWidth: app.width * 0.8
-                Layout.preferredHeight: 50
+                Layout.preferredHeight: 60
                 Layout.alignment: Qt.AlignHCenter
                 background: Rectangle {
                     color: "red"
