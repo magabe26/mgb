@@ -276,6 +276,28 @@ Rectangle {
         ListElement { q: "Kama mti mmoja una matawi 5, na kila tawi lina ndege 5, kuna ndege wangapi jumla?"; a: "10"; b: "25"; c: "20"; d: "15"; correct: "25" }
         ListElement { q: "Mfululizo wa namba: 2, 4, 8, 16, ... Namba ya 6 itakuwa?"; a: "32"; b: "64"; c: "48"; d: "128"; correct: "64" }
 
+// --- LOGIC ZA KUTEGA (10 QUESTIONS)
+
+ListElement { q: "Kama unaniita, mimi huvunjika. Mimi ni nani?"; a: "Kioo"; b: "Ukuta"; c: "Ukimya"; d: "Siri"; correct: "Ukimya" }
+ListElement { q: "Baba yake Juma ana watoto wanne: Januari, Februari, na Machi. Wa nne anaitwa nani?"; a: "Aprili"; b: "Juma"; c: "Mei"; d: "Agosti"; correct: "Juma" }
+ListElement { q: "Ni nini kina kichwa na mguu, lakini hakina mwili?"; a: "Senti/Sarafu"; b: "Msumari"; c: "Kitanda"; d: "Mlima"; correct: "Kitanda" }
+ListElement { q: "Kuna nini katikati ya 'TANZANIA'?"; a: "Z"; b: "N"; c: "A"; d: "I"; correct: "Z" }
+ListElement { q: "Ninaruka bila mabawa na ninalia bila macho. Mimi ni nani?"; a: "Ndege"; b: "Wingu/Mvua"; c: "Upepo"; d: "Moshi"; correct: "Wingu/Mvua" }
+
+ListElement { q: "Mtu mmoja alikuwa nje kwenye mvua kubwa bila mwavuli wala kofia, lakini unywele wake hata mmoja haukulowa. Kwa nini?"; a: "Alikimbia sana"; b: "Alikuwa na kipara (hana nywele)"; c: "Mvua ilikuwa ndogo"; d: "Alivaa koti"; correct: "Alikuwa na kipara (hana nywele)" }
+ListElement { q: "Ni nini kinaingia majini lakini hakilowi?"; a: "Kivuli"; b: "Chumvi"; c: "Karatasi"; d: "Sifongo"; correct: "Kivuli" }
+ListElement { q: "Ni neno gani limeandikwa vibaya kwenye kamusi zote duniani?"; a: "Makosa"; b: "Vibaya"; c: "Uongo"; d: "Sahihisha"; correct: "Vibaya" }
+ListElement { q: "Ukienda kulala saa mbili usiku na ukategesha saa ya mshale kukuamsha saa tatu asubuhi, utakuwa umelala saa ngapi?"; a: "Saa 13"; b: "Saa 1"; c: "Saa 11"; d: "Saa 9"; correct: "Saa 1" }
+ListElement { q: "Kama mzungu mweusi akivaa koti la bluu na akaingia kwenye Bahari ya Shamu (Red Sea), anakuwa nani?"; a: "Mzungu mwekundu"; b: "Mlowezi"; c: "Mzungu mweusi aliyelowa"; d: "Mfu"; correct: "Mzungu mweusi aliyelowa" }
+
+// --- VITENDAWILI 
+
+ListElement { q: "Kitendawili: Nyumba yangu haina mlango."; a: "Yai"; b: "Kaburi"; c: "Chumvi"; d: "Tango"; correct: "Yai" }
+ListElement { q: "Kitendawili: Askari wangu wote wamevaa kofia nyekundu."; a: "Vidole"; b: "Kiberiti"; c: "Askari kanzu"; d: "Meno"; correct: "Kiberiti" }
+ListElement { q: "Kitendawili: Kamba yangu ndefu lakini haifungi kuni."; a: "Nyoka"; b: "Barabara"; c: "Mshipi"; d: "Mto"; correct: "Barabara" }
+ListElement { q: "Kitendawili: Babu yangu hacheki mpaka achunwe ngozi."; a: "Mahindi"; b: "Ndizi"; c: "Chungwa"; d: "Kitunguu"; correct: "Mahindi" }
+ListElement { q: "Kitendawili: Mvua hapa, mvua kule, lakini katikati pakavu."; a: "Mwavuli"; b: "Nyumba"; c: "Mtu aliyevaa koti"; d: "Daraja"; correct: "Nyumba" }
+
     }
 
     function shuffleOptions(a, b, c, d) {
