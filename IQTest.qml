@@ -465,7 +465,7 @@ function ad()
                     text: getCategory(finalScoreDisplay.finalIQ)
                     color: "white"
                     font.bold: true
-                    font.pixelSize: 18 * (Qt.platform.os === "android" ? 3 : 1)
+                    font.pixelSize: 18 * (Qt.platform.os === "android" ? 2 : 1)
                     horizontalAlignment: Text.AlignHCenter
                 }
             }
