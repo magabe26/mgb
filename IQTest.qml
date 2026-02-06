@@ -299,6 +299,24 @@ Rectangle {
         ListElement { q: "Kitendawili: Babu yangu hacheki mpaka achunwe ngozi."; a: "Mahindi"; b: "Ndizi"; c: "Chungwa"; d: "Kitunguu"; correct: "Mahindi" }
         ListElement { q: "Kitendawili: Mvua hapa, mvua kule, lakini katikati pakavu."; a: "Mwavuli"; b: "Nyumba"; c: "Mtu aliyevaa koti"; d: "Daraja"; correct: "Nyumba" }
 
+
+// --- UKEREWE
+ListElement { q: "Kisiwa cha Ukerewe kinapatikana ndani ya ziwa gani?"; a: "Tanganyika"; b: "Nyasa"; c: "Victoria"; d: "Eyasi"; correct: "Victoria" }
+ListElement { q: "Ukerewe inasifika kwa kuwa na idadi kubwa ya watu wenye ulemavu gani wa ngozi?"; a: "Viziwi"; b: "Albino"; c: "Wasioona"; d: "Wenye kigugumizi"; correct: "Albino" }
+ListElement { q: "Ukerewe ni wilaya inayopatikana katika mkoa gani nchini Tanzania?"; a: "Mwanza"; b: "Mara"; c: "Geita"; d: "Kagera"; correct: "Mwanza" }
+
+// --- TEKNOLOJIA YA ANGA
+ListElement { q: "Ni sayari gani inajulikana kama 'Sayari Nyekundu' (Red Planet)?"; a: "Jupiter"; b: "Venus"; c: "Mars"; d: "Saturn"; correct: "Mars" }
+
+ListElement { q: "Chombo cha kwanza kilichompeleka binadamu mwezini (Apollo 11) kilikuwa cha nchi gani?"; a: "Urusi"; b: "Marekani"; c: "China"; d: "Uingereza"; correct: "Marekani" }
+ListElement { q: "Ni nini jina la darubini kubwa zaidi na ya kisasa iliyorushwa angani hivi karibuni?"; a: "Hubble"; b: "Galileo"; c: "James Webb"; d: "Newton"; correct: "James Webb" }
+ListElement { q: "Gesi gani inapatikana kwa wingi zaidi katika anga la Dunia (Atmosphere)?"; a: "Oxygen"; b: "Nitrogen"; c: "Carbon Dioxide"; d: "Argon"; correct: "Nitrogen" }
+
+// --- ELIMU 
+ListElement { q: "Kirefu cha neno NECTA ni nini kwa Kiswahili?"; a: "Baraza la Mitihani la Tanzania"; b: "Wizara ya Elimu"; c: "Bodi ya Mikopo"; d: "Tume ya Vyuo Vikuu"; correct: "Baraza la Mitihani la Tanzania" }
+ListElement { q: "Katika mfumo wa NECTA, daraja 'A' kwenye mtihani wa kidato cha nne huanzia alama ngapi?"; a: "70"; b: "75"; c: "81"; d: "65"; correct: "75" }
+ListElement { q: "Ni mwaka gani Tanzania ilianza rasmi mfumo wa elimu ya bila malipo kwa shule za msingi na sekondari?"; a: "2010"; b: "2015"; c: "2020"; d: "2005"; correct: "2015" }
+
     }
 
     function shuffleOptions(a, b, c, d) {
