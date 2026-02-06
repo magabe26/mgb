@@ -163,10 +163,10 @@ Pakua aplikesheni zingine hapa
 
 <APP>
     <A HREF="#IQTest">Pima uwezo wa akili yako sasa.</A>
-    <COLOR>blue</COLOR>
+    <COLOR>#1fb8ba</COLOR>
     <BG_COLOR>white</BG_COLOR>
     <ICON>fa::hourglass</ICON>
-    <ICON_COLOR>green</ICON_COLOR>
+    <ICON_COLOR>#065961</ICON_COLOR>
     <BOLD_TEXT>1</BOLD_TEXT>
 </APP>
 
