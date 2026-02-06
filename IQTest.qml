@@ -457,6 +457,13 @@ ListElement { q: "Michoro ya mapangoni ya Kondoa Irangi inasadikiwa kuchorwa na 
 ListElement { q: "Zama ambapo binadamu alianza kutumia mawe kutengeneza vifaa huitwa?"; a: "Zama za Mawe"; b: "Zama za Chuma"; c: "Zama za Viwanda"; d: "Zama za Giza"; correct: "Zama za Mawe" }
 ListElement { q: "Mji wa kale wa Kilwa Kisiwani ulikuwa kitovu cha biashara katika pwani ya?"; a: "Bahari ya Hindi"; b: "Bahari ya Shamu"; c: "Ziwa Victoria"; d: "Bahari ya Mediteranea"; correct: "Bahari ya Hindi" }
 
+ListElement { q: "Soko kuu la mwisho la watumwa katika Afrika Mashariki lilikuwa wapi?"; a: "Bagamoyo"; b: "Zanzibar"; c: "Tabora"; d: "Mombasa"; correct: "Zanzibar" }
+ListElement { q: "Vita vya Kwanza vya Dunia (WWI) vilianza mwaka gani?"; a: "1914"; b: "1939"; c: "1884"; d: "1945"; correct: "1914" }
+ListElement { q: "Ni nchi gani ilivamia Poland na kusababisha kuanza kwa Vita vya Pili vya Dunia?"; a: "Uingereza"; b: "Ujerumani"; c: "Urusi"; d: "Italia"; correct: "Ujerumani" }
+ListElement { q: "Kiongozi wa kijeshi wa Ujerumani wakati wa Vita vya Pili vya Dunia alikuwa nani?"; a: "Adolf Hitler"; b: "Winston Churchill"; c: "Benito Mussolini"; d: "Joseph Stalin"; correct: "Adolf Hitler" }
+ListElement { q: "Mkataba wa Versailles ulihitimisha vita gani?"; a: "Vita vya Kwanza vya Dunia"; b: "Vita vya Pili vya Dunia"; c: "Vita vya Kagera"; d: "Vita vya Maji Maji"; correct: "Vita vya Kwanza vya Dunia" }
+ListElement { q: "Mji mkuu wa kitumwa ambapo watumwa walipewa jina la 'Bwagamoyo' (Bagamoyo) unamaanisha nini?"; a: "Pumzika moyo"; b: "Tupa moyo"; c: "Furahisha moyo"; d: "Fariji moyo"; correct: "Tupa moyo" }
+
     }
 
     Settings{
