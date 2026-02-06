@@ -2410,6 +2410,24 @@ def onCreatorCommand(cmd, argv, argc) {
    }
 }
 
+def onIQTestCommand(cmd, argv, argc) {
+   if (cmd.equals("IQTest", false)) {
+        var app = "IQTest.qml";
+	    var path = generateAppRootFilePath(app);
+        if(hasInternetAccess()){
+           showToastMessage("Tafadhali subiri.");
+		   
+	       deleteFile(path);
+	       var url = "https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/".append(app);
+	       saveFile(url, path);
+	   }
+	   
+	   if(fileExists(path)){
+	      openApp(app);
+	   }
+   }
+}
+
 
 //argv is vector of strings whitch represents a list of command argurments
 def onExecuteCommand(cmd, argv, argc) {
@@ -2438,6 +2456,7 @@ onUtaliiAppCommand(cmd, argv, argc);
 onImageDialogCommand(cmd, argv, argc);
 onTZCommand(cmd, argv, argc);
 onCreatorCommand(cmd, argv, argc);
+onIQTestCommand(cmd, argv, argc);
 
 }
 
