@@ -16,6 +16,7 @@ Rectangle {
     property int timerValue: 15
     property string viewState: "START"
     property int maxQuestions: 26 // Tunataka maswali 26 tu kila mchezo
+    property int noOfPassedQuestion: 0
 
     // --- IQ CATEGORY LOGIC ---
     function getCategory(iq) {
@@ -318,6 +319,7 @@ Rectangle {
         currentIdx = 0;
         totalScore = 0;
         timerValue = 15;
+        noOfPassedQuestion = 0;
         viewState = "QUIZ"; // UI itabadilika hapa baada ya data kupatikana
         mainTimer.start();
     }
@@ -338,6 +340,7 @@ Rectangle {
     function processAnswer(selected) {
         if (selected === quizModel.get(currentIdx).correct) {
             totalScore += (timerValue * 3) + 10;
+            ++app.noOfPassedQuestion;
         }
         if (currentIdx < quizModel.count - 1) {
             currentIdx++;
@@ -507,13 +510,18 @@ Rectangle {
 
             Text {
                 id: finalScoreDisplay
-                property int finalIQ: (totalScore / 8) + 70
+                // Logic: 70 ndio kianzio.
+                // Mtu akipata yote 26, anapata 70 nyingine (Jumla 140).
+                // Plus bonus ndogo ya kasi (totalScore / 500)
+                property int finalIQ: 70 + Math.round((noOfPassedQuestion / 26) * 70) + Math.min(5, Math.floor(totalScore / 500))
                 text: "IQ SCORE: " + finalIQ
                 color: "#00ffff"
                 font.pixelSize: 48
                 font.bold: true
                 Layout.alignment: Qt.AlignHCenter
             }
+
+
 
             Rectangle {
                 Layout.preferredWidth: app.width * 0.92
@@ -532,7 +540,13 @@ Rectangle {
                 }
             }
 
-
+            Text {
+                text: "Umepata maswali  " + app.noOfPassedQuestion + " kati ya " + app.maxQuestions
+                color: "white"
+                font.pointSize: 12
+                font.bold: true
+                Layout.alignment: Qt.AlignHCenter
+            }
 
             Button {
                 text: "SHARE KWA WHATSAPP"
