@@ -177,12 +177,6 @@ Rectangle {
         ListElement { q: "Chuma kinapatikana katika eneo gani nchini?"; a: "Liganga"; b: "Mwadui"; c: "Kahama"; d: "Ngerengere"; correct: "Liganga" }
 
         //LOGIC & MATH
-        ListElement { q: "Kama namba 3 ni 18, na 5 ni 30, basi 10 ni nini?"; a: "60"; b: "50"; c: "100"; d: "80"; correct: "60" }
-        ListElement { q: "Tafuta namba inayokosekana:\n100, 95, 85, 70, ?"; a: "50"; b: "60"; c: "55"; d: "45"; correct: "50" }
-        ListElement { q: "Ni namba gani ikiidhinishwa na 0 jibu linakuwa 0?"; a: "Namba yoyote"; b: "100 pekee"; c: "Hakuna"; d: "1 pekee"; correct: "Namba yoyote" }
-        ListElement { q: "Kama mti mmoja una matawi 5, na kila tawi lina ndege 5, kuna ndege wangapi jumla?"; a: "10"; b: "25"; c: "20"; d: "15"; correct: "25" }
-        ListElement { q: "Mfululizo wa namba: 2, 4, 8, 16, ... Namba ya 6 itakuwa?"; a: "32"; b: "64"; c: "48"; d: "128"; correct: "64" }
-
         ListElement { q: "Kama una dakika 60, na unatumia sekunde 30 kwa kila swali, utajibu maswali mangapi?"; a: "2"; b: "120"; c: "60"; d: "30"; correct: "120" }
         ListElement { q: "Tafuta thamani ya 'y':\n3y - 5 = 10"; a: "5"; b: "15"; c: "3"; d: "10"; correct: "5" }
         ListElement { q: "Jumla ya pembe za ndani za mraba (Square) ni ngapi?"; a: "180"; b: "360"; c: "90"; d: "270"; correct: "360" }
@@ -274,6 +268,28 @@ Rectangle {
         ListElement { q: "Mnyama yupi ni maarufu kwa kuwa na pembe moja au mbili na yupo hatarini kutoweka?"; a: "Kifaru"; b: "Kiboko"; c: "Ngiri"; d: "Punda"; correct: "Kifaru" }
         ListElement { q: "Samaki aina ya Perege (Tilapia) hupatikana kwa wingi katika mazingira gani?"; a: "Maji ya Bahari"; b: "Maji Baridi (Maziwa/Mito)"; c: "Maji ya Chumvi"; d: "Maji ya Mafuta"; correct: "Maji Baridi (Maziwa/Mito)" }
         ListElement { q: "Mnyama yupi anaishi majini na nchi kavu na anaonekana kwa wingi mto Rufiji?"; a: "Mamba"; b: "Nyati"; c: "Duma"; d: "Sungura"; correct: "Mamba" }
+
+        //AFYA NA MIMEA
+
+        ListElement { q: "Ni tunda gani linajulikana kwa kuwa na kiasi kikubwa cha Vitamin C?"; a: "Chungwa"; b: "Ndizi"; c: "Tikiti"; d: "Tufaha (Apple)"; correct: "Chungwa" }
+        ListElement { q: "Mmea unahitaji gesi gani kutoka kwa binadamu ili kutengeneza chakula?"; a: "Oxygen"; b: "Carbon Dioxide"; c: "Nitrogen"; d: "Hydrogen"; correct: "Carbon Dioxide" }
+        ListElement { q: "Ugonjwa wa Malaria husababishwa na vimelea vinavyoenezwa na?"; a: "Inzi"; b: "Mbu Jike (Anopheles)"; c: "Mbu Dume"; d: "Funza"; correct: "Mbu Jike (Anopheles)" }
+        ListElement { q: "Sehemu ya mmea inayohusika na kufyonza maji na madini ardhini ni?"; a: "Matawi"; b: "Mizizi"; c: "Maua"; d: "Shina"; correct: "Mizizi" }
+        ListElement { q: "Ni vitamin gani inayopatikana kwa urahisi kupitia mwanga wa Jua la asubuhi?"; a: "Vitamin A"; b: "Vitamin C"; c: "Vitamin D"; d: "Vitamin K"; correct: "Vitamin D" }
+
+        ListElement { q: "Mmea wa ajabu unaopatikana Tanzania (Kondoa) na huishi miaka mingi sana ni?"; a: "Mbuyu"; b: "Mwembe"; c: "Mnanasi"; d: "Mparachichi"; correct: "Mbuyu" }
+        ListElement { q: "Kiwango cha kawaida cha joto la mwili wa binadamu ni nyuzi joto (Celsius) ngapi?"; a: "30°C"; b: "37°C"; c: "40°C"; d: "25°C"; correct: "37°C" }
+        ListElement { q: "Mchakato wa mimea kutengeneza chakula chake kwa kutumia mwanga wa jua unaitwa?"; a: "Respiration"; b: "Photosynthesis"; c: "Digestion"; d: "Evaporation"; correct: "Photosynthesis" }
+
+        ListElement { q: "Ni kiungo gani ndani ya mwili wa binadamu kinahusika na kusafisha damu?"; a: "Moyo"; b: "Mapafu"; c: "Figo"; d: "Tumbo"; correct: "Figo" }
+        ListElement { q: "Upungufu wa madini ya Chuma mwilini husababisha ugonjwa gani?"; a: "Anemia (Upungufu wa damu)"; b: "Kisukari"; c: "Pumu"; d: "Tezi dume"; correct: "Anemia (Upungufu wa damu)" }
+
+        //LOGIC & MATH
+        ListElement { q: "Kama namba 3 ni 18, na 5 ni 30, basi 10 ni nini?"; a: "60"; b: "50"; c: "100"; d: "80"; correct: "60" }
+        ListElement { q: "Tafuta namba inayokosekana:\n100, 95, 85, 70, ?"; a: "50"; b: "60"; c: "55"; d: "45"; correct: "50" }
+        ListElement { q: "Ni namba gani ikiidhinishwa na 0 jibu linakuwa 0?"; a: "Namba yoyote"; b: "100 pekee"; c: "Hakuna"; d: "1 pekee"; correct: "Namba yoyote" }
+        ListElement { q: "Kama mti mmoja una matawi 5, na kila tawi lina ndege 5, kuna ndege wangapi jumla?"; a: "10"; b: "25"; c: "20"; d: "15"; correct: "25" }
+        ListElement { q: "Mfululizo wa namba: 2, 4, 8, 16, ... Namba ya 6 itakuwa?"; a: "32"; b: "64"; c: "48"; d: "128"; correct: "64" }
 
     }
 
