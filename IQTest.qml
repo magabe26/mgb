@@ -302,7 +302,7 @@ Rectangle {
 
 // --- UKEREWE
 ListElement { q: "Kisiwa cha Ukerewe kinapatikana ndani ya ziwa gani?"; a: "Tanganyika"; b: "Nyasa"; c: "Victoria"; d: "Eyasi"; correct: "Victoria" }
-ListElement { q: "Ukerewe inasifika kwa kuwa na idadi kubwa ya watu wenye ulemavu gani wa ngozi?"; a: "Viziwi"; b: "Albino"; c: "Wasioona"; d: "Wenye kigugumizi"; correct: "Albino" }
+
 ListElement { q: "Ukerewe ni wilaya inayopatikana katika mkoa gani nchini Tanzania?"; a: "Mwanza"; b: "Mara"; c: "Geita"; d: "Kagera"; correct: "Mwanza" }
 
 // --- TEKNOLOJIA YA ANGA
