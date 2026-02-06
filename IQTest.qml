@@ -500,6 +500,17 @@ ListElement { q: "Kitendawili: Huenda lakini harudi."; a: "Maji ya mto"; b: "Mig
 ListElement { q: "Kitendawili: Nyumbani kwangu kumesitiriwa kwa kuta nyeupe lakini hakuingiliki."; a: "Yai"; b: "Chumba"; c: "Gereza"; d: "Chupa"; correct: "Yai" }
 ListElement { q: "Kitendawili: Anatembea kwa miguu minne asubuhi, miwili mchana, na mitatu jioni."; a: "Binadamu"; b: "Kobe"; c: "Mzee"; d: "Mtoto"; correct: "Binadamu" }
 
+// --- MAGABE LAB
+ListElement { q: "Magabe Lab inatumika zaidi kutengeneza mifumo ya aina gani?"; a: "Apps na Programu za Kompyuta"; b: "Kilimo cha kisasa"; c: "Ujenzi wa barabara"; d: "Ufugaji wa nyuki"; correct: "Apps na Programu za Kompyuta" }
+
+ListElement { q: "Ni lugha gani ya programu (Coding) inayotumiwa na Magabe Lab kutengeneza interface ya App hii?"; a: "Python"; b: "C++"; c: "QML (Qt Quick)"; d: "PHP"; correct: "QML (Qt Quick)" }
+
+ListElement { q: "Kwenye Magabe Lab, 'Frontend' ya App inahusika na nini?"; a: "Muonekano unaoonekana na mtumiaji"; b: "Uhifadhi wa siri kwenye database"; c: "Kutengeneza vioo vya simu"; d: "Kupiga picha za satelaiti"; correct: "Muonekano unaoonekana na mtumiaji" }
+
+ListElement { q: "Ni mfumo upi wa uendeshaji (OS) ambao App za Magabe Lab zinaweza kufanya kazi?"; a: "Android pekee"; b: "Windows pekee"; c: "Android, iOS, na Windows"; d: "Redio za mbao pekee"; correct: "Android, iOS, na Windows" }
+
+ListElement { q: "Lengo kuu la Magabe Lab katika kuleta teknolojia nchini Tanzania ni?"; a: "Kutoa burudani na elimu kidijitali"; b: "Kuuza simu zilizotumika"; c: "Kufundisha udereva wa malori"; d: "Kutengeneza michezo ya kamari pekee"; correct: "Kutoa burudani na elimu kidijitali" }
+
     }
 
     Settings{
