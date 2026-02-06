@@ -339,6 +339,26 @@ Rectangle {
         mainTimer.start();
     }
 
+
+    function doShuffle() {
+        var allIndexes = [];
+        for (var i = 0; i < iqModel.count; i++) {
+            allIndexes.push(i);
+        }
+
+        for (var j = allIndexes.length - 1; j > 0; j--) {
+            var k = Math.floor(Math.random() * (j + 1));
+            var temp = allIndexes[j];
+            allIndexes[j] = allIndexes[k];
+            allIndexes[k] = temp;
+        }
+
+        console.log("First shuffle completed!");
+    }
+
+
+    Component.onCompleted: doShuffle();
+
     // Hii ndio model itakayotumika kwenye mchezo (Maswali 26 tu)
     ListModel { id: quizModel }
 
