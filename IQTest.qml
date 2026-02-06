@@ -437,7 +437,7 @@ ListElement { q: "Kufyeka nyasi na kufukia madimbwi ni njia ya?"; a: "Kuharibu m
 ListElement { q: "Siku ya Malaria Duniani huadhimishwa kila mwaka tarehe ngapi?"; a: "Aprili 25"; b: "Desemba 1"; c: "Machi 8"; d: "Januari 1"; correct: "Aprili 25" }
 ListElement { q: "Ni mkoa upi Tanzania unaotajwa kuwa na maambukizi makubwa ya Malaria kutokana na hali ya hewa?"; a: "Kigoma/Geita"; b: "Dodoma"; c: "Arusha"; d: "Manyara"; correct: "Kigoma/Geita" }
 
-ListElement { q: "Ni kundi gani la kabila nchini Tanzania linalojulikana kwa kuishi kwa kuwinda na kulu mizizi?"; a: "Wamasai"; b: "Wahadzabe"; c: "Wachagga"; d: "Wanyamwezi"; correct: "Wahadzabe" }
+ListElement { q: "Ni kundi gani la kabila nchini Tanzania linalojulikana kwa kuishi kwa kuwinda na kula mizizi?"; a: "Wamasai"; b: "Wahadzabe"; c: "Wachagga"; d: "Wanyamwezi"; correct: "Wahadzabe" }
 ListElement { q: "Kabila la Wamakonde linasifika duniani kwa kipaji gani cha asili?"; a: "Ufugaji wa nyuki"; b: "Uchongaji wa vinyago"; c: "Kusuka mikeka"; d: "Ujenzi wa meli"; correct: "Uchongaji wa vinyago" }
 ListElement { q: "Ngoma ya 'Sindimba' inatokea katika makabila ya mikoa gani ya Kusini?"; a: "Mtwara na Lindi"; b: "Mbeya na Iringa"; c: "Kigoma na Tabora"; d: "Mwanza na Mara"; correct: "Mtwara na Lindi" }
 ListElement { q: "Kabila gani nchini Tanzania linaongoza kwa idadi kubwa ya watu?"; a: "Wasukuma"; b: "Waha"; c: "Wagogo"; d: "Wazaramo"; correct: "Wasukuma" }
