@@ -102,6 +102,31 @@ Rectangle {
         ListElement { q: "Kama 3 ni 9, na 4 ni 16, basi 6 ni nini?"; a: "36"; b: "24"; c: "12"; d: "30"; correct: "36" }
         ListElement { q: "Nusu ya robo ya 400 ni ngapi?"; a: "100"; b: "50"; c: "25"; d: "200"; correct: "50" }
 
+// --- LOGIC ZA KUTEGA (Short & Quick) ---
+
+ListElement { q: "Kitu gani kina mikono lakini hakiwezi kupiga makofi?"; a: "Saa"; b: "Mti"; c: "Kiti"; d: "Sharti"; correct: "Saa" }
+
+ListElement { q: "Kipi kina meno lakini hakina mdomo?"; a: "Simba"; b: "Kitana"; c: "Msumeno"; d: "Nyoka"; correct: "Kitana" }
+
+ListElement { q: "Kitu gani kinalowa wakati kinakausha?"; a: "Taulo"; b: "Sifongo"; c: "Mvua"; d: "Sabuni"; correct: "Taulo" }
+
+ListElement { q: "Kitu gani kina shingo lakini hakina kichwa?"; a: "Chupa"; b: "Sharti"; c: "Shetani"; d: "Zulia"; correct: "Chupa" }
+
+ListElement { q: "Kipi kina tundu juu na chini, lakini kinakaa na maji?"; a: "Sufuria"; b: "Sifongo"; c: "Chujio"; d: "Bomba"; correct: "Sifongo" }
+
+// --- VITENDAWILI MAFUPI ---
+
+ListElement { q: "Kitendawili: Kaka yangu mweusi hagusiki."; a: "Makaa"; b: "Kivuli"; c: "Usiku"; d: "Moshi"; correct: "Kivuli" }
+
+ListElement { q: "Kitendawili: Askari wangu hulinda nyumba bila silaha."; a: "Macho"; b: "Kufuli"; c: "Mbwa"; d: "Ukuta"; correct: "Kufuli" }
+
+ListElement { q: "Kitendawili: Hucheka bila meno."; a: "Mtoto"; b: "Mahindi"; c: "Zulia"; d: "Unga"; correct: "Mahindi" }
+
+ListElement { q: "Kitendawili: Daima nakuita lakini hunijibu."; a: "Jina"; b: "Mwangwi"; c: "Sauti"; d: "Simu"; correct: "Jina" }
+
+ListElement { q: "Kitendawili: Nyama nje, ngozi ndani."; a: "Maini"; b: "Firigisi"; c: "Moyo"; d: "Utumbo"; correct: "Firigisi" }
+
+
         //KILIMO NA UVUVI
         ListElement { q: "Zao lipi ni 'Dhahabu ya Kijani' mkoani Kagera na Kilimanjaro?"; a: "Kahawa"; b: "Pamba"; c: "Karafuu"; d: "Chai"; correct: "Kahawa" }
         ListElement { q: "Ziwa lipi linaongoza kwa uzalishaji wa Sangara Tanzania?"; a: "Victoria"; b: "Tanganyika"; c: "Nyasa"; d: "Eyasi"; correct: "Victoria" }
