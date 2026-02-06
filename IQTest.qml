@@ -537,6 +537,18 @@ ListElement { q: "Wimbo wa 'Number One' uliomtangaza Diamond Platnumz kimataifa 
 
 ListElement { q: "Mchekeshaji Coy Mzero anajulikana zaidi kupitia jukwaa gani la vichekesho nchini?"; a: "Cheka Tu"; b: "Comedy Knights"; c: "Stand Up Tanzania"; d: "Funny Fellas"; correct: "Cheka Tu" }
 
+// --- MAWASILIANO
+ListElement { q: "Mamlaka inayosimamia mawasiliano ya simu, intaneti, na utangazaji nchini Tanzania inaitwa?"; a: "TRA"; b: "TCRA"; c: "TANESCO"; d: "NIDA"; correct: "TCRA" }
+
+ListElement { q: "Namba ya utambulisho wa kipekee inayopatikana kwenye simu (IMEI) hutumika kwa kazi gani?"; a: "Kupiga simu"; b: "Kutambua na kufungia simu iliyoibwa"; c: "Kuongeza salio"; d: "Kupima kasi ya intaneti"; correct: "Kutambua na kufungia simu iliyoibwa" }
+
+ListElement { q: "Ni mfumo upi unaotumiwa na TCRA kusajili laini za simu kwa kutumia alama za vidole?"; a: "Mfumo wa Biometriki"; b: "Mfumo wa Analogi"; c: "Mfumo wa Satelaiti"; d: "Mfumo wa Sensa"; correct: "Mfumo wa Biometriki" }
+
+ListElement { q: "Kadi ndogo inayowekwa kwenye simu ili kukuunganisha na mtandao (SIM Card) kirefu chake ni nini?"; a: "Subscriber Identity Module"; b: "System Internal Memory"; c: "Signal Integrated Mode"; d: "Social Identity Media"; correct: "Subscriber Identity Module" }
+
+
+ListElement { q: "Namba ya huduma kwa wateja kwa kampuni zote za simu Tanzania iliyosanifiwa na TCRA ni ipi?"; a: "100"; b: "911"; c: "112"; d: "101"; correct: "100" }
+
     }
 
     Settings{
