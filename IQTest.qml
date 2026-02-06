@@ -2,6 +2,7 @@ import QtQuick 2.4
 import QtQuick.Controls 2.4
 import QtQuick.Layouts 1.3
 import QtGraphicalEffects 1.0
+import Qt.labs.settings 1.0
 
 Rectangle {
     id: app
@@ -9,6 +10,7 @@ Rectangle {
     height: parent.height
     visible: true
     color: "#050a0c"
+
 
     // --- APP PROPERTIES ---
     property int currentIdx: 0
@@ -18,6 +20,7 @@ Rectangle {
     property string viewState: "START"
     property int maxQuestions: 26 // Tunataka maswali 26 tu kila mchezo
     property int noOfPassedQuestion: 0
+
 
     // --- IQ CATEGORY LOGIC ---
     function getCategory(iq) {
@@ -45,10 +48,8 @@ Rectangle {
     {
         if(typeof n3ctaApp !== "undefined"){
             n3ctaApp.onUrlVisited("#showGoogleAd");
-            // n3ctaApp.showToastMessage("Tafadhali subiri.");
         }else if(typeof loader !== "undefined"){
             loader.onUrlVisited("#showGoogleAd");
-            // loader.showToastMessage("Please wait.");
         }
     }
 
@@ -299,24 +300,41 @@ Rectangle {
         ListElement { q: "Kitendawili: Babu yangu hacheki mpaka achunwe ngozi."; a: "Mahindi"; b: "Ndizi"; c: "Chungwa"; d: "Kitunguu"; correct: "Mahindi" }
         ListElement { q: "Kitendawili: Mvua hapa, mvua kule, lakini katikati pakavu."; a: "Mwavuli"; b: "Nyumba"; c: "Mtu aliyevaa koti"; d: "Daraja"; correct: "Nyumba" }
 
+    }
 
-// --- UKEREWE
-ListElement { q: "Kisiwa cha Ukerewe kinapatikana ndani ya ziwa gani?"; a: "Tanganyika"; b: "Nyasa"; c: "Victoria"; d: "Eyasi"; correct: "Victoria" }
+    Settings{
+        id: askedQuestions
+        property var data
 
-ListElement { q: "Ukerewe ni wilaya inayopatikana katika mkoa gani nchini Tanzania?"; a: "Mwanza"; b: "Mara"; c: "Geita"; d: "Kagera"; correct: "Mwanza" }
+        function add(q){
+            data.push(q);
+        }
 
-// --- TEKNOLOJIA YA ANGA
-ListElement { q: "Ni sayari gani inajulikana kama 'Sayari Nyekundu' (Red Planet)?"; a: "Jupiter"; b: "Venus"; c: "Mars"; d: "Saturn"; correct: "Mars" }
+        function removeAll(){
+            for (var n = 0; n < data.length; n++) {
+                const q = data[n];
+                for (var x = 0; x < iqModel.count; x++) {
+                    if (iqModel.get(x).q === q) {
+                        iqModel.remove(x);
+                        break;
+                    }
+                }
+            }
+        }
 
-ListElement { q: "Chombo cha kwanza kilichompeleka binadamu mwezini (Apollo 11) kilikuwa cha nchi gani?"; a: "Urusi"; b: "Marekani"; c: "China"; d: "Uingereza"; correct: "Marekani" }
-ListElement { q: "Ni nini jina la darubini kubwa zaidi na ya kisasa iliyorushwa angani hivi karibuni?"; a: "Hubble"; b: "Galileo"; c: "James Webb"; d: "Newton"; correct: "James Webb" }
-ListElement { q: "Gesi gani inapatikana kwa wingi zaidi katika anga la Dunia (Atmosphere)?"; a: "Oxygen"; b: "Nitrogen"; c: "Carbon Dioxide"; d: "Argon"; correct: "Nitrogen" }
+        function configure(){
+            if(data === null){
+                data = [];
+            }
+            if((iqModel.count - data.length) < maxQuestions){
+                data = [];
+                return;
+            }
+            removeAll();
+        }
 
-// --- ELIMU 
-ListElement { q: "Kirefu cha neno NECTA ni nini kwa Kiswahili?"; a: "Baraza la Mitihani la Tanzania"; b: "Wizara ya Elimu"; c: "Bodi ya Mikopo"; d: "Tume ya Vyuo Vikuu"; correct: "Baraza la Mitihani la Tanzania" }
-ListElement { q: "Katika mfumo wa NECTA, daraja 'A' kwenye mtihani wa kidato cha nne huanzia alama ngapi?"; a: "70"; b: "75"; c: "81"; d: "65"; correct: "75" }
-ListElement { q: "Ni mwaka gani Tanzania ilianza rasmi mfumo wa elimu ya bila malipo kwa shule za msingi na sekondari?"; a: "2010"; b: "2015"; c: "2020"; d: "2005"; correct: "2015" }
-
+        Component.onCompleted: configure();
+        Component.onDestruction: setValue("data",data);
     }
 
     function shuffleOptions(a, b, c, d) {
@@ -343,8 +361,10 @@ ListElement { q: "Ni mwaka gani Tanzania ilianza rasmi mfumo wa elimu ya bila ma
             // Kama maswali yameisha, rudi kwenye ukurasa mkuu au fanya reload
             if(typeof n3ctaApp !== "undefined"){
                 n3ctaApp.closeCustomPage();
+                n3ctaApp.onUrlVisited("#IQTest");
             } else if(typeof loader !== "undefined"){
                 loader.closeCustomPage();
+                loader.onUrlVisited("#IQTest");
             }
             return;
         }
@@ -405,8 +425,10 @@ ListElement { q: "Ni mwaka gani Tanzania ilianza rasmi mfumo wa elimu ya bila ma
             // Tafuta upya index ya swali hili kwenye iqModel ili kulifuta
             // Hii inahakikisha hata kama index zilihama, tunafuta swali sahihi
             for (var n = 0; n < iqModel.count; n++) {
-                if (iqModel.get(n).q === tempStorage[k].q) {
+                const q = iqModel.get(n).q;
+                if (q === tempStorage[k].q) {
                     iqModel.remove(n);
+                    askedQuestions.add(q);
                     break;
                 }
             }
