@@ -437,6 +437,26 @@ ListElement { q: "Kufyeka nyasi na kufukia madimbwi ni njia ya?"; a: "Kuharibu m
 ListElement { q: "Siku ya Malaria Duniani huadhimishwa kila mwaka tarehe ngapi?"; a: "Aprili 25"; b: "Desemba 1"; c: "Machi 8"; d: "Januari 1"; correct: "Aprili 25" }
 ListElement { q: "Ni mkoa upi Tanzania unaotajwa kuwa na maambukizi makubwa ya Malaria kutokana na hali ya hewa?"; a: "Kigoma/Geita"; b: "Dodoma"; c: "Arusha"; d: "Manyara"; correct: "Kigoma/Geita" }
 
+ListElement { q: "Ni kundi gani la kabila nchini Tanzania linalojulikana kwa kuishi kwa kuwinda na kulu mizizi?"; a: "Wamasai"; b: "Wahadzabe"; c: "Wachagga"; d: "Wanyamwezi"; correct: "Wahadzabe" }
+ListElement { q: "Kabila la Wamakonde linasifika duniani kwa kipaji gani cha asili?"; a: "Ufugaji wa nyuki"; b: "Uchongaji wa vinyago"; c: "Kusuka mikeka"; d: "Ujenzi wa meli"; correct: "Uchongaji wa vinyago" }
+ListElement { q: "Ngoma ya 'Sindimba' inatokea katika makabila ya mikoa gani ya Kusini?"; a: "Mtwara na Lindi"; b: "Mbeya na Iringa"; c: "Kigoma na Tabora"; d: "Mwanza na Mara"; correct: "Mtwara na Lindi" }
+ListElement { q: "Kabila gani nchini Tanzania linaongoza kwa idadi kubwa ya watu?"; a: "Wasukuma"; b: "Waha"; c: "Wagogo"; d: "Wazaramo"; correct: "Wasukuma" }
+ListElement { q: "Chakula cha asili cha Wachagga kinachotengenezwa kwa ndizi na maharage huitwa?"; a: "Ugali"; b: "Mtori"; c: "Kiburu"; d: "Wali"; correct: "Kiburu" }
+
+ListElement { q: "Ni sayari gani iliyo kubwa zaidi katika mfumo wetu wa Jua?"; a: "Dunia"; b: "Saturn"; c: "Jupiter"; d: "Neptune"; correct: "Jupiter" }
+ListElement { q: "Galaxy yetu tunamoishi inaitwa jina gani?"; a: "Andromeda"; b: "Milky Way (Njia ya Mtindi)"; c: "Sombrero"; d: "Black Eye"; correct: "Milky Way (Njia ya Mtindi)" }
+ListElement { q: "Sayari ya Saturn inafahamika zaidi kwa kuwa na nini kinachoizunguka?"; a: "Maji"; b: "Pete (Rings)"; c: "Moto"; d: "Mwangaza wa kijani"; correct: "Pete (Rings)" }
+ListElement { q: "Jua ni nini hasa katika sayansi ya anga?"; a: "Sayari"; b: "Nyota (Star)"; c: "Satelaiti"; d: "Jiwe"; correct: "Nyota (Star)" }
+ListElement { q: "Ni sayari gani iliyo karibu zaidi na Jua?"; a: "Venus"; b: "Mars"; c: "Mercury"; d: "Dunia"; correct: "Mercury" }
+ListElement { q: "Mwanga wa Jua huchukua takriban dakika ngapi kufika Duniani?"; a: "Sekunde 30"; b: "Dakika 8"; c: "Saa 1"; d: "Siku 2"; correct: "Dakika 8" }
+ListElement { q: "Ni sayari gani inayofahamika kama 'Pacha wa Dunia' kwa sababu ya ukubwa wake?"; a: "Venus"; b: "Jupiter"; c: "Mars"; d: "Uranus"; correct: "Venus" }
+ListElement { q: "Eneo lenye nguvu kubwa ya uvutano angani ambapo hata mwanga hauwezi kutoroka huitwa?"; a: "Galaxy"; b: "Black Hole"; c: "Asteroid"; d: "Comet"; correct: "Black Hole" }
+
+ListElement { q: "Fuvu la binadamu wa kale (Zinjanthropus) liligunduliwa na kina Leakey katika bonde gani?"; a: "Ngorongoro"; b: "Olduvai Gorge"; c: "Bonde la Ufa"; d: "Kilimatinde"; correct: "Olduvai Gorge" }
+ListElement { q: "Michoro ya mapangoni ya Kondoa Irangi inasadikiwa kuchorwa na nani?"; a: "Wajerumani"; b: "Watu wa kale (Bushmen)"; c: "Waarabu"; d: "Wamasai"; correct: "Watu wa kale (Bushmen)" }
+ListElement { q: "Zama ambapo binadamu alianza kutumia mawe kutengeneza vifaa huitwa?"; a: "Zama za Mawe"; b: "Zama za Chuma"; c: "Zama za Viwanda"; d: "Zama za Giza"; correct: "Zama za Mawe" }
+ListElement { q: "Mji wa kale wa Kilwa Kisiwani ulikuwa kitovu cha biashara katika pwani ya?"; a: "Bahari ya Hindi"; b: "Bahari ya Shamu"; c: "Ziwa Victoria"; d: "Bahari ya Mediteranea"; correct: "Bahari ya Hindi" }
+
     }
 
     Settings{
