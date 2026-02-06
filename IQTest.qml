@@ -475,7 +475,7 @@ Rectangle {
                         Layout.preferredHeight: 60
                         onClicked: processAnswer(modelData)
                         background: Rectangle {
-                            color: parent.pressed ? "#00ffff" : "#121a1d"
+                            color: parent.pressed ? ((modelData === quizModel.get(currentIdx).correct) ? "green" : "red") : "#121a1d"
                             border.color: "#22ffffff"
                             radius: 12
                         }
