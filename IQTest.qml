@@ -25,6 +25,18 @@ Rectangle {
         return "LOW (Unahitaji Mazoezi)";
     }
 
+
+    function close()
+    {
+        if(typeof n3ctaApp !== "undefined"){
+            n3ctaApp.closeCustomPage();
+            n3ctaApp.onUrlVisited("#showGoogleAd");
+        }else if(typeof loader !== "undefined"){
+            loader.closeCustomPage();
+            loader.onUrlVisited("#showGoogleAd");
+        }
+    }
+
     // --- QUESTION MODEL (Maswali 26) ---
     ListModel {
         id: iqModel
@@ -112,7 +124,7 @@ Rectangle {
             spacing: 20
 
             Text {
-                text: "MAGABE IQ LAB"
+                text: "SAMIA IQ LAB"
                 color: "#00ffff"
                 font.pixelSize: 32
                 font.bold: true
@@ -122,7 +134,7 @@ Rectangle {
             Text {
                 text: "Pima uwezo wa akili yako sasa."
                 color: "#88ffffff"
-                font.pixelSize: 16
+                font.pixelSize: 16 * (Qt.platform.os === "android" ? 2.5 : 1)
                 Layout.alignment: Qt.AlignHCenter
             }
 
@@ -172,17 +184,17 @@ Rectangle {
             Text {
                 text: "Swali " + (currentIdx + 1) + " kati ya " + iqModel.count
                 color: "#00ffff"
-                font.pixelSize: 14
+                font.pixelSize: 14 * (Qt.platform.os === "android" ? 3 : 1)
             }
 
             Text {
                 text: iqModel.get(currentIdx).q
                 color: "white"
-                font.pixelSize: 24
+                font.pixelSize: 24 * (Qt.platform.os === "android" ? 2.2 : 1)
                 font.bold: true
                 wrapMode: Text.WordWrap
                 Layout.fillWidth: true
-                Layout.preferredHeight: 120
+                Layout.preferredHeight: 120 * 0.8
             }
 
             // Options list
@@ -203,7 +215,7 @@ Rectangle {
                         contentItem: Text {
                             text: parent.text;
                             color: "white"
-                            font.pixelSize: 18
+                            font.pixelSize: 18 * (Qt.platform.os === "android" ? 3 : 1)
                             horizontalAlignment: Text.AlignLeft
                             anchors.leftMargin: 20
                             verticalAlignment: Text.AlignVCenter
@@ -236,8 +248,9 @@ Rectangle {
             }
 
             Rectangle {
-                Layout.preferredWidth: 320
+                Layout.preferredWidth: app.width * 0.92
                 Layout.preferredHeight: 70
+                Layout.alignment: Qt.AlignHCenter
                 color: "#121a1d"
                 radius: 10
                 border.color: "#3300ffff"
@@ -257,12 +270,22 @@ Rectangle {
                 text: "SHARE KWA WHATSAPP"
                 Layout.preferredWidth: app.width * 0.8
                 Layout.preferredHeight: 50
+                Layout.alignment: Qt.AlignHCenter
+
                 background: Rectangle {
                     color: "#25D366"
                     radius: 10
                 }
+
+                contentItem: Text {
+                    text: parent.text
+                    color: "white"
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                }
+
                 onClicked: {
-                    let msg = "Nimepata IQ ya " + finalScoreDisplay.finalIQ + " (" + getCategory(finalScoreDisplay.finalIQ) + ") kwenye Magabe IQ Lab! \n\nImeundwa na Edwin Magabe Ngosso.";
+                    let msg = "Nimepata IQ ya " + finalScoreDisplay.finalIQ + " (" + getCategory(finalScoreDisplay.finalIQ) + ") kwenye Samia IQ Lab!";
                     Qt.openUrlExternally("whatsapp://send?text=" + encodeURIComponent(msg));
                 }
             }
@@ -271,13 +294,48 @@ Rectangle {
 
             Button {
                 text: "JARIBU TENA"
+                Layout.preferredWidth: app.width * 0.8
+                Layout.preferredHeight: 50
                 Layout.alignment: Qt.AlignHCenter
+                background: Rectangle {
+                    color: "blue"
+                    radius: 10
+                }
+
+                contentItem: Text {
+                    text: parent.text
+                    color: "white"
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                }
 
                 onClicked: {
                     currentIdx = 0;
                     totalScore = 0;
                     timerValue = 15;
                     viewState = "START"
+                }
+            }
+
+            Button {
+                text: "FUNGA"
+                Layout.preferredWidth: app.width * 0.8
+                Layout.preferredHeight: 50
+                Layout.alignment: Qt.AlignHCenter
+                background: Rectangle {
+                    color: "red"
+                    radius: 10
+                }
+
+                contentItem: Text {
+                    text: parent.text
+                    color: "white"
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                }
+
+                onClicked: {
+                    app.close();
                 }
             }
         }
