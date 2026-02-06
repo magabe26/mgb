@@ -464,6 +464,42 @@ ListElement { q: "Kiongozi wa kijeshi wa Ujerumani wakati wa Vita vya Pili vya D
 ListElement { q: "Mkataba wa Versailles ulihitimisha vita gani?"; a: "Vita vya Kwanza vya Dunia"; b: "Vita vya Pili vya Dunia"; c: "Vita vya Kagera"; d: "Vita vya Maji Maji"; correct: "Vita vya Kwanza vya Dunia" }
 ListElement { q: "Mji mkuu wa kitumwa ambapo watumwa walipewa jina la 'Bwagamoyo' (Bagamoyo) unamaanisha nini?"; a: "Pumzika moyo"; b: "Tupa moyo"; c: "Furahisha moyo"; d: "Fariji moyo"; correct: "Tupa moyo" }
 
+ListElement { q: "Rais gani wa Tanzania alijulikana kama 'Mzee wa Ruksa'?"; a: "Nyerere"; b: "Mwinyi"; c: "Mkapa"; d: "Kikwete"; correct: "Mwinyi" }
+ListElement { q: "Vita vya Kagera (1978-1979) vilikuwa kati ya Tanzania na nchi gani?"; a: "Kenya"; b: "Uganda"; c: "Rwanda"; d: "Malawi"; correct: "Uganda" }
+ListElement { q: "Ni nani alikuwa Rais wa Uganda wakati wa Vita vya Kagera?"; a: "Milton Obote"; b: "Idi Amin Dada"; c: "Yoweri Museveni"; d: "Tito Okello"; correct: "Idi Amin Dada" }
+ListElement { q: "Rais wa awamu ya nne wa Tanzania ni nani?"; a: "Ali Hassan Mwinyi"; b: "Jakaya Kikwete"; c: "Benjamin Mkapa"; d: "John Magufuli"; correct: "Jakaya Kikwete" }
+ListElement { q: "Rais Samia Suluhu Hassan alizaliwa katika mkoa gani?"; a: "Zanzibar (Unguja)"; b: "Pwani"; c: "Dar es Salaam"; d: "Zanzibar (Pemba)"; correct: "Zanzibar (Unguja)" }
+ListElement { q: "Wimbo maarufu wa kishujaa uliotumika wakati wa Vita vya Kagera unaitwa?"; a: "Tanzania Tanzania"; b: "Mwenge wa Uhuru"; c: "Mvua ya Radi"; d: "Kifochura"; correct: "Kifochura" }
+ListElement { q: "Rais Benjamin Mkapa alipewa jina la utani la?"; a: "Mzee wa Mapinduzi"; b: "Mr. Clean"; c: "Bulldozer"; d: "Chuma"; correct: "Mr. Clean" }
+ListElement { q: "Ni Rais yupi alifariki akiwa madarakani mwaka 2021?"; a: "Nyerere"; b: "Magufuli"; c: "Mkapa"; d: "Karume"; correct: "Magufuli" }
+
+ListElement { q: "Alama ya kikemia ya dhahabu (Gold) ni ipi?"; a: "Ag"; b: "Fe"; c: "Au"; d: "Gd"; correct: "Au" }
+ListElement { q: "Gesi inayotumika kuzima moto inaitwa?"; a: "Oxygen"; b: "Carbon Dioxide"; c: "Hydrogen"; d: "Nitrogen"; correct: "Carbon Dioxide" }
+
+ListElement { q: "PH ya maji yaliyo safi (Pure Water) ni ngapi?"; a: "0"; b: "7"; c: "14"; d: "5"; correct: "7" }
+
+ListElement { q: "Tendo la chuma kupata kutu linahitaji vitu gani viwili?"; a: "Maji na Mafuta"; b: "Maji na Hewa (Oxygen)"; c: "Moto na Hewa"; d: "Mchanga na Maji"; correct: "Maji na Hewa (Oxygen)" }
+
+ListElement { q: "Kizio cha kupimia mkondo wa umeme (Current) ni?"; a: "Volt"; b: "Watt"; c: "Ampere"; d: "Ohm"; correct: "Ampere" }
+ListElement { q: "Ncha mbili za sumaku zinazofanana (mfano North na North) zikikutana hufanya nini?"; a: "Huvutana"; b: "Hupingana (Repel)"; c: "Huzima"; d: "Hulipuka"; correct: "Hupingana (Repel)" }
+
+
+ListElement { q: "Kifaa kinachotumika kubadili nishati ya mwendo kuwa umeme huitwa?"; a: "Motor"; b: "Dynamo/Generator"; c: "Battery"; d: "Switch"; correct: "Dynamo/Generator" }
+ListElement { q: "Nyaya za umeme mara nyingi hufunikwa na raba au plastiki kwa sababu ni?"; a: "Kinyeleo (Insulator)"; b: "Kipitisho (Conductor)"; c: "Nzito"; d: "Laini"; correct: "Kinyeleo (Insulator)" }
+
+ListElement { q: "Chombo cha usafiri wa majini kinachoweza kuzama na kutembea chini ya maji huitwa?"; a: "Meli"; b: "Nyambizi (Submarine)"; c: "Mtumbwi"; d: "Pantoni"; correct: "Nyambizi (Submarine)" }
+ListElement { q: "Ni nani anasifika kwa kuvumbua ndege ya kwanza duniani?"; a: "Wright Brothers"; b: "Thomas Edison"; c: "Henry Ford"; d: "Nikola Tesla"; correct: "Wright Brothers" }
+ListElement { q: "Treni ya mwendokasi inayotumia umeme nchini Tanzania inajulikana kama?"; a: "TAZARA"; b: "SGR"; c: "Mwendokasi"; d: "TRC"; correct: "SGR" }
+ListElement { q: "Kifaa kinachotumika kuongoza meli au ndege kujua upande wa Kaskazini huitwa?"; a: "Thermometer"; b: "Compass"; c: "Barometer"; d: "Radar"; correct: "Compass" }
+ListElement { q: "Usafiri wa anga unaotumia puto kubwa lenye hewa ya moto unaitwa?"; a: "Helikopta"; b: "Hot Air Balloon"; c: "Parachute"; d: "Drone"; correct: "Hot Air Balloon" }
+
+
+ListElement { q: "Kitendawili: Askari wangu wote huvaa kofia nyekundu."; a: "Kiberiti"; b: "Meno"; c: "Askari"; d: "Mawingu"; correct: "Kiberiti" }
+ListElement { q: "Kitendawili: Kamba yangu ndefu lakini haifungi kuni."; a: "Njia/Barabara"; b: "Nyoka"; c: "Maji"; d: "Upepo"; correct: "Njia/Barabara" }
+ListElement { q: "Kitendawili: Huenda lakini harudi."; a: "Maji ya mto"; b: "Miguu"; c: "Gari"; d: "Muda"; correct: "Maji ya mto" }
+ListElement { q: "Kitendawili: Nyumbani kwangu kumesitiriwa kwa kuta nyeupe lakini hakuingiliki."; a: "Yai"; b: "Chumba"; c: "Gereza"; d: "Chupa"; correct: "Yai" }
+ListElement { q: "Kitendawili: Anatembea kwa miguu minne asubuhi, miwili mchana, na mitatu jioni."; a: "Binadamu"; b: "Kobe"; c: "Mzee"; d: "Mtoto"; correct: "Binadamu" }
+
     }
 
     Settings{
