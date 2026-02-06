@@ -38,6 +38,18 @@ Rectangle {
         }
     }
 
+
+function ad()
+    {
+        if(typeof n3ctaApp !== "undefined"){
+            n3ctaApp.onUrlVisited("#showGoogleAd");
+            n3ctaApp.showToastMessage("Tafadhali subiri.");
+        }else if(typeof loader !== "undefined"){
+            loader.onUrlVisited("#showGoogleAd");
+            loader.showToastMessage("Please wait.");
+        }
+    }
+
     // --- LOGIC YA KUCHANGANYA MASWALI ---
     function startNewGame() {
         quizModel.clear();
@@ -271,6 +283,7 @@ Rectangle {
         } else {
             mainTimer.stop();
             viewState = "END";
+            app.ad();
         }
     }
 
