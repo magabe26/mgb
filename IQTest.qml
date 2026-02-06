@@ -289,14 +289,15 @@ Rectangle {
         return opts;
     }
 
-    // --- LOGIC YA KUCHANGANYA MASWALI ---
+
     function startNewGame() {
         // 1. Safisha quizModel ya mchezo uliopita
         quizModel.clear();
 
         // 2. Angalia kama iqModel ina maswali ya kutosha
-        if (iqModel.count === 0) {
-            console.log("Benki ya maswali imeisha!");
+        var count = iqModel.count;
+        if (count < 3) {
+            console.log("Benki haina maswali ya kutosha!");
 
             // Unaweza kuweka logic ya ku-reload maswali hapa kama ukitaka
             if(typeof n3ctaApp !== "undefined"){
@@ -309,23 +310,62 @@ Rectangle {
             return;
         }
 
-        // 3. Piga Shuffle kwenye iqModel nzima kwanza (Optional lakini salama zaidi)
-        // Au chagua maswali ya mwanzo baada ya kuchanganya index
-        var limit = Math.min(maxQuestions, iqModel.count);
+        // 1. Gawanya Index katika makundi matatu
+        var beginPart = [];
+        var middlePart = [];
+        var endPart = [];
 
-        for (var i = 0; i < limit; i++) {
-            // Tunachagua swali la random kutoka kwenye iqModel
-            var randomIndex = Math.floor(Math.random() * iqModel.count);
+        var segmentSize = Math.floor(count / 3);
 
-            // Tunachukua data ya swali hilo
-            var selectedQuestion = iqModel.get(randomIndex);
+        for (var i = 0; i < count; i++) {
+            if (i < segmentSize) beginPart.push(i);
+            else if (i < segmentSize * 2) middlePart.push(i);
+            else endPart.push(i);
+        }
 
-            // Tunaliweka kwenye model ya mchezo wa sasa
-            quizModel.append(selectedQuestion);
+        // 2. Local Shuffle: Changanya kila kundi peke yake (Fisher-Yates)
+        var shuffleArray = function(arr) {
+            for (var j = arr.length - 1; j > 0; j--) {
+                var k = Math.floor(Math.random() * (j + 1));
+                var temp = arr[j];
+                arr[j] = arr[k];
+                arr[k] = temp;
+            }
+        };
 
-            // MUHIMU: Tunafuta swali hili kwenye benki kuu (iqModel)
-            // ili lisitokee tena mchezo ujao
-            iqModel.remove(randomIndex);
+        shuffleArray(beginPart);
+        shuffleArray(middlePart);
+        shuffleArray(endPart);
+
+        // 3. Randomize Segment Order: Chagua kundi gani lianze (Mwanzo, Kati, au Mwisho)
+        var segments = [];
+        const order = Math.floor(Math.random() * 4);
+        if(order === 0){
+            segments = [beginPart, endPart,middlePart];
+        } else if(order === 1){
+            segments = [middlePart, beginPart, endPart];
+        } else if(order === 2){
+            segments = [endPart, middlePart, beginPart];
+        } else if(order === 3){
+            segments = [beginPart, middlePart, endPart];
+        }
+
+        shuffleArray(segments); // Tunazivuruga zile sehemu zenyewe
+
+        // 4. Merge: Unganisha kuwa list moja kuu
+        var finalIndexes = [];
+        for (var s = 0; s < segments.length; s++) {
+            finalIndexes = finalIndexes.concat(segments[s]);
+        }
+
+        // 5. Hamishia kwenye quizModel (kwa kufuata limit yako ya maswali 26)
+        quizModel.clear();
+        var limit = Math.min(maxQuestions, finalIndexes.length);
+        var takenIndexies = [];
+        for (var m = 0; m < limit; m++) {
+            var idx = finalIndexes[m];
+            quizModel.append(iqModel.get(idx));
+            takenIndexies.push(idx);
         }
 
         // 4. Reset Variables za mchezo
@@ -339,25 +379,6 @@ Rectangle {
         mainTimer.start();
     }
 
-
-    function doShuffle() {
-        var allIndexes = [];
-        for (var i = 0; i < iqModel.count; i++) {
-            allIndexes.push(i);
-        }
-
-        for (var j = allIndexes.length - 1; j > 0; j--) {
-            var k = Math.floor(Math.random() * (j + 1));
-            var temp = allIndexes[j];
-            allIndexes[j] = allIndexes[k];
-            allIndexes[k] = temp;
-        }
-
-        console.log("First shuffle completed!");
-    }
-
-
-    Component.onCompleted: doShuffle();
 
     // Hii ndio model itakayotumika kwenye mchezo (Maswali 26 tu)
     ListModel { id: quizModel }
@@ -531,7 +552,7 @@ Rectangle {
             }
 
             Button {
-                text: "FUNGA"
+                text: "KIMBIA"
                 Layout.preferredWidth: app.width * 0.8
                 Layout.preferredHeight: 50
                 Layout.alignment: Qt.AlignHCenter
@@ -549,7 +570,9 @@ Rectangle {
                 }
 
                 onClicked: {
-                    app.close();
+                    mainTimer.stop();
+                    viewState = "END";
+                    app.ad();
                 }
             }
         }
