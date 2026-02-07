@@ -908,7 +908,7 @@ ListElement { q: "Namba ya huduma kwa wateja kwa kampuni zote za simu Tanzania i
                 // Mtu akipata yote 26, anapata 70 nyingine (Jumla 140).
                 // Plus bonus ndogo ya kasi (totalScore / 500)
                 property int finalIQ: 70 + Math.round((noOfPassedQuestion / 26) * 70) + Math.min(5, Math.floor(totalScore / 500))
-                text: "IQ SCORE: " + finalIQ
+                text: "Alama za IQ: " + finalIQ
                 color: "#00ffff"
                 font.pixelSize: 48
                 font.bold: true
