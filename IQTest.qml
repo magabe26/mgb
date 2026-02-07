@@ -928,7 +928,7 @@ ListElement { q: "Jina la awali la shule ya Tabora Boys kabla ya kuitwa jina la 
             Text {
                 text: "MATOKEO"
                 color: "#88ffffff"
-                font.pixelSize: 48 * 3
+                font.pixelSize: 48 * 2
                 font.bold: true
                 font.underline: true
                 Layout.alignment: Qt.AlignHCenter
@@ -960,7 +960,7 @@ ListElement { q: "Jina la awali la shule ya Tabora Boys kabla ya kuitwa jina la 
                     text: getCategory(finalScoreDisplay.finalIQ)
                     color: "white"
                     font.bold: true
-                    font.pixelSize: 18 * (Qt.platform.os === "android" ? 2 : 1)
+                    font.pixelSize: 18 * (Qt.platform.os === "android" ? 2.2 : 1)
                     horizontalAlignment: Text.AlignHCenter
                 }
             }
