@@ -923,7 +923,7 @@ ListElement { q: "Jina la awali la shule ya Tabora Boys kabla ya kuitwa jina la 
         ColumnLayout {
             visible: viewState === "END"
             anchors.centerIn: parent
-            spacing: 16
+            spacing: 18
 
             Text {
                 text: "MATOKEO"
@@ -976,7 +976,7 @@ ListElement { q: "Jina la awali la shule ya Tabora Boys kabla ya kuitwa jina la 
             Button {
                 text: "JARIBU TENA"
                 Layout.preferredWidth: app.width * 0.8
-                Layout.preferredHeight: 68
+                Layout.preferredHeight: 80
                 Layout.alignment: Qt.AlignHCenter
                 background: Rectangle {
                     color: "blue"
