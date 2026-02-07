@@ -67,6 +67,14 @@ Rectangle {
         return letter;
     }
 
+
+function cleanOption(text) {
+    if (!text) return "";
+    // Inafuta mabano na yaliyomo ndani, kisha inafuta nafasi zilizoziada
+    return text.replace(/\s*\(.*?\)\s*/g, "").trim();
+}
+
+
     // --- QUESTION MODEL (Maswali 26) ---
     ListModel {
         id: iqModel
@@ -871,7 +879,7 @@ ListElement { q: "Jina la awali la shule ya Tabora Boys kabla ya kuitwa jina la 
                 Repeater {
                     model: (quizModel.count > currentIdx) ? shuffleOptions(quizModel.get(currentIdx).a, quizModel.get(currentIdx).b, quizModel.get(currentIdx).c, quizModel.get(currentIdx).d) : []
                     delegate: Button {
-                        text: "<font color=\"cyan\"> (" + app.indexToLetter(index) + ")</font> " + modelData
+                        text: "<font color=\"cyan\"> (" + app.indexToLetter(index) + ")</font> " + app.cleanOption(modelData)
                         Layout.fillWidth: true
                         Layout.preferredHeight: (Qt.platform.os === "android" ? 69 : 60)
                         onClicked: processAnswer(modelData)
