@@ -549,6 +549,36 @@ ListElement { q: "Kadi ndogo inayowekwa kwenye simu ili kukuunganisha na mtandao
 
 ListElement { q: "Namba ya huduma kwa wateja kwa kampuni zote za simu Tanzania iliyosanifiwa na TCRA ni ipi?"; a: "100"; b: "911"; c: "112"; d: "101"; correct: "100" }
 
+// --- SHULE NA HISTORIA 
+ListElement { q: "Mwalimu Julius K. Nyerere alisoma elimu yake ya sekondari katika shule gani maarufu?"; a: "Tabora Boys"; b: "Pugu Secondary"; c: "Mzumbe"; d: "Kibaha"; correct: "Tabora Boys" }
+
+ListElement { q: "Ni shule ipi kati ya hizi inajulikana kama shule ya kitaifa ya wavulana yenye vipaji maalum (Special Talents School)?"; a: "Ilboru"; b: "Msalato"; c: "Jangwani"; d: "Azania"; correct: "Ilboru" }
+
+ListElement { q: "Shule gani ya wasichana ya serikali mkoani Dodoma inajulikana kwa ufaulu mzuri na ni ya kiwango cha kitaifa?"; a: "Msalato Girls"; b: "Kilakala"; c: "Loleza"; d: "Weruweru"; correct: "Msalato Girls" }
+
+ListElement { q: "Shule ya sekondari ya Tabora Girls inasifika kwa kuwa shule ya kwanza ya serikali kwa ajili ya?"; a: "Wasichana wenye vipaji"; b: "Walimu wa kike"; c: "Viongozi wa dini"; d: "Kilimo"; correct: "Wasichana wenye vipaji" }
+
+ListElement { q: "Shule ya sekondari Kibaha (Kibaha Boys) inapatikana katika mkoa gani?"; a: "Dar es Salaam"; b: "Pwani"; c: "Morogoro"; d: "Tanga"; correct: "Pwani" }
+
+ListElement { q: "Shule ipi ya kiume mkoani Morogoro inasifika kwa nidhamu ya kijeshi na ufaulu mkubwa wa masomo ya sayansi?"; a: "Mzumbe Secondary"; b: "Iyunga"; c: "Kantare"; d: "Milambo"; correct: "Mzumbe Secondary" }
+
+// --- KILIMO CHA ZABIBU DODOMA
+ListElement { q: "Zao kuu la kibiashara linalosifika kulimwa mkoani Dodoma na kutumika kutengeneza mvinyo (Wine) ni?"; a: "Pamba"; b: "Zabibu"; c: "Karafuu"; d: "Mkonge"; correct: "Zabibu" }
+
+
+ListElement { q: "Ni kata gani mkoani Dodoma inayojulikana zaidi kwa kuanzisha na kuendeleza kilimo cha zabibu?"; a: "Makutupora"; b: "Chamwino"; c: "Kizota"; d: "Msalato"; correct: "Makutupora" }
+
+ListElement { q: "Kwa nini mkoa wa Dodoma unafaa zaidi kwa kilimo cha zabibu kuliko mikoa mingine ya Tanzania?"; a: "Udongo mweusi na baridi"; b: "Hali ya hewa kavu na jua la kutosha"; c: "Mvua nyingi mwaka mzima"; d: "Uwepo wa bahari"; correct: "Hali ya hewa kavu na jua la kutosha" }
+
+ListElement { q: "Ni mwezi gani mara nyingi wakulima wa zabibu Dodoma hufanya mavuno ya kwanza ya mwaka?"; a: "Januari - Machi"; b: "Juni - Julai"; c: "Oktoba - Novemba"; d: "Septemba"; correct: "Januari - Machi" }
+
+// --- TABORA BOYS 
+ListElement { q: "Shule ya Tabora Boys ilianzishwa mwaka 1922 na Waingereza kwa lengo la kuwasomesha nani?"; a: "Watoto wa machifu"; b: "Wafanyakazi wa reli"; c: "Wakulima wa pamba"; d: "Askari wa vita"; correct: "Watoto wa machifu" }
+
+ListElement { q: "Mwalimu Julius K. Nyerere alipokuwa mwanafunzi Tabora Boys (1937-1942), alikuwa kiongozi wa klabu gani?"; a: "Klabu ya Mdahalo (Debating Society)"; b: "Klabu ya Mpira"; c: "Klabu ya Skauti"; d: "Klabu ya Kilimo"; correct: "Klabu ya Mdahalo (Debating Society)" }
+
+ListElement { q: "Jina la awali la shule ya Tabora Boys kabla ya kuitwa jina la sasa lilikuwa nani?"; a: "Pugu School"; b: "Government Central School, Tabora"; c: "Milambo Secondary"; d: "Royal Boys Academy"; correct: "Government Central School, Tabora" }
+
     }
 
     Settings{
