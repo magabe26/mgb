@@ -994,6 +994,7 @@ ListElement { q: "Jina la awali la shule ya Tabora Boys kabla ya kuitwa jina la 
                 }
             }
 
+/*
             Button {
                 text: "SHARE KWA WHATSAPP"
                 Layout.preferredWidth: app.width * 0.8
@@ -1017,7 +1018,7 @@ ListElement { q: "Jina la awali la shule ya Tabora Boys kabla ya kuitwa jina la 
                     let msg = "Nimepata IQ ya " + finalScoreDisplay.finalIQ + " (" + getCategory(finalScoreDisplay.finalIQ) + ") kwenye Samia IQ Lab!";
                     Qt.openUrlExternally("whatsapp://send?text=" + encodeURIComponent(msg));
                 }
-            }
+            } */
 
             // Text { text: "Developer: Edwin Magabe Ngosso"; color: "#44ffffff"; Layout.alignment: Qt.AlignHCenter }
 
