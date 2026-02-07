@@ -24,11 +24,11 @@ Rectangle {
 
     // --- IQ CATEGORY LOGIC ---
     function getCategory(iq) {
-        if (iq >= 140) return "GENIUS (Gwiji)";
-        if (iq >= 120) return "SUPERIOR (Upeo wa Juu)";
-        if (iq >= 110) return "ABOVE AVERAGE (Zaidi ya Wastani)";
-        if (iq >= 90)  return "AVERAGE (Wastani)";
-        return "LOW (Unahitaji Mazoezi)";
+        if (iq >= 140) return "GWIJI";
+        if (iq >= 120) return "UPEO WA JUU";
+        if (iq >= 110) return "ZAIDI YA WASTANI";
+        if (iq >= 90)  return "WASTANI";
+        return "UNAHITAJI MAZOEZI";
     }
 
 
