@@ -926,9 +926,11 @@ ListElement { q: "Jina la awali la shule ya Tabora Boys kabla ya kuitwa jina la 
             spacing: 16
 
             Text {
-                text: "MATOKEO YA JARIBIO"
+                text: "MATOKEO"
                 color: "#88ffffff"
+                font.pixelSize: 48 * 3
                 font.bold: true
+                font.underline: true
                 Layout.alignment: Qt.AlignHCenter
             }
 
