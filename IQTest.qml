@@ -968,7 +968,7 @@ ListElement { q: "Jina la awali la shule ya Tabora Boys kabla ya kuitwa jina la 
             Text {
                 text: "Umepata maswali  " + app.noOfPassedQuestion + " kati ya " + app.maxQuestions
                 color: "white"
-                font.pointSize: 13 * 1.8
+                font.pointSize: 16
                 font.bold: true
                 Layout.alignment: Qt.AlignHCenter
             }
@@ -987,6 +987,7 @@ ListElement { q: "Jina la awali la shule ya Tabora Boys kabla ya kuitwa jina la 
                     text: parent.text
                     color: "white"
                     font.bold: true
+font.pointSize: 24
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
                 }
