@@ -393,6 +393,14 @@ ListElement {
 }
 
 ListElement {
+    name_en: "Amani Museum, Zanzibar"; name_sw: "Makumbusho ya Amani, Zanzibar"
+    imageFile: "./amani_museum.jpg"
+    desc_en: "A historic site in Stone Town dedicated to showcasing the peace and heritage of the Zanzibar islands."
+    desc_sw: "Eneo la kihistoria ndani ya Mji Mkongwe linalojitolea kuonyesha amani na urithi wa visiwa vya Zanzibar."
+}
+
+
+ListElement {
             name_en: "Matema Beach, Lake Nyasa"; name_sw: "Ufukwe wa Matema, Ziwa Nyasa"
             imageFile: "./matema.jpeg"
             desc_en: "Relax at Matema Beach in Mbeya, where the clear waters of Lake Nyasa meet the majestic Livingstone Mountains. Perfect for swimming and mountain hiking!"
@@ -430,12 +438,6 @@ ListElement {
             desc_sw: "Maeneo ya kale ya sanaa ya miamba huko Kondoa Irangi, yakitoa ufafanuzi wa historia na utamaduni wa awali wa binadamu nchini Tanzania."
         }
 
-ListElement {
-    name_en: "Amani Museum, Zanzibar"; name_sw: "Makumbusho ya Amani, Zanzibar"
-    imageFile: "./amani_museum.jpg"
-    desc_en: "A historic site in Stone Town dedicated to showcasing the peace and heritage of the Zanzibar islands."
-    desc_sw: "Eneo la kihistoria ndani ya Mji Mkongwe linalojitolea kuonyesha amani na urithi wa visiwa vya Zanzibar."
-}
 
 
         ListElement {
