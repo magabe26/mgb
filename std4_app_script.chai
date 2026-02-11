@@ -3800,7 +3800,7 @@ def onUtaliiAppCommand(cmd, argv, argc) {
    if (cmd.equals("UtaliiApp", false)) {
       // downloadOrOpenUtaliiApp(); //old method	  
          
- onUrlVisited("#openApp;tztourism.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/tztourism/;Tafadhali subiri!;dependencies.txt;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/tztourism/images/;1;1;1;600;"); 
+ onUrlVisited("#openApp;tztourism.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/tztourism/;Tafadhali subiri!;dependencies.txt;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/tztourism/images/;1;1;1;100;"); 
    
    }
 }
