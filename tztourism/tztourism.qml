@@ -361,16 +361,42 @@ ListElement {
             imageFile: "./mahale.jpg"
             desc_en: "Home to chimpanzees on the shores of Lake Tanganyika, offering unique primate tracking experiences."
             desc_sw: "Makao ya sokwe pembezoni mwa Ziwa Tanganyika, inayotoa uzoefu wa kipekee wa kufuatilia nyani."
-        }
+        }      
+
+        
+ListElement {
+    name_en: "Bird Watching, Serengeti"; name_sw: "Kushuhudia Ndege, Serengeti"
+    imageFile: "./serengeti_birds.jpg"
+    desc_en: "Serengeti is home to over 500 bird species, making it a paradise for bird lovers and photographers."
+    desc_sw: "Serengeti ina aina zaidi ya 500 za ndege, na kuifanya kuwa pepo kwa wapenzi wa ndege na wapiga picha."
+}
+
 
         ListElement {
-            name_en: "Arusha National Park"; name_sw: "Hifadhi ya Taifa ya Arusha"
-            imageFile: "./arusha_np.jpg"
-            desc_en: "Offers diverse landscapes including Mount Meru, Momella Lakes, and Ngurdoto Crater."
-            desc_sw: "Inatoa mandhari mbalimbali ikiwa ni pamoja na Mlima Meru, Maziwa ya Momella, na Kreta ya Ngurdoto."
+            name_en: "Pemba Island"; name_sw: "Kisiwa cha Pemba"
+            imageFile: "./Pemba-Island-2.jpg"
+            desc_en: "Part of the Zanzibar Archipelago, known as the 'Green Island' for its lush vegetation, cloves, and diving spots."
+            desc_sw: "Sehemu ya Visiwa vya Zanzibar, inayojulikana kama 'Kisiwa cha Kijani' kwa uoto wake mwingi, karafuu, na maeneo ya kupiga mbizi."
         }
 
-        ListElement {
+ListElement {
+            name_en: "Mafia Island Marine Park, Pwani"
+            name_sw: "Hifadhi ya Bahari ya Mafia, Pwani" 
+            imageFile: "./mafia_marine_park.jpg" 
+            desc_en: "A paradise for divers and snorkelers, famous for its whale shark sightings and pristine coral reefs in the Indian Ocean." 
+            desc_sw: "Pepo kwa wapiga mbizi, inasifika kwa kuonekana kwa papa msumeno (whale sharks) na matumbawe asilia ndani ya Bahari ya Hindi." 
+        }
+        
+        ListElement { 
+            name_en: "Saane Island National Park, Mwanza"
+            name_sw: "Hifadhi ya Taifa ya Kisiwa cha Saane, Mwanza" 
+            imageFile: "./saane_island.jpeg" 
+            desc_en: "The smallest national park in Tanzania, located on a rocky island in Lake Victoria. It's a perfect spot for walking safaris and bird watching near the city." 
+            desc_sw: "Hifadhi ya taifa ndogo kuliko zote Tanzania, inayopatikana kwenye kisiwa cha mawe ndani ya Ziwa Victoria. Ni eneo zuri kwa utalii wa kutembea na kuona ndege karibu na mjini." 
+        }
+
+
+ListElement {
             name_en: "Matema Beach, Lake Nyasa"; name_sw: "Ufukwe wa Matema, Ziwa Nyasa"
             imageFile: "./matema.jpeg"
             desc_en: "Relax at Matema Beach in Mbeya, where the clear waters of Lake Nyasa meet the majestic Livingstone Mountains. Perfect for swimming and mountain hiking!"
@@ -385,18 +411,10 @@ ListElement {
 }
 
 ListElement {
-    name_en: "Bird Watching, Serengeti"; name_sw: "Kushuhudia Ndege, Serengeti"
-    imageFile: "./serengeti_birds.jpg"
-    desc_en: "Serengeti is home to over 500 bird species, making it a paradise for bird lovers and photographers."
-    desc_sw: "Serengeti ina aina zaidi ya 500 za ndege, na kuifanya kuwa pepo kwa wapenzi wa ndege na wapiga picha."
-}
-
-
-        ListElement {
-            name_en: "Pemba Island"; name_sw: "Kisiwa cha Pemba"
-            imageFile: "./Pemba-Island-2.jpg"
-            desc_en: "Part of the Zanzibar Archipelago, known as the 'Green Island' for its lush vegetation, cloves, and diving spots."
-            desc_sw: "Sehemu ya Visiwa vya Zanzibar, inayojulikana kama 'Kisiwa cha Kijani' kwa uoto wake mwingi, karafuu, na maeneo ya kupiga mbizi."
+            name_en: "Arusha National Park"; name_sw: "Hifadhi ya Taifa ya Arusha"
+            imageFile: "./arusha_np.jpg"
+            desc_en: "Offers diverse landscapes including Mount Meru, Momella Lakes, and Ngurdoto Crater."
+            desc_sw: "Inatoa mandhari mbalimbali ikiwa ni pamoja na Mlima Meru, Maziwa ya Momella, na Kreta ya Ngurdoto."
         }
 
         ListElement {
@@ -459,22 +477,7 @@ ListElement {
     desc_sw: "Limejengwa katika eneo lililokuwa soko la watumwa Mji Mkongwe, kanisa hili linasimama kama alama ya mwisho wa utumwa katika Afrika Mashariki."
 }
 
-       ListElement {
-            name_en: "Mafia Island Marine Park, Pwani"
-            name_sw: "Hifadhi ya Bahari ya Mafia, Pwani" 
-            imageFile: "./mafia_marine_park.jpg" 
-            desc_en: "A paradise for divers and snorkelers, famous for its whale shark sightings and pristine coral reefs in the Indian Ocean." 
-            desc_sw: "Pepo kwa wapiga mbizi, inasifika kwa kuonekana kwa papa msumeno (whale sharks) na matumbawe asilia ndani ya Bahari ya Hindi." 
-        }
-        
-        ListElement { 
-            name_en: "Saane Island National Park, Mwanza"
-            name_sw: "Hifadhi ya Taifa ya Kisiwa cha Saane, Mwanza" 
-            imageFile: "./saane_island.jpeg" 
-            desc_en: "The smallest national park in Tanzania, located on a rocky island in Lake Victoria. It's a perfect spot for walking safaris and bird watching near the city." 
-            desc_sw: "Hifadhi ya taifa ndogo kuliko zote Tanzania, inayopatikana kwenye kisiwa cha mawe ndani ya Ziwa Victoria. Ni eneo zuri kwa utalii wa kutembea na kuona ndege karibu na mjini." 
-        }
-
+       
 ListElement {
             name_en: "Mayunga Statue"
             name_sw: "Sanamu ya Mayunga"
