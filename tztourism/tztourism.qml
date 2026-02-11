@@ -136,12 +136,7 @@ function close()
             desc_sw: "Zama kwenye maji ya bluu ya Kizimkazi, Zanzibar. Shuhudia msisimko wa kuogelea na pomboo katika mazingira yao ya asili na utembelee misikiti ya kihistoria."
         }
 
-ListElement {
-    name_en: "Amani Museum, Zanzibar"; name_sw: "Makumbusho ya Amani, Zanzibar"
-    imageFile: "./amani_museum.jpg"
-    desc_en: "A historic site in Stone Town dedicated to showcasing the peace and heritage of the Zanzibar islands."
-    desc_sw: "Eneo la kihistoria ndani ya Mji Mkongwe linalojitolea kuonyesha amani na urithi wa visiwa vya Zanzibar."
-}
+
 
         ListElement {
             name_en: "Lake Victoria"; name_sw: "Ziwa Victoria"
@@ -447,6 +442,14 @@ ListElement {
             desc_en: "Ancient rock art sites in Kondoa Irangi, offering insights into early human history and culture in Tanzania."
             desc_sw: "Maeneo ya kale ya sanaa ya miamba huko Kondoa Irangi, yakitoa ufafanuzi wa historia na utamaduni wa awali wa binadamu nchini Tanzania."
         }
+
+ListElement {
+    name_en: "Amani Museum, Zanzibar"; name_sw: "Makumbusho ya Amani, Zanzibar"
+    imageFile: "./amani_museum.jpg"
+    desc_en: "A historic site in Stone Town dedicated to showcasing the peace and heritage of the Zanzibar islands."
+    desc_sw: "Eneo la kihistoria ndani ya Mji Mkongwe linalojitolea kuonyesha amani na urithi wa visiwa vya Zanzibar."
+}
+
 
         ListElement {
             name_en: "Bagamoyo"; name_sw: "Bagamoyo"
