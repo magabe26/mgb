@@ -728,13 +728,16 @@ ListElement { q: "Jina la awali la shule ya Tabora Boys kabla ya kuitwa jina la 
             console.log("Benki haina maswali ya kutosha! Maswali yameisha.");
 
             // Kama maswali yameisha, rudi kwenye ukurasa mkuu au fanya reload
-            if(typeof n3ctaApp !== "undefined"){
-                n3ctaApp.closeCustomPage();
-                n3ctaApp.onUrlVisited("#IQTest");
-            } else if(typeof loader !== "undefined"){
-                loader.closeCustomPage();
-                loader.onUrlVisited("#IQTest");
-            }
+
+   app.close();
+
+ if(isPrimaryResultsApp()){
+           app.onUrlVisited("#openApp;IQTest.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/;Tafadhali subiri!;dependencies.txt;#;1;1;1;100;");
+            
+	}else if(isSecondaryResultsApp()){
+        app.onUrlVisited("#openApp;IQTest.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/;Tafadhali subiri!;dependencies.txt;#;2;1;1;100;");
+            
+	}
             return;
         }
 
