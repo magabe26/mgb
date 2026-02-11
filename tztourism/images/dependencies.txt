@@ -42,4 +42,11 @@ kalambo.jpeg,
 Materuni.jpg,
 sanje.jpg,
 marangu.jpeg,
-tzflag.gif
+tzflag.gif,
+
+choma_falls.jpg,
+kilwa_mangroves.jpg,
+amani_museum.jpg,
+serengeti_balloon.jpeg,
+serengeti_birds.jpg,
+kilwa_ruins.jpg
