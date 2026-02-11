@@ -420,22 +420,7 @@ ListElement {
             desc_en: "Explore the UNESCO World Heritage site in Dodoma. Marvel at ancient rock paintings in Kondoa that tell stories of thousands of years of human history."
             desc_sw: "Gundua urithi wa dunia wa UNESCO mkoani Dodoma. Shuhudia michoro ya kale ya mapangoni Kondoa inayoelezea maelfu ya miaka ya historia ya mwanadamu."
         }
-
-        ListElement {
-            name_en: "Mayunga Statue"
-            name_sw: "Sanamu ya Mayunga"
-            imageFile: "./mayunga.jpeg"
-            desc_en: "The Mayunga Statue, a memorial to the Tanzania-Uganda War (Kagera War) contributors, located in Uhuru Stadium (formerly Uhuru Stadium, now often called Mayunga Stadium) in the center of Bukoba town."
-            desc_sw: "Sanamu ya Mayunga Kama Kumbukumbu ya Uhuru Iliyopo Katikati ya Mji wa Bukoba Katika Kiwanja cha Uhuru."
-        }
-
-
-ListElement {
-    name_en: "Mangrove Forests, Kilwa"; name_sw: "Misitu ya Mikoko, Kilwa"
-    imageFile: "./kilwa_mangroves.jpg"
-    desc_en: "Explore the dense mangrove ecosystems along the Indian Ocean, crucial for marine life and coastal protection."
-    desc_sw: "Gundua mfumo wa ikolojia wa mikoko kando ya Bahari ya Hindi, ambayo ni muhimu kwa viumbe wa baharini na ulinzi wa pwani."
-}
+     
 
 ListElement {
     name_en: "Amani Museum, Zanzibar"; name_sw: "Makumbusho ya Amani, Zanzibar"
@@ -452,6 +437,35 @@ ListElement {
     desc_sw: "Eneo la Urithi wa Dunia la UNESCO lenye Msikiti Mkuu na Jumba la kifalme la Husuni Kubwa."
 }
 
+
+ListElement {
+    name_en: "Mangrove Forests, Kilwa"; name_sw: "Misitu ya Mikoko, Kilwa"
+    imageFile: "./kilwa_mangroves.jpg"
+    desc_en: "Explore the dense mangrove ecosystems along the Indian Ocean, crucial for marine life and coastal protection."
+    desc_sw: "Gundua mfumo wa ikolojia wa mikoko kando ya Bahari ya Hindi, ambayo ni muhimu kwa viumbe wa baharini na ulinzi wa pwani."
+}
+
+ListElement {
+    name_en: "St. Joseph's Cathedral, Dar es Salaam"; name_sw: "Kanisa la Mtakatifu Yosefu, Dar es Salaam"
+    imageFile: "./st_joseph_cathedral.jpg"
+    desc_en: "A stunning Roman Catholic cathedral built by Germans between 1897 and 1902. It is famous for its Gothic architecture and beautiful stained-glass windows."
+    desc_sw: "Kanisa kuu la Katoliki lililojengwa na Wajerumani kati ya mwaka 1897 na 1902. Ni maarufu kwa usanifu wa kigothiki na madirisha ya vioo vya rangi ya kuvutia."
+}
+
+ListElement {
+    name_en: "Christ Church Anglican Cathedral, Zanzibar"; name_sw: "Kanisa la Anglikana la Christ Church, Zanzibar"
+    imageFile: "./zanzibar_anglican_cathedral.jpg"
+    desc_en: "Built on the site of the former slave market in Stone Town, this cathedral stands as a symbol of the end of slavery in East Africa."
+    desc_sw: "Limejengwa katika eneo lililokuwa soko la watumwa Mji Mkongwe, kanisa hili linasimama kama alama ya mwisho wa utumwa katika Afrika Mashariki."
+}
+
+ListElement {
+            name_en: "Mayunga Statue"
+            name_sw: "Sanamu ya Mayunga"
+            imageFile: "./mayunga.jpeg"
+            desc_en: "The Mayunga Statue, a memorial to the Tanzania-Uganda War (Kagera War) contributors, located in Uhuru Stadium (formerly Uhuru Stadium, now often called Mayunga Stadium) in the center of Bukoba town."
+            desc_sw: "Sanamu ya Mayunga Kama Kumbukumbu ya Uhuru Iliyopo Katikati ya Mji wa Bukoba Katika Kiwanja cha Uhuru."
+        }
 
 
     }
