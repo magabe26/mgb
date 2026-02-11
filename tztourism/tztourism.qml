@@ -13,35 +13,107 @@ Rectangle {
     property int currentAttractionIndex: 0
     property int appMode: 2
 
-    function close()
-    {
-        if(typeof n3ctaApp !== "undefined"){
-            n3ctaApp.closeCustomPage();
-            n3ctaApp.onUrlVisited("#showGoogleAd");
-        }else if(typeof loader !== "undefined"){
-            loader.isMenuWindowVisible = true;
-            loader.isMainResultsWindowVisible = true;
-            loader.isFooterVisible = true;
-            if(typeof loader.mode !== "undefined"){
-                loader.mode = 2;
-            }
-            loader.closeCustomPage();
-            loader.onUrlVisited("#showGoogleAd");
-        }
-    }
+    function cleanParent(text)
+{
+	if (!text) return "";
+	return text.replace(/\s*\(.*?\)\s*/g, "").trim();
+}
 
+function isInsideApp()
+{
+	let type = cleanParent(String(parent.parent.parent.parent));
+	const index = type.indexOf("_");
+	if(index !== -1){
+		return (type.substr(0,index) === "SwipeView");
+	}
+	return false;
+}
 
-    function ad()
-    {
-        if(typeof n3ctaApp !== "undefined"){
-            n3ctaApp.onUrlVisited("#showGoogleAd");
-            n3ctaApp.showToastMessage("Tafadhali subiri.");
-        }else if(typeof loader !== "undefined"){
-            loader.onUrlVisited("#showGoogleAd");
-            loader.showToastMessage("Please wait.");
-        }
-    }
+function isQMLDialogApp()
+{
+	const type = cleanParent(String(parent.parent.parent));
+	return (type === "QQuickRectangle");
+}
 
+function isPrimaryResultsApp()
+{
+	return (typeof n3ctaApp !== "undefined");
+}
+
+function isSecondaryResultsApp()
+{
+	return (typeof loader !== "undefined");
+}
+
+function closeInsideApp()
+{
+	if(isInsideApp()){
+		if(isPrimaryResultsApp()){
+			n3ctaApp.closeCustomPage();
+		}else if(isSecondaryResultsApp()){
+			loader.isMenuWindowVisible = true;
+			loader.isMainResultsWindowVisible = true;
+			loader.isFooterVisible = true;
+			if(typeof loader.mode !== "undefined"){
+				loader.mode = 2;
+			}
+			loader.closeCustomPage();
+		}
+	}
+}
+
+function closeQMLDialogApp()
+{
+	if(isQMLDialogApp()){
+		if(isPrimaryResultsApp()){
+			n3ctaApp.closeQMLDialog();
+		}else if(isSecondaryResultsApp()){
+			nectaMainResultsPageDownloaderHtmlToXmlConveterAndSaver.closeQMLDialog();
+		}
+	}
+}
+
+function onUrlVisited(url)
+{
+	if(isPrimaryResultsApp()) {
+		n3ctaApp.onUrlVisited(url);
+	}else if(isSecondaryResultsApp()){
+		if(isQMLDialogApp()){
+			n3ctaQmlConnectionsPipe.onUrlVisited(url)
+		} else if(isInsideApp()){
+			loader.onUrlVisited(url);
+		}
+	}
+}
+
+function showToastMessage(msg)
+{
+	if(isPrimaryResultsApp()){
+		n3ctaApp.showToastMessage(msg);
+	}else if(isSecondaryResultsApp()){
+		if(isQMLDialogApp()){
+			//does not support
+		} else if(isInsideApp()){
+			loader.showToastMessage(msg);
+		}
+	}
+}
+
+function ad()
+{
+	if(isPrimaryResultsApp()){
+		onUrlVisited("#showGoogleAd");
+	}else if(isSecondaryResultsApp()){
+		onUrlVisited("#showGoogleAd");
+	}
+}
+
+function close()
+{
+	closeInsideApp();
+	closeQMLDialogApp();
+	ad();
+}
 
     ListModel {
         id: attractionModel
