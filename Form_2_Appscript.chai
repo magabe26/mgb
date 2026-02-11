@@ -1936,7 +1936,6 @@ def onIQTestCommand(cmd, argv, argc) {
 	   if(fileExists(path)){
 	      openApp(app);
 	   } 
-   }
 
    }
 }
