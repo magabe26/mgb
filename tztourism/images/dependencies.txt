@@ -49,4 +49,6 @@ kilwa_mangroves.jpg,
 amani_museum.jpg,
 serengeti_balloon.jpeg,
 serengeti_birds.jpg,
-kilwa_ruins.jpg
+kilwa_ruins.jpg,
+
+Pemba-Island-2.jpg
