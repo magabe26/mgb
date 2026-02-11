@@ -327,6 +327,14 @@ function close()
             desc_sw: "Shuhudia uzuri wa maporomoko ya Ndoro na Monjo kule Marangu. Jifunze utamaduni tajiri wa Wachagga na ufurahie utulivu wa hazina hizi zilizojificha."
         }
 
+ListElement {
+    name_en: "Choma Waterfalls, Morogoro"; name_sw: "Maporomoko ya Choma, Morogoro"
+    imageFile: "./choma_falls.jpg"
+    desc_en: "Located in the Uluguru Mountains, these falls offer a refreshing hike and a chance to experience the local Luguru culture."
+    desc_sw: "Yatapatikana katika milima ya Uluguru, maporomoko haya yanatoa fursa ya kupanda milima na kujifunza utamaduni wa Waluguru."
+}
+
+
         ListElement {
             name_en: "Udzungwa Mountains National Park"; name_sw: "Hifadhi ya Taifa ya Milima ya Udzungwa"
             imageFile: "./udzungwa.jpg"
@@ -369,9 +377,24 @@ function close()
             desc_sw: "Pumzika kwenye ufukwe wa Matema, Mbeya, ambapo maji safi ya Ziwa Nyasa hukutana na Milima ya Livingstone. Ni mahali safi kwa kuogelea na kupanda milima!"
         }
 
+ListElement {
+    name_en: "Hot Air Balloon Safari, Serengeti"; name_sw: "Utalii wa Puto, Serengeti"
+    imageFile: "./serengeti_balloon.jpeg"
+    desc_en: "Experience a breathtaking bird's-eye view of the Serengeti plains at sunrise, floating above the Great Migration."
+    desc_sw: "Shuhudia mandhari ya nyanda za Serengeti kutokea juu wakati wa macheo, ukielea juu ya msafara wa nyumbu."
+}
+
+ListElement {
+    name_en: "Bird Watching, Serengeti"; name_sw: "Kushuhudia Ndege, Serengeti"
+    imageFile: "./serengeti_birds.jpg"
+    desc_en: "Serengeti is home to over 500 bird species, making it a paradise for bird lovers and photographers."
+    desc_sw: "Serengeti ina aina zaidi ya 500 za ndege, na kuifanya kuwa pepo kwa wapenzi wa ndege na wapiga picha."
+}
+
+
         ListElement {
             name_en: "Pemba Island"; name_sw: "Kisiwa cha Pemba"
-            imageFile: "./pemba.jpg"
+            imageFile: "./Pemba-Island-2.jpg"
             desc_en: "Part of the Zanzibar Archipelago, known as the 'Green Island' for its lush vegetation, cloves, and diving spots."
             desc_sw: "Sehemu ya Visiwa vya Zanzibar, inayojulikana kama 'Kisiwa cha Kijani' kwa uoto wake mwingi, karafuu, na maeneo ya kupiga mbizi."
         }
@@ -405,6 +428,31 @@ function close()
             desc_en: "The Mayunga Statue, a memorial to the Tanzania-Uganda War (Kagera War) contributors, located in Uhuru Stadium (formerly Uhuru Stadium, now often called Mayunga Stadium) in the center of Bukoba town."
             desc_sw: "Sanamu ya Mayunga Kama Kumbukumbu ya Uhuru Iliyopo Katikati ya Mji wa Bukoba Katika Kiwanja cha Uhuru."
         }
+
+
+ListElement {
+    name_en: "Mangrove Forests, Kilwa"; name_sw: "Misitu ya Mikoko, Kilwa"
+    imageFile: "./kilwa_mangroves.jpg"
+    desc_en: "Explore the dense mangrove ecosystems along the Indian Ocean, crucial for marine life and coastal protection."
+    desc_sw: "Gundua mfumo wa ikolojia wa mikoko kando ya Bahari ya Hindi, ambayo ni muhimu kwa viumbe wa baharini na ulinzi wa pwani."
+}
+
+ListElement {
+    name_en: "Amani Museum, Zanzibar"; name_sw: "Makumbusho ya Amani, Zanzibar"
+    imageFile: "./amani_museum.jpg"
+    desc_en: "A historic site in Stone Town dedicated to showcasing the peace and heritage of the Zanzibar islands."
+    desc_sw: "Eneo la kihistoria ndani ya Mji Mkongwe linalojitolea kuonyesha amani na urithi wa visiwa vya Zanzibar."
+}
+
+
+ListElement {
+    name_en: "Kilwa Kisiwani Ruins, Lindi"; name_sw: "Magofu ya Kilwa Kisiwani, Lindi"
+    imageFile: "./kilwa_ruins.jpg"
+    desc_en: "A UNESCO World Heritage site featuring the Great Mosque and the Palace of Husuni Kubwa."
+    desc_sw: "Eneo la Urithi wa Dunia la UNESCO lenye Msikiti Mkuu na Jumba la kifalme la Husuni Kubwa."
+}
+
+
 
     }
 
