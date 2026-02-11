@@ -2452,11 +2452,13 @@ downloadMissingUtaliiImages();
 }
 
 
-def onUtaliiAppCommand(cmd, argv, argc) {
+ def onUtaliiAppCommand(cmd, argv, argc) {
    if (cmd.equals("UtaliiApp", false)) {
-      downloadOrOpenUtaliiApp();
+        //downloadOrOpenUtaliiApp(); //old method	         onUrlVisited("#openApp;tztourism.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/tztourism/;Please wait!;dependencies.txt;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/tztourism/images/;2;1;1;600;");
    }
 }
+
+
 
 //Left btn
 def setUtaliiBtn(bool b)
