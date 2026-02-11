@@ -110,11 +110,14 @@ function ad()
 
 function close()
 {
-	closeInsideApp();
-	closeQMLDialogApp();
+    if(isPrimaryResultsApp()){
+		    n3ctaApp.closeCustomPage(); //I don't use QML Dialog for primary
+    	}else if(isSecondaryResultsApp()){
+		    closeInsideApp();
+	      closeQMLDialogApp();
+	   }
 	ad();
 }
-
     ListModel {
         id: attractionModel
 
