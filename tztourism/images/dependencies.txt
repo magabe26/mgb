@@ -51,4 +51,7 @@ serengeti_balloon.jpeg,
 serengeti_birds.jpg,
 kilwa_ruins.jpg,
 
-Pemba-Island-2.jpg
+Pemba-Island-2.jpg,
+
+st_joseph_cathedral.jpg,
+zanzibar_anglican_cathedral.jpg
