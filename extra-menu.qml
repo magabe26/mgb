@@ -333,7 +333,8 @@ MouseArea{
             MouseArea{
                 anchors.fill: parent
                 onClicked: {
-                    root.executeCommand("#IQTest;", []);
+                    root.executeCommand("#openApp;IQTest.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/;Please wait!;dependencies.txt;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/fake/;2;1;1;100;
+;", []);
                 }
             }
         }
