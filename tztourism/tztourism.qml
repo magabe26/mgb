@@ -459,16 +459,6 @@ ListElement {
     desc_sw: "Limejengwa katika eneo lililokuwa soko la watumwa Mji Mkongwe, kanisa hili linasimama kama alama ya mwisho wa utumwa katika Afrika Mashariki."
 }
 
-ListElement {
-            name_en: "Mayunga Statue"
-            name_sw: "Sanamu ya Mayunga"
-            imageFile: "./mayunga.jpeg"
-            desc_en: "The Mayunga Statue, a memorial to the Tanzania-Uganda War (Kagera War) contributors, located in Uhuru Stadium (formerly Uhuru Stadium, now often called Mayunga Stadium) in the center of Bukoba town."
-            desc_sw: "Sanamu ya Mayunga Kama Kumbukumbu ya Uhuru Iliyopo Katikati ya Mji wa Bukoba Katika Kiwanja cha Uhuru."
-        }
-
-
-
        ListElement {
             name_en: "Mafia Island Marine Park, Pwani"
             name_sw: "Hifadhi ya Bahari ya Mafia, Pwani" 
@@ -484,6 +474,15 @@ ListElement {
             desc_en: "The smallest national park in Tanzania, located on a rocky island in Lake Victoria. It's a perfect spot for walking safaris and bird watching near the city." 
             desc_sw: "Hifadhi ya taifa ndogo kuliko zote Tanzania, inayopatikana kwenye kisiwa cha mawe ndani ya Ziwa Victoria. Ni eneo zuri kwa utalii wa kutembea na kuona ndege karibu na mjini." 
         }
+
+ListElement {
+            name_en: "Mayunga Statue"
+            name_sw: "Sanamu ya Mayunga"
+            imageFile: "./mayunga.jpeg"
+            desc_en: "The Mayunga Statue, a memorial to the Tanzania-Uganda War (Kagera War) contributors, located in Uhuru Stadium (formerly Uhuru Stadium, now often called Mayunga Stadium) in the center of Bukoba town."
+            desc_sw: "Sanamu ya Mayunga Kama Kumbukumbu ya Uhuru Iliyopo Katikati ya Mji wa Bukoba Katika Kiwanja cha Uhuru."
+        }
+
 
 
 
