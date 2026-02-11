@@ -390,6 +390,12 @@ ListElement {
             desc_sw: "Hifadhi ya taifa ndogo kuliko zote Tanzania, inayopatikana kwenye kisiwa cha mawe ndani ya Ziwa Victoria. Ni eneo zuri kwa utalii wa kutembea na kuona ndege karibu na mjini." 
         }
 
+ListElement {
+    name_en: "Mangrove Forests, Kilwa"; name_sw: "Misitu ya Mikoko, Kilwa"
+    imageFile: "./kilwa_mangroves.jpg"
+    desc_en: "Explore the dense mangrove ecosystems along the Indian Ocean, crucial for marine life and coastal protection."
+    desc_sw: "Gundua mfumo wa ikolojia wa mikoko kando ya Bahari ya Hindi, ambayo ni muhimu kwa viumbe wa baharini na ulinzi wa pwani."
+}
 
 ListElement {
             name_en: "Matema Beach, Lake Nyasa"; name_sw: "Ufukwe wa Matema, Ziwa Nyasa"
@@ -456,13 +462,6 @@ ListElement {
     desc_sw: "Eneo la Urithi wa Dunia la UNESCO lenye Msikiti Mkuu na Jumba la kifalme la Husuni Kubwa."
 }
 
-
-ListElement {
-    name_en: "Mangrove Forests, Kilwa"; name_sw: "Misitu ya Mikoko, Kilwa"
-    imageFile: "./kilwa_mangroves.jpg"
-    desc_en: "Explore the dense mangrove ecosystems along the Indian Ocean, crucial for marine life and coastal protection."
-    desc_sw: "Gundua mfumo wa ikolojia wa mikoko kando ya Bahari ya Hindi, ambayo ni muhimu kwa viumbe wa baharini na ulinzi wa pwani."
-}
 
 ListElement {
     name_en: "St. Joseph's Cathedral, Dar es Salaam"; name_sw: "Kanisa la Mtakatifu Yosefu, Dar es Salaam"
