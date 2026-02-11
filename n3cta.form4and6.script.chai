@@ -2049,7 +2049,7 @@ def onOpenAppCommand(cmd, argv, argc) {
 				  var dependency = list[i];
 				  var path = generateAppRootFilePath(dependency);
 				  if(!fileExists(path)){
-					  downloadProgressDialogUpdateStatusTextAndValue("<font color=\"cyan\">Downloading </font><font color=\"#dadada\">" + dependency + " ...</font><font color=\"green\"> ( " + to_string((i/list.size())*100) + "% )</font>",i);
+					  downloadProgressDialogUpdateStatusTextAndValue("<font color=\"cyan\">Downloading </font><font color=\"#dadada\">" + dependency + " ...</font><font color=\"green\"> ( " + to_string((to_double(i)/list.size())*100) + "% )</font>",i);
 					  var url = dependenciesBasepath.append(dependency);
 					  if (saveFile(url, path)) {
 						  downloadProgressDialogUpdateStatusTextAndValue("<font color=\"cyan\">[ File saved ] </font><font color=\"#dadada\">" + dependency + "</font>",i);
