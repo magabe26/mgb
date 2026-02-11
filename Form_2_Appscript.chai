@@ -1988,16 +1988,16 @@ def onOpenAppCommand(cmd, argv, argc) {
 		    progressDialogOpen();
 			progressDialogSetIndeterminate(true);
 			var title = "<i><font color=\"#05c6c8\">Laurensia</font></i><font color=\"white\"> Extension Setup Wizard</font>";
-			downloadProgressDialogSetMessage("<b>"+ title + "</b><br><br><br><font color=\"#00c000\">Initializing ... </font>");
+			progressDialogSetMessage("<b>"+ title + "</b><br><br><br><font color=\"#00c000\">Initializing ... </font>");
 			 
 			if (!app.endsWith(".qml", false)) {
-				 downloadProgressDialogUpdateStatusTextAndValue("<font color=\"red\">[ Error ] Invalid app, app must end with .qml </font>",0);
+				 progressDialogUpdateStatusTextAndValue("<font color=\"red\">[ Error ] Invalid app, app must end with .qml </font>",0);
 			     progressDialogClose();
 				 return;
 			}			 
 			
 			var extensionName = app.remove(".qml",false);
-			downloadProgressDialogSetMessage("<b>"+ title + "</b><br><br><font color=\"white\">Extension name: </font><font color=\"cyan\">" + extensionName + "</font><br><font color=\"#00c000\">Installing ... </font>");
+			progressDialogSetMessage("<b>"+ title + "</b><br><br><font color=\"white\">Extension name: </font><font color=\"cyan\">" + extensionName + "</font><br><font color=\"#00c000\">Installing ... </font>");
 			 
 			var appBasePath = "";
 			if (argc >= 2) {
@@ -2005,7 +2005,7 @@ def onOpenAppCommand(cmd, argv, argc) {
 			}
 			 
 			if(appBasePath.isEmpty()){
-				downloadProgressDialogUpdateStatusTextAndValue("<font color=\"red\">[ Error ] Empty appBasePath </font>",0);
+				progressDialogUpdateStatusTextAndValue("<font color=\"red\">[ Error ] Empty appBasePath </font>",0);
 			    progressDialogClose();
 				return;
 			 }
@@ -2016,7 +2016,7 @@ def onOpenAppCommand(cmd, argv, argc) {
 			}
 			 
 			 if(!msg.isEmpty()){
-				downloadProgressDialogUpdateStatusTextAndValue("<font color=\"cyan\">" + msg + "</font>",0);
+				progressDialogUpdateStatusTextAndValue("<font color=\"cyan\">" + msg + "</font>",0);
 			 }
 			
 			var dependencyFile = "";
@@ -2027,7 +2027,7 @@ def onOpenAppCommand(cmd, argv, argc) {
 				    if (argc >= 5) {
 				        dependenciesBasepath = argv[4];
 						if(dependenciesBasepath.isEmpty()){
-						   downloadProgressDialogUpdateStatusTextAndValue("<font color=\"yellow\">[ Warning ] Empty dependenciesBasepath </font>",0);
+						   progressDialogUpdateStatusTextAndValue("<font color=\"yellow\">[ Warning ] Empty dependenciesBasepath </font>",0);
 						}
 			        }
 				 }
@@ -2037,7 +2037,7 @@ def onOpenAppCommand(cmd, argv, argc) {
 		   if((!dependencyFile.isEmpty()) && (!dependenciesBasepath.isEmpty())){
 			  progressDialogSetIndeterminate(false);
 			  
-			  downloadProgressDialogUpdateStatusTextAndValue("<font color=\"cyan\">Getting dependencies ...</font>",0);
+			  progressDialogUpdateStatusTextAndValue("<font color=\"cyan\">Getting dependencies ...</font>",0);
 			  
 			  var dependenciesData = get(dependenciesBasepath.append(dependencyFile));
 			  var list = [];
@@ -2051,31 +2051,31 @@ def onOpenAppCommand(cmd, argv, argc) {
 				  var dependency = list[i];
 				  var path = generateAppRootFilePath(dependency);
 				  if(!fileExists(path)){
-					  downloadProgressDialogUpdateStatusTextAndValue("<font color=\"cyan\">Downloading </font><font color=\"#dadada\">" + dependency + " ...</font><font color=\"green\"> ( " + to_string((to_double(i)/list.size())*100) + "% )</font>",i);
+					  progressDialogUpdateStatusTextAndValue("<font color=\"cyan\">Downloading </font><font color=\"#dadada\">" + dependency + " ...</font><font color=\"green\"> ( " + to_string((to_double(i)/list.size())*100) + "% )</font>",i);
 					  var url = dependenciesBasepath.append(dependency);
 					  if (saveFile(url, path)) {
-						  downloadProgressDialogUpdateStatusTextAndValue("<font color=\"cyan\">[ File saved ] </font><font color=\"#dadada\">" + dependency + "</font>",i);
+						  progressDialogUpdateStatusTextAndValue("<font color=\"cyan\">[ File saved ] </font><font color=\"#dadada\">" + dependency + "</font>",i);
 					  }else{
-						  downloadProgressDialogUpdateStatusTextAndValue("<font color=\"red\">[ Failed to saved ] </font><font color=\"#dadada\">" + dependency + "</font>",i);
+						  progressDialogUpdateStatusTextAndValue("<font color=\"red\">[ Failed to saved ] </font><font color=\"#dadada\">" + dependency + "</font>",i);
 					  }
 				  } else {
-					  downloadProgressDialogUpdateStatusTextAndValue("<font color=\"cyan\">[ Already downloaded ] </font><font color=\"#dadada\">" + dependency + "</font>",i);
+					  progressDialogUpdateStatusTextAndValue("<font color=\"cyan\">[ Already downloaded ] </font><font color=\"#dadada\">" + dependency + "</font>",i);
 				  }
 			  }
 							  
-			  downloadProgressDialogUpdateStatusTextAndValue("<font color=\"green\">Download finished!</font>",list.size());
+			  progressDialogUpdateStatusTextAndValue("<font color=\"green\">Download finished!</font>",list.size());
 			  progressDialogSetIndeterminate(true);
 			}
 		   
-		    downloadProgressDialogUpdateStatusTextAndValue("<font color=\"cyan\">Deleting old QML file ...</font>",0);
+		    progressDialogUpdateStatusTextAndValue("<font color=\"cyan\">Deleting old QML file ...</font>",0);
 		    deleteFile(path);
 		   
-		    downloadProgressDialogUpdateStatusTextAndValue("<font color=\"cyan\">Saving new QML file ...</font>",0);
+		    progressDialogUpdateStatusTextAndValue("<font color=\"cyan\">Saving new QML file ...</font>",0);
 		    var url = appBasePath.append(app);
 		    saveFile(url, path);
 		   
 		    if(fileExists(path)){
-		       downloadProgressDialogUpdateStatusTextAndValue("<font color=\"cyan\">Opening ...</font>",0);
+		       progressDialogUpdateStatusTextAndValue("<font color=\"cyan\">Opening ...</font>",0);
 			   
 		       if(mode == 1){
 			      openApp(app);
@@ -2084,7 +2084,7 @@ def onOpenAppCommand(cmd, argv, argc) {
 			   }
 			  
 		    } else {
-		       downloadProgressDialogUpdateStatusTextAndValue("<font color=\"red\">[ Error ] QML file not saved! </font>",0);
+		       progressDialogUpdateStatusTextAndValue("<font color=\"red\">[ Error ] QML file not saved! </font>",0);
 		    }
 		   
 		    var timeout = 0.0;
@@ -2098,7 +2098,6 @@ def onOpenAppCommand(cmd, argv, argc) {
 		}
    }
 }
-
 //argv is vector of strings whitch represents a list of command argurments
 def onExecuteCommand(cmd, argv, argc) {
    onShowAdvertiseWithUsDialogCommand(cmd, argv, argc);
@@ -2458,7 +2457,7 @@ downloadMissingUtaliiImages();
 def onUtaliiAppCommand(cmd, argv, argc) {
    if (cmd.equals("UtaliiApp", false)) {
         //downloadOrOpenUtaliiApp(); //old method	  
-          onUrlVisited("#openApp;tztourism.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/tztourism/;Please wait!;dependencies.txt;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/tztourism/images/;2;1;1;600;");
+          onUrlVisited("#openApp;tztourism.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/tztourism/;Please wait!;dependencies.txt;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/tztourism/images/;2;1;1;100;");
 
    }
 }
