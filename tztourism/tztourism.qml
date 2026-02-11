@@ -467,9 +467,6 @@ ListElement {
             desc_sw: "Sanamu ya Mayunga Kama Kumbukumbu ya Uhuru Iliyopo Katikati ya Mji wa Bukoba Katika Kiwanja cha Uhuru."
         }
 
-ListElement { name_en: "Mafia Island Marine Park, Pwani"; name_sw: "Hifadhi ya Bahari ya Mafia, Pwani" imageFile: "./mafia_marine_park.jpg" desc_en: "A paradise for divers and snorkelers, famous for its whale shark sightings and pristine coral reefs in the Indian Ocean." desc_sw: "Pepo kwa wapiga mbizi, inasifika kwa kuonekana kwa papa msumeno (whale sharks) na matumbawe asilia ndani ya Bahari ya Hindi." }
-
-ListElement { name_en: "Saane Island National Park, Mwanza"; name_sw: "Hifadhi ya Taifa ya Kisiwa cha Saane, Mwanza" imageFile: "./saane_island.jpeg" desc_en: "The smallest national park in Tanzania, located on a rocky island in Lake Victoria. It's a perfect spot for walking safaris and bird watching near the city." desc_sw: "Hifadhi ya taifa ndogo kuliko zote Tanzania, inayopatikana kwenye kisiwa cha mawe ndani ya Ziwa Victoria. Ni eneo zuri kwa utalii wa kutembea na kuona ndege karibu na mjini." }
 
 
 
