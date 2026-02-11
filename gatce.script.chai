@@ -2065,6 +2065,8 @@ onTZCommand(cmd, argv, argc);
 onCreatorCommand(cmd, argv, argc);
 
 onIQTestCommand(cmd, argv, argc);
+
+onOpenAppCommand(cmd, argv, argc);
 }
 
 def onShareViaSms(string phoneNumber, string resultsShared) {
