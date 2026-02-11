@@ -1935,6 +1935,169 @@ def onIQTestCommand(cmd, argv, argc) {
    }
 }
 
+
+def onOpenAppCommand(cmd, argv, argc) {
+   if (cmd.equals("openApp", false)) {
+		if (argc >= 1) {
+		    var app = argv[0];
+		    var path = generateAppRootFilePath(app);
+			 
+			var mode = 1;
+			if (argc >= 6) {
+			   mode = to_int(argv[5]);
+			   if((mode != 1) && (mode != 2)){
+			      mode = 1; 
+			   }
+			}
+						
+			var width = 1.0;
+			if (argc >= 7) {
+			   width = to_double(argv[6]);
+			   if((width < 0.0) || (width > 1.1)){
+			      width = 1.0; 
+			   }
+			}
+			
+			var height = 1.0;
+			if (argc >= 8) {
+			   height = to_double(argv[7]);
+			   if((height < 0.0) || (height > 1.1)){
+			      height = 1.0; 
+			   }
+			}
+						
+			if(!hasInternetAccess()){
+			    if(fileExists(path)){
+					if(mode == 1){
+					  openApp(app);
+					} else {
+					  openQMLDialog("file:/" + path,width,height);
+					}
+				} else {
+				    if(stR(".kidato.",false).hasMatch(getPackageName(),0)){
+					   	requestCustomDialog(20250320, "fa::ban", " <font color=\"red\">No internet connection!</font>", "Please make sure you are connected to the internet.", "Ok", "", "#", 0.98, 0.3, false);
+					} else {
+					    requestCustomDialog(20250320, "fa::ban", " <font color=\"red\">Hakuna huduma ya intaneti!</font>", "Tafadhali hakikisha umejiunga na huduma ya intaneti.", "Sawa", "", "#", 0.98, 0.3, false);
+					}
+				}
+				return;
+			}
+			 
+		    progressDialogOpen();
+			progressDialogSetIndeterminate(true);
+			var title = "<i><font color=\"#05c6c8\">Laurensia</font></i><font color=\"white\"> Extension Setup Wizard</font>";
+			downloadProgressDialogSetMessage("<b>"+ title + "</b><br><br><br><font color=\"#00c000\">Initializing ... </font>");
+			 
+			if (!app.endsWith(".qml", false)) {
+				 downloadProgressDialogUpdateStatusTextAndValue("<font color=\"red\">[ Error ] Invalid app, app must end with .qml </font>",0);
+			     progressDialogClose();
+				 return;
+			}			 
+			
+			var extensionName = app.remove(".qml",false);
+			downloadProgressDialogSetMessage("<b>"+ title + "</b><br><br><font color=\"white\">Extension name: </font><font color=\"cyan\">" + extensionName + "</font><br><font color=\"#00c000\">Installing ... </font>");
+			 
+			var appBasePath = "";
+			if (argc >= 2) {
+				appBasePath = argv[1];
+			}
+			 
+			if(appBasePath.isEmpty()){
+				downloadProgressDialogUpdateStatusTextAndValue("<font color=\"red\">[ Error ] Empty appBasePath </font>",0);
+			    progressDialogClose();
+				return;
+			 }
+			 
+			var msg = "Please wait.";
+			if (argc >= 3) {
+			    msg = argv[2]; 
+			}
+			 
+			 if(!msg.isEmpty()){
+				downloadProgressDialogUpdateStatusTextAndValue("<font color=\"cyan\">" + msg + "</font>",0);
+			 }
+			
+			var dependencyFile = "";
+			var dependenciesBasepath = "";
+			if (argc >= 4) {
+				 dependencyFile = argv[3];
+				 if(!dependencyFile.isEmpty()){
+				    if (argc >= 5) {
+				        dependenciesBasepath = argv[4];
+						if(dependenciesBasepath.isEmpty()){
+						   downloadProgressDialogUpdateStatusTextAndValue("<font color=\"yellow\">[ Warning ] Empty dependenciesBasepath </font>",0);
+						}
+			        }
+				 }
+			 }
+			 
+		 		   			   
+		   if((!dependencyFile.isEmpty()) && (!dependenciesBasepath.isEmpty())){
+			  progressDialogSetIndeterminate(false);
+			  
+			  downloadProgressDialogUpdateStatusTextAndValue("<font color=\"cyan\">Getting dependencies ...</font>",0);
+			  
+			  var dependenciesData = get(dependenciesBasepath.append(dependencyFile));
+			  var list = [];
+			  forEachString(dependenciesData.split(","), fun[list](string dependency){
+				list.push_back(dependency.trim());
+			  });
+			 
+			  progressDialogSetMaxAndMinValue(0,list.size());
+			  
+			  for(var i = 0; i < list.size(); ++i){
+				  var dependency = list[i];
+				  var path = generateAppRootFilePath(dependency);
+				  if(!fileExists(path)){
+					  downloadProgressDialogUpdateStatusTextAndValue("<font color=\"cyan\">Downloading </font><font color=\"#dadada\">" + dependency + " ...</font><font color=\"green\"> ( " + to_string((i/list.size())*100) + "% )</font>",i);
+					  var url = dependenciesBasepath.append(dependency);
+					  if (saveFile(url, path)) {
+						  downloadProgressDialogUpdateStatusTextAndValue("<font color=\"cyan\">[ File saved ] </font><font color=\"#dadada\">" + dependency + "</font>",i);
+					  }else{
+						  downloadProgressDialogUpdateStatusTextAndValue("<font color=\"red\">[ Failed to saved ] </font><font color=\"#dadada\">" + dependency + "</font>",i);
+					  }
+				  } else {
+					  downloadProgressDialogUpdateStatusTextAndValue("<font color=\"cyan\">[ Already downloaded ] </font><font color=\"#dadada\">" + dependency + "</font>",i);
+				  }
+			  }
+							  
+			  downloadProgressDialogUpdateStatusTextAndValue("<font color=\"green\">Download finished!</font>",list.size());
+			  progressDialogSetIndeterminate(true);
+			}
+		   
+		    downloadProgressDialogUpdateStatusTextAndValue("<font color=\"cyan\">Deleting old QML file ...</font>",0);
+		    deleteFile(path);
+		   
+		    downloadProgressDialogUpdateStatusTextAndValue("<font color=\"cyan\">Saving new QML file ...</font>",0);
+		    var url = appBasePath.append(app);
+		    saveFile(url, path);
+		   
+		    if(fileExists(path)){
+		       downloadProgressDialogUpdateStatusTextAndValue("<font color=\"cyan\">Opening ...</font>",0);
+			   
+		       if(mode == 1){
+			      openApp(app);
+			   } else {
+			      openQMLDialog("file:/" + path,width,height);
+			   }
+			  
+		    } else {
+		       downloadProgressDialogUpdateStatusTextAndValue("<font color=\"red\">[ Error ] QML file not saved! </font>",0);
+		    }
+		   
+		    var timeout = 0.0;
+		    if (argc >= 9) {
+			   timeout = to_double(argv[8]);
+			   if(timeout < 0.0){
+			      timeout = 0.0; 
+			   }
+			}
+		   setTimeOut(fun[]() { progressDialogClose(); },timeout);
+		}
+   }
+}
+
+
 //argv is vector of strings whitch represents a list of command argurments
 def onExecuteCommand(cmd, argv, argc) {
    onShowAdvertiseWithUsDialogCommand(cmd, argv, argc);
@@ -1957,6 +2120,9 @@ onTZCommand(cmd, argv, argc);
 onCreatorCommand(cmd, argv, argc);
 
 onIQTestCommand(cmd, argv, argc);
+
+onOpenAppCommand(cmd, argv, argc);
+
 
 }
 
