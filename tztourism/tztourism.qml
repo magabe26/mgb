@@ -664,6 +664,93 @@ ListElement {
 
     }
 
+
+
+Dialog {
+	id: contextMenu
+	property real dialogWidth: app.width * 0.6
+	property string frontPageBtnText
+	property string closeAppBtnText
+	property color frontPageBtnColor: "blue"
+
+	contentItem: Rectangle {
+		color: "#001413"
+		border.color: "cyan"
+		border.width: 1
+		implicitWidth: modeSelectionDialog.dialogWidth
+		implicitHeight: frontPageBtn.height + frontPageBtn.anchors.topMargin + closeAppBtn.height + closeAppBtn.anchors.topMargin + closeAppBtn.anchors.bottomMargin;
+
+		Button {
+			id: frontPageBtn
+			anchors.top: parent.top
+			anchors.topMargin: 8
+			anchors.horizontalCenter: parent.horizontalCenter
+			text: contextMenu.frontPageBtnText
+			font.pointSize: Qt.platform.os === "android" ? 14 : 12
+			background: Rectangle {
+				implicitWidth: contextMenu.dialogWidth * 0.8
+				implicitHeight: 40
+				color: contextMenu.frontPageBtnColor
+				radius: 5
+			}
+
+			contentItem: Text {
+				text: parent.text
+				color: "white"
+				horizontalAlignment: Text.AlignHCenter
+				verticalAlignment: Text.AlignVCenter
+			}
+
+			onClicked: {
+				viewComponentLoader.sourceComponent = languageSelectionComponent;
+				app.selectedLanguage = "";
+				contextMenu.close();
+			}
+
+		}
+
+
+		Button {
+			id: closeAppBtn
+			anchors.top: frontPageBtn.bottom
+			anchors.topMargin: 12
+			anchors.bottomMargin: 18
+			anchors.horizontalCenter: parent.horizontalCenter
+			text: contextMenu.closeAppBtnText
+			font.pointSize: Qt.platform.os === "android" ? 14 : 12
+
+			background: Rectangle {
+				implicitWidth: contextMenu.dialogWidth * 0.8
+				implicitHeight: 40
+				color: "red"
+				radius: 5
+			}
+
+			contentItem: Text {
+				text: parent.text
+				color: "white"
+				horizontalAlignment: Text.AlignHCenter
+				verticalAlignment: Text.AlignVCenter
+			}
+
+			onClicked: {
+				contextMenu.close();
+			}
+		}
+	}
+
+	function doOpen(lag){
+		contextMenu.frontPageBtnColor = lag === "sw" ? "green" : "blue";
+		contextMenu.frontPageBtnText = lag === "sw" ? "Nyuma" : "Back";
+		contextMenu.closeAppBtnText = lag === "sw" ? "Funga" : "Close";
+		open();
+	}
+
+}
+
+
+
+
     Component {
         id: languageSelectionComponent
 
@@ -1058,6 +1145,13 @@ ListElement {
                     width: parent.width
                     height: header.height + flag.height
                     color: "white"
+
+MouseArea {
+                        anchors.fill: parent
+                        onDoubleClicked: {
+                            contextMenu.doOpen(app.selectedLanguage);
+                        }
+                    }
 
                     Component.onCompleted: {
                         header.text =  app.selectedLanguage === "sw" ? "<font color=\"green\">Utalii wa Tanzania</font>" : "<font color=\"blue\">Tanzania Tourism</font>"
