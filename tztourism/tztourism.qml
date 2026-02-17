@@ -1186,6 +1186,14 @@ MouseArea {
                     property string desc: ""
                     property string path: imageFile
 
+
+MouseArea {
+                        anchors.fill: parent
+                        onDoubleClicked: {
+                            contextMenu.doOpen(app.selectedLanguage);
+                        }
+                    }
+
                     Component.onCompleted: {
                         delegate.name = app.selectedLanguage === "en" ? name_en : name_sw;
                         delegate.desc = app.selectedLanguage === "en" ? desc_en : desc_sw;
