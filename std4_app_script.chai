@@ -12,31 +12,52 @@ global AUTO_MENU_UPDATE_ENABLED = true;
 // dd/MM/yyyy
 global DATA_RESET_DATE = "25/01/2026";
 
-def dateToFloat(string dateStr) {
-   var parts = [];
-   var fn = fun[parts](string s) {
-      parts.push_back(s);
-   };
-   forEachString(dateStr.split("/"), fn);
-   
-    if (parts.size() == 3) {
-        var day = parts[0].simplified();   // dd
-        var month = parts[1].simplified(); // MM
-        var year = parts[2].simplified();  // yyyy
-        var combined = year + month + day;
-        return combined.to_float();
-    }
-    return 0.0;
+def dateToList(string dateStr) {
+	var parts = [];
+	var fn = fun[parts](string s) {
+	  parts.push_back(s);
+	};
+	forEachString(dateStr.split("/"), fn);
+
+	if(parts.size() == 3) {
+		var day = to_int(parts[0].simplified());   
+		var month = to_int(parts[1].simplified());
+		var year = to_int(parts[2].simplified()); 
+        return [day,month,year];
+	}else {
+	    return [];
+	}
+}
+
+def getAutoDataResetDate(oldResetDate)
+{
+     var dateAvailable = false;
+	 var today = dateToList(getDate(getTimestamp()).remove("Today,",false));
+	 if(!oldResetDate.isEmpty()){
+		 var reset = dateToList(oldResetDate);
+		 if(!today.empty() && !reset.empty()){
+			if(reset[2] < today[2]){ //years
+			   dateAvailable = true;
+			} else if(reset[2] == today[2]){ //years
+			   if(reset[1] < today[1]){ //months
+				  dateAvailable = true;
+			   }
+			}
+		 }
+	 }
+	return dateAvailable ? ("28/" + to_string(today[1]) + "/" + to_string(today[2])) : oldResetDate;
 }
 
 def doDataReset()
 {
-
-    var config = get("https://raw.githubusercontent.com/magabe26/mgb/master/data-reset.config").trim();
+  var config = get("https://raw.githubusercontent.com/magabe26/mgb/master/data-reset.config").trim();
   if(config.isEmpty()){
      config = getData("DATA_RESET_DATE");
   }
   if(!config.isEmpty()){
+        //Ensure data reset is performed every month
+        config = getAutoDataResetDate(config);
+		
 		var count = 0;
 		var i = config.indexOf("/",0,false);
 		while(i != -1){
@@ -47,25 +68,59 @@ def doDataReset()
 		if(count == 2){
 		   DATA_RESET_DATE = config;
 		   saveOrUpdateData("DATA_RESET_DATE",DATA_RESET_DATE);
-		   log("Updated: DATA_RESET_DATE = " + DATA_RESET_DATE);
+		   log("doDataReset: Updated, DATA_RESET_DATE = " + DATA_RESET_DATE);
 		}
   }
-
 
   var key = "DATA_RESET_DATE__".append(DATA_RESET_DATE.replace("/","_",false));
   var status = getData(key);
   if(!status.isEmpty()){
+     log("doDataReset: Reset already done for date " + DATA_RESET_DATE);
      return;
   }
-  var today = dateToFloat(getDate(getTimestamp()).remove("Today,",false));
-  var reset = dateToFloat(DATA_RESET_DATE);
-  if(today >= reset){
-	 deleteAllPageData();
+  var today = dateToList(getDate(getTimestamp()).remove("Today,",false));
+  var reset = dateToList(DATA_RESET_DATE);
+  
+  if(today.empty() || reset.empty()){
+     log("doDataReset: Error , empty lists.");
+     return;
+  }
+  
+  var shouldReset = false;
+  var todayYear = today[2];
+  var resetYear = reset[2];
+  if(todayYear > resetYear){
+     shouldReset = true;
+  } else if(todayYear < resetYear){
+     shouldReset = false;
+  } else if (todayYear == resetYear){
+     var todayMonth = today[1];
+	 var resetMonth = reset[1];
+	 if(todayMonth > resetMonth){
+	    shouldReset = true;
+	 } else if(todayMonth < resetMonth){
+	    shouldReset = false;
+	 } else if(todayMonth == resetMonth){
+	    var todayDay = today[0];
+	    var resetDay = reset[0];
+		if(todayDay >= resetDay){
+		  shouldReset = true;
+		} else {
+		  shouldReset = false;
+		}
+	 }
+  }
+ 
+  if(shouldReset){
+     deleteAllPageData();
      deleteAllResultsData();
-	 saveOrUpdateData(key,"1");
-	 log("Data reset success!");
-   }  
+     saveOrUpdateData(key,"1");
+	 log("doDataReset: Data reset success!");
+   } else {
+     log("doDataReset: Data reset date not reached yet!");
+   }
 }
+
 
 //-------------------------------------------------
 def yearFromXML(xml)
