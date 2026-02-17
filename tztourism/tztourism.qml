@@ -13,26 +13,12 @@ Rectangle {
     property int currentAttractionIndex: 0
     property int appMode: 2
 
-    function cleanParent(text)
+    
+
+function cleanParent(text)
 {
 	if (!text) return "";
 	return text.replace(/\s*\(.*?\)\s*/g, "").trim();
-}
-
-function isInsideApp()
-{
-	let type = cleanParent(String(parent.parent.parent.parent));
-	const index = type.indexOf("_");
-	if(index !== -1){
-		return (type.substr(0,index) === "SwipeView");
-	}
-	return false;
-}
-
-function isQMLDialogApp()
-{
-	const type = cleanParent(String(parent.parent.parent));
-	return (type === "QQuickRectangle");
 }
 
 function isPrimaryResultsApp()
@@ -45,7 +31,24 @@ function isSecondaryResultsApp()
 	return (typeof loader !== "undefined");
 }
 
-function closeInsideApp()
+function isInsideApp()
+{
+	let type = cleanParent(String(parent.parent.parent.parent));
+	if(isPrimaryResultsApp()){
+		return (type === "QQuickRootItem");
+	} else {
+		const index = type.indexOf("_");
+		return ((index !== -1) && (type.substr(0,index) === "SwipeView"));
+	}
+}
+
+function isQMLDialogApp()
+{
+	const type = cleanParent(String(parent.parent.parent));
+	return (type === "QQuickRectangle");
+}
+
+function closeIfInsideApp()
 {
 	if(isInsideApp()){
 		if(isPrimaryResultsApp()){
@@ -62,7 +65,7 @@ function closeInsideApp()
 	}
 }
 
-function closeQMLDialogApp()
+function closeIfQMLDialogApp()
 {
 	if(isQMLDialogApp()){
 		if(isPrimaryResultsApp()){
@@ -73,7 +76,7 @@ function closeQMLDialogApp()
 	}
 }
 
-function onUrlVisited(url)
+function cmd(url)
 {
 	if(isPrimaryResultsApp()) {
 		n3ctaApp.onUrlVisited(url);
@@ -91,33 +94,27 @@ function showToastMessage(msg)
 	if(isPrimaryResultsApp()){
 		n3ctaApp.showToastMessage(msg);
 	}else if(isSecondaryResultsApp()){
-		if(isQMLDialogApp()){
-			//does not support
-		} else if(isInsideApp()){
-			loader.showToastMessage(msg);
-		}
+		nectaMainResultsPageDownloaderHtmlToXmlConveterAndSaver.showToastMessage(msg);
 	}
 }
 
 function ad()
 {
 	if(isPrimaryResultsApp()){
-		onUrlVisited("#showGoogleAd");
+		cmd("#showGoogleAd");
 	}else if(isSecondaryResultsApp()){
-		onUrlVisited("#showGoogleAd");
+		cmd("#showGoogleAd");
 	}
 }
 
 function close()
 {
-    if(isPrimaryResultsApp()){
-		    n3ctaApp.closeCustomPage(); //I don't use QML Dialog for primary
-    	}else if(isSecondaryResultsApp()){
-		    closeInsideApp();
-	      closeQMLDialogApp();
-	   }
+	closeIfInsideApp();
+	closeIfQMLDialogApp();
 	ad();
 }
+
+
     ListModel {
         id: attractionModel
 
