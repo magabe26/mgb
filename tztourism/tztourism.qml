@@ -284,6 +284,15 @@ function close()
             desc_sw: "Ziwa la chumvi lisilo na kina kirefu, maarufu kama eneo la kuzaliana flamingo wadogo, lenye mandhari ya kuvutia."
         }
 
+ListElement {
+    ment_en: "Kaporogwe Falls, Mbeya"; name_sw: "Maporomoko ya Kaporogwe, Mbeya"
+    imageFile: "./kaporogwe_falls.jpeg"
+    desc_en: "One of Mbeya's most beautiful waterfalls, hidden behind a massive basalt rock curtain with a natural cave behind the falling water."
+    desc_sw: "Moja ya maporomoko mazuri zaidi Mbeya, yakiwa yamefichwa nyuma ya ukuta wa mwamba na pango la asili lililopo ndani ya maji yanayoporomoka."
+}
+
+
+
         ListElement {
             name_en: "Kalambo Falls, Rukwa"; name_sw: "Maporomoko ya Kalambo, Rukwa"
             imageFile: "./kalambo.jpeg"
@@ -450,6 +459,82 @@ ListElement {
     desc_en: "A UNESCO World Heritage site featuring the Great Mosque and the Palace of Husuni Kubwa."
     desc_sw: "Eneo la Urithi wa Dunia la UNESCO lenye Msikiti Mkuu na Jumba la kifalme la Husuni Kubwa."
 }
+
+
+
+
+ListElement {
+    name_en: "Kawetile View Point, Mbeya"; name_sw: "Eneo la Utazamaji la Kawetile, Mbeya"
+    imageFile: "./kawetile_view.jpeg"
+    desc_en: "Perched high in the Southern Highlands, Kawetile offers a breathtaking panoramic view of Mbeya city and the rolling green hills that define the region."
+    desc_sw: "Likiwa juu kabisa katika nyanda za juu kusini, Kawetile inatoa mandhari ya kipekee ya mji wa Mbeya na vilima vya kijani vinavyopamba mkoa huo."
+}
+
+ListElement {
+    name_en: "Kuumbi Cave, Unguja"; name_sw: "Pango la Kuumbi, Unguja"
+    imageFile: "./kuumbi_cave.jpeg"
+    desc_en: "A significant archaeological site in Zanzibar, this ancient limestone cave holds secrets of early human life dating back over 20,000 years."
+    desc_sw: "Eneo muhimu la kiakiolojia nchini Zanzibar, pango hili la kale la chokaa lina siri za maisha ya binadamu wa kale tangu miaka 20,000 iliyopita."
+}
+
+ListElement {
+    name_en: "National Museum, Dar es Salaam"; name_sw: "Makumbusho ya Taifa, Dar es Salaam"
+    imageFile: "./national_museum_dar.jpeg"
+    desc_en: "The heart of Tanzania's heritage, featuring the famous Zinjanthropus skull, traditional crafts, and the history of the struggle for independence."
+    desc_sw: "Kiini cha urithi wa Tanzania, kikiwa na fuvu maarufu la Zinjanthropus, kazi za mikono za asili, na historia ya harakati za uhuru."
+}
+
+ListElement {
+    name_en: "George Lilanga Art, Dar es Salaam"; name_sw: "Sanaa ya George Lilanga, Dar es Salaam"
+    imageFile: "./lilanga_art.jpg"
+    desc_en: "Celebrate the world-renowned 'Shetani' paintings and sculptures of George Lilanga, whose whimsical Makonde style influenced modern global art."
+    desc_sw: "Sherehekea michoro na vinyago vya 'Shetani' vya George Lilanga, ambaye mtindo wake wa Kimakonde uliathiri sanaa ya kisasa duniani."
+}
+
+ListElement {
+    name_en: "Longuza Forest Plantation, Tanga"; name_sw: "Shamba la Miti Longuza, Tanga"
+    imageFile: "./longuza_forest.jpeg"
+    desc_en: "A lush, green escape in Tanga known for its massive teak trees, botanical diversity, and serene environment for nature walks."
+    desc_sw: "Pepo ya kijani mkoani Tanga inayojulikana kwa miti mikubwa ya msaji (Teak), aina nyingi za mimea, na mazingira tulivu kwa matembezi."
+}
+
+ListElement {
+    name_en: "Shamiani Island, Pemba"; name_sw: "Kisiwa cha Shamiani, Pemba"
+    imageFile: "./shamiani_island.jpg"
+    desc_en: "A hidden gem in Pemba, Shamiani is famous for its white sandy beaches and the rare green sea turtles that nest along its shores."
+    desc_sw: "Tunzo iliyofichwa kule Pemba, Shamiani ni maarufu kwa fukwe za mchanga mweupe na kobe wa kijani adimu wanaotaga kando ya pwani yake."
+}
+
+ListElement {
+    name_en: "Lukwika-Lumesule Reserve, Nanyumbu"; name_sw: "Pori la Akiba Lukwika-Lumesule, Nanyumbu"
+    imageFile: "./Lukwika-Lumesule.jpg"
+    desc_en: "A wild frontier in Mtwara featuring Miombo woodlands, the Ruvuma River, and historic caves used by refugees during the Mozambican War. Home to hippos, crocodiles, and antelopes."
+    desc_sw: "Pori la ajabu mkoani Mtwara lenye misitu ya Miombo, Mto Ruvuma, na mapango ya kihistoria yaliyotumiwa na wakimbizi wa Msumbiji. Kuna viboko, mamba, na swala."
+}
+
+
+ListElement {
+    name_en: "Museum of Natural History, Zanzibar"; name_sw: "Makumbusho ya Viumbe, Zanzibar"
+    imageFile: "./zanzibar_nature_museum.jpg"
+    desc_en: "A fascinating collection showcasing the diverse fauna and flora of the Zanzibar Archipelago, from marine life to indigenous bird species."
+    desc_sw: "Mkusanyiko wa kuvutia unaoonyesha wanyama na mimea mbalimbali wa visiwa vya Zanzibar, kuanzia viumbe wa baharini hadi ndege wa asili."
+}
+
+
+ListElement {
+    name_en: "The German Boma, Bagamoyo"; name_sw: "Boma la Mjerumani, Bagamoyo"
+    imageFile: "./bagamoyo_boma.jpg"
+    desc_en: "Built in 1895, this historic administrative building served as the headquarters for German East Africa, overlooking the Indian Ocean."
+    desc_sw: "Lilijengwa mwaka 1895, jengo hili la kihistoria lilikuwa makao makuu ya utawala wa Kijerumani Afrika Mashariki, likitazama Bahari ya Hindi."
+}
+
+ListElement {
+    name_en: "Vikindu Nature Forest Reserve"; name_sw: "Hifadhi ya Mazingira Asilia Vikindu"
+    imageFile: "./vikindu_forest.jpeg"
+    desc_en: "A vital sanctuary for biodiversity, Vikindu protects rare indigenous trees and provides a peaceful habitat for forest-dwelling birds and monkeys."
+    desc_sw: "Hifadhi muhimu kwa viumbe hai, Vikindu inalinda miti ya asili adimu na kutoa makazi tulivu kwa ndege wa msituni na kima."
+}
+
 
 
 ListElement {
