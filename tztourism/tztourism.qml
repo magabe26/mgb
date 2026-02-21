@@ -285,7 +285,7 @@ function close()
         }
 
 ListElement {
-    ment_en: "Kaporogwe Falls, Mbeya"
+    name_en: "Kaporogwe Falls, Mbeya"
     name_sw: "Maporomoko ya Kaporogwe, Mbeya"
     imageFile: "./kaporogwe_falls.jpeg"
     desc_en: "One of Mbeya's most beautiful waterfalls, hidden behind a massive basalt rock curtain with a natural cave behind the falling water."
