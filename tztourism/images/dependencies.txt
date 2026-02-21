@@ -53,4 +53,16 @@ Pemba-Island-2.jpg,
 st_joseph_cathedral.jpg,
 zanzibar_anglican_cathedral.jpg,
 mafia_marine_park.jpg,
-saane_island.jpeg
+saane_island.jpeg,
+
+kawetile_view.jpeg,
+kuumbi_cave.jpeg,
+national_museum_dar.jpeg,
+lilanga_art.jpg,
+longuza_forest.jpeg,
+shamiani_island.jpg,
+Lukwika-Lumesule.jpg,
+zanzibar_nature_museum.jpg,
+kaporogwe_falls.jpeg,
+bagamoyo_boma.jpg,
+vikindu_forest.jpeg
