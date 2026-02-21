@@ -285,7 +285,8 @@ function close()
         }
 
 ListElement {
-    ment_en: "Kaporogwe Falls, Mbeya"; name_sw: "Maporomoko ya Kaporogwe, Mbeya"
+    ment_en: "Kaporogwe Falls, Mbeya"
+    name_sw: "Maporomoko ya Kaporogwe, Mbeya"
     imageFile: "./kaporogwe_falls.jpeg"
     desc_en: "One of Mbeya's most beautiful waterfalls, hidden behind a massive basalt rock curtain with a natural cave behind the falling water."
     desc_sw: "Moja ya maporomoko mazuri zaidi Mbeya, yakiwa yamefichwa nyuma ya ukuta wa mwamba na pango la asili lililopo ndani ya maji yanayoporomoka."
@@ -361,7 +362,8 @@ ListElement {
 
         
 ListElement {
-    name_en: "Bird Watching, Serengeti"; name_sw: "Kushuhudia Ndege, Serengeti"
+    name_en: "Bird Watching, Serengeti"; 
+name_sw: "Kushuhudia Ndege, Serengeti"
     imageFile: "./serengeti_birds.jpg"
     desc_en: "Serengeti is home to over 500 bird species, making it a paradise for bird lovers and photographers."
     desc_sw: "Serengeti ina aina zaidi ya 500 za ndege, na kuifanya kuwa pepo kwa wapenzi wa ndege na wapiga picha."
@@ -369,7 +371,8 @@ ListElement {
 
 
         ListElement {
-            name_en: "Pemba Island"; name_sw: "Kisiwa cha Pemba"
+            name_en: "Pemba Island"; 
+name_sw: "Kisiwa cha Pemba"
             imageFile: "./Pemba-Island-2.jpg"
             desc_en: "Part of the Zanzibar Archipelago, known as the 'Green Island' for its lush vegetation, cloves, and diving spots."
             desc_sw: "Sehemu ya Visiwa vya Zanzibar, inayojulikana kama 'Kisiwa cha Kijani' kwa uoto wake mwingi, karafuu, na maeneo ya kupiga mbizi."
@@ -392,14 +395,16 @@ ListElement {
         }
 
 ListElement {
-    name_en: "Mangrove Forests, Kilwa"; name_sw: "Misitu ya Mikoko, Kilwa"
+    name_en: "Mangrove Forests, Kilwa";
+ name_sw: "Misitu ya Mikoko, Kilwa"
     imageFile: "./kilwa_mangroves.jpg"
     desc_en: "Explore the dense mangrove ecosystems along the Indian Ocean, crucial for marine life and coastal protection."
     desc_sw: "Gundua mfumo wa ikolojia wa mikoko kando ya Bahari ya Hindi, ambayo ni muhimu kwa viumbe wa baharini na ulinzi wa pwani."
 }
 
 ListElement {
-    name_en: "Amani Museum, Zanzibar"; name_sw: "Makumbusho ya Amani, Zanzibar"
+    name_en: "Amani Museum, Zanzibar";
+ name_sw: "Makumbusho ya Amani, Zanzibar"
     imageFile: "./amani_museum.jpg"
     desc_en: "A historic site in Stone Town dedicated to showcasing the peace and heritage of the Zanzibar islands."
     desc_sw: "Eneo la kihistoria ndani ya Mji Mkongwe linalojitolea kuonyesha amani na urithi wa visiwa vya Zanzibar."
@@ -447,7 +452,8 @@ ListElement {
 
 
         ListElement {
-            name_en: "Bagamoyo"; name_sw: "Bagamoyo"
+            name_en: "Bagamoyo"; 
+name_sw: "Bagamoyo"
             imageFile: "./bagamoyo.jpg"
             desc_en: "A historic coastal town with a rich past as a former slave trade port, featuring colonial architecture and cultural sites."
             desc_sw: "Mji wa kihistoria wa pwani wenye historia tajiri kama bandari ya zamani ya biashara ya watumwa, yenye usanifu wa kikoloni na maeneo ya kitamaduni."
@@ -471,7 +477,8 @@ ListElement {
 }
 
 ListElement {
-    name_en: "Kuumbi Cave, Unguja"; name_sw: "Pango la Kuumbi, Unguja"
+    name_en: "Kuumbi Cave, Unguja";
+ name_sw: "Pango la Kuumbi, Unguja"
     imageFile: "./kuumbi_cave.jpeg"
     desc_en: "A significant archaeological site in Zanzibar, this ancient limestone cave holds secrets of early human life dating back over 20,000 years."
     desc_sw: "Eneo muhimu la kiakiolojia nchini Zanzibar, pango hili la kale la chokaa lina siri za maisha ya binadamu wa kale tangu miaka 20,000 iliyopita."
@@ -499,7 +506,8 @@ ListElement {
 }
 
 ListElement {
-    name_en: "Shamiani Island, Pemba"; name_sw: "Kisiwa cha Shamiani, Pemba"
+    name_en: "Shamiani Island, Pemba";
+ name_sw: "Kisiwa cha Shamiani, Pemba"
     imageFile: "./shamiani_island.jpg"
     desc_en: "A hidden gem in Pemba, Shamiani is famous for its white sandy beaches and the rare green sea turtles that nest along its shores."
     desc_sw: "Tunzo iliyofichwa kule Pemba, Shamiani ni maarufu kwa fukwe za mchanga mweupe na kobe wa kijani adimu wanaotaga kando ya pwani yake."
@@ -522,7 +530,8 @@ ListElement {
 
 
 ListElement {
-    name_en: "The German Boma, Bagamoyo"; name_sw: "Boma la Mjerumani, Bagamoyo"
+    name_en: "The German Boma, Bagamoyo"; 
+name_sw: "Boma la Mjerumani, Bagamoyo"
     imageFile: "./bagamoyo_boma.jpg"
     desc_en: "Built in 1895, this historic administrative building served as the headquarters for German East Africa, overlooking the Indian Ocean."
     desc_sw: "Lilijengwa mwaka 1895, jengo hili la kihistoria lilikuwa makao makuu ya utawala wa Kijerumani Afrika Mashariki, likitazama Bahari ya Hindi."
@@ -538,14 +547,16 @@ ListElement {
 
 
 ListElement {
-    name_en: "St. Joseph's Cathedral, Dar es Salaam"; name_sw: "Kanisa la Mtakatifu Yosefu, Dar es Salaam"
+    name_en: "St. Joseph's Cathedral, Dar es Salaam";
+ name_sw: "Kanisa la Mtakatifu Yosefu, Dar es Salaam"
     imageFile: "./st_joseph_cathedral.jpg"
     desc_en: "A stunning Roman Catholic cathedral built by Germans between 1897 and 1902. It is famous for its Gothic architecture and beautiful stained-glass windows."
     desc_sw: "Kanisa kuu la Katoliki lililojengwa na Wajerumani kati ya mwaka 1897 na 1902. Ni maarufu kwa usanifu wa kigothiki na madirisha ya vioo vya rangi ya kuvutia."
 }
 
 ListElement {
-    name_en: "Christ Church Anglican Cathedral, Zanzibar"; name_sw: "Kanisa la Anglikana la Christ Church, Zanzibar"
+    name_en: "Christ Church Anglican Cathedral, Zanzibar";
+ name_sw: "Kanisa la Anglikana la Christ Church, Zanzibar"
     imageFile: "./zanzibar_anglican_cathedral.jpg"
     desc_en: "Built on the site of the former slave market in Stone Town, this cathedral stands as a symbol of the end of slavery in East Africa."
     desc_sw: "Limejengwa katika eneo lililokuwa soko la watumwa Mji Mkongwe, kanisa hili linasimama kama alama ya mwisho wa utumwa katika Afrika Mashariki."
