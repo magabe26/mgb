@@ -65,4 +65,7 @@ Lukwika-Lumesule.jpg,
 zanzibar_nature_museum.jpg,
 kaporogwe_falls.jpeg,
 bagamoyo_boma.jpg,
-vikindu_forest.jpeg
+vikindu_forest.jpeg,
+
+zanzibar_kanga.jpg,
+iringa_fashion_crafts.jpeg
