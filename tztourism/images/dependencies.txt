@@ -37,6 +37,9 @@ rubya.jpeg,
 kizimkazi-d.jpeg,
 livingstones-tabora.jpg,
 nyerere.jpeg,
+
+dagaa_wa_tanzania.jpeg,
+fishing_tanzania.png
 kondoa.jpg,
 kalambo.jpeg,
 Materuni.jpg,
