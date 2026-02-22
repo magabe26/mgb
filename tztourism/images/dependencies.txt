@@ -39,12 +39,14 @@ livingstones-tabora.jpg,
 nyerere.jpeg,
 
 dagaa_wa_tanzania.jpeg,
-fishing_tanzania.png
+fishing_tanzania.png,
+
 kondoa.jpg,
 kalambo.jpeg,
 Materuni.jpg,
 sanje.jpg,
 marangu.jpeg,
+
 tzflag.gif,
 choma_falls.jpg,
 kilwa_mangroves.jpg,
