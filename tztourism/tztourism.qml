@@ -972,6 +972,7 @@ Dialog {
                     }
 
                     contentItem: Text {
+font.pointSize: Qt.platform.os === "android" ? 13 : 11
                         text: parent.text
                         color: "white"
                         horizontalAlignment: Text.AlignHCenter
@@ -999,6 +1000,7 @@ Dialog {
                     }
 
                     contentItem: Text {
+font.pointSize: Qt.platform.os === "android" ? 13 : 11
                         text: parent.text
                         color: "white"
                         horizontalAlignment: Text.AlignHCenter
@@ -1072,6 +1074,7 @@ Button {
                     }
 
                     contentItem: Text {
+font.pointSize: Qt.platform.os === "android" ? 13 : 11
                         text: parent.text
                         color: "white"
                         horizontalAlignment: Text.AlignHCenter
