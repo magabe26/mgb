@@ -553,6 +553,22 @@ ListElement {
         }
 
 ListElement {
+    name_en: "Deep Sea Fishing, Zanzibar & Mafia"; name_sw: "Utalii wa Kuvua Samaki, Zanzibar na Mafia"
+    imageFile: "./fishing_tanzania.png"
+    desc_en: "Experience the thrill of big-game fishing in the turquoise waters of the Indian Ocean. Catch giant Marlin, Tuna, and Kingfish while enjoying the vibrant coastal culture and warm Tanzanian hospitality."
+    desc_sw: "Jionee msisimko wa kuvua samaki wakubwa katika maji ya rangi ya kimalavidavi ya Bahari ya Hindi. Nasa samaki kama Sululu (Marlin), Jodari, na Nguru huku ukifurahia utamaduni wa pwani na ukarimu wa Kitanzania."
+}
+
+
+ListElement {
+    name_en: "The Taste of Tanzania: Dagaa"; name_sw: "Ladha ya Nyumbani: Dagaa"
+    imageFile: "./dagaa_wa_tanzania.jpeg"
+    desc_en: "A beloved Tanzanian delicacy! Whether from Lake Victoria or the Indian Ocean, these small, nutrient-rich fish are often sautéed with onions, tomatoes, and spices, served best with hot Ugali and traditional greens."
+    desc_sw: "Mlo pendwa wa Kitanzania! Iwe ni dagaa wa Ziwa Victoria au wa Bahari ya Hindi, samaki hawa wadogo wenye virutubisho vingi hupikwa kwa nyanya na viungo, na huliwa vyema zaidi na Ugali wa moto na mboga za majani."
+}
+
+
+ListElement {
     name_en: "Hot Air Balloon Safari, Serengeti"; name_sw: "Utalii wa Puto, Serengeti"
     imageFile: "./serengeti_balloon.jpeg"
     desc_en: "Experience a breathtaking bird's-eye view of the Serengeti plains at sunrise, floating above the Great Migration."
