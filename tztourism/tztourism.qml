@@ -433,30 +433,7 @@ ListElement {
             desc_en: "A shallow, alkaline lake famous as a breeding ground for lesser flamingos, with dramatic landscapes."
             desc_sw: "Ziwa la chumvi lisilo na kina kirefu, maarufu kama eneo la kuzaliana flamingo wadogo, lenye mandhari ya kuvutia."
         }
-
-
-ListElement {
-            name_en: "Matema Beach, Lake Nyasa"; name_sw: "Ufukwe wa Matema, Ziwa Nyasa"
-            imageFile: "./matema.jpeg"
-            desc_en: "Relax at Matema Beach in Mbeya, where the clear waters of Lake Nyasa meet the majestic Livingstone Mountains. Perfect for swimming and mountain hiking!"
-            desc_sw: "Pumzika kwenye ufukwe wa Matema, Mbeya, ambapo maji safi ya Ziwa Nyasa hukutana na Milima ya Livingstone. Ni mahali safi kwa kuogelea na kupanda milima!"
-        }
-
-ListElement {
-    name_en: "Hot Air Balloon Safari, Serengeti"; name_sw: "Utalii wa Puto, Serengeti"
-    imageFile: "./serengeti_balloon.jpeg"
-    desc_en: "Experience a breathtaking bird's-eye view of the Serengeti plains at sunrise, floating above the Great Migration."
-    desc_sw: "Shuhudia mandhari ya nyanda za Serengeti kutokea juu wakati wa macheo, ukielea juu ya msafara wa nyumbu."
-}
-
-ListElement {
-            name_en: "Arusha National Park"; name_sw: "Hifadhi ya Taifa ya Arusha"
-            imageFile: "./arusha_np.jpg"
-            desc_en: "Offers diverse landscapes including Mount Meru, Momella Lakes, and Ngurdoto Crater."
-            desc_sw: "Inatoa mandhari mbalimbali ikiwa ni pamoja na Mlima Meru, Maziwa ya Momella, na Kreta ya Ngurdoto."
-        }
-
-              
+             
 
         ListElement {
             name_en: "Bagamoyo"; 
@@ -513,14 +490,6 @@ ListElement {
 
 
 ListElement {
-    name_en: "Lukwika-Lumesule Reserve, Nanyumbu"; name_sw: "Pori la Akiba Lukwika-Lumesule, Nanyumbu"
-    imageFile: "./Lukwika-Lumesule.jpg"
-    desc_en: "A wild frontier in Mtwara featuring Miombo woodlands, the Ruvuma River, and historic caves used by refugees during the Mozambican War. Home to hippos, crocodiles, and antelopes."
-    desc_sw: "Pori la ajabu mkoani Mtwara lenye misitu ya Miombo, Mto Ruvuma, na mapango ya kihistoria yaliyotumiwa na wakimbizi wa Msumbiji. Kuna viboko, mamba, na swala."
-}
-
-
-ListElement {
     name_en: "Museum of Natural History, Zanzibar"; name_sw: "Makumbusho ya Viumbe, Zanzibar"
     imageFile: "./zanzibar_nature_museum.jpg"
     desc_en: "A fascinating collection showcasing the diverse fauna and flora of the Zanzibar Archipelago, from marine life to indigenous bird species."
@@ -544,6 +513,23 @@ ListElement {
 }
 
 ListElement {
+            name_en: "Arusha National Park"; name_sw: "Hifadhi ya Taifa ya Arusha"
+            imageFile: "./arusha_np.jpg"
+            desc_en: "Offers diverse landscapes including Mount Meru, Momella Lakes, and Ngurdoto Crater."
+            desc_sw: "Inatoa mandhari mbalimbali ikiwa ni pamoja na Mlima Meru, Maziwa ya Momella, na Kreta ya Ngurdoto."
+        }
+
+
+
+ListElement {
+    name_en: "Lukwika-Lumesule Reserve, Nanyumbu"; name_sw: "Pori la Akiba Lukwika-Lumesule, Nanyumbu"
+    imageFile: "./Lukwika-Lumesule.jpg"
+    desc_en: "A wild frontier in Mtwara featuring Miombo woodlands, the Ruvuma River, and historic caves used by refugees during the Mozambican War. Home to hippos, crocodiles, and antelopes."
+    desc_sw: "Pori la ajabu mkoani Mtwara lenye misitu ya Miombo, Mto Ruvuma, na mapango ya kihistoria yaliyotumiwa na wakimbizi wa Msumbiji. Kuna viboko, mamba, na swala."
+}
+
+
+ListElement {
     name_en: "The Culture of Kanga, Zanzibar"; name_sw: "Utamaduni wa Kanga, Zanzibar"
     imageFile: "./zanzibar_kanga.jpg"
     desc_en: "More than just a garment, the Kanga is a symbol of Swahili identity. In Zanzibar, these colorful fabrics are famous for their 'Majina' (proverbs) printed at the bottom, used to communicate subtle messages within the community."
@@ -555,6 +541,20 @@ ListElement {
     imageFile: "./iringa_fashion_crafts.jpeg"
     desc_en: "Iringa has become a hub for creative fusion, where artisans blend traditional Maasai 'Shukas' and Kanga fabrics to sew modern outfits and stylish handbags. This craftsmanship preserves heritage while empowering local women."
     desc_sw: "Mkoa wa Iringa umekuwa kitovu cha ubunifu, ambapo mafundi huunganisha Mashuka ya Kimasai na vitambaa vya Kanga kushona mavazi ya kisasa na mikoba ya kijanja. Ufundi huu unalinda urithi wetu na kuziinua akina mama."
+}
+
+ListElement {
+            name_en: "Matema Beach, Lake Nyasa"; name_sw: "Ufukwe wa Matema, Ziwa Nyasa"
+            imageFile: "./matema.jpeg"
+            desc_en: "Relax at Matema Beach in Mbeya, where the clear waters of Lake Nyasa meet the majestic Livingstone Mountains. Perfect for swimming and mountain hiking!"
+            desc_sw: "Pumzika kwenye ufukwe wa Matema, Mbeya, ambapo maji safi ya Ziwa Nyasa hukutana na Milima ya Livingstone. Ni mahali safi kwa kuogelea na kupanda milima!"
+        }
+
+ListElement {
+    name_en: "Hot Air Balloon Safari, Serengeti"; name_sw: "Utalii wa Puto, Serengeti"
+    imageFile: "./serengeti_balloon.jpeg"
+    desc_en: "Experience a breathtaking bird's-eye view of the Serengeti plains at sunrise, floating above the Great Migration."
+    desc_sw: "Shuhudia mandhari ya nyanda za Serengeti kutokea juu wakati wa macheo, ukielea juu ya msafara wa nyumbu."
 }
 
 
