@@ -1021,10 +1021,10 @@ Dialog {
                 
 
                 Text {
-                    text: "Tanzania imebarikiwa kuwa na vivutio vingi vya utalii ambavyo ni vigumu kuvitaja vyote hapa. Ili kuvifahamu na kuvishuhudia kwa undani zaidi, tunakushauri kufuatilia Tanzania Safari Channel inayopatikana kupitia DSTV namba 291, Azam TV namba 120, StarTimes namba 461, na Zuku TV namba 024. Huu ni mlango wako wa kidijitali wa kutembelea mbuga za wanyama, fukwe, na urithi wa kitamaduni wa nchi yetu ukiwa nyumbani kwako.
+                    text: "Tanzania imebarikiwa kuwa na vivutio vingi vya utalii ambavyo ni vigumu kuvitaja vyote hapa. Ili kuvifahamu na kuvishuhudia kwa undani zaidi, tunakushauri kufuatilia Tanzania Safari Channel inayopatikana kupitia DSTV namba 292, Azam TV namba 120, StarTimes namba 461, na Zuku TV namba 024. Huu ni mlango wako wa kidijitali wa kutembelea mbuga za wanyama, fukwe, na urithi wa kitamaduni wa nchi yetu ukiwa nyumbani kwako.
 <br><br><br> 
 (<font color=\"#dadada\">
-Tanzania is home to an overwhelming number of tourist attractions that cannot be fully listed here. For a more immersive experience and to explore these wonders in detail, we highly recommend watching the Tanzania Safari Channel, available on DSTV channel 291, Azam TV channel 120, StarTimes channel 461, and Zuku TV channel 024. It is your ultimate window to the country's breathtaking landscapes, wildlife, and rich cultural heritage.
+Tanzania is home to an overwhelming number of tourist attractions that cannot be fully listed here. For a more immersive experience and to explore these wonders in detail, we highly recommend watching the Tanzania Safari Channel, available on DSTV channel 292, Azam TV channel 120, StarTimes channel 461, and Zuku TV channel 024. It is your ultimate window to the country's breathtaking landscapes, wildlife, and rich cultural heritage.
 </font>)
 <br><br>
 
