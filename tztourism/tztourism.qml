@@ -426,6 +426,13 @@ ListElement {
     desc_sw: "Kiini cha urithi wa Tanzania, kikiwa na fuvu maarufu la Zinjanthropus, kazi za mikono za asili, na historia ya harakati za uhuru."
 }
 
+ListElement {
+    name_en: "Museum of Natural History, Zanzibar"; name_sw: "Makumbusho ya Viumbe, Zanzibar"
+    imageFile: "./zanzibar_nature_museum.jpg"
+    desc_en: "A fascinating collection showcasing the diverse fauna and flora of the Zanzibar Archipelago, from marine life to indigenous bird species."
+    desc_sw: "Mkusanyiko wa kuvutia unaoonyesha wanyama na mimea mbalimbali wa visiwa vya Zanzibar, kuanzia viumbe wa baharini hadi ndege wa asili."
+}
+
 
 
 ListElement {
@@ -484,13 +491,6 @@ ListElement {
             desc_sw: "Maeneo ya kale ya sanaa ya miamba huko Kondoa Irangi, yakitoa ufafanuzi wa historia na utamaduni wa awali wa binadamu nchini Tanzania."
         }
 
-
-ListElement {
-    name_en: "Museum of Natural History, Zanzibar"; name_sw: "Makumbusho ya Viumbe, Zanzibar"
-    imageFile: "./zanzibar_nature_museum.jpg"
-    desc_en: "A fascinating collection showcasing the diverse fauna and flora of the Zanzibar Archipelago, from marine life to indigenous bird species."
-    desc_sw: "Mkusanyiko wa kuvutia unaoonyesha wanyama na mimea mbalimbali wa visiwa vya Zanzibar, kuanzia viumbe wa baharini hadi ndege wa asili."
-}
 
 
 ListElement {
