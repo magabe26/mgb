@@ -1018,30 +1018,7 @@ Dialog {
                     color: "#dadada"
                 }
 
-                Button {
-                    text: "Funga (Close)"
-                    font.pointSize: Qt.platform.os === "android" ? 12 : 10
-                    Layout.preferredWidth: app.width * 0.4
-                    Layout.preferredHeight: 60
-                    Layout.alignment: Qt.AlignHCenter
-
-                    background: Rectangle {
-
-                        implicitHeight: 40
-                        color: "red"
-                        radius: 5
-                    }
-
-                    contentItem: Text {
-                        text: parent.text
-                        color: "white"
-                        horizontalAlignment: Text.AlignHCenter
-                        verticalAlignment: Text.AlignVCenter
-                    }
-                    onClicked: {
-                        app.close();
-                    }
-                }
+                
 
                 Text {
                     text: "Tanzania imebarikiwa kuwa na vivutio vingi vya utalii ambavyo ni vigumu kuvitaja vyote hapa. Ili kuvifahamu na kuvishuhudia kwa undani zaidi, tunakushauri kufuatilia Tanzania Safari Channel inayopatikana kupitia DSTV namba 291, Azam TV namba 120, StarTimes namba 461, na Zuku TV namba 024. Huu ni mlango wako wa kidijitali wa kutembelea mbuga za wanyama, fukwe, na urithi wa kitamaduni wa nchi yetu ukiwa nyumbani kwako.
@@ -1077,6 +1054,35 @@ return;
                     }
 
                 }
+
+
+
+Button {
+                    text: "Funga (Close)"
+                    font.pointSize: Qt.platform.os === "android" ? 12 : 10
+                    Layout.preferredWidth: app.width * 0.4
+                    Layout.preferredHeight: 60
+                    Layout.alignment: Qt.AlignHCenter
+
+                    background: Rectangle {
+
+                        implicitHeight: 40
+                        color: "red"
+                        radius: 5
+                    }
+
+                    contentItem: Text {
+                        text: parent.text
+                        color: "white"
+                        horizontalAlignment: Text.AlignHCenter
+                        verticalAlignment: Text.AlignVCenter
+                    }
+                    onClicked: {
+                        app.close();
+                    }
+                }
+
+
 
 
             }
