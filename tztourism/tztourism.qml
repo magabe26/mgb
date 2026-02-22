@@ -1089,6 +1089,13 @@ Rectangle {
                     color: "#dadada"
                 }
 
+Rectangle {
+                    width: app.width
+                    height: 1
+                    color: "#dadada"
+                }
+
+
 
 
             }
