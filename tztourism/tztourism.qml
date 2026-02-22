@@ -1049,8 +1049,10 @@ Dialog {
 (<font color=\"#dadada\">
 Tanzania is home to an overwhelming number of tourist attractions that cannot be fully listed here. For a more immersive experience and to explore these wonders in detail, we highly recommend watching the Tanzania Safari Channel, available on DSTV channel 291, Azam TV channel 120, StarTimes channel 461, and Zuku TV channel 024. It is your ultimate window to the country's breathtaking landscapes, wildlife, and rich cultural heritage.
 </font>)
+<br><br><br> 
+
  "
-                    font.pointSize: Qt.platform.os === "android" ? 12 : 10
+                    font.pointSize: Qt.platform.os === "android" ? 13 : 11
                     font.bold: true
                     Layout.fillWidth: true
                     Layout.fillHeight: true
