@@ -918,7 +918,7 @@ Dialog {
                 Text {
                     text: "Kusafiri ni elimu. Tembelea hifadhi za Tanzania, jifunze thamani ya mazingira ya Tanzania, na uwe balozi wa uzuri wa Tanzania.<br><br>(<font color=\"#dadada\"> Travel is a form of learning. Explore Tanzania's national parks, discover the value of our environment, and become an ambassador for the beauty of Tanzania. </font>)"
 
-                    font.pointSize: Qt.platform.os === "android" ? 12 : 10
+                    font.pointSize: Qt.platform.os === "android" ? 13 : 11
                     font.bold: true
                     Layout.fillWidth: true
                     Layout.fillHeight: true
