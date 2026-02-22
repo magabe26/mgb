@@ -277,13 +277,7 @@ function close()
             desc_sw: "Hifadhi ya nusu-jangwa inayopakana na Tsavo nchini Kenya, muhimu kwa uhifadhi wa faru weusi na mbwa mwitu, ikitoa uzoefu mgumu wa safari."
         }
 
-        ListElement {
-            name_en: "Lake Natron"; name_sw: "Ziwa Natron"
-            imageFile: "./natron.jpg"
-            desc_en: "A shallow, alkaline lake famous as a breeding ground for lesser flamingos, with dramatic landscapes."
-            desc_sw: "Ziwa la chumvi lisilo na kina kirefu, maarufu kama eneo la kuzaliana flamingo wadogo, lenye mandhari ya kuvutia."
-        }
-
+        
 ListElement {
     name_en: "Kaporogwe Falls, Mbeya"
     name_sw: "Maporomoko ya Kaporogwe, Mbeya"
@@ -403,12 +397,42 @@ ListElement {
 }
 
 ListElement {
+    name_en: "Longuza Forest Plantation, Tanga"; name_sw: "Shamba la Miti Longuza, Tanga"
+    imageFile: "./longuza_forest.jpeg"
+    desc_en: "A lush, green escape in Tanga known for its massive teak trees, botanical diversity, and serene environment for nature walks."
+    desc_sw: "Pepo ya kijani mkoani Tanga inayojulikana kwa miti mikubwa ya msaji (Teak), aina nyingi za mimea, na mazingira tulivu kwa matembezi."
+}
+
+ListElement {
+    name_en: "Shamiani Island, Pemba";
+ name_sw: "Kisiwa cha Shamiani, Pemba"
+    imageFile: "./shamiani_island.jpg"
+    desc_en: "A hidden gem in Pemba, Shamiani is famous for its white sandy beaches and the rare green sea turtles that nest along its shores."
+    desc_sw: "Tunzo iliyofichwa kule Pemba, Shamiani ni maarufu kwa fukwe za mchanga mweupe na kobe wa kijani adimu wanaotaga kando ya pwani yake."
+}
+
+ListElement {
     name_en: "Amani Museum, Zanzibar";
  name_sw: "Makumbusho ya Amani, Zanzibar"
     imageFile: "./amani_museum.jpg"
     desc_en: "A historic site in Stone Town dedicated to showcasing the peace and heritage of the Zanzibar islands."
     desc_sw: "Eneo la kihistoria ndani ya Mji Mkongwe linalojitolea kuonyesha amani na urithi wa visiwa vya Zanzibar."
 }
+
+ListElement {
+    name_en: "Kawetile View Point, Mbeya"; name_sw: "Eneo la Utazamaji la Kawetile, Mbeya"
+    imageFile: "./kawetile_view.jpeg"
+    desc_en: "Perched high in the Southern Highlands, Kawetile offers a breathtaking panoramic view of Mbeya city and the rolling green hills that define the region."
+    desc_sw: "Likiwa juu kabisa katika nyanda za juu kusini, Kawetile inatoa mandhari ya kipekee ya mji wa Mbeya na vilima vya kijani vinavyopamba mkoa huo."
+}
+
+
+ListElement {
+            name_en: "Lake Natron"; name_sw: "Ziwa Natron"
+            imageFile: "./natron.jpg"
+            desc_en: "A shallow, alkaline lake famous as a breeding ground for lesser flamingos, with dramatic landscapes."
+            desc_sw: "Ziwa la chumvi lisilo na kina kirefu, maarufu kama eneo la kuzaliana flamingo wadogo, lenye mandhari ya kuvutia."
+        }
 
 
 ListElement {
@@ -432,24 +456,7 @@ ListElement {
             desc_sw: "Inatoa mandhari mbalimbali ikiwa ni pamoja na Mlima Meru, Maziwa ya Momella, na Kreta ya Ngurdoto."
         }
 
-        
-
-        ListElement {
-            name_en: "Kondoa Rock Art Sites"; name_sw: "Michoro ya Mapangoni, Kondoa"
-            imageFile: "./kondoa.jpg"
-            desc_en: "Explore the UNESCO World Heritage site in Dodoma. Marvel at ancient rock paintings in Kondoa that tell stories of thousands of years of human history."
-            desc_sw: "Gundua urithi wa dunia wa UNESCO mkoani Dodoma. Shuhudia michoro ya kale ya mapangoni Kondoa inayoelezea maelfu ya miaka ya historia ya mwanadamu."
-        }
-
-
-     ListElement {
-            name_en: "Kolo Rock Paintings"; name_sw: "Michoro ya Miamba ya Kolo"
-            imageFile: "./kolo_rock_paintings.jpg"
-            desc_en: "Ancient rock art sites in Kondoa Irangi, offering insights into early human history and culture in Tanzania."
-            desc_sw: "Maeneo ya kale ya sanaa ya miamba huko Kondoa Irangi, yakitoa ufafanuzi wa historia na utamaduni wa awali wa binadamu nchini Tanzania."
-        }
-
-
+              
 
         ListElement {
             name_en: "Bagamoyo"; 
@@ -466,15 +473,6 @@ ListElement {
     desc_sw: "Eneo la Urithi wa Dunia la UNESCO lenye Msikiti Mkuu na Jumba la kifalme la Husuni Kubwa."
 }
 
-
-
-
-ListElement {
-    name_en: "Kawetile View Point, Mbeya"; name_sw: "Eneo la Utazamaji la Kawetile, Mbeya"
-    imageFile: "./kawetile_view.jpeg"
-    desc_en: "Perched high in the Southern Highlands, Kawetile offers a breathtaking panoramic view of Mbeya city and the rolling green hills that define the region."
-    desc_sw: "Likiwa juu kabisa katika nyanda za juu kusini, Kawetile inatoa mandhari ya kipekee ya mji wa Mbeya na vilima vya kijani vinavyopamba mkoa huo."
-}
 
 ListElement {
     name_en: "Kuumbi Cave, Unguja";
@@ -499,19 +497,20 @@ ListElement {
 }
 
 ListElement {
-    name_en: "Longuza Forest Plantation, Tanga"; name_sw: "Shamba la Miti Longuza, Tanga"
-    imageFile: "./longuza_forest.jpeg"
-    desc_en: "A lush, green escape in Tanga known for its massive teak trees, botanical diversity, and serene environment for nature walks."
-    desc_sw: "Pepo ya kijani mkoani Tanga inayojulikana kwa miti mikubwa ya msaji (Teak), aina nyingi za mimea, na mazingira tulivu kwa matembezi."
-}
+            name_en: "Kondoa Rock Art Sites"; name_sw: "Michoro ya Mapangoni, Kondoa"
+            imageFile: "./kondoa.jpg"
+            desc_en: "Explore the UNESCO World Heritage site in Dodoma. Marvel at ancient rock paintings in Kondoa that tell stories of thousands of years of human history."
+            desc_sw: "Gundua urithi wa dunia wa UNESCO mkoani Dodoma. Shuhudia michoro ya kale ya mapangoni Kondoa inayoelezea maelfu ya miaka ya historia ya mwanadamu."
+        }
 
-ListElement {
-    name_en: "Shamiani Island, Pemba";
- name_sw: "Kisiwa cha Shamiani, Pemba"
-    imageFile: "./shamiani_island.jpg"
-    desc_en: "A hidden gem in Pemba, Shamiani is famous for its white sandy beaches and the rare green sea turtles that nest along its shores."
-    desc_sw: "Tunzo iliyofichwa kule Pemba, Shamiani ni maarufu kwa fukwe za mchanga mweupe na kobe wa kijani adimu wanaotaga kando ya pwani yake."
-}
+
+     ListElement {
+            name_en: "Kolo Rock Paintings"; name_sw: "Michoro ya Miamba ya Kolo"
+            imageFile: "./kolo_rock_paintings.jpg"
+            desc_en: "Ancient rock art sites in Kondoa Irangi, offering insights into early human history and culture in Tanzania."
+            desc_sw: "Maeneo ya kale ya sanaa ya miamba huko Kondoa Irangi, yakitoa ufafanuzi wa historia na utamaduni wa awali wa binadamu nchini Tanzania."
+        }
+
 
 ListElement {
     name_en: "Lukwika-Lumesule Reserve, Nanyumbu"; name_sw: "Pori la Akiba Lukwika-Lumesule, Nanyumbu"
