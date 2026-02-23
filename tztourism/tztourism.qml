@@ -787,9 +787,9 @@ ListElement {
             app.selectedLanguage = modeSelectionDialog.lag;
 
 if(app.selectedLanguage === "sw"){
-   app.showToastMessage("Bonyeza mara mbili -> kurudi nyuma");
+   app.showToastMessage("Bonyeza mara mbili -> Kurudi nyuma");
 } else {
-   app.showToastMessage("Double click -> to go back");
+   app.showToastMessage("Double click -> To go back");
 }
 
         }
