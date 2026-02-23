@@ -874,7 +874,7 @@ Dialog {
 
 	function doOpen(lag){
 		contextMenu.frontPageBtnColor = lag === "sw" ? "green" : "blue";
-		contextMenu.frontPageBtnText = lag === "sw" ? "Nyuma" : "Back";
+		contextMenu.frontPageBtnText = lag === "sw" ? "Rudi Nyuma" : "Go Back";
 		contextMenu.closeAppBtnText = lag === "sw" ? "Funga" : "Close";
 		open();
 	}
@@ -1407,7 +1407,7 @@ MouseArea {
 
                 footer: Button {
                     id: backButton
-                    text: app.selectedLanguage === "en" ? "<- Back" : "<- Nyuma"
+                    text: app.selectedLanguage === "en" ? "<- Go Back" : "<- Rudi Nyuma"
                     anchors.topMargin: 4
                     font.pointSize: Qt.platform.os === "android" ? 18 : 16
 
