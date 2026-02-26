@@ -1046,10 +1046,10 @@ font.pointSize: Qt.platform.os === "android" ? 13 : 11
                 
 
                 Text {
-                    text: "Tanzania imebarikiwa kuwa na vivutio vingi vya utalii ambavyo ni vigumu kuvitaja vyote hapa. Ili kuvifahamu na kuvishuhudia kwa undani zaidi, tunakushauri kufuatilia Tanzania Safari Channel inayopatikana kupitia DStv (292), Azam TV (401), Zuku (27), StarTimes Antenna (331), StarTimes Dish (542), na Zmux (46). Huu ni mlango wako wa kidijitali wa kutembelea mbuga za wanyama, fukwe, na urithi wa kitamaduni wa nchi yetu ukiwa nyumbani kwako.
+                    text: "Tanzania imebarikiwa kuwa na vivutio vingi vya utalii ambavyo ni vigumu kuvitaja vyote hapa. Ili kuvifahamu na kuvishuhudia kwa undani zaidi, tunakushauri kufuatilia Tanzania Safari Channel inayopatikana kupitia DStv (292), Azam TV (401), Zuku (27), StarTimes Antenna (331), StarTimes Dish (542), Zmux (46) na Continental (7). Huu ni mlango wako wa kidijitali wa kutembelea mbuga za wanyama, fukwe, na urithi wa kitamaduni wa nchi yetu ukiwa nyumbani kwako.
 <br><br><br> 
 (<font color=\"#dadada\">
-Tanzania is home to an overwhelming number of tourist attractions that cannot be fully listed here. For a more immersive experience and to explore these wonders in detail, we highly recommend watching the Tanzania Safari Channel, available on DStv (292), Azam TV (401), Zuku (27), StarTimes Antenna (331), StarTimes Dish (542), and Zmux (46). It is your ultimate window to the country's breathtaking landscapes, wildlife, and rich cultural heritage.
+Tanzania is home to an overwhelming number of tourist attractions that cannot be fully listed here. For a more immersive experience and to explore these wonders in detail, we highly recommend watching the Tanzania Safari Channel, available on DStv (292), Azam TV (401), Zuku (27), StarTimes Antenna (331), StarTimes Dish (542), Zmux (46) and Continental (7). It is your ultimate window to the country's breathtaking landscapes, wildlife, and rich cultural heritage.
 </font>)
 <br><br>
 
