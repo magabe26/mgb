@@ -326,6 +326,14 @@ ListElement {
 }
 
 
+ListElement {
+    name_en: "Tururu Waterfalls, Babati"
+    name_sw: "Maporomoko ya Tururu, Babati"
+    imageFile: "./tururu_waterfalls.jpeg"
+    desc_en: "Discover the hidden paradise of Babati! Tururu Waterfall offers a refreshing escape surrounded by lush vegetation and rocky landscapes. Perfect for hikers and nature lovers looking for a serene experience away from the crowds."
+    desc_sw: "Gundua paradiso iliyofichika kule Babati! Maporomoko ya Tururu yanatoa nafasi ya kipekee ya kupumzika huku ukiwa umezungukwa na uoto wa asili na mandhari ya kuvutia ya miamba. Ni mahali pazuri kwa wapenzi wa matembezi ya miguu na asili."
+}
+
         ListElement {
             name_en: "Udzungwa Mountains National Park"; name_sw: "Hifadhi ya Taifa ya Milima ya Udzungwa"
             imageFile: "./udzungwa.jpg"
