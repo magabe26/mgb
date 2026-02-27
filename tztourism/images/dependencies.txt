@@ -73,4 +73,6 @@ bagamoyo_boma.jpg,
 vikindu_forest.jpeg,
 
 zanzibar_kanga.jpg,
-iringa_fashion_crafts.jpeg
+iringa_fashion_crafts.jpeg,
+
+tururu_waterfalls.jpeg,
