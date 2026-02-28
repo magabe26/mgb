@@ -667,6 +667,43 @@ Rectangle {
         ListElement { q: "Lengo kuu la Magabe Lab katika kuleta teknolojia nchini Tanzania ni?"; a: "Kutoa burudani na elimu kidijitali"; b: "Kuuza simu zilizotumika"; c: "Kufundisha udereva wa malori"; d: "Kutengeneza michezo ya kamari pekee"; correct: "Kutoa burudani na elimu kidijitali" }
 
 
+        ListElement { q: "Mwanangu analia kichakani."; a: "Ndege"; b: "Shoka"; c: "Upepo"; d: "Simba"; correct: "Shoka" }
+        ListElement { q: "Huku kuku, kule kuku."; a: "Mitungi"; b: "Mayai"; c: "Mitego"; d: "Vichuguu"; correct: "Vichuguu" }
+        ListElement { q: "Kibakuli cha mfalme hakifuniki."; a: "Bahari"; b: "Kisima"; c: "Jicho"; d: "Sufuria"; correct: "Jicho" }
+        ListElement { q: "Dada amevaa kilemba."; a: "Nanasi"; b: "Mahindi"; c: "Ndizi"; d: "Karamu"; correct: "Nanasi" }
+        ListElement { q: "Popoo mbili zavuka mto."; a: "Miguu"; b: "Macho"; c: "Mikono"; d: "Masikio"; correct: "Macho" }
+        ListElement { q: "Kuku wangu atagia mibani."; a: "Sufuria"; b: "Nanasi"; c: "Chai"; d: "Kiwavi"; correct: "Nanasi" }
+
+        ListElement { q: "Umenunua bidhaa kwa 8,000 na kuuza kwa 10,000. Faida ni asilimia ngapi?"; a: "20%"; b: "25%"; c: "10%"; d: "50%"; correct: "25%" }
+        ListElement { q: "Kikoba kina wanachama 10. Kila mmoja anachangia 5,000 kila wiki. Je, mwezi mmoja (wiki 4) watapata kiasi gani?"; a: "50,000"; b: "100,000"; c: "200,000"; d: "250,000"; correct: "200,000" }
+        ListElement { q: "Ukichukua mkopo wa 100,000 na riba ni 10% kwa mwezi. Utarudisha jumla ya kiasi gani?"; a: "110,000"; b: "100,000"; c: "120,000"; d: "105,000"; correct: "110,000" }
+        ListElement { q: "Bidhaa ina bei ya 12,000 ikiwa na punguzo la 50%. Bei mpya ni?"; a: "10,000"; b: "6,000"; c: "8,000"; d: "5,000"; correct: "6,000" }
+        ListElement { q: "Mkulima ameuza gunia 5 za mahindi kwa 50,000 kila moja. Gharama za kilimo zilikuwa 150,000. Faida yake ni?"; a: "100,000"; b: "250,000"; c: "150,000"; d: "50,000"; correct: "100,000" }
+        ListElement { q: "Hisa ya kikundi ni 10,000. Edwin ana hisa 15. Thamani ya akiba yake ni?"; a: "150,000"; b: "15,000"; c: "100,000"; d: "200,000"; correct: "150,000" }
+        ListElement { q: "Mtaji wa biashara ni 1M. Matumizi kwa mwezi ni 200k na mauzo ni 500k. Faida halisi ni?"; a: "300,000"; b: "500,000"; c: "200,000"; d: "700,000"; correct: "300,000" }
+        ListElement { q: "Ukibadilisha 100 USD kwa kiwango cha 2,500 TZS, utapata kiasi gani?"; a: "250,000"; b: "25,000"; c: "2,500,000"; d: "200,000"; correct: "250,000" }
+        ListElement { q: "Lipa kwa Simu imekupa 'cashback' ya 2% kwenye muamala wa 50,000. Cashback ni kiasi gani?"; a: "1,000"; b: "500"; c: "2,000"; d: "100"; correct: "1,000" }
+        ListElement { q: "Duka lina jumla ya lita 100 za maziwa. Limeuza 3/4. Zimebaki lita ngapi?"; a: "25"; b: "75"; c: "50"; d: "10"; correct: "25" }
+
+
+        ListElement { q: "Timu gani ya Tanzania ilitinga hatua ya robo fainali CAF Champions League 2024?"; a: "Simba SC"; b: "Yanga SC"; c: "Azam FC"; d: "Singida FG"; correct: "Simba SC" }
+        ListElement { q: "Mchezaji gani wa Tanzania anacheza klabu ya PAOK kule Ugiriki?"; a: "Mbwana Samatta"; b: "Simon Msuva"; c: "Novatus Dismas"; d: "Feisal Salum"; correct: "Mbwana Samatta" }
+        ListElement { q: "Dabi ya Kariakoo inahusisha timu zipi?"; a: "Simba na Azam"; b: "Yanga na Azam"; c: "Simba na Yanga"; d: "Coastal na Yanga"; correct: "Simba na Yanga" }
+        ListElement { q: "Uwanja mkuu wa michezo jijini Dar es Salaam unaitwa?"; a: "Uhuru"; b: "Benjamin Mkapa"; c: "Azam Complex"; d: "Amaan"; correct: "Benjamin Mkapa" }
+        ListElement { q: "Mchezo gani ni maarufu zaidi nchini Tanzania?"; a: "Mpira wa miguu"; b: "Netiboli"; c: "Riadha"; d: "Boxing"; correct: "Mpira wa miguu" }
+        ListElement { q: "Filbert Bayi alijipatia umaarufu kupitia mchezo gani?"; a: "Boxing"; b: "Riadha"; c: "Soka"; d: "Tennis"; correct: "Riadha" }
+        ListElement { q: "Mechi ya soka hudumu kwa dakika ngapi (muda wa kawaida)?"; a: "45"; b: "60"; c: "90"; d: "120"; correct: "90" }
+        ListElement { q: "Wachezaji wangapi huingia uwanjani kwa timu moja ya soka kuanza mchezo?"; a: "11"; b: "7"; c: "12"; d: "10"; correct: "11" }
+        ListElement { q: "Kombe la AFCON 2027 litafanyika katika nchi zipi?"; a: "Tanzania pekee"; b: "Tanzania, Kenya & Uganda"; c: "Ivory Coast"; d: "South Africa"; correct: "Tanzania, Kenya & Uganda" }
+        ListElement { q: "Klabu ya Azam FC inamilikiwa na nani?"; a: "Mo Dewji"; b: "GSM"; c: "Said Salim Bakhresa"; d: "Manji"; correct: "Said Salim Bakhresa" }
+
+        ListElement { q: "Mti gani maarufu Tanzania unaitwa 'Mti wa Maisha' (Tree of Life)?"; a: "Mwembe"; b: "Mbuyu"; c: "Mkaratusi"; d: "Mnazi"; correct: "Mbuyu" }
+        ListElement { q: "Zao kuu la biashara visiwani Zanzibar ni?"; a: "Karafuu"; b: "Pamba"; c: "Tumbaku"; d: "Chai"; correct: "Karafuu" }
+        ListElement { q: "Mmea gani hutumika kutengeneza kamba na magunia?"; a: "Mkonge"; b: "Mpunga"; c: "Mkatani"; d: "Mkonge"; correct: "Mkonge" }
+        ListElement { q: "Mmea gani hutoa mafuta ya kula kwa wingi mkoani Singida?"; a: "Alizeti"; b: "Pamba"; c: "Karanga"; d: "Ufuta"; correct: "Alizeti" }
+        ListElement { q: "Zao la Chai hustawi zaidi katika mkoa gani?"; a: "Dodoma"; b: "Njombe"; c: "Mwanza"; d: "Dar"; correct: "Njombe" }
+        ListElement { q: "Mti wa Mnazi hutoa bidhaa gani maarufu pwani?"; a: "Mafuta ya mawese"; b: "Nazi na madafu"; c: "Kahawa"; d: "Zambarau"; correct: "Nazi na madafu" }
+
     }
 
     Settings{
@@ -989,7 +1026,7 @@ Rectangle {
                 Layout.preferredWidth: app.width * 0.8
                 Layout.alignment: Qt.AlignHCenter
                 background: Rectangle {
-                    color: "#ffb8c5"
+                    color: "transparent"
                     radius: 4
                 }
 
