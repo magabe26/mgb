@@ -33,103 +33,103 @@ Rectangle {
 
 
     function cleanParent(text)
-{
-	if (!text) return "";
-	return text.replace(/\s*\(.*?\)\s*/g, "").trim();
-}
+    {
+        if (!text) return "";
+        return text.replace(/\s*\(.*?\)\s*/g, "").trim();
+    }
 
-function isPrimaryResultsApp()
-{
-	return (typeof n3ctaApp !== "undefined");
-}
+    function isPrimaryResultsApp()
+    {
+        return (typeof n3ctaApp !== "undefined");
+    }
 
-function isSecondaryResultsApp()
-{
-	return (typeof loader !== "undefined");
-}
+    function isSecondaryResultsApp()
+    {
+        return (typeof loader !== "undefined");
+    }
 
-function isInsideApp()
-{
-	let type = cleanParent(String(parent.parent.parent.parent));
-	if(isPrimaryResultsApp()){
-		return (type === "QQuickRootItem");
-	} else {
-		const index = type.indexOf("_");
-		return ((index !== -1) && (type.substr(0,index) === "SwipeView"));
-	}
-}
+    function isInsideApp()
+    {
+        let type = cleanParent(String(parent.parent.parent.parent));
+        if(isPrimaryResultsApp()){
+            return (type === "QQuickRootItem");
+        } else {
+            const index = type.indexOf("_");
+            return ((index !== -1) && (type.substr(0,index) === "SwipeView"));
+        }
+    }
 
-function isQMLDialogApp()
-{
-	const type = cleanParent(String(parent.parent.parent));
-	return (type === "QQuickRectangle");
-}
+    function isQMLDialogApp()
+    {
+        const type = cleanParent(String(parent.parent.parent));
+        return (type === "QQuickRectangle");
+    }
 
-function closeIfInsideApp()
-{
-	if(isInsideApp()){
-		if(isPrimaryResultsApp()){
-			n3ctaApp.closeCustomPage();
-		}else if(isSecondaryResultsApp()){
-			loader.isMenuWindowVisible = true;
-			loader.isMainResultsWindowVisible = true;
-			loader.isFooterVisible = true;
-			if(typeof loader.mode !== "undefined"){
-				loader.mode = 2;
-			}
-			loader.closeCustomPage();
-		}
-	}
-}
+    function closeIfInsideApp()
+    {
+        if(isInsideApp()){
+            if(isPrimaryResultsApp()){
+                n3ctaApp.closeCustomPage();
+            }else if(isSecondaryResultsApp()){
+                loader.isMenuWindowVisible = true;
+                loader.isMainResultsWindowVisible = true;
+                loader.isFooterVisible = true;
+                if(typeof loader.mode !== "undefined"){
+                    loader.mode = 2;
+                }
+                loader.closeCustomPage();
+            }
+        }
+    }
 
-function closeIfQMLDialogApp()
-{
-	if(isQMLDialogApp()){
-		if(isPrimaryResultsApp()){
-			n3ctaApp.closeQMLDialog();
-		}else if(isSecondaryResultsApp()){
-			nectaMainResultsPageDownloaderHtmlToXmlConveterAndSaver.closeQMLDialog();
-		}
-	}
-}
+    function closeIfQMLDialogApp()
+    {
+        if(isQMLDialogApp()){
+            if(isPrimaryResultsApp()){
+                n3ctaApp.closeQMLDialog();
+            }else if(isSecondaryResultsApp()){
+                nectaMainResultsPageDownloaderHtmlToXmlConveterAndSaver.closeQMLDialog();
+            }
+        }
+    }
 
-function cmd(url)
-{
-	if(isPrimaryResultsApp()) {
-		n3ctaApp.onUrlVisited(url);
-	}else if(isSecondaryResultsApp()){
-		if(isQMLDialogApp()){
-			n3ctaQmlConnectionsPipe.onUrlVisited(url)
-		} else if(isInsideApp()){
-			loader.onUrlVisited(url);
-		}
-	}
-}
+    function cmd(url)
+    {
+        if(isPrimaryResultsApp()) {
+            n3ctaApp.onUrlVisited(url);
+        }else if(isSecondaryResultsApp()){
+            if(isQMLDialogApp()){
+                n3ctaQmlConnectionsPipe.onUrlVisited(url)
+            } else if(isInsideApp()){
+                loader.onUrlVisited(url);
+            }
+        }
+    }
 
-function showToastMessage(msg)
-{
-	if(isPrimaryResultsApp()){
-		n3ctaApp.showToastMessage(msg);
-	}else if(isSecondaryResultsApp()){
-		nectaMainResultsPageDownloaderHtmlToXmlConveterAndSaver.showToastMessage(msg);
-	}
-}
+    function showToastMessage(msg)
+    {
+        if(isPrimaryResultsApp()){
+            n3ctaApp.showToastMessage(msg);
+        }else if(isSecondaryResultsApp()){
+            nectaMainResultsPageDownloaderHtmlToXmlConveterAndSaver.showToastMessage(msg);
+        }
+    }
 
-function ad()
-{
-	if(isPrimaryResultsApp()){
-		cmd("#showGoogleAd");
-	}else if(isSecondaryResultsApp()){
-		cmd("#showGoogleAd");
-	}
-}
+    function ad()
+    {
+        if(isPrimaryResultsApp()){
+            cmd("#showGoogleAd");
+        }else if(isSecondaryResultsApp()){
+            cmd("#showGoogleAd");
+        }
+    }
 
-function close()
-{
-	closeIfInsideApp();
-	closeIfQMLDialogApp();
-	ad();
-}
+    function close()
+    {
+        closeIfInsideApp();
+        closeIfQMLDialogApp();
+        ad();
+    }
 
     function indexToLetter(i){
         let letter;
@@ -146,11 +146,11 @@ function close()
     }
 
 
-function cleanOption(text) {
-    if (!text) return "";
-    // Inafuta mabano na yaliyomo ndani, kisha inafuta nafasi zilizoziada
-    return text.replace(/\s*\(.*?\)\s*/g, "").trim();
-}
+    function cleanOption(text) {
+        if (!text) return "";
+        // Inafuta mabano na yaliyomo ndani, kisha inafuta nafasi zilizoziada
+        return text.replace(/\s*\(.*?\)\s*/g, "").trim();
+    }
 
 
     // --- QUESTION MODEL (Maswali 26) ---
@@ -386,284 +386,286 @@ function cleanOption(text) {
         ListElement { q: "Kitendawili: Babu yangu hacheki mpaka achunwe ngozi."; a: "Mahindi"; b: "Ndizi"; c: "Chungwa"; d: "Kitunguu"; correct: "Mahindi" }
         ListElement { q: "Kitendawili: Mvua hapa, mvua kule, lakini katikati pakavu."; a: "Mwavuli"; b: "Nyumba"; c: "Mtu aliyevaa koti"; d: "Daraja"; correct: "Nyumba" }
 
-// --- UKEREWE (3 QUESTIONS) ---
-ListElement { q: "Kisiwa cha Ukerewe kinapatikana ndani ya ziwa gani?"; a: "Tanganyika"; b: "Nyasa"; c: "Victoria"; d: "Eyasi"; correct: "Victoria" }
-
-ListElement { q: "Ukerewe ni wilaya inayopatikana katika mkoa gani nchini Tanzania?"; a: "Mwanza"; b: "Mara"; c: "Geita"; d: "Kagera"; correct: "Mwanza" }
-
-// --- TEKNOLOJIA YA ANGA
-ListElement { q: "Ni sayari gani inajulikana kama 'Sayari Nyekundu' (Red Planet)?"; a: "Jupiter"; b: "Venus"; c: "Mars"; d: "Saturn"; correct: "Mars" }
-
-ListElement { q: "Chombo cha kwanza kilichompeleka binadamu mwezini (Apollo 11) kilikuwa cha nchi gani?"; a: "Urusi"; b: "Marekani"; c: "China"; d: "Uingereza"; correct: "Marekani" }
-
-ListElement { q: "Ni nini jina la darubini kubwa zaidi na ya kisasa iliyorushwa angani hivi karibuni?"; a: "Hubble"; b: "Galileo"; c: "James Webb"; d: "Newton"; correct: "James Webb" }
-
-ListElement { q: "Gesi gani inapatikana kwa wingi zaidi katika anga la Dunia (Atmosphere)?"; a: "Oxygen"; b: "Nitrogen"; c: "Carbon Dioxide"; d: "Argon"; correct: "Nitrogen" }
-
-// --- ELIMU 
-ListElement { q: "Kirefu cha neno NECTA ni nini kwa Kiswahili?"; a: "Baraza la Mitihani la Tanzania"; b: "Wizara ya Elimu"; c: "Bodi ya Mikopo"; d: "Tume ya Vyuo Vikuu"; correct: "Baraza la Mitihani la Tanzania" }
-ListElement { q: "Katika mfumo wa NECTA, daraja 'A' kwenye mtihani wa kidato cha nne huanzia alama ngapi?"; a: "70"; b: "75"; c: "81"; d: "65"; correct: "75" }
-ListElement { q: "Ni mwaka gani Tanzania ilianza rasmi mfumo wa elimu ya bila malipo kwa shule za msingi na sekondari?"; a: "2010"; b: "2015"; c: "2020"; d: "2005"; correct: "2015" }
-
-ListElement { q: "Siku ya kwanza ya mzunguko wa hedhi huhesabiwa kuanzia lini?"; a: "Siku hedhi inapoisha"; b: "Siku ya kwanza kuona damu"; c: "Siku ya 14"; d: "Siku yoyote"; correct: "Siku ya kwanza kuona damu" }
-ListElement { q: "Kirusi kinachosababisha UKIMWI kinaitwa?"; a: "Bacteria"; b: "VVU (HIV)"; c: "Plasmodium"; d: "Fungi"; correct: "VVU (HIV)" }
-ListElement { q: "Ni ugonjwa upi wa zinaa unaweza kusababisha upofu kwa mtoto wakati wa kuzaliwa?"; a: "Kaswende"; b: "Kisonono (Gonorrhea)"; c: "Homa ya Ini"; d: "Teepee"; correct: "Kisonono (Gonorrhea)" }
-ListElement { q: "Njia ya uhakika zaidi ya kuzuia mimba na magonjwa ya zinaa kwa wakati mmoja ni?"; a: "Vidonge"; b: "Kondomu"; c: "Sindano"; d: "Kalenda"; correct: "Kondomu" }
-ListElement { q: "Kipindi ambacho yai la mwanamke linatoka tayari kurutubishwa huitwa?"; a: "Hedhi"; b: "Ovulation (Upevushaji)"; c: "Mimba"; d: "Kukoma hedhi"; correct: "Ovulation (Upevushaji)" }
-
-ListElement { q: "Ugonjwa wa Kaswende husababishwa na nini?"; a: "Virusi"; b: "Bacteria"; c: "Uchafu"; d: "Minyoo"; correct: "Bacteria" }
-ListElement { q: "Chanjo ya HPV hutolewa ili kuzuia saratani gani kwa wanawake?"; a: "Saratani ya matiti"; b: "Saratani ya mlango wa uzazi"; c: "Saratani ya ini"; d: "Saratani ya ngozi"; correct: "Saratani ya mlango wa uzazi" }
-ListElement { q: "Mimba ya kawaida ya binadamu huchukua wastani wa wiki ngapi?"; a: "30"; b: "36"; c: "40"; d: "45"; correct: "40" }
-ListElement { q: "Ni vimelea gani husababisha ugonjwa wa Trichomoniasis?"; a: "Virusi"; b: "Bacteria"; c: "Protozoa"; d: "Fungi"; correct: "Protozoa" }
-ListElement { q: "Upasuaji mdogo kwa wanaume ili kuzuia uwezo wa kutoa mbegu za uzazi huitwa?"; a: "Vasectomy"; b: "Circumcision"; c: "Dialysis"; d: "Biopsy"; correct: "Vasectomy" }
-ListElement { q: "Kifupi cha PID katika afya ya uzazi inamaanisha?"; a: "Pelvic Inflammatory Disease"; b: "Private Internal Disease"; c: "Period Internal Delay"; d: "Pain In Digestion"; correct: "Pelvic Inflammatory Disease" }
-ListElement { q: "Je, mwanamke anaweza kupata mimba akishiriki tendo la ndoa mara moja pekee?"; a: "Hapana"; b: "Ndiyo"; c: "Inategemea umri"; d: "Haiwezekani"; correct: "Ndiyo" }
-ListElement { q: "Ni ugonjwa gani wa zinaa unaoshambulia zaidi Ini?"; a: "Kisonono"; b: "Homa ya Ini B (Hepatitis B)"; c: "Kaswende"; d: "Vifundo"; correct: "Homa ya Ini B (Hepatitis B)" }
-ListElement { q: "Mbegu za kiume hutengenezwa sehemu gani ya mwili?"; a: "Kibofu"; b: "Mapumbu (Testes)"; c: "Uume"; d: "Mifuko ya mkojo"; correct: "Mapumbu (Testes)" }
-ListElement { q: "Kukoma kwa hedhi kabisa kwa mwanamke (Menopause) hutokea wastani wa umri gani?"; a: "20-30"; b: "45-55"; c: "30-40"; d: "60-70"; correct: "45-55" }
-ListElement { q: "Ni ipi dalili ya kawaida ya Kisonono kwa wanaume?"; a: "Kutoa usaha kwenye uume"; b: "Kukohoa"; c: "Maumivu ya mgongo"; d: "Kupoteza nywele"; correct: "Kutoa usaha kwenye uume" }
-ListElement { q: "Upungufu wa damu kwa mama mjamzito mara nyingi husababishwa na ukosefu wa?"; a: "Sukari"; b: "Madini ya Chuma"; c: "Chumvi"; d: "Mafuta"; correct: "Madini ya Chuma" }
-ListElement { q: "Neno 'Uziwi' wa mtoto mchanga unaweza kusababishwa na maambukizi ya?"; a: "Rubella"; b: "Mafua"; c: "Kikohozi"; d: "Fangasi"; correct: "Rubella" }
-ListElement { q: "Tendo la kuunganisha yai la kike na mbegu ya kiume huitwa?"; a: "Urutubishaji (Fertilization)"; b: "Upevushaji"; c: "Hedhi"; d: "Uzazi"; correct: "Urutubishaji (Fertilization)" }
-ListElement { q: "Je, mtu anaweza kuwa na ugonjwa wa zinaa bila kuonyesha dalili zozote?"; a: "Hapana"; b: "Ndiyo"; c: "Ni nadra"; d: "Haiwezekani"; correct: "Ndiyo" }
-
-ListElement { q: "Tendo la kutoa damu kila mwezi kwa wasichana huitwa?"; a: "Kuvunja ungo"; b: "Hedhi"; c: "Ovulation"; d: "Mimba"; correct: "Hedhi" }
-ListElement { q: "Ni homoni ipi inawajibika kwa mabadiliko ya kiume wakati wa kubalehe?"; a: "Estrogen"; b: "Progesterone"; c: "Testosterone"; d: "Insulin"; correct: "Testosterone" }
-ListElement { q: "Mabadiliko ya sauti kuwa nzito kwa wavulana ni ishara ya?"; a: "Kubalehe"; b: "Ugonjwa"; c: "Uchovu"; d: "Kukua kwa mapafu"; correct: "Kubalehe" }
-ListElement { q: "Kukua kwa matiti na kuanza hedhi ni ishara za kubalehe kwa?"; a: "Wavulana"; b: "Wasichana"; c: "Wote wawili"; d: "Watoto wachanga"; correct: "Wasichana" }
-ListElement { q: "Tezi inayodhibiti mwanzo wa mchakato wa kubalehe inaitwa?"; a: "Pituitary"; b: "Thyroid"; c: "Adrenal"; d: "Pancreas"; correct: "Pituitary" }
-
-ListElement { q: "Ni homoni ipi kuu inayosababisha mabadiliko kwa wasichana?"; a: "Estrogen"; b: "Testosterone"; c: "Adrenaline"; d: "Thyroxine"; correct: "Estrogen" }
-ListElement { q: "Kuota chunusi wakati wa kubalehe mara nyingi husababishwa na?"; a: "Mabadiliko ya homoni"; b: "Kutokunawa uso"; c: "Kula sukari"; d: "Baridi"; correct: "Mabadiliko ya homoni" }
-ListElement { q: "Ndoto za usiku zinazopelekea kutoa mbegu za kiume (Wet dreams) ni jambo la?"; a: "Kawaida/Kutokua"; b: "Kawaida/Afya"; c: "Hatari"; d: "Ugonjwa"; correct: "Kawaida/Afya" }
-ListElement { q: "Wastani wa umri wa kuanza kubalehe kwa wasichana ni?"; a: "5-7"; b: "10-14"; c: "18-21"; d: "25-30"; correct: "10-14" }
-ListElement { q: "Kupanuka kwa mabega ni tabia ya mabadiliko ya kubalehe kwa?"; a: "Wavulana"; b: "Wasichana"; c: "Wazee"; d: "Hakuna"; correct: "Wavulana" }
-ListElement { q: "Mabadiliko ya kihisia na kuanza kuvutiwa na jinsia tofauti huanza kipindi cha?"; a: "Utoto"; b: "Kubalehe"; c: "Uzee"; d: "Uzaliwa"; correct: "Kubalehe" }
-ListElement { q: "Kukua kwa 'Adam's Apple' shingoni ni ishara kwa?"; a: "Wavulana"; b: "Wasichana"; c: "Wote"; d: "Wanyama"; correct: "Wavulana" }
-
-
-ListElement { q: "Kirefu cha AI ni nini?"; a: "Art Intelligent"; b: "Artificial Intelligence"; c: "Automated Info"; d: "Advanced Intel"; correct: "Artificial Intelligence" }
-ListElement { q: "Ni mfumo upi wa AI uliotengenezwa na kampuni ya OpenAI?"; a: "Siri"; b: "ChatGPT"; c: "Alexa"; d: "Bixby"; correct: "ChatGPT" }
-ListElement { q: "Uwezo wa AI kujifunza kupitia data bila kupewa maelekezo ya kila hatua huitwa?"; a: "Machine Learning"; b: "Coding"; c: "Typing"; d: "Hardware"; correct: "Machine Learning" }
-
-
-ListElement { q: "AI inayoweza kutengeneza picha au maandishi mapya huitwa?"; a: "Static AI"; b: "Generative AI"; c: "Old AI"; d: "Manual AI"; correct: "Generative AI" }
-ListElement { q: "Robot maarufu mwenye uraia wa Saudi Arabia anaitwa?"; a: "Sophia"; b: "Alexa"; c: "Siri"; d: "Jarvis"; correct: "Sophia" }
-ListElement { q: "Kampuni ya Google imetengeneza AI inayoitwa?"; a: "Gemini"; b: "ChatGPT"; c: "Claude"; d: "Llama"; correct: "Gemini" }
-ListElement { q: "Ni kifaa gani kinatumia AI kutambua uso wa mtu (Face ID)?"; a: "Simu Janja"; b: "Pasi ya umeme"; c: "Redio"; d: "Saa ya ukutani"; correct: "Simu Janja" }
-ListElement { q: "AI inayotumika kuendesha magari bila dereva inaitwa?"; a: "Manual Driving"; b: "Autonomous Driving"; c: "Remote Control"; d: "Flying AI"; correct: "Autonomous Driving" }
-ListElement { q: "Turing Test inatumika kupima nini?"; a: "Uwezo wa AI kufikiri kama binadamu"; b: "Kasi ya intaneti"; c: "Ukubwa wa betri"; d: "Ubora wa kioo"; correct: "Uwezo wa AI kufikiri kama binadamu" }
-ListElement { q: "Lugha ya kompyuta inayotumika zaidi kwenye AI ni?"; a: "Python"; b: "HTML"; c: "CSS"; d: "SQL"; correct: "Python" }
-ListElement { q: "Kifaa kinachotumia AI nyumbani kutoa taarifa kwa sauti (mfano Alexa) huitwa?"; a: "Smart Speaker"; b: "Microphone"; c: "Radio"; d: "TV"; correct: "Smart Speaker" }
-ListElement { q: "AI inaweza kupata 'Hallucinations'. Hii inamaanisha nini?"; a: "Inatoa majibu ya uongo kwa kujiamini"; b: "Inazima yenyewe"; c: "Inapata virusi"; d: "Inafanya kazi haraka"; correct: "Inatoa majibu ya uongo kwa kujiamini" }
-ListElement { q: "Mwasisi wa AI anayefahamika kama baba wa AI ni?"; a: "Alan Turing"; b: "Bill Gates"; c: "Elon Musk"; d: "Steve Jobs"; correct: "Alan Turing" }
-ListElement { q: "Deep Learning ni sehemu ya nini?"; a: "Machine Learning"; b: "Hardware"; c: "Agriculture"; d: "Physics"; correct: "Machine Learning" }
-ListElement { q: "AI inatumia nini ili kufanya maamuzi haraka?"; a: "Algorithms"; b: "Maji"; c: "Upepo"; d: "Petroli"; correct: "Algorithms" }
-
-
-ListElement { q: "Kitendawili: Nyumba yangu haina mlango."; a: "Yai"; b: "Chupa"; c: "Kaburi"; d: "Tango"; correct: "Yai" }
-ListElement { q: "Kitendawili: Kila nikienda ananifuata."; a: "Kivuli"; b: "Mbwa"; c: "Rafiki"; d: "Upepo"; correct: "Kivuli" }
-ListElement { q: "Kitendawili: Babu amebeba gitaa mgongoni."; a: "Kobe"; b: "Konokono"; c: "Mzee"; d: "Kiti"; correct: "Kobe" }
-ListElement { q: "Kitendawili: Daima anatazama juu."; a: "Nyasi"; b: "Moshi"; c: "Mvua"; d: "Mbuyu"; correct: "Nyasi" }
-ListElement { q: "Kitendawili: Ana meno mengi lakini hali chakula."; a: "Kitana"; b: "Simba"; c: "Msumeno"; d: "Paka"; correct: "Kitana" }
-
-ListElement { q: "Kifupi cha teknolojia ya 'Wi-Fi' inamaanisha nini?"; a: "Wireless Fidelity"; b: "Wireless Fiber"; c: "Wire Filter"; d: "Wide Field"; correct: "Wireless Fidelity" }
-ListElement { q: "Ni kampuni gani ilitengeneza mfumo wa uendeshaji wa Windows?"; a: "Apple"; b: "Microsoft"; c: "IBM"; d: "Google"; correct: "Microsoft" }
-ListElement { q: "Sehemu ya siri ya mtandao ambayo haionekani kirahisi kwenye search engines huitwa?"; a: "Dark Web"; b: "Public Web"; c: "Safe Web"; d: "Open Web"; correct: "Dark Web" }
-ListElement { q: "Kifaa kinachotumika kubadilisha nishati ya jua kuwa umeme huitwa?"; a: "Solar Panel"; b: "Generator"; c: "Battery"; d: "Inverter"; correct: "Solar Panel" }
-ListElement { q: "Katika email, kirefu cha 'BCC' ni nini?"; a: "Blind Carbon Copy"; b: "Best Carbon Copy"; c: "Basic Clear Copy"; d: "Business Case Copy"; correct: "Blind Carbon Copy" }
-ListElement { q: "Ni lugha gani ya programu (Coding) inayotumika zaidi kutengeneza kurasa za tovuti (Websites)?"; a: "HTML"; b: "C++"; c: "Swift"; d: "Kotlin"; correct: "HTML" }
-ListElement { q: "Kifaa kinachounganisha kompyuta yako na mtandao wa intaneti huitwa?"; a: "Router"; b: "Scanner"; c: "Printer"; d: "Monitor"; correct: "Router" }
-ListElement { q: "Teknolojia ya kuratibu maeneo kwa kutumia satelaiti inaitwa?"; a: "GPS"; b: "SMS"; c: "UPS"; d: "CCTV"; correct: "GPS" }
-ListElement { q: "Namba ya utambulisho wa kipekee kwa kila simu (IMEI) ina tarakimu ngapi?"; a: "10"; b: "15"; c: "12"; d: "16"; correct: "15" }
-ListElement { q: "Kitufe cha 'F5' kwenye keyboard ya kompyuta mara nyingi hutumika kwa kazi gani?"; a: "Kufuta"; b: "Ku-Refresh"; c: "Kuzima"; d: "Kuhifadhi"; correct: "Ku-Refresh" }
-ListElement { q: "Ni nini kazi ya 'Firewall' kwenye kompyuta?"; a: "Kuzuia virusi na wadukuzi"; b: "Kupunguza joto"; c: "Kuongeza kasi"; d: "Kupiga picha"; correct: "Kuzuia virusi na wadukuzi" }
-ListElement { q: "Teknolojia ya kuhifadhi data kwenye mtandao badala ya diski ya kompyuta huitwa?"; a: "Cloud Storage"; b: "Hard Drive"; c: "Flash Disk"; d: "RAM"; correct: "Cloud Storage" }
-ListElement { q: "Ni nani anayefahamika kama mwanzilishi wa Facebook (Meta)?"; a: "Mark Zuckerberg"; b: "Bill Gates"; c: "Elon Musk"; d: "Jeff Bezos"; correct: "Mark Zuckerberg" }
-
-ListElement { q: "Ni kiungo gani cha mwili kinachohusika na kusafisha damu?"; a: "Moyo"; b: "Figo"; c: "Mapafu"; d: "Tumbo"; correct: "Figo" }
-ListElement { q: "Damu ya binadamu ina rangi nyekundu kwa sababu ya protini iitwayo?"; a: "Hemoglobin"; b: "Insulin"; c: "Keratin"; d: "Melanin"; correct: "Hemoglobin" }
-ListElement { q: "Ni tunda gani lina vitamini C kwa wingi zaidi?"; a: "Chungwa"; b: "Ndizi"; c: "Tikiti"; d: "Tufaha (Apple)"; correct: "Chungwa" }
-ListElement { q: "Binadamu ana jozi ngapi za kromozomu (Chromosomes)?"; a: "23"; b: "46"; c: "20"; d: "30"; correct: "23" }
-ListElement { q: "Ni aina gani ya damu (Blood Group) inayoweza kutoa kwa makundi yote (Universal Donor)?"; a: "Group A"; b: "Group B"; c: "Group AB"; d: "Group O"; correct: "Group O" }
-ListElement { q: "Mifupa ya binadamu mtu mzima imegawanyika katika vipande vingapi?"; a: "100"; b: "206"; c: "300"; d: "150"; correct: "206" }
-ListElement { q: "Kiungo kikubwa zaidi cha nje cha mwili wa binadamu ni?"; a: "Ngozi"; b: "Mapafu"; c: "Ini"; d: "Miguu"; correct: "Ngozi" }
-ListElement { q: "Viumbe hai wanaokula mimea pekee huitwa?"; a: "Herbivores"; b: "Carnivores"; c: "Omnivores"; d: "Parasites"; correct: "Herbivores" }
-ListElement { q: "Ni vitamini gani inayopatikana kwa wingi kupitia mwanga wa jua la asubuhi?"; a: "Vitamini A"; b: "Vitamini C"; c: "Vitamini D"; d: "Vitamini K"; correct: "Vitamini D" }
-ListElement { q: "Sehemu ya jicho inayohusika na kuingiza mwanga huitwa?"; a: "Pupil"; b: "Retina"; c: "Lens"; d: "Iris"; correct: "Pupil" }
-ListElement { q: "Ni wadudu gani wanaosafirisha chavua (Pollination) kwa kiasi kikubwa duniani?"; a: "Nyuki"; b: "Mbu"; c: "Mende"; d: "Nzi"; correct: "Nyuki" }
-ListElement { q: "Zoezi la mimea kutengeneza chakula chake kwa kutumia mwanga wa jua huitwa?"; a: "Photosynthesis"; b: "Respiration"; c: "Digestion"; d: "Osmosis"; correct: "Photosynthesis" }
-ListElement { q: "Mapigo ya moyo ya binadamu mwenye afya kwa dakika ni wastani wa?"; a: "40-60"; b: "70-80"; c: "100-120"; d: "20-30"; correct: "70-80" }
-
-ListElement { q: "Ni chombo gani kinatumika kupima kiasi cha mvua iliyonyesha?"; a: "Thermometer"; b: "Rain Gauge"; c: "Barometer"; d: "Anemometer"; correct: "Rain Gauge" }
-ListElement { q: "Radi hutokea kwa sababu ya msuguano wa nini angani?"; a: "Mawingu"; b: "Ndege"; c: "Nyota"; d: "Mwezi"; correct: "Mawingu" }
-ListElement { q: "Mvua inayonyesha baada ya maji ya bahari kupata joto na kupaisha mvuke huitwa?"; a: "Convectional Rain"; b: "Relief Rain"; c: "Cyclonic Rain"; d: "Acid Rain"; correct: "Convectional Rain" }
-ListElement { q: "Ni gesi gani inatengeneza asilimia 21 ya hewa ya anga (Atmosphere)?"; a: "Nitrogen"; b: "Oxygen"; c: "Carbon Dioxide"; d: "Hydrogen"; correct: "Oxygen" }
-ListElement { q: "Mstari wa kidhahania unaogawanya dunia katika ncha ya kaskazini na kusini ni?"; a: "Equator (Ikweta)"; b: "Longitude"; c: "Tropic of Cancer"; d: "Prime Meridian"; correct: "Equator (Ikweta)" }
-ListElement { q: "Sauti ya kishindo inayosikika baada ya mwanga wa radi huitwa?"; a: "Umeme"; b: "Mngurumo"; c: "Upepo"; d: "Mwangwi"; correct: "Mngurumo" }
-ListElement { q: "Zoezi la maji kugeuka kuwa mvuke kutokana na joto huitwa?"; a: "Evaporation"; b: "Condensation"; c: "Freezing"; d: "Melting"; correct: "Evaporation" }
-ListElement { q: "Ni bahari gani iliyo kubwa zaidi duniani?"; a: "Hindi"; b: "Pasifiki (Pacific)"; c: "Atlantiki"; d: "Shamu"; correct: "Pasifiki (Pacific)" }
-ListElement { q: "Safu ya milima mirefu zaidi duniani inaitwa?"; a: "Himalayas"; b: "Andes"; c: "Alps"; d: "Kilimanjaro"; correct: "Himalayas" }
-ListElement { q: "Ni mkoa gani nchini Tanzania unaosifika kwa kuwa na mvua nyingi karibu mwaka mzima?"; a: "Dodoma"; b: "Njombe"; c: "Singida"; d: "Simiyu"; correct: "Njombe" }
-ListElement { q: "Chombo kinachopima kasi ya upepo huitwa?"; a: "Anemometer"; b: "Hygrometer"; c: "Seismograph"; d: "Compass"; correct: "Anemometer" }
-ListElement { q: "Vumbi na moshi vikichanganyika na ukungu angani huitwa?"; a: "Smog"; b: "Snow"; c: "Ice"; d: "Dew"; correct: "Smog" }
-ListElement { q: "Maji ya chumvi duniani yanapatikana kwa kiasi gani?"; a: "50%"; b: "97%"; c: "10%"; d: "75%"; correct: "97%" }
-
-ListElement { q: "Ni mbu yupi anayeeneza vimelea vya ugonjwa wa Malaria?"; a: "Anopheles Jike"; b: "Anopheles Dume"; c: "Culex"; d: "Aedes"; correct: "Anopheles Jike" }
-ListElement { q: "Vimelea vinavyosababisha ugonjwa wa Malaria huitwa?"; a: "Plasmodium"; b: "Amoeba"; c: "Virusi"; d: "Bacteria"; correct: "Plasmodium" }
-ListElement { q: "Ni njia ipi bora ya kuzuia mbu wa malaria wasikufikie ukiwa umelala?"; a: "Chandarua"; b: "Kipepeo"; c: "Kufunga mlango"; d: "Kupaka mafuta ya nazi"; correct: "Chandarua" }
-ListElement { q: "Malaria inashambulia zaidi seli zipi mwilini?"; a: "Seli nyekundu za damu"; b: "Seli nyeupe"; c: "Seli za ubongo"; d: "Seli za mifupa"; correct: "Seli nyekundu za damu" }
-ListElement { q: "Ni ipi dalili ya kawaida ya ugonjwa wa Malaria?"; a: "Homa na baridi"; b: "Kupoteza nywele"; c: "Kuumwa meno"; d: "Kuvimba miguu"; correct: "Homa na baridi" }
-ListElement { q: "Dawa inayopendekezwa na Serikali ya TZ kwa matibabu ya kwanza ya Malaria kwa sasa ni?"; a: "AL (Mseto)"; b: "Quinine"; c: "Panadol"; d: "Asprin"; correct: "AL (Mseto)" }
-ListElement { q: "Ni kundi lipi lililo hatarini zaidi kupata madhara makubwa ya Malaria?"; a: "Watoto chini ya miaka 5"; b: "Vijana"; c: "Wanaume"; d: "Wanariadha"; correct: "Watoto chini ya miaka 5" }
-ListElement { q: "Mbu wa malaria hupenda kuzaliana sehemu gani?"; a: "Maji yaliyotuama"; b: "Kwenye mchanga"; c: "Ndani ya chupa"; d: "Juu ya miti"; correct: "Maji yaliyotuama" }
-ListElement { q: "Kipimo cha haraka cha Malaria kinachotumika kwenye vituo vya afya huitwa?"; a: "mRDT"; b: "X-Ray"; c: "Ultrasound"; d: "MRI"; correct: "mRDT" }
-ListElement { q: "Ni kiungo gani mwilini kinachoweza kuvimba kutokana na malaria kali?"; a: "Wengu (Spleen)"; b: "Moyo"; c: "Kidole"; d: "Sikio"; correct: "Wengu (Spleen)" }
-ListElement { q: "Kufyeka nyasi na kufukia madimbwi ni njia ya?"; a: "Kuharibu mazalia ya mbu"; b: "Kupamba mji"; c: "Kupata mbolea"; d: "Kuongeza joto"; correct: "Kuharibu mazalia ya mbu" }
-ListElement { q: "Siku ya Malaria Duniani huadhimishwa kila mwaka tarehe ngapi?"; a: "Aprili 25"; b: "Desemba 1"; c: "Machi 8"; d: "Januari 1"; correct: "Aprili 25" }
-ListElement { q: "Ni mkoa upi Tanzania unaotajwa kuwa na maambukizi makubwa ya Malaria kutokana na hali ya hewa?"; a: "Kigoma/Geita"; b: "Dodoma"; c: "Arusha"; d: "Manyara"; correct: "Kigoma/Geita" }
+        // --- UKEREWE (3 QUESTIONS) ---
+        ListElement { q: "Kisiwa cha Ukerewe kinapatikana ndani ya ziwa gani?"; a: "Tanganyika"; b: "Nyasa"; c: "Victoria"; d: "Eyasi"; correct: "Victoria" }
+
+        ListElement { q: "Ukerewe ni wilaya inayopatikana katika mkoa gani nchini Tanzania?"; a: "Mwanza"; b: "Mara"; c: "Geita"; d: "Kagera"; correct: "Mwanza" }
+
+        // --- TEKNOLOJIA YA ANGA
+        ListElement { q: "Ni sayari gani inajulikana kama 'Sayari Nyekundu' (Red Planet)?"; a: "Jupiter"; b: "Venus"; c: "Mars"; d: "Saturn"; correct: "Mars" }
+
+        ListElement { q: "Chombo cha kwanza kilichompeleka binadamu mwezini (Apollo 11) kilikuwa cha nchi gani?"; a: "Urusi"; b: "Marekani"; c: "China"; d: "Uingereza"; correct: "Marekani" }
+
+        ListElement { q: "Ni nini jina la darubini kubwa zaidi na ya kisasa iliyorushwa angani hivi karibuni?"; a: "Hubble"; b: "Galileo"; c: "James Webb"; d: "Newton"; correct: "James Webb" }
+
+        ListElement { q: "Gesi gani inapatikana kwa wingi zaidi katika anga la Dunia (Atmosphere)?"; a: "Oxygen"; b: "Nitrogen"; c: "Carbon Dioxide"; d: "Argon"; correct: "Nitrogen" }
+
+        // --- ELIMU
+        ListElement { q: "Kirefu cha neno NECTA ni nini kwa Kiswahili?"; a: "Baraza la Mitihani la Tanzania"; b: "Wizara ya Elimu"; c: "Bodi ya Mikopo"; d: "Tume ya Vyuo Vikuu"; correct: "Baraza la Mitihani la Tanzania" }
+        ListElement { q: "Katika mfumo wa NECTA, daraja 'A' kwenye mtihani wa kidato cha nne huanzia alama ngapi?"; a: "70"; b: "75"; c: "81"; d: "65"; correct: "75" }
+        ListElement { q: "Ni mwaka gani Tanzania ilianza rasmi mfumo wa elimu ya bila malipo kwa shule za msingi na sekondari?"; a: "2010"; b: "2015"; c: "2020"; d: "2005"; correct: "2015" }
+
+        ListElement { q: "Siku ya kwanza ya mzunguko wa hedhi huhesabiwa kuanzia lini?"; a: "Siku hedhi inapoisha"; b: "Siku ya kwanza kuona damu"; c: "Siku ya 14"; d: "Siku yoyote"; correct: "Siku ya kwanza kuona damu" }
+        ListElement { q: "Kirusi kinachosababisha UKIMWI kinaitwa?"; a: "Bacteria"; b: "VVU (HIV)"; c: "Plasmodium"; d: "Fungi"; correct: "VVU (HIV)" }
+        ListElement { q: "Ni ugonjwa upi wa zinaa unaweza kusababisha upofu kwa mtoto wakati wa kuzaliwa?"; a: "Kaswende"; b: "Kisonono (Gonorrhea)"; c: "Homa ya Ini"; d: "Teepee"; correct: "Kisonono (Gonorrhea)" }
+        ListElement { q: "Njia ya uhakika zaidi ya kuzuia mimba na magonjwa ya zinaa kwa wakati mmoja ni?"; a: "Vidonge"; b: "Kondomu"; c: "Sindano"; d: "Kalenda"; correct: "Kondomu" }
+        ListElement { q: "Kipindi ambacho yai la mwanamke linatoka tayari kurutubishwa huitwa?"; a: "Hedhi"; b: "Ovulation (Upevushaji)"; c: "Mimba"; d: "Kukoma hedhi"; correct: "Ovulation (Upevushaji)" }
+
+        ListElement { q: "Ugonjwa wa Kaswende husababishwa na nini?"; a: "Virusi"; b: "Bacteria"; c: "Uchafu"; d: "Minyoo"; correct: "Bacteria" }
+        ListElement { q: "Chanjo ya HPV hutolewa ili kuzuia saratani gani kwa wanawake?"; a: "Saratani ya matiti"; b: "Saratani ya mlango wa uzazi"; c: "Saratani ya ini"; d: "Saratani ya ngozi"; correct: "Saratani ya mlango wa uzazi" }
+        ListElement { q: "Mimba ya kawaida ya binadamu huchukua wastani wa wiki ngapi?"; a: "30"; b: "36"; c: "40"; d: "45"; correct: "40" }
+        ListElement { q: "Ni vimelea gani husababisha ugonjwa wa Trichomoniasis?"; a: "Virusi"; b: "Bacteria"; c: "Protozoa"; d: "Fungi"; correct: "Protozoa" }
+        ListElement { q: "Upasuaji mdogo kwa wanaume ili kuzuia uwezo wa kutoa mbegu za uzazi huitwa?"; a: "Vasectomy"; b: "Circumcision"; c: "Dialysis"; d: "Biopsy"; correct: "Vasectomy" }
+        ListElement { q: "Kifupi cha PID katika afya ya uzazi inamaanisha?"; a: "Pelvic Inflammatory Disease"; b: "Private Internal Disease"; c: "Period Internal Delay"; d: "Pain In Digestion"; correct: "Pelvic Inflammatory Disease" }
+        ListElement { q: "Je, mwanamke anaweza kupata mimba akishiriki tendo la ndoa mara moja pekee?"; a: "Hapana"; b: "Ndiyo"; c: "Inategemea umri"; d: "Haiwezekani"; correct: "Ndiyo" }
+        ListElement { q: "Ni ugonjwa gani wa zinaa unaoshambulia zaidi Ini?"; a: "Kisonono"; b: "Homa ya Ini B (Hepatitis B)"; c: "Kaswende"; d: "Vifundo"; correct: "Homa ya Ini B (Hepatitis B)" }
+        ListElement { q: "Mbegu za kiume hutengenezwa sehemu gani ya mwili?"; a: "Kibofu"; b: "Mapumbu (Testes)"; c: "Uume"; d: "Mifuko ya mkojo"; correct: "Mapumbu (Testes)" }
+        ListElement { q: "Kukoma kwa hedhi kabisa kwa mwanamke (Menopause) hutokea wastani wa umri gani?"; a: "20-30"; b: "45-55"; c: "30-40"; d: "60-70"; correct: "45-55" }
+        ListElement { q: "Ni ipi dalili ya kawaida ya Kisonono kwa wanaume?"; a: "Kutoa usaha kwenye uume"; b: "Kukohoa"; c: "Maumivu ya mgongo"; d: "Kupoteza nywele"; correct: "Kutoa usaha kwenye uume" }
+        ListElement { q: "Upungufu wa damu kwa mama mjamzito mara nyingi husababishwa na ukosefu wa?"; a: "Sukari"; b: "Madini ya Chuma"; c: "Chumvi"; d: "Mafuta"; correct: "Madini ya Chuma" }
+        ListElement { q: "Neno 'Uziwi' wa mtoto mchanga unaweza kusababishwa na maambukizi ya?"; a: "Rubella"; b: "Mafua"; c: "Kikohozi"; d: "Fangasi"; correct: "Rubella" }
+        ListElement { q: "Tendo la kuunganisha yai la kike na mbegu ya kiume huitwa?"; a: "Urutubishaji (Fertilization)"; b: "Upevushaji"; c: "Hedhi"; d: "Uzazi"; correct: "Urutubishaji (Fertilization)" }
+        ListElement { q: "Je, mtu anaweza kuwa na ugonjwa wa zinaa bila kuonyesha dalili zozote?"; a: "Hapana"; b: "Ndiyo"; c: "Ni nadra"; d: "Haiwezekani"; correct: "Ndiyo" }
+
+        ListElement { q: "Tendo la kutoa damu kila mwezi kwa wasichana huitwa?"; a: "Kuvunja ungo"; b: "Hedhi"; c: "Ovulation"; d: "Mimba"; correct: "Hedhi" }
+        ListElement { q: "Ni homoni ipi inawajibika kwa mabadiliko ya kiume wakati wa kubalehe?"; a: "Estrogen"; b: "Progesterone"; c: "Testosterone"; d: "Insulin"; correct: "Testosterone" }
+        ListElement { q: "Mabadiliko ya sauti kuwa nzito kwa wavulana ni ishara ya?"; a: "Kubalehe"; b: "Ugonjwa"; c: "Uchovu"; d: "Kukua kwa mapafu"; correct: "Kubalehe" }
+        ListElement { q: "Kukua kwa matiti na kuanza hedhi ni ishara za kubalehe kwa?"; a: "Wavulana"; b: "Wasichana"; c: "Wote wawili"; d: "Watoto wachanga"; correct: "Wasichana" }
+        ListElement { q: "Tezi inayodhibiti mwanzo wa mchakato wa kubalehe inaitwa?"; a: "Pituitary"; b: "Thyroid"; c: "Adrenal"; d: "Pancreas"; correct: "Pituitary" }
+
+        ListElement { q: "Ni homoni ipi kuu inayosababisha mabadiliko kwa wasichana?"; a: "Estrogen"; b: "Testosterone"; c: "Adrenaline"; d: "Thyroxine"; correct: "Estrogen" }
+        ListElement { q: "Kuota chunusi wakati wa kubalehe mara nyingi husababishwa na?"; a: "Mabadiliko ya homoni"; b: "Kutokunawa uso"; c: "Kula sukari"; d: "Baridi"; correct: "Mabadiliko ya homoni" }
+        ListElement { q: "Ndoto za usiku zinazopelekea kutoa mbegu za kiume (Wet dreams) ni jambo la?"; a: "Kawaida/Kutokua"; b: "Kawaida/Afya"; c: "Hatari"; d: "Ugonjwa"; correct: "Kawaida/Afya" }
+        ListElement { q: "Wastani wa umri wa kuanza kubalehe kwa wasichana ni?"; a: "5-7"; b: "10-14"; c: "18-21"; d: "25-30"; correct: "10-14" }
+        ListElement { q: "Kupanuka kwa mabega ni tabia ya mabadiliko ya kubalehe kwa?"; a: "Wavulana"; b: "Wasichana"; c: "Wazee"; d: "Hakuna"; correct: "Wavulana" }
+        ListElement { q: "Mabadiliko ya kihisia na kuanza kuvutiwa na jinsia tofauti huanza kipindi cha?"; a: "Utoto"; b: "Kubalehe"; c: "Uzee"; d: "Uzaliwa"; correct: "Kubalehe" }
+        ListElement { q: "Kukua kwa 'Adam's Apple' shingoni ni ishara kwa?"; a: "Wavulana"; b: "Wasichana"; c: "Wote"; d: "Wanyama"; correct: "Wavulana" }
+
+
+        ListElement { q: "Kirefu cha AI ni nini?"; a: "Art Intelligent"; b: "Artificial Intelligence"; c: "Automated Info"; d: "Advanced Intel"; correct: "Artificial Intelligence" }
+        ListElement { q: "Ni mfumo upi wa AI uliotengenezwa na kampuni ya OpenAI?"; a: "Siri"; b: "ChatGPT"; c: "Alexa"; d: "Bixby"; correct: "ChatGPT" }
+        ListElement { q: "Uwezo wa AI kujifunza kupitia data bila kupewa maelekezo ya kila hatua huitwa?"; a: "Machine Learning"; b: "Coding"; c: "Typing"; d: "Hardware"; correct: "Machine Learning" }
+
+
+        ListElement { q: "AI inayoweza kutengeneza picha au maandishi mapya huitwa?"; a: "Static AI"; b: "Generative AI"; c: "Old AI"; d: "Manual AI"; correct: "Generative AI" }
+        ListElement { q: "Robot maarufu mwenye uraia wa Saudi Arabia anaitwa?"; a: "Sophia"; b: "Alexa"; c: "Siri"; d: "Jarvis"; correct: "Sophia" }
+        ListElement { q: "Kampuni ya Google imetengeneza AI inayoitwa?"; a: "Gemini"; b: "ChatGPT"; c: "Claude"; d: "Llama"; correct: "Gemini" }
+        ListElement { q: "Ni kifaa gani kinatumia AI kutambua uso wa mtu (Face ID)?"; a: "Simu Janja"; b: "Pasi ya umeme"; c: "Redio"; d: "Saa ya ukutani"; correct: "Simu Janja" }
+        ListElement { q: "AI inayotumika kuendesha magari bila dereva inaitwa?"; a: "Manual Driving"; b: "Autonomous Driving"; c: "Remote Control"; d: "Flying AI"; correct: "Autonomous Driving" }
+        ListElement { q: "Turing Test inatumika kupima nini?"; a: "Uwezo wa AI kufikiri kama binadamu"; b: "Kasi ya intaneti"; c: "Ukubwa wa betri"; d: "Ubora wa kioo"; correct: "Uwezo wa AI kufikiri kama binadamu" }
+        ListElement { q: "Lugha ya kompyuta inayotumika zaidi kwenye AI ni?"; a: "Python"; b: "HTML"; c: "CSS"; d: "SQL"; correct: "Python" }
+        ListElement { q: "Kifaa kinachotumia AI nyumbani kutoa taarifa kwa sauti (mfano Alexa) huitwa?"; a: "Smart Speaker"; b: "Microphone"; c: "Radio"; d: "TV"; correct: "Smart Speaker" }
+        ListElement { q: "AI inaweza kupata 'Hallucinations'. Hii inamaanisha nini?"; a: "Inatoa majibu ya uongo kwa kujiamini"; b: "Inazima yenyewe"; c: "Inapata virusi"; d: "Inafanya kazi haraka"; correct: "Inatoa majibu ya uongo kwa kujiamini" }
+        ListElement { q: "Mwasisi wa AI anayefahamika kama baba wa AI ni?"; a: "Alan Turing"; b: "Bill Gates"; c: "Elon Musk"; d: "Steve Jobs"; correct: "Alan Turing" }
+        ListElement { q: "Deep Learning ni sehemu ya nini?"; a: "Machine Learning"; b: "Hardware"; c: "Agriculture"; d: "Physics"; correct: "Machine Learning" }
+        ListElement { q: "AI inatumia nini ili kufanya maamuzi haraka?"; a: "Algorithms"; b: "Maji"; c: "Upepo"; d: "Petroli"; correct: "Algorithms" }
+
+
+        ListElement { q: "Kitendawili: Nyumba yangu haina mlango."; a: "Yai"; b: "Chupa"; c: "Kaburi"; d: "Tango"; correct: "Yai" }
+        ListElement { q: "Kitendawili: Kila nikienda ananifuata."; a: "Kivuli"; b: "Mbwa"; c: "Rafiki"; d: "Upepo"; correct: "Kivuli" }
+        ListElement { q: "Kitendawili: Babu amebeba gitaa mgongoni."; a: "Kobe"; b: "Konokono"; c: "Mzee"; d: "Kiti"; correct: "Kobe" }
+        ListElement { q: "Kitendawili: Daima anatazama juu."; a: "Nyasi"; b: "Moshi"; c: "Mvua"; d: "Mbuyu"; correct: "Nyasi" }
+        ListElement { q: "Kitendawili: Ana meno mengi lakini hali chakula."; a: "Kitana"; b: "Simba"; c: "Msumeno"; d: "Paka"; correct: "Kitana" }
+
+        ListElement { q: "Kifupi cha teknolojia ya 'Wi-Fi' inamaanisha nini?"; a: "Wireless Fidelity"; b: "Wireless Fiber"; c: "Wire Filter"; d: "Wide Field"; correct: "Wireless Fidelity" }
+        ListElement { q: "Ni kampuni gani ilitengeneza mfumo wa uendeshaji wa Windows?"; a: "Apple"; b: "Microsoft"; c: "IBM"; d: "Google"; correct: "Microsoft" }
+        ListElement { q: "Sehemu ya siri ya mtandao ambayo haionekani kirahisi kwenye search engines huitwa?"; a: "Dark Web"; b: "Public Web"; c: "Safe Web"; d: "Open Web"; correct: "Dark Web" }
+        ListElement { q: "Kifaa kinachotumika kubadilisha nishati ya jua kuwa umeme huitwa?"; a: "Solar Panel"; b: "Generator"; c: "Battery"; d: "Inverter"; correct: "Solar Panel" }
+        ListElement { q: "Katika email, kirefu cha 'BCC' ni nini?"; a: "Blind Carbon Copy"; b: "Best Carbon Copy"; c: "Basic Clear Copy"; d: "Business Case Copy"; correct: "Blind Carbon Copy" }
+        ListElement { q: "Ni lugha gani ya programu (Coding) inayotumika zaidi kutengeneza kurasa za tovuti (Websites)?"; a: "HTML"; b: "C++"; c: "Swift"; d: "Kotlin"; correct: "HTML" }
+        ListElement { q: "Kifaa kinachounganisha kompyuta yako na mtandao wa intaneti huitwa?"; a: "Router"; b: "Scanner"; c: "Printer"; d: "Monitor"; correct: "Router" }
+        ListElement { q: "Teknolojia ya kuratibu maeneo kwa kutumia satelaiti inaitwa?"; a: "GPS"; b: "SMS"; c: "UPS"; d: "CCTV"; correct: "GPS" }
+        ListElement { q: "Namba ya utambulisho wa kipekee kwa kila simu (IMEI) ina tarakimu ngapi?"; a: "10"; b: "15"; c: "12"; d: "16"; correct: "15" }
+        ListElement { q: "Kitufe cha 'F5' kwenye keyboard ya kompyuta mara nyingi hutumika kwa kazi gani?"; a: "Kufuta"; b: "Ku-Refresh"; c: "Kuzima"; d: "Kuhifadhi"; correct: "Ku-Refresh" }
+        ListElement { q: "Ni nini kazi ya 'Firewall' kwenye kompyuta?"; a: "Kuzuia virusi na wadukuzi"; b: "Kupunguza joto"; c: "Kuongeza kasi"; d: "Kupiga picha"; correct: "Kuzuia virusi na wadukuzi" }
+        ListElement { q: "Teknolojia ya kuhifadhi data kwenye mtandao badala ya diski ya kompyuta huitwa?"; a: "Cloud Storage"; b: "Hard Drive"; c: "Flash Disk"; d: "RAM"; correct: "Cloud Storage" }
+        ListElement { q: "Ni nani anayefahamika kama mwanzilishi wa Facebook (Meta)?"; a: "Mark Zuckerberg"; b: "Bill Gates"; c: "Elon Musk"; d: "Jeff Bezos"; correct: "Mark Zuckerberg" }
+
+        ListElement { q: "Ni kiungo gani cha mwili kinachohusika na kusafisha damu?"; a: "Moyo"; b: "Figo"; c: "Mapafu"; d: "Tumbo"; correct: "Figo" }
+        ListElement { q: "Damu ya binadamu ina rangi nyekundu kwa sababu ya protini iitwayo?"; a: "Hemoglobin"; b: "Insulin"; c: "Keratin"; d: "Melanin"; correct: "Hemoglobin" }
+        ListElement { q: "Ni tunda gani lina vitamini C kwa wingi zaidi?"; a: "Chungwa"; b: "Ndizi"; c: "Tikiti"; d: "Tufaha (Apple)"; correct: "Chungwa" }
+        ListElement { q: "Binadamu ana jozi ngapi za kromozomu (Chromosomes)?"; a: "23"; b: "46"; c: "20"; d: "30"; correct: "23" }
+        ListElement { q: "Ni aina gani ya damu (Blood Group) inayoweza kutoa kwa makundi yote (Universal Donor)?"; a: "Group A"; b: "Group B"; c: "Group AB"; d: "Group O"; correct: "Group O" }
+        ListElement { q: "Mifupa ya binadamu mtu mzima imegawanyika katika vipande vingapi?"; a: "100"; b: "206"; c: "300"; d: "150"; correct: "206" }
+        ListElement { q: "Kiungo kikubwa zaidi cha nje cha mwili wa binadamu ni?"; a: "Ngozi"; b: "Mapafu"; c: "Ini"; d: "Miguu"; correct: "Ngozi" }
+        ListElement { q: "Viumbe hai wanaokula mimea pekee huitwa?"; a: "Herbivores"; b: "Carnivores"; c: "Omnivores"; d: "Parasites"; correct: "Herbivores" }
+        ListElement { q: "Ni vitamini gani inayopatikana kwa wingi kupitia mwanga wa jua la asubuhi?"; a: "Vitamini A"; b: "Vitamini C"; c: "Vitamini D"; d: "Vitamini K"; correct: "Vitamini D" }
+        ListElement { q: "Sehemu ya jicho inayohusika na kuingiza mwanga huitwa?"; a: "Pupil"; b: "Retina"; c: "Lens"; d: "Iris"; correct: "Pupil" }
+        ListElement { q: "Ni wadudu gani wanaosafirisha chavua (Pollination) kwa kiasi kikubwa duniani?"; a: "Nyuki"; b: "Mbu"; c: "Mende"; d: "Nzi"; correct: "Nyuki" }
+        ListElement { q: "Zoezi la mimea kutengeneza chakula chake kwa kutumia mwanga wa jua huitwa?"; a: "Photosynthesis"; b: "Respiration"; c: "Digestion"; d: "Osmosis"; correct: "Photosynthesis" }
+        ListElement { q: "Mapigo ya moyo ya binadamu mwenye afya kwa dakika ni wastani wa?"; a: "40-60"; b: "70-80"; c: "100-120"; d: "20-30"; correct: "70-80" }
+
+        ListElement { q: "Ni chombo gani kinatumika kupima kiasi cha mvua iliyonyesha?"; a: "Thermometer"; b: "Rain Gauge"; c: "Barometer"; d: "Anemometer"; correct: "Rain Gauge" }
+        ListElement { q: "Radi hutokea kwa sababu ya msuguano wa nini angani?"; a: "Mawingu"; b: "Ndege"; c: "Nyota"; d: "Mwezi"; correct: "Mawingu" }
+        ListElement { q: "Mvua inayonyesha baada ya maji ya bahari kupata joto na kupaisha mvuke huitwa?"; a: "Convectional Rain"; b: "Relief Rain"; c: "Cyclonic Rain"; d: "Acid Rain"; correct: "Convectional Rain" }
+        ListElement { q: "Ni gesi gani inatengeneza asilimia 21 ya hewa ya anga (Atmosphere)?"; a: "Nitrogen"; b: "Oxygen"; c: "Carbon Dioxide"; d: "Hydrogen"; correct: "Oxygen" }
+        ListElement { q: "Mstari wa kidhahania unaogawanya dunia katika ncha ya kaskazini na kusini ni?"; a: "Equator (Ikweta)"; b: "Longitude"; c: "Tropic of Cancer"; d: "Prime Meridian"; correct: "Equator (Ikweta)" }
+        ListElement { q: "Sauti ya kishindo inayosikika baada ya mwanga wa radi huitwa?"; a: "Umeme"; b: "Mngurumo"; c: "Upepo"; d: "Mwangwi"; correct: "Mngurumo" }
+        ListElement { q: "Zoezi la maji kugeuka kuwa mvuke kutokana na joto huitwa?"; a: "Evaporation"; b: "Condensation"; c: "Freezing"; d: "Melting"; correct: "Evaporation" }
+        ListElement { q: "Ni bahari gani iliyo kubwa zaidi duniani?"; a: "Hindi"; b: "Pasifiki (Pacific)"; c: "Atlantiki"; d: "Shamu"; correct: "Pasifiki (Pacific)" }
+        ListElement { q: "Safu ya milima mirefu zaidi duniani inaitwa?"; a: "Himalayas"; b: "Andes"; c: "Alps"; d: "Kilimanjaro"; correct: "Himalayas" }
+        ListElement { q: "Ni mkoa gani nchini Tanzania unaosifika kwa kuwa na mvua nyingi karibu mwaka mzima?"; a: "Dodoma"; b: "Njombe"; c: "Singida"; d: "Simiyu"; correct: "Njombe" }
+        ListElement { q: "Chombo kinachopima kasi ya upepo huitwa?"; a: "Anemometer"; b: "Hygrometer"; c: "Seismograph"; d: "Compass"; correct: "Anemometer" }
+        ListElement { q: "Vumbi na moshi vikichanganyika na ukungu angani huitwa?"; a: "Smog"; b: "Snow"; c: "Ice"; d: "Dew"; correct: "Smog" }
+        ListElement { q: "Maji ya chumvi duniani yanapatikana kwa kiasi gani?"; a: "50%"; b: "97%"; c: "10%"; d: "75%"; correct: "97%" }
+
+        ListElement { q: "Ni mbu yupi anayeeneza vimelea vya ugonjwa wa Malaria?"; a: "Anopheles Jike"; b: "Anopheles Dume"; c: "Culex"; d: "Aedes"; correct: "Anopheles Jike" }
+        ListElement { q: "Vimelea vinavyosababisha ugonjwa wa Malaria huitwa?"; a: "Plasmodium"; b: "Amoeba"; c: "Virusi"; d: "Bacteria"; correct: "Plasmodium" }
+        ListElement { q: "Ni njia ipi bora ya kuzuia mbu wa malaria wasikufikie ukiwa umelala?"; a: "Chandarua"; b: "Kipepeo"; c: "Kufunga mlango"; d: "Kupaka mafuta ya nazi"; correct: "Chandarua" }
+        ListElement { q: "Malaria inashambulia zaidi seli zipi mwilini?"; a: "Seli nyekundu za damu"; b: "Seli nyeupe"; c: "Seli za ubongo"; d: "Seli za mifupa"; correct: "Seli nyekundu za damu" }
+        ListElement { q: "Ni ipi dalili ya kawaida ya ugonjwa wa Malaria?"; a: "Homa na baridi"; b: "Kupoteza nywele"; c: "Kuumwa meno"; d: "Kuvimba miguu"; correct: "Homa na baridi" }
+        ListElement { q: "Dawa inayopendekezwa na Serikali ya TZ kwa matibabu ya kwanza ya Malaria kwa sasa ni?"; a: "AL (Mseto)"; b: "Quinine"; c: "Panadol"; d: "Asprin"; correct: "AL (Mseto)" }
+        ListElement { q: "Ni kundi lipi lililo hatarini zaidi kupata madhara makubwa ya Malaria?"; a: "Watoto chini ya miaka 5"; b: "Vijana"; c: "Wanaume"; d: "Wanariadha"; correct: "Watoto chini ya miaka 5" }
+        ListElement { q: "Mbu wa malaria hupenda kuzaliana sehemu gani?"; a: "Maji yaliyotuama"; b: "Kwenye mchanga"; c: "Ndani ya chupa"; d: "Juu ya miti"; correct: "Maji yaliyotuama" }
+        ListElement { q: "Kipimo cha haraka cha Malaria kinachotumika kwenye vituo vya afya huitwa?"; a: "mRDT"; b: "X-Ray"; c: "Ultrasound"; d: "MRI"; correct: "mRDT" }
+        ListElement { q: "Ni kiungo gani mwilini kinachoweza kuvimba kutokana na malaria kali?"; a: "Wengu (Spleen)"; b: "Moyo"; c: "Kidole"; d: "Sikio"; correct: "Wengu (Spleen)" }
+        ListElement { q: "Kufyeka nyasi na kufukia madimbwi ni njia ya?"; a: "Kuharibu mazalia ya mbu"; b: "Kupamba mji"; c: "Kupata mbolea"; d: "Kuongeza joto"; correct: "Kuharibu mazalia ya mbu" }
+        ListElement { q: "Siku ya Malaria Duniani huadhimishwa kila mwaka tarehe ngapi?"; a: "Aprili 25"; b: "Desemba 1"; c: "Machi 8"; d: "Januari 1"; correct: "Aprili 25" }
+        ListElement { q: "Ni mkoa upi Tanzania unaotajwa kuwa na maambukizi makubwa ya Malaria kutokana na hali ya hewa?"; a: "Kigoma/Geita"; b: "Dodoma"; c: "Arusha"; d: "Manyara"; correct: "Kigoma/Geita" }
 
-ListElement { q: "Ni kundi gani la kabila nchini Tanzania linalojulikana kwa kuishi kwa kuwinda na kula mizizi?"; a: "Wamasai"; b: "Wahadzabe"; c: "Wachagga"; d: "Wanyamwezi"; correct: "Wahadzabe" }
-ListElement { q: "Kabila la Wamakonde linasifika duniani kwa kipaji gani cha asili?"; a: "Ufugaji wa nyuki"; b: "Uchongaji wa vinyago"; c: "Kusuka mikeka"; d: "Ujenzi wa meli"; correct: "Uchongaji wa vinyago" }
-ListElement { q: "Ngoma ya 'Sindimba' inatokea katika makabila ya mikoa gani ya Kusini?"; a: "Mtwara na Lindi"; b: "Mbeya na Iringa"; c: "Kigoma na Tabora"; d: "Mwanza na Mara"; correct: "Mtwara na Lindi" }
-ListElement { q: "Kabila gani nchini Tanzania linaongoza kwa idadi kubwa ya watu?"; a: "Wasukuma"; b: "Waha"; c: "Wagogo"; d: "Wazaramo"; correct: "Wasukuma" }
-ListElement { q: "Chakula cha asili cha Wachagga kinachotengenezwa kwa ndizi na maharage huitwa?"; a: "Ugali"; b: "Mtori"; c: "Kiburu"; d: "Wali"; correct: "Kiburu" }
+        ListElement { q: "Ni kundi gani la kabila nchini Tanzania linalojulikana kwa kuishi kwa kuwinda na kula mizizi?"; a: "Wamasai"; b: "Wahadzabe"; c: "Wachagga"; d: "Wanyamwezi"; correct: "Wahadzabe" }
+        ListElement { q: "Kabila la Wamakonde linasifika duniani kwa kipaji gani cha asili?"; a: "Ufugaji wa nyuki"; b: "Uchongaji wa vinyago"; c: "Kusuka mikeka"; d: "Ujenzi wa meli"; correct: "Uchongaji wa vinyago" }
+        ListElement { q: "Ngoma ya 'Sindimba' inatokea katika makabila ya mikoa gani ya Kusini?"; a: "Mtwara na Lindi"; b: "Mbeya na Iringa"; c: "Kigoma na Tabora"; d: "Mwanza na Mara"; correct: "Mtwara na Lindi" }
+        ListElement { q: "Kabila gani nchini Tanzania linaongoza kwa idadi kubwa ya watu?"; a: "Wasukuma"; b: "Waha"; c: "Wagogo"; d: "Wazaramo"; correct: "Wasukuma" }
+        ListElement { q: "Chakula cha asili cha Wachagga kinachotengenezwa kwa ndizi na maharage huitwa?"; a: "Ugali"; b: "Mtori"; c: "Kiburu"; d: "Wali"; correct: "Kiburu" }
 
-ListElement { q: "Ni sayari gani iliyo kubwa zaidi katika mfumo wetu wa Jua?"; a: "Dunia"; b: "Saturn"; c: "Jupiter"; d: "Neptune"; correct: "Jupiter" }
-ListElement { q: "Galaxy yetu tunamoishi inaitwa jina gani?"; a: "Andromeda"; b: "Milky Way (Njia ya Mtindi)"; c: "Sombrero"; d: "Black Eye"; correct: "Milky Way (Njia ya Mtindi)" }
-ListElement { q: "Sayari ya Saturn inafahamika zaidi kwa kuwa na nini kinachoizunguka?"; a: "Maji"; b: "Pete (Rings)"; c: "Moto"; d: "Mwangaza wa kijani"; correct: "Pete (Rings)" }
-ListElement { q: "Jua ni nini hasa katika sayansi ya anga?"; a: "Sayari"; b: "Nyota (Star)"; c: "Satelaiti"; d: "Jiwe"; correct: "Nyota (Star)" }
-ListElement { q: "Ni sayari gani iliyo karibu zaidi na Jua?"; a: "Venus"; b: "Mars"; c: "Mercury"; d: "Dunia"; correct: "Mercury" }
-ListElement { q: "Mwanga wa Jua huchukua takriban dakika ngapi kufika Duniani?"; a: "Sekunde 30"; b: "Dakika 8"; c: "Saa 1"; d: "Siku 2"; correct: "Dakika 8" }
-ListElement { q: "Ni sayari gani inayofahamika kama 'Pacha wa Dunia' kwa sababu ya ukubwa wake?"; a: "Venus"; b: "Jupiter"; c: "Mars"; d: "Uranus"; correct: "Venus" }
-ListElement { q: "Eneo lenye nguvu kubwa ya uvutano angani ambapo hata mwanga hauwezi kutoroka huitwa?"; a: "Galaxy"; b: "Black Hole"; c: "Asteroid"; d: "Comet"; correct: "Black Hole" }
+        ListElement { q: "Ni sayari gani iliyo kubwa zaidi katika mfumo wetu wa Jua?"; a: "Dunia"; b: "Saturn"; c: "Jupiter"; d: "Neptune"; correct: "Jupiter" }
+        ListElement { q: "Galaxy yetu tunamoishi inaitwa jina gani?"; a: "Andromeda"; b: "Milky Way (Njia ya Mtindi)"; c: "Sombrero"; d: "Black Eye"; correct: "Milky Way (Njia ya Mtindi)" }
+        ListElement { q: "Sayari ya Saturn inafahamika zaidi kwa kuwa na nini kinachoizunguka?"; a: "Maji"; b: "Pete (Rings)"; c: "Moto"; d: "Mwangaza wa kijani"; correct: "Pete (Rings)" }
+        ListElement { q: "Jua ni nini hasa katika sayansi ya anga?"; a: "Sayari"; b: "Nyota (Star)"; c: "Satelaiti"; d: "Jiwe"; correct: "Nyota (Star)" }
+        ListElement { q: "Ni sayari gani iliyo karibu zaidi na Jua?"; a: "Venus"; b: "Mars"; c: "Mercury"; d: "Dunia"; correct: "Mercury" }
+        ListElement { q: "Mwanga wa Jua huchukua takriban dakika ngapi kufika Duniani?"; a: "Sekunde 30"; b: "Dakika 8"; c: "Saa 1"; d: "Siku 2"; correct: "Dakika 8" }
+        ListElement { q: "Ni sayari gani inayofahamika kama 'Pacha wa Dunia' kwa sababu ya ukubwa wake?"; a: "Venus"; b: "Jupiter"; c: "Mars"; d: "Uranus"; correct: "Venus" }
+        ListElement { q: "Eneo lenye nguvu kubwa ya uvutano angani ambapo hata mwanga hauwezi kutoroka huitwa?"; a: "Galaxy"; b: "Black Hole"; c: "Asteroid"; d: "Comet"; correct: "Black Hole" }
 
-ListElement { q: "Fuvu la binadamu wa kale (Zinjanthropus) liligunduliwa na kina Leakey katika bonde gani?"; a: "Ngorongoro"; b: "Olduvai Gorge"; c: "Bonde la Ufa"; d: "Kilimatinde"; correct: "Olduvai Gorge" }
-ListElement { q: "Michoro ya mapangoni ya Kondoa Irangi inasadikiwa kuchorwa na nani?"; a: "Wajerumani"; b: "Watu wa kale (Bushmen)"; c: "Waarabu"; d: "Wamasai"; correct: "Watu wa kale (Bushmen)" }
-ListElement { q: "Zama ambapo binadamu alianza kutumia mawe kutengeneza vifaa huitwa?"; a: "Zama za Mawe"; b: "Zama za Chuma"; c: "Zama za Viwanda"; d: "Zama za Giza"; correct: "Zama za Mawe" }
-ListElement { q: "Mji wa kale wa Kilwa Kisiwani ulikuwa kitovu cha biashara katika pwani ya?"; a: "Bahari ya Hindi"; b: "Bahari ya Shamu"; c: "Ziwa Victoria"; d: "Bahari ya Mediteranea"; correct: "Bahari ya Hindi" }
+        ListElement { q: "Fuvu la binadamu wa kale (Zinjanthropus) liligunduliwa na kina Leakey katika bonde gani?"; a: "Ngorongoro"; b: "Olduvai Gorge"; c: "Bonde la Ufa"; d: "Kilimatinde"; correct: "Olduvai Gorge" }
+        ListElement { q: "Michoro ya mapangoni ya Kondoa Irangi inasadikiwa kuchorwa na nani?"; a: "Wajerumani"; b: "Watu wa kale (Bushmen)"; c: "Waarabu"; d: "Wamasai"; correct: "Watu wa kale (Bushmen)" }
+        ListElement { q: "Zama ambapo binadamu alianza kutumia mawe kutengeneza vifaa huitwa?"; a: "Zama za Mawe"; b: "Zama za Chuma"; c: "Zama za Viwanda"; d: "Zama za Giza"; correct: "Zama za Mawe" }
+        ListElement { q: "Mji wa kale wa Kilwa Kisiwani ulikuwa kitovu cha biashara katika pwani ya?"; a: "Bahari ya Hindi"; b: "Bahari ya Shamu"; c: "Ziwa Victoria"; d: "Bahari ya Mediteranea"; correct: "Bahari ya Hindi" }
 
-ListElement { q: "Soko kuu la mwisho la watumwa katika Afrika Mashariki lilikuwa wapi?"; a: "Bagamoyo"; b: "Zanzibar"; c: "Tabora"; d: "Mombasa"; correct: "Zanzibar" }
-ListElement { q: "Vita vya Kwanza vya Dunia (WWI) vilianza mwaka gani?"; a: "1914"; b: "1939"; c: "1884"; d: "1945"; correct: "1914" }
-ListElement { q: "Ni nchi gani ilivamia Poland na kusababisha kuanza kwa Vita vya Pili vya Dunia?"; a: "Uingereza"; b: "Ujerumani"; c: "Urusi"; d: "Italia"; correct: "Ujerumani" }
-ListElement { q: "Kiongozi wa kijeshi wa Ujerumani wakati wa Vita vya Pili vya Dunia alikuwa nani?"; a: "Adolf Hitler"; b: "Winston Churchill"; c: "Benito Mussolini"; d: "Joseph Stalin"; correct: "Adolf Hitler" }
-ListElement { q: "Mkataba wa Versailles ulihitimisha vita gani?"; a: "Vita vya Kwanza vya Dunia"; b: "Vita vya Pili vya Dunia"; c: "Vita vya Kagera"; d: "Vita vya Maji Maji"; correct: "Vita vya Kwanza vya Dunia" }
-ListElement { q: "Mji mkuu wa kitumwa ambapo watumwa walipewa jina la 'Bwagamoyo' (Bagamoyo) unamaanisha nini?"; a: "Pumzika moyo"; b: "Tupa moyo"; c: "Furahisha moyo"; d: "Fariji moyo"; correct: "Tupa moyo" }
+        ListElement { q: "Soko kuu la mwisho la watumwa katika Afrika Mashariki lilikuwa wapi?"; a: "Bagamoyo"; b: "Zanzibar"; c: "Tabora"; d: "Mombasa"; correct: "Zanzibar" }
+        ListElement { q: "Vita vya Kwanza vya Dunia (WWI) vilianza mwaka gani?"; a: "1914"; b: "1939"; c: "1884"; d: "1945"; correct: "1914" }
+        ListElement { q: "Ni nchi gani ilivamia Poland na kusababisha kuanza kwa Vita vya Pili vya Dunia?"; a: "Uingereza"; b: "Ujerumani"; c: "Urusi"; d: "Italia"; correct: "Ujerumani" }
+        ListElement { q: "Kiongozi wa kijeshi wa Ujerumani wakati wa Vita vya Pili vya Dunia alikuwa nani?"; a: "Adolf Hitler"; b: "Winston Churchill"; c: "Benito Mussolini"; d: "Joseph Stalin"; correct: "Adolf Hitler" }
+        ListElement { q: "Mkataba wa Versailles ulihitimisha vita gani?"; a: "Vita vya Kwanza vya Dunia"; b: "Vita vya Pili vya Dunia"; c: "Vita vya Kagera"; d: "Vita vya Maji Maji"; correct: "Vita vya Kwanza vya Dunia" }
+        ListElement { q: "Mji mkuu wa kitumwa ambapo watumwa walipewa jina la 'Bwagamoyo' (Bagamoyo) unamaanisha nini?"; a: "Pumzika moyo"; b: "Tupa moyo"; c: "Furahisha moyo"; d: "Fariji moyo"; correct: "Tupa moyo" }
 
-ListElement { q: "Rais gani wa Tanzania alijulikana kama 'Mzee wa Ruksa'?"; a: "Nyerere"; b: "Mwinyi"; c: "Mkapa"; d: "Kikwete"; correct: "Mwinyi" }
-ListElement { q: "Vita vya Kagera (1978-1979) vilikuwa kati ya Tanzania na nchi gani?"; a: "Kenya"; b: "Uganda"; c: "Rwanda"; d: "Malawi"; correct: "Uganda" }
-ListElement { q: "Ni nani alikuwa Rais wa Uganda wakati wa Vita vya Kagera?"; a: "Milton Obote"; b: "Idi Amin Dada"; c: "Yoweri Museveni"; d: "Tito Okello"; correct: "Idi Amin Dada" }
-ListElement { q: "Rais wa awamu ya nne wa Tanzania ni nani?"; a: "Ali Hassan Mwinyi"; b: "Jakaya Kikwete"; c: "Benjamin Mkapa"; d: "John Magufuli"; correct: "Jakaya Kikwete" }
-ListElement { q: "Rais Samia Suluhu Hassan alizaliwa katika mkoa gani?"; a: "Unguja - Kizimkazi"; b: "Pwani"; c: "Dar es Salaam"; d: "Pemba"; correct: "Unguja - Kizimkazi" }
-ListElement { q: "Wimbo maarufu wa kishujaa uliotumika wakati wa Vita vya Kagera unaitwa?"; a: "Tanzania Tanzania"; b: "Mwenge wa Uhuru"; c: "Mvua ya Radi"; d: "Kifochura"; correct: "Kifochura" }
-ListElement { q: "Rais Benjamin Mkapa alipewa jina la utani la?"; a: "Mzee wa Mapinduzi"; b: "Mr. Clean"; c: "Bulldozer"; d: "Chuma"; correct: "Mr. Clean" }
-ListElement { q: "Ni Rais yupi alifariki akiwa madarakani mwaka 2021?"; a: "Nyerere"; b: "Magufuli"; c: "Mkapa"; d: "Karume"; correct: "Magufuli" }
+        ListElement { q: "Rais gani wa Tanzania alijulikana kama 'Mzee wa Ruksa'?"; a: "Nyerere"; b: "Mwinyi"; c: "Mkapa"; d: "Kikwete"; correct: "Mwinyi" }
+        ListElement { q: "Vita vya Kagera (1978-1979) vilikuwa kati ya Tanzania na nchi gani?"; a: "Kenya"; b: "Uganda"; c: "Rwanda"; d: "Malawi"; correct: "Uganda" }
+        ListElement { q: "Ni nani alikuwa Rais wa Uganda wakati wa Vita vya Kagera?"; a: "Milton Obote"; b: "Idi Amin Dada"; c: "Yoweri Museveni"; d: "Tito Okello"; correct: "Idi Amin Dada" }
+        ListElement { q: "Rais wa awamu ya nne wa Tanzania ni nani?"; a: "Ali Hassan Mwinyi"; b: "Jakaya Kikwete"; c: "Benjamin Mkapa"; d: "John Magufuli"; correct: "Jakaya Kikwete" }
+        ListElement { q: "Rais Samia Suluhu Hassan alizaliwa katika mkoa gani?"; a: "Unguja - Kizimkazi"; b: "Pwani"; c: "Dar es Salaam"; d: "Pemba"; correct: "Unguja - Kizimkazi" }
+        ListElement { q: "Wimbo maarufu wa kishujaa uliotumika wakati wa Vita vya Kagera unaitwa?"; a: "Tanzania Tanzania"; b: "Mwenge wa Uhuru"; c: "Mvua ya Radi"; d: "Kifochura"; correct: "Kifochura" }
+        ListElement { q: "Rais Benjamin Mkapa alipewa jina la utani la?"; a: "Mzee wa Mapinduzi"; b: "Mr. Clean"; c: "Bulldozer"; d: "Chuma"; correct: "Mr. Clean" }
+        ListElement { q: "Ni Rais yupi alifariki akiwa madarakani mwaka 2021?"; a: "Nyerere"; b: "Magufuli"; c: "Mkapa"; d: "Karume"; correct: "Magufuli" }
 
-ListElement { q: "Alama ya kikemia ya dhahabu (Gold) ni ipi?"; a: "Ag"; b: "Fe"; c: "Au"; d: "Gd"; correct: "Au" }
-ListElement { q: "Gesi inayotumika kuzima moto inaitwa?"; a: "Oxygen"; b: "Carbon Dioxide"; c: "Hydrogen"; d: "Nitrogen"; correct: "Carbon Dioxide" }
+        ListElement { q: "Alama ya kikemia ya dhahabu (Gold) ni ipi?"; a: "Ag"; b: "Fe"; c: "Au"; d: "Gd"; correct: "Au" }
+        ListElement { q: "Gesi inayotumika kuzima moto inaitwa?"; a: "Oxygen"; b: "Carbon Dioxide"; c: "Hydrogen"; d: "Nitrogen"; correct: "Carbon Dioxide" }
 
-ListElement { q: "PH ya maji yaliyo safi (Pure Water) ni ngapi?"; a: "0"; b: "7"; c: "14"; d: "5"; correct: "7" }
+        ListElement { q: "PH ya maji yaliyo safi (Pure Water) ni ngapi?"; a: "0"; b: "7"; c: "14"; d: "5"; correct: "7" }
 
-ListElement { q: "Tendo la chuma kupata kutu linahitaji vitu gani viwili?"; a: "Maji na Mafuta"; b: "Maji na Hewa (Oxygen)"; c: "Moto na Hewa"; d: "Mchanga na Maji"; correct: "Maji na Hewa (Oxygen)" }
+        ListElement { q: "Tendo la chuma kupata kutu linahitaji vitu gani viwili?"; a: "Maji na Mafuta"; b: "Maji na Hewa (Oxygen)"; c: "Moto na Hewa"; d: "Mchanga na Maji"; correct: "Maji na Hewa (Oxygen)" }
 
-ListElement { q: "Kizio cha kupimia mkondo wa umeme (Current) ni?"; a: "Volt"; b: "Watt"; c: "Ampere"; d: "Ohm"; correct: "Ampere" }
-ListElement { q: "Ncha mbili za sumaku zinazofanana (mfano North na North) zikikutana hufanya nini?"; a: "Huvutana"; b: "Hupingana (Repel)"; c: "Huzima"; d: "Hulipuka"; correct: "Hupingana (Repel)" }
+        ListElement { q: "Kizio cha kupimia mkondo wa umeme (Current) ni?"; a: "Volt"; b: "Watt"; c: "Ampere"; d: "Ohm"; correct: "Ampere" }
+        ListElement { q: "Ncha mbili za sumaku zinazofanana (mfano North na North) zikikutana hufanya nini?"; a: "Huvutana"; b: "Hupingana (Repel)"; c: "Huzima"; d: "Hulipuka"; correct: "Hupingana (Repel)" }
 
 
-ListElement { q: "Kifaa kinachotumika kubadili nishati ya mwendo kuwa umeme huitwa?"; a: "Motor"; b: "Dynamo/Generator"; c: "Battery"; d: "Switch"; correct: "Dynamo/Generator" }
-ListElement { q: "Nyaya za umeme mara nyingi hufunikwa na raba au plastiki kwa sababu ni?"; a: "Kinyeleo (Insulator)"; b: "Kipitisho (Conductor)"; c: "Nzito"; d: "Laini"; correct: "Kinyeleo (Insulator)" }
+        ListElement { q: "Kifaa kinachotumika kubadili nishati ya mwendo kuwa umeme huitwa?"; a: "Motor"; b: "Dynamo/Generator"; c: "Battery"; d: "Switch"; correct: "Dynamo/Generator" }
+        ListElement { q: "Nyaya za umeme mara nyingi hufunikwa na raba au plastiki kwa sababu ni?"; a: "Kinyeleo (Insulator)"; b: "Kipitisho (Conductor)"; c: "Nzito"; d: "Laini"; correct: "Kinyeleo (Insulator)" }
 
-ListElement { q: "Chombo cha usafiri wa majini kinachoweza kuzama na kutembea chini ya maji huitwa?"; a: "Meli"; b: "Nyambizi (Submarine)"; c: "Mtumbwi"; d: "Pantoni"; correct: "Nyambizi (Submarine)" }
-ListElement { q: "Ni nani anasifika kwa kuvumbua ndege ya kwanza duniani?"; a: "Wright Brothers"; b: "Thomas Edison"; c: "Henry Ford"; d: "Nikola Tesla"; correct: "Wright Brothers" }
-ListElement { q: "Treni ya mwendokasi inayotumia umeme nchini Tanzania inajulikana kama?"; a: "TAZARA"; b: "SGR"; c: "Mwendokasi"; d: "TRC"; correct: "SGR" }
-ListElement { q: "Kifaa kinachotumika kuongoza meli au ndege kujua upande wa Kaskazini huitwa?"; a: "Thermometer"; b: "Compass"; c: "Barometer"; d: "Radar"; correct: "Compass" }
-ListElement { q: "Usafiri wa anga unaotumia puto kubwa lenye hewa ya moto unaitwa?"; a: "Helikopta"; b: "Hot Air Balloon"; c: "Parachute"; d: "Drone"; correct: "Hot Air Balloon" }
+        ListElement { q: "Chombo cha usafiri wa majini kinachoweza kuzama na kutembea chini ya maji huitwa?"; a: "Meli"; b: "Nyambizi (Submarine)"; c: "Mtumbwi"; d: "Pantoni"; correct: "Nyambizi (Submarine)" }
+        ListElement { q: "Ni nani anasifika kwa kuvumbua ndege ya kwanza duniani?"; a: "Wright Brothers"; b: "Thomas Edison"; c: "Henry Ford"; d: "Nikola Tesla"; correct: "Wright Brothers" }
+        ListElement { q: "Treni ya mwendokasi inayotumia umeme nchini Tanzania inajulikana kama?"; a: "TAZARA"; b: "SGR"; c: "Mwendokasi"; d: "TRC"; correct: "SGR" }
+        ListElement { q: "Kifaa kinachotumika kuongoza meli au ndege kujua upande wa Kaskazini huitwa?"; a: "Thermometer"; b: "Compass"; c: "Barometer"; d: "Radar"; correct: "Compass" }
+        ListElement { q: "Usafiri wa anga unaotumia puto kubwa lenye hewa ya moto unaitwa?"; a: "Helikopta"; b: "Hot Air Balloon"; c: "Parachute"; d: "Drone"; correct: "Hot Air Balloon" }
 
 
-ListElement { q: "Kitendawili: Askari wangu wote huvaa kofia nyekundu."; a: "Kiberiti"; b: "Meno"; c: "Askari"; d: "Mawingu"; correct: "Kiberiti" }
-ListElement { q: "Kitendawili: Kamba yangu ndefu lakini haifungi kuni."; a: "Njia/Barabara"; b: "Nyoka"; c: "Maji"; d: "Upepo"; correct: "Njia/Barabara" }
-ListElement { q: "Kitendawili: Huenda lakini harudi."; a: "Maji ya mto"; b: "Miguu"; c: "Gari"; d: "Muda"; correct: "Maji ya mto" }
-ListElement { q: "Kitendawili: Nyumbani kwangu kumesitiriwa kwa kuta nyeupe lakini hakuingiliki."; a: "Yai"; b: "Chumba"; c: "Gereza"; d: "Chupa"; correct: "Yai" }
-ListElement { q: "Kitendawili: Anatembea kwa miguu minne asubuhi, miwili mchana, na mitatu jioni."; a: "Binadamu"; b: "Kobe"; c: "Mzee"; d: "Mtoto"; correct: "Binadamu" }
+        ListElement { q: "Kitendawili: Askari wangu wote huvaa kofia nyekundu."; a: "Kiberiti"; b: "Meno"; c: "Askari"; d: "Mawingu"; correct: "Kiberiti" }
+        ListElement { q: "Kitendawili: Kamba yangu ndefu lakini haifungi kuni."; a: "Njia/Barabara"; b: "Nyoka"; c: "Maji"; d: "Upepo"; correct: "Njia/Barabara" }
+        ListElement { q: "Kitendawili: Huenda lakini harudi."; a: "Maji ya mto"; b: "Miguu"; c: "Gari"; d: "Muda"; correct: "Maji ya mto" }
+        ListElement { q: "Kitendawili: Nyumbani kwangu kumesitiriwa kwa kuta nyeupe lakini hakuingiliki."; a: "Yai"; b: "Chumba"; c: "Gereza"; d: "Chupa"; correct: "Yai" }
+        ListElement { q: "Kitendawili: Anatembea kwa miguu minne asubuhi, miwili mchana, na mitatu jioni."; a: "Binadamu"; b: "Kobe"; c: "Mzee"; d: "Mtoto"; correct: "Binadamu" }
 
-// --- MAGABE LAB
-ListElement { q: "Magabe Lab inatumika zaidi kutengeneza mifumo ya aina gani?"; a: "Apps na Programu za Kompyuta"; b: "Kilimo cha kisasa"; c: "Ujenzi wa barabara"; d: "Ufugaji wa nyuki"; correct: "Apps na Programu za Kompyuta" }
+        //music
+        ListElement { q: "Msanii gani wa Tanzania alikuwa wa kwanza kushinda tuzo ya BET (Viewer's Choice Best New International Act)?"; a: "Diamond Platnumz"; b: "Rayvanny"; c: "Harmonize"; d: "Ali Kiba"; correct: "Rayvanny" }
 
-ListElement { q: "Ni lugha gani ya programu (Coding) inayotumiwa na Magabe Lab kutengeneza interface ya App hii?"; a: "Python"; b: "C++"; c: "QML (Qt Quick)"; d: "PHP"; correct: "QML (Qt Quick)" }
+        ListElement { q: "Kundi la vichekesho lililojizolea umaarufu mkubwa nchini Tanzania kuanzia miaka ya 2000 linaitwa?"; a: "Orijino Komedi"; b: "Vituko Show"; c: "Mizengwe"; d: "Ze Komedi"; correct: "Orijino Komedi" }
 
-ListElement { q: "Kwenye Magabe Lab, 'Frontend' ya App inahusika na nini?"; a: "Muonekano unaoonekana na mtumiaji"; b: "Uhifadhi wa siri kwenye database"; c: "Kutengeneza vioo vya simu"; d: "Kupiga picha za satelaiti"; correct: "Muonekano unaoonekana na mtumiaji" }
+        ListElement { q: "Marehemu Steven Kanumba alikuwa mwigizaji maarufu aliyejulikana pia kwa jina lipi la kisanii?"; a: "The Great"; b: "The King"; c: "Director"; d: "Chairman"; correct: "The Great" }
 
-ListElement { q: "Ni mfumo upi wa uendeshaji (OS) ambao App za Magabe Lab zinaweza kufanya kazi?"; a: "Android pekee"; b: "Windows pekee"; c: "Android, iOS, na Windows"; d: "Redio za mbao pekee"; correct: "Android, iOS, na Windows" }
+        ListElement { q: "Msanii wa kike wa Bongo Flava anayeshikilia rekodi ya kutazamwa zaidi (Most Viewed) YouTube ni?"; a: "Nandy"; b: "Zuchu"; c: "Shilole"; d: "Maua Sama"; correct: "Zuchu" }
 
-ListElement { q: "Lengo kuu la Magabe Lab katika kuleta teknolojia nchini Tanzania ni?"; a: "Kutoa burudani na elimu kidijitali"; b: "Kuuza simu zilizotumika"; c: "Kufundisha udereva wa malori"; d: "Kutengeneza michezo ya kamari pekee"; correct: "Kutoa burudani na elimu kidijitali" }
+        ListElement { q: "Mchekeshaji gani nchini Tanzania anajulikana kwa mtindo wake wa kuvaa kama mwanamke na kutumia jina la 'Mkude Simba'?"; a: "Joti"; b: "Kitale"; c: "Mpoki"; d: "Mwijaku"; correct: "Kitale" }
 
-ListElement { q: "Msanii gani wa Tanzania alikuwa wa kwanza kushinda tuzo ya BET (Viewer's Choice Best New International Act)?"; a: "Diamond Platnumz"; b: "Rayvanny"; c: "Harmonize"; d: "Ali Kiba"; correct: "Rayvanny" }
+        ListElement { q: "Filamu ya kwanza ya Kitanzania kuingia katika mashindano makubwa ya 'Oscars' nchini Marekani inaitwa?"; a: "Tug of War (Vuta N'kuvute)"; b: "Bulyanhulu"; c: "Siri ya Mtungi"; d: "Dar ni Njema"; correct: "Tug of War (Vuta N'kuvute)" }
 
-ListElement { q: "Kundi la vichekesho lililojizolea umaarufu mkubwa nchini Tanzania kuanzia miaka ya 2000 linaitwa?"; a: "Orijino Komedi"; b: "Vituko Show"; c: "Mizengwe"; d: "Ze Komedi"; correct: "Orijino Komedi" }
+        ListElement { q: "Msanii wa muziki anayefahamika kama 'King of Bongo Flava' na mmiliki wa lebo ya Kings Music ni?"; a: "Ali Kiba"; b: "Marioo"; c: "Dully Sykes"; d: "Professor Jay"; correct: "Ali Kiba" }
 
-ListElement { q: "Marehemu Steven Kanumba alikuwa mwigizaji maarufu aliyejulikana pia kwa jina lipi la kisanii?"; a: "The Great"; b: "The King"; c: "Director"; d: "Chairman"; correct: "The Great" }
+        ListElement { q: "Mwigizaji gani wa kike nchini Tanzania alishinda tuzo ya 'Best Actress' katika tamasha la AMVCA nchini Nigeria?"; a: "Wema Sepetu"; b: "Elizabeth Michael (Lulu)"; c: "Jacqueline Wolper"; d: "Irene Uwoya"; correct: "Elizabeth Michael (Lulu)" }
 
-ListElement { q: "Msanii wa kike wa Bongo Flava anayeshikilia rekodi ya kutazamwa zaidi (Most Viewed) YouTube ni?"; a: "Nandy"; b: "Zuchu"; c: "Shilole"; d: "Maua Sama"; correct: "Zuchu" }
+        ListElement { q: "Msanii gani wa vichekesho anayesifika kwa uwezo wa kuigiza sauti za viongozi mbalimbali na watu maarufu?"; a: "Mpoki"; b: "Joti"; c: "Ebitoke"; d: "Bwakila"; correct: "Joti" }
 
-ListElement { q: "Mchekeshaji gani nchini Tanzania anajulikana kwa mtindo wake wa kuvaa kama mwanamke na kutumia jina la 'Mkude Simba'?"; a: "Joti"; b: "Kitale"; c: "Mpoki"; d: "Mwijaku"; correct: "Kitale" }
+        ListElement { q: "Lebo ya muziki inayomilikiwa na Diamond Platnumz inaitwa?"; a: "WCB Wasafi"; b: "Konde Gang"; c: "Kings Music"; d: "Next Level"; correct: "WCB Wasafi" }
 
-ListElement { q: "Filamu ya kwanza ya Kitanzania kuingia katika mashindano makubwa ya 'Oscars' nchini Marekani inaitwa?"; a: "Tug of War (Vuta N'kuvute)"; b: "Bulyanhulu"; c: "Siri ya Mtungi"; d: "Dar ni Njema"; correct: "Tug of War (Vuta N'kuvute)" }
+        ListElement { q: "Marehemu ambae alikuwa mwigizaji nguli wa maigizo ya runinga na kiongozi wa kundi la Kaole Sanaa Group ni?"; a: "Mzee Small"; b: "Mzee Majuto"; c: "Sajuki"; d: "Steve Kanumba"; correct: "Mzee Majuto" }
 
-ListElement { q: "Msanii wa muziki anayefahamika kama 'King of Bongo Flava' na mmiliki wa lebo ya Kings Music ni?"; a: "Ali Kiba"; b: "Marioo"; c: "Dully Sykes"; d: "Professor Jay"; correct: "Ali Kiba" }
+        ListElement { q: "Wimbo wa 'Number One' uliomtangaza Diamond Platnumz kimataifa alimshirikisha msanii gani kutoka Nigeria?"; a: "Davido"; b: "Wizkid"; c: "Burna Boy"; d: "P-Square"; correct: "Davido" }
 
-ListElement { q: "Mwigizaji gani wa kike nchini Tanzania alishinda tuzo ya 'Best Actress' katika tamasha la AMVCA nchini Nigeria?"; a: "Wema Sepetu"; b: "Elizabeth Michael (Lulu)"; c: "Jacqueline Wolper"; d: "Irene Uwoya"; correct: "Elizabeth Michael (Lulu)" }
+        ListElement { q: "Mchekeshaji Coy Mzero anajulikana zaidi kupitia jukwaa gani la vichekesho nchini?"; a: "Cheka Tu"; b: "Comedy Knights"; c: "Stand Up Tanzania"; d: "Funny Fellas"; correct: "Cheka Tu" }
 
-ListElement { q: "Msanii gani wa vichekesho anayesifika kwa uwezo wa kuigiza sauti za viongozi mbalimbali na watu maarufu?"; a: "Mpoki"; b: "Joti"; c: "Ebitoke"; d: "Bwakila"; correct: "Joti" }
+        // --- MAWASILIANO
+        ListElement { q: "Mamlaka inayosimamia mawasiliano ya simu, intaneti, na utangazaji nchini Tanzania inaitwa?"; a: "TRA"; b: "TCRA"; c: "TANESCO"; d: "NIDA"; correct: "TCRA" }
 
-ListElement { q: "Lebo ya muziki inayomilikiwa na Diamond Platnumz inaitwa?"; a: "WCB Wasafi"; b: "Konde Gang"; c: "Kings Music"; d: "Next Level"; correct: "WCB Wasafi" }
+        ListElement { q: "Namba ya utambulisho wa kipekee inayopatikana kwenye simu (IMEI) hutumika kwa kazi gani?"; a: "Kupiga simu"; b: "Kutambua na kufungia simu iliyoibwa"; c: "Kuongeza salio"; d: "Kupima kasi ya intaneti"; correct: "Kutambua na kufungia simu iliyoibwa" }
 
-ListElement { q: "Marehemu ambae alikuwa mwigizaji nguli wa maigizo ya runinga na kiongozi wa kundi la Kaole Sanaa Group ni?"; a: "Mzee Small"; b: "Mzee Majuto"; c: "Sajuki"; d: "Steve Kanumba"; correct: "Mzee Majuto" }
+        ListElement { q: "Ni mfumo upi unaotumiwa na TCRA kusajili laini za simu kwa kutumia alama za vidole?"; a: "Mfumo wa Biometriki"; b: "Mfumo wa Analogi"; c: "Mfumo wa Satelaiti"; d: "Mfumo wa Sensa"; correct: "Mfumo wa Biometriki" }
 
-ListElement { q: "Wimbo wa 'Number One' uliomtangaza Diamond Platnumz kimataifa alimshirikisha msanii gani kutoka Nigeria?"; a: "Davido"; b: "Wizkid"; c: "Burna Boy"; d: "P-Square"; correct: "Davido" }
+        ListElement { q: "Kadi ndogo inayowekwa kwenye simu ili kukuunganisha na mtandao (SIM Card) kirefu chake ni nini?"; a: "Subscriber Identity Module"; b: "System Internal Memory"; c: "Signal Integrated Mode"; d: "Social Identity Media"; correct: "Subscriber Identity Module" }
 
-ListElement { q: "Mchekeshaji Coy Mzero anajulikana zaidi kupitia jukwaa gani la vichekesho nchini?"; a: "Cheka Tu"; b: "Comedy Knights"; c: "Stand Up Tanzania"; d: "Funny Fellas"; correct: "Cheka Tu" }
 
-// --- MAWASILIANO
-ListElement { q: "Mamlaka inayosimamia mawasiliano ya simu, intaneti, na utangazaji nchini Tanzania inaitwa?"; a: "TRA"; b: "TCRA"; c: "TANESCO"; d: "NIDA"; correct: "TCRA" }
+        ListElement { q: "Namba ya huduma kwa wateja kwa kampuni zote za simu Tanzania iliyosanifiwa na TCRA ni ipi?"; a: "100"; b: "911"; c: "112"; d: "101"; correct: "100" }
 
-ListElement { q: "Namba ya utambulisho wa kipekee inayopatikana kwenye simu (IMEI) hutumika kwa kazi gani?"; a: "Kupiga simu"; b: "Kutambua na kufungia simu iliyoibwa"; c: "Kuongeza salio"; d: "Kupima kasi ya intaneti"; correct: "Kutambua na kufungia simu iliyoibwa" }
+        // --- SHULE NA HISTORIA
+        ListElement { q: "Mwalimu Julius K. Nyerere alisoma elimu yake ya sekondari katika shule gani maarufu?"; a: "Tabora Boys"; b: "Pugu Secondary"; c: "Mzumbe"; d: "Kibaha"; correct: "Tabora Boys" }
 
-ListElement { q: "Ni mfumo upi unaotumiwa na TCRA kusajili laini za simu kwa kutumia alama za vidole?"; a: "Mfumo wa Biometriki"; b: "Mfumo wa Analogi"; c: "Mfumo wa Satelaiti"; d: "Mfumo wa Sensa"; correct: "Mfumo wa Biometriki" }
+        ListElement { q: "Ni shule ipi kati ya hizi inajulikana kama shule ya kitaifa ya wavulana yenye vipaji maalum (Special Talents School)?"; a: "Ilboru"; b: "Msalato"; c: "Jangwani"; d: "Azania"; correct: "Ilboru" }
 
-ListElement { q: "Kadi ndogo inayowekwa kwenye simu ili kukuunganisha na mtandao (SIM Card) kirefu chake ni nini?"; a: "Subscriber Identity Module"; b: "System Internal Memory"; c: "Signal Integrated Mode"; d: "Social Identity Media"; correct: "Subscriber Identity Module" }
+        ListElement { q: "Shule gani ya wasichana ya serikali mkoani Dodoma inajulikana kwa ufaulu mzuri na ni ya kiwango cha kitaifa?"; a: "Msalato Girls"; b: "Kilakala"; c: "Loleza"; d: "Weruweru"; correct: "Msalato Girls" }
 
+        ListElement { q: "Shule ya sekondari ya Tabora Girls inasifika kwa kuwa shule ya kwanza ya serikali kwa ajili ya?"; a: "Wasichana wenye vipaji"; b: "Walimu wa kike"; c: "Viongozi wa dini"; d: "Kilimo"; correct: "Wasichana wenye vipaji" }
 
-ListElement { q: "Namba ya huduma kwa wateja kwa kampuni zote za simu Tanzania iliyosanifiwa na TCRA ni ipi?"; a: "100"; b: "911"; c: "112"; d: "101"; correct: "100" }
+        ListElement { q: "Shule ya sekondari Kibaha (Kibaha Boys) inapatikana katika mkoa gani?"; a: "Dar es Salaam"; b: "Pwani"; c: "Morogoro"; d: "Tanga"; correct: "Pwani" }
 
-// --- SHULE NA HISTORIA 
-ListElement { q: "Mwalimu Julius K. Nyerere alisoma elimu yake ya sekondari katika shule gani maarufu?"; a: "Tabora Boys"; b: "Pugu Secondary"; c: "Mzumbe"; d: "Kibaha"; correct: "Tabora Boys" }
+        ListElement { q: "Shule ipi ya kiume mkoani Morogoro inasifika kwa nidhamu ya kijeshi na ufaulu mkubwa wa masomo ya sayansi?"; a: "Mzumbe Secondary"; b: "Iyunga"; c: "Kantare"; d: "Milambo"; correct: "Mzumbe Secondary" }
 
-ListElement { q: "Ni shule ipi kati ya hizi inajulikana kama shule ya kitaifa ya wavulana yenye vipaji maalum (Special Talents School)?"; a: "Ilboru"; b: "Msalato"; c: "Jangwani"; d: "Azania"; correct: "Ilboru" }
+        // --- KILIMO CHA ZABIBU DODOMA
+        ListElement { q: "Zao kuu la kibiashara linalosifika kulimwa mkoani Dodoma na kutumika kutengeneza mvinyo (Wine) ni?"; a: "Pamba"; b: "Zabibu"; c: "Karafuu"; d: "Mkonge"; correct: "Zabibu" }
 
-ListElement { q: "Shule gani ya wasichana ya serikali mkoani Dodoma inajulikana kwa ufaulu mzuri na ni ya kiwango cha kitaifa?"; a: "Msalato Girls"; b: "Kilakala"; c: "Loleza"; d: "Weruweru"; correct: "Msalato Girls" }
 
-ListElement { q: "Shule ya sekondari ya Tabora Girls inasifika kwa kuwa shule ya kwanza ya serikali kwa ajili ya?"; a: "Wasichana wenye vipaji"; b: "Walimu wa kike"; c: "Viongozi wa dini"; d: "Kilimo"; correct: "Wasichana wenye vipaji" }
+        ListElement { q: "Ni kata gani mkoani Dodoma inayojulikana zaidi kwa kuanzisha na kuendeleza kilimo cha zabibu?"; a: "Makutupora"; b: "Chamwino"; c: "Kizota"; d: "Msalato"; correct: "Makutupora" }
 
-ListElement { q: "Shule ya sekondari Kibaha (Kibaha Boys) inapatikana katika mkoa gani?"; a: "Dar es Salaam"; b: "Pwani"; c: "Morogoro"; d: "Tanga"; correct: "Pwani" }
+        ListElement { q: "Kwa nini mkoa wa Dodoma unafaa zaidi kwa kilimo cha zabibu kuliko mikoa mingine ya Tanzania?"; a: "Udongo mweusi na baridi"; b: "Hali ya hewa kavu na jua la kutosha"; c: "Mvua nyingi mwaka mzima"; d: "Uwepo wa bahari"; correct: "Hali ya hewa kavu na jua la kutosha" }
 
-ListElement { q: "Shule ipi ya kiume mkoani Morogoro inasifika kwa nidhamu ya kijeshi na ufaulu mkubwa wa masomo ya sayansi?"; a: "Mzumbe Secondary"; b: "Iyunga"; c: "Kantare"; d: "Milambo"; correct: "Mzumbe Secondary" }
+        ListElement { q: "Ni mwezi gani mara nyingi wakulima wa zabibu Dodoma hufanya mavuno ya kwanza ya mwaka?"; a: "Januari - Machi"; b: "Juni - Julai"; c: "Oktoba - Novemba"; d: "Septemba"; correct: "Januari - Machi" }
 
-// --- KILIMO CHA ZABIBU DODOMA
-ListElement { q: "Zao kuu la kibiashara linalosifika kulimwa mkoani Dodoma na kutumika kutengeneza mvinyo (Wine) ni?"; a: "Pamba"; b: "Zabibu"; c: "Karafuu"; d: "Mkonge"; correct: "Zabibu" }
+        // --- TABORA BOYS
+        ListElement { q: "Shule ya Tabora Boys ilianzishwa mwaka 1922 na Waingereza kwa lengo la kuwasomesha nani?"; a: "Watoto wa machifu"; b: "Wafanyakazi wa reli"; c: "Wakulima wa pamba"; d: "Askari wa vita"; correct: "Watoto wa machifu" }
 
+        ListElement { q: "Mwalimu Julius K. Nyerere alipokuwa mwanafunzi Tabora Boys (1937-1942), alikuwa kiongozi wa klabu gani?"; a: "Klabu ya Mdahalo (Debating Society)"; b: "Klabu ya Mpira"; c: "Klabu ya Skauti"; d: "Klabu ya Kilimo"; correct: "Klabu ya Mdahalo (Debating Society)" }
 
-ListElement { q: "Ni kata gani mkoani Dodoma inayojulikana zaidi kwa kuanzisha na kuendeleza kilimo cha zabibu?"; a: "Makutupora"; b: "Chamwino"; c: "Kizota"; d: "Msalato"; correct: "Makutupora" }
+        ListElement { q: "Jina la awali la shule ya Tabora Boys kabla ya kuitwa jina la sasa lilikuwa nani?"; a: "Pugu School"; b: "Government Central School, Tabora"; c: "Milambo Secondary"; d: "Royal Boys Academy"; correct: "Government Central School, Tabora" }
 
-ListElement { q: "Kwa nini mkoa wa Dodoma unafaa zaidi kwa kilimo cha zabibu kuliko mikoa mingine ya Tanzania?"; a: "Udongo mweusi na baridi"; b: "Hali ya hewa kavu na jua la kutosha"; c: "Mvua nyingi mwaka mzima"; d: "Uwepo wa bahari"; correct: "Hali ya hewa kavu na jua la kutosha" }
+        // --- MAGABE LAB
+        ListElement { q: "Magabe Lab inatumika zaidi kutengeneza mifumo ya aina gani?"; a: "Apps na Programu za Kompyuta"; b: "Kilimo cha kisasa"; c: "Ujenzi wa barabara"; d: "Ufugaji wa nyuki"; correct: "Apps na Programu za Kompyuta" }
 
-ListElement { q: "Ni mwezi gani mara nyingi wakulima wa zabibu Dodoma hufanya mavuno ya kwanza ya mwaka?"; a: "Januari - Machi"; b: "Juni - Julai"; c: "Oktoba - Novemba"; d: "Septemba"; correct: "Januari - Machi" }
+        ListElement { q: "Ni lugha gani ya programu (Coding) inayotumiwa na Magabe Lab kutengeneza interface ya App hii?"; a: "Python"; b: "C++"; c: "QML (Qt Quick)"; d: "PHP"; correct: "QML (Qt Quick)" }
 
-// --- TABORA BOYS 
-ListElement { q: "Shule ya Tabora Boys ilianzishwa mwaka 1922 na Waingereza kwa lengo la kuwasomesha nani?"; a: "Watoto wa machifu"; b: "Wafanyakazi wa reli"; c: "Wakulima wa pamba"; d: "Askari wa vita"; correct: "Watoto wa machifu" }
+        ListElement { q: "Kwenye Magabe Lab, 'Frontend' ya App inahusika na nini?"; a: "Muonekano unaoonekana na mtumiaji"; b: "Uhifadhi wa siri kwenye database"; c: "Kutengeneza vioo vya simu"; d: "Kupiga picha za satelaiti"; correct: "Muonekano unaoonekana na mtumiaji" }
 
-ListElement { q: "Mwalimu Julius K. Nyerere alipokuwa mwanafunzi Tabora Boys (1937-1942), alikuwa kiongozi wa klabu gani?"; a: "Klabu ya Mdahalo (Debating Society)"; b: "Klabu ya Mpira"; c: "Klabu ya Skauti"; d: "Klabu ya Kilimo"; correct: "Klabu ya Mdahalo (Debating Society)" }
+        ListElement { q: "Ni mfumo upi wa uendeshaji (OS) ambao App za Magabe Lab zinaweza kufanya kazi?"; a: "Android pekee"; b: "Windows pekee"; c: "Android, iOS, na Windows"; d: "Redio za mbao pekee"; correct: "Android, iOS, na Windows" }
 
-ListElement { q: "Jina la awali la shule ya Tabora Boys kabla ya kuitwa jina la sasa lilikuwa nani?"; a: "Pugu School"; b: "Government Central School, Tabora"; c: "Milambo Secondary"; d: "Royal Boys Academy"; correct: "Government Central School, Tabora" }
+        ListElement { q: "Lengo kuu la Magabe Lab katika kuleta teknolojia nchini Tanzania ni?"; a: "Kutoa burudani na elimu kidijitali"; b: "Kuuza simu zilizotumika"; c: "Kufundisha udereva wa malori"; d: "Kutengeneza michezo ya kamari pekee"; correct: "Kutoa burudani na elimu kidijitali" }
+
 
     }
 
@@ -722,15 +724,15 @@ ListElement { q: "Jina la awali la shule ya Tabora Boys kabla ya kuitwa jina la 
 
             // Kama maswali yameisha, rudi kwenye ukurasa mkuu au fanya reload
 
-   app.close();
+            app.close();
 
- if(isPrimaryResultsApp()){
-           app.onUrlVisited("#openApp;IQTest.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/;Tafadhali subiri!;dependencies.txt;#;1;1;1;100;");
-            
-	}else if(isSecondaryResultsApp()){
-        app.onUrlVisited("#openApp;IQTest.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/;Tafadhali subiri!;dependencies.txt;#;2;1;1;100;");
-            
-	}
+            if(isPrimaryResultsApp()){
+                app.onUrlVisited("#openApp;IQTest.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/;Tafadhali subiri!;dependencies.txt;#;1;1;1;100;");
+
+            }else if(isSecondaryResultsApp()){
+                app.onUrlVisited("#openApp;IQTest.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/;Tafadhali subiri!;dependencies.txt;#;2;1;1;100;");
+
+            }
             return;
         }
 
@@ -962,7 +964,6 @@ ListElement { q: "Jina la awali la shule ya Tabora Boys kabla ya kuitwa jina la 
                     delegate: Button {
                         text: "<font color=\"cyan\"> (" + app.indexToLetter(index) + ")</font> " + app.cleanOption(modelData)
                         Layout.fillWidth: true
-                        Layout.preferredHeight: (Qt.platform.os === "android" ? 69 : 60)
                         onClicked: processAnswer(modelData)
                         background: Rectangle {
                             color: parent.pressed ? ((modelData === quizModel.get(currentIdx).correct) ? "green" : "red") : "#121a1d"
@@ -977,6 +978,7 @@ ListElement { q: "Jina la awali la shule ya Tabora Boys kabla ya kuitwa jina la 
                             anchors.leftMargin: 20
                             verticalAlignment: Text.AlignVCenter
                             textFormat: Text.RichText
+                            wrapMode: Text.WordWrap
                         }
                     }
                 }
@@ -985,16 +987,15 @@ ListElement { q: "Jina la awali la shule ya Tabora Boys kabla ya kuitwa jina la 
             Button {
                 text: "KIMBIA"
                 Layout.preferredWidth: app.width * 0.8
-                Layout.preferredHeight: 50
                 Layout.alignment: Qt.AlignHCenter
                 background: Rectangle {
-                    color: "red"
-                    radius: 10
+                    color: "#ffb8c5"
+                    radius: 4
                 }
 
                 contentItem: Text {
                     text: parent.text
-                    color: "white"
+                    color: "#78081d"
                     font.bold: true
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
@@ -1076,7 +1077,7 @@ ListElement { q: "Jina la awali la shule ya Tabora Boys kabla ya kuitwa jina la 
                     text: parent.text
                     color: "white"
                     font.bold: true
-font.pointSize: 24
+                    font.pointSize: 24
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
                 }
@@ -1086,7 +1087,7 @@ font.pointSize: 24
                 }
             }
 
-/*
+            /*
             Button {
                 text: "SHARE KWA WHATSAPP"
                 Layout.preferredWidth: app.width * 0.8
