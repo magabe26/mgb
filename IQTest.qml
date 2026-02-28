@@ -1053,11 +1053,20 @@ Rectangle {
             Text {
                 text: "MATOKEO"
                 color: "#88ffffff"
-                font.pixelSize: 48 * 2
+                font.pixelSize: 48 * 1.6
                 font.bold: true
                 font.underline: true
                 Layout.alignment: Qt.AlignHCenter
             }
+
+Text {
+                text: "Umepata maswali  " + app.noOfPassedQuestion + " kati ya " + app.maxQuestions
+                color: "white"
+                font.pointSize: 16
+                font.bold: true
+                Layout.alignment: Qt.AlignHCenter
+            }
+
 
             Text {
                 id: finalScoreDisplay
@@ -1090,13 +1099,7 @@ Rectangle {
                 }
             }
 
-            Text {
-                text: "Umepata maswali  " + app.noOfPassedQuestion + " kati ya " + app.maxQuestions
-                color: "white"
-                font.pointSize: 16
-                font.bold: true
-                Layout.alignment: Qt.AlignHCenter
-            }
+            
 
             Button {
                 text: "JARIBU TENA"
