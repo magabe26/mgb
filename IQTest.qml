@@ -976,7 +976,7 @@ Rectangle {
             }
 
             Text {
-                text: "Swali " + (currentIdx + 1) + " kati ya " + quizModel.count
+                text: "Swali namba " + (currentIdx + 1) + " kati ya " + quizModel.count
                 color: "#00ffff"
                 font.pixelSize: 14 * (Qt.platform.os === "android" ? 3 : 1)
             }
