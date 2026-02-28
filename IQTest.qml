@@ -157,6 +157,15 @@ Rectangle {
     ListModel {
         id: iqModel
 
+ListElement {
+    q: "Ni mwanasayansi gani wa kike aliyegundua mfumo wa hisabati uliowezesha kupatikana kwa GPS?"; 
+    a: "Katherine Johnson"; 
+    b: "Gladys West"; 
+    c: "Marie Curie"; 
+    d: "Dorothy Vaughan"; 
+    correct: "Gladys West"
+}
+
         //SAYANSI
         ListElement { q: "Ni gesi gani binadamu anahitaji ili kuishi?"; a: "Nitrogen"; b: "Oxygen"; c: "Carbon"; d: "Hydrogen"; correct: "Oxygen" }
         ListElement { q: "Sayari ya karibu zaidi na Jua inaitwa?"; a: "Dunia"; b: "Mercury"; c: "Mars"; d: "Venus"; correct: "Mercury" }
