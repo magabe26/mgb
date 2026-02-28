@@ -771,10 +771,10 @@ ListElement {
             app.close();
 
             if(isPrimaryResultsApp()){
-                app.onUrlVisited("#openApp;IQTest.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/;Tafadhali subiri!;dependencies.txt;#;1;1;1;100;");
+                app.cmd("#openApp;IQTest.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/;Tafadhali subiri!;dependencies.txt;#;1;1;1;100;");
 
             }else if(isSecondaryResultsApp()){
-                app.onUrlVisited("#openApp;IQTest.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/;Tafadhali subiri!;dependencies.txt;#;2;1;1;100;");
+                app.cmd("#openApp;IQTest.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/;Tafadhali subiri!;dependencies.txt;#;2;1;1;100;");
 
             }
             return;
