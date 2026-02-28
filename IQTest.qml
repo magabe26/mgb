@@ -656,15 +656,13 @@ Rectangle {
         ListElement { q: "Jina la awali la shule ya Tabora Boys kabla ya kuitwa jina la sasa lilikuwa nani?"; a: "Pugu School"; b: "Government Central School, Tabora"; c: "Milambo Secondary"; d: "Royal Boys Academy"; correct: "Government Central School, Tabora" }
 
         // --- MAGABE LAB
-        ListElement { q: "Magabe Lab inatumika zaidi kutengeneza mifumo ya aina gani?"; a: "Apps na Programu za Kompyuta"; b: "Kilimo cha kisasa"; c: "Ujenzi wa barabara"; d: "Ufugaji wa nyuki"; correct: "Apps na Programu za Kompyuta" }
+        ListElement { q: "Magabe Lab inajihusisha na nini?"; a: "Utengenezaji wa Apps na Programu za Kompyuta"; b: "Kilimo cha kisasa"; c: "Ujenzi wa barabara"; d: "Ufugaji wa nyuki"; correct: "Utengenezaji wa Apps na Programu za Kompyuta" }
 
         ListElement { q: "Ni lugha gani ya programu (Coding) inayotumiwa na Magabe Lab kutengeneza interface ya App hii?"; a: "Python"; b: "C++"; c: "QML (Qt Quick)"; d: "PHP"; correct: "QML (Qt Quick)" }
 
         ListElement { q: "Kwenye Magabe Lab, 'Frontend' ya App inahusika na nini?"; a: "Muonekano unaoonekana na mtumiaji"; b: "Uhifadhi wa siri kwenye database"; c: "Kutengeneza vioo vya simu"; d: "Kupiga picha za satelaiti"; correct: "Muonekano unaoonekana na mtumiaji" }
 
         ListElement { q: "Ni mfumo upi wa uendeshaji (OS) ambao App za Magabe Lab zinaweza kufanya kazi?"; a: "Android pekee"; b: "Windows pekee"; c: "Android, iOS, na Windows"; d: "Redio za mbao pekee"; correct: "Android, iOS, na Windows" }
-
-        ListElement { q: "Lengo kuu la Magabe Lab katika kuleta teknolojia nchini Tanzania ni?"; a: "Kutoa burudani na elimu kidijitali"; b: "Kuuza simu zilizotumika"; c: "Kufundisha udereva wa malori"; d: "Kutengeneza michezo ya kamari pekee"; correct: "Kutoa burudani na elimu kidijitali" }
 
 
         ListElement { q: "Mwanangu analia kichakani."; a: "Ndege"; b: "Shoka"; c: "Upepo"; d: "Simba"; correct: "Shoka" }
@@ -1155,16 +1153,16 @@ Rectangle {
             Button {
                 text: "FUNGA"
                 Layout.preferredWidth: app.width * 0.8
-                Layout.preferredHeight: 60
+                //Layout.preferredHeight: 60
                 Layout.alignment: Qt.AlignHCenter
                 background: Rectangle {
-                    color: "red"
-                    radius: 10
+                    color: "transparent"
+                    // radius: 10
                 }
 
                 contentItem: Text {
                     text: parent.text
-                    color: "white"
+                    color: "red"
                     font.bold: true
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
