@@ -296,6 +296,7 @@ Rectangle {
         alive = false;
         ticker.stop();
         canvas.requestPaint();
+        app.ad();
     }
 
     // ── Change direction (prevents 180-degree reversal) ───
