@@ -112,6 +112,14 @@ Rectangle {
     property int    aiLevel:         0
     property bool   showLevelScreen: true
 
+    // ── Hali ya animation ya kupiga (step-by-step sow) ───────────────────────
+    property bool   sowAnimating:    false    // kweli wakati animation inafanya kazi
+    property var    sowSteps:        []       // orodha ya hatua: [{holeIdx, delta, label}]
+    property int    sowStepIdx:      0        // hatua ya sasa
+    property int    activeHole:      -1       // shimo linaloangazwa sasa hivi
+    property string activeArrow:     ""       // mshale wa mwelekeo
+    property var    pendingResult:   null     // matokeo yaliyohesabiwa mapema
+
     // ── Msaada wa mantiki ────────────────────────────────────────────────────
     function idx(r, c) {
         return r * appCols + c;
@@ -183,7 +191,7 @@ Rectangle {
         return "Magabe AI (Ngumu)";
     }
 
-    // ── Piga mbegu (sow) ─────────────────────────────────────────────────────
+    // ── Piga mbegu (sow) — hesabu matokeo ya mwisho ─────────────────────────
     function sowSeeds(b, startIdx, player) {
         var seeds = b[startIdx];
         if (seeds === 0) return null;
@@ -233,6 +241,143 @@ Rectangle {
         return { newBoard: nb, captures: captures };
     }
 
+    // ── Jenga orodha ya hatua za animation ───────────────────────────────────
+    // Kila hatua: { holeIdx, boardSnapshot, arrow }
+    // arrow = mwelekeo wa harakati (→ ← ↓ ↑)
+    function buildSowSteps(b, startIdx, player) {
+        var seeds = b[startIdx];
+        if (seeds === 0) return null;
+
+        var ir  = innerRow(player);
+        var or_ = outerRow(player);
+        var circuit = [];
+        for (var c = 0; c < appCols; c++)         circuit.push(idx(ir,  c));
+        for (var c2 = appCols - 1; c2 >= 0; c2--) circuit.push(idx(or_, c2));
+
+        var pos = -1;
+        for (var i = 0; i < circuit.length; i++) {
+            if (circuit[i] === startIdx) { pos = i; break; }
+        }
+        if (pos === -1) return null;
+
+        var nb = b.slice();
+        nb[startIdx] = 0;
+        var steps = [];
+
+        // ── helper: mwelekeo kutoka hole moja hadi nyingine ──────────────────
+        function arrowBetween(fromH, toH) {
+            var fr = Math.floor(fromH / appCols);
+            var fc = fromH % appCols;
+            var tr = Math.floor(toH  / appCols);
+            var tc = toH  % appCols;
+            if (fr === tr) return (tc > fc) ? "→" : "←";
+            return (tr > fr) ? "↓" : "↑";
+        }
+
+        var prevHole = startIdx;
+        var captures = 0;
+        var landIdx  = -1;
+
+        // Hatua za kawaida za kupiga
+        while (seeds > 0) {
+            var prevPos = pos;
+            pos = (pos + 1) % circuit.length;
+            nb[circuit[pos]]++;
+            seeds--;
+            landIdx = circuit[pos];
+            var arrow = arrowBetween(prevHole, landIdx);
+            prevHole = landIdx;
+            steps.push({ holeIdx: landIdx, board: nb.slice(), arrow: arrow });
+        }
+
+        // Hatua za kunasa (capture)
+        var landRow = Math.floor(landIdx / appCols);
+        var landCol = landIdx % appCols;
+        var oppIR   = innerRow(player === human ? ai : human);
+        if (landRow === ir && nb[landIdx] > 1) {
+            var oppH = idx(oppIR, landCol);
+            if (nb[oppH] > 0) {
+                captures = nb[oppH];
+                nb[oppH] = 0;
+                nb[landIdx] += captures;
+                // Onyesha kunasa — shimo la mpinzani linakuwa 0
+                steps.push({ holeIdx: oppH,    board: nb.slice(), arrow: "✕", capture: true });
+                steps.push({ holeIdx: landIdx, board: nb.slice(), arrow: "★", capture: true });
+
+                var relay = nb[landIdx];
+                nb[landIdx] = 0;
+                pos = circuit.indexOf(landIdx);
+                prevHole = landIdx;
+                while (relay > 0) {
+                    pos = (pos + 1) % circuit.length;
+                    nb[circuit[pos]]++;
+                    relay--;
+                    var rArrow = arrowBetween(prevHole, circuit[pos]);
+                    prevHole = circuit[pos];
+                    steps.push({ holeIdx: circuit[pos], board: nb.slice(), arrow: rArrow });
+                }
+            }
+        }
+
+        return { steps: steps, finalBoard: nb, captures: captures };
+    }
+
+    // ── Timer ya kupiga hatua moja kwa wakati ────────────────────────────────
+    Timer {
+        id: sowStepTimer
+        interval: 450        // ms kila hatua — polepole kuona mabadiliko
+        repeat: true
+        onTriggered: {
+            if (sowStepIdx >= sowSteps.length) {
+                // Animation imekamilika
+                sowStepTimer.stop();
+                activeHole  = -1;
+                activeArrow = "";
+                sowAnimating = false;
+
+                // Tekeleza matokeo ya mwisho
+                var pr = pendingResult;
+                pendingResult = null;
+                board = pr.finalBoard;
+                lastCapture = pr.captures;
+
+                if (checkGameOver()) return;
+                currentPlayer = (pr.player === human) ? ai : human;
+                refreshStatus();
+                if (pr.player === human) {
+                    aiMoveTimer.start();
+                }
+                return;
+            }
+
+            var step = sowSteps[sowStepIdx];
+            board       = step.board;
+            activeHole  = step.holeIdx;
+            activeArrow = step.arrow;
+            sowStepIdx++;
+        }
+    }
+
+    // ── Anzisha animation ya kupiga ──────────────────────────────────────────
+    function startSowAnimation(startIdx, player) {
+        var result = buildSowSteps(board, startIdx, player);
+        if (!result) return false;
+
+        // Hifadhi ubao wa awali — ondoa mbegu kutoka shimo la kuanza
+        var nb = board.slice();
+        nb[startIdx] = 0;
+        board = nb;
+
+        sowSteps     = result.steps;
+        sowStepIdx   = 0;
+        sowAnimating = true;
+        activeHole   = startIdx;
+        activeArrow  = "";
+        pendingResult = { finalBoard: result.finalBoard, captures: result.captures, player: player };
+        sowStepTimer.start();
+        return true;
+    }
+
     function canMove(player) {
         var ir  = innerRow(player);
         var or_ = outerRow(player);
@@ -266,7 +411,7 @@ Rectangle {
 
     // ── Mchezaji agusa shimo ─────────────────────────────────────────────────
     function onHoleTapped(row, col) {
-        if (gameOver || currentPlayer !== human || aiThinking) return;
+        if (gameOver || currentPlayer !== human || aiThinking || sowAnimating) return;
         if (!isMyRow(row, human)) { subMsg = "Hiyo si upande wako!"; return; }
         var h = idx(row, col);
 
@@ -291,14 +436,8 @@ Rectangle {
         }
 
         if (board[h] < 2) { subMsg = "Unahitaji mbegu 2 au zaidi kupiga"; return; }
-        var res = sowSeeds(board, h, human);
-        if (!res) { subMsg = "Mwendo batili"; return; }
-        board = res.newBoard;
-        lastCapture = res.captures;
-        if (checkGameOver()) return;
-        currentPlayer = ai;
-        refreshStatus();
-        aiMoveTimer.start();
+        subMsg = "Inasogeza mbegu...";
+        startSowAnimation(h, human);
     }
 
     // ── Panda haraka ─────────────────────────────────────────────────────────
@@ -376,13 +515,7 @@ Rectangle {
             var move = chooseAiMove();
             aiThinking = false;
             if (move === -1) { checkGameOver(); return; }
-            var res = sowSeeds(board, move, ai);
-            if (!res) { checkGameOver(); return; }
-            board = res.newBoard;
-            lastCapture = res.captures;
-            if (checkGameOver()) return;
-            currentPlayer = human;
-            refreshStatus();
+            startSowAnimation(move, ai);
         }
     }
 
@@ -721,8 +854,9 @@ Rectangle {
                         readonly property bool isP1:    hRow === 2 || hRow === 3
                         readonly property bool isAi:    hRow === 0 || hRow === 1
                         readonly property bool isInner: (isP1 && hRow === 2) || (!isP1 && hRow === 1)
+                        readonly property bool isActive: app.activeHole === index
                         readonly property bool validMove:
-                            !app.gameOver && !app.aiThinking &&
+                            !app.gameOver && !app.aiThinking && !app.sowAnimating &&
                             app.currentPlayer === app.human && isP1 &&
                             (app.plantingPhase
                                 ? isInner && app.handOf(app.human) > 0
@@ -730,7 +864,39 @@ Rectangle {
 
                         width: app.holeSize; height: app.holeSize
 
-                        // Mwanga wa mwendo halali
+                        // ── Fuatilia mabadiliko ya seeds kupitia property binding ─
+                        property int prevSeeds: seeds
+
+                        // Tumia Timer badala ya onSeedsChanged — inafanya kazi katika Qt 5.14
+                        Timer {
+                            id: seedWatcher
+                            interval: 16
+                            repeat: true
+                            running: true
+                            onTriggered: {
+                                var now = app.board.length > index ? app.board[index] : 0;
+                                if (now !== cell.prevSeeds) {
+                                    cell.prevSeeds = now;
+                                    bounceAnim.restart();
+                                    numFadeAnim.restart();
+                                }
+                            }
+                        }
+
+                        // ── Bounce scale wakati mbegu zinabadilika ────────────
+                        SequentialAnimation {
+                            id: bounceAnim
+                            NumberAnimation {
+                                target: holeScale; property: "xScale"
+                                to: 1.22; duration: 200; easing.type: Easing.OutQuad
+                            }
+                            NumberAnimation {
+                                target: holeScale; property: "xScale"
+                                to: 1.0; duration: 420; easing.type: Easing.OutElastic
+                            }
+                        }
+
+                        // ── Mwanga wa mwendo halali ──────────────────────────
                         Rectangle {
                             visible: cell.validMove
                             anchors { fill: parent; margins: -3 }
@@ -744,40 +910,105 @@ Rectangle {
                             }
                         }
 
-                        // Mwanga wa AI inafikiria
+                        // ── Mwanga wa AI inafikiria ──────────────────────────
                         Rectangle {
-                            visible: cell.isAi && app.currentPlayer === app.ai && !app.gameOver
+                            visible: cell.isAi && app.currentPlayer === app.ai && !app.gameOver && !app.sowAnimating
                             anchors { fill: parent; margins: -2 }
                             radius: (app.holeSize + 4) / 2
                             color: "transparent"
                             border.color: Qt.rgba(0.2, 0.55, 0.9, 0.35); border.width: 1
                         }
 
-                        // Shimo
+                        // ── Mwanga wa shimo linalopokea mbegu (active) ───────
+                        Rectangle {
+                            visible: cell.isActive
+                            anchors { fill: parent; margins: -5 }
+                            radius: (app.holeSize + 10) / 2
+                            color: "transparent"
+                            border.color: app.activeArrow === "✕" ? "#FF4444"
+                                        : app.activeArrow === "★" ? "#FFD700"
+                                        : "#FFFFFF"
+                            border.width: 3
+                            SequentialAnimation on opacity {
+                                running: cell.isActive; loops: Animation.Infinite
+                                NumberAnimation { to: 1.0; duration: 180; easing.type: Easing.OutQuad }
+                                NumberAnimation { to: 0.4; duration: 180; easing.type: Easing.InQuad }
+                            }
+                        }
+
+                        // ── Shimo ────────────────────────────────────────────
                         Rectangle {
                             id: holeBody
                             anchors.fill: parent
                             radius: app.holeSize / 2
                             color: app.seedColor(cell.seeds)
-                            Behavior on color { ColorAnimation { duration: 220 } }
+                            Behavior on color { ColorAnimation { duration: 380; easing.type: Easing.InOutCubic } }
+
+                            transform: Scale {
+                                id: holeScale
+                                origin.x: app.holeSize / 2
+                                origin.y: app.holeSize / 2
+                                xScale: 1.0
+                                yScale: xScale
+                            }
+
+                            // Rim
                             Rectangle {
                                 anchors.fill: parent; radius: parent.radius; color: "transparent"
                                 border.color: Qt.rgba(0, 0, 0, 0.5); border.width: 2
                             }
+                            // Specular
                             Rectangle {
                                 anchors { top: parent.top; left: parent.left; margins: app.holeSize * 0.1 }
                                 width: app.holeSize * 0.28; height: app.holeSize * 0.14
                                 radius: height / 2; color: Qt.rgba(1, 1, 1, 0.13); rotation: -25
                             }
-                            Text {
-                                anchors.centerIn: parent
-                                text: cell.seeds > 0 ? cell.seeds : ""
-                                color: cell.seeds > 10 ? "#160800" : "#FFF4E0"
-                                font.pixelSize: app.fntHole; font.bold: true
+
+                            // ── Nambari na mshale wa mwelekeo ─────────────────
+                            Item {
+                                anchors.fill: parent
+
+                                // Nambari — inaingia kwa fade + slide kutoka chini
+                                Text {
+                                    id: numText
+                                    anchors.horizontalCenter: parent.horizontalCenter
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    text: cell.seeds > 0 ? cell.seeds : ""
+                                    color: cell.seeds > 10 ? "#160800" : "#FFF4E0"
+                                    font.pixelSize: app.fntHole; font.bold: true
+                                    opacity: 1.0
+                                    y: 0
+
+                                    SequentialAnimation {
+                                        id: numFadeAnim
+                                        ParallelAnimation {
+                                            NumberAnimation { target: numText; property: "opacity"; to: 0.0; duration: 160; easing.type: Easing.InQuad }
+                                            NumberAnimation { target: numText; property: "y"; to: app.fntHole * 0.45; duration: 160 }
+                                        }
+                                        ParallelAnimation {
+                                            NumberAnimation { target: numText; property: "opacity"; to: 1.0; duration: 480; easing.type: Easing.OutCubic }
+                                            NumberAnimation { target: numText; property: "y"; to: 0; duration: 480; easing.type: Easing.OutBack }
+                                        }
+                                    }
+                                }
+
+                                // Mshale wa mwelekeo — inaonekana kwenye shimo linalopokea
+                                Text {
+                                    visible: cell.isActive && app.activeArrow !== ""
+                                    anchors.horizontalCenter: parent.horizontalCenter
+                                    anchors.top: parent.top
+                                    anchors.topMargin: 1
+                                    text: app.activeArrow
+                                    color: app.activeArrow === "✕" ? "#FF6666"
+                                         : app.activeArrow === "★" ? "#FFD700"
+                                         : "#FFFFFF"
+                                    font.pixelSize: Math.max(9, app.fntHole * 0.72)
+                                    font.bold: true
+                                }
                             }
                         }
 
-                        // Alama ya safu ya ndani
+                        // ── Alama ya safu ya ndani ────────────────────────────
                         Rectangle {
                             visible: cell.isInner
                             anchors { bottom: parent.bottom; horizontalCenter: parent.horizontalCenter; bottomMargin: 3 }
@@ -788,23 +1019,24 @@ Rectangle {
                             opacity: 0.85
                         }
 
-                        // Flash ya mguso
+                        // ── Flash ya mguso ────────────────────────────────────
                         Rectangle {
                             id: pressFlash
                             anchors.fill: parent; radius: app.holeSize / 2
-                            color: Qt.rgba(1, 1, 1, 0.18); visible: false
+                            color: Qt.rgba(1, 1, 1, 0.22); visible: false
                         }
 
                         MouseArea {
                             readonly property real ext: Math.max(0, (app.touchMin - app.holeSize) / 2)
                             anchors { fill: parent; margins: -ext }
-                            enabled: cell.isP1
+                            enabled: cell.isP1 && !app.sowAnimating
                             onPressed:  pressFlash.visible = true
                             onReleased: pressFlash.visible = false
                             onCanceled: pressFlash.visible = false
                             onClicked:  app.onHoleTapped(cell.hRow, cell.hCol)
                         }
                     }
+
                 }
             }
         }
