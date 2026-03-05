@@ -2,11 +2,7 @@
  *  Copyright 2026 - MagabeLab (Tanzania). All Rights Reserved.
  *  Author Edwin Magabe
  *
- *  Mchezo wa Nyoka  (Snake Game) B
- *  ─────────────────────────────────────────────────────────
- *  Lugha     : Kiswahili
- *  Jukwaa    : Android (Qt 5.14.2)
- *  Udhibiti  : Telezesha kidole (swipe) au vitufe vya mshale
+ *  Mchezo wa Nyoka  (Snake Game)
  *
  */
 
