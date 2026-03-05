@@ -187,6 +187,20 @@ Pakua aplikesheni zingine hapa
       <A HREF="#" />
 </APP>
 
+<APP>
+    <A HREF="#openApp;BaoGame.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/;Tafadhali subiri!;dependencies.txt;#;1;1;1;100;">Chenza mchezo wa nyoka</A>
+    <COLOR>#3a2008</COLOR>
+    <BG_COLOR>white</BG_COLOR>
+    <ICON>fa::gamepad</ICON>
+    <ICON_COLOR>#d4A853</ICON_COLOR>
+    <BOLD_TEXT>1</BOLD_TEXT>
+</APP>
+
+<APP>
+      <A HREF="#" />
+</APP>
+
+
 
 <APP>
       <A HREF="#"></A>
