@@ -179,7 +179,7 @@ Pakua aplikesheni zingine hapa
     <COLOR>#168485</COLOR>
     <BG_COLOR>white</BG_COLOR>
     <ICON>fa::gamepad</ICON>
-    <ICON_COLOR>#02c6db</ICON_COLOR>
+    <ICON_COLOR>green</ICON_COLOR>
     <BOLD_TEXT>1</BOLD_TEXT>
 </APP>
 
@@ -192,7 +192,7 @@ Pakua aplikesheni zingine hapa
     <COLOR>#3a2008</COLOR>
     <BG_COLOR>white</BG_COLOR>
     <ICON>fa::gamepad</ICON>
-    <ICON_COLOR>#)8a6030</ICON_COLOR>
+    <ICON_COLOR>green</ICON_COLOR>
     <BOLD_TEXT>1</BOLD_TEXT>
 </APP>
 
