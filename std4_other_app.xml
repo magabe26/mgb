@@ -176,10 +176,10 @@ Pakua aplikesheni zingine hapa
 
 <APP>
     <A HREF="#openApp;Snake.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/;Tafadhali subiri!;dependencies.txt;#;1;1;1;100;">Chenza mchezo wa nyoka</A>
-    <COLOR>black</COLOR>
+    <COLOR>#168485</COLOR>
     <BG_COLOR>white</BG_COLOR>
     <ICON>fa::gamepad</ICON>
-    <ICON_COLOR>black</ICON_COLOR>
+    <ICON_COLOR>#02c6db</ICON_COLOR>
     <BOLD_TEXT>1</BOLD_TEXT>
 </APP>
 
