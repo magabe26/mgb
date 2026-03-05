@@ -561,7 +561,7 @@ Rectangle {
                         Column {
                             anchors.verticalCenter: parent.verticalCenter; spacing: 1
                             Text { text: "RAHISI";              color: "#70C040"; font.pixelSize: app.fntUI; font.bold: true; font.letterSpacing: 2 }
-                            Text { text: "Magabe AI inacheza nasibu";  color: "#507030"; font.pixelSize: Math.max(10, app.fntUI - 3) }
+                            Text { text: "AI inacheza nasibu";  color: "#507030"; font.pixelSize: Math.max(10, app.fntUI - 3) }
                         }
                     }
                 }
@@ -583,7 +583,7 @@ Rectangle {
                         Column {
                             anchors.verticalCenter: parent.verticalCenter; spacing: 1
                             Text { text: "WASTANI";                  color: "#E09030"; font.pixelSize: app.fntUI; font.bold: true; font.letterSpacing: 2 }
-                            Text { text: "Magabe AI hunasa mbegu ikiweza";  color: "#806020"; font.pixelSize: Math.max(10, app.fntUI - 3) }
+                            Text { text: "AI hunasa mbegu ikiweza";  color: "#806020"; font.pixelSize: Math.max(10, app.fntUI - 3) }
                         }
                     }
                 }
@@ -605,7 +605,7 @@ Rectangle {
                         Column {
                             anchors.verticalCenter: parent.verticalCenter; spacing: 1
                             Text { text: "NGUMU";                       color: "#E04040"; font.pixelSize: app.fntUI; font.bold: true; font.letterSpacing: 2 }
-                            Text { text: "Magabe AI hutumia mkakati wa kina";  color: "#804040"; font.pixelSize: Math.max(10, app.fntUI - 3) }
+                            Text { text: "AI hutumia mkakati wa kina";  color: "#804040"; font.pixelSize: Math.max(10, app.fntUI - 3) }
                         }
                     }
                 }
