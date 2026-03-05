@@ -274,7 +274,7 @@ Rectangle {
 
             if (row === or_) {
                 // Sheria B1: nje ina mbegu — relay
-                pushStep(landIdx, "↻");
+                pushStep(landIdx, "👊");
                 sow(landIdx);
 
             } else if (row === ir) {
@@ -285,11 +285,11 @@ Rectangle {
                     nb[landIdx] += nb[opp];
                     nb[opp] = 0;
                     pushStep(opp,     "❌");
-                    pushStep(landIdx, "★");
+                    pushStep(landIdx, "⭐");
                     sow(landIdx);
                 } else {
                     // Sheria B3: ndani ina mbegu, opp tupu — relay
-                    pushStep(landIdx, "↻");
+                    pushStep(landIdx, "👊");
                     sow(landIdx);
                 }
             }
