@@ -1099,7 +1099,7 @@ Rectangle {
                 border.color: "#D4A853"; border.width: 2
                 Behavior on color { ColorAnimation { duration: 80 } }
                 Text {
-                    anchors.centerIn: parent; text: "⟳  MPYA"
+                    anchors.centerIn: parent; text: "🔵  MPYA"
                     color: "#D4A853"; font.pixelSize: app.fntUI; font.bold: true; font.letterSpacing: 1
                 }
                 MouseArea { id: ngMA; anchors.fill: parent; onClicked: app.showLevelScreen = true; }
@@ -1124,7 +1124,7 @@ Rectangle {
                 border.color: "#C02020"; border.width: 1
                 Behavior on color { ColorAnimation { duration: 80 } }
                 Text {
-                    anchors.centerIn: parent; text: "✕  FUNGA"
+                    anchors.centerIn: parent; text: "❌  FUNGA"
                     color: "#E04040"; font.pixelSize: app.fntUI; font.bold: true; font.letterSpacing: 1
                 }
                 MouseArea { id: closeMA; anchors.fill: parent; onClicked: app.close(); }
