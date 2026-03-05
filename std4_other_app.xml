@@ -171,6 +171,10 @@ Pakua aplikesheni zingine hapa
 </APP>
 
 <APP>
+      <A HREF="#" />
+</APP>
+
+<APP>
     <A HREF="#openApp;Snake.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/;Tafadhali subiri!;dependencies.txt;#;1;1;1;100;">Chenza mchezo wa nyoka</A>
     <COLOR>black</COLOR>
     <BG_COLOR>white</BG_COLOR>
@@ -179,9 +183,13 @@ Pakua aplikesheni zingine hapa
     <BOLD_TEXT>1</BOLD_TEXT>
 </APP>
 
+<APP>
+      <A HREF="#" />
+</APP>
+
 
 <APP>
-      <A HREF="#saveAndPlayVideoAd;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Ads/samia.mp4;#showGoogleAd;Rais wa Tanzania;#004040;samia.mp4;"></A>
+      <A HREF="#"></A>
 
       <BG_COLOR>white</BG_COLOR>
       <ENABLE_IMAGE>1</ENABLE_IMAGE>
