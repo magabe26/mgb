@@ -506,7 +506,7 @@ Rectangle {
                 spacing: 6
                 Text {
                     anchors.horizontalCenter: parent.horizontalCenter
-                    text: "🪬"
+                    text: "🇹🇿"
                     font.pixelSize: Math.round(app.holeSize * 1.1)
                 }
                 Text {
