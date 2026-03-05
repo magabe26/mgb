@@ -706,7 +706,7 @@ Rectangle {
                         Column {
                             anchors.verticalCenter: parent.verticalCenter; spacing: 1
                             Text { text: "WASTANI";                  color: "#E09030"; font.pixelSize: app.fntUI; font.bold: true; font.letterSpacing: 2 }
-                            Text { text: "AI hunasa mbegu ikiweza";  color: "#806020"; font.pixelSize: Math.max(10, app.fntUI - 3) }
+                            Text { text: "AI hunasa kete ikiweza";  color: "#806020"; font.pixelSize: Math.max(10, app.fntUI - 3) }
                         }
                     }
                 }
