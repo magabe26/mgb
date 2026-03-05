@@ -1177,7 +1177,8 @@ Rectangle {
 
 color: app.winner === app.human ? "#FFD060" : "#5AB0FF"
                     
-                    font.bold: true; font.letterSpacing: 3
+                    font.bold: true;
+ font.letterSpacing: 3
 
                 }
 
