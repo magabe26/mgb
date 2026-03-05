@@ -339,6 +339,39 @@ MouseArea{
         }
 
 
+Rectangle{
+            z: root.z + 1
+            color: "transparent"
+            width: root.width
+            height: icon1.paintedHeight
+
+            Image {
+                id: icon20
+                width: 68
+                height: width
+                anchors.top: parent.top
+                anchors.left: parent.left
+                anchors.leftMargin: menu.imgLeftMargin
+                source: getIconSource("fa::gamepad","#00e6e6")
+            }
+
+            Text {
+                anchors.left: icon20.right
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.leftMargin: menu.textLeftMargin
+                color: Qt.lighter("gray",1.7)
+                text: "Chenza mchezo wa nyoka"
+            }
+
+            MouseArea{
+                anchors.fill: parent
+                onClicked: {
+                    root.executeCommand("#openApp;Snake.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/;Please wait!;dependencies.txt;#;2;1;1;100;", []);
+                }
+            }
+        }
+
+
         AnimatedImage{
             anchors.horizontalCenter: parent.horizontalCenter
             width: root.width
