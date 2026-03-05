@@ -569,7 +569,7 @@ Rectangle {
                 // Instructions
                 ctx.fillStyle = "#888888";
                 ctx.font      = dp(15) + "px sans-serif";
-                ctx.fillText("Tumia mishale kumwongoza", W / 2, H / 2 - dp(24));
+                ctx.fillText("Tumia mishale kumwongoza.", W / 2, H / 2 - dp(24));
                 ctx.fillText("Kula chakula. Epuka ukuta!", W / 2, H / 2 + dp(4));
 
                 // Blinking start button
