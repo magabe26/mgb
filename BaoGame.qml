@@ -284,7 +284,7 @@ Rectangle {
                     captures += nb[opp];
                     nb[landIdx] += nb[opp];
                     nb[opp] = 0;
-                    pushStep(opp,     "✕");
+                    pushStep(opp,     "❌");
                     pushStep(landIdx, "★");
                     sow(landIdx);
                 } else {
