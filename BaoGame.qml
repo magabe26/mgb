@@ -191,138 +191,128 @@ Rectangle {
         return "Magabe AI (Ngumu)";
     }
 
-    // ── Piga mbegu (sow) — hesabu matokeo ya mwisho ─────────────────────────
-    function sowSeeds(b, startIdx, player) {
-        var seeds = b[startIdx];
-        if (seeds === 0) return null;
-        var nb = b.slice();
-        nb[startIdx] = 0;
+    // ── Kernel wa kupiga mbegu — mantiki MOJA inayotumika na wote wawili ────
+    // Inarudisha:  { nb, captures, landIdx, steps }
+    // steps = [] kama recordSteps=false  (kwa AI evaluation)
+    // steps = [...] kama recordSteps=true (kwa animation)
+    // ── Kernel wa kupiga mbegu ──────────────────────────────────────────────
+    //
+    // Sheria:
+    //   Chukua mbegu ZOTE kutoka shimo la kuanza.
+    //   Zigawanye moja kwa moja kwenye circuit — BILA kusimama popote —
+    //   mpaka mbegu ya MWISHO inapoanguka. Hapo angalia:
+    //
+    //   A)  Shimo TUPU          → simama, zamu inaisha
+    //   B1) Nje, ina mbegu      → chukua zote, anza tena (relay)
+    //   B2) Ndani, opp ina mbegu → capture: chukua opp+yako, anza tena
+    //   B3) Ndani, opp tupu, ina mbegu → chukua zote, anza tena (relay)
+    //
+    // recordSteps=false  → kwa AI (haraka, hakuna animation data)
+    // recordSteps=true   → kwa animation (inajaza steps[])
+    function sowKernel(b, startIdx, player, recordSteps) {
+        if (b[startIdx] < 1) return null;
 
         var ir  = innerRow(player);
         var or_ = outerRow(player);
         var circuit = [];
-        for (var c = 0; c < appCols; c++)         circuit.push(idx(ir,  c));
-        for (var c2 = appCols - 1; c2 >= 0; c2--) circuit.push(idx(or_, c2));
+        for (var c = 0; c < appCols; c++)           circuit.push(idx(ir,  c));
+        for (var c2 = appCols - 1; c2 >= 0; c2--)  circuit.push(idx(or_, c2));
 
-        var pos = -1;
-        for (var i = 0; i < circuit.length; i++) {
-            if (circuit[i] === startIdx) { pos = i; break; }
-        }
-        if (pos === -1) return null;
-
-        var landIdx = -1;
-        while (seeds > 0) {
-            pos = (pos + 1) % circuit.length;
-            nb[circuit[pos]]++;
-            seeds--;
-            landIdx = circuit[pos];
-        }
-
+        var nb       = b.slice();
+        var steps    = [];
         var captures = 0;
-        var landRow = Math.floor(landIdx / appCols);
-        var landCol = landIdx % appCols;
-        var oppIR   = innerRow(player === human ? ai : human);
-        if (landRow === ir && nb[landIdx] > 1) {
-            var oppH = idx(oppIR, landCol);
-            if (nb[oppH] > 0) {
-                captures = nb[oppH];
-                nb[oppH] = 0;
-                nb[landIdx] += captures;
-                var relay = nb[landIdx];
-                nb[landIdx] = 0;
-                pos = circuit.indexOf(landIdx);
-                while (relay > 0) {
-                    pos = (pos + 1) % circuit.length;
-                    nb[circuit[pos]]++;
-                    relay--;
-                }
-            }
-        }
-        return { newBoard: nb, captures: captures };
-    }
+        var prevH    = startIdx;
+        var landIdx  = startIdx;
+        var rounds   = 0;
+        var MAX_ROUNDS = 300;   // kinga ya infinite loop
 
-    // ── Jenga orodha ya hatua za animation ───────────────────────────────────
-    // Kila hatua: { holeIdx, boardSnapshot, arrow }
-    // arrow = mwelekeo wa harakati (→ ← ↓ ↑)
-    function buildSowSteps(b, startIdx, player) {
-        var seeds = b[startIdx];
-        if (seeds === 0) return null;
-
-        var ir  = innerRow(player);
-        var or_ = outerRow(player);
-        var circuit = [];
-        for (var c = 0; c < appCols; c++)         circuit.push(idx(ir,  c));
-        for (var c2 = appCols - 1; c2 >= 0; c2--) circuit.push(idx(or_, c2));
-
-        var pos = -1;
-        for (var i = 0; i < circuit.length; i++) {
-            if (circuit[i] === startIdx) { pos = i; break; }
-        }
-        if (pos === -1) return null;
-
-        var nb = b.slice();
-        nb[startIdx] = 0;
-        var steps = [];
-
-        // ── helper: mwelekeo kutoka hole moja hadi nyingine ──────────────────
-        function arrowBetween(fromH, toH) {
-            var fr = Math.floor(fromH / appCols);
-            var fc = fromH % appCols;
-            var tr = Math.floor(toH  / appCols);
-            var tc = toH  % appCols;
+        function arrowBetween(fh, th) {
+            var fr = Math.floor(fh / appCols), fc = fh % appCols;
+            var tr = Math.floor(th / appCols), tc = th % appCols;
             if (fr === tr) return (tc > fc) ? "→" : "←";
             return (tr > fr) ? "↓" : "↑";
         }
-
-        var prevHole = startIdx;
-        var captures = 0;
-        var landIdx  = -1;
-
-        // Hatua za kawaida za kupiga
-        while (seeds > 0) {
-            var prevPos = pos;
-            pos = (pos + 1) % circuit.length;
-            nb[circuit[pos]]++;
-            seeds--;
-            landIdx = circuit[pos];
-            var arrow = arrowBetween(prevHole, landIdx);
-            prevHole = landIdx;
-            steps.push({ holeIdx: landIdx, board: nb.slice(), arrow: arrow });
+        function pushStep(h, arrow) {
+            if (recordSteps) steps.push({ holeIdx: h, board: nb.slice(), arrow: arrow });
+        }
+        function oppOf(h) {
+            return idx(innerRow(player === human ? ai : human), h % appCols);
         }
 
-        // Hatua za kunasa (capture)
-        var landRow = Math.floor(landIdx / appCols);
-        var landCol = landIdx % appCols;
-        var oppIR   = innerRow(player === human ? ai : human);
-        if (landRow === ir && nb[landIdx] > 1) {
-            var oppH = idx(oppIR, landCol);
-            if (nb[oppH] > 0) {
-                captures = nb[oppH];
-                nb[oppH] = 0;
-                nb[landIdx] += captures;
-                // Onyesha kunasa — shimo la mpinzani linakuwa 0
-                steps.push({ holeIdx: oppH,    board: nb.slice(), arrow: "✕", capture: true });
-                steps.push({ holeIdx: landIdx, board: nb.slice(), arrow: "★", capture: true });
+        // Gawanya `count` mbegu kuanzia pos sasa, rudi landIdx ya mwisho
+        function sow(src) {
+            rounds++;
+            if (rounds > MAX_ROUNDS) return;
 
-                var relay = nb[landIdx];
-                nb[landIdx] = 0;
-                pos = circuit.indexOf(landIdx);
-                prevHole = landIdx;
-                while (relay > 0) {
-                    pos = (pos + 1) % circuit.length;
-                    nb[circuit[pos]]++;
-                    relay--;
-                    var rArrow = arrowBetween(prevHole, circuit[pos]);
-                    prevHole = circuit[pos];
-                    steps.push({ holeIdx: circuit[pos], board: nb.slice(), arrow: rArrow });
+            var count = nb[src];
+            nb[src] = 0;
+
+            // Pata nafasi ya src kwenye circuit
+            var pos = -1;
+            for (var i = 0; i < circuit.length; i++) {
+                if (circuit[i] === src) { pos = i; break; }
+            }
+            if (pos === -1) return;
+
+            // Weka mbegu ZOTE moja kwa moja bila kusimama
+            for (var s = 0; s < count; s++) {
+                pos = (pos + 1) % circuit.length;
+                nb[circuit[pos]]++;
+                landIdx = circuit[pos];
+                pushStep(landIdx, arrowBetween(prevH, landIdx));
+                prevH = landIdx;
+            }
+
+            // Angalia sheria kwenye shimo la MWISHO tu
+            var row = Math.floor(landIdx / appCols);
+            var hadSeeds = nb[landIdx] > 1;   // alikuwa na mbegu kabla ya seed hii
+
+            if (!hadSeeds) {
+                // Sheria A: shimo lilikuwa tupu — simama
+                return;
+            }
+
+            if (row === or_) {
+                // Sheria B1: nje ina mbegu — relay
+                pushStep(landIdx, "↻");
+                sow(landIdx);
+
+            } else if (row === ir) {
+                var opp = oppOf(landIdx);
+                if (nb[opp] > 0) {
+                    // Sheria B2: capture
+                    captures += nb[opp];
+                    nb[landIdx] += nb[opp];
+                    nb[opp] = 0;
+                    pushStep(opp,     "✕");
+                    pushStep(landIdx, "★");
+                    sow(landIdx);
+                } else {
+                    // Sheria B3: ndani ina mbegu, opp tupu — relay
+                    pushStep(landIdx, "↻");
+                    sow(landIdx);
                 }
             }
         }
 
-        return { steps: steps, finalBoard: nb, captures: captures };
+        sow(startIdx);
+        return { nb: nb, captures: captures, landIdx: landIdx, steps: steps };
     }
 
-    // ── Timer ya kupiga hatua moja kwa wakati ────────────────────────────────
+        // ── Wrappers ─────────────────────────────────────────────────────────────
+    function sowSeeds(b, startIdx, player) {
+        var r = sowKernel(b, startIdx, player, false);
+        if (!r) return null;
+        return { newBoard: r.nb, captures: r.captures };
+    }
+
+    function buildSowSteps(b, startIdx, player) {
+        var r = sowKernel(b, startIdx, player, true);
+        if (!r) return null;
+        return { steps: r.steps, finalBoard: r.nb, captures: r.captures };
+    }
+
+        // ── Timer ya kupiga hatua moja kwa wakati ────────────────────────────────
     Timer {
         id: sowStepTimer
         interval: 450        // ms kila hatua — polepole kuona mabadiliko
@@ -927,6 +917,7 @@ Rectangle {
                             color: "transparent"
                             border.color: app.activeArrow === "✕" ? "#FF4444"
                                         : app.activeArrow === "★" ? "#FFD700"
+                                        : app.activeArrow === "↻" ? "#FF8C00"
                                         : "#FFFFFF"
                             border.width: 3
                             SequentialAnimation on opacity {
@@ -1001,6 +992,7 @@ Rectangle {
                                     text: app.activeArrow
                                     color: app.activeArrow === "✕" ? "#FF6666"
                                          : app.activeArrow === "★" ? "#FFD700"
+                                         : app.activeArrow === "↻" ? "#FF8C00"
                                          : "#FFFFFF"
                                     font.pixelSize: Math.max(9, app.fntHole * 0.72)
                                     font.bold: true
