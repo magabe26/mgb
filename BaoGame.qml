@@ -1172,12 +1172,12 @@ Rectangle {
 
                 Text {
                     anchors.horizontalCenter: parent.horizontalCenter
-                    text: app.winner === app.human ? "🏆" : "🤖"
+                    text: app.winner === app.human ? "🏆" : "MAGABE AI 🤖"
                     font.pixelSize: Math.round(app.holeSize * 0.9)
                 }
                 Text {
                     anchors.horizontalCenter: parent.horizontalCenter
-                    text: app.winner === app.human ? "UMESHINDA!" : "MAGABE AI IMESHINDA!"
+                    text: app.winner === app.human ? "UMESHINDA!" : "IMESHINDA!"
                     color: app.winner === app.human ? "#FFD060" : "#5AB0FF"
                     font.pixelSize: Math.max(20, app.fntTitle * 0.85)
                     font.bold: true; font.letterSpacing: 3
