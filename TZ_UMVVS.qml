@@ -679,7 +679,7 @@ Rectangle {
                         }
 
                         Text {
-                            text:           "Tanzania Revenue Authority"
+                            text:           ""
                             font.pixelSize: app.captionF
                             color:          app.cMuted
                         }
