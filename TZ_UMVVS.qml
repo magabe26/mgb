@@ -86,7 +86,7 @@ Rectangle {
     function close() { closeIfInsideApp(); closeIfQMLDialogApp(); ad(); }
 
     // ── Responsive helpers ────────────────────────────────────────────────────
-    readonly property bool mob:    app.width < 680
+    readonly property bool mob:  true
     readonly property real margin: app.mob ? 16 : 32
     readonly property real colW:   Math.min(app.width - app.margin * 2, 700)
     readonly property real inputH: app.mob ? 50 : 46
