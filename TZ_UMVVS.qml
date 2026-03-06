@@ -85,15 +85,19 @@ Rectangle {
     function ad() { cmd("#showGoogleAd"); }
     function close() { closeIfInsideApp(); closeIfQMLDialogApp(); ad(); }
 
-    // ── Responsive helpers ────────────────────────────────────────────────────
-    readonly property bool mob:  true
-    readonly property real margin: app.mob ? 16 : 32
+    // ── Mobile-first layout constants ────────────────────────────────────────
+    readonly property bool mob:    true
+    readonly property real margin: 18
     readonly property real colW:   app.width - app.margin * 2
-    readonly property real inputH: app.mob ? 50 : 46
-    readonly property real btnH:   app.mob ? 54 : 50
-    readonly property real titleF: app.mob ? 22 : 26
-    readonly property real labelF: app.mob ? 11 : 11
-    readonly property int  cols2:  app.mob ?  1 :  2
+    readonly property real inputH: 56          // tall touch targets
+    readonly property real btnH:   60          // prominent action buttons
+    readonly property real titleF: 26          // page headings
+    readonly property real labelF: 14          // field labels
+    readonly property real bodyF:  15          // body / list text
+    readonly property real captionF: 12        // small captions / hints
+    readonly property int  cols2:  1           // always single column on mobile
+    readonly property real cardR:  14          // card corner radius
+    readonly property real rowH:   52          // table row height
 
     // ── Palette ───────────────────────────────────────────────────────────────
     readonly property color cBg:        "#0D1117"
@@ -631,7 +635,7 @@ Rectangle {
             Rectangle {
                 id:               header
                 Layout.fillWidth: true
-                height:           app.mob ? 56 : 62
+                height:           64
                 color:            app.cSurface
 
                 Rectangle {
@@ -649,15 +653,15 @@ Rectangle {
 
                     // Logo badge
                     Rectangle {
-                        width:  app.mob ? 34 : 40
-                        height: app.mob ? 34 : 40
-                        radius: 8
+                        width:  44
+                        height: 44
+                        radius: 10
                         color:  app.cGold
 
                         Text {
                             anchors.centerIn: parent
                             text:             "TZ"
-                            font.pixelSize:   app.mob ? 10 : 11
+                            font.pixelSize:   13
                             font.bold:        true
                             color:            "#000000"
                         }
@@ -669,14 +673,14 @@ Rectangle {
 
                         Text {
                             text:           "Used Motor Vehicle Valuation System"
-                            font.pixelSize: app.mob ? 12 : 13
+                            font.pixelSize: 15
                             font.bold:      true
                             color:          app.cText
                         }
 
                         Text {
-                            text:           ""
-                            font.pixelSize: app.mob ? 9 : 10
+                            text:           "Tanzania Revenue Authority"
+                            font.pixelSize: app.captionF
                             color:          app.cMuted
                         }
                     }
@@ -754,7 +758,7 @@ Rectangle {
                             Text {
                                 width:               parent.width
                                 text:                "UMVVS Calculator"
-                                font.pixelSize:      app.mob ? 28 : 38
+                                font.pixelSize:      34
                                 font.bold:           true
                                 color:               app.cGold
                                 horizontalAlignment: Text.AlignHCenter
@@ -763,7 +767,7 @@ Rectangle {
                             Text {
                                 width:               parent.width
                                 text:                "Estimate import duties & taxes on used motor vehicles\nentering Tanzania under TRA\u2019s EAC valuation framework."
-                                font.pixelSize:      13
+                                font.pixelSize:      app.bodyF
                                 color:               app.cMuted
                                 horizontalAlignment: Text.AlignHCenter
                                 lineHeight:          1.5
@@ -774,18 +778,18 @@ Rectangle {
                         // Primary CTA
                         Rectangle {
                             width:  parent.width
-                            height: 62
-                            radius: 12
+                            height: 72
+                            radius: app.cardR
                             color:  app.cGold
 
                             Column {
                                 anchors.centerIn: parent
-                                spacing:          3
+                                spacing:          4
 
                                 Text {
                                     anchors.horizontalCenter: parent.horizontalCenter
                                     text:           "\u2295  Start Vehicle Valuation"
-                                    font.pixelSize: app.mob ? 15 : 16
+                                    font.pixelSize: 18
                                     font.bold:      true
                                     color:          "#000000"
                                 }
@@ -793,8 +797,8 @@ Rectangle {
                                 Text {
                                     anchors.horizontalCenter: parent.horizontalCenter
                                     text:           "Select Make \u2192 Model \u2192 Body \u2192 Year \u2192 Engine"
-                                    font.pixelSize: 10
-                                    color:          Qt.rgba(0, 0, 0, 0.5)
+                                    font.pixelSize: app.captionF
+                                    color:          Qt.rgba(0, 0, 0, 0.55)
                                 }
                             }
 
@@ -808,11 +812,10 @@ Rectangle {
                             }
                         }
 
-                        // Feature cards
                         Grid {
                             width:         parent.width
-                            columns:       app.mob ? 1 : 3
-                            columnSpacing: 12
+                            columns:       1
+                            columnSpacing: 0
                             rowSpacing:    12
 
                             Repeater {
@@ -826,10 +829,9 @@ Rectangle {
                                 ]
 
                                 delegate: Rectangle {
-                                    width:        app.mob ? homeCol.width
-                                                           : (homeCol.width - 24) / 3
-                                    height:       app.mob ? 76 : 120
-                                    radius:       10
+                                    width:        homeCol.width
+                                    height:       88
+                                    radius:       app.cardR
                                     color:        app.cCard
                                     border.color: app.cBorder
                                     border.width: 1
@@ -847,47 +849,32 @@ Rectangle {
                                     Rectangle {
                                         id:           cardTint
                                         anchors.fill: parent
-                                        radius:       10
+                                        radius:       app.cardR
                                         color:        "white"
                                         opacity:      0
                                         Behavior on opacity { NumberAnimation { duration: 130 } }
                                     }
 
-                                    // Mobile layout: icon + text side by side
                                     Row {
-                                        visible:  app.mob
                                         anchors.fill:    parent
-                                        anchors.margins: 14
-                                        spacing:         12
+                                        anchors.margins: 18
+                                        spacing:         16
 
                                         Text {
                                             text:                   modelData.icon
-                                            font.pixelSize:         22
+                                            font.pixelSize:         28
                                             color:                  app.cGold
                                             anchors.verticalCenter: parent.verticalCenter
                                         }
 
                                         Column {
-                                            spacing:                3
-                                            width:                  parent.width - 34
+                                            spacing:                5
+                                            width:                  parent.width - 44
                                             anchors.verticalCenter: parent.verticalCenter
 
-                                            Text { text: modelData.title; font.pixelSize: 13; font.bold: true; color: app.cText }
-                                            Text { text: modelData.desc; font.pixelSize: 11; color: app.cMuted; wrapMode: Text.Wrap; width: parent.width }
+                                            Text { text: modelData.title; font.pixelSize: app.bodyF; font.bold: true; color: app.cText }
+                                            Text { text: modelData.desc; font.pixelSize: app.captionF + 1; color: app.cMuted; wrapMode: Text.Wrap; width: parent.width }
                                         }
-                                    }
-
-                                    // Desktop layout: stacked
-                                    Column {
-                                        visible:         !app.mob
-                                        anchors.fill:    parent
-                                        anchors.margins: 16
-                                        anchors.topMargin: 18
-                                        spacing:         7
-
-                                        Text { text: modelData.icon; font.pixelSize: 22; color: app.cGold }
-                                        Text { text: modelData.title; font.pixelSize: 13; font.bold: true; color: app.cText }
-                                        Text { text: modelData.desc; font.pixelSize: 11; color: app.cMuted; wrapMode: Text.Wrap; width: parent.width; lineHeight: 1.4 }
                                     }
 
                                     MouseArea {
@@ -919,14 +906,14 @@ Rectangle {
 
                                 Text {
                                     text:           "EAC Import Tax Rates  (2024 / 25)"
-                                    font.pixelSize: 12
+                                    font.pixelSize: app.labelF
                                     font.bold:      true
                                     color:          app.cGold
                                 }
 
                                 Flow {
                                     width:   parent.width
-                                    spacing: 12
+                                    spacing: 14
 
                                     Repeater {
                                         model: [
@@ -940,11 +927,11 @@ Rectangle {
                                         ]
 
                                         delegate: Row {
-                                            spacing: 4
-                                            Text { text: modelData.v; font.pixelSize: 14; font.bold: true; color: app.cGoldLight }
+                                            spacing: 5
+                                            Text { text: modelData.v; font.pixelSize: 17; font.bold: true; color: app.cGoldLight }
                                             Text {
                                                 text:                   modelData.l
-                                                font.pixelSize:         10
+                                                font.pixelSize:         app.captionF
                                                 color:                  app.cMuted
                                                 anchors.verticalCenter: parent.verticalCenter
                                             }
@@ -988,7 +975,7 @@ Rectangle {
 
                                 Text {
                                     text:           "Follow the steps below to identify your vehicle"
-                                    font.pixelSize: 11
+                                    font.pixelSize: app.captionF + 1
                                     color:          app.cMuted
                                 }
                             }
@@ -1002,11 +989,10 @@ Rectangle {
                             }
                         }
 
-                        // Progress stepper strip
                         Rectangle {
                             width:        parent.width
-                            height:       44
-                            radius:       8
+                            height:       56
+                            radius:       10
                             color:        app.cCard
                             border.color: app.cBorder
                             border.width: 1
@@ -1021,7 +1007,6 @@ Rectangle {
                                     delegate: Row {
                                         spacing: 0
 
-                                        // Compute done/active state with explicit JS blocks + return
                                         readonly property bool stepDone: {
                                             if (index === 0) { return app.vMake   !== ""; }
                                             if (index === 1) { return app.vModel  !== ""; }
@@ -1043,7 +1028,7 @@ Rectangle {
                                         // Connecting line between steps (skip first)
                                         Rectangle {
                                             visible:                index > 0
-                                            width:                  app.mob ? 8 : 14
+                                            width:                  10
                                             height:                 2
                                             color:                  stepDone ? app.cGold : app.cBorder
                                             anchors.verticalCenter: parent.verticalCenter
@@ -1051,9 +1036,9 @@ Rectangle {
 
                                         // Step circle
                                         Rectangle {
-                                            width:        app.mob ? 32 : 40
-                                            height:       26
-                                            radius:       13
+                                            width:        40
+                                            height:       32
+                                            radius:       16
                                             color:        stepDone   ? app.cGold
                                                         : stepActive ? Qt.rgba(0.83, 0.63, 0.09, 0.15)
                                                         : "transparent"
@@ -1065,7 +1050,7 @@ Rectangle {
                                             Text {
                                                 anchors.centerIn: parent
                                                 text:             stepDone ? "\u2713" : modelData
-                                                font.pixelSize:   app.mob ? 8 : 9
+                                                font.pixelSize:   app.captionF
                                                 font.bold:        true
                                                 color:            stepDone   ? "#000000"
                                                                 : stepActive ? app.cGold
@@ -1085,7 +1070,7 @@ Rectangle {
                             Row {
                                 spacing: 8
                                 Text {
-                                    text:                   "1. Vehicle Make"
+                                    text:           "1. Vehicle Make"
                                     font.pixelSize:         app.labelF
                                     font.bold:              true
                                     color:                  app.cMuted
@@ -1120,7 +1105,7 @@ Rectangle {
                                     text:              makeCombo.currentIndex < 0
                                                        ? (app.loadMakes ? "Loading makes\u2026" : "Select Make \u2014 tap to load")
                                                        : makeCombo.displayText
-                                    font.pixelSize:    13
+                                    font.pixelSize:    app.bodyF
                                     color:             makeCombo.currentIndex < 0 ? app.cMuted : app.cText
                                     verticalAlignment: Text.AlignVCenter
                                     elide:             Text.ElideRight
@@ -1142,7 +1127,7 @@ Rectangle {
                                     contentItem: Text {
                                         leftPadding:       14
                                         text:              modelData
-                                        font.pixelSize:    13
+                                        font.pixelSize:    app.bodyF
                                         color:             parent.highlighted ? app.cGold : app.cText
                                         verticalAlignment: Text.AlignVCenter
                                     }
@@ -1182,7 +1167,7 @@ Rectangle {
                             Text {
                                 visible:        app.makesList.length === 0 && !app.loadMakes
                                 text:           "\u21BA  Tap above or here to load makes from TRA"
-                                font.pixelSize: 11
+                                font.pixelSize: app.captionF + 1
                                 color:          app.cBlue
                                 MouseArea {
                                     anchors.fill: parent
@@ -1202,7 +1187,7 @@ Rectangle {
                             Row {
                                 spacing: 8
                                 Text {
-                                    text:                   "2. Vehicle Model"
+                                    text:           "2. Vehicle Model"
                                     font.pixelSize:         app.labelF
                                     font.bold:              true
                                     color:                  app.cMuted
@@ -1239,7 +1224,7 @@ Rectangle {
                                                          : app.vMake !== "" ? "Select Model\u2026"
                                                          : "Select Make first")
                                                        : modelCombo.displayText
-                                    font.pixelSize:    13
+                                    font.pixelSize:    app.bodyF
                                     color:             modelCombo.currentIndex < 0 ? app.cMuted : app.cText
                                     verticalAlignment: Text.AlignVCenter
                                     elide:             Text.ElideRight
@@ -1260,7 +1245,7 @@ Rectangle {
                                     contentItem: Text {
                                         leftPadding:       14
                                         text:              modelData
-                                        font.pixelSize:    13
+                                        font.pixelSize:    app.bodyF
                                         color:             parent.highlighted ? app.cGold : app.cText
                                         verticalAlignment: Text.AlignVCenter
                                     }
@@ -1307,7 +1292,7 @@ Rectangle {
                             Row {
                                 spacing: 8
                                 Text {
-                                    text:                   "3. Body Type"
+                                    text:           "3. Body Type"
                                     font.pixelSize:         app.labelF
                                     font.bold:              true
                                     color:                  app.cMuted
@@ -1344,7 +1329,7 @@ Rectangle {
                                                          : app.vModel !== "" ? "Select Body Type\u2026"
                                                          : "Select Model first")
                                                        : bodyCombo.displayText
-                                    font.pixelSize:    13
+                                    font.pixelSize:    app.bodyF
                                     color:             bodyCombo.currentIndex < 0 ? app.cMuted : app.cText
                                     verticalAlignment: Text.AlignVCenter
                                     elide:             Text.ElideRight
@@ -1365,7 +1350,7 @@ Rectangle {
                                     contentItem: Text {
                                         leftPadding:       14
                                         text:              modelData
-                                        font.pixelSize:    13
+                                        font.pixelSize:    app.bodyF
                                         color:             parent.highlighted ? app.cGold : app.cText
                                         verticalAlignment: Text.AlignVCenter
                                     }
@@ -1417,7 +1402,7 @@ Rectangle {
                                     Layout.fillWidth: true
 
                                     Text {
-                                        text:                   "4. Year of Manufacture"
+                                        text:           "4. Year of Manufacture"
                                         font.pixelSize:         app.labelF
                                         font.bold:              true
                                         color:                  app.cMuted
@@ -1446,7 +1431,7 @@ Rectangle {
                                         id:               eligTxt
                                         anchors.centerIn: parent
                                         text:             app.vYear > 0 ? app.eligibility(app.vYear).note : ""
-                                        font.pixelSize:   9
+                                        font.pixelSize:   app.captionF
                                         color:            app.vYear > 0
                                                           ? (app.eligibility(app.vYear).ok ? app.cGreen : app.cRed)
                                                           : app.cMuted
@@ -1484,7 +1469,7 @@ Rectangle {
                                                          : app.vBody !== "" ? "Select Year\u2026"
                                                          : "Select Body Type first")
                                                        : yearCombo.displayText
-                                    font.pixelSize:    13
+                                    font.pixelSize:    app.bodyF
                                     color:             yearCombo.currentIndex < 0 ? app.cMuted : app.cText
                                     verticalAlignment: Text.AlignVCenter
                                     elide:             Text.ElideRight
@@ -1505,7 +1490,7 @@ Rectangle {
                                     contentItem: Text {
                                         leftPadding:       14
                                         text:              modelData
-                                        font.pixelSize:    13
+                                        font.pixelSize:    app.bodyF
                                         color:             parent.highlighted ? app.cGold : app.cText
                                         verticalAlignment: Text.AlignVCenter
                                     }
@@ -1577,7 +1562,7 @@ Rectangle {
                                     text:           app.vEngine > 2000
                                                     ? "Large \u2014 25% excise"
                                                     : "Standard \u2014 10% excise"
-                                    font.pixelSize: 9
+                                    font.pixelSize: app.captionF
                                     color:          app.vEngine > 2000 ? app.cRed : app.cGreen
                                 }
                             }
@@ -1614,7 +1599,7 @@ Rectangle {
                                                          : app.vYear > 0  ? "Select Engine Capacity\u2026"
                                                          : "Select Year first")
                                                        : engineCombo.displayText
-                                    font.pixelSize:    13
+                                    font.pixelSize:    app.bodyF
                                     color:             engineCombo.currentIndex < 0 ? app.cMuted : app.cText
                                     verticalAlignment: Text.AlignVCenter
                                     elide:             Text.ElideRight
@@ -1635,7 +1620,7 @@ Rectangle {
                                     contentItem: Text {
                                         leftPadding:       14
                                         text:              modelData
-                                        font.pixelSize:    13
+                                        font.pixelSize:    app.bodyF
                                         color:             parent.highlighted ? app.cGold : app.cText
                                         verticalAlignment: Text.AlignVCenter
                                     }
@@ -1726,7 +1711,7 @@ Rectangle {
                                             contentItem: Text {
                                                 leftPadding:       14
                                                 text:              fuelCombo.displayText
-                                                font.pixelSize:    13
+                                                font.pixelSize:    app.bodyF
                                                 color:             app.cText
                                                 verticalAlignment: Text.AlignVCenter
                                             }
@@ -1744,7 +1729,7 @@ Rectangle {
                                                 width:       fuelCombo.width
                                                 highlighted: fuelCombo.highlightedIndex === index
                                                 contentItem: Text {
-                                                    leftPadding: 14; text: modelData; font.pixelSize: 13
+                                                    leftPadding: 14; text: modelData; font.pixelSize: app.bodyF
                                                     color: parent.highlighted ? app.cGold : app.cText
                                                     verticalAlignment: Text.AlignVCenter
                                                 }
@@ -1793,7 +1778,7 @@ Rectangle {
 
                                             contentItem: Text {
                                                 leftPadding: 14; text: originCombo.displayText
-                                                font.pixelSize: 13; color: app.cText
+                                                font.pixelSize: app.bodyF; color: app.cText
                                                 verticalAlignment: Text.AlignVCenter
                                             }
 
@@ -1806,7 +1791,7 @@ Rectangle {
                                             delegate: ItemDelegate {
                                                 width: originCombo.width; highlighted: originCombo.highlightedIndex === index
                                                 contentItem: Text {
-                                                    leftPadding: 14; text: modelData; font.pixelSize: 13
+                                                    leftPadding: 14; text: modelData; font.pixelSize: app.bodyF
                                                     color: parent.highlighted ? app.cGold : app.cText
                                                     verticalAlignment: Text.AlignVCenter
                                                 }
@@ -1856,7 +1841,7 @@ Rectangle {
                                                 anchors.leftMargin:  14
                                                 anchors.rightMargin: 14
                                                 verticalAlignment:   TextInput.AlignVCenter
-                                                font.pixelSize:      13
+                                                font.pixelSize:      app.bodyF
                                                 color:               app.cText
                                                 inputMethodHints:    Qt.ImhDigitsOnly
 
@@ -1890,7 +1875,7 @@ Rectangle {
                             Text {
                                 anchors.centerIn: parent
                                 text:           app.stepError
-                                font.pixelSize: 12
+                                font.pixelSize: app.captionF
                                 color:          app.cRed
                             }
                         }
@@ -1923,7 +1908,7 @@ Rectangle {
                                     text:           app.loadResult
                                                     ? "Calculating\u2026"
                                                     : "\u2295  Calculate Import Taxes"
-                                    font.pixelSize: app.mob ? 15 : 16
+                                    font.pixelSize: 18
                                     font.bold:      true
                                     color:          (app.loadResult || app.vEngine === 0)
                                                     ? Qt.rgba(0, 0, 0, 0.45)
@@ -1946,7 +1931,7 @@ Rectangle {
                         Text {
                             anchors.horizontalCenter: parent.horizontalCenter
                             text:           "Vehicle not in list? \u2192 Submit for manual valuation"
-                            font.pixelSize: 12
+                            font.pixelSize: app.captionF
                             color:          app.cBlue
 
                             MouseArea {
@@ -1986,9 +1971,9 @@ Rectangle {
                             Item { Layout.fillWidth: true }
 
                             Rectangle {
-                                width:        130
-                                height:       36
-                                radius:       8
+                                width:        150
+                                height:       44
+                                radius:       10
                                 color:        app.cInput
                                 border.color: app.cBorder
                                 border.width: 1
@@ -1996,7 +1981,7 @@ Rectangle {
                                 Text {
                                     anchors.centerIn: parent
                                     text:           "\u2190  Recalculate"
-                                    font.pixelSize: 11
+                                    font.pixelSize: app.captionF + 2
                                     color:          app.cMuted
                                 }
 
@@ -2049,7 +2034,7 @@ Rectangle {
                                             text:           app.valuationResult
                                                             ? (app.valuationResult.make + " " + app.valuationResult.model)
                                                             : (app.vMake + " " + app.vModel)
-                                            font.pixelSize: app.mob ? 17 : 20
+                                            font.pixelSize: 20
                                             font.bold:      true
                                             color:          app.cText
                                             wrapMode:       Text.Wrap
@@ -2058,7 +2043,7 @@ Rectangle {
                                         Text {
                                             text:           app.vBody + " \u00B7 " + app.vYear
                                                             + " \u00B7 " + app.vEngine + " cc \u00B7 " + app.vFuel
-                                            font.pixelSize: 11
+                                            font.pixelSize: app.captionF + 1
                                             color:          app.cMuted
                                         }
                                     }
@@ -2077,7 +2062,7 @@ Rectangle {
                                             anchors.centerIn: parent
                                             text:             app.vYear > 0 && app.eligibility(app.vYear).ok
                                                               ? "\u2713 Eligible" : "\u26A0 Dumping"
-                                            font.pixelSize:   10
+                                            font.pixelSize:   app.captionF
                                             color:            app.vYear > 0 && app.eligibility(app.vYear).ok
                                                               ? app.cGreen : app.cRed
                                         }
@@ -2088,7 +2073,7 @@ Rectangle {
                                     text:           "Ref: " + (app.valuationResult
                                                     ? (app.valuationResult.referenceCode || "N/A")
                                                     : "N/A")
-                                    font.pixelSize: 10
+                                    font.pixelSize: app.captionF
                                     color:          app.cGoldLight
                                 }
                             }
@@ -2127,7 +2112,7 @@ Rectangle {
 
                                 delegate: Rectangle {
                                     width:        (resCol.width - 10) / 2
-                                    height:       76
+                                    height:       90
                                     radius:       10
                                     color:        app.cCard
                                     border.color: app.cBorder
@@ -2138,11 +2123,11 @@ Rectangle {
                                         anchors.margins: 14
                                         spacing:         5
 
-                                        Text { text: modelData.lbl; font.pixelSize: 9; font.bold: true; color: app.cMuted }
+                                        Text { text: modelData.lbl; font.pixelSize: app.captionF; font.bold: true; color: app.cMuted }
                                         Text {
                                             width:          parent.width
                                             text:           modelData.val
-                                            font.pixelSize: app.mob ? 12 : 14
+                                            font.pixelSize: app.bodyF
                                             font.bold:      true
                                             color:          modelData.accent
                                             wrapMode:       Text.Wrap
@@ -2170,7 +2155,7 @@ Rectangle {
 
                                 Text {
                                     text:            "Import Tax Breakdown"
-                                    font.pixelSize:  14
+                                    font.pixelSize:  app.bodyF
                                     font.bold:       true
                                     color:           app.cGold
                                     bottomPadding:   12
@@ -2189,8 +2174,8 @@ Rectangle {
                                         anchors.rightMargin: 10
 
                                         Text { Layout.fillWidth: true; text: "Component"; font.pixelSize: 10; font.bold: true; color: app.cMuted }
-                                        Text { width: app.mob ? 44 : 64;   text: "Rate";         font.pixelSize: 10; font.bold: true; color: app.cMuted; horizontalAlignment: Text.AlignRight }
-                                        Text { width: app.mob ? 106 : 160; text: "Amount (TZS)"; font.pixelSize: 10; font.bold: true; color: app.cMuted; horizontalAlignment: Text.AlignRight }
+                                        Text { width: 56;   text: "Rate";         font.pixelSize: 10; font.bold: true; color: app.cMuted; horizontalAlignment: Text.AlignRight }
+                                        Text { width: 120; text: "Amount (TZS)"; font.pixelSize: 10; font.bold: true; color: app.cMuted; horizontalAlignment: Text.AlignRight }
                                     }
                                 }
 
@@ -2212,7 +2197,7 @@ Rectangle {
 
                                     delegate: Rectangle {
                                         width:  parent.width
-                                        height: app.mob ? 46 : 40
+                                        height: 52
                                         color:  (index % 2 === 0) ? "transparent" : Qt.rgba(1, 1, 1, 0.02)
 
                                         RowLayout {
@@ -2232,23 +2217,23 @@ Rectangle {
                                             Text {
                                                 Layout.fillWidth: true
                                                 text:           modelData.l
-                                                font.pixelSize: app.mob ? 11 : 12
+                                                font.pixelSize: app.bodyF - 2
                                                 color:          modelData.base ? app.cText : app.cMuted
                                                 wrapMode:       Text.Wrap
                                             }
 
                                             Text {
-                                                width:               app.mob ? 44 : 64
+                                                width:               56
                                                 text:                modelData.r
-                                                font.pixelSize:      11
+                                                font.pixelSize:      app.captionF + 1
                                                 color:               app.cMuted
                                                 horizontalAlignment: Text.AlignRight
                                             }
 
                                             Text {
-                                                width:               app.mob ? 106 : 160
+                                                width:               120
                                                 text:                app.fmtTZS(modelData.a)
-                                                font.pixelSize:      app.mob ? 11 : 12
+                                                font.pixelSize:      app.bodyF - 2
                                                 font.bold:           modelData.base
                                                 color:               modelData.base
                                                                      ? app.cBlue
@@ -2283,7 +2268,7 @@ Rectangle {
                                         Text {
                                             Layout.fillWidth: true
                                             text:           "Total Tax"
-                                            font.pixelSize: 13
+                                            font.pixelSize: app.bodyF
                                             font.bold:      true
                                             color:          app.cText
                                         }
@@ -2292,7 +2277,7 @@ Rectangle {
                                             text:                app.taxResult
                                                                  ? app.fmtTZS(app.taxResult.taxes.totalTax)
                                                                  : "\u2014"
-                                            font.pixelSize:      13
+                                            font.pixelSize:      app.bodyF
                                             font.bold:           true
                                             color:               app.cGoldLight
                                             horizontalAlignment: Text.AlignRight
@@ -2315,7 +2300,7 @@ Rectangle {
                                         Text {
                                             Layout.fillWidth: true
                                             text:           "TOTAL PAYABLE"
-                                            font.pixelSize: app.mob ? 14 : 16
+                                            font.pixelSize: 17
                                             font.bold:      true
                                             color:          app.cGold
                                         }
@@ -2324,7 +2309,7 @@ Rectangle {
                                             text:                app.taxResult
                                                                  ? app.fmtTZS(app.taxResult.taxes.totalPayable)
                                                                  : "\u2014"
-                                            font.pixelSize:      app.mob ? 15 : 18
+                                            font.pixelSize:      20
                                             font.bold:           true
                                             color:               app.cGold
                                             horizontalAlignment: Text.AlignRight
@@ -2348,7 +2333,7 @@ Rectangle {
                                 width:               parent.width - 24
                                 text:                "\u2139  CIF = Depreciated CRSP + Freight ("
                                                      + app.fmtTZS(app.vFreight) + ")"
-                                font.pixelSize:      10
+                                font.pixelSize:      app.captionF
                                 color:               app.cBlue
                                 wrapMode:            Text.Wrap
                                 horizontalAlignment: Text.AlignHCenter
@@ -2382,7 +2367,7 @@ Rectangle {
                         Text {
                             width:          parent.width
                             text:           "Vehicle A is your current selection. Enter Vehicle B details to compare total import taxes."
-                            font.pixelSize: 13
+                            font.pixelSize: app.bodyF
                             color:          app.cMuted
                             wrapMode:       Text.Wrap
                         }
@@ -2412,7 +2397,7 @@ Rectangle {
                                 anchors.topMargin:   20
                                 spacing:             6
 
-                                Text { text: "Vehicle A  (current selection)"; font.pixelSize: 13; font.bold: true; color: app.cGold }
+                                Text { text: "Vehicle A  (current selection)"; font.pixelSize: app.bodyF; font.bold: true; color: app.cGold }
 
                                 Text {
                                     width:          parent.width
@@ -2421,14 +2406,14 @@ Rectangle {
                                                        + "  \u00B7  " + app.vYear
                                                        + "  \u00B7  " + app.vEngine + " cc")
                                                     : "No vehicle selected \u2014 go to Valuate first"
-                                    font.pixelSize: 13
+                                    font.pixelSize: app.bodyF
                                     color:          app.cText
                                     wrapMode:       Text.Wrap
                                 }
 
                                 Text {
                                     text:           app.vBody + "  \u00B7  " + app.vFuel
-                                    font.pixelSize: 11
+                                    font.pixelSize: app.captionF + 1
                                     color:          app.cMuted
                                 }
                             }
@@ -2459,7 +2444,7 @@ Rectangle {
                                 anchors.topMargin:   20
                                 spacing:             12
 
-                                Text { text: "Vehicle B"; font.pixelSize: 13; font.bold: true; color: app.cBlue }
+                                Text { text: "Vehicle B"; font.pixelSize: app.bodyF; font.bold: true; color: app.cBlue }
 
                                 GridLayout {
                                     width:         parent.width
@@ -2482,7 +2467,7 @@ Rectangle {
                                                 anchors.leftMargin:  12
                                                 anchors.rightMargin: 12
                                                 verticalAlignment:   TextInput.AlignVCenter
-                                                font.pixelSize:      13
+                                                font.pixelSize:      app.bodyF
                                                 color:               app.cText
                                                // placeholderText:     "e.g. Honda"
                                                 onEditingFinished:   { app.bMake = text; }
@@ -2505,7 +2490,7 @@ Rectangle {
                                                 anchors.leftMargin:  12
                                                 anchors.rightMargin: 12
                                                 verticalAlignment:   TextInput.AlignVCenter
-                                                font.pixelSize:      13
+                                                font.pixelSize:      app.bodyF
                                                 color:               app.cText
                                                // placeholderText:     "e.g. Fit"
                                                 onEditingFinished:   { app.bModel = text; }
@@ -2528,7 +2513,7 @@ Rectangle {
                                                 anchors.leftMargin:  12
                                                 anchors.rightMargin: 12
                                                 verticalAlignment:   TextInput.AlignVCenter
-                                                font.pixelSize:      13
+                                                font.pixelSize:      app.bodyF
                                                 color:               app.cText
                                                 inputMethodHints:    Qt.ImhDigitsOnly
 
@@ -2559,7 +2544,7 @@ Rectangle {
                                                 anchors.leftMargin:  12
                                                 anchors.rightMargin: 12
                                                 verticalAlignment:   TextInput.AlignVCenter
-                                                font.pixelSize:      13
+                                                font.pixelSize:      app.bodyF
                                                 color:               app.cText
                                                 inputMethodHints:    Qt.ImhDigitsOnly
 
@@ -2587,7 +2572,7 @@ Rectangle {
                             Text {
                                 anchors.centerIn: parent
                                 text:           "\u21C4  Compare Now"
-                                font.pixelSize: app.mob ? 15 : 16
+                                font.pixelSize: 18
                                 font.bold:      true
                                 color:          "#000000"
                             }
@@ -2618,7 +2603,7 @@ Rectangle {
 
                                 Text {
                                     text:          "Comparison Results"
-                                    font.pixelSize: 14
+                                    font.pixelSize: app.bodyF
                                     font.bold:      true
                                     color:          app.cGold
                                     bottomPadding:  10
@@ -2636,8 +2621,8 @@ Rectangle {
                                         anchors.rightMargin: 10
 
                                         Text { Layout.fillWidth: true; text: "Component"; font.pixelSize: 10; font.bold: true; color: app.cMuted }
-                                        Text { width: app.mob ? 100 : 170; text: "Vehicle A"; font.pixelSize: 10; font.bold: true; color: app.cGold; horizontalAlignment: Text.AlignRight }
-                                        Text { width: app.mob ? 100 : 170; text: "Vehicle B"; font.pixelSize: 10; font.bold: true; color: app.cBlue; horizontalAlignment: Text.AlignRight }
+                                        Text { width: 130; text: "Vehicle A"; font.pixelSize: 10; font.bold: true; color: app.cGold; horizontalAlignment: Text.AlignRight }
+                                        Text { width: 130; text: "Vehicle B"; font.pixelSize: 10; font.bold: true; color: app.cBlue; horizontalAlignment: Text.AlignRight }
                                     }
                                 }
 
@@ -2684,7 +2669,7 @@ Rectangle {
                                             }
 
                                             Text {
-                                                width:               app.mob ? 100 : 170
+                                                width:               130
                                                 text:                app.fmtTZS(vA)
                                                 font.pixelSize:      rowIsTotal ? 12 : 11
                                                 font.bold:           rowIsTotal
@@ -2694,7 +2679,7 @@ Rectangle {
                                             }
 
                                             Text {
-                                                width:               app.mob ? 100 : 170
+                                                width:               130
                                                 text:                app.fmtTZS(vB)
                                                 font.pixelSize:      rowIsTotal ? 12 : 11
                                                 font.bold:           rowIsTotal
@@ -2739,7 +2724,7 @@ Rectangle {
                             width:          parent.width
                             text:           "Enter the TRA UMVVS reference code to retrieve the vehicle\u2019s "
                                             + "CRSP valuation and full import tax breakdown."
-                            font.pixelSize: 13
+                            font.pixelSize: app.bodyF
                             color:          app.cMuted
                             wrapMode:       Text.Wrap
                             lineHeight:     1.5
@@ -2791,7 +2776,7 @@ Rectangle {
                             Text {
                                 anchors.centerIn: parent
                                 text:           app.refError
-                                font.pixelSize: 12
+                                font.pixelSize: app.captionF
                                 color:          app.cRed
                             }
                         }
@@ -2805,7 +2790,7 @@ Rectangle {
                             Text {
                                 anchors.centerIn: parent
                                 text:           "#  Search Reference"
-                                font.pixelSize: app.mob ? 15 : 16
+                                font.pixelSize: 18
                                 font.bold:      true
                                 color:          "#000000"
                             }
@@ -2826,7 +2811,7 @@ Rectangle {
                             horizontalAlignment: Text.AlignHCenter
                             text:                "Reference codes appear on TRA import declarations "
                                                  + "and UMVVS valuation certificates."
-                            font.pixelSize:      11
+                            font.pixelSize:      app.captionF + 1
                             color:               app.cMuted
                             wrapMode:            Text.Wrap
                         }
@@ -2859,7 +2844,7 @@ Rectangle {
                             width:          parent.width
                             text:           "If your vehicle is not in the TRA database, submit its details here.\n"
                                             + "The TRA team will perform a manual valuation and contact you."
-                            font.pixelSize: 13
+                            font.pixelSize: app.bodyF
                             color:          app.cMuted
                             wrapMode:       Text.Wrap
                             lineHeight:     1.5
@@ -2882,7 +2867,7 @@ Rectangle {
                                 Text {
                                     anchors.horizontalCenter: parent.horizontalCenter
                                     text:           "\u2713  Submission Received"
-                                    font.pixelSize: 15
+                                    font.pixelSize: 18
                                     font.bold:      true
                                     color:          app.cGreen
                                 }
@@ -2890,7 +2875,7 @@ Rectangle {
                                 Text {
                                     anchors.horizontalCenter: parent.horizontalCenter
                                     text:           "TRA will respond within 5\u20137 business days."
-                                    font.pixelSize: 12
+                                    font.pixelSize: app.captionF
                                     color:          app.cMuted
                                 }
                             }
@@ -2940,7 +2925,7 @@ Rectangle {
                                                 anchors.leftMargin:  12
                                                 anchors.rightMargin: 12
                                                 verticalAlignment:   TextInput.AlignVCenter
-                                                font.pixelSize:      13
+                                                font.pixelSize:      app.bodyF
                                                 color:               app.cText
                                                 //placeholderText:     modelData.ph
 
@@ -2976,7 +2961,7 @@ Rectangle {
                                             anchors.leftMargin:  12
                                             anchors.rightMargin: 12
                                             verticalAlignment:   TextInput.AlignVCenter
-                                            font.pixelSize:      13
+                                            font.pixelSize:      app.bodyF
                                             color:               app.cText
                                             inputMethodHints:    Qt.ImhDigitsOnly
 
@@ -3007,7 +2992,7 @@ Rectangle {
                                             anchors.leftMargin:  12
                                             anchors.rightMargin: 12
                                             verticalAlignment:   TextInput.AlignVCenter
-                                            font.pixelSize:      13
+                                            font.pixelSize:      app.bodyF
                                             color:               app.cText
                                             inputMethodHints:    Qt.ImhDigitsOnly
 
@@ -3040,7 +3025,7 @@ Rectangle {
                                         anchors.leftMargin:  12
                                         anchors.rightMargin: 12
                                         verticalAlignment:   TextInput.AlignVCenter
-                                        font.pixelSize:      13
+                                        font.pixelSize:      app.bodyF
                                         color:               app.cText
                                         //placeholderText:     "your@email.com"
                                         inputMethodHints:    Qt.ImhEmailCharactersOnly
@@ -3078,7 +3063,7 @@ Rectangle {
                                         text:           app.mvLoading
                                                         ? "Submitting\u2026"
                                                         : "\u270E  Submit for Manual Valuation"
-                                        font.pixelSize: app.mob ? 14 : 15
+                                        font.pixelSize: 17
                                         font.bold:      true
                                         color:          "#000000"
                                     }
@@ -3110,7 +3095,7 @@ Rectangle {
             // ════════════════════════════════════════════════════════════
             Rectangle {
                 Layout.fillWidth: true
-                height:           app.mob ? 62 : 32
+                height:           72
                 color:            app.cSurface
 
                 Rectangle {
@@ -3144,27 +3129,27 @@ Rectangle {
                             Rectangle {
                                 anchors.top:              parent.top
                                 anchors.horizontalCenter: parent.horizontalCenter
-                                width:   20
-                                height:  2
-                                radius:  1
+                                width:   28
+                                height:  3
+                                radius:  2
                                 color:   app.currentPage === modelData.pg ? app.cGold : "transparent"
                             }
 
                             Column {
                                 anchors.centerIn: parent
-                                spacing:          2
+                                spacing:          3
 
                                 Text {
                                     anchors.horizontalCenter: parent.horizontalCenter
                                     text:           modelData.icon
-                                    font.pixelSize: 20
+                                    font.pixelSize: 24
                                     color:          app.currentPage === modelData.pg ? app.cGold : app.cMuted
                                 }
 
                                 Text {
                                     anchors.horizontalCenter: parent.horizontalCenter
                                     text:           modelData.lbl
-                                    font.pixelSize: 9
+                                    font.pixelSize: app.captionF
                                     color:          app.currentPage === modelData.pg ? app.cGold : app.cMuted
                                 }
                             }
@@ -3195,7 +3180,7 @@ Rectangle {
 
                     Text {
                         text:           "\u00A9 2026 MagabeLab"
-                        font.pixelSize: 10
+                        font.pixelSize: app.captionF
                         color:          app.cMuted
                     }
 
@@ -3205,7 +3190,7 @@ Rectangle {
 
                     Text {
                         text:           "EAC 2024/25  \u00B7  gateway.tra.go.tz/umvvs"
-                        font.pixelSize: 10
+                        font.pixelSize: app.captionF
                         color:          app.cMuted
                     }
                 }
@@ -3228,21 +3213,21 @@ Rectangle {
                 BusyIndicator {
                     anchors.horizontalCenter: parent.horizontalCenter
                     running: true
-                    width:   52
-                    height:  52
+                    width:   64
+                    height:  64
                 }
 
                 Text {
                     anchors.horizontalCenter: parent.horizontalCenter
                     text:           "Contacting TRA Server\u2026"
-                    font.pixelSize: 15
+                    font.pixelSize: 18
                     color:          app.cGold
                 }
 
                 Text {
                     anchors.horizontalCenter: parent.horizontalCenter
                     text:           "Please wait"
-                    font.pixelSize: 11
+                    font.pixelSize: app.captionF + 2
                     color:          app.cMuted
                 }
             }
