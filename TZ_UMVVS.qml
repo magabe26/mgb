@@ -21,8 +21,8 @@ import QtQuick.Layouts 1.14
 
 Rectangle {
     id: app
-    width: 360
-    height: 600
+    width:  parent ? parent.width  : 400
+    height: parent ? parent.height : 800
     color: "#0a0800"
 
     // ── App wrapper helpers (kwa mazingira ya nje) ────────────────────────────
@@ -88,7 +88,7 @@ Rectangle {
     // ── Responsive helpers ────────────────────────────────────────────────────
     readonly property bool mob:  true
     readonly property real margin: app.mob ? 16 : 32
-    readonly property real colW:   Math.min(app.width - app.margin * 2, 700)
+    readonly property real colW:   app.width - app.margin * 2
     readonly property real inputH: app.mob ? 50 : 46
     readonly property real btnH:   app.mob ? 54 : 50
     readonly property real titleF: app.mob ? 22 : 26
