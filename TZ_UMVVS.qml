@@ -21,8 +21,8 @@ import QtQuick.Layouts 1.14
 
 Rectangle {
     id: app
-    width:  parent ? parent.width  : 400
-    height: parent ? parent.height : 800
+    width:  parent ? parent.width  : 360
+    height: parent ? parent.height : 600
     color: "#0a0800"
 
     // ── App wrapper helpers (kwa mazingira ya nje) ────────────────────────────
