@@ -412,7 +412,7 @@ Rectangle{
             height: icon1.paintedHeight
 
             Image {
-                id: icon26
+                id: icon30
                 width: 68
                 height: width
                 anchors.top: parent.top
@@ -422,7 +422,7 @@ Rectangle{
             }
 
             Text {
-                anchors.left: icon26.right
+                anchors.left: icon30.right
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.leftMargin: menu.textLeftMargin
                 color: Qt.lighter("gray",1.7)
