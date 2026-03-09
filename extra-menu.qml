@@ -404,6 +404,7 @@ Rectangle{
             }
         }
 
+/*
 
 Rectangle{
             z: root.z + 1
@@ -435,7 +436,7 @@ Rectangle{
                     root.executeCommand("#openApp;TZ_UMVVS.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/;Please wait!;dependencies.txt;#;2;1;1;100;", []);
                 }
             }
-        }
+        } */
 
 
         AnimatedImage{
