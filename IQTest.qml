@@ -1,7 +1,8 @@
-import QtQuick 2.4
-import QtQuick.Controls 2.4
-import QtQuick.Layouts 1.3
+import QtQuick 2.14
+import QtQuick.Controls 2.14
+import QtQuick.Layouts 1.14
 import QtGraphicalEffects 1.0
+import QtQuick.Window 2.14
 import Qt.labs.settings 1.0
 
 Rectangle {
@@ -157,14 +158,14 @@ Rectangle {
     ListModel {
         id: iqModel
 
-ListElement {
-    q: "Ni mwanasayansi gani wa kike aliyegundua mfumo wa hisabati uliowezesha kupatikana kwa GPS?"; 
-    a: "Katherine Johnson"; 
-    b: "Gladys West"; 
-    c: "Marie Curie"; 
-    d: "Dorothy Vaughan"; 
-    correct: "Gladys West"
-}
+        ListElement {
+            q: "Ni mwanasayansi gani wa kike aliyegundua mfumo wa hisabati uliowezesha kupatikana kwa GPS?";
+            a: "Katherine Johnson";
+            b: "Gladys West";
+            c: "Marie Curie";
+            d: "Dorothy Vaughan";
+            correct: "Gladys West"
+        }
 
         //SAYANSI
         ListElement { q: "Ni gesi gani binadamu anahitaji ili kuishi?"; a: "Nitrogen"; b: "Oxygen"; c: "Carbon"; d: "Hydrogen"; correct: "Oxygen" }
@@ -885,304 +886,774 @@ ListElement {
         }
     }
 
-    // --- UI DESIGN ---
+
+    // ═══════════════════════════════════════════════════════════════
+    // UI REDESIGN — Premium dark African sci-fi aesthetic
+    // Colours: deep space bg, amber-gold accent, crisp white text
+    // ═══════════════════════════════════════════════════════════════
+
+    readonly property color bg0:      "#07090f"
+    readonly property color bg1:      "#0d1220"
+    readonly property color bg2:      "#111827"
+    readonly property color card:     "#131d2e"
+    readonly property color gold:     "#e8a020"
+    readonly property color goldDim:  "#7a5010"
+    readonly property color goldGlow: "#f0c060"
+    readonly property color accent:   "#3b82f6"
+    readonly property color danger:   "#ef4444"
+    readonly property color success:  "#22c55e"
+    readonly property color textPri:  "#f1f5f9"
+    readonly property color textSec:  "#94a3b8"
+    readonly property color textDim:  "#475569"
+
+    readonly property real  dp: Math.max(Screen.pixelDensity * 0.1588, 1.0)
+    readonly property real  fs: Math.round(14 * dp)
+
+    // ── Animated background ───────────────────────────────────────
     Rectangle {
         anchors.fill: parent
         gradient: Gradient {
-            GradientStop { position: 0.0; color: "#001a1a" }
-            GradientStop { position: 1.0; color: "#050a0c" }
+            GradientStop { position: 0.0; color: bg1 }
+            GradientStop { position: 1.0; color: bg0 }
         }
     }
 
-    Item {
+    // Geometric grid overlay
+    Canvas {
         anchors.fill: parent
-        anchors.margins: 25
-
-        // VIEW START
-        ColumnLayout {
-            visible: viewState === "START"
-            anchors.centerIn: parent
-            spacing: 20
-
-            Text {
-                text: "SAMIA IQ LAB"
-                color: "#00ffff"
-                font.pixelSize: 32
-                font.bold: true
-                Layout.alignment: Qt.AlignHCenter
+        opacity: 0.06
+        onPaint: {
+            var ctx = getContext("2d");
+            ctx.strokeStyle = "#e8a020";
+            ctx.lineWidth = 0.5;
+            var step = 40;
+            for (var x = 0; x < width; x += step) {
+                ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, height); ctx.stroke();
             }
-
-            Text {
-                text: "Pima uwezo wa akili yako sasa."
-                color: "#88ffffff"
-                font.pixelSize: 16 * (Qt.platform.os === "android" ? 2.5 : 1)
-                Layout.alignment: Qt.AlignHCenter
-            }
-
-            Button {
-                text: "ANZA JARIBIO"
-                Layout.preferredWidth: app.width * 0.8
-                Layout.preferredHeight: 55
-                onClicked: {
-                    startNewGame();
-                }
-                background: Rectangle {
-                    color: "#00ffff"
-                    radius: 10
-                }
-                contentItem: Text {
-                    text: parent.text
-                    font.bold: true
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-                }
-            }
-
-            Button {
-                text: "FUNGA"
-                Layout.preferredWidth: app.width * 0.8
-                Layout.preferredHeight: 50
-                Layout.alignment: Qt.AlignHCenter
-                background: Rectangle {
-                    color: "red"
-                    radius: 10
-                }
-
-                contentItem: Text {
-                    text: parent.text
-                    color: "white"
-                    font.bold: true
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-                }
-
-                onClicked: {
-                    app.close();
-                }
+            for (var y = 0; y < height; y += step) {
+                ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(width, y); ctx.stroke();
             }
         }
+    }
 
+    // Top accent bar
+    Rectangle {
+        anchors.top: parent.top
+        width: parent.width; height: Math.round(3 * dp)
+        gradient: Gradient {
+            orientation: Gradient.Horizontal
+            GradientStop { position: 0.0; color: "transparent" }
+            GradientStop { position: 0.3; color: gold }
+            GradientStop { position: 0.7; color: goldGlow }
+            GradientStop { position: 1.0; color: "transparent" }
+        }
+    }
 
-        // --- QUIZ VIEW ---
-        ColumnLayout {
-            visible: viewState === "QUIZ" && quizModel.count > 0
-            anchors.fill: parent
-            spacing: 5
+    // ══════════════════════════════════════
+    // VIEW: START
+    // ══════════════════════════════════════
+    Item {
+        anchors.fill: parent
+        opacity: viewState === "START" ? 1.0 : 0.0
+        enabled: viewState === "START"
+        Behavior on opacity { NumberAnimation { duration: 300 } }
 
-            // Circular Timer Placeholder (Progress Bar)
-            Rectangle {
-                Layout.fillWidth: true
-                height: 10
-                radius: 5
-                color: "#111"
-                Rectangle {
-                    width: (timerValue / timeInterval) * parent.width
-                    height: parent.height
-                    radius: 5
-                    color: timerValue < 4 ? "red" : "#00ffff"
-                    Behavior on width { NumberAnimation { duration: 500 } }
+        Column {
+            anchors.centerIn: parent
+            width: parent.width * 0.88
+            spacing: 0
+
+            // Logo ring
+            Item {
+                anchors.horizontalCenter: parent.horizontalCenter
+                width: Math.round(110 * dp)
+                height: width
+
+                Canvas {
+                    anchors.fill: parent
+                    onPaint: {
+                        var ctx = getContext("2d");
+                        var cx = width / 2, cy = height / 2, r = width * 0.44;
+                        // outer ring
+                        ctx.beginPath();
+                        ctx.arc(cx, cy, r, 0, 2 * Math.PI);
+                        ctx.strokeStyle = "#e8a020";
+                        ctx.lineWidth = 2.5;
+                        ctx.stroke();
+                        // inner ring
+                        ctx.beginPath();
+                        ctx.arc(cx, cy, r * 0.78, 0, 2 * Math.PI);
+                        ctx.strokeStyle = "rgba(232,160,32,0.3)";
+                        ctx.lineWidth = 1;
+                        ctx.stroke();
+                        // tick marks
+                        for (var i = 0; i < 12; i++) {
+                            var angle = (i / 12) * 2 * Math.PI - Math.PI / 2;
+                            var x1 = cx + Math.cos(angle) * r * 0.88;
+                            var y1 = cy + Math.sin(angle) * r * 0.88;
+                            var x2 = cx + Math.cos(angle) * r * 1.0;
+                            var y2 = cy + Math.sin(angle) * r * 1.0;
+                            ctx.beginPath();
+                            ctx.moveTo(x1, y1); ctx.lineTo(x2, y2);
+                            ctx.strokeStyle = i % 3 === 0 ? "#e8a020" : "rgba(232,160,32,0.4)";
+                            ctx.lineWidth = i % 3 === 0 ? 2 : 1;
+                            ctx.stroke();
+                        }
+                    }
+                }
+
+                Text {
+                    anchors.centerIn: parent
+                    text: "IQ"
+                    font.pixelSize: Math.round(32 * dp)
+                    font.bold: true
+                    color: gold
                 }
             }
 
-            Text {
-                text: "Swali namba " + (currentIdx + 1) + " kati ya " + quizModel.count
-                color: "#00ffff"
-                font.pixelSize: 14 * (Qt.platform.os === "android" ? 3 : 1)
-            }
+            Item { width: 1; height: Math.round(22 * dp) }
 
             Text {
-                text: (quizModel.count > currentIdx) ? quizModel.get(currentIdx).q : ""
-                color: "white"
-                font.pixelSize: 24 * (Qt.platform.os === "android" ? 2.2 : 1)
+                anchors.horizontalCenter: parent.horizontalCenter
+                text: "SAMIA IQ LAB"
+                font.pixelSize: Math.round(26 * dp)
                 font.bold: true
-                wrapMode: Text.WordWrap
-                Layout.fillWidth: true
-                Layout.preferredHeight: 120
+                font.letterSpacing: Math.round(4 * dp)
+                color: textPri
             }
 
-            // Options list
-            ColumnLayout {
-                Layout.fillWidth: true; spacing: 14
-                Repeater {
-                    model: (quizModel.count > currentIdx) ? shuffleOptions(quizModel.get(currentIdx).a, quizModel.get(currentIdx).b, quizModel.get(currentIdx).c, quizModel.get(currentIdx).d) : []
-                    delegate: Button {
-                        text: "<font color=\"cyan\"> (" + app.indexToLetter(index) + ")</font> " + app.cleanOption(modelData)
-                        Layout.fillWidth: true
-                        onClicked: processAnswer(modelData)
-                        background: Rectangle {
-                            color: parent.pressed ? ((modelData === quizModel.get(currentIdx).correct) ? "green" : "red") : "#121a1d"
-                            border.color: "#22ffffff"
-                            radius: 12
-                        }
-                        contentItem: Text {
-                            text: parent.text;
-                            color: "white"
-                            font.pixelSize: 18 * (Qt.platform.os === "android" ? 3 : 1)
-                            horizontalAlignment: Text.AlignLeft
-                            anchors.leftMargin: 20
-                            verticalAlignment: Text.AlignVCenter
-                            textFormat: Text.RichText
-                            wrapMode: Text.WordWrap
+            Item { width: 1; height: Math.round(8 * dp) }
+
+            // Gold divider
+            Row {
+                anchors.horizontalCenter: parent.horizontalCenter
+                spacing: Math.round(8 * dp)
+                //verticalItemAlignment: Qt.AlignVCenter
+                Rectangle { width: Math.round(28 * dp); height: 1; color: gold; opacity: 0.5 }
+                Text { text: "\u2605"; color: gold; font.pixelSize: Math.round(10 * dp) }
+                Rectangle { width: Math.round(28 * dp); height: 1; color: gold; opacity: 0.5 }
+            }
+
+            Item { width: 1; height: Math.round(12 * dp) }
+
+            Text {
+                anchors.horizontalCenter: parent.horizontalCenter
+                text: "Pima uwezo wa akili yako sasa."
+                font.pixelSize: Math.round(13 * dp)
+                font.letterSpacing: Math.round(1 * dp)
+                color: textSec
+            }
+
+            Item { width: 1; height: Math.round(32 * dp) }
+
+            // Stats row
+            Rectangle {
+                id: statsCard
+                anchors.horizontalCenter: parent.horizontalCenter
+                width: parent.width
+                height: Math.round(64 * dp)
+                color: card
+                radius: Math.round(14 * dp)
+
+                Row {
+                    anchors.centerIn: parent
+                    spacing: 0
+
+                    Repeater {
+                        model: [
+                            { val: "26",  lbl: "Maswali" },
+                            { val: "20s", lbl: "Kwa Swali" },
+                            { val: "IQ",  lbl: "Matokeo" }
+                        ]
+                        delegate: Item {
+                            width: Math.round(statsCard.width / 3)
+                            height: Math.round(64 * dp)
+
+                            Rectangle {
+                                anchors.right: parent.right
+                                width: 1; height: parent.height * 0.5
+                                color: textDim
+                                visible: index < 2
+                            }
+
+                            Column {
+                                anchors.centerIn: parent
+                                spacing: 2
+                                Text {
+                                    anchors.horizontalCenter: parent.horizontalCenter
+                                    text: modelData.val
+                                    font.pixelSize: Math.round(18 * dp)
+                                    font.bold: true
+                                    color: gold
+                                }
+                                Text {
+                                    anchors.horizontalCenter: parent.horizontalCenter
+                                    text: modelData.lbl
+                                    font.pixelSize: Math.round(10 * dp)
+                                    font.letterSpacing: 1
+                                    color: textDim
+                                }
+                            }
                         }
                     }
                 }
             }
 
-            Button {
-                text: "KIMBIA"
-                Layout.preferredWidth: app.width * 0.8
-                Layout.alignment: Qt.AlignHCenter
-                background: Rectangle {
-                    color: "transparent"
-                    radius: 4
+            Item { width: 1; height: Math.round(28 * dp) }
+
+            // ANZA button
+            Rectangle {
+                id: startBtn
+                anchors.horizontalCenter: parent.horizontalCenter
+                width: parent.width
+                height: Math.round(54 * dp)
+                radius: Math.round(14 * dp)
+                gradient: Gradient {
+                    orientation: Gradient.Horizontal
+                    GradientStop { position: 0.0; color: "#c47a10" }
+                    GradientStop { position: 1.0; color: "#e8a020" }
                 }
 
-                contentItem: Text {
-                    text: parent.text
-                    color: "#78081d"
+                Text {
+                    anchors.centerIn: parent
+                    text: "ANZA JARIBIO"
+                    font.pixelSize: Math.round(14 * dp)
                     font.bold: true
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
+                    font.letterSpacing: Math.round(2 * dp)
+                    color: "#07090f"
                 }
 
-                onClicked: {
-                    mainTimer.stop();
-                    viewState = "END";
-                    app.ad();
+                MouseArea {
+                    anchors.fill: parent
+                    onPressed:  { startBtn.scale = 0.97; }
+                    onReleased: { startBtn.scale = 1.0; startNewGame(); }
+                    onCanceled: { startBtn.scale = 1.0; }
+                }
+                Behavior on scale { NumberAnimation { duration: 100 } }
+            }
+
+            Item { width: 1; height: Math.round(12 * dp) }
+
+            // FUNGA button
+            Rectangle {
+                id: closeBtn0
+                anchors.horizontalCenter: parent.horizontalCenter
+                width: parent.width
+                height: Math.round(48 * dp)
+                radius: Math.round(14 * dp)
+                color: "transparent"
+                border.color: danger
+                border.width: 1
+
+                Text {
+                    anchors.centerIn: parent
+                    text: "FUNGA"
+                    font.pixelSize: Math.round(13 * dp)
+                    font.bold: true
+                    font.letterSpacing: 2
+                    color: danger
+                }
+                MouseArea {
+                    anchors.fill: parent
+                    onPressed:  { closeBtn0.scale = 0.97; }
+                    onReleased: { closeBtn0.scale = 1.0; app.close(); }
+                    onCanceled: { closeBtn0.scale = 1.0; }
+                }
+                Behavior on scale { NumberAnimation { duration: 100 } }
+            }
+        }
+    }
+
+    // ══════════════════════════════════════
+    // VIEW: QUIZ
+    // ══════════════════════════════════════
+    Item {
+        anchors.fill: parent
+        opacity: (viewState === "QUIZ" && quizModel.count > 0) ? 1.0 : 0.0
+        enabled: viewState === "QUIZ"
+        Behavior on opacity { NumberAnimation { duration: 250 } }
+
+        Column {
+            anchors.top: parent.top
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.margins: Math.round(16 * dp)
+            spacing: Math.round(12 * dp)
+
+            // ── Header: progress + timer ──────────────────────────────
+            Item {
+                width: parent.width
+                height: Math.round(52 * dp)
+
+                // Question counter badge
+                Rectangle {
+                    anchors.left: parent.left
+                    width: Math.round(90 * dp)
+                    height: Math.round(32 * dp)
+                    radius: Math.round(8 * dp)
+                    color: card
+
+                    Text {
+                        anchors.centerIn: parent
+                        text: (currentIdx + 1) + " / " + quizModel.count
+                        font.pixelSize: Math.round(12 * dp)
+                        font.bold: true
+                        color: gold
+                    }
+                }
+
+                // Timer ring (circular)
+                Item {
+                    anchors.centerIn: parent
+                    width: Math.round(52 * dp)
+                    height: width
+
+                    Canvas {
+                        id: timerCanvas
+                        anchors.fill: parent
+                        property real ratio: timerValue / timeInterval
+
+                        onRatioChanged: requestPaint()
+
+                        onPaint: {
+                            var ctx = getContext("2d");
+                            ctx.clearRect(0, 0, width, height);
+                            var cx = width / 2, cy = height / 2;
+                            var r  = width * 0.42;
+
+                            // Background ring
+                            ctx.beginPath();
+                            ctx.arc(cx, cy, r, 0, 2 * Math.PI);
+                            ctx.strokeStyle = "#1e2a3a";
+                            ctx.lineWidth = Math.round(4 * dp);
+                            ctx.stroke();
+
+                            // Progress arc
+                            if (ratio > 0) {
+                                ctx.beginPath();
+                                ctx.arc(cx, cy, r, -Math.PI / 2, -Math.PI / 2 + ratio * 2 * Math.PI);
+                                ctx.strokeStyle = ratio < 0.2 ? "#ef4444" : ratio < 0.5 ? "#f59e0b" : "#e8a020";
+                                ctx.lineWidth = Math.round(4 * dp);
+                                ctx.lineCap = "round";
+                                ctx.stroke();
+                            }
+                        }
+                    }
+
+                    Text {
+                        anchors.centerIn: parent
+                        text: timerValue
+                        font.pixelSize: Math.round(15 * dp)
+                        font.bold: true
+                        color: timerValue < 4 ? danger : timerValue < 8 ? "#f59e0b" : textPri
+                        Behavior on color { ColorAnimation { duration: 200 } }
+                    }
+                }
+
+                // Score badge
+                Rectangle {
+                    anchors.right: parent.right
+                    width: Math.round(90 * dp)
+                    height: Math.round(32 * dp)
+                    radius: Math.round(8 * dp)
+                    color: card
+
+                    Row {
+                        anchors.centerIn: parent
+                        spacing: Math.round(4 * dp)
+                        Text { text: "\u2605"; color: gold; font.pixelSize: Math.round(11 * dp) }
+                        Text {
+                            text: noOfPassedQuestion
+                            font.pixelSize: Math.round(12 * dp)
+                            font.bold: true
+                            color: textPri
+                        }
+                    }
+                }
+            }
+
+            // ── Progress bar ─────────────────────────────────────────
+            Rectangle {
+                width: parent.width
+                height: Math.round(5 * dp)
+                radius: Math.round(3 * dp)
+                color: "#1e2a3a"
+
+                Rectangle {
+                    width: ((currentIdx) / Math.max(quizModel.count - 1, 1)) * parent.width
+                    height: parent.height
+                    radius: parent.radius
+                    gradient: Gradient {
+                        orientation: Gradient.Horizontal
+                        GradientStop { position: 0.0; color: "#c47a10" }
+                        GradientStop { position: 1.0; color: gold }
+                    }
+                    Behavior on width { NumberAnimation { duration: 400; easing.type: Easing.OutCubic } }
+                }
+            }
+
+            // ── Question card ─────────────────────────────────────────
+            Rectangle {
+                width: parent.width
+                height: Math.round(130 * dp)
+                radius: Math.round(16 * dp)
+                color: card
+
+                // Gold left accent bar
+                Rectangle {
+                    anchors.left: parent.left
+                    anchors.top: parent.top
+                    anchors.bottom: parent.bottom
+                    anchors.margins: Math.round(14 * dp)
+                    width: Math.round(3 * dp)
+                    radius: Math.round(2 * dp)
+                    gradient: Gradient {
+                        GradientStop { position: 0.0; color: goldGlow }
+                        GradientStop { position: 1.0; color: goldDim }
+                    }
+                }
+
+                Text {
+                    anchors {
+                        left: parent.left; right: parent.right
+                        top: parent.top; bottom: parent.bottom
+                        leftMargin: Math.round(22 * dp)
+                        rightMargin: Math.round(16 * dp)
+                        topMargin: Math.round(14 * dp)
+                        bottomMargin: Math.round(14 * dp)
+                    }
+                    text: (quizModel.count > currentIdx) ? quizModel.get(currentIdx).q : ""
+                    font.pixelSize: Math.round(14 * dp)
+                    font.bold: true
+                    color: textPri
+                    wrapMode: Text.WordWrap
+                    verticalAlignment: Text.AlignVCenter
+                    lineHeight: 1.4
+                    lineHeightMode: Text.ProportionalHeight
+                }
+            }
+
+            // ── Options ───────────────────────────────────────────────
+            Column {
+                width: parent.width
+                spacing: Math.round(9 * dp)
+
+                Repeater {
+                    id: optionRepeater
+                    model: (quizModel.count > currentIdx)
+                           ? shuffleOptions(quizModel.get(currentIdx).a,
+                                            quizModel.get(currentIdx).b,
+                                            quizModel.get(currentIdx).c,
+                                            quizModel.get(currentIdx).d) : []
+
+                    delegate: Rectangle {
+                        id: optRect
+                        width: parent.width
+                        height: Math.round(50 * dp)
+                        radius: Math.round(12 * dp)
+                        color: optMA.pressed
+                               ? (modelData === quizModel.get(currentIdx).correct ? Qt.rgba(0.13,0.77,0.33,0.25) : Qt.rgba(0.94,0.27,0.27,0.2))
+                               : card
+                        border.color: optMA.pressed
+                                      ? (modelData === quizModel.get(currentIdx).correct ? success : danger)
+                                      : Qt.rgba(1, 1, 1, 0.06)
+                        border.width: optMA.pressed ? Math.round(1.5 * dp) : 1
+
+                        Behavior on color { ColorAnimation { duration: 120 } }
+
+                        Row {
+                            anchors.left: parent.left
+                            anchors.right: parent.right
+                            anchors.leftMargin: Math.round(14 * dp)
+                            anchors.rightMargin: Math.round(14 * dp)
+                            spacing: Math.round(12 * dp)
+
+                            // Letter badge
+                            Rectangle {
+                                width: Math.round(26 * dp); height: width; radius: Math.round(6 * dp)
+                                color: Qt.rgba(1, 1, 1, 0.07)
+                                Text {
+                                    anchors.centerIn: parent
+                                    text: app.indexToLetter(index)
+                                    font.pixelSize: Math.round(11 * dp)
+                                    font.bold: true
+                                    color: gold
+                                }
+                            }
+
+                            Text {
+                                width: parent.width - Math.round(26 * dp) - Math.round(12 * dp)
+                                text: app.cleanOption(modelData)
+                                font.pixelSize: Math.round(13 * dp)
+                                color: textPri
+                                wrapMode: Text.WordWrap
+                                lineHeight: 1.3
+                                lineHeightMode: Text.ProportionalHeight
+                            }
+                        }
+
+                        MouseArea {
+                            id: optMA
+                            anchors.fill: parent
+                            onPressed:  { optRect.scale = 0.98; }
+                            onReleased: { optRect.scale = 1.0; processAnswer(modelData); }
+                            onCanceled: { optRect.scale = 1.0; }
+                        }
+                        Behavior on scale { NumberAnimation { duration: 100 } }
+                    }
+                }
+            }
+
+            // ── KIMBIA ────────────────────────────────────
+            Item {
+                width: parent.width
+                height: Math.round(36 * dp)
+
+                Text {
+                    anchors.centerIn: parent
+                    text: "Kimbia  \u203a"
+                    font.pixelSize: Math.round(12 * dp)
+                    color: "red"
+
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: {
+                            mainTimer.stop();
+                            viewState = "END";
+                            app.ad();
+                        }
+                    }
                 }
             }
         }
+    }
 
-        // VIEW END
-        ColumnLayout {
-            visible: viewState === "END"
-            anchors.centerIn: parent
-            spacing: 18
+    // ══════════════════════════════════════
+    // VIEW: END (Results)
+    // ══════════════════════════════════════
+    Item {
+        id: endView
+        anchors.fill: parent
+        property int finalIQ: 70 + Math.round((noOfPassedQuestion / 26) * 70) + Math.min(5, Math.floor(totalScore / 500))
+        opacity: viewState === "END" ? 1.0 : 0.0
+        enabled: viewState === "END"
+        Behavior on opacity { NumberAnimation { duration: 300 } }
 
-            Text {
-                text: "MATOKEO"
-                color: "#88ffffff"
-                font.pixelSize: 48 * 1.6
-                font.bold: true
-                font.underline: true
-                Layout.alignment: Qt.AlignHCenter
-            }
+        // Scrollable in case screen is short
+        Flickable {
+            anchors.fill: parent
+            anchors.margins: Math.round(20 * dp)
+            contentWidth: width
+            contentHeight: resultsCol.implicitHeight + Math.round(40 * dp)
+            clip: true
+            boundsBehavior: Flickable.StopAtBounds
 
-Text {
-                text: "Umepata maswali  " + app.noOfPassedQuestion + " kati ya " + app.maxQuestions
-                color: "white"
-                font.pointSize: 16
-                font.bold: true
-                Layout.alignment: Qt.AlignHCenter
-            }
+            Column {
+                id: resultsCol
+                width: parent.width
+                spacing: Math.round(14 * dp)
 
+                Item { width: 1; height: Math.round(10 * dp) }
 
-            Text {
-                id: finalScoreDisplay
-                // Logic: 70 ndio kianzio.
-                // Mtu akipata yote 26, anapata 70 nyingine (Jumla 140).
-                // Plus bonus ndogo ya kasi (totalScore / 500)
-                property int finalIQ: 70 + Math.round((noOfPassedQuestion / 26) * 70) + Math.min(5, Math.floor(totalScore / 500))
-                text: "Alama ya IQ: " + finalIQ
-                color: "#00ffff"
-                font.pixelSize: 48
-                font.bold: true
-                Layout.alignment: Qt.AlignHCenter
-            }
-
-
-            Rectangle {
-                Layout.preferredWidth: app.width * 0.92
-                Layout.preferredHeight: 70
-                Layout.alignment: Qt.AlignHCenter
-                color: "#121a1d"
-                radius: 10
-                border.color: "#3300ffff"
+                // "MATOKEO" heading
                 Text {
-                    anchors.centerIn: parent
-                    text: getCategory(finalScoreDisplay.finalIQ)
-                    color: "white"
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    text: "M A T O K E O"
+                    font.pixelSize: Math.round(20 * dp)
                     font.bold: true
-                    font.pixelSize: 18 * (Qt.platform.os === "android" ? 2.2 : 1)
-                    horizontalAlignment: Text.AlignHCenter
-                }
-            }
-
-            
-
-            Button {
-                text: "JARIBU TENA"
-                Layout.preferredWidth: app.width * 0.8
-                Layout.preferredHeight: 80
-                Layout.alignment: Qt.AlignHCenter
-                background: Rectangle {
-                    color: "blue"
-                    radius: 10
+                    font.letterSpacing: Math.round(5 * dp)
+                    color: textSec
                 }
 
-                contentItem: Text {
-                    text: parent.text
-                    color: "white"
-                    font.bold: true
-                    font.pointSize: 24
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
+                // IQ score ring
+                // finalIQ is a property on the END view Item (endView), accessible to all children
+                Item {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: Math.round(160 * dp)
+                    height: width
+
+                    Canvas {
+                        id: iqRingCanvas
+                        anchors.fill: parent
+                        property real ratio: endView.finalIQ / 145.0
+
+                        onRatioChanged: requestPaint()
+
+                        onPaint: {
+                            var ctx = getContext("2d");
+                            ctx.clearRect(0, 0, width, height);
+                            var cx = width/2, cy = height/2, r = width*0.42;
+
+                            // bg ring
+                            ctx.beginPath();
+                            ctx.arc(cx, cy, r, 0, 2*Math.PI);
+                            ctx.strokeStyle = "#1e2a3a";
+                            ctx.lineWidth = Math.round(8 * dp);
+                            ctx.stroke();
+
+                            // score arc
+                            ctx.beginPath();
+                            ctx.arc(cx, cy, r, -Math.PI/2, -Math.PI/2 + Math.min(ratio, 1.0)*2*Math.PI);
+                            ctx.strokeStyle = "#e8a020";
+                            ctx.lineWidth = Math.round(8 * dp);
+                            ctx.lineCap = "round";
+                            ctx.stroke();
+
+                            // inner glow ring
+                            ctx.beginPath();
+                            ctx.arc(cx, cy, r*0.80, 0, 2*Math.PI);
+                            ctx.strokeStyle = "rgba(232,160,32,0.12)";
+                            ctx.lineWidth = 1;
+                            ctx.stroke();
+                        }
+                    }
+
+                    Column {
+                        anchors.centerIn: parent
+                        spacing: Math.round(2 * dp)
+
+                        Text {
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            text: "Alama za IQ"
+                            font.pixelSize: Math.round(11 * dp)
+                            color: textDim
+                        }
+
+                        Text {
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            text: endView.finalIQ
+                            font.pixelSize: Math.round(36 * dp)
+                            font.bold: true
+                            color: gold
+                        }
+                    }
                 }
 
-                onClicked: {
-                    app.startNewGame();
+                // Category badge
+                Rectangle {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: parent.width
+                    height: Math.round(56 * dp)
+                    radius: Math.round(14 * dp)
+                    gradient: Gradient {
+                        orientation: Gradient.Horizontal
+                        GradientStop { position: 0.0; color: "#1a1200" }
+                        GradientStop { position: 1.0; color: "#2a1e00" }
+                    }
+                    border.color: Qt.rgba(0.91,0.63,0.13,0.4)
+                    border.width: 1
+
+                    Text {
+                        anchors.centerIn: parent
+                        text: getCategory(endView.finalIQ)
+                        font.pixelSize: Math.round(15 * dp)
+                        font.bold: true
+                        font.letterSpacing: Math.round(2 * dp)
+                        color: gold
+                    }
                 }
-            }
 
-            /*
-            Button {
-                text: "SHARE KWA WHATSAPP"
-                Layout.preferredWidth: app.width * 0.8
-                Layout.preferredHeight: 60
-                Layout.alignment: Qt.AlignHCenter
+                // Stats cards row
+                Row {
+                    id: statsCardsRow
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: parent.width
+                    spacing: Math.round(10 * dp)
 
-                background: Rectangle {
-                    color: "#25D366"
-                    radius: 10
+                    Repeater {
+                        model: [
+                            { icon: "\u2713", val: noOfPassedQuestion,          lbl: "Sahihi" },
+                            { icon: "\u2715", val: maxQuestions - noOfPassedQuestion, lbl: "Makosa" }
+                        ]
+                        delegate: Rectangle {
+                            width: (statsCardsRow.width - Math.round(10 * dp)) / 2
+                            height: Math.round(72 * dp)
+                            radius: Math.round(14 * dp)
+                            color: card
+
+                            Column {
+                                anchors.centerIn: parent
+                                spacing: Math.round(4 * dp)
+                                Text {
+                                    anchors.horizontalCenter: parent.horizontalCenter
+                                    text: modelData.icon + "  " + modelData.val
+                                    font.pixelSize: Math.round(22 * dp)
+                                    font.bold: true
+                                    color: index === 0 ? success : danger
+                                }
+                                Text {
+                                    anchors.horizontalCenter: parent.horizontalCenter
+                                    text: modelData.lbl
+                                    font.pixelSize: Math.round(11 * dp)
+                                    color: textDim
+                                    font.letterSpacing: 1
+                                }
+                            }
+                        }
+                    }
                 }
 
-                contentItem: Text {
-                    text: parent.text
-                    color: "white"
-                    font.bold: true
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
+                Item { width: 1; height: Math.round(4 * dp) }
+
+                // JARIBU TENA button
+                Rectangle {
+                    id: retryBtn
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: parent.width
+                    height: Math.round(54 * dp)
+                    radius: Math.round(14 * dp)
+                    gradient: Gradient {
+                        orientation: Gradient.Horizontal
+                        GradientStop { position: 0.0; color: "#c47a10" }
+                        GradientStop { position: 1.0; color: gold }
+                    }
+
+                    Text {
+                        anchors.centerIn: parent
+                        text: "JARIBU TENA"
+                        font.pixelSize: Math.round(14 * dp)
+                        font.bold: true
+                        font.letterSpacing: Math.round(2 * dp)
+                        color: "#07090f"
+                    }
+                    MouseArea {
+                        anchors.fill: parent
+                        onPressed:  { retryBtn.scale = 0.97; }
+                        onReleased: { retryBtn.scale = 1.0; app.startNewGame(); }
+                        onCanceled: { retryBtn.scale = 1.0; }
+                    }
+                    Behavior on scale { NumberAnimation { duration: 100 } }
                 }
 
-                onClicked: {
-                    let msg = "Nimepata IQ ya " + finalScoreDisplay.finalIQ + " (" + getCategory(finalScoreDisplay.finalIQ) + ") kwenye Samia IQ Lab!";
-                    Qt.openUrlExternally("whatsapp://send?text=" + encodeURIComponent(msg));
-                }
-            } */
-
-            // Text { text: "Developer: Edwin Magabe Ngosso"; color: "#44ffffff"; Layout.alignment: Qt.AlignHCenter }
-
-            Button {
-                text: "FUNGA"
-                Layout.preferredWidth: app.width * 0.8
-                //Layout.preferredHeight: 60
-                Layout.alignment: Qt.AlignHCenter
-                background: Rectangle {
+                // FUNGA button
+                Rectangle {
+                    id: closeBtn1
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: parent.width
+                    height: Math.round(48 * dp)
+                    radius: Math.round(14 * dp)
                     color: "transparent"
-                    // radius: 10
+                    border.color: danger
+                    border.width: 1
+
+                    Text {
+                        anchors.centerIn: parent
+                        text: "FUNGA"
+                        font.pixelSize: Math.round(13 * dp)
+                        font.bold: true
+                        font.letterSpacing: 2
+                        color: danger
+                    }
+                    MouseArea {
+                        anchors.fill: parent
+                        onPressed:  { closeBtn1.scale = 0.97; }
+                        onReleased: { closeBtn1.scale = 1.0; app.close(); }
+                        onCanceled: { closeBtn1.scale = 1.0; }
+                    }
+                    Behavior on scale { NumberAnimation { duration: 100 } }
                 }
 
-                contentItem: Text {
-                    text: parent.text
-                    color: "red"
-                    font.bold: true
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-                }
-
-                onClicked: {
-                    app.close();
-                }
+                Item { width: 1; height: Math.round(8 * dp) }
             }
         }
     }
