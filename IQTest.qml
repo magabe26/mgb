@@ -1039,7 +1039,7 @@ Rectangle {
             Text {
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: "Pima uwezo wa akili yako sasa."
-                font.pointSize: 10
+                font.pointSize: 12
                 font.letterSpacing: Math.round(1 * dp)
                 color: textSec
             }
@@ -1195,7 +1195,7 @@ Rectangle {
                     Text {
                         anchors.centerIn: parent
                         text: (currentIdx + 1) + " / " + quizModel.count
-                        font.pointSize: 9
+                        font.pointSize: 12
                         font.bold: true
                         color: gold
                     }
@@ -1264,7 +1264,7 @@ Rectangle {
                         Text { text: "\u2605"; color: gold; font.pointSize: 8 }
                         Text {
                             text: noOfPassedQuestion
-                            font.pointSize: 9
+                            font.pointSize: 12
                             font.bold: true
                             color: textPri
                         }
@@ -1566,7 +1566,7 @@ Rectangle {
                     Repeater {
                         model: [
                             { icon: "\u2713", val: noOfPassedQuestion,          lbl: "Sahihi" },
-                            { icon: "\u2715", val: maxQuestions - noOfPassedQuestion, lbl: "Makosa" }
+                            { icon: "X", val: maxQuestions - noOfPassedQuestion, lbl: "Makosa" }
                         ]
                         delegate: Rectangle {
                             width: (statsCardsRow.width - Math.round(10 * dp)) / 2
@@ -1587,7 +1587,7 @@ Rectangle {
                                 Text {
                                     anchors.horizontalCenter: parent.horizontalCenter
                                     text: modelData.lbl
-                                    font.pointSize: 8
+                                    font.pointSize: 10
                                     color: textDim
                                     font.letterSpacing: 1
                                 }
