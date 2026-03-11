@@ -1089,7 +1089,7 @@ Rectangle {
                                 Text {
                                     anchors.horizontalCenter: parent.horizontalCenter
                                     text: modelData.lbl
-                                    font.pointSize: 7
+                                    font.pointSize: 10
                                     font.letterSpacing: 1
                                     color: textDim
                                 }
@@ -1295,8 +1295,7 @@ Rectangle {
             // ── Question card ─────────────────────────────────────────
             Rectangle {
                 Layout.fillWidth: true
-                Layout.fillHeight: true
-                Layout.minimumHeight: Math.round(100 * dp)
+                Layout.preferredHeight: parent.height * 0.4
                 radius: Math.round(16 * dp)
                 color: card
 
@@ -1324,7 +1323,7 @@ Rectangle {
                         bottomMargin: Math.round(14 * dp)
                     }
                     text: (quizModel.count > currentIdx) ? quizModel.get(currentIdx).q : ""
-                    font.pointSize: 11
+                    font.pointSize: 18
                     font.bold: true
                     color: textPri
                     wrapMode: Text.WordWrap
@@ -1335,8 +1334,10 @@ Rectangle {
             }
 
             // ── Options ───────────────────────────────────────────────
-            Column {
+            ColumnLayout {
+                id: optionsLayout
                 Layout.fillWidth: true
+                Layout.fillHeight: true
                 spacing: Math.round(9 * dp)
 
                 Repeater {
@@ -1349,8 +1350,8 @@ Rectangle {
 
                     delegate: Rectangle {
                         id: optRect
-                        width: parent.width
-                        height: Math.round(56 * dp)
+                        Layout.fillWidth: true
+                        Layout.fillHeight: true
                         radius: Math.round(12 * dp)
                         color: optMA.pressed
                                ? (modelData === quizModel.get(currentIdx).correct ? Qt.rgba(0.13,0.77,0.33,0.25) : Qt.rgba(0.94,0.27,0.27,0.2))
@@ -1365,27 +1366,28 @@ Rectangle {
                         Row {
                             anchors.left: parent.left
                             anchors.right: parent.right
+                            anchors.verticalCenter: parent.verticalCenter
                             anchors.leftMargin: Math.round(14 * dp)
                             anchors.rightMargin: Math.round(14 * dp)
                             spacing: Math.round(12 * dp)
 
                             // Letter badge
                             Rectangle {
-                                width: Math.round(26 * dp); height: width; radius: Math.round(6 * dp)
+                                width: Math.round(34 * dp); height: width; radius: Math.round(6 * dp)
                                 color: Qt.rgba(1, 1, 1, 0.07)
                                 Text {
                                     anchors.centerIn: parent
                                     text: app.indexToLetter(index)
-                                    font.pointSize: 8
+                                    font.pointSize: 13
                                     font.bold: true
                                     color: gold
                                 }
                             }
 
                             Text {
-                                width: parent.width - Math.round(26 * dp) - Math.round(12 * dp)
+                                width: parent.width - Math.round(34 * dp) - Math.round(12 * dp)
                                 text: app.cleanOption(modelData)
-                                font.pointSize: 10
+                                font.pointSize: 16
                                 color: textPri
                                 wrapMode: Text.WordWrap
                                 lineHeight: 1.3
@@ -1403,25 +1405,25 @@ Rectangle {
                         Behavior on scale { NumberAnimation { duration: 100 } }
                     }
                 }
-            }
 
-            // ── KIMBIA ────────────────────────────────────
-            Item {
-                Layout.fillWidth: true
-                height: Math.round(36 * dp)
+                // ── KIMBIA ────────────────────────────────────
+                Item {
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: Math.round(36 * dp)
 
-                Text {
-                    anchors.centerIn: parent
-                    text: "Funga jaribio  \u203a"
-                    font.pointSize: 9
-                    color: "red"
+                    Text {
+                        anchors.centerIn: parent
+                        text: "Funga jaribio  \u203a"
+                        font.pointSize: 12
+                        color: "red"
 
-                    MouseArea {
-                        anchors.fill: parent
-                        onClicked: {
-                            mainTimer.stop();
-                            viewState = "END";
-                            app.ad();
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: {
+                                mainTimer.stop();
+                                viewState = "END";
+                                app.ad();
+                            }
                         }
                     }
                 }
@@ -1516,7 +1518,7 @@ Rectangle {
                         Text {
                             anchors.horizontalCenter: parent.horizontalCenter
                             text: "Alama za IQ"
-                            font.pointSize: 8
+                            font.pointSize: 10
                             color: textDim
                         }
 
@@ -1578,7 +1580,7 @@ Rectangle {
                                 Text {
                                     anchors.horizontalCenter: parent.horizontalCenter
                                     text: modelData.icon + "  " + modelData.val
-                                    font.pointSize: 16
+                                    font.pointSize: 18
                                     font.bold: true
                                     color: index === 0 ? success : danger
                                 }
