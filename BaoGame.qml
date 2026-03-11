@@ -18,7 +18,7 @@ Rectangle {
     id: app
     width:  parent ? parent.width  : 400
     height: parent ? parent.height : 800
-    color: "#0a0800"
+    color: "#020d0d"
 
     // ── App wrapper helpers (kwa mazingira ya nje) ────────────────────────────
     function cleanParent(t) {
@@ -603,8 +603,8 @@ Rectangle {
     Rectangle {
         anchors.fill: parent
         gradient: Gradient {
-            GradientStop { position: 0.0; color: "#0c0700" }
-            GradientStop { position: 1.0; color: "#1e1000" }
+            GradientStop { position: 0.0; color: "#031010" }
+            GradientStop { position: 1.0; color: "#061a1a" }
         }
     }
 
@@ -635,15 +635,15 @@ Rectangle {
                 Text {
                     anchors.horizontalCenter: parent.horizontalCenter
                     text: "BAO LA WASWAHILI"
-                    color: "#D4A853"
+                    color: "#00e5ff"
                     font.pixelSize: app.fntTitle
                     font.bold: true; font.letterSpacing: 3
-                    style: Text.Outline; styleColor: "#4a2006"
+                    style: Text.Outline; styleColor: "#003040"
                 }
                 Text {
                     anchors.horizontalCenter: parent.horizontalCenter
                     text: "Mchezaji dhidi ya Magabe AI"
-                    color: "#8a6030"
+                    color: "#007888"
                     font.pixelSize: Math.max(12, app.fntUI - 1)
                     font.letterSpacing: 1
                 }
@@ -652,13 +652,13 @@ Rectangle {
             Rectangle {
                 anchors.horizontalCenter: parent.horizontalCenter
                 width: parent.width * 0.7; height: 1
-                color: "#3a2008"
+                color: "#0a1e1e"
             }
 
             Text {
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: "Chagua Kiwango cha Magabe AI"
-                color: "#C4884A"
+                color: "#00b8cc"
                 font.pixelSize: app.fntUI; font.bold: true
             }
 
@@ -694,7 +694,7 @@ Rectangle {
                     width: parent.width; height: app.btnH * 1.25
                     radius: 16
                     color: lvMedMA.pressed ? "#2a1800" : "#1a1000"
-                    border.color: "#C48020"; border.width: 2
+                    border.color: "#007a8a"; border.width: 2
                     Behavior on color { ColorAnimation { duration: 80 } }
                     MouseArea {
                         id: lvMedMA; anchors.fill: parent
@@ -705,8 +705,8 @@ Rectangle {
                         Text { text: "🌿"; font.pixelSize: app.fntUI + 4; anchors.verticalCenter: parent.verticalCenter }
                         Column {
                             anchors.verticalCenter: parent.verticalCenter; spacing: 1
-                            Text { text: "WASTANI";                  color: "#E09030"; font.pixelSize: app.fntUI; font.bold: true; font.letterSpacing: 2 }
-                            Text { text: "AI hunasa kete ikiweza";  color: "#806020"; font.pixelSize: Math.max(10, app.fntUI - 3) }
+                            Text { text: "WASTANI";                  color: "#00c8d4"; font.pixelSize: app.fntUI; font.bold: true; font.letterSpacing: 2 }
+                            Text { text: "AI hunasa kete ikiweza";  color: "#005a6a"; font.pixelSize: Math.max(10, app.fntUI - 3) }
                         }
                     }
                 }
@@ -756,7 +756,7 @@ Rectangle {
             Text {
                 text: "BAO LA WASWAHILI"
                 font.pixelSize: app.fntTitle; font.bold: true; font.letterSpacing: 3
-                color: "#D4A853"; style: Text.Outline; styleColor: "#4a2006"
+                color: "#00e5ff"; style: Text.Outline; styleColor: "#003040"
                 anchors.verticalCenter: parent.verticalCenter
             }
             Rectangle {
@@ -764,12 +764,12 @@ Rectangle {
                 height: Math.max(22, app.fntTitle * 0.72)
                 width: lvBadgeTxt.implicitWidth + 16; radius: height / 2
                 color: app.aiLevel === 0 ? "#0e2008" : (app.aiLevel === 1 ? "#1a1000" : "#200606")
-                border.color: app.aiLevel === 0 ? "#3a8020" : (app.aiLevel === 1 ? "#C48020" : "#C02020")
+                border.color: app.aiLevel === 0 ? "#3a8020" : (app.aiLevel === 1 ? "#007a8a" : "#C02020")
                 border.width: 1
                 Text {
                     id: lvBadgeTxt; anchors.centerIn: parent
                     text: app.aiLevel === 0 ? "🌱 Rahisi" : (app.aiLevel === 1 ? "🌿 Wastani" : "🔥 Ngumu")
-                    color: app.aiLevel === 0 ? "#70C040" : (app.aiLevel === 1 ? "#E09030" : "#E04040")
+                    color: app.aiLevel === 0 ? "#70C040" : (app.aiLevel === 1 ? "#00c8d4" : "#E04040")
                     font.pixelSize: Math.max(10, app.fntUI - 3); font.bold: true
                 }
                 MouseArea { anchors.fill: parent; onClicked: app.showLevelScreen = true; }
@@ -782,7 +782,7 @@ Rectangle {
             width: Math.min(parent.width, 320); height: app.badgeH
             radius: height / 2
             color:        app.currentPlayer === app.ai && !app.gameOver ? "#0e1a28" : "#080e14"
-            border.color: app.currentPlayer === app.ai && !app.gameOver ? "#3090E0" : "#182030"
+            border.color: app.currentPlayer === app.ai && !app.gameOver ? "#3090E0" : "#0a1e20"
             border.width: app.currentPlayer === app.ai ? 2 : 1
             Behavior on color        { ColorAnimation { duration: 220 } }
             Behavior on border.color { ColorAnimation { duration: 220 } }
@@ -796,11 +796,11 @@ Rectangle {
                 }
                 Rectangle {
                     width: 1; height: parent.parent.height * 0.45
-                    color: "#182030"; anchors.verticalCenter: parent.verticalCenter
+                    color: "#0a1e20"; anchors.verticalCenter: parent.verticalCenter
                 }
                 Text {
                     text: "✋ " + app.p2Hand
-                    color: "#406080"; font.pixelSize: app.fntUI
+                    color: "#2a7070"; font.pixelSize: app.fntUI
                     anchors.verticalCenter: parent.verticalCenter
                 }
                 Rectangle {
@@ -823,12 +823,12 @@ Rectangle {
             readonly property real bw: app.holeSize * 8 + app.appGap * 9 + 10
             readonly property real bh: app.holeSize * 4 + app.appGap * 5 + 10
             width: bw; height: bh
-            radius: 14; color: "#3A1A00"
-            border.color: "#8B5826"; border.width: 3
+            radius: 14; color: "#071e1e"
+            border.color: "#007a8a"; border.width: 3
             Rectangle {
                 anchors { fill: parent; margins: 3 }
                 radius: 11; color: "transparent"
-                border.color: "#0c0500"; border.width: 2
+                border.color: "#041212"; border.width: 2
             }
             Grid {
                 anchors.centerIn: parent
@@ -892,7 +892,7 @@ Rectangle {
                             anchors { fill: parent; margins: -3 }
                             radius: (app.holeSize + 6) / 2
                             color: "transparent"
-                            border.color: "#FFD060"; border.width: 2
+                            border.color: "#00ffff"; border.width: 2
                             SequentialAnimation on opacity {
                                 running: cell.validMove; loops: Animation.Infinite
                                 NumberAnimation { to: 1.0; duration: 550; easing.type: Easing.InOutSine }
@@ -906,7 +906,7 @@ Rectangle {
                             anchors { fill: parent; margins: -2 }
                             radius: (app.holeSize + 4) / 2
                             color: "transparent"
-                            border.color: Qt.rgba(0.2, 0.55, 0.9, 0.35); border.width: 1
+                            border.color: Qt.rgba(0, 0.9, 1, 0.25); border.width: 1
                         }
 
                         // ── Mwanga wa shimo linalopokea mbegu (active) ───────
@@ -952,7 +952,7 @@ Rectangle {
                             Rectangle {
                                 anchors { top: parent.top; left: parent.left; margins: app.holeSize * 0.1 }
                                 width: app.holeSize * 0.28; height: app.holeSize * 0.14
-                                radius: height / 2; color: Qt.rgba(1, 1, 1, 0.13); rotation: -25
+                                radius: height / 2; color: Qt.rgba(0, 0.9, 1, 0.10); rotation: -25
                             }
 
                             // ── Nambari na mshale wa mwelekeo ─────────────────
@@ -1015,7 +1015,7 @@ Rectangle {
                         Rectangle {
                             id: pressFlash
                             anchors.fill: parent; radius: app.holeSize / 2
-                            color: Qt.rgba(1, 1, 1, 0.22); visible: false
+                            color: Qt.rgba(0, 0.9, 1, 0.15); visible: false
                         }
 
                         MouseArea {
@@ -1039,7 +1039,7 @@ Rectangle {
             width: Math.min(parent.width, 320); height: app.badgeH
             radius: height / 2
             color:        app.currentPlayer === app.human && !app.gameOver ? "#2c1600" : "#140a00"
-            border.color: app.currentPlayer === app.human && !app.gameOver ? "#D4A853" : "#381c00"
+            border.color: app.currentPlayer === app.human && !app.gameOver ? "#00e5ff" : "#051212"
             border.width: app.currentPlayer === app.human ? 2 : 1
             Behavior on color        { ColorAnimation { duration: 220 } }
             Behavior on border.color { ColorAnimation { duration: 220 } }
@@ -1047,17 +1047,17 @@ Rectangle {
                 anchors.centerIn: parent; spacing: 12
                 Text {
                     text: "▼  WEWE"
-                    color: app.currentPlayer === app.human ? "#D4A853" : "#604020"
+                    color: app.currentPlayer === app.human ? "#00e5ff" : "#604020"
                     font.pixelSize: app.fntUI; font.bold: true; font.letterSpacing: 1.5
                     anchors.verticalCenter: parent.verticalCenter
                 }
                 Rectangle {
                     width: 1; height: parent.parent.height * 0.45
-                    color: "#3a1e00"; anchors.verticalCenter: parent.verticalCenter
+                    color: "#071818"; anchors.verticalCenter: parent.verticalCenter
                 }
                 Text {
                     text: "✋ " + app.p1Hand
-                    color: "#A07030"; font.pixelSize: app.fntUI
+                    color: "#009aaa"; font.pixelSize: app.fntUI
                     anchors.verticalCenter: parent.verticalCenter
                 }
             }
@@ -1068,21 +1068,21 @@ Rectangle {
             width: parent.width; height: app.statusH
             radius: 12
             color:        app.gameOver ? "#2a1400" : "#160b00"
-            border.color: app.gameOver ? "#D4A853" : "#2e1600"
+            border.color: app.gameOver ? "#00e5ff" : "#040f0f"
             border.width: app.gameOver ? 2 : 1
             Column {
                 anchors.centerIn: parent; spacing: 3; width: parent.width - 20
                 Text {
                     anchors.horizontalCenter: parent.horizontalCenter
                     text: app.statusMsg
-                    color: app.gameOver ? "#FFD060" : (app.currentPlayer === app.ai ? "#5AB0FF" : "#C08040")
+                    color: app.gameOver ? "#00ffff" : (app.currentPlayer === app.ai ? "#5AB0FF" : "#C08040")
                     font.pixelSize: app.fntUI; font.bold: true
                     wrapMode: Text.WordWrap; horizontalAlignment: Text.AlignHCenter; width: parent.width
                 }
                 Text {
                     anchors.horizontalCenter: parent.horizontalCenter
                     text: app.subMsg
-                    color: "#7a4c28"; font.pixelSize: Math.max(11, app.fntUI - 2)
+                    color: "#006070"; font.pixelSize: Math.max(11, app.fntUI - 2)
                     wrapMode: Text.WordWrap; horizontalAlignment: Text.AlignHCenter; width: parent.width
                 }
             }
@@ -1096,11 +1096,11 @@ Rectangle {
             Rectangle {
                 width: Math.round(app.width * 0.28); height: app.btnH; radius: height / 2
                 color: ngMA.pressed ? "#7a5020" : "#4a2e0c"
-                border.color: "#D4A853"; border.width: 2
+                border.color: "#00e5ff"; border.width: 2
                 Behavior on color { ColorAnimation { duration: 80 } }
                 Text {
                     anchors.centerIn: parent; text: "🔵  MPYA"
-                    color: "#D4A853"; font.pixelSize: app.fntUI; font.bold: true; font.letterSpacing: 1
+                    color: "#00e5ff"; font.pixelSize: app.fntUI; font.bold: true; font.letterSpacing: 1
                 }
                 MouseArea { id: ngMA; anchors.fill: parent; onClicked: app.showLevelScreen = true; }
             }
@@ -1109,11 +1109,11 @@ Rectangle {
                 visible: app.plantingPhase && !app.gameOver && app.currentPlayer === app.human
                 width: Math.round(app.width * 0.32); height: app.btnH; radius: height / 2
                 color: apMA.pressed ? "#3a2808" : "#201408"
-                border.color: "#6a4818"; border.width: 1
+                border.color: "#005060"; border.width: 1
                 Behavior on color { ColorAnimation { duration: 80 } }
                 Text {
                     anchors.centerIn: parent; text: "⚡ HARAKA"
-                    color: "#8a6030"; font.pixelSize: app.fntUI; font.bold: true; font.letterSpacing: 0.5
+                    color: "#007888"; font.pixelSize: app.fntUI; font.bold: true; font.letterSpacing: 0.5
                 }
                 MouseArea { id: apMA; anchors.fill: parent; onClicked: app.autoPlant(); }
             }
@@ -1137,7 +1137,7 @@ Rectangle {
             height: Math.max(28, app.btnH * 0.60)
             width: phaseLbl.implicitWidth + 28; radius: height / 2
             color:        app.plantingPhase ? "#101c08" : "#10081e"
-            border.color: app.plantingPhase ? "#387016" : "#502896"; border.width: 1
+            border.color: app.plantingPhase ? "#387016" : "#005080"; border.width: 1
             Text {
                 id: phaseLbl; anchors.centerIn: parent
                 text:  app.plantingPhase ? "🌱  AWAMU YA KUPANDA" : "🌀  AWAMU YA KUPIGA"
@@ -1161,8 +1161,8 @@ Rectangle {
             anchors.centerIn: parent
             width:  Math.min(app.width - 48, 360)
             height: winnerCol.implicitHeight + 52
-            radius: 22; color: "#1e0e00"
-            border.color: app.winner === app.human ? "#D4A853" : "#3090E0"
+            radius: 22; color: "#051515"
+            border.color: app.winner === app.human ? "#00e5ff" : "#3090E0"
             border.width: 3
 
             Column {
@@ -1175,7 +1175,7 @@ Rectangle {
                     text: app.winner === app.human ? "🏆" : "MAGABE AI"
                     font.pixelSize: app.winner === app.human ? Math.round(app.holeSize * 0.9) : Math.max(20, app.fntTitle * 0.85)
 
-color: app.winner === app.human ? "#FFD060" : "#5AB0FF"
+color: app.winner === app.human ? "#00ffff" : "#5AB0FF"
                     
                     font.bold: true;
  font.letterSpacing: 3
@@ -1185,13 +1185,13 @@ color: app.winner === app.human ? "#FFD060" : "#5AB0FF"
                 Text {
                     anchors.horizontalCenter: parent.horizontalCenter
                     text: app.winner === app.human ? "UMESHINDA!" : "IMESHINDA!"
-                    color: app.winner === app.human ? "#FFD060" : "#5AB0FF"
+                    color: app.winner === app.human ? "#00ffff" : "#5AB0FF"
                     font.pixelSize: Math.max(20, app.fntTitle * 0.85)
                     font.bold: true; font.letterSpacing: 3
                 }
                 Text {
                     anchors.horizontalCenter: parent.horizontalCenter
-                    text: app.subMsg; color: "#8a5828"
+                    text: app.subMsg; color: "#006878"
                     font.pixelSize: app.fntUI
                     wrapMode: Text.WordWrap; horizontalAlignment: Text.AlignHCenter
                     width: Math.min(app.width - 80, 300)
@@ -1199,7 +1199,7 @@ color: app.winner === app.human ? "#FFD060" : "#5AB0FF"
                 Text {
                     anchors.horizontalCenter: parent.horizontalCenter
                     text: "Kiwango: " + app.levelLabel(app.aiLevel)
-                    color: app.aiLevel === 0 ? "#70C040" : (app.aiLevel === 1 ? "#E09030" : "#E04040")
+                    color: app.aiLevel === 0 ? "#70C040" : (app.aiLevel === 1 ? "#00c8d4" : "#E04040")
                     font.pixelSize: Math.max(11, app.fntUI - 2)
                 }
 
@@ -1210,11 +1210,11 @@ color: app.winner === app.human ? "#FFD060" : "#5AB0FF"
                     Rectangle {
                         width: Math.max(130, app.width * 0.35); height: app.btnH; radius: height / 2
                         color: ctMA.pressed ? "#7a5020" : "#4a2e0c"
-                        border.color: "#D4A853"; border.width: 2
+                        border.color: "#00e5ff"; border.width: 2
                         Behavior on color { ColorAnimation { duration: 80 } }
                         Text {
                             anchors.centerIn: parent; text: "CHEZA TENA"
-                            color: "#D4A853"; font.pixelSize: app.fntUI; font.bold: true; font.letterSpacing: 1
+                            color: "#00e5ff"; font.pixelSize: app.fntUI; font.bold: true; font.letterSpacing: 1
                         }
                         MouseArea { id: ctMA; anchors.fill: parent; onClicked: app.initBoard(); }
                     }
@@ -1222,11 +1222,11 @@ color: app.winner === app.human ? "#FFD060" : "#5AB0FF"
                     Rectangle {
                         width: Math.max(130, app.width * 0.35); height: app.btnH; radius: height / 2
                         color: bkMA.pressed ? "#1a1008" : "#100c04"
-                        border.color: "#6a4818"; border.width: 1
+                        border.color: "#005060"; border.width: 1
                         Behavior on color { ColorAnimation { duration: 80 } }
                         Text {
                             anchors.centerIn: parent; text: "BADILISHA"
-                            color: "#8a6030"; font.pixelSize: app.fntUI; font.bold: true; font.letterSpacing: 1
+                            color: "#007888"; font.pixelSize: app.fntUI; font.bold: true; font.letterSpacing: 1
                         }
                         MouseArea { id: bkMA; anchors.fill: parent; onClicked: app.showLevelScreen = true; }
                     }
