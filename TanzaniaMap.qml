@@ -2,9 +2,70 @@ import QtQuick 2.14
 import QtQuick.Shapes 1.14
 
 Rectangle {
-    id: root
-    width: 860; height: 980
-    color: "#090f18"
+    id: app
+    width:  parent ? parent.width  : 400
+    height: parent ? parent.height : 800
+    color: "#0a0800"
+
+    // ── App wrapper helpers (kwa mazingira ya nje) ────────────────────────────
+    function cleanParent(t) {
+        return t ? t.replace(/\s*\(.*?\)\s*/g, "").trim() : "";
+    }
+    function isPrimaryResultsApp() {
+        return (typeof n3ctaApp !== "undefined");
+    }
+    function isSecondaryResultsApp() {
+        return (typeof loader !== "undefined");
+    }
+    function isInsideApp() {
+        var t = cleanParent(String(parent.parent.parent.parent));
+        if (isPrimaryResultsApp()) return t === "QQuickRootItem";
+        var i = t.indexOf("_");
+        return i !== -1 && t.substr(0, i) === "SwipeView";
+    }
+    function isQMLDialogApp() {
+        return cleanParent(String(parent.parent.parent)) === "QQuickRectangle";
+    }
+    function closeIfInsideApp() {
+        if (!isInsideApp()) return;
+        if (isPrimaryResultsApp()) {
+            n3ctaApp.closeCustomPage();
+        } else if (isSecondaryResultsApp()) {
+            loader.isMenuWindowVisible = true;
+            loader.isMainResultsWindowVisible = true;
+            loader.isFooterVisible = true;
+            if (typeof loader.mode !== "undefined") loader.mode = 2;
+            loader.closeCustomPage();
+        }
+    }
+    function closeIfQMLDialogApp() {
+        if (!isQMLDialogApp()) return;
+        if (isPrimaryResultsApp()) {
+            n3ctaApp.closeQMLDialog();
+        } else if (isSecondaryResultsApp()) {
+            nectaMainResultsPageDownloaderHtmlToXmlConveterAndSaver.closeQMLDialog();
+        }
+    }
+    function cmd(url) {
+        if (isPrimaryResultsApp()) {
+            n3ctaApp.onUrlVisited(url);
+        } else if (isSecondaryResultsApp()) {
+            if (isQMLDialogApp()) {
+                n3ctaQmlConnectionsPipe.onUrlVisited(url);
+            } else if (isInsideApp()) {
+                loader.onUrlVisited(url);
+            }
+        }
+    }
+    function showToastMessage(msg) {
+        if (isPrimaryResultsApp()) {
+            n3ctaApp.showToastMessage(msg);
+        } else if (isSecondaryResultsApp()) {
+            nectaMainResultsPageDownloaderHtmlToXmlConveterAndSaver.showToastMessage(msg);
+        }
+    }
+    function ad() { cmd("#showGoogleAd"); }
+    function close() { closeIfInsideApp(); closeIfQMLDialogApp(); ad(); }
 
     // Coordinate space: all paths stored in 0..1000 x 0..1000
     // sx/sy scale them to mapArea's actual pixel size at runtime
@@ -204,11 +265,11 @@ Rectangle {
             vendorExtensionsEnabled: false
             ShapePath {
                 fillColor: "#5ab4d8"; strokeColor: "#2a6a90"; strokeWidth: 1.2
-                PathSvg { path: root.buildPath(root.lakeVictoria) }
+                PathSvg { path: app.buildPath(app.lakeVictoria) }
             }
         }
         Text {
-            property point c: root.centroid(root.lakeVictoria)
+            property point c: app.centroid(app.lakeVictoria)
             x: c.x - width/2; y: c.y - height/2
             text: "Ziwa Victoria"; font.pixelSize: 9; font.bold: true
             color: "#1a3a5a"
@@ -220,11 +281,11 @@ Rectangle {
             vendorExtensionsEnabled: false
             ShapePath {
                 fillColor: "#5ab4d8"; strokeColor: "#2a6a90"; strokeWidth: 1.2
-                PathSvg { path: root.buildPath(root.lakeTanganyika) }
+                PathSvg { path: app.buildPath(app.lakeTanganyika) }
             }
         }
         Text {
-            property point c: root.centroid(root.lakeTanganyika)
+            property point c: app.centroid(app.lakeTanganyika)
             x: c.x - width/2; y: c.y - height/2
             text: "Ziwa\nTanganyika"; font.pixelSize: 7; font.italic: true
             color: "#1a3a5a"; horizontalAlignment: Text.AlignHCenter
@@ -240,7 +301,7 @@ Rectangle {
                 {t:"INDIAN",   x:742,y:320}, {t:"OCEAN",     x:748,y:555},
             ]
             delegate: Text {
-                x: modelData.x * root.sx; y: modelData.y * root.sy
+                x: modelData.x * app.sx; y: modelData.y * app.sy
                 text: modelData.t; font.pixelSize: 8; font.italic: true
                 color: "#4488aa"; opacity: 0.75
             }
@@ -248,31 +309,31 @@ Rectangle {
 
         // ── Region shapes ─────────────────────────────────────────────
         Repeater {
-            model: Object.keys(root.regionData)
+            model: Object.keys(app.regionData)
             delegate: Shape {
                 anchors.fill: parent
                 vendorExtensionsEnabled: false
                 property string rname: modelData
                 ShapePath {
                     fillColor: {
-                        var b = root.regionColors[rname] || "#aaa"
-                        if (root.selectedRegion === rname) return Qt.lighter(b, 1.45)
-                        if (root.hoveredRegion  === rname) return Qt.lighter(b, 1.18)
+                        var b = app.regionColors[rname] || "#aaa"
+                        if (app.selectedRegion === rname) return Qt.lighter(b, 1.45)
+                        if (app.hoveredRegion  === rname) return Qt.lighter(b, 1.18)
                         return b
                     }
-                    strokeColor: root.selectedRegion === rname ? "#ffffff" : "#1a1830"
-                    strokeWidth: root.selectedRegion === rname ? 2.5 : 0.8
-                    PathSvg { path: root.buildPath(root.regionData[rname]) }
+                    strokeColor: app.selectedRegion === rname ? "#ffffff" : "#1a1830"
+                    strokeWidth: app.selectedRegion === rname ? 2.5 : 0.8
+                    PathSvg { path: app.buildPath(app.regionData[rname]) }
                 }
             }
         }
 
         // ── Region name labels ────────────────────────────────────────
         Repeater {
-            model: Object.keys(root.regionData)
+            model: Object.keys(app.regionData)
             delegate: Text {
-                property var arr: root.regionData[modelData]
-                property point c: root.centroid(arr)
+                property var arr: app.regionData[modelData]
+                property point c: app.centroid(arr)
                 x: c.x - width/2; y: c.y - height/2
                 text: modelData === "Dar es Salaam" ? "DSM" :
                       modelData === "Kilimanjaro"   ? "Kilim." : modelData
@@ -286,11 +347,11 @@ Rectangle {
         Shape {
             anchors.fill: parent
             vendorExtensionsEnabled: false
-            visible: root.selectedRegion !== ""
+            visible: app.selectedRegion !== ""
             ShapePath {
                 fillColor: "transparent"
                 strokeColor: "#00e5ff"; strokeWidth: 3.5
-                PathSvg { path: root.buildPath(root.regionData[root.selectedRegion] || []) }
+                PathSvg { path: app.buildPath(app.regionData[app.selectedRegion] || []) }
             }
         }
 
@@ -298,21 +359,21 @@ Rectangle {
         MouseArea {
             anchors.fill: parent
             hoverEnabled: true
-            cursorShape: root.hoveredRegion !== "" ? Qt.PointingHandCursor : Qt.ArrowCursor
+            cursorShape: app.hoveredRegion !== "" ? Qt.PointingHandCursor : Qt.ArrowCursor
 
             onClicked: function(mouse) {
-                var hit = root.hitRegion(mouse.x, mouse.y)
+                var hit = app.hitRegion(mouse.x, mouse.y)
                 if (hit) {
-                    root.selectedRegion = hit
-                    root.selectedData   = root.regionInfo[hit] || {}
+                    app.selectedRegion = hit
+                    app.selectedData   = app.regionInfo[hit] || {}
                 }
             }
 
             onPositionChanged: function(mouse) {
-                root.hoveredRegion = root.hitRegion(mouse.x, mouse.y)
+                app.hoveredRegion = app.hitRegion(mouse.x, mouse.y)
             }
 
-            onExited: root.hoveredRegion = ""
+            onExited: app.hoveredRegion = ""
         }
     }
 
@@ -320,7 +381,7 @@ Rectangle {
     Rectangle {
         id: infoPanel
         anchors { bottom: parent.bottom; left: parent.left; right: parent.right }
-        height: root.selectedRegion !== "" ? 210 : 52
+        height: app.selectedRegion !== "" ? 210 : 52
         color: "#040810"
         Behavior on height { NumberAnimation { duration: 300; easing.type: Easing.OutCubic } }
 
@@ -337,15 +398,15 @@ Rectangle {
 
         Text {
             anchors.centerIn: parent
-            visible: root.selectedRegion === ""
+            visible: app.selectedRegion === ""
             text: "👆  Gusa mkoa wowote kupata maelezo zaidi"
             font.pixelSize: 13; color: "#2a5a7a"
         }
 
         Item {
             anchors { fill: parent; margins: 16 }
-            visible: root.selectedRegion !== ""
-            opacity: root.selectedRegion !== "" ? 1 : 0
+            visible: app.selectedRegion !== ""
+            opacity: app.selectedRegion !== "" ? 1 : 0
             Behavior on opacity { NumberAnimation { duration: 200 } }
 
             Row {
@@ -355,11 +416,11 @@ Rectangle {
                 Rectangle {
                     width: 22; height: 22; radius: 5
                     anchors.verticalCenter: parent.verticalCenter
-                    color: root.regionColors[root.selectedRegion] || "#888"
+                    color: app.regionColors[app.selectedRegion] || "#888"
                     border.color: "#00e5ff"; border.width: 1.5
                 }
                 Text {
-                    text: root.selectedRegion
+                    text: app.selectedRegion
                     font.pixelSize: 22; font.bold: true; font.letterSpacing: 2
                     color: "#00e5ff"
                 }
@@ -372,7 +433,7 @@ Rectangle {
                 Text { anchors.centerIn: parent; text: "✕"; font.pixelSize: 14; color: "#ef4444" }
                 MouseArea {
                     anchors.fill: parent; cursorShape: Qt.PointingHandCursor
-                    onClicked: root.selectedRegion = ""
+                    onClicked: app.selectedRegion = ""
                 }
             }
 
@@ -399,7 +460,7 @@ Rectangle {
                         spacing: 8
                         Text { text: "🏛  Mji Mkuu:"; font.pixelSize: 11; color: "#4a9abf" }
                         Text {
-                            text: root.selectedData["capital"] || "—"
+                            text: app.selectedData["capital"] || "—"
                             font.pixelSize: 12; font.bold: true; color: "#ddf0ff"
                         }
                     }
@@ -407,7 +468,7 @@ Rectangle {
                         spacing: 8
                         Text { text: "📐  Eneo:"; font.pixelSize: 11; color: "#4a9abf" }
                         Text {
-                            text: root.selectedData["area"] || "—"
+                            text: app.selectedData["area"] || "—"
                             font.pixelSize: 12; font.bold: true; color: "#ddf0ff"
                         }
                     }
@@ -418,7 +479,7 @@ Rectangle {
                     width: parent.width
                     Text { text: "🌍  Vivutio:"; font.pixelSize: 11; color: "#4a9abf"; topPadding: 2 }
                     Text {
-                        text: root.selectedData["attractions"] || "—"
+                        text: app.selectedData["attractions"] || "—"
                         font.pixelSize: 12; font.bold: true; color: "#ddf0ff"
                         wrapMode: Text.WordWrap
                         width: parent.width - 90
