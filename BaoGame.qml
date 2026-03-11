@@ -172,15 +172,15 @@ Rectangle {
             statusMsg = mimi ? "Zamu yako  —  Awamu ya Kupanda"
                              : "Magabe AI inachagua  —  Awamu ya Kupanda";
             subMsg = mimi
-                ? "Gusa safu yako ya ndani  •  mbegu " + handOf(human) + " zimebaki"
-                : "Subiri Magabe AI ipande mbegu zake...";
+                ? "Gusa safu yako ya ndani  •  kete " + handOf(human) + " zimebaki"
+                : "Subiri Magabe AI ipande kete zake...";
         } else {
             statusMsg = mimi ? "Zamu yako  —  Awamu ya Kupiga"
                              : "Magabe AI inafikiria...";
             subMsg = mimi
                 ? (lastCapture > 0
-                    ? "Umetwaa mbegu " + lastCapture + "! Gusa shimo lenye mbegu 2+"
-                    : "Gusa shimo lolote lenye mbegu 2 au zaidi")
+                    ? "Umetwaa kete " + lastCapture + "! Gusa shimo lenye kete 2+"
+                    : "Gusa shimo lolote lenye kete 2 au zaidi")
                 : levelLabel(aiLevel) + " inacheza...";
         }
     }
@@ -191,21 +191,21 @@ Rectangle {
         return "Magabe AI (Ngumu)";
     }
 
-    // ── Kernel wa kupiga mbegu — mantiki MOJA inayotumika na wote wawili ────
+    // ── Kernel wa kupiga kete — mantiki MOJA inayotumika na wote wawili ────
     // Inarudisha:  { nb, captures, landIdx, steps }
     // steps = [] kama recordSteps=false  (kwa AI evaluation)
     // steps = [...] kama recordSteps=true (kwa animation)
-    // ── Kernel wa kupiga mbegu ──────────────────────────────────────────────
+    // ── Kernel wa kupiga kete ──────────────────────────────────────────────
     //
     // Sheria:
-    //   Chukua mbegu ZOTE kutoka shimo la kuanza.
+    //   Chukua kete ZOTE kutoka shimo la kuanza.
     //   Zigawanye moja kwa moja kwenye circuit — BILA kusimama popote —
-    //   mpaka mbegu ya MWISHO inapoanguka. Hapo angalia:
+    //   mpaka kete ya MWISHO inapoanguka. Hapo angalia:
     //
     //   A)  Shimo TUPU          → simama, zamu inaisha
-    //   B1) Nje, ina mbegu      → chukua zote, anza tena (relay)
-    //   B2) Ndani, opp ina mbegu → capture: chukua opp+yako, anza tena
-    //   B3) Ndani, opp tupu, ina mbegu → chukua zote, anza tena (relay)
+    //   B1) Nje, ina kete      → chukua zote, anza tena (relay)
+    //   B2) Ndani, opp ina kete → capture: chukua opp+yako, anza tena
+    //   B3) Ndani, opp tupu, ina kete → chukua zote, anza tena (relay)
     //
     // recordSteps=false  → kwa AI (haraka, hakuna animation data)
     // recordSteps=true   → kwa animation (inajaza steps[])
@@ -239,7 +239,7 @@ Rectangle {
             return idx(innerRow(player === human ? ai : human), h % appCols);
         }
 
-        // Gawanya `count` mbegu kuanzia pos sasa, rudi landIdx ya mwisho
+        // Gawanya `count` kete kuanzia pos sasa, rudi landIdx ya mwisho
         function sow(src) {
             rounds++;
             if (rounds > MAX_ROUNDS) return;
@@ -254,7 +254,7 @@ Rectangle {
             }
             if (pos === -1) return;
 
-            // Weka mbegu ZOTE moja kwa moja bila kusimama
+            // Weka kete ZOTE moja kwa moja bila kusimama
             for (var s = 0; s < count; s++) {
                 pos = (pos + 1) % circuit.length;
                 nb[circuit[pos]]++;
@@ -265,7 +265,7 @@ Rectangle {
 
             // Angalia sheria kwenye shimo la MWISHO tu
             var row = Math.floor(landIdx / appCols);
-            var hadSeeds = nb[landIdx] > 1;   // alikuwa na mbegu kabla ya seed hii
+            var hadSeeds = nb[landIdx] > 1;   // alikuwa na kete kabla ya seed hii
 
             if (!hadSeeds) {
                 // Sheria A: shimo lilikuwa tupu — simama
@@ -273,7 +273,7 @@ Rectangle {
             }
 
             if (row === or_) {
-                // Sheria B1: nje ina mbegu — relay
+                // Sheria B1: nje ina kete — relay
                 pushStep(landIdx, "👊");
                 sow(landIdx);
 
@@ -288,7 +288,7 @@ Rectangle {
                     pushStep(landIdx, "⭐");
                     sow(landIdx);
                 } else {
-                    // Sheria B3: ndani ina mbegu, opp tupu — relay
+                    // Sheria B3: ndani ina kete, opp tupu — relay
                     pushStep(landIdx, "👊");
                     sow(landIdx);
                 }
@@ -353,7 +353,7 @@ Rectangle {
         var result = buildSowSteps(board, startIdx, player);
         if (!result) return false;
 
-        // Hifadhi ubao wa awali — ondoa mbegu kutoka shimo la kuanza
+        // Hifadhi ubao wa awali — ondoa kete kutoka shimo la kuanza
         var nb = board.slice();
         nb[startIdx] = 0;
         board = nb;
@@ -407,7 +407,7 @@ Rectangle {
 
         if (plantingPhase) {
             if (row !== innerRow(human)) { subMsg = "Panda kwenye safu yako ya ndani tu"; return; }
-            if (handOf(human) <= 0)      { subMsg = "Hakuna mbegu zilizobaki mkononi"; return; }
+            if (handOf(human) <= 0)      { subMsg = "Hakuna kete zilizobaki mkononi"; return; }
             var nb = board.slice();
             nb[h]++;
             board = nb;
@@ -425,8 +425,8 @@ Rectangle {
             return;
         }
 
-        if (board[h] < 2) { subMsg = "Unahitaji mbegu 2 au zaidi kupiga"; return; }
-        subMsg = "Inasogeza mbegu...";
+        if (board[h] < 2) { subMsg = "Unahitaji kete 2 au zaidi kupiga"; return; }
+        subMsg = "Inasogeza kete...";
         startSowAnimation(h, human);
     }
 
@@ -873,7 +873,7 @@ Rectangle {
                             }
                         }
 
-                        // ── Bounce scale wakati mbegu zinabadilika ────────────
+                        // ── Bounce scale wakati kete zinabadilika ────────────
                         SequentialAnimation {
                             id: bounceAnim
                             NumberAnimation {
@@ -909,7 +909,7 @@ Rectangle {
                             border.color: Qt.rgba(0, 0.9, 1, 0.25); border.width: 1
                         }
 
-                        // ── Mwanga wa shimo linalopokea mbegu (active) ───────
+                        // ── Mwanga wa shimo linalopokea kete (active) ───────
                         Rectangle {
                             visible: cell.isActive
                             anchors { fill: parent; margins: -5 }
