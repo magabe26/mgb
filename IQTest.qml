@@ -10,7 +10,7 @@ Rectangle {
     width: parent.width
     height: parent.height
     visible: true
-    color: "#050a0c"
+    color: "#020d0d"
 
 
     // --- APP PROPERTIES ---
@@ -889,22 +889,22 @@ Rectangle {
 
     // ═══════════════════════════════════════════════════════════════
     // UI REDESIGN — Premium dark African sci-fi aesthetic
-    // Colours: deep space bg, amber-gold accent, crisp white text
+    // Colours: deep space bg, cyan accent, white text
     // ═══════════════════════════════════════════════════════════════
 
-    readonly property color bg0:      "#07090f"
-    readonly property color bg1:      "#0d1220"
-    readonly property color bg2:      "#111827"
-    readonly property color card:     "#131d2e"
-    readonly property color gold:     "#e8a020"
-    readonly property color goldDim:  "#7a5010"
-    readonly property color goldGlow: "#f0c060"
-    readonly property color accent:   "#3b82f6"
+    readonly property color bg0:      "#020d0d"
+    readonly property color bg1:      "#031515"
+    readonly property color bg2:      "#061c1c"
+    readonly property color card:     "#071e1e"
+    readonly property color gold:     "#00e5ff"
+    readonly property color goldDim:  "#005f6b"
+    readonly property color goldGlow: "#80f0ff"
+    readonly property color accent:   "#00b8d4"
     readonly property color danger:   "#ef4444"
     readonly property color success:  "#22c55e"
-    readonly property color textPri:  "#f1f5f9"
-    readonly property color textSec:  "#94a3b8"
-    readonly property color textDim:  "#475569"
+    readonly property color textPri:  "#ffffff"
+    readonly property color textSec:  "#a0d8d8"
+    readonly property color textDim:  "#2e7070"
 
     readonly property real  dp: Math.max(Screen.pixelDensity * 0.1588, 1.0)
     readonly property real  fs: Math.round(14 * dp)
@@ -924,7 +924,7 @@ Rectangle {
         opacity: 0.06
         onPaint: {
             var ctx = getContext("2d");
-            ctx.strokeStyle = "#e8a020";
+            ctx.strokeStyle = "#00e5ff";
             ctx.lineWidth = 0.5;
             var step = 40;
             for (var x = 0; x < width; x += step) {
@@ -977,13 +977,13 @@ Rectangle {
                         // outer ring
                         ctx.beginPath();
                         ctx.arc(cx, cy, r, 0, 2 * Math.PI);
-                        ctx.strokeStyle = "#e8a020";
+                        ctx.strokeStyle = "#00e5ff";
                         ctx.lineWidth = 2.5;
                         ctx.stroke();
                         // inner ring
                         ctx.beginPath();
                         ctx.arc(cx, cy, r * 0.78, 0, 2 * Math.PI);
-                        ctx.strokeStyle = "rgba(232,160,32,0.3)";
+                        ctx.strokeStyle = "rgba(0,229,255,0.3)";
                         ctx.lineWidth = 1;
                         ctx.stroke();
                         // tick marks
@@ -995,7 +995,7 @@ Rectangle {
                             var y2 = cy + Math.sin(angle) * r * 1.0;
                             ctx.beginPath();
                             ctx.moveTo(x1, y1); ctx.lineTo(x2, y2);
-                            ctx.strokeStyle = i % 3 === 0 ? "#e8a020" : "rgba(232,160,32,0.4)";
+                            ctx.strokeStyle = i % 3 === 0 ? "#00e5ff" : "rgba(232,160,32,0.4)";
                             ctx.lineWidth = i % 3 === 0 ? 2 : 1;
                             ctx.stroke();
                         }
@@ -1110,8 +1110,8 @@ Rectangle {
                 radius: Math.round(14 * dp)
                 gradient: Gradient {
                     orientation: Gradient.Horizontal
-                    GradientStop { position: 0.0; color: "#c47a10" }
-                    GradientStop { position: 1.0; color: "#e8a020" }
+                    GradientStop { position: 0.0; color: "#007a8a" }
+                    GradientStop { position: 1.0; color: "#00e5ff" }
                 }
 
                 Text {
@@ -1120,7 +1120,7 @@ Rectangle {
                     font.pointSize: 11
                     font.bold: true
                     font.letterSpacing: Math.round(2 * dp)
-                    color: "#07090f"
+                    color: "#020d0d"
                 }
 
                 MouseArea {
@@ -1223,7 +1223,7 @@ Rectangle {
                             // Background ring
                             ctx.beginPath();
                             ctx.arc(cx, cy, r, 0, 2 * Math.PI);
-                            ctx.strokeStyle = "#1e2a3a";
+                            ctx.strokeStyle = "#0a2424";
                             ctx.lineWidth = Math.round(4 * dp);
                             ctx.stroke();
 
@@ -1231,7 +1231,7 @@ Rectangle {
                             if (ratio > 0) {
                                 ctx.beginPath();
                                 ctx.arc(cx, cy, r, -Math.PI / 2, -Math.PI / 2 + ratio * 2 * Math.PI);
-                                ctx.strokeStyle = ratio < 0.2 ? "#ef4444" : ratio < 0.5 ? "#f59e0b" : "#e8a020";
+                                ctx.strokeStyle = ratio < 0.2 ? "#ef4444" : ratio < 0.5 ? "#00bcd4" : "#00e5ff";
                                 ctx.lineWidth = Math.round(4 * dp);
                                 ctx.lineCap = "round";
                                 ctx.stroke();
@@ -1244,7 +1244,7 @@ Rectangle {
                         text: timerValue
                         font.pointSize: 11
                         font.bold: true
-                        color: timerValue < 4 ? danger : timerValue < 8 ? "#f59e0b" : textPri
+                        color: timerValue < 4 ? danger : timerValue < 8 ? "#00bcd4" : textPri
                         Behavior on color { ColorAnimation { duration: 200 } }
                     }
                 }
@@ -1277,7 +1277,7 @@ Rectangle {
                 Layout.fillWidth: true
                 height: Math.round(5 * dp)
                 radius: Math.round(3 * dp)
-                color: "#1e2a3a"
+                color: "#0a2424"
 
                 Rectangle {
                     width: ((currentIdx) / Math.max(quizModel.count - 1, 1)) * parent.width
@@ -1285,7 +1285,7 @@ Rectangle {
                     radius: parent.radius
                     gradient: Gradient {
                         orientation: Gradient.Horizontal
-                        GradientStop { position: 0.0; color: "#c47a10" }
+                        GradientStop { position: 0.0; color: "#007a8a" }
                         GradientStop { position: 1.0; color: gold }
                     }
                     Behavior on width { NumberAnimation { duration: 400; easing.type: Easing.OutCubic } }
@@ -1358,7 +1358,7 @@ Rectangle {
                                : card
                         border.color: optMA.pressed
                                       ? (modelData === quizModel.get(currentIdx).correct ? success : danger)
-                                      : Qt.rgba(1, 1, 1, 0.06)
+                                      : Qt.rgba(0, 0.9, 1, 0.15)
                         border.width: optMA.pressed ? Math.round(1.5 * dp) : 1
 
                         Behavior on color { ColorAnimation { duration: 120 } }
@@ -1374,7 +1374,7 @@ Rectangle {
                             // Letter badge
                             Rectangle {
                                 width: Math.round(34 * dp); height: width; radius: Math.round(6 * dp)
-                                color: Qt.rgba(1, 1, 1, 0.07)
+                                color: Qt.rgba(0, 0.9, 1, 0.1)
                                 Text {
                                     anchors.centerIn: parent
                                     text: app.indexToLetter(index)
@@ -1490,14 +1490,14 @@ Rectangle {
                             // bg ring
                             ctx.beginPath();
                             ctx.arc(cx, cy, r, 0, 2*Math.PI);
-                            ctx.strokeStyle = "#1e2a3a";
+                            ctx.strokeStyle = "#0a2424";
                             ctx.lineWidth = Math.round(8 * dp);
                             ctx.stroke();
 
                             // score arc
                             ctx.beginPath();
                             ctx.arc(cx, cy, r, -Math.PI/2, -Math.PI/2 + Math.min(ratio, 1.0)*2*Math.PI);
-                            ctx.strokeStyle = "#e8a020";
+                            ctx.strokeStyle = "#00e5ff";
                             ctx.lineWidth = Math.round(8 * dp);
                             ctx.lineCap = "round";
                             ctx.stroke();
@@ -1505,7 +1505,7 @@ Rectangle {
                             // inner glow ring
                             ctx.beginPath();
                             ctx.arc(cx, cy, r*0.80, 0, 2*Math.PI);
-                            ctx.strokeStyle = "rgba(232,160,32,0.12)";
+                            ctx.strokeStyle = "rgba(0,229,255,0.12)";
                             ctx.lineWidth = 1;
                             ctx.stroke();
                         }
@@ -1540,10 +1540,10 @@ Rectangle {
                     radius: Math.round(14 * dp)
                     gradient: Gradient {
                         orientation: Gradient.Horizontal
-                        GradientStop { position: 0.0; color: "#1a1200" }
-                        GradientStop { position: 1.0; color: "#2a1e00" }
+                        GradientStop { position: 0.0; color: "#001a1a" }
+                        GradientStop { position: 1.0; color: "#002e2e" }
                     }
-                    border.color: Qt.rgba(0.91,0.63,0.13,0.4)
+                    border.color: Qt.rgba(0.0,0.9,1.0,0.4)
                     border.width: 1
 
                     Text {
@@ -1607,7 +1607,7 @@ Rectangle {
                     radius: Math.round(14 * dp)
                     gradient: Gradient {
                         orientation: Gradient.Horizontal
-                        GradientStop { position: 0.0; color: "#c47a10" }
+                        GradientStop { position: 0.0; color: "#007a8a" }
                         GradientStop { position: 1.0; color: gold }
                     }
 
@@ -1617,7 +1617,7 @@ Rectangle {
                         font.pointSize: 11
                         font.bold: true
                         font.letterSpacing: Math.round(2 * dp)
-                        color: "#07090f"
+                        color: "#020d0d"
                     }
                     MouseArea {
                         anchors.fill: parent
