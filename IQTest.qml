@@ -1005,7 +1005,7 @@ Rectangle {
                 Text {
                     anchors.centerIn: parent
                     text: "IQ"
-                    font.pixelSize: Math.round(32 * dp)
+                    font.pointSize: 22
                     font.bold: true
                     color: gold
                 }
@@ -1016,7 +1016,7 @@ Rectangle {
             Text {
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: "SAMIA IQ LAB"
-                font.pixelSize: Math.round(26 * dp)
+                font.pointSize: 18
                 font.bold: true
                 font.letterSpacing: Math.round(4 * dp)
                 color: textPri
@@ -1030,7 +1030,7 @@ Rectangle {
                 spacing: Math.round(8 * dp)
                 //verticalItemAlignment: Qt.AlignVCenter
                 Rectangle { width: Math.round(28 * dp); height: 1; color: gold; opacity: 0.5 }
-                Text { text: "\u2605"; color: gold; font.pixelSize: Math.round(10 * dp) }
+                Text { text: "\u2605"; color: gold; font.pointSize: 7 }
                 Rectangle { width: Math.round(28 * dp); height: 1; color: gold; opacity: 0.5 }
             }
 
@@ -1039,7 +1039,7 @@ Rectangle {
             Text {
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: "Pima uwezo wa akili yako sasa."
-                font.pixelSize: Math.round(13 * dp)
+                font.pointSize: 10
                 font.letterSpacing: Math.round(1 * dp)
                 color: textSec
             }
@@ -1082,14 +1082,14 @@ Rectangle {
                                 Text {
                                     anchors.horizontalCenter: parent.horizontalCenter
                                     text: modelData.val
-                                    font.pixelSize: Math.round(18 * dp)
+                                    font.pointSize: 13
                                     font.bold: true
                                     color: gold
                                 }
                                 Text {
                                     anchors.horizontalCenter: parent.horizontalCenter
                                     text: modelData.lbl
-                                    font.pixelSize: Math.round(10 * dp)
+                                    font.pointSize: 7
                                     font.letterSpacing: 1
                                     color: textDim
                                 }
@@ -1117,7 +1117,7 @@ Rectangle {
                 Text {
                     anchors.centerIn: parent
                     text: "ANZA JARIBIO"
-                    font.pixelSize: Math.round(14 * dp)
+                    font.pointSize: 11
                     font.bold: true
                     font.letterSpacing: Math.round(2 * dp)
                     color: "#07090f"
@@ -1148,7 +1148,7 @@ Rectangle {
                 Text {
                     anchors.centerIn: parent
                     text: "FUNGA"
-                    font.pixelSize: Math.round(13 * dp)
+                    font.pointSize: 10
                     font.bold: true
                     font.letterSpacing: 2
                     color: danger
@@ -1173,21 +1173,20 @@ Rectangle {
         enabled: viewState === "QUIZ"
         Behavior on opacity { NumberAnimation { duration: 250 } }
 
-        Column {
-            anchors.top: parent.top
-            anchors.left: parent.left
-            anchors.right: parent.right
+        ColumnLayout {
+            anchors.fill: parent
             anchors.margins: Math.round(16 * dp)
             spacing: Math.round(12 * dp)
 
             // ── Header: progress + timer ──────────────────────────────
             Item {
-                width: parent.width
+                Layout.fillWidth: true
                 height: Math.round(52 * dp)
 
                 // Question counter badge
                 Rectangle {
                     anchors.left: parent.left
+                    anchors.verticalCenter: parent.verticalCenter
                     width: Math.round(90 * dp)
                     height: Math.round(32 * dp)
                     radius: Math.round(8 * dp)
@@ -1196,7 +1195,7 @@ Rectangle {
                     Text {
                         anchors.centerIn: parent
                         text: (currentIdx + 1) + " / " + quizModel.count
-                        font.pixelSize: Math.round(12 * dp)
+                        font.pointSize: 9
                         font.bold: true
                         color: gold
                     }
@@ -1243,7 +1242,7 @@ Rectangle {
                     Text {
                         anchors.centerIn: parent
                         text: timerValue
-                        font.pixelSize: Math.round(15 * dp)
+                        font.pointSize: 11
                         font.bold: true
                         color: timerValue < 4 ? danger : timerValue < 8 ? "#f59e0b" : textPri
                         Behavior on color { ColorAnimation { duration: 200 } }
@@ -1253,6 +1252,7 @@ Rectangle {
                 // Score badge
                 Rectangle {
                     anchors.right: parent.right
+                    anchors.verticalCenter: parent.verticalCenter
                     width: Math.round(90 * dp)
                     height: Math.round(32 * dp)
                     radius: Math.round(8 * dp)
@@ -1261,10 +1261,10 @@ Rectangle {
                     Row {
                         anchors.centerIn: parent
                         spacing: Math.round(4 * dp)
-                        Text { text: "\u2605"; color: gold; font.pixelSize: Math.round(11 * dp) }
+                        Text { text: "\u2605"; color: gold; font.pointSize: 8 }
                         Text {
                             text: noOfPassedQuestion
-                            font.pixelSize: Math.round(12 * dp)
+                            font.pointSize: 9
                             font.bold: true
                             color: textPri
                         }
@@ -1274,7 +1274,7 @@ Rectangle {
 
             // ── Progress bar ─────────────────────────────────────────
             Rectangle {
-                width: parent.width
+                Layout.fillWidth: true
                 height: Math.round(5 * dp)
                 radius: Math.round(3 * dp)
                 color: "#1e2a3a"
@@ -1294,8 +1294,9 @@ Rectangle {
 
             // ── Question card ─────────────────────────────────────────
             Rectangle {
-                width: parent.width
-                height: Math.round(130 * dp)
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+                Layout.minimumHeight: Math.round(100 * dp)
                 radius: Math.round(16 * dp)
                 color: card
 
@@ -1323,7 +1324,7 @@ Rectangle {
                         bottomMargin: Math.round(14 * dp)
                     }
                     text: (quizModel.count > currentIdx) ? quizModel.get(currentIdx).q : ""
-                    font.pixelSize: Math.round(14 * dp)
+                    font.pointSize: 11
                     font.bold: true
                     color: textPri
                     wrapMode: Text.WordWrap
@@ -1335,7 +1336,7 @@ Rectangle {
 
             // ── Options ───────────────────────────────────────────────
             Column {
-                width: parent.width
+                Layout.fillWidth: true
                 spacing: Math.round(9 * dp)
 
                 Repeater {
@@ -1349,7 +1350,7 @@ Rectangle {
                     delegate: Rectangle {
                         id: optRect
                         width: parent.width
-                        height: Math.round(50 * dp)
+                        height: Math.round(56 * dp)
                         radius: Math.round(12 * dp)
                         color: optMA.pressed
                                ? (modelData === quizModel.get(currentIdx).correct ? Qt.rgba(0.13,0.77,0.33,0.25) : Qt.rgba(0.94,0.27,0.27,0.2))
@@ -1375,7 +1376,7 @@ Rectangle {
                                 Text {
                                     anchors.centerIn: parent
                                     text: app.indexToLetter(index)
-                                    font.pixelSize: Math.round(11 * dp)
+                                    font.pointSize: 8
                                     font.bold: true
                                     color: gold
                                 }
@@ -1384,7 +1385,7 @@ Rectangle {
                             Text {
                                 width: parent.width - Math.round(26 * dp) - Math.round(12 * dp)
                                 text: app.cleanOption(modelData)
-                                font.pixelSize: Math.round(13 * dp)
+                                font.pointSize: 10
                                 color: textPri
                                 wrapMode: Text.WordWrap
                                 lineHeight: 1.3
@@ -1406,13 +1407,13 @@ Rectangle {
 
             // ── KIMBIA ────────────────────────────────────
             Item {
-                width: parent.width
+                Layout.fillWidth: true
                 height: Math.round(36 * dp)
 
                 Text {
                     anchors.centerIn: parent
                     text: "Funga jaribio  \u203a"
-                    font.pixelSize: Math.round(12 * dp)
+                    font.pointSize: 9
                     color: "red"
 
                     MouseArea {
@@ -1459,7 +1460,7 @@ Rectangle {
                 Text {
                     anchors.horizontalCenter: parent.horizontalCenter
                     text: "M A T O K E O"
-                    font.pixelSize: Math.round(20 * dp)
+                    font.pointSize: 14
                     font.bold: true
                     font.letterSpacing: Math.round(5 * dp)
                     color: textSec
@@ -1515,14 +1516,14 @@ Rectangle {
                         Text {
                             anchors.horizontalCenter: parent.horizontalCenter
                             text: "Alama za IQ"
-                            font.pixelSize: Math.round(11 * dp)
+                            font.pointSize: 8
                             color: textDim
                         }
 
                         Text {
                             anchors.horizontalCenter: parent.horizontalCenter
                             text: endView.finalIQ
-                            font.pixelSize: Math.round(36 * dp)
+                            font.pointSize: 24
                             font.bold: true
                             color: gold
                         }
@@ -1546,7 +1547,7 @@ Rectangle {
                     Text {
                         anchors.centerIn: parent
                         text: getCategory(endView.finalIQ)
-                        font.pixelSize: Math.round(15 * dp)
+                        font.pointSize: 11
                         font.bold: true
                         font.letterSpacing: Math.round(2 * dp)
                         color: gold
@@ -1577,14 +1578,14 @@ Rectangle {
                                 Text {
                                     anchors.horizontalCenter: parent.horizontalCenter
                                     text: modelData.icon + "  " + modelData.val
-                                    font.pixelSize: Math.round(22 * dp)
+                                    font.pointSize: 16
                                     font.bold: true
                                     color: index === 0 ? success : danger
                                 }
                                 Text {
                                     anchors.horizontalCenter: parent.horizontalCenter
                                     text: modelData.lbl
-                                    font.pixelSize: Math.round(11 * dp)
+                                    font.pointSize: 8
                                     color: textDim
                                     font.letterSpacing: 1
                                 }
@@ -1611,7 +1612,7 @@ Rectangle {
                     Text {
                         anchors.centerIn: parent
                         text: "JARIBU TENA"
-                        font.pixelSize: Math.round(14 * dp)
+                        font.pointSize: 11
                         font.bold: true
                         font.letterSpacing: Math.round(2 * dp)
                         color: "#07090f"
@@ -1639,7 +1640,7 @@ Rectangle {
                     Text {
                         anchors.centerIn: parent
                         text: "FUNGA"
-                        font.pixelSize: Math.round(13 * dp)
+                        font.pointSize: 10
                         font.bold: true
                         font.letterSpacing: 2
                         color: danger
