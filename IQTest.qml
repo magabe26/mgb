@@ -1566,7 +1566,7 @@ Rectangle {
                     Repeater {
                         model: [
                             { icon: "\u2713", val: noOfPassedQuestion,          lbl: "Sahihi" },
-                            { icon: "X", val: maxQuestions - noOfPassedQuestion, lbl: "Makosa" }
+                            { icon: "x", val: maxQuestions - noOfPassedQuestion, lbl: "Makosa" }
                         ]
                         delegate: Rectangle {
                             width: (statsCardsRow.width - Math.round(10 * dp)) / 2
