@@ -3,7 +3,7 @@
 
 
    <APP>
-<A HREF="#openApp;TanzaniaMap.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/;Tafadhali subiri!;dependencies.txt;#;1;1;1;100;"></A>
+<A HREF="#"></A>
       <BG_COLOR>white</BG_COLOR>
       <ENABLE_IMAGE>1</ENABLE_IMAGE>
       <IMAGE_URL>https://raw.githubusercontent.com/magabe26/mgb/master/tzflag.gif</IMAGE_URL>
@@ -202,7 +202,7 @@ Pakua aplikesheni zingine hapa
 
 
 <APP>
-      <A HREF="#openApp;TanzaniaMap.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/;Tafadhali subiri!;dependencies.txt;#;1;1;1;100;"></A>
+      <A HREF="#"></A>
 
       <BG_COLOR>white</BG_COLOR>
       <ENABLE_IMAGE>1</ENABLE_IMAGE>
