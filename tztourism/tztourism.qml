@@ -1387,7 +1387,6 @@ Rectangle {
                     Text {
                         id: listTitle
                         anchors.top: parent.top
-                        width: parent.width * 0.46
                         anchors.topMargin: 4
                         anchors.horizontalCenter: parent.horizontalCenter
                         text: app.selectedLanguage === "sw"
@@ -1395,7 +1394,6 @@ Rectangle {
                               : "<font color=\"blue\">Tanzania Tourism</font>"
                         font.pointSize: Qt.platform.os === "android" ? 16 : 14
                         font.bold: true
-                        wrapMode: Text.WordWrap
                         textFormat: Text.RichText
                     }
 
