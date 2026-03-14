@@ -195,7 +195,7 @@ function close()
         ListElement {
             name_en: "Rubondo Island National Park"; name_sw: "Hifadhi ya Taifa ya Kisiwa cha Rubondo"
             imageFile: "./rubondo.jpg"
-            desc_en: "An island sanctuary on Lake Victoria, home to elephats, chimpanzees, sitatunga, and a diverse birdlife, ideal for walking safaris."
+            desc_en: "An island sanctuary on Lake Victoria, home to elephants, chimpanzees, sitatunga, and a diverse birdlife, ideal for walking safaris."
             desc_sw: "Hifadhi ya kisiwa kwenye Ziwa Victoria, makazi ya tembo, sokwe, sitatunga, na ndege mbalimbali, inayofaa kwa safari za kutembea."
         }
 
