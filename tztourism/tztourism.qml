@@ -12,106 +12,107 @@ Rectangle {
     property string selectedLanguage: "" // "en" or "sw"
     property int currentAttractionIndex: 0
     property int appMode: 2
+    property string searchText: ""
 
-    
+
 
 function cleanParent(text)
 {
-	if (!text) return "";
-	return text.replace(/\s*\(.*?\)\s*/g, "").trim();
+    if (!text) return "";
+    return text.replace(/\s*\(.*?\)\s*/g, "").trim();
 }
 
 function isPrimaryResultsApp()
 {
-	return (typeof n3ctaApp !== "undefined");
+    return (typeof n3ctaApp !== "undefined");
 }
 
 function isSecondaryResultsApp()
 {
-	return (typeof loader !== "undefined");
+    return (typeof loader !== "undefined");
 }
 
 function isInsideApp()
 {
-	let type = cleanParent(String(parent.parent.parent.parent));
-	if(isPrimaryResultsApp()){
-		return (type === "QQuickRootItem");
-	} else {
-		const index = type.indexOf("_");
-		return ((index !== -1) && (type.substr(0,index) === "SwipeView"));
-	}
+    let type = cleanParent(String(parent.parent.parent.parent));
+    if(isPrimaryResultsApp()){
+        return (type === "QQuickRootItem");
+    } else {
+        const index = type.indexOf("_");
+        return ((index !== -1) && (type.substr(0,index) === "SwipeView"));
+    }
 }
 
 function isQMLDialogApp()
 {
-	const type = cleanParent(String(parent.parent.parent));
-	return (type === "QQuickRectangle");
+    const type = cleanParent(String(parent.parent.parent));
+    return (type === "QQuickRectangle");
 }
 
 function closeIfInsideApp()
 {
-	if(isInsideApp()){
-		if(isPrimaryResultsApp()){
-			n3ctaApp.closeCustomPage();
-		}else if(isSecondaryResultsApp()){
-			loader.isMenuWindowVisible = true;
-			loader.isMainResultsWindowVisible = true;
-			loader.isFooterVisible = true;
-			if(typeof loader.mode !== "undefined"){
-				loader.mode = 2;
-			}
-			loader.closeCustomPage();
-		}
-	}
+    if(isInsideApp()){
+        if(isPrimaryResultsApp()){
+            n3ctaApp.closeCustomPage();
+        }else if(isSecondaryResultsApp()){
+            loader.isMenuWindowVisible = true;
+            loader.isMainResultsWindowVisible = true;
+            loader.isFooterVisible = true;
+            if(typeof loader.mode !== "undefined"){
+                loader.mode = 2;
+            }
+            loader.closeCustomPage();
+        }
+    }
 }
 
 function closeIfQMLDialogApp()
 {
-	if(isQMLDialogApp()){
-		if(isPrimaryResultsApp()){
-			n3ctaApp.closeQMLDialog();
-		}else if(isSecondaryResultsApp()){
-			nectaMainResultsPageDownloaderHtmlToXmlConveterAndSaver.closeQMLDialog();
-		}
-	}
+    if(isQMLDialogApp()){
+        if(isPrimaryResultsApp()){
+            n3ctaApp.closeQMLDialog();
+        }else if(isSecondaryResultsApp()){
+            nectaMainResultsPageDownloaderHtmlToXmlConveterAndSaver.closeQMLDialog();
+        }
+    }
 }
 
 function cmd(url)
 {
-	if(isPrimaryResultsApp()) {
-		n3ctaApp.onUrlVisited(url);
-	}else if(isSecondaryResultsApp()){
-		if(isQMLDialogApp()){
-			n3ctaQmlConnectionsPipe.onUrlVisited(url)
-		} else if(isInsideApp()){
-			loader.onUrlVisited(url);
-		}
-	}
+    if(isPrimaryResultsApp()) {
+        n3ctaApp.onUrlVisited(url);
+    }else if(isSecondaryResultsApp()){
+        if(isQMLDialogApp()){
+            n3ctaQmlConnectionsPipe.onUrlVisited(url)
+        } else if(isInsideApp()){
+            loader.onUrlVisited(url);
+        }
+    }
 }
 
 function showToastMessage(msg)
 {
-	if(isPrimaryResultsApp()){
-		n3ctaApp.showToastMessage(msg);
-	}else if(isSecondaryResultsApp()){
-		nectaMainResultsPageDownloaderHtmlToXmlConveterAndSaver.showToastMessage(msg);
-	}
+    if(isPrimaryResultsApp()){
+        n3ctaApp.showToastMessage(msg);
+    }else if(isSecondaryResultsApp()){
+        nectaMainResultsPageDownloaderHtmlToXmlConveterAndSaver.showToastMessage(msg);
+    }
 }
 
 function ad()
 {
-	if(isPrimaryResultsApp()){
-		cmd("#showGoogleAd");
-	}else if(isSecondaryResultsApp()){
-		cmd("#showGoogleAd");
-	}
+    if(isPrimaryResultsApp()){
+        cmd("#showGoogleAd");
+    }else if(isSecondaryResultsApp()){
+        cmd("#showGoogleAd");
+    }
 }
 
 function close()
 {
-	closeIfInsideApp();
-	closeIfQMLDialogApp();
-	ad();
+    closeIfInsideApp();
+    closeIfQMLDialogApp();
+    ad();
 }
 
 
@@ -169,7 +170,7 @@ function close()
             desc_en: "Vast plains, famous for the annual wildebeest migration, offering unparalleled safari experiences."
             desc_sw: "Nyanda pana, maarufu kwa uhamaji mkuu wa nyumbu kila mwaka, inayotoa uzoefu wa safari usio na kifani."
         }
-        
+
         ListElement {
             name_en: "Ngorongoro Conservation Area"; name_sw: "Mamlaka ya Hifadhi ya Ngorongoro"
             imageFile: "./ngorongoro.jpg"
@@ -211,7 +212,7 @@ function close()
             desc_en: "Tanzania's largest national park, a remote wilderness with rugged landscapes and abundant wildlife."
             desc_sw: "Hifadhi kubwa zaidi ya taifa Tanzania, pori la mbali lenye mandhari na wanyamapori wengi."
         }
-        
+
         ListElement {
             name_en: "Mafia Island Marine Park"; name_sw: "Hifadhi ya Bahari ya Kisiwa cha Mafia"
             imageFile: "./mafia_island.jpg"
@@ -253,7 +254,7 @@ function close()
             desc_en: "A vast limestone cave system near Tanga, significant culturally and historically, with impressive formations."
             desc_sw: "Mfumo mkubwa wa mapango ya chokaa karibu na Tanga, muhimu kiutamaduni na kihistoria, na maumbo ya kuvutia."
         }
-        
+
         ListElement {
             name_en: "Kitulo National Park"; name_sw: "Hifadhi ya Taifa ya Kitulo"
             imageFile: "./kitulo.jpg"
@@ -261,7 +262,7 @@ function close()
             desc_sw: "Inajulikana kama 'Bustani ya Mungu', nyanda hii ya kipekee ya milimani ni maarufu kwa maonyesho yake mazuri ya maua ya porini ya msimu."
         }
 
-        
+
 
         ListElement {
             name_en: "Selous Game Reserve (part of Nyerere NP)"; name_sw: "Hifadhi ya Wanyama ya Selous"
@@ -277,7 +278,7 @@ function close()
             desc_sw: "Hifadhi ya nusu-jangwa inayopakana na Tsavo nchini Kenya, muhimu kwa uhifadhi wa faru weusi na mbwa mwitu, ikitoa uzoefu mgumu wa safari."
         }
 
-        
+
 ListElement {
     name_en: "Kaporogwe Falls, Mbeya"
     name_sw: "Maporomoko ya Kaporogwe, Mbeya"
@@ -347,7 +348,7 @@ ListElement {
             desc_en: "An active stratovolcano and Tanzania's second highest peak, located in Arusha National Park."
             desc_sw: "Volkano hai ya tabaka na mlima wa pili kwa urefu Tanzania, uliopo katika Hifadhi ya Taifa ya Arusha."
         }
-        
+
         ListElement {
             name_en: "Usambara Mountains"; name_sw: "Milima ya Usambara"
             imageFile: "./usambara.jpg"
@@ -360,11 +361,11 @@ ListElement {
             imageFile: "./mahale.jpg"
             desc_en: "Home to chimpanzees on the shores of Lake Tanganyika, offering unique primate tracking experiences."
             desc_sw: "Makao ya sokwe pembezoni mwa Ziwa Tanganyika, inayotoa uzoefu wa kipekee wa kufuatilia nyani."
-        }      
+        }
 
-        
+
 ListElement {
-    name_en: "Bird Watching, Serengeti"; 
+    name_en: "Bird Watching, Serengeti";
 name_sw: "Kushuhudia Ndege, Serengeti"
     imageFile: "./serengeti_birds.jpg"
     desc_en: "Serengeti is home to over 500 bird species, making it a paradise for bird lovers and photographers."
@@ -373,7 +374,7 @@ name_sw: "Kushuhudia Ndege, Serengeti"
 
 
         ListElement {
-            name_en: "Pemba Island"; 
+            name_en: "Pemba Island";
 name_sw: "Kisiwa cha Pemba"
             imageFile: "./Pemba-Island-2.jpg"
             desc_en: "Part of the Zanzibar Archipelago, known as the 'Green Island' for its lush vegetation, cloves, and diving spots."
@@ -382,18 +383,18 @@ name_sw: "Kisiwa cha Pemba"
 
 ListElement {
             name_en: "Mafia Island Marine Park, Pwani"
-            name_sw: "Hifadhi ya Bahari ya Mafia, Pwani" 
-            imageFile: "./mafia_marine_park.jpg" 
-            desc_en: "A paradise for divers and snorkelers, famous for its whale shark sightings and pristine coral reefs in the Indian Ocean." 
-            desc_sw: "Pepo kwa wapiga mbizi, inasifika kwa kuonekana kwa papa msumeno (whale sharks) na matumbawe asilia ndani ya Bahari ya Hindi." 
+            name_sw: "Hifadhi ya Bahari ya Mafia, Pwani"
+            imageFile: "./mafia_marine_park.jpg"
+            desc_en: "A paradise for divers and snorkelers, famous for its whale shark sightings and pristine coral reefs in the Indian Ocean."
+            desc_sw: "Pepo kwa wapiga mbizi, inasifika kwa kuonekana kwa papa msumeno (whale sharks) na matumbawe asilia ndani ya Bahari ya Hindi."
         }
-        
-        ListElement { 
+
+        ListElement {
             name_en: "Saane Island National Park, Mwanza"
-            name_sw: "Hifadhi ya Taifa ya Kisiwa cha Saane, Mwanza" 
-            imageFile: "./saane_island.jpeg" 
-            desc_en: "The smallest national park in Tanzania, located on a rocky island in Lake Victoria. It's a perfect spot for walking safaris and bird watching near the city." 
-            desc_sw: "Hifadhi ya taifa ndogo kuliko zote Tanzania, inayopatikana kwenye kisiwa cha mawe ndani ya Ziwa Victoria. Ni eneo zuri kwa utalii wa kutembea na kuona ndege karibu na mjini." 
+            name_sw: "Hifadhi ya Taifa ya Kisiwa cha Saane, Mwanza"
+            imageFile: "./saane_island.jpeg"
+            desc_en: "The smallest national park in Tanzania, located on a rocky island in Lake Victoria. It's a perfect spot for walking safaris and bird watching near the city."
+            desc_sw: "Hifadhi ya taifa ndogo kuliko zote Tanzania, inayopatikana kwenye kisiwa cha mawe ndani ya Ziwa Victoria. Ni eneo zuri kwa utalii wa kutembea na kuona ndege karibu na mjini."
         }
 
 ListElement {
@@ -449,10 +450,10 @@ ListElement {
             desc_en: "A shallow, alkaline lake famous as a breeding ground for lesser flamingos, with dramatic landscapes."
             desc_sw: "Ziwa la chumvi lisilo na kina kirefu, maarufu kama eneo la kuzaliana flamingo wadogo, lenye mandhari ya kuvutia."
         }
-             
+
 
         ListElement {
-            name_en: "Bagamoyo"; 
+            name_en: "Bagamoyo";
 name_sw: "Bagamoyo"
             imageFile: "./bagamoyo.jpg"
             desc_en: "A historic coastal town with a rich past as a former slave trade port, featuring colonial architecture and cultural sites."
@@ -502,7 +503,7 @@ ListElement {
 
 
 ListElement {
-    name_en: "The German Boma, Bagamoyo"; 
+    name_en: "The German Boma, Bagamoyo";
 name_sw: "Boma la Mjerumani, Bagamoyo"
     imageFile: "./bagamoyo_boma.jpg"
     desc_en: "Built in 1895, this historic administrative building served as the headquarters for German East Africa, overlooking the Indian Ocean."
@@ -614,7 +615,7 @@ ListElement {
             desc_sw: "Tembelea nyumbani kwa muasisi wa Tanzania, Mwalimu Julius K. Nyerere kule Butiama. Safari ya kihistoria, uongozi, na asili ya kiongozi mkuu wa Taifa."
         }
 
-       
+
 ListElement {
             name_en: "Mayunga Statue"
             name_sw: "Sanamu ya Mayunga"
@@ -808,84 +809,84 @@ if(app.selectedLanguage === "sw"){
 
 
 Dialog {
-	id: contextMenu
-	property real dialogWidth: app.width * 0.6
-	property string frontPageBtnText
-	property string closeAppBtnText
-	property color frontPageBtnColor: "blue"
+    id: contextMenu
+    property real dialogWidth: app.width * 0.6
+    property string frontPageBtnText
+    property string closeAppBtnText
+    property color frontPageBtnColor: "blue"
 
-	contentItem: Rectangle {
-		color: "#001413"
-		border.color: "cyan"
-		border.width: 1
-		implicitWidth: modeSelectionDialog.dialogWidth
-		implicitHeight: frontPageBtn.height + frontPageBtn.anchors.topMargin + closeAppBtn.height + closeAppBtn.anchors.topMargin + closeAppBtn.anchors.bottomMargin;
+    contentItem: Rectangle {
+        color: "#001413"
+        border.color: "cyan"
+        border.width: 1
+        implicitWidth: modeSelectionDialog.dialogWidth
+        implicitHeight: frontPageBtn.height + frontPageBtn.anchors.topMargin + closeAppBtn.height + closeAppBtn.anchors.topMargin + closeAppBtn.anchors.bottomMargin;
 
-		Button {
-			id: frontPageBtn
-			anchors.top: parent.top
-			anchors.topMargin: 8
-			anchors.horizontalCenter: parent.horizontalCenter
-			text: contextMenu.frontPageBtnText
-			font.pointSize: Qt.platform.os === "android" ? 14 : 12
-			background: Rectangle {
-				implicitWidth: contextMenu.dialogWidth * 0.8
-				implicitHeight: 40
-				color: contextMenu.frontPageBtnColor
-				radius: 5
-			}
+        Button {
+            id: frontPageBtn
+            anchors.top: parent.top
+            anchors.topMargin: 8
+            anchors.horizontalCenter: parent.horizontalCenter
+            text: contextMenu.frontPageBtnText
+            font.pointSize: Qt.platform.os === "android" ? 14 : 12
+            background: Rectangle {
+                implicitWidth: contextMenu.dialogWidth * 0.8
+                implicitHeight: 40
+                color: contextMenu.frontPageBtnColor
+                radius: 5
+            }
 
-			contentItem: Text {
-				text: parent.text
-				color: "white"
-				horizontalAlignment: Text.AlignHCenter
-				verticalAlignment: Text.AlignVCenter
-			}
+            contentItem: Text {
+                text: parent.text
+                color: "white"
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+            }
 
-			onClicked: {
-				viewComponentLoader.sourceComponent = languageSelectionComponent;
-				app.selectedLanguage = "";
-				contextMenu.close();
-			}
+            onClicked: {
+                viewComponentLoader.sourceComponent = languageSelectionComponent;
+                app.selectedLanguage = "";
+                contextMenu.close();
+            }
 
-		}
+        }
 
 
-		Button {
-			id: closeAppBtn
-			anchors.top: frontPageBtn.bottom
-			anchors.topMargin: 12
-			anchors.bottomMargin: 18
-			anchors.horizontalCenter: parent.horizontalCenter
-			text: contextMenu.closeAppBtnText
-			font.pointSize: Qt.platform.os === "android" ? 14 : 12
+        Button {
+            id: closeAppBtn
+            anchors.top: frontPageBtn.bottom
+            anchors.topMargin: 12
+            anchors.bottomMargin: 18
+            anchors.horizontalCenter: parent.horizontalCenter
+            text: contextMenu.closeAppBtnText
+            font.pointSize: Qt.platform.os === "android" ? 14 : 12
 
-			background: Rectangle {
-				implicitWidth: contextMenu.dialogWidth * 0.8
-				implicitHeight: 40
-				color: "red"
-				radius: 5
-			}
+            background: Rectangle {
+                implicitWidth: contextMenu.dialogWidth * 0.8
+                implicitHeight: 40
+                color: "red"
+                radius: 5
+            }
 
-			contentItem: Text {
-				text: parent.text
-				color: "white"
-				horizontalAlignment: Text.AlignHCenter
-				verticalAlignment: Text.AlignVCenter
-			}
+            contentItem: Text {
+                text: parent.text
+                color: "white"
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+            }
 
-			onClicked: {
-				contextMenu.close();
-			}
-		}
-	}
+            onClicked: {
+                contextMenu.close();
+            }
+        }
+    }
 
-	function doOpen(lag){
-		contextMenu.frontPageBtnColor = lag === "sw" ? "green" : "blue";
-		contextMenu.frontPageBtnText = lag === "sw" ? "Rudi Nyuma" : "Go Back";
-		contextMenu.closeAppBtnText = lag === "sw" ? "Funga" : "Close";
-		open();
-	}
+    function doOpen(lag){
+        contextMenu.frontPageBtnColor = lag === "sw" ? "green" : "blue";
+        contextMenu.frontPageBtnText = lag === "sw" ? "Rudi Nyuma" : "Go Back";
+        contextMenu.closeAppBtnText = lag === "sw" ? "Funga" : "Close";
+        open();
+    }
 
 }
 
@@ -957,7 +958,7 @@ Dialog {
                     wrapMode: Text.WordWrap
                     elide: Text.ElideRight
                     textFormat: Text.RichText
-                    
+
                 }
 
 
@@ -1009,7 +1010,7 @@ font.pointSize: Qt.platform.os === "android" ? 13 : 11
                         horizontalAlignment: Text.AlignHCenter
                         verticalAlignment: Text.AlignVCenter
                     }
-                    
+
                     onClicked: {
                         modeSelectionDialog.doOpen("sw","green");
                     }
@@ -1037,7 +1038,7 @@ font.pointSize: Qt.platform.os === "android" ? 13 : 11
                         horizontalAlignment: Text.AlignHCenter
                         verticalAlignment: Text.AlignVCenter
                     }
-                    
+
                     onClicked: {
                         modeSelectionDialog.doOpen("en","blue");
                     }
@@ -1051,11 +1052,11 @@ font.pointSize: Qt.platform.os === "android" ? 13 : 11
                     color: "#dadada"
                 }
 
-                
+
 
                 Text {
                     text: "Tanzania imebarikiwa kuwa na vivutio vingi vya utalii ambavyo ni vigumu kuvitaja vyote hapa. Ili kuvifahamu na kuvishuhudia kwa undani zaidi, tunakushauri kufuatilia Tanzania Safari Channel inayopatikana kupitia DStv (292), Azam TV (401), Zuku (27), StarTimes Antenna (331), StarTimes Dish (542), Zmux (46) na Continental (7). Huu ni mlango wako wa kidijitali wa kutembelea mbuga za wanyama, fukwe, na urithi wa kitamaduni wa nchi yetu ukiwa nyumbani kwako.
-<br><br><br> 
+<br><br><br>
 (<font color=\"#dadada\">
 Tanzania is home to an overwhelming number of tourist attractions that cannot be fully listed here. For a more immersive experience and to explore these wonders in detail, we highly recommend watching the Tanzania Safari Channel, available on DStv (292), Azam TV (401), Zuku (27), StarTimes Antenna (331), StarTimes Dish (542), Zmux (46) and Continental (7). It is your ultimate window to the country's breathtaking landscapes, wildlife, and rich cultural heritage.
 </font>)
@@ -1219,6 +1220,63 @@ Rectangle {
                 }
             }
 
+            // Search Bar for Card View
+            Rectangle {
+                id: cardSearchBg
+                anchors.bottom: parent.bottom
+                anchors.bottomMargin: 60
+                anchors.horizontalCenter: parent.horizontalCenter
+                width: parent.width * 0.6
+                height: cardSearchField.implicitHeight + 10
+                color: "#cc001413"
+                radius: 6
+                border.color: "cyan"
+                border.width: 1
+                z: 10
+
+                TextField {
+                    id: cardSearchField
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.left: parent.left
+                    anchors.right: cardClearBtn.left
+                    anchors.leftMargin: 8
+                    anchors.rightMargin: 4
+                    placeholderText: app.selectedLanguage === "sw" ? "Tafuta..." : "Search..."
+                    font.pointSize: Qt.platform.os === "android" ? 12 : 10
+                    color: "white"
+                    placeholderTextColor: "#888888"
+                    background: Rectangle { color: "transparent" }
+                    onTextChanged: {
+                        var s = text.toLowerCase();
+                        if (s === "") return;
+                        for (var i = 0; i < attractionModel.count; i++) {
+                            var item = attractionModel.get(i);
+                            var n = app.selectedLanguage === "en" ? item.name_en : item.name_sw;
+                            var d = app.selectedLanguage === "en" ? item.desc_en : item.desc_sw;
+                            if (n.toLowerCase().indexOf(s) !== -1 || d.toLowerCase().indexOf(s) !== -1) {
+                                app.currentAttractionIndex = i;
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                Text {
+                    id: cardClearBtn
+                    anchors.right: parent.right
+                    anchors.rightMargin: 8
+                    anchors.verticalCenter: parent.verticalCenter
+                    text: "✕"
+                    color: cardSearchField.text.length > 0 ? "cyan" : "#444444"
+                    font.pixelSize: 16
+                    font.bold: true
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: { cardSearchField.text = ""; }
+                    }
+                }
+            }
+
             // Navigation Arrows (Visual cues, actual logic in Keys.onPressed)
             Text {
                 text: "<"
@@ -1240,8 +1298,8 @@ Rectangle {
                 font.pixelSize: Qt.platform.os === "android"? 100 : 40
                 font.bold: true
                 color: "#b2ffffff"
-                
-                
+
+
                 anchors.bottom: parent.bottom
                 anchors.bottomMargin: 10
                 anchors.horizontalCenter: parent.horizontalCenter
@@ -1304,68 +1362,145 @@ Rectangle {
     Component {
         id: attractionViewComponent2
 
-        Rectangle{
+        Rectangle {
             anchors.fill: parent
             color: "transparent"
 
-            ListView{
+            ListView {
                 id: attractionList
                 anchors.fill: parent
                 anchors.margins: 2
                 model: attractionModel
                 clip: true
 
-                header: Rectangle{
+                // ── SCROLLABLE HEADER ─────────────────────────────────────
+                header: Rectangle {
                     width: parent.width
-                    height: header.height + flag.height
+                    height: listTitle.height + listFlag.height + searchBarBg.height + countText.height + 20
                     color: "white"
 
-MouseArea {
+                    MouseArea {
                         anchors.fill: parent
-                        onDoubleClicked: {
-                            contextMenu.doOpen(app.selectedLanguage);
-                        }
-                    }
-
-                    Component.onCompleted: {
-                        header.text =  app.selectedLanguage === "sw" ? "<font color=\"green\">Utalii wa Tanzania</font>" : "<font color=\"blue\">Tanzania Tourism</font>"
+                        onDoubleClicked: { contextMenu.doOpen(app.selectedLanguage); }
                     }
 
                     Text {
-                        id: header
+                        id: listTitle
                         anchors.top: parent.top
+                        anchors.topMargin: 4
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        text: app.selectedLanguage === "sw"
+                              ? "<font color=\"green\">Utalii wa Tanzania</font>"
+                              : "<font color=\"blue\">Tanzania Tourism</font>"
                         font.pointSize: Qt.platform.os === "android" ? 16 : 14
                         font.bold: true
                         wrapMode: Text.WordWrap
-                        anchors.horizontalCenter: parent.horizontalCenter
+                        textFormat: Text.RichText
                     }
 
-                    AnimatedImage{
-                        id: flag
+                    AnimatedImage {
+                        id: listFlag
                         source: "./tzflag.gif"
-                        anchors.top: header.bottom
+                        anchors.top: listTitle.bottom
                         anchors.horizontalCenter: parent.horizontalCenter
                     }
 
-                }
+                    Rectangle {
+                        id: searchBarBg
+                        anchors.top: listFlag.bottom
+                        anchors.topMargin: 6
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        width: parent.width * 0.92
+                        height: searchField.implicitHeight + 10
+                        color: "#1a2a2a"
+                        radius: 6
+                        border.color: "cyan"
+                        border.width: 1
 
-                delegate: Rectangle{
+                        TextField {
+                            id: searchField
+                            anchors.verticalCenter: parent.verticalCenter
+                            anchors.left: parent.left
+                            anchors.right: clearBtn.left
+                            anchors.leftMargin: 8
+                            anchors.rightMargin: 4
+                            placeholderText: app.selectedLanguage === "sw" ? "Tafuta..." : "Search..."
+                            font.pointSize: Qt.platform.os === "android" ? 13 : 11
+                            color: "white"
+                            placeholderTextColor: "#888888"
+                            background: Rectangle { color: "transparent" }
+                            onTextChanged: app.searchText = text.toLowerCase()
+                        }
+
+                        Text {
+                            id: clearBtn
+                            anchors.right: parent.right
+                            anchors.rightMargin: 8
+                            anchors.verticalCenter: parent.verticalCenter
+                            text: "✕"
+                            color: searchField.text.length > 0 ? "cyan" : "#555555"
+                            font.pixelSize: 18
+                            font.bold: true
+                            MouseArea {
+                                anchors.fill: parent
+                                onClicked: { searchField.text = ""; app.searchText = ""; }
+                            }
+                        }
+                    }
+
+                    Text {
+                        id: countText
+                        anchors.top: searchBarBg.bottom
+                        anchors.topMargin: 4
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        font.pointSize: Qt.platform.os === "android" ? 12 : 10
+                        font.bold: true
+                        color: foundCount > 0 ? "#006600" : "red"
+
+                        property int foundCount: {
+                            if (app.searchText === "") return attractionModel.count;
+                            var c = 0;
+                            for (var i = 0; i < attractionModel.count; i++) {
+                                var item = attractionModel.get(i);
+                                var n = app.selectedLanguage === "en" ? item.name_en : item.name_sw;
+                                var d = app.selectedLanguage === "en" ? item.desc_en : item.desc_sw;
+                                if (n.toLowerCase().indexOf(app.searchText) !== -1
+                                        || d.toLowerCase().indexOf(app.searchText) !== -1)
+                                    c++;
+                            }
+                            return c;
+                        }
+
+                        text: app.selectedLanguage === "sw"
+                              ? (app.searchText === "" ? "Vivutio: " + foundCount : "Vimepatikana: " + foundCount)
+                              : (app.searchText === "" ? "Attractions: " + foundCount : "Found: " + foundCount)
+                    }
+                } // end header
+
+                // ── DELEGATE ──────────────────────────────────────────────
+                delegate: Rectangle {
                     id: delegate
                     color: "transparent"
                     width: parent.width
-                    height:delegateTitle.height + delegateDesc.height + delegateImg.height
+                    property bool matchesSearch: {
+                        var s = app.searchText;
+                        if (s === "") return true;
+                        var n = app.selectedLanguage === "en" ? name_en : name_sw;
+                        var d = app.selectedLanguage === "en" ? desc_en : desc_sw;
+                        return n.toLowerCase().indexOf(s) !== -1 || d.toLowerCase().indexOf(s) !== -1;
+                    }
+                    height: matchesSearch ? (delegateTitle.height + delegateDesc.height + delegateImg.height) : 0
+                    visible: matchesSearch
+                    clip: true
                     anchors.topMargin: 2
 
                     property string name: ""
                     property string desc: ""
                     property string path: imageFile
 
-
-MouseArea {
+                    MouseArea {
                         anchors.fill: parent
-                        onDoubleClicked: {
-                            contextMenu.doOpen(app.selectedLanguage);
-                        }
+                        onDoubleClicked: { contextMenu.doOpen(app.selectedLanguage); }
                     }
 
                     Component.onCompleted: {
@@ -1374,10 +1509,10 @@ MouseArea {
                     }
 
                     Text {
-                        id:delegateTitle
+                        id: delegateTitle
                         width: parent.width
                         anchors.top: parent.top
-                        text: String(index + 1) + ": "+ delegate.name
+                        text: String(index + 1) + ": " + delegate.name
                         font.pointSize: Qt.platform.os === "android" ? 14 : 12
                         font.bold: true
                         font.underline: true
@@ -1388,7 +1523,7 @@ MouseArea {
                     }
 
                     Text {
-                        id:delegateDesc
+                        id: delegateDesc
                         width: parent.width
                         anchors.top: delegateTitle.bottom
                         text: delegate.desc
@@ -1410,39 +1545,41 @@ MouseArea {
                         fillMode: Image.PreserveAspectFit
                         anchors.horizontalCenter: parent.horizontalCenter
                     }
-
                 }
 
+                // ── FOOTER (back button, scrolls with list) ───────────────
                 footer: Button {
-                    id: backButton
-                    text: app.selectedLanguage === "en" ? "<- Go Back" : "<- Rudi Nyuma"
-                    anchors.topMargin: 4
-                    font.pointSize: Qt.platform.os === "android" ? 18 : 16
+                    id: backBtn
+                    width: parent.width * 0.6
+                    x: (parent.width - width) / 2
+                    text: app.selectedLanguage === "en" ? "← Go Back" : "← Rudi Nyuma"
+                    font.pointSize: Qt.platform.os === "android" ? 16 : 13
+                    font.bold: true
+                    topPadding: 8
+                    bottomPadding: 8
 
                     background: Rectangle {
-                        anchors.topMargin: 4
-                        implicitHeight: 40
-                        color: "transparent"
-                        radius: 5
+                        implicitHeight: 48
+                        color: app.selectedLanguage === "sw" ? "green" : "blue"
+                        radius: 6
                     }
 
                     contentItem: Text {
-                        anchors.topMargin: 4
                         text: parent.text
-                        color: "black"
-                        font.bold: true
+                        color: "white"
+                        font: parent.font
                         horizontalAlignment: Text.AlignHCenter
                         verticalAlignment: Text.AlignVCenter
                     }
 
                     onClicked: {
+                        app.searchText = "";
                         viewComponentLoader.sourceComponent = languageSelectionComponent;
                         app.selectedLanguage = "";
                     }
                 }
 
             }
-
         }
     }
 }
