@@ -1224,7 +1224,7 @@ Rectangle {
             Rectangle {
                 id: cardSearchBg
                 anchors.bottom: parent.bottom
-                anchors.bottomMargin: 60
+                anchors.bottomMargin: 120
                 anchors.horizontalCenter: parent.horizontalCenter
                 width: parent.width * 0.6
                 height: cardSearchField.implicitHeight + 10
@@ -1266,7 +1266,7 @@ Rectangle {
                     anchors.right: parent.right
                     anchors.rightMargin: 8
                     anchors.verticalCenter: parent.verticalCenter
-                    text: "✕"
+                    text: "X"
                     color: cardSearchField.text.length > 0 ? "cyan" : "#444444"
                     font.pixelSize: 16
                     font.bold: true
@@ -1437,7 +1437,7 @@ Rectangle {
                             anchors.right: parent.right
                             anchors.rightMargin: 8
                             anchors.verticalCenter: parent.verticalCenter
-                            text: "✕"
+                            text: "X"
                             color: searchField.text.length > 0 ? "cyan" : "#555555"
                             font.pixelSize: 18
                             font.bold: true
