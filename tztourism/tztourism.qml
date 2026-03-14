@@ -1387,6 +1387,7 @@ Rectangle {
                     Text {
                         id: listTitle
                         anchors.top: parent.top
+                        width: parent.width * 0.46
                         anchors.topMargin: 4
                         anchors.horizontalCenter: parent.horizontalCenter
                         text: app.selectedLanguage === "sw"
