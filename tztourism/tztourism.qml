@@ -16,104 +16,104 @@ Rectangle {
 
 
 
-function cleanParent(text)
-{
-    if (!text) return "";
-    return text.replace(/\s*\(.*?\)\s*/g, "").trim();
-}
-
-function isPrimaryResultsApp()
-{
-    return (typeof n3ctaApp !== "undefined");
-}
-
-function isSecondaryResultsApp()
-{
-    return (typeof loader !== "undefined");
-}
-
-function isInsideApp()
-{
-    let type = cleanParent(String(parent.parent.parent.parent));
-    if(isPrimaryResultsApp()){
-        return (type === "QQuickRootItem");
-    } else {
-        const index = type.indexOf("_");
-        return ((index !== -1) && (type.substr(0,index) === "SwipeView"));
+    function cleanParent(text)
+    {
+        if (!text) return "";
+        return text.replace(/\s*\(.*?\)\s*/g, "").trim();
     }
-}
 
-function isQMLDialogApp()
-{
-    const type = cleanParent(String(parent.parent.parent));
-    return (type === "QQuickRectangle");
-}
+    function isPrimaryResultsApp()
+    {
+        return (typeof n3ctaApp !== "undefined");
+    }
 
-function closeIfInsideApp()
-{
-    if(isInsideApp()){
+    function isSecondaryResultsApp()
+    {
+        return (typeof loader !== "undefined");
+    }
+
+    function isInsideApp()
+    {
+        let type = cleanParent(String(parent.parent.parent.parent));
         if(isPrimaryResultsApp()){
-            n3ctaApp.closeCustomPage();
-        }else if(isSecondaryResultsApp()){
-            loader.isMenuWindowVisible = true;
-            loader.isMainResultsWindowVisible = true;
-            loader.isFooterVisible = true;
-            if(typeof loader.mode !== "undefined"){
-                loader.mode = 2;
+            return (type === "QQuickRootItem");
+        } else {
+            const index = type.indexOf("_");
+            return ((index !== -1) && (type.substr(0,index) === "SwipeView"));
+        }
+    }
+
+    function isQMLDialogApp()
+    {
+        const type = cleanParent(String(parent.parent.parent));
+        return (type === "QQuickRectangle");
+    }
+
+    function closeIfInsideApp()
+    {
+        if(isInsideApp()){
+            if(isPrimaryResultsApp()){
+                n3ctaApp.closeCustomPage();
+            }else if(isSecondaryResultsApp()){
+                loader.isMenuWindowVisible = true;
+                loader.isMainResultsWindowVisible = true;
+                loader.isFooterVisible = true;
+                if(typeof loader.mode !== "undefined"){
+                    loader.mode = 2;
+                }
+                loader.closeCustomPage();
             }
-            loader.closeCustomPage();
         }
     }
-}
 
-function closeIfQMLDialogApp()
-{
-    if(isQMLDialogApp()){
-        if(isPrimaryResultsApp()){
-            n3ctaApp.closeQMLDialog();
-        }else if(isSecondaryResultsApp()){
-            nectaMainResultsPageDownloaderHtmlToXmlConveterAndSaver.closeQMLDialog();
-        }
-    }
-}
-
-function cmd(url)
-{
-    if(isPrimaryResultsApp()) {
-        n3ctaApp.onUrlVisited(url);
-    }else if(isSecondaryResultsApp()){
+    function closeIfQMLDialogApp()
+    {
         if(isQMLDialogApp()){
-            n3ctaQmlConnectionsPipe.onUrlVisited(url)
-        } else if(isInsideApp()){
-            loader.onUrlVisited(url);
+            if(isPrimaryResultsApp()){
+                n3ctaApp.closeQMLDialog();
+            }else if(isSecondaryResultsApp()){
+                nectaMainResultsPageDownloaderHtmlToXmlConveterAndSaver.closeQMLDialog();
+            }
         }
     }
-}
 
-function showToastMessage(msg)
-{
-    if(isPrimaryResultsApp()){
-        n3ctaApp.showToastMessage(msg);
-    }else if(isSecondaryResultsApp()){
-        nectaMainResultsPageDownloaderHtmlToXmlConveterAndSaver.showToastMessage(msg);
+    function cmd(url)
+    {
+        if(isPrimaryResultsApp()) {
+            n3ctaApp.onUrlVisited(url);
+        }else if(isSecondaryResultsApp()){
+            if(isQMLDialogApp()){
+                n3ctaQmlConnectionsPipe.onUrlVisited(url)
+            } else if(isInsideApp()){
+                loader.onUrlVisited(url);
+            }
+        }
     }
-}
 
-function ad()
-{
-    if(isPrimaryResultsApp()){
-        cmd("#showGoogleAd");
-    }else if(isSecondaryResultsApp()){
-        cmd("#showGoogleAd");
+    function showToastMessage(msg)
+    {
+        if(isPrimaryResultsApp()){
+            n3ctaApp.showToastMessage(msg);
+        }else if(isSecondaryResultsApp()){
+            nectaMainResultsPageDownloaderHtmlToXmlConveterAndSaver.showToastMessage(msg);
+        }
     }
-}
 
-function close()
-{
-    closeIfInsideApp();
-    closeIfQMLDialogApp();
-    ad();
-}
+    function ad()
+    {
+        if(isPrimaryResultsApp()){
+            cmd("#showGoogleAd");
+        }else if(isSecondaryResultsApp()){
+            cmd("#showGoogleAd");
+        }
+    }
+
+    function close()
+    {
+        closeIfInsideApp();
+        closeIfQMLDialogApp();
+        ad();
+    }
 
 
     ListModel {
@@ -279,13 +279,13 @@ function close()
         }
 
 
-ListElement {
-    name_en: "Kaporogwe Falls, Mbeya"
-    name_sw: "Maporomoko ya Kaporogwe, Mbeya"
-    imageFile: "./kaporogwe_falls.jpeg"
-    desc_en: "One of Mbeya's most beautiful waterfalls, hidden behind a massive basalt rock curtain with a natural cave behind the falling water."
-    desc_sw: "Moja ya maporomoko mazuri zaidi Mbeya, yakiwa yamefichwa nyuma ya ukuta wa mwamba na pango la asili lililopo ndani ya maji yanayoporomoka."
-}
+        ListElement {
+            name_en: "Kaporogwe Falls, Mbeya"
+            name_sw: "Maporomoko ya Kaporogwe, Mbeya"
+            imageFile: "./kaporogwe_falls.jpeg"
+            desc_en: "One of Mbeya's most beautiful waterfalls, hidden behind a massive basalt rock curtain with a natural cave behind the falling water."
+            desc_sw: "Moja ya maporomoko mazuri zaidi Mbeya, yakiwa yamefichwa nyuma ya ukuta wa mwamba na pango la asili lililopo ndani ya maji yanayoporomoka."
+        }
 
 
 
@@ -319,21 +319,21 @@ ListElement {
             desc_sw: "Shuhudia uzuri wa maporomoko ya Ndoro na Monjo kule Marangu. Jifunze utamaduni tajiri wa Wachagga na ufurahie utulivu wa hazina hizi zilizojificha."
         }
 
-ListElement {
-    name_en: "Choma Waterfalls, Morogoro"; name_sw: "Maporomoko ya Choma, Morogoro"
-    imageFile: "./choma_falls.jpg"
-    desc_en: "Located in the Uluguru Mountains, these falls offer a refreshing hike and a chance to experience the local Luguru culture."
-    desc_sw: "Yatapatikana katika milima ya Uluguru, maporomoko haya yanatoa fursa ya kupanda milima na kujifunza utamaduni wa Waluguru."
-}
+        ListElement {
+            name_en: "Choma Waterfalls, Morogoro"; name_sw: "Maporomoko ya Choma, Morogoro"
+            imageFile: "./choma_falls.jpg"
+            desc_en: "Located in the Uluguru Mountains, these falls offer a refreshing hike and a chance to experience the local Luguru culture."
+            desc_sw: "Yatapatikana katika milima ya Uluguru, maporomoko haya yanatoa fursa ya kupanda milima na kujifunza utamaduni wa Waluguru."
+        }
 
 
-ListElement {
-    name_en: "Tururu Waterfalls, Babati"
-    name_sw: "Maporomoko ya Tururu, Babati"
-    imageFile: "./tururu_waterfalls.jpeg"
-    desc_en: "Discover the hidden paradise of Babati! Tururu Waterfall offers a refreshing escape surrounded by lush vegetation and rocky landscapes. Perfect for hikers and nature lovers looking for a serene experience away from the crowds."
-    desc_sw: "Gundua paradiso iliyofichika kule Babati! Maporomoko ya Tururu yanatoa nafasi ya kipekee ya kupumzika huku ukiwa umezungukwa na uoto wa asili na mandhari ya kuvutia ya miamba. Ni mahali pazuri kwa wapenzi wa matembezi ya miguu na asili."
-}
+        ListElement {
+            name_en: "Tururu Waterfalls, Babati"
+            name_sw: "Maporomoko ya Tururu, Babati"
+            imageFile: "./tururu_waterfalls.jpeg"
+            desc_en: "Discover the hidden paradise of Babati! Tururu Waterfall offers a refreshing escape surrounded by lush vegetation and rocky landscapes. Perfect for hikers and nature lovers looking for a serene experience away from the crowds."
+            desc_sw: "Gundua paradiso iliyofichika kule Babati! Maporomoko ya Tururu yanatoa nafasi ya kipekee ya kupumzika huku ukiwa umezungukwa na uoto wa asili na mandhari ya kuvutia ya miamba. Ni mahali pazuri kwa wapenzi wa matembezi ya miguu na asili."
+        }
 
         ListElement {
             name_en: "Udzungwa Mountains National Park"; name_sw: "Hifadhi ya Taifa ya Milima ya Udzungwa"
@@ -364,24 +364,24 @@ ListElement {
         }
 
 
-ListElement {
-    name_en: "Bird Watching, Serengeti";
-name_sw: "Kushuhudia Ndege, Serengeti"
-    imageFile: "./serengeti_birds.jpg"
-    desc_en: "Serengeti is home to over 500 bird species, making it a paradise for bird lovers and photographers."
-    desc_sw: "Serengeti ina aina zaidi ya 500 za ndege, na kuifanya kuwa pepo kwa wapenzi wa ndege na wapiga picha."
-}
+        ListElement {
+            name_en: "Bird Watching, Serengeti";
+            name_sw: "Kushuhudia Ndege, Serengeti"
+            imageFile: "./serengeti_birds.jpg"
+            desc_en: "Serengeti is home to over 500 bird species, making it a paradise for bird lovers and photographers."
+            desc_sw: "Serengeti ina aina zaidi ya 500 za ndege, na kuifanya kuwa pepo kwa wapenzi wa ndege na wapiga picha."
+        }
 
 
         ListElement {
             name_en: "Pemba Island";
-name_sw: "Kisiwa cha Pemba"
+            name_sw: "Kisiwa cha Pemba"
             imageFile: "./Pemba-Island-2.jpg"
             desc_en: "Part of the Zanzibar Archipelago, known as the 'Green Island' for its lush vegetation, cloves, and diving spots."
             desc_sw: "Sehemu ya Visiwa vya Zanzibar, inayojulikana kama 'Kisiwa cha Kijani' kwa uoto wake mwingi, karafuu, na maeneo ya kupiga mbizi."
         }
 
-ListElement {
+        ListElement {
             name_en: "Mafia Island Marine Park, Pwani"
             name_sw: "Hifadhi ya Bahari ya Mafia, Pwani"
             imageFile: "./mafia_marine_park.jpg"
@@ -397,54 +397,54 @@ ListElement {
             desc_sw: "Hifadhi ya taifa ndogo kuliko zote Tanzania, inayopatikana kwenye kisiwa cha mawe ndani ya Ziwa Victoria. Ni eneo zuri kwa utalii wa kutembea na kuona ndege karibu na mjini."
         }
 
-ListElement {
-    name_en: "Mangrove Forests, Kilwa";
- name_sw: "Misitu ya Mikoko, Kilwa"
-    imageFile: "./kilwa_mangroves.jpg"
-    desc_en: "Explore the dense mangrove ecosystems along the Indian Ocean, crucial for marine life and coastal protection."
-    desc_sw: "Gundua mfumo wa ikolojia wa mikoko kando ya Bahari ya Hindi, ambayo ni muhimu kwa viumbe wa baharini na ulinzi wa pwani."
-}
+        ListElement {
+            name_en: "Mangrove Forests, Kilwa";
+            name_sw: "Misitu ya Mikoko, Kilwa"
+            imageFile: "./kilwa_mangroves.jpg"
+            desc_en: "Explore the dense mangrove ecosystems along the Indian Ocean, crucial for marine life and coastal protection."
+            desc_sw: "Gundua mfumo wa ikolojia wa mikoko kando ya Bahari ya Hindi, ambayo ni muhimu kwa viumbe wa baharini na ulinzi wa pwani."
+        }
 
-ListElement {
-    name_en: "Longuza Forest Plantation, Tanga"; name_sw: "Shamba la Miti Longuza, Tanga"
-    imageFile: "./longuza_forest.jpeg"
-    desc_en: "A lush, green escape in Tanga known for its massive teak trees, botanical diversity, and serene environment for nature walks."
-    desc_sw: "Pepo ya kijani mkoani Tanga inayojulikana kwa miti mikubwa ya msaji (Teak), aina nyingi za mimea, na mazingira tulivu kwa matembezi."
-}
+        ListElement {
+            name_en: "Longuza Forest Plantation, Tanga"; name_sw: "Shamba la Miti Longuza, Tanga"
+            imageFile: "./longuza_forest.jpeg"
+            desc_en: "A lush, green escape in Tanga known for its massive teak trees, botanical diversity, and serene environment for nature walks."
+            desc_sw: "Pepo ya kijani mkoani Tanga inayojulikana kwa miti mikubwa ya msaji (Teak), aina nyingi za mimea, na mazingira tulivu kwa matembezi."
+        }
 
-ListElement {
-    name_en: "Shamiani Island, Pemba";
- name_sw: "Kisiwa cha Shamiani, Pemba"
-    imageFile: "./shamiani_island.jpg"
-    desc_en: "A hidden gem in Pemba, Shamiani is famous for its white sandy beaches and the rare green sea turtles that nest along its shores."
-    desc_sw: "Tunzo iliyofichwa kule Pemba, Shamiani ni maarufu kwa fukwe za mchanga mweupe na kobe wa kijani adimu wanaotaga kando ya pwani yake."
-}
+        ListElement {
+            name_en: "Shamiani Island, Pemba";
+            name_sw: "Kisiwa cha Shamiani, Pemba"
+            imageFile: "./shamiani_island.jpg"
+            desc_en: "A hidden gem in Pemba, Shamiani is famous for its white sandy beaches and the rare green sea turtles that nest along its shores."
+            desc_sw: "Tunzo iliyofichwa kule Pemba, Shamiani ni maarufu kwa fukwe za mchanga mweupe na kobe wa kijani adimu wanaotaga kando ya pwani yake."
+        }
 
-ListElement {
-    name_en: "Amani Museum, Zanzibar";
- name_sw: "Makumbusho ya Amani, Zanzibar"
-    imageFile: "./amani_museum.jpg"
-    desc_en: "A historic site in Stone Town dedicated to showcasing the peace and heritage of the Zanzibar islands."
-    desc_sw: "Eneo la kihistoria ndani ya Mji Mkongwe linalojitolea kuonyesha amani na urithi wa visiwa vya Zanzibar."
-}
+        ListElement {
+            name_en: "Amani Museum, Zanzibar";
+            name_sw: "Makumbusho ya Amani, Zanzibar"
+            imageFile: "./amani_museum.jpg"
+            desc_en: "A historic site in Stone Town dedicated to showcasing the peace and heritage of the Zanzibar islands."
+            desc_sw: "Eneo la kihistoria ndani ya Mji Mkongwe linalojitolea kuonyesha amani na urithi wa visiwa vya Zanzibar."
+        }
 
-ListElement {
-    name_en: "National Museum, Dar es Salaam"; name_sw: "Makumbusho ya Taifa, Dar es Salaam"
-    imageFile: "./national_museum_dar.jpeg"
-    desc_en: "The heart of Tanzania's heritage, featuring the famous Zinjanthropus skull, traditional crafts, and the history of the struggle for independence."
-    desc_sw: "Kiini cha urithi wa Tanzania, kikiwa na fuvu maarufu la Zinjanthropus, kazi za mikono za asili, na historia ya harakati za uhuru."
-}
+        ListElement {
+            name_en: "National Museum, Dar es Salaam"; name_sw: "Makumbusho ya Taifa, Dar es Salaam"
+            imageFile: "./national_museum_dar.jpeg"
+            desc_en: "The heart of Tanzania's heritage, featuring the famous Zinjanthropus skull, traditional crafts, and the history of the struggle for independence."
+            desc_sw: "Kiini cha urithi wa Tanzania, kikiwa na fuvu maarufu la Zinjanthropus, kazi za mikono za asili, na historia ya harakati za uhuru."
+        }
 
-ListElement {
-    name_en: "Museum of Natural History, Zanzibar"; name_sw: "Makumbusho ya Viumbe, Zanzibar"
-    imageFile: "./zanzibar_nature_museum.jpg"
-    desc_en: "A fascinating collection showcasing the diverse fauna and flora of the Zanzibar Archipelago, from marine life to indigenous bird species."
-    desc_sw: "Mkusanyiko wa kuvutia unaoonyesha wanyama na mimea mbalimbali wa visiwa vya Zanzibar, kuanzia viumbe wa baharini hadi ndege wa asili."
-}
+        ListElement {
+            name_en: "Museum of Natural History, Zanzibar"; name_sw: "Makumbusho ya Viumbe, Zanzibar"
+            imageFile: "./zanzibar_nature_museum.jpg"
+            desc_en: "A fascinating collection showcasing the diverse fauna and flora of the Zanzibar Archipelago, from marine life to indigenous bird species."
+            desc_sw: "Mkusanyiko wa kuvutia unaoonyesha wanyama na mimea mbalimbali wa visiwa vya Zanzibar, kuanzia viumbe wa baharini hadi ndege wa asili."
+        }
 
 
 
-ListElement {
+        ListElement {
             name_en: "Lake Natron"; name_sw: "Ziwa Natron"
             imageFile: "./natron.jpg"
             desc_en: "A shallow, alkaline lake famous as a breeding ground for lesser flamingos, with dramatic landscapes."
@@ -454,38 +454,38 @@ ListElement {
 
         ListElement {
             name_en: "Bagamoyo";
-name_sw: "Bagamoyo"
+            name_sw: "Bagamoyo"
             imageFile: "./bagamoyo.jpg"
             desc_en: "A historic coastal town with a rich past as a former slave trade port, featuring colonial architecture and cultural sites."
             desc_sw: "Mji wa kihistoria wa pwani wenye historia tajiri kama bandari ya zamani ya biashara ya watumwa, yenye usanifu wa kikoloni na maeneo ya kitamaduni."
         }
 
-ListElement {
-    name_en: "Kilwa Kisiwani Ruins, Lindi"; name_sw: "Magofu ya Kilwa Kisiwani, Lindi"
-    imageFile: "./kilwa_ruins.jpg"
-    desc_en: "A UNESCO World Heritage site featuring the Great Mosque and the Palace of Husuni Kubwa."
-    desc_sw: "Eneo la Urithi wa Dunia la UNESCO lenye Msikiti Mkuu na Jumba la kifalme la Husuni Kubwa."
-}
+        ListElement {
+            name_en: "Kilwa Kisiwani Ruins, Lindi"; name_sw: "Magofu ya Kilwa Kisiwani, Lindi"
+            imageFile: "./kilwa_ruins.jpg"
+            desc_en: "A UNESCO World Heritage site featuring the Great Mosque and the Palace of Husuni Kubwa."
+            desc_sw: "Eneo la Urithi wa Dunia la UNESCO lenye Msikiti Mkuu na Jumba la kifalme la Husuni Kubwa."
+        }
 
 
-ListElement {
-    name_en: "Kuumbi Cave, Unguja";
- name_sw: "Pango la Kuumbi, Unguja"
-    imageFile: "./kuumbi_cave.jpeg"
-    desc_en: "A significant archaeological site in Zanzibar, this ancient limestone cave holds secrets of early human life dating back over 20,000 years."
-    desc_sw: "Eneo muhimu la kiakiolojia nchini Zanzibar, pango hili la kale la chokaa lina siri za maisha ya binadamu wa kale tangu miaka 20,000 iliyopita."
-}
+        ListElement {
+            name_en: "Kuumbi Cave, Unguja";
+            name_sw: "Pango la Kuumbi, Unguja"
+            imageFile: "./kuumbi_cave.jpeg"
+            desc_en: "A significant archaeological site in Zanzibar, this ancient limestone cave holds secrets of early human life dating back over 20,000 years."
+            desc_sw: "Eneo muhimu la kiakiolojia nchini Zanzibar, pango hili la kale la chokaa lina siri za maisha ya binadamu wa kale tangu miaka 20,000 iliyopita."
+        }
 
 
 
-ListElement {
-    name_en: "George Lilanga Art, Dar es Salaam"; name_sw: "Sanaa ya George Lilanga, Dar es Salaam"
-    imageFile: "./lilanga_art.jpg"
-    desc_en: "Celebrate the world-renowned 'Shetani' paintings and sculptures of George Lilanga, whose whimsical Makonde style influenced modern global art."
-    desc_sw: "Sherehekea michoro na vinyago vya 'Shetani' vya George Lilanga, ambaye mtindo wake wa Kimakonde uliathiri sanaa ya kisasa duniani."
-}
+        ListElement {
+            name_en: "George Lilanga Art, Dar es Salaam"; name_sw: "Sanaa ya George Lilanga, Dar es Salaam"
+            imageFile: "./lilanga_art.jpg"
+            desc_en: "Celebrate the world-renowned 'Shetani' paintings and sculptures of George Lilanga, whose whimsical Makonde style influenced modern global art."
+            desc_sw: "Sherehekea michoro na vinyago vya 'Shetani' vya George Lilanga, ambaye mtindo wake wa Kimakonde uliathiri sanaa ya kisasa duniani."
+        }
 
-ListElement {
+        ListElement {
             name_en: "Kondoa Rock Art Sites"; name_sw: "Michoro ya Mapangoni, Kondoa"
             imageFile: "./kondoa.jpg"
             desc_en: "Explore the UNESCO World Heritage site in Dodoma. Marvel at ancient rock paintings in Kondoa that tell stories of thousands of years of human history."
@@ -493,7 +493,7 @@ ListElement {
         }
 
 
-     ListElement {
+        ListElement {
             name_en: "Kolo Rock Paintings"; name_sw: "Michoro ya Miamba ya Kolo"
             imageFile: "./kolo_rock_paintings.jpg"
             desc_en: "Ancient rock art sites in Kondoa Irangi, offering insights into early human history and culture in Tanzania."
@@ -502,106 +502,106 @@ ListElement {
 
 
 
-ListElement {
-    name_en: "The German Boma, Bagamoyo";
-name_sw: "Boma la Mjerumani, Bagamoyo"
-    imageFile: "./bagamoyo_boma.jpg"
-    desc_en: "Built in 1895, this historic administrative building served as the headquarters for German East Africa, overlooking the Indian Ocean."
-    desc_sw: "Lilijengwa mwaka 1895, jengo hili la kihistoria lilikuwa makao makuu ya utawala wa Kijerumani Afrika Mashariki, likitazama Bahari ya Hindi."
-}
+        ListElement {
+            name_en: "The German Boma, Bagamoyo";
+            name_sw: "Boma la Mjerumani, Bagamoyo"
+            imageFile: "./bagamoyo_boma.jpg"
+            desc_en: "Built in 1895, this historic administrative building served as the headquarters for German East Africa, overlooking the Indian Ocean."
+            desc_sw: "Lilijengwa mwaka 1895, jengo hili la kihistoria lilikuwa makao makuu ya utawala wa Kijerumani Afrika Mashariki, likitazama Bahari ya Hindi."
+        }
 
-ListElement {
-    name_en: "Vikindu Nature Forest Reserve"; name_sw: "Hifadhi ya Mazingira Asilia Vikindu"
-    imageFile: "./vikindu_forest.jpeg"
-    desc_en: "A vital sanctuary for biodiversity, Vikindu protects rare indigenous trees and provides a peaceful habitat for forest-dwelling birds and monkeys."
-    desc_sw: "Hifadhi muhimu kwa viumbe hai, Vikindu inalinda miti ya asili adimu na kutoa makazi tulivu kwa ndege wa msituni na kima."
-}
+        ListElement {
+            name_en: "Vikindu Nature Forest Reserve"; name_sw: "Hifadhi ya Mazingira Asilia Vikindu"
+            imageFile: "./vikindu_forest.jpeg"
+            desc_en: "A vital sanctuary for biodiversity, Vikindu protects rare indigenous trees and provides a peaceful habitat for forest-dwelling birds and monkeys."
+            desc_sw: "Hifadhi muhimu kwa viumbe hai, Vikindu inalinda miti ya asili adimu na kutoa makazi tulivu kwa ndege wa msituni na kima."
+        }
 
-ListElement {
+        ListElement {
             name_en: "Arusha National Park"; name_sw: "Hifadhi ya Taifa ya Arusha"
             imageFile: "./arusha_np.jpg"
             desc_en: "Offers diverse landscapes including Mount Meru, Momella Lakes, and Ngurdoto Crater."
             desc_sw: "Inatoa mandhari mbalimbali ikiwa ni pamoja na Mlima Meru, Maziwa ya Momella, na Kreta ya Ngurdoto."
         }
 
-ListElement {
-    name_en: "Kawetile View Point, Mbeya"; name_sw: "Eneo la Utazamaji la Kawetile, Mbeya"
-    imageFile: "./kawetile_view.jpeg"
-    desc_en: "Perched high in the Southern Highlands, Kawetile offers a breathtaking panoramic view of Mbeya city and the rolling green hills that define the region."
-    desc_sw: "Likiwa juu kabisa katika nyanda za juu kusini, Kawetile inatoa mandhari ya kipekee ya mji wa Mbeya na vilima vya kijani vinavyopamba mkoa huo."
-}
+        ListElement {
+            name_en: "Kawetile View Point, Mbeya"; name_sw: "Eneo la Utazamaji la Kawetile, Mbeya"
+            imageFile: "./kawetile_view.jpeg"
+            desc_en: "Perched high in the Southern Highlands, Kawetile offers a breathtaking panoramic view of Mbeya city and the rolling green hills that define the region."
+            desc_sw: "Likiwa juu kabisa katika nyanda za juu kusini, Kawetile inatoa mandhari ya kipekee ya mji wa Mbeya na vilima vya kijani vinavyopamba mkoa huo."
+        }
 
 
-ListElement {
-    name_en: "Lukwika-Lumesule Reserve, Nanyumbu"; name_sw: "Pori la Akiba Lukwika-Lumesule, Nanyumbu"
-    imageFile: "./Lukwika-Lumesule.jpg"
-    desc_en: "A wild frontier in Mtwara featuring Miombo woodlands, the Ruvuma River, and historic caves used by refugees during the Mozambican War. Home to hippos, crocodiles, and antelopes."
-    desc_sw: "Pori la ajabu mkoani Mtwara lenye misitu ya Miombo, Mto Ruvuma, na mapango ya kihistoria yaliyotumiwa na wakimbizi wa Msumbiji. Kuna viboko, mamba, na swala."
-}
+        ListElement {
+            name_en: "Lukwika-Lumesule Reserve, Nanyumbu"; name_sw: "Pori la Akiba Lukwika-Lumesule, Nanyumbu"
+            imageFile: "./Lukwika-Lumesule.jpg"
+            desc_en: "A wild frontier in Mtwara featuring Miombo woodlands, the Ruvuma River, and historic caves used by refugees during the Mozambican War. Home to hippos, crocodiles, and antelopes."
+            desc_sw: "Pori la ajabu mkoani Mtwara lenye misitu ya Miombo, Mto Ruvuma, na mapango ya kihistoria yaliyotumiwa na wakimbizi wa Msumbiji. Kuna viboko, mamba, na swala."
+        }
 
 
-ListElement {
-    name_en: "The Culture of Kanga, Zanzibar"; name_sw: "Utamaduni wa Kanga, Zanzibar"
-    imageFile: "./zanzibar_kanga.jpg"
-    desc_en: "More than just a garment, the Kanga is a symbol of Swahili identity. In Zanzibar, these colorful fabrics are famous for their 'Majina' (proverbs) printed at the bottom, used to communicate subtle messages within the community."
-    desc_sw: "Zaidi ya vazi, Kanga ni alama ya utambulisho wa Mswahili. Kule Zanzibar, vitambaa hivi vya rangi hupambwa na 'Majina' (methali) chini yake, ambavyo hutumika kufikisha ujumbe mahususi katika jamii."
-}
+        ListElement {
+            name_en: "The Culture of Kanga, Zanzibar"; name_sw: "Utamaduni wa Kanga, Zanzibar"
+            imageFile: "./zanzibar_kanga.jpg"
+            desc_en: "More than just a garment, the Kanga is a symbol of Swahili identity. In Zanzibar, these colorful fabrics are famous for their 'Majina' (proverbs) printed at the bottom, used to communicate subtle messages within the community."
+            desc_sw: "Zaidi ya vazi, Kanga ni alama ya utambulisho wa Mswahili. Kule Zanzibar, vitambaa hivi vya rangi hupambwa na 'Majina' (methali) chini yake, ambavyo hutumika kufikisha ujumbe mahususi katika jamii."
+        }
 
-ListElement {
-    name_en: "Maasai & Kanga Fashion, Iringa"; name_sw: "Ushonaji na Ubunifu, Iringa"
-    imageFile: "./iringa_fashion_crafts.jpeg"
-    desc_en: "Iringa has become a hub for creative fusion, where artisans blend traditional Maasai 'Shukas' and Kanga fabrics to sew modern outfits and stylish handbags. This craftsmanship preserves heritage while empowering local women."
-    desc_sw: "Mkoa wa Iringa umekuwa kitovu cha ubunifu, ambapo mafundi huunganisha Mashuka ya Kimasai na vitambaa vya Kanga kushona mavazi ya kisasa na mikoba ya kijanja. Ufundi huu unalinda urithi wetu na kuziinua akina mama."
-}
+        ListElement {
+            name_en: "Maasai & Kanga Fashion, Iringa"; name_sw: "Ushonaji na Ubunifu, Iringa"
+            imageFile: "./iringa_fashion_crafts.jpeg"
+            desc_en: "Iringa has become a hub for creative fusion, where artisans blend traditional Maasai 'Shukas' and Kanga fabrics to sew modern outfits and stylish handbags. This craftsmanship preserves heritage while empowering local women."
+            desc_sw: "Mkoa wa Iringa umekuwa kitovu cha ubunifu, ambapo mafundi huunganisha Mashuka ya Kimasai na vitambaa vya Kanga kushona mavazi ya kisasa na mikoba ya kijanja. Ufundi huu unalinda urithi wetu na kuziinua akina mama."
+        }
 
-ListElement {
+        ListElement {
             name_en: "Matema Beach, Lake Nyasa"; name_sw: "Ufukwe wa Matema, Ziwa Nyasa"
             imageFile: "./matema.jpeg"
             desc_en: "Relax at Matema Beach in Mbeya, where the clear waters of Lake Nyasa meet the majestic Livingstone Mountains. Perfect for swimming and mountain hiking!"
             desc_sw: "Pumzika kwenye ufukwe wa Matema, Mbeya, ambapo maji safi ya Ziwa Nyasa hukutana na Milima ya Livingstone. Ni mahali safi kwa kuogelea na kupanda milima!"
         }
 
-ListElement {
-    name_en: "Deep Sea Fishing, Zanzibar & Mafia"; name_sw: "Utalii wa Kuvua Samaki, Zanzibar na Mafia"
-    imageFile: "./fishing_tanzania.png"
-    desc_en: "Experience the thrill of big-game fishing in the turquoise waters of the Indian Ocean. Catch giant Marlin, Tuna, and Kingfish while enjoying the vibrant coastal culture and warm Tanzanian hospitality."
-    desc_sw: "Jionee msisimko wa kuvua samaki wakubwa katika maji ya rangi ya kimalavidavi ya Bahari ya Hindi. Nasa samaki kama Sululu (Marlin), Jodari, na Nguru huku ukifurahia utamaduni wa pwani na ukarimu wa Kitanzania."
-}
+        ListElement {
+            name_en: "Deep Sea Fishing, Zanzibar & Mafia"; name_sw: "Utalii wa Kuvua Samaki, Zanzibar na Mafia"
+            imageFile: "./fishing_tanzania.png"
+            desc_en: "Experience the thrill of big-game fishing in the turquoise waters of the Indian Ocean. Catch giant Marlin, Tuna, and Kingfish while enjoying the vibrant coastal culture and warm Tanzanian hospitality."
+            desc_sw: "Jionee msisimko wa kuvua samaki wakubwa katika maji ya rangi ya kimalavidavi ya Bahari ya Hindi. Nasa samaki kama Sululu (Marlin), Jodari, na Nguru huku ukifurahia utamaduni wa pwani na ukarimu wa Kitanzania."
+        }
 
 
-ListElement {
-    name_en: "The Taste of Tanzania: Dagaa"; name_sw: "Ladha ya Nyumbani: Dagaa"
-    imageFile: "./dagaa_wa_tanzania.jpeg"
-    desc_en: "A beloved Tanzanian delicacy! Whether from Lake Victoria or the Indian Ocean, these small, nutrient-rich fish are often sautéed with onions, tomatoes, and spices, served best with hot Ugali and traditional greens."
-    desc_sw: "Mlo pendwa wa Kitanzania! Iwe ni dagaa wa Ziwa Victoria au wa Bahari ya Hindi, samaki hawa wadogo wenye virutubisho vingi hupikwa kwa nyanya na viungo, na huliwa vyema zaidi na Ugali wa moto na mboga za majani."
-}
+        ListElement {
+            name_en: "The Taste of Tanzania: Dagaa"; name_sw: "Ladha ya Nyumbani: Dagaa"
+            imageFile: "./dagaa_wa_tanzania.jpeg"
+            desc_en: "A beloved Tanzanian delicacy! Whether from Lake Victoria or the Indian Ocean, these small, nutrient-rich fish are often sautéed with onions, tomatoes, and spices, served best with hot Ugali and traditional greens."
+            desc_sw: "Mlo pendwa wa Kitanzania! Iwe ni dagaa wa Ziwa Victoria au wa Bahari ya Hindi, samaki hawa wadogo wenye virutubisho vingi hupikwa kwa nyanya na viungo, na huliwa vyema zaidi na Ugali wa moto na mboga za majani."
+        }
 
 
-ListElement {
-    name_en: "Hot Air Balloon Safari, Serengeti"; name_sw: "Utalii wa Puto, Serengeti"
-    imageFile: "./serengeti_balloon.jpeg"
-    desc_en: "Experience a breathtaking bird's-eye view of the Serengeti plains at sunrise, floating above the Great Migration."
-    desc_sw: "Shuhudia mandhari ya nyanda za Serengeti kutokea juu wakati wa macheo, ukielea juu ya msafara wa nyumbu."
-}
+        ListElement {
+            name_en: "Hot Air Balloon Safari, Serengeti"; name_sw: "Utalii wa Puto, Serengeti"
+            imageFile: "./serengeti_balloon.jpeg"
+            desc_en: "Experience a breathtaking bird's-eye view of the Serengeti plains at sunrise, floating above the Great Migration."
+            desc_sw: "Shuhudia mandhari ya nyanda za Serengeti kutokea juu wakati wa macheo, ukielea juu ya msafara wa nyumbu."
+        }
 
 
-ListElement {
-    name_en: "St. Joseph's Cathedral, Dar es Salaam";
- name_sw: "Kanisa la Mtakatifu Yosefu, Dar es Salaam"
-    imageFile: "./st_joseph_cathedral.jpg"
-    desc_en: "A stunning Roman Catholic cathedral built by Germans between 1897 and 1902. It is famous for its Gothic architecture and beautiful stained-glass windows."
-    desc_sw: "Kanisa kuu la Katoliki lililojengwa na Wajerumani kati ya mwaka 1897 na 1902. Ni maarufu kwa usanifu wa kigothiki na madirisha ya vioo vya rangi ya kuvutia."
-}
+        ListElement {
+            name_en: "St. Joseph's Cathedral, Dar es Salaam";
+            name_sw: "Kanisa la Mtakatifu Yosefu, Dar es Salaam"
+            imageFile: "./st_joseph_cathedral.jpg"
+            desc_en: "A stunning Roman Catholic cathedral built by Germans between 1897 and 1902. It is famous for its Gothic architecture and beautiful stained-glass windows."
+            desc_sw: "Kanisa kuu la Katoliki lililojengwa na Wajerumani kati ya mwaka 1897 na 1902. Ni maarufu kwa usanifu wa kigothiki na madirisha ya vioo vya rangi ya kuvutia."
+        }
 
-ListElement {
-    name_en: "Christ Church Anglican Cathedral, Zanzibar";
- name_sw: "Kanisa la Anglikana la Christ Church, Zanzibar"
-    imageFile: "./zanzibar_anglican_cathedral.jpg"
-    desc_en: "Built on the site of the former slave market in Stone Town, this cathedral stands as a symbol of the end of slavery in East Africa."
-    desc_sw: "Limejengwa katika eneo lililokuwa soko la watumwa Mji Mkongwe, kanisa hili linasimama kama alama ya mwisho wa utumwa katika Afrika Mashariki."
-}
+        ListElement {
+            name_en: "Christ Church Anglican Cathedral, Zanzibar";
+            name_sw: "Kanisa la Anglikana la Christ Church, Zanzibar"
+            imageFile: "./zanzibar_anglican_cathedral.jpg"
+            desc_en: "Built on the site of the former slave market in Stone Town, this cathedral stands as a symbol of the end of slavery in East Africa."
+            desc_sw: "Limejengwa katika eneo lililokuwa soko la watumwa Mji Mkongwe, kanisa hili linasimama kama alama ya mwisho wa utumwa katika Afrika Mashariki."
+        }
 
-ListElement {
+        ListElement {
             name_en: "Livingstone House, Kwihara"; name_sw: "Nyumba ya Livingstone, Kwihara"
             imageFile: "./livingstones-tabora.jpg"
             desc_en: "Step back in time in Tabora at the Kwihara Museum. Visit the historic home of David Livingstone and learn about Central Africa's ancient trade routes."
@@ -616,7 +616,7 @@ ListElement {
         }
 
 
-ListElement {
+        ListElement {
             name_en: "Mayunga Statue"
             name_sw: "Sanamu ya Mayunga"
             imageFile: "./mayunga.jpeg"
@@ -795,11 +795,11 @@ ListElement {
             close();
             app.selectedLanguage = modeSelectionDialog.lag;
 
-if(app.selectedLanguage === "sw"){
-   app.showToastMessage("Bonyeza mara mbili -> Kurudi nyuma");
-} else {
-   app.showToastMessage("Double click -> To go back");
-}
+            if(app.selectedLanguage === "sw"){
+                app.showToastMessage("Bonyeza mara mbili -> Kurudi nyuma");
+            } else {
+                app.showToastMessage("Double click -> To go back");
+            }
 
         }
 
@@ -808,87 +808,87 @@ if(app.selectedLanguage === "sw"){
 
 
 
-Dialog {
-    id: contextMenu
-    property real dialogWidth: app.width * 0.6
-    property string frontPageBtnText
-    property string closeAppBtnText
-    property color frontPageBtnColor: "blue"
+    Dialog {
+        id: contextMenu
+        property real dialogWidth: app.width * 0.6
+        property string frontPageBtnText
+        property string closeAppBtnText
+        property color frontPageBtnColor: "blue"
 
-    contentItem: Rectangle {
-        color: "#001413"
-        border.color: "cyan"
-        border.width: 1
-        implicitWidth: modeSelectionDialog.dialogWidth
-        implicitHeight: frontPageBtn.height + frontPageBtn.anchors.topMargin + closeAppBtn.height + closeAppBtn.anchors.topMargin + closeAppBtn.anchors.bottomMargin;
+        contentItem: Rectangle {
+            color: "#001413"
+            border.color: "cyan"
+            border.width: 1
+            implicitWidth: modeSelectionDialog.dialogWidth
+            implicitHeight: frontPageBtn.height + frontPageBtn.anchors.topMargin + closeAppBtn.height + closeAppBtn.anchors.topMargin + closeAppBtn.anchors.bottomMargin;
 
-        Button {
-            id: frontPageBtn
-            anchors.top: parent.top
-            anchors.topMargin: 8
-            anchors.horizontalCenter: parent.horizontalCenter
-            text: contextMenu.frontPageBtnText
-            font.pointSize: Qt.platform.os === "android" ? 14 : 12
-            background: Rectangle {
-                implicitWidth: contextMenu.dialogWidth * 0.8
-                implicitHeight: 40
-                color: contextMenu.frontPageBtnColor
-                radius: 5
+            Button {
+                id: frontPageBtn
+                anchors.top: parent.top
+                anchors.topMargin: 8
+                anchors.horizontalCenter: parent.horizontalCenter
+                text: contextMenu.frontPageBtnText
+                font.pointSize: Qt.platform.os === "android" ? 14 : 12
+                background: Rectangle {
+                    implicitWidth: contextMenu.dialogWidth * 0.8
+                    implicitHeight: 40
+                    color: contextMenu.frontPageBtnColor
+                    radius: 5
+                }
+
+                contentItem: Text {
+                    text: parent.text
+                    color: "white"
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                }
+
+                onClicked: {
+                    viewComponentLoader.sourceComponent = languageSelectionComponent;
+                    app.selectedLanguage = "";
+                    contextMenu.close();
+                }
+
             }
 
-            contentItem: Text {
-                text: parent.text
-                color: "white"
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
-            }
 
-            onClicked: {
-                viewComponentLoader.sourceComponent = languageSelectionComponent;
-                app.selectedLanguage = "";
-                contextMenu.close();
-            }
+            Button {
+                id: closeAppBtn
+                anchors.top: frontPageBtn.bottom
+                anchors.topMargin: 12
+                anchors.bottomMargin: 18
+                anchors.horizontalCenter: parent.horizontalCenter
+                text: contextMenu.closeAppBtnText
+                font.pointSize: Qt.platform.os === "android" ? 14 : 12
 
+                background: Rectangle {
+                    implicitWidth: contextMenu.dialogWidth * 0.8
+                    implicitHeight: 40
+                    color: "red"
+                    radius: 5
+                }
+
+                contentItem: Text {
+                    text: parent.text
+                    color: "white"
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                }
+
+                onClicked: {
+                    contextMenu.close();
+                }
+            }
         }
 
-
-        Button {
-            id: closeAppBtn
-            anchors.top: frontPageBtn.bottom
-            anchors.topMargin: 12
-            anchors.bottomMargin: 18
-            anchors.horizontalCenter: parent.horizontalCenter
-            text: contextMenu.closeAppBtnText
-            font.pointSize: Qt.platform.os === "android" ? 14 : 12
-
-            background: Rectangle {
-                implicitWidth: contextMenu.dialogWidth * 0.8
-                implicitHeight: 40
-                color: "red"
-                radius: 5
-            }
-
-            contentItem: Text {
-                text: parent.text
-                color: "white"
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
-            }
-
-            onClicked: {
-                contextMenu.close();
-            }
+        function doOpen(lag){
+            contextMenu.frontPageBtnColor = lag === "sw" ? "green" : "blue";
+            contextMenu.frontPageBtnText = lag === "sw" ? "Rudi Nyuma" : "Go Back";
+            contextMenu.closeAppBtnText = lag === "sw" ? "Funga" : "Close";
+            open();
         }
-    }
 
-    function doOpen(lag){
-        contextMenu.frontPageBtnColor = lag === "sw" ? "green" : "blue";
-        contextMenu.frontPageBtnText = lag === "sw" ? "Rudi Nyuma" : "Go Back";
-        contextMenu.closeAppBtnText = lag === "sw" ? "Funga" : "Close";
-        open();
     }
-
-}
 
 
 
@@ -896,244 +896,422 @@ Dialog {
     Component {
         id: languageSelectionComponent
 
-        Flickable {
+        Item {
             anchors.fill: parent
-            contentWidth: frontPageColumn.width
-            contentHeight: frontPageColumn.height
 
-            Rectangle { // Background
+            // ── Scrollable content ─────────────────────────────────────
+            Flickable {
                 anchors.fill: parent
-                color: "transparent"
-            }
+                contentWidth: width
+                contentHeight: pageCol.height
+                clip: true
 
-            ColumnLayout {
-                id: frontPageColumn
-                width: app.width
-                spacing: 10
-
-
-                Rectangle{
-                    width: parent.width
-                    height: header.height + flag.height
-                    color: "white"
-                    Layout.alignment: Qt.AlignHCenter
-                    Layout.fillWidth: true
-
-                    Text {
-                        id: header
-                        text: "<font color=\"green\">Utalii wa Tanzania</font> (<font color=\"blue\">Tanzania Tourism</font>)"
-                        anchors.top: parent.top
-                        font.pointSize: Qt.platform.os === "android" ? 16 : 14
-                        font.bold: true
-                        // font.underline: true
-                        wrapMode: Text.WordWrap
-                        anchors.horizontalCenter: parent.horizontalCenter
-                    }
-
-                    AnimatedImage{
-                        id: flag
-                        source: "./tzflag.gif"
-                        anchors.top: header.bottom
-                        anchors.horizontalCenter: parent.horizontalCenter
-                    }
-
-                }
-
-                Image {
-                    source: "./TZmap.png"
-                    Layout.preferredWidth: app.width * 0.8
-                    Layout.alignment: Qt.AlignHCenter
-
-                }
-
-
-                Text {
-                    text: "Kusafiri ni elimu. Tembelea hifadhi za Tanzania, jifunze thamani ya mazingira ya Tanzania, na uwe balozi wa uzuri wa Tanzania.<br><br>(<font color=\"#dadada\"> Travel is a form of learning. Explore Tanzania's national parks, discover the value of our environment, and become an ambassador for the beauty of Tanzania. </font>)"
-
-                    font.pointSize: Qt.platform.os === "android" ? 13 : 11
-                    font.bold: true
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
-                    color: "white"
-                    wrapMode: Text.WordWrap
-                    elide: Text.ElideRight
-                    textFormat: Text.RichText
-
-                }
-
-
-                Image {
-                    id: imgNo1
-                    source: "./wanyama-tz-3.png"
+                Column {
+                    id: pageCol
                     width: app.width
-                    height: 320
-                    Layout.alignment: Qt.AlignHCenter
-                }
+                    spacing: 0
 
-                Image {
-                    source: "wanyama-tz-3-b.png"
-                    width: imgNo1.width
-                    height: imgNo1.height
-                    Layout.alignment: Qt.AlignHCenter
-                }
+                    // ══ HERO SECTION ══════════════════════════════════════
+                    Item {
+                        width: app.width
+                        height: app.height * 0.42
 
+                        // Hero background image
+                        AnimatedImage {
+                            anchors.fill: parent
+                            source: "./tzflag.gif"
+                            fillMode: Image.PreserveAspectCrop
+                        }
 
-                Text {
-                    text: "Idadi ya vivutio vilivyoorodheshwa (Number of listed attractions) : <font color=\"white\">"+ attractionModel.count + "</font>"
-                    font.pointSize: Qt.platform.os === "android" ? 13 : 11
-                    Layout.alignment: Qt.AlignHCenter
-                    wrapMode: Text.WordWrap
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
-                    textFormat: Text.RichText
-                    font.bold: true
-                    color: "#dadada"
-                }
+                        // Dark gradient over hero
+                        Rectangle {
+                            anchors.fill: parent
+                            gradient: Gradient {
+                                GradientStop { position: 0.0; color: "#88000000" }
+                                GradientStop { position: 0.6; color: "#44000000" }
+                                GradientStop { position: 1.0; color: "#dd001413" }
+                            }
+                        }
 
-                Button {
-                    text: "Furahia upekee wa Tanzania"
-                    font.pointSize: Qt.platform.os === "android" ? 14 : 12
-                    Layout.preferredWidth: app.width * 0.8
-                    Layout.preferredHeight: 68
-                    Layout.alignment: Qt.AlignHCenter
+                        // Hero text
+                        Column {
+                            anchors.bottom: parent.bottom
+                            anchors.bottomMargin: 20
+                            anchors.left: parent.left
+                            anchors.leftMargin: 16
+                            anchors.right: parent.right
+                            anchors.rightMargin: 16
+                            spacing: 6
 
-                    background: Rectangle {
-                        implicitHeight: 40
-                        color: "green"
-                        radius: 5
-                    }
-
-                    contentItem: Text {
-font.pointSize: Qt.platform.os === "android" ? 13 : 11
-                        text: parent.text
-                        color: "white"
-                        horizontalAlignment: Text.AlignHCenter
-                        verticalAlignment: Text.AlignVCenter
-                    }
-
-                    onClicked: {
-                        modeSelectionDialog.doOpen("sw","green");
-                    }
-
-                }
-
-
-                Button {
-                    text: "Experience the uniqueness of Tanzania"
-                    font.pointSize: Qt.platform.os === "android" ? 14 : 12
-                    Layout.preferredWidth: app.width * 0.8
-                    Layout.preferredHeight: 68
-                    Layout.alignment: Qt.AlignHCenter
-
-                    background: Rectangle {
-                        implicitHeight: 40
-                        color: "blue"
-                        radius: 5
-                    }
-
-                    contentItem: Text {
-font.pointSize: Qt.platform.os === "android" ? 13 : 11
-                        text: parent.text
-                        color: "white"
-                        horizontalAlignment: Text.AlignHCenter
-                        verticalAlignment: Text.AlignVCenter
-                    }
-
-                    onClicked: {
-                        modeSelectionDialog.doOpen("en","blue");
-                    }
-                }
-
-
-
-                Rectangle {
-                    width: app.width
-                    height: 1
-                    color: "#dadada"
-                }
-
-
-
-                Text {
-                    text: "Tanzania imebarikiwa kuwa na vivutio vingi vya utalii ambavyo ni vigumu kuvitaja vyote hapa. Ili kuvifahamu na kuvishuhudia kwa undani zaidi, tunakushauri kufuatilia Tanzania Safari Channel inayopatikana kupitia DStv (292), Azam TV (401), Zuku (27), StarTimes Antenna (331), StarTimes Dish (542), Zmux (46) na Continental (7). Huu ni mlango wako wa kidijitali wa kutembelea mbuga za wanyama, fukwe, na urithi wa kitamaduni wa nchi yetu ukiwa nyumbani kwako.
-<br><br><br>
-(<font color=\"#dadada\">
-Tanzania is home to an overwhelming number of tourist attractions that cannot be fully listed here. For a more immersive experience and to explore these wonders in detail, we highly recommend watching the Tanzania Safari Channel, available on DStv (292), Azam TV (401), Zuku (27), StarTimes Antenna (331), StarTimes Dish (542), Zmux (46) and Continental (7). It is your ultimate window to the country's breathtaking landscapes, wildlife, and rich cultural heritage.
-</font>)
-<br><br>
-
- "
-                    font.pointSize: Qt.platform.os === "android" ? 13 : 11
-                    font.bold: true
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
-                    color: "white"
-                    wrapMode: Text.WordWrap
-                    elide: Text.ElideRight
-                    textFormat: Text.RichText
-
-                    MouseArea {
-                        anchors.fill: parent
-                        onClicked: {
-return;
-                            if(typeof n3ctaApp !== "undefined"){
-                                n3ctaApp.pasteToClipboard("8647491");
-                                n3ctaApp.showToastMessage("Namba ya changisha imenakiliwa.");
-                            }else if(typeof loader !== "undefined"){
-                                loader.pasteToClipboard("8647491");
-                                loader.showToastMessage("Changisha number copied.");
+                            Text {
+                                text: "🌍 Tanzania Tourism"
+                                font.pointSize: Qt.platform.os === "android" ? 22 : 18
+                                font.bold: true
+                                color: "white"
                             }
 
+                            Text {
+                                text: "Utalii wa Tanzania"
+                                font.pointSize: Qt.platform.os === "android" ? 15 : 12
+                                color: "cyan"
+                                font.bold: true
+                            }
+
+                            // Cyan underline accent
+                            Rectangle {
+                                width: 60
+                                height: 3
+                                radius: 2
+                                color: "cyan"
+                            }
                         }
                     }
 
-                }
+                    // ══ STATS BAR ══════════════════════════════════════════
+                    Rectangle {
+                        width: app.width
+                        height: Qt.platform.os === "android" ? 56 : 42
+                        color: "#001413"
 
+                        Row {
+                            anchors.centerIn: parent
+                            spacing: 0
 
+                            // Attractions count
+                            Column {
+                                width: app.width * 0.5
+                                spacing: 2
+                                Text {
+                                    anchors.horizontalCenter: parent.horizontalCenter
+                                    text: attractionModel.count + "+"
+                                    font.pointSize: Qt.platform.os === "android" ? 16 : 13
+                                    font.bold: true
+                                    color: "cyan"
+                                }
+                                Text {
+                                    anchors.horizontalCenter: parent.horizontalCenter
+                                    text: "Vivutio · Attractions"
+                                    font.pointSize: Qt.platform.os === "android" ? 10 : 8
+                                    color: "#aaaaaa"
+                                }
+                            }
 
-Button {
-                    text: "Funga (Close)"
-                    font.pointSize: Qt.platform.os === "android" ? 12 : 10
-                    Layout.preferredWidth: app.width * 0.4
-                    Layout.preferredHeight: 60
-                    Layout.alignment: Qt.AlignHCenter
+                            // Divider
+                            Rectangle {
+                                width: 1
+                                height: Qt.platform.os === "android" ? 36 : 28
+                                color: "#33ffffff"
+                                anchors.verticalCenter: parent.verticalCenter
+                            }
 
-                    background: Rectangle {
-
-                        implicitHeight: 40
-                        color: "red"
-                        radius: 5
+                            // Tagline
+                            Column {
+                                width: app.width * 0.5
+                                spacing: 2
+                                Text {
+                                    anchors.horizontalCenter: parent.horizontalCenter
+                                    text: "🏔 🦁 🌊"
+                                    font.pointSize: Qt.platform.os === "android" ? 14 : 11
+                                }
+                                Text {
+                                    anchors.horizontalCenter: parent.horizontalCenter
+                                    text: "Parks · Culture · Coast"
+                                    font.pointSize: Qt.platform.os === "android" ? 10 : 8
+                                    color: "#aaaaaa"
+                                }
+                            }
+                        }
                     }
 
-                    contentItem: Text {
-font.pointSize: Qt.platform.os === "android" ? 13 : 11
-                        text: parent.text
-                        color: "white"
-                        horizontalAlignment: Text.AlignHCenter
-                        verticalAlignment: Text.AlignVCenter
+                    // ══ TAGLINE CARD ═══════════════════════════════════════
+                    Rectangle {
+                        width: app.width
+                        height: taglineText.implicitHeight + 28
+                        color: "#0d1f1e"
+
+                        Rectangle {
+                            anchors.left: parent.left
+                            anchors.leftMargin: 16
+                            anchors.verticalCenter: parent.verticalCenter
+                            width: 4
+                            height: parent.height - 20
+                            radius: 2
+                            color: "cyan"
+                        }
+
+                        Text {
+                            id: taglineText
+                            anchors.verticalCenter: parent.verticalCenter
+                            anchors.left: parent.left
+                            anchors.right: parent.right
+                            anchors.leftMargin: 30
+                            anchors.rightMargin: 16
+                            text: "Kusafiri ni elimu. Tembelea hifadhi za Tanzania, jifunze thamani ya mazingira ya Tanzania, na uwe balozi wa uzuri wa Tanzania.\n\nTravel is a form of learning. Explore Tanzania's national parks, discover the value of our environment, and become an ambassador for the beauty of Tanzania."
+                            font.pointSize: Qt.platform.os === "android" ? 12 : 10
+                            color: "#cccccc"
+                            wrapMode: Text.WordWrap
+                            font.italic: true
+                        }
                     }
-                    onClicked: {
-                        app.close();
+
+                    // ══ MAP SECTION ════════════════════════════════════════
+                    Rectangle {
+                        width: app.width
+                        height: mapImg.implicitHeight + 24
+                        color: "#001413"
+
+                        Text {
+                            id: mapLabel
+                            anchors.top: parent.top
+                            anchors.topMargin: 10
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            text: "Ramani ya Tanzania  ·  Map of Tanzania"
+                            font.pointSize: Qt.platform.os === "android" ? 11 : 9
+                            color: "cyan"
+                            font.bold: true
+                        }
+
+                        Image {
+                            id: mapImg
+                            source: "./TZmap.png"
+                            width: app.width * 0.8
+                            fillMode: Image.PreserveAspectFit
+                            anchors.top: mapLabel.bottom
+                            anchors.topMargin: 6
+                            anchors.horizontalCenter: parent.horizontalCenter
+                        }
                     }
-                }
 
+                    // ══ WILDLIFE IMAGE MARQUEE (auto-scroll) ══════════════
+                    Rectangle {
+                        id: marqueeContainer
+                        width: app.width
+                        height: app.height * 0.28
+                        color: "#001413"
+                        clip: true
 
-Rectangle {
-                    width: app.width
-                    height: 1
-                    color: "#dadada"
-                }
+                        Item {
+                            id: marqueeStrip
+                            width: app.width * 8
+                            height: parent.height
 
-Rectangle {
-                    width: app.width
-                    height: 1
-                    color: "#dadada"
-                }
+                            // img1, img2, img1, img2 — seamless loop
+                            Image {
+                                x: app.width * 0
+                                width: app.width * 2
+                                height: marqueeContainer.height
+                                source: "./wanyama-tz-3.png"
+                                fillMode: Image.PreserveAspectFit
+                            }
+                            Image {
+                                x: app.width * 2
+                                width: app.width * 2
+                                height: marqueeContainer.height
+                                source: "./wanyama-tz-3-b.png"
+                                fillMode: Image.PreserveAspectFit
+                            }
+                            Image {
+                                x: app.width * 4
+                                width: app.width * 2
+                                height: marqueeContainer.height
+                                source: "./wanyama-tz-3.png"
+                                fillMode: Image.PreserveAspectFit
+                            }
+                            Image {
+                                x: app.width * 6
+                                width: app.width * 2
+                                height: marqueeContainer.height
+                                source: "./wanyama-tz-3-b.png"
+                                fillMode: Image.PreserveAspectFit
+                            }
 
+                            // Scroll left by exactly half the strip, then loop invisibly
+                            NumberAnimation on x {
+                                from: 0
+                                to: -(app.width * 4)
+                                duration: 22000
+                                loops: Animation.Infinite
+                                easing.type: Easing.Linear
+                            }
+                        }
+                    }
 
+                    // ══ CHOOSE LANGUAGE SECTION ════════════════════════════
+                    Rectangle {
+                        width: app.width
+                        height: langCol.height + 32
+                        color: "#0d1f1e"
 
+                        Column {
+                            id: langCol
+                            anchors.centerIn: parent
+                            width: app.width
+                            spacing: 12
 
-            }
+                            Text {
+                                anchors.horizontalCenter: parent.horizontalCenter
+                                text: "Choose your language · Chagua lugha yako"
+                                font.pointSize: Qt.platform.os === "android" ? 12 : 10
+                                color: "#888888"
+                            }
+
+                            // Swahili button
+                            Rectangle {
+                                id: swBtn
+                                anchors.horizontalCenter: parent.horizontalCenter
+                                width: app.width * 0.82
+                                height: Qt.platform.os === "android" ? 62 : 48
+                                radius: 10
+                                color: "green"
+                                property bool pressed: false
+                                scale: pressed ? 0.96 : 1.0
+                                Behavior on scale { NumberAnimation { duration: 100 } }
+
+                                Row {
+                                    anchors.centerIn: parent
+                                    spacing: 10
+                                    Text { text: "🇹🇿"; font.pointSize: Qt.platform.os === "android" ? 18 : 14 }
+                                    Text {
+                                        text: "Furahia upekee wa Tanzania"
+                                        font.pointSize: Qt.platform.os === "android" ? 13 : 11
+                                        font.bold: true
+                                        color: "white"
+                                        anchors.verticalCenter: parent.verticalCenter
+                                    }
+                                }
+                                MouseArea {
+                                    anchors.fill: parent
+                                    onPressed:  swBtn.pressed = true
+                                    onReleased: swBtn.pressed = false
+                                    onCanceled: swBtn.pressed = false
+                                    onClicked:  modeSelectionDialog.doOpen("sw", "green")
+                                }
+                            }
+
+                            // English button
+                            Rectangle {
+                                id: enBtn
+                                anchors.horizontalCenter: parent.horizontalCenter
+                                width: app.width * 0.82
+                                height: Qt.platform.os === "android" ? 62 : 48
+                                radius: 10
+                                color: "blue"
+                                property bool pressed: false
+                                scale: pressed ? 0.96 : 1.0
+                                Behavior on scale { NumberAnimation { duration: 100 } }
+
+                                Row {
+                                    anchors.centerIn: parent
+                                    spacing: 10
+                                    Text { text: "🌐"; font.pointSize: Qt.platform.os === "android" ? 18 : 14 }
+                                    Text {
+                                        text: "Experience the uniqueness of Tanzania"
+                                        font.pointSize: Qt.platform.os === "android" ? 13 : 11
+                                        font.bold: true
+                                        color: "white"
+                                        anchors.verticalCenter: parent.verticalCenter
+                                    }
+                                }
+                                MouseArea {
+                                    anchors.fill: parent
+                                    onPressed:  enBtn.pressed = true
+                                    onReleased: enBtn.pressed = false
+                                    onCanceled: enBtn.pressed = false
+                                    onClicked:  modeSelectionDialog.doOpen("en", "blue")
+                                }
+                            }
+                        }
+                    }
+
+                    // ══ SAFARI CHANNEL INFO ════════════════════════════════
+                    Rectangle {
+                        width: app.width
+                        height: safariCol.height + 24
+                        color: "#001413"
+
+                        Column {
+                            id: safariCol
+                            anchors.top: parent.top
+                            anchors.topMargin: 12
+                            anchors.left: parent.left
+                            anchors.right: parent.right
+                            anchors.leftMargin: 16
+                            anchors.rightMargin: 16
+                            spacing: 8
+
+                            // TV icon + label
+                            Row {
+                                spacing: 8
+                                Text { text: "📺"; font.pointSize: Qt.platform.os === "android" ? 14 : 11 }
+                                Text {
+                                    text: "Tanzania Safari Channel"
+                                    font.pointSize: Qt.platform.os === "android" ? 13 : 11
+                                    font.bold: true
+                                    color: "cyan"
+                                    anchors.verticalCenter: parent.verticalCenter
+                                }
+                            }
+
+                            Text {
+                                width: parent.width
+                                text: "Tanzania imebarikiwa kuwa na vivutio vingi vya utalii ambavyo ni vigumu kuvitaja vyote hapa. Ili kuvifahamu na kuvishuhudia kwa undani zaidi, tunakushauri kufuatilia Tanzania Safari Channel inayopatikana kupitia DStv (292), Azam TV (401), Zuku (27), StarTimes Antenna (331), StarTimes Dish (542), Zmux (46) na Continental (7). Huu ni mlango wako wa kidijitali wa kutembelea mbuga za wanyama, fukwe, na urithi wa kitamaduni wa nchi yetu ukiwa nyumbani kwako.\n\n(Tanzania is home to an overwhelming number of tourist attractions that cannot be fully listed here. For a more immersive experience, we highly recommend watching the Tanzania Safari Channel, available on DStv (292), Azam TV (401), Zuku (27), StarTimes Antenna (331), StarTimes Dish (542), Zmux (46) and Continental (7).)"
+                                font.pointSize: Qt.platform.os === "android" ? 12 : 10
+                                color: "#cccccc"
+                                wrapMode: Text.WordWrap
+
+                                MouseArea {
+                                    anchors.fill: parent
+                                    onClicked: {
+                                        return;
+                                        if(typeof n3ctaApp !== "undefined"){
+                                            n3ctaApp.pasteToClipboard("8647491");
+                                            n3ctaApp.showToastMessage("Namba ya changisha imenakiliwa.");
+                                        }else if(typeof loader !== "undefined"){
+                                            loader.pasteToClipboard("8647491");
+                                            loader.showToastMessage("Changisha number copied.");
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    // ══ FOOTER ═════════════════════════════════════════════
+                    Rectangle {
+                        width: app.width
+                        height: Qt.platform.os === "android" ? 70 : 54
+                        color: "#000d0c"
+
+                        Rectangle {
+                            id: closeBtn
+                            anchors.centerIn: parent
+                            width: app.width * 0.4
+                            height: Qt.platform.os === "android" ? 46 : 34
+                            radius: height / 2
+                            color: "#cc2200"
+                            property bool pressed: false
+                            scale: pressed ? 0.96 : 1.0
+                            Behavior on scale { NumberAnimation { duration: 100 } }
+
+                            Text {
+                                anchors.centerIn: parent
+                                text: "✕  Funga / Close"
+                                font.pointSize: Qt.platform.os === "android" ? 12 : 10
+                                font.bold: true
+                                color: "white"
+                            }
+                            MouseArea {
+                                anchors.fill: parent
+                                onPressed:  closeBtn.pressed = true
+                                onReleased: closeBtn.pressed = false
+                                onCanceled: closeBtn.pressed = false
+                                onClicked:  app.close()
+                            }
+                        }
+                    }
+
+                } // end Column
+            } // end Flickable
         }
     }
 
@@ -1421,20 +1599,20 @@ Rectangle {
 
             // ── Keyboard navigation ───────────────────────────────────
             Keys.onPressed: (event) => {
-                if (event.key === Qt.Key_Left)  { navigatePrevious(); event.accepted = true; }
-                else if (event.key === Qt.Key_Right) { navigateNext(); event.accepted = true; }
-            }
+                                if (event.key === Qt.Key_Left)  { navigatePrevious(); event.accepted = true; }
+                                else if (event.key === Qt.Key_Right) { navigateNext(); event.accepted = true; }
+                            }
 
             function navigatePrevious() {
                 app.currentAttractionIndex = app.currentAttractionIndex > 0
-                    ? app.currentAttractionIndex - 1
-                    : attractionModel.count - 1;
+                        ? app.currentAttractionIndex - 1
+                        : attractionModel.count - 1;
             }
 
             function navigateNext() {
                 app.currentAttractionIndex = app.currentAttractionIndex < attractionModel.count - 1
-                    ? app.currentAttractionIndex + 1
-                    : 0;
+                        ? app.currentAttractionIndex + 1
+                        : 0;
             }
         }
     }
