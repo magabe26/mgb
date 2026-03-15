@@ -663,147 +663,288 @@ Rectangle {
         sourceComponent: languageSelectionComponent
     }
 
-    Dialog {
+    // ── Fancy Layout Selection Overlay ────────────────────────────────────
+    Item {
         id: modeSelectionDialog
-        property string lag
-        property real dialogWidth: app.width * 0.6
-        property color btnColor: "#003333"
-        property string btn1Text
-        property string btn2Text
-        property string btnCloseText
+        anchors.fill: parent
+        visible: false
+        z: 100
 
-        contentItem: Rectangle {
+        property string lag: ""
+        property color btnColor: "green"
+
+        // Dimmed backdrop
+        Rectangle {
+            anchors.fill: parent
+            color: "#cc000000"
+            MouseArea { anchors.fill: parent } // block clicks behind
+        }
+
+        // Panel — slides up from bottom
+        Rectangle {
+            id: modePanel
+            anchors.horizontalCenter: parent.horizontalCenter
+            width: app.width * 0.92
+            height: modePanelCol.height + 32
+            radius: 16
             color: "#001413"
             border.color: "cyan"
             border.width: 1
-            implicitWidth: modeSelectionDialog.dialogWidth
-            implicitHeight: dialogTitle.paintedHeight + dialogTitle.anchors.topMargin + btn1.height + btn1.anchors.topMargin + btn2.height + btn2.anchors.topMargin + btnClose.height +  btnClose.anchors.topMargin + btnClose.anchors.bottomMargin;
+            anchors.verticalCenter: parent.verticalCenter
 
-            Text {
-                id: dialogTitle
+            // Entrance animation
+            transform: Translate { id: panelSlide; y: 60 }
+            opacity: 0
+            Behavior on opacity { NumberAnimation { duration: 250; easing.type: Easing.OutCubic } }
+            Behavior on transform { } // handled manually
+
+            Column {
+                id: modePanelCol
                 anchors.top: parent.top
-                anchors.topMargin: 4
-                color: "cyan"
-                font.pointSize: Qt.platform.os === "android" ? 14 : 12
-                font.bold: true
+                anchors.topMargin: 20
                 anchors.horizontalCenter: parent.horizontalCenter
+                width: parent.width - 32
+                spacing: 14
+
+                // Title
+                Text {
+                    id: dialogTitle
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    text: ""
+                    color: "cyan"
+                    font.pointSize: Qt.platform.os === "android" ? 15 : 13
+                    font.bold: true
+                }
+
+                // Cyan divider
+                Rectangle {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: parent.width * 0.4
+                    height: 2
+                    radius: 1
+                    color: "cyan"
+                    opacity: 0.5
+                }
+
+                // ── Mode 1 Card: Default ───────────────────────────────
+                Rectangle {
+                    id: mode1Card
+                    width: parent.width
+                    height: Qt.platform.os === "android" ? 90 : 72
+                    radius: 12
+                    color: "#0d2a28"
+                    border.color: modeSelectionDialog.btnColor
+                    border.width: 2
+
+                    property bool pressed: false
+                    scale: pressed ? 0.97 : 1.0
+                    Behavior on scale { NumberAnimation { duration: 100 } }
+
+                    Row {
+                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.left: parent.left
+                        anchors.leftMargin: 16
+                        spacing: 14
+
+                        // Icon box
+                        Rectangle {
+                            width: Qt.platform.os === "android" ? 52 : 42
+                            height: width
+                            radius: 10
+                            color: modeSelectionDialog.btnColor
+                            anchors.verticalCenter: parent.verticalCenter
+
+                            Text {
+                                anchors.centerIn: parent
+                                text: "🖼"
+                                font.pointSize: Qt.platform.os === "android" ? 20 : 16
+                            }
+                        }
+
+                        Column {
+                            anchors.verticalCenter: parent.verticalCenter
+                            spacing: 3
+                            Text {
+                                text: modeSelectionDialog.lag === "sw" ? "Kawaida" : "Default"
+                                font.pointSize: Qt.platform.os === "android" ? 14 : 12
+                                font.bold: true
+                                color: "white"
+                            }
+                            Text {
+                                text: modeSelectionDialog.lag === "sw"
+                                      ? "Picha moja kwa wakati mmoja"
+                                      : "One image at a time · swipe to navigate"
+                                font.pointSize: Qt.platform.os === "android" ? 11 : 9
+                                color: "#aaaaaa"
+                            }
+                        }
+                    }
+
+                    // Chevron
+                    Text {
+                        anchors.right: parent.right
+                        anchors.rightMargin: 14
+                        anchors.verticalCenter: parent.verticalCenter
+                        text: "›"
+                        font.pointSize: Qt.platform.os === "android" ? 22 : 18
+                        font.bold: true
+                        color: modeSelectionDialog.btnColor
+                    }
+
+                    MouseArea {
+                        anchors.fill: parent
+                        onPressed:  mode1Card.pressed = true
+                        onReleased: mode1Card.pressed = false
+                        onCanceled: mode1Card.pressed = false
+                        onClicked:  modeSelectionDialog.setMode1()
+                    }
+                }
+
+                // ── Mode 2 Card: List ──────────────────────────────────
+                Rectangle {
+                    id: mode2Card
+                    width: parent.width
+                    height: Qt.platform.os === "android" ? 90 : 72
+                    radius: 12
+                    color: "#0d2a28"
+                    border.color: modeSelectionDialog.btnColor
+                    border.width: 2
+
+                    property bool pressed: false
+                    scale: pressed ? 0.97 : 1.0
+                    Behavior on scale { NumberAnimation { duration: 100 } }
+
+                    Row {
+                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.left: parent.left
+                        anchors.leftMargin: 16
+                        spacing: 14
+
+                        Rectangle {
+                            width: Qt.platform.os === "android" ? 52 : 42
+                            height: width
+                            radius: 10
+                            color: modeSelectionDialog.btnColor
+                            anchors.verticalCenter: parent.verticalCenter
+
+                            Text {
+                                anchors.centerIn: parent
+                                text: "📋"
+                                font.pointSize: Qt.platform.os === "android" ? 20 : 16
+                            }
+                        }
+
+                        Column {
+                            anchors.verticalCenter: parent.verticalCenter
+                            spacing: 3
+                            Text {
+                                text: modeSelectionDialog.lag === "sw" ? "Orodha" : "List"
+                                font.pointSize: Qt.platform.os === "android" ? 14 : 12
+                                font.bold: true
+                                color: "white"
+                            }
+                            Text {
+                                text: modeSelectionDialog.lag === "sw"
+                                      ? "Vivutio vyote kwenye orodha"
+                                      : "Browse all attractions in a scrollable list"
+                                font.pointSize: Qt.platform.os === "android" ? 11 : 9
+                                color: "#aaaaaa"
+                            }
+                        }
+                    }
+
+                    Text {
+                        anchors.right: parent.right
+                        anchors.rightMargin: 14
+                        anchors.verticalCenter: parent.verticalCenter
+                        text: "›"
+                        font.pointSize: Qt.platform.os === "android" ? 22 : 18
+                        font.bold: true
+                        color: modeSelectionDialog.btnColor
+                    }
+
+                    MouseArea {
+                        anchors.fill: parent
+                        onPressed:  mode2Card.pressed = true
+                        onReleased: mode2Card.pressed = false
+                        onCanceled: mode2Card.pressed = false
+                        onClicked:  modeSelectionDialog.setMode2()
+                    }
+                }
+
+                // ── Close button ───────────────────────────────────────
+                Rectangle {
+                    id: modeCloseBtn
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: parent.width * 0.5
+                    height: Qt.platform.os === "android" ? 48 : 36
+                    radius: height / 2
+                    color: "#cc2200"
+
+                    property bool pressed: false
+                    scale: pressed ? 0.96 : 1.0
+                    Behavior on scale { NumberAnimation { duration: 100 } }
+
+                    Text {
+                        anchors.centerIn: parent
+                        text: modeSelectionDialog.lag === "sw" ? "✕  Funga" : "✕  Close"
+                        font.pointSize: Qt.platform.os === "android" ? 13 : 11
+                        font.bold: true
+                        color: "white"
+                    }
+                    MouseArea {
+                        anchors.fill: parent
+                        onPressed:  modeCloseBtn.pressed = true
+                        onReleased: modeCloseBtn.pressed = false
+                        onCanceled: modeCloseBtn.pressed = false
+                        onClicked:  modeSelectionDialog.close()
+                    }
+                }
+
+                // bottom spacer
+                Item { width: 1; height: 4 }
             }
-
-            Button {
-                id: btn1
-                anchors.top: dialogTitle.bottom
-                anchors.topMargin: 8
-                anchors.horizontalCenter: parent.horizontalCenter
-                text: modeSelectionDialog.btn1Text
-                font.pointSize: Qt.platform.os === "android" ? 14 : 12
-                background: Rectangle {
-                    implicitWidth: modeSelectionDialog.dialogWidth * 0.8
-                    implicitHeight: 40
-                    color: modeSelectionDialog.btnColor
-                    radius: 5
-                }
-
-                contentItem: Text {
-                    text: parent.text
-                    color: "white"
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-                }
-
-                onClicked: {
-                    modeSelectionDialog.setMode1();
-                }
-
-            }
-
-
-            Button {
-                id: btn2
-                anchors.top: btn1.bottom
-                anchors.topMargin: 12
-                anchors.horizontalCenter: parent.horizontalCenter
-                text: modeSelectionDialog.btn2Text
-                font.pointSize: Qt.platform.os === "android" ? 14 : 12
-
-                background: Rectangle {
-                    implicitWidth: modeSelectionDialog.dialogWidth * 0.8
-                    implicitHeight: 40
-                    color: modeSelectionDialog.btnColor
-                    radius: 5
-                }
-
-                contentItem: Text {
-                    text: parent.text
-                    color: "white"
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-                }
-
-                onClicked: {
-                    modeSelectionDialog.setMode2();
-                }
-            }
-
-            Button {
-                id: btnClose
-                anchors.top: btn2.bottom
-                anchors.topMargin: 12
-                anchors.bottomMargin: 18
-                anchors.horizontalCenter: parent.horizontalCenter
-                text: modeSelectionDialog.btnCloseText
-                font.pointSize: Qt.platform.os === "android" ? 14 : 12
-
-                background: Rectangle {
-                    implicitWidth: modeSelectionDialog.dialogWidth * 0.8
-                    implicitHeight: 40
-                    color: "red"
-                    radius: 5
-                }
-
-                contentItem: Text {
-                    text: parent.text
-                    color: "white"
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-                }
-
-                onClicked: {
-                    modeSelectionDialog.close();
-                }
-            }
-
         }
 
-        function doOpen(lag,btnColor){
+        function doOpen(lag, btnColor) {
             modeSelectionDialog.lag = lag;
             modeSelectionDialog.btnColor = btnColor;
-            dialogTitle.text = lag === "sw" ? "Chagua mpangilio" : "Select layout";
-            modeSelectionDialog.btn1Text = lag === "sw" ? "Kawaida" : "Default";
-            modeSelectionDialog.btn2Text = lag === "sw" ? "Orodha" : "List";
-            modeSelectionDialog.btnCloseText = lag === "sw" ? "Funga" : "Close";
-            open();
+            dialogTitle.text = lag === "sw" ? "Chagua mpangilio" : "Select a layout";
+            modeSelectionDialog.visible = true;
+            modePanel.opacity = 1;
+            panelSlideAnim.start();
         }
 
-        function setMode1(){
+        function close() {
+            modePanel.opacity = 0;
+            modeSelectionDialog.visible = false;
+        }
+
+        NumberAnimation {
+            id: panelSlideAnim
+            target: panelSlide
+            property: "y"
+            from: 60; to: 0
+            duration: 280
+            easing.type: Easing.OutCubic
+        }
+
+        function setMode1() {
             app.appMode = 1;
             close();
             app.selectedLanguage = modeSelectionDialog.lag;
         }
 
-        function setMode2(){
+        function setMode2() {
             app.appMode = 2;
             close();
             app.selectedLanguage = modeSelectionDialog.lag;
-
-            if(app.selectedLanguage === "sw"){
+            if (app.selectedLanguage === "sw") {
                 app.showToastMessage("Bonyeza mara mbili -> Kurudi nyuma");
             } else {
                 app.showToastMessage("Double click -> To go back");
             }
-
         }
-
-
     }
 
 
@@ -819,7 +960,7 @@ Rectangle {
             color: "#001413"
             border.color: "cyan"
             border.width: 1
-            implicitWidth: modeSelectionDialog.dialogWidth
+            implicitWidth: modeSelectionDialog.width
             implicitHeight: frontPageBtn.height + frontPageBtn.anchors.topMargin + closeAppBtn.height + closeAppBtn.anchors.topMargin + closeAppBtn.anchors.bottomMargin;
 
             Button {
