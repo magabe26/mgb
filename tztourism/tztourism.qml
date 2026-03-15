@@ -1653,6 +1653,164 @@ Rectangle {
                         }
                     }
 
+                    // ══ AD BANNER ══════════════════════════════════════════
+                    Rectangle {
+                        width: app.width
+                        height: adCol.height + 20
+                        color: "#ffffff"
+
+                        // Google-style "Ad" label
+                        Rectangle {
+                            id: adLabel
+                            anchors.top: parent.top
+                            anchors.left: parent.left
+                            anchors.topMargin: 8
+                            anchors.leftMargin: 10
+                            width: adLabelText.implicitWidth + 8
+                            height: adLabelText.implicitHeight + 4
+                            radius: 3
+                            color: "#f0f0f0"
+                            border.color: "#bbbbbb"
+                            border.width: 1
+
+                            Text {
+                                id: adLabelText
+                                anchors.centerIn: parent
+                                text: "Ad"
+                                font.pointSize: Qt.platform.os === "android" ? 9 : 7
+                                color: "#555555"
+                            }
+                        }
+
+                        Column {
+                            id: adCol
+                            anchors.top: adLabel.bottom
+                            anchors.topMargin: 6
+                            anchors.left: parent.left
+                            anchors.right: parent.right
+                            anchors.leftMargin: 10
+                            anchors.rightMargin: 10
+                            spacing: 4
+
+                            // Headline
+                            Text {
+                                width: parent.width
+                                text: "📢 Advertise Your Property on Tanzania Tourism App!"
+                                font.pointSize: Qt.platform.os === "android" ? 13 : 11
+                                font.bold: true
+                                color: "#1a0dab"   // Google blue
+                                wrapMode: Text.WordWrap
+                            }
+
+                            // Display URL style
+                            Text {
+                                text: "tanzaniatourism.app › advertise"
+                                font.pointSize: Qt.platform.os === "android" ? 10 : 8
+                                color: "#006621"   // Google green
+                            }
+
+                            // Ad body
+                            Text {
+                                width: parent.width
+                                text: "Reach thousands of tourists daily! List your Hotel, Hostel or Rental House on Tanzania Tourism App and get noticed by visitors from around the world."
+                                font.pointSize: Qt.platform.os === "android" ? 11 : 9
+                                color: "#333333"
+                                wrapMode: Text.WordWrap
+                            }
+
+                            // Pricing chips row
+                            Row {
+                                spacing: 8
+
+                                Rectangle {
+                                    height: priceText.implicitHeight + 8
+                                    width: priceText.implicitWidth + 16
+                                    radius: 4
+                                    color: "#e8f5e9"
+                                    border.color: "#4caf50"
+                                    border.width: 1
+                                    Text {
+                                        id: priceText
+                                        anchors.centerIn: parent
+                                        text: "💰 From TZS 50,000/= per month"
+                                        font.pointSize: Qt.platform.os === "android" ? 11 : 9
+                                        font.bold: true
+                                        color: "#2e7d32"
+                                    }
+                                }
+                            }
+
+                            // Call to action row
+                            Row {
+                                spacing: 10
+
+                                Rectangle {
+                                    id: adCallBtn
+                                    height: adCallText.implicitHeight + 10
+                                    width: adCallText.implicitWidth + 20
+                                    radius: 4
+                                    color: "#1a73e8"   // Google CTA blue
+                                    property bool pressed: false
+                                    scale: pressed ? 0.96 : 1.0
+                                    Behavior on scale { NumberAnimation { duration: 100 } }
+
+                                    Text {
+                                        id: adCallText
+                                        anchors.centerIn: parent
+                                        text: "📞  0789 081 122"
+                                        font.pointSize: Qt.platform.os === "android" ? 12 : 10
+                                        font.bold: true
+                                        color: "white"
+                                    }
+                                    MouseArea {
+                                        anchors.fill: parent
+                                        onPressed:  adCallBtn.pressed = true
+                                        onReleased: adCallBtn.pressed = false
+                                        onCanceled: adCallBtn.pressed = false
+                                        onClicked: {
+                                            if (typeof n3ctaApp !== "undefined")
+                                                n3ctaApp.pasteToClipboard("0789081122");
+                                            else if (typeof loader !== "undefined")
+                                                loader.pasteToClipboard("0789081122");
+                                            app.showToastMessage("Number copied!");
+                                        }
+                                    }
+                                }
+
+                                Rectangle {
+                                    id: adLearnBtn
+                                    height: adLearnText.implicitHeight + 10
+                                    width: adLearnText.implicitWidth + 20
+                                    radius: 4
+                                    color: "#f8f9fa"
+                                    border.color: "#dadce0"
+                                    border.width: 1
+                                    property bool pressed: false
+                                    scale: pressed ? 0.96 : 1.0
+                                    Behavior on scale { NumberAnimation { duration: 100 } }
+
+                                    Text {
+                                        id: adLearnText
+                                        anchors.centerIn: parent
+                                        text: "Book a Slot →"
+                                        font.pointSize: Qt.platform.os === "android" ? 12 : 10
+                                        font.bold: true
+                                        color: "#1a73e8"
+                                    }
+                                    MouseArea {
+                                        anchors.fill: parent
+                                        onPressed:  adLearnBtn.pressed = true
+                                        onReleased: adLearnBtn.pressed = false
+                                        onCanceled: adLearnBtn.pressed = false
+                                        onClicked:  app.showToastMessage("Call 0789 081 122 to book your slot!")
+                                    }
+                                }
+                            }
+
+                            Item { width: 1; height: 4 }
+                        }
+                    }
+
                     // ══ FOOTER ═════════════════════════════════════════════
                     Rectangle {
                         width: app.width
@@ -1726,33 +1884,6 @@ Rectangle {
                 Behavior on opacity { NumberAnimation { duration: 350; easing.type: Easing.InOutQuad } }
             }
 
-            // ── Full-screen swipe + tap handler ───────────────────────
-            MouseArea {
-                id: swipeArea
-                anchors.fill: parent
-                z: 10
-                property real startX: 0
-                property bool isDrag: false
-
-                onPressed: {
-                    startX = mouse.x;
-                    isDrag = false;
-                }
-                onPositionChanged: {
-                    if (Math.abs(mouse.x - startX) > 15)
-                        isDrag = true;
-                }
-                onReleased: {
-                    if (isDrag) {
-                        var delta = mouse.x - startX;
-                        if (Math.abs(delta) > app.width * 0.18) {
-                            if (delta < 0) navigateNext();
-                            else           navigatePrevious();
-                        }
-                    }
-                }
-            }
-
             // ── Top gradient overlay (title + desc) ───────────────────
             Rectangle {
                 id: topOverlay
@@ -1761,12 +1892,13 @@ Rectangle {
                 anchors.top: parent.top
                 height: overlayCol.height + 20
                 color: "transparent"
-                z: 11
 
                 Rectangle {
                     anchors.fill: parent
                     color: "#dd000000"
                 }
+
+                MouseArea { anchors.fill: parent; onClicked: app.close() }
 
                 Column {
                     id: overlayCol
@@ -1843,7 +1975,7 @@ Rectangle {
                 radius: 6
                 border.color: "cyan"
                 border.width: 1
-                z: 20
+                z: 10
 
                 TextField {
                     id: cardSearchField
@@ -1898,7 +2030,6 @@ Rectangle {
                 color: "#e6001413"
                 border.color: "#33ffffff"
                 border.width: 0
-                z: 20
 
                 // Prev button
                 Rectangle {
