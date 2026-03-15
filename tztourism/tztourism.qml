@@ -1143,88 +1143,118 @@ Rectangle {
         Item {
             id: attractionItem
             anchors.fill: parent
-            focus: true // To receive key events
+            focus: true
 
-            // Background Image
+            // ── Crossfade: two images swapping opacity ─────────────────
+            property int shownIndex: app.currentAttractionIndex
+
             Image {
-                id: attractionImage
+                id: attractionImageA
                 anchors.fill: parent
-                source: app.currentAttractionImage()
                 fillMode: Image.PreserveAspectFit
                 smooth: true
+                source: app.currentAttractionImage()
+                opacity: 1
 
-                // Fallback color if image fails to load
                 Rectangle {
                     anchors.fill: parent
                     color: "black"
-                    visible: attractionImage.status !== Image.Ready
+                    visible: attractionImageA.status !== Image.Ready
                     Text {
                         anchors.centerIn: parent
-                        text: "Image not found:\n" + app.currentAttractionImage()
+                        text: "Image not found"
                         color: "white"
                         horizontalAlignment: Text.AlignHCenter
                     }
                 }
+
+                Behavior on opacity { NumberAnimation { duration: 350; easing.type: Easing.InOutQuad } }
             }
 
-            // Overlay for Text (at the bottom of the image)
+            // ── Top gradient overlay (title + desc) ───────────────────
             Rectangle {
-                id: textOverlay
+                id: topOverlay
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.top: parent.top
-                height: attractionNameText.height + attractionDescriptionText.height + 20
+                height: overlayCol.height + 20
                 color: "transparent"
 
-                Rectangle{
+                Rectangle {
                     anchors.fill: parent
-                    color: "black"
-                    opacity: 0.5
+                    color: "#dd000000"
                 }
 
-                MouseArea{
-                    anchors.fill: parent
-                    onClicked: {
-                        app.close();
+                MouseArea { anchors.fill: parent; onClicked: app.close() }
+
+                Column {
+                    id: overlayCol
+                    anchors.top: parent.top
+                    anchors.topMargin: 8
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.leftMargin: 12
+                    anchors.rightMargin: 12
+                    spacing: 4
+
+                    // Counter badge
+                    Rectangle {
+                        width: counterText.implicitWidth + 16
+                        height: counterText.implicitHeight + 6
+                        radius: 4
+                        color: app.selectedLanguage === "sw" ? "#bb006600" : "#bb000088"
+                        border.color: "cyan"
+                        border.width: 1
+
+                        Text {
+                            id: counterText
+                            anchors.centerIn: parent
+                            text: (app.currentAttractionIndex + 1) + " / " + attractionModel.count
+                            color: "cyan"
+                            font.pointSize: Qt.platform.os === "android" ? 11 : 9
+                            font.bold: true
+                        }
                     }
-                }
 
-                ColumnLayout {
-                    width: app.width
-                    anchors.margins: 10 // Padding inside the overlay
-
-                    // Attraction Name
                     Text {
                         id: attractionNameText
+                        width: parent.width
                         text: app.currentAttractionName()
                         font.pointSize: Qt.platform.os === "android" ? 16 : 14
                         font.bold: true
                         color: "white"
                         wrapMode: Text.WordWrap
-                        elide: Text.ElideRight
-                        Layout.fillWidth: true
                     }
 
-                    // Attraction Description
                     Text {
                         id: attractionDescriptionText
+                        width: parent.width
                         text: app.currentAttractionDesc()
-                        width: app.width
-                        height: 80
                         font.pointSize: Qt.platform.os === "android" ? 12 : 10
-                        color: "white"
+                        color: "#e0e0e0"
                         wrapMode: Text.WordWrap
-                        Layout.fillWidth: true
-                        Layout.fillHeight: true // Allow text to take remaining space
                     }
                 }
             }
 
-            // Search Bar for Card View
+            // ── Progress bar ──────────────────────────────────────────
+            Rectangle {
+                id: progressBar
+                anchors.bottom: navBar.top
+                anchors.left: parent.left
+                height: 3
+                color: app.selectedLanguage === "sw" ? "green" : "blue"
+                width: attractionModel.count > 0
+                       ? parent.width * (app.currentAttractionIndex + 1) / attractionModel.count
+                       : 0
+                Behavior on width { NumberAnimation { duration: 300; easing.type: Easing.OutQuad } }
+            }
+
+            // ── Search bar ────────────────────────────────────────────
             Rectangle {
                 id: cardSearchBg
-                anchors.bottom: parent.bottom
-                anchors.bottomMargin: 120
+                anchors.bottom: progressBar.top
+                anchors.bottomMargin: 8
                 anchors.horizontalCenter: parent.horizontalCenter
                 width: parent.width * 0.6
                 height: cardSearchField.implicitHeight + 10
@@ -1266,9 +1296,9 @@ Rectangle {
                     anchors.right: parent.right
                     anchors.rightMargin: 8
                     anchors.verticalCenter: parent.verticalCenter
-                    text: "X"
+                    text: "✕"
                     color: cardSearchField.text.length > 0 ? "cyan" : "#444444"
-                    font.pixelSize: 16
+                    font.pixelSize: 14
                     font.bold: true
                     MouseArea {
                         anchors.fill: parent
@@ -1277,83 +1307,134 @@ Rectangle {
                 }
             }
 
-            // Navigation Arrows (Visual cues, actual logic in Keys.onPressed)
-            Text {
-                text: "<"
-                font.pixelSize: Qt.platform.os === "android"? 100 : 40
-                font.bold: true
-                color: "#b2ffffff"
+            // ── Navigation bar ────────────────────────────────────────
+            Rectangle {
+                id: navBar
                 anchors.bottom: parent.bottom
-                anchors.bottomMargin: 10
                 anchors.left: parent.left
-                anchors.leftMargin: 20
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: navigatePrevious()
+                anchors.right: parent.right
+                height: Qt.platform.os === "android" ? 80 : 52
+                color: "#e6001413"
+                border.color: "#33ffffff"
+                border.width: 0
+
+                // Prev button
+                Rectangle {
+                    id: prevBtn
+                    anchors.left: parent.left
+                    anchors.leftMargin: 14
+                    anchors.verticalCenter: parent.verticalCenter
+                    width: Qt.platform.os === "android" ? 90 : 64
+                    height: Qt.platform.os === "android" ? 52 : 36
+                    radius: height / 2
+                    color: "#55ffffff"
+                    border.color: "#88ffffff"
+                    border.width: 1
+
+                    property bool pressed: false
+                    scale: pressed ? 0.93 : 1.0
+                    Behavior on scale { NumberAnimation { duration: 100 } }
+
+                    Text {
+                        anchors.centerIn: parent
+                        text: "‹ Prev"
+                        color: "white"
+                        font.pointSize: Qt.platform.os === "android" ? 13 : 10
+                        font.bold: true
+                    }
+                    MouseArea {
+                        anchors.fill: parent
+                        onPressed:  prevBtn.pressed = true
+                        onReleased: prevBtn.pressed = false
+                        onCanceled: prevBtn.pressed = false
+                        onClicked:  navigatePrevious()
+                    }
                 }
-            }
 
-            Text {
-                text: "::"
-                font.pixelSize: Qt.platform.os === "android"? 100 : 40
-                font.bold: true
-                color: "#b2ffffff"
+                // Home / back button (centre)
+                Rectangle {
+                    id: homeBtn
+                    anchors.centerIn: parent
+                    width: Qt.platform.os === "android" ? 90 : 64
+                    height: Qt.platform.os === "android" ? 52 : 36
+                    radius: height / 2
+                    color: app.selectedLanguage === "sw" ? "#88006600" : "#880000aa"
+                    border.color: "cyan"
+                    border.width: 1
 
+                    property bool pressed: false
+                    scale: pressed ? 0.93 : 1.0
+                    Behavior on scale { NumberAnimation { duration: 100 } }
 
-                anchors.bottom: parent.bottom
-                anchors.bottomMargin: 10
-                anchors.horizontalCenter: parent.horizontalCenter
+                    Text {
+                        anchors.centerIn: parent
+                        text: "⌂"
+                        color: "cyan"
+                        font.pointSize: Qt.platform.os === "android" ? 18 : 14
+                        font.bold: true
+                    }
+                    MouseArea {
+                        anchors.fill: parent
+                        onPressed:  homeBtn.pressed = true
+                        onReleased: homeBtn.pressed = false
+                        onCanceled: homeBtn.pressed = false
+                        onClicked: {
+                            viewComponentLoader.sourceComponent = languageSelectionComponent;
+                            app.selectedLanguage = "";
+                        }
+                    }
+                }
 
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: {
-                        viewComponentLoader.sourceComponent = languageSelectionComponent;
-                        app.selectedLanguage = "";
+                // Next button
+                Rectangle {
+                    id: nextBtn
+                    anchors.right: parent.right
+                    anchors.rightMargin: 14
+                    anchors.verticalCenter: parent.verticalCenter
+                    width: Qt.platform.os === "android" ? 90 : 64
+                    height: Qt.platform.os === "android" ? 52 : 36
+                    radius: height / 2
+                    color: "#55ffffff"
+                    border.color: "#88ffffff"
+                    border.width: 1
+
+                    property bool pressed: false
+                    scale: pressed ? 0.93 : 1.0
+                    Behavior on scale { NumberAnimation { duration: 100 } }
+
+                    Text {
+                        anchors.centerIn: parent
+                        text: "Next ›"
+                        color: "white"
+                        font.pointSize: Qt.platform.os === "android" ? 13 : 10
+                        font.bold: true
+                    }
+                    MouseArea {
+                        anchors.fill: parent
+                        onPressed:  nextBtn.pressed = true
+                        onReleased: nextBtn.pressed = false
+                        onCanceled: nextBtn.pressed = false
+                        onClicked:  navigateNext()
                     }
                 }
             }
 
-            Text {
-                text: ">"
-                font.pixelSize: Qt.platform.os === "android"? 100 : 40
-                font.bold: true
-                color: "#b2ffffff"
-                anchors.bottom: parent.bottom
-                anchors.bottomMargin: 10
-                anchors.right: parent.right
-                anchors.rightMargin: 20
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: navigateNext()
-                }
+            // ── Keyboard navigation ───────────────────────────────────
+            Keys.onPressed: (event) => {
+                if (event.key === Qt.Key_Left)  { navigatePrevious(); event.accepted = true; }
+                else if (event.key === Qt.Key_Right) { navigateNext(); event.accepted = true; }
             }
 
-
-            // Handle Arrow Key Presses for Navigation
-            Keys.onPressed: (event) => {
-                                if (event.key === Qt.Key_Left) {
-                                    navigatePrevious();
-                                    event.accepted = true;
-                                } else if (event.key === Qt.Key_Right) {
-                                    navigateNext();
-                                    event.accepted = true;
-                                }
-                            }
-
             function navigatePrevious() {
-                if (app.currentAttractionIndex > 0) {
-                    app.currentAttractionIndex--;
-                } else {
-                    app.currentAttractionIndex = attractionModel.count - 1; // Wrap around
-                }
+                app.currentAttractionIndex = app.currentAttractionIndex > 0
+                    ? app.currentAttractionIndex - 1
+                    : attractionModel.count - 1;
             }
 
             function navigateNext() {
-                if (app.currentAttractionIndex < attractionModel.count - 1) {
-                    app.currentAttractionIndex++;
-                } else {
-                    app.currentAttractionIndex = 0; // Wrap around
-                }
+                app.currentAttractionIndex = app.currentAttractionIndex < attractionModel.count - 1
+                    ? app.currentAttractionIndex + 1
+                    : 0;
             }
         }
     }
@@ -1364,7 +1445,7 @@ Rectangle {
 
         Rectangle {
             anchors.fill: parent
-            color: "transparent"
+            color: "#050f0e"
 
             ListView {
                 id: attractionList
@@ -1372,6 +1453,7 @@ Rectangle {
                 anchors.margins: 2
                 model: attractionModel
                 clip: true
+                spacing: 0
 
                 // ── SCROLLABLE HEADER ─────────────────────────────────────
                 header: Rectangle {
@@ -1476,10 +1558,9 @@ Rectangle {
                     }
                 } // end header
 
-                // ── DELEGATE ──────────────────────────────────────────────
-                delegate: Rectangle {
-                    id: delegate
-                    color: "transparent"
+                // ── DELEGATE (Card Style with Animations) ─────────────────
+                delegate: Item {
+                    id: delegateWrapper
                     width: parent.width
                     property bool matchesSearch: {
                         var s = app.searchText;
@@ -1488,63 +1569,175 @@ Rectangle {
                         var d = app.selectedLanguage === "en" ? desc_en : desc_sw;
                         return n.toLowerCase().indexOf(s) !== -1 || d.toLowerCase().indexOf(s) !== -1;
                     }
-                    height: matchesSearch ? (delegateTitle.height + delegateDesc.height + delegateImg.height) : 0
+                    height: matchesSearch ? (card.height + 12) : 0
                     visible: matchesSearch
                     clip: true
-                    anchors.topMargin: 2
 
-                    property string name: ""
-                    property string desc: ""
-                    property string path: imageFile
+                    property string attrName: app.selectedLanguage === "en" ? name_en : name_sw
+                    property string attrDesc: app.selectedLanguage === "en" ? desc_en : desc_sw
+                    property string attrPath: imageFile
 
-                    MouseArea {
-                        anchors.fill: parent
-                        onDoubleClicked: { contextMenu.doOpen(app.selectedLanguage); }
-                    }
+                    // ── Slide-in + fade-in entrance animation ──────────────
+                    opacity: 0
+                    transform: Translate { id: slideTranslate; x: -40 }
 
                     Component.onCompleted: {
-                        delegate.name = app.selectedLanguage === "en" ? name_en : name_sw;
-                        delegate.desc = app.selectedLanguage === "en" ? desc_en : desc_sw;
+                        slideAnim.start();
                     }
 
-                    Text {
-                        id: delegateTitle
-                        width: parent.width
-                        anchors.top: parent.top
-                        text: String(index + 1) + ": " + delegate.name
-                        font.pointSize: Qt.platform.os === "android" ? 14 : 12
-                        font.bold: true
-                        font.underline: true
-                        color: "white"
-                        wrapMode: Text.WordWrap
-                        elide: Text.ElideRight
-                        textFormat: Text.RichText
+                    SequentialAnimation {
+                        id: slideAnim
+                        PauseAnimation { duration: Math.min(index * 40, 600) }
+                        ParallelAnimation {
+                            NumberAnimation {
+                                target: delegateWrapper
+                                property: "opacity"
+                                from: 0; to: 1
+                                duration: 320
+                                easing.type: Easing.OutCubic
+                            }
+                            NumberAnimation {
+                                target: slideTranslate
+                                property: "x"
+                                from: -40; to: 0
+                                duration: 320
+                                easing.type: Easing.OutCubic
+                            }
+                        }
                     }
 
-                    Text {
-                        id: delegateDesc
-                        width: parent.width
-                        anchors.top: delegateTitle.bottom
-                        text: delegate.desc
-                        font.pointSize: Qt.platform.os === "android" ? 12 : 10
-                        font.bold: true
-                        color: "white"
-                        wrapMode: Text.WordWrap
-                        elide: Text.ElideRight
-                        textFormat: Text.RichText
-                    }
-
-                    Image {
-                        id: delegateImg
-                        anchors.top: delegateDesc.bottom
-                        anchors.topMargin: 2
-                        source: delegate.path
-                        width: parent.width * 0.92
-                        height: width * 0.8
-                        fillMode: Image.PreserveAspectFit
+                    // ── Card body ──────────────────────────────────────────
+                    Rectangle {
+                        id: card
+                        width: parent.width - 12
                         anchors.horizontalCenter: parent.horizontalCenter
-                    }
-                }
+                        anchors.top: parent.top
+                        anchors.topMargin: 6
+
+                        // Auto-size to content
+                        height: cardNumberBadge.height + 8 + cardImg.height + 8 + divider.height + 8 + cardTextCol.height + 16
+
+                        radius: 10
+                        clip: true
+
+                        // Card background: dark teal gradient using existing palette
+                        gradient: Gradient {
+                            GradientStop { position: 0.0; color: "#1a2a2a" }
+                            GradientStop { position: 1.0; color: "#001413" }
+                        }
+
+                        // Cyan border (existing accent color)
+                        border.color: "cyan"
+                        border.width: 1
+
+                        // Subtle drop-shadow layer
+                        layer.enabled: true
+
+                        // ── Press / hover scale animation ─────────────────
+                        property bool pressed: false
+                        scale: pressed ? 0.97 : 1.0
+                        Behavior on scale {
+                            NumberAnimation { duration: 120; easing.type: Easing.OutQuad }
+                        }
+
+                        MouseArea {
+                            anchors.fill: parent
+                            onPressed:  card.pressed = true
+                            onReleased: card.pressed = false
+                            onCanceled: card.pressed = false
+                            onDoubleClicked: { contextMenu.doOpen(app.selectedLanguage); }
+                        }
+
+                        // ── Number badge (top-left corner) ─────────────────
+                        Rectangle {
+                            id: cardNumberBadge
+                            anchors.top: parent.top
+                            anchors.topMargin: 8
+                            anchors.left: parent.left
+                            anchors.leftMargin: 10
+                            width: badgeText.implicitWidth + 14
+                            height: badgeText.implicitHeight + 6
+                            radius: 4
+                            color: app.selectedLanguage === "sw" ? "green" : "blue"
+
+                            Text {
+                                id: badgeText
+                                anchors.centerIn: parent
+                                text: "#" + (index + 1)
+                                font.pointSize: Qt.platform.os === "android" ? 11 : 9
+                                font.bold: true
+                                color: "white"
+                            }
+                        }
+
+                        // ── Attraction image ───────────────────────────────
+                        Image {
+                            id: cardImg
+                            anchors.top: cardNumberBadge.bottom
+                            anchors.topMargin: 8
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            source: delegateWrapper.attrPath
+                            width: parent.width - 16
+                            height: width * 0.56
+                            fillMode: Image.PreserveAspectCrop
+                            layer.enabled: true
+                            // Rounded top image corners via clip
+                            Rectangle {
+                                anchors.fill: parent
+                                color: "transparent"
+                                radius: 6
+                            }
+                        }
+
+                        // ── Thin cyan divider line ─────────────────────────
+                        Rectangle {
+                            id: divider
+                            anchors.top: cardImg.bottom
+                            anchors.topMargin: 8
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            width: parent.width - 20
+                            height: 1
+                            color: "cyan"
+                            opacity: 0.4
+                        }
+
+                        // ── Text column (title + description) ─────────────
+                        Column {
+                            id: cardTextCol
+                            anchors.top: divider.bottom
+                            anchors.topMargin: 8
+                            anchors.left: parent.left
+                            anchors.right: parent.right
+                            anchors.leftMargin: 10
+                            anchors.rightMargin: 10
+                            spacing: 6
+
+                            Text {
+                                id: cardTitle
+                                width: parent.width
+                                text: delegateWrapper.attrName
+                                font.pointSize: Qt.platform.os === "android" ? 14 : 12
+                                font.bold: true
+                                color: "cyan"
+                                wrapMode: Text.WordWrap
+                                textFormat: Text.PlainText
+                            }
+
+                            Text {
+                                id: cardDesc
+                                width: parent.width
+                                text: delegateWrapper.attrDesc
+                                font.pointSize: Qt.platform.os === "android" ? 12 : 10
+                                color: "#e0e0e0"
+                                wrapMode: Text.WordWrap
+                                textFormat: Text.PlainText
+                            }
+
+                            // Spacer at the bottom of the column
+                            Item { width: 1; height: 4 }
+                        }
+                    } // end card Rectangle
+                } // end delegateWrapper Item
 
                 // ── FOOTER (back button, scrolls with list) ───────────────
                 footer: Button {
@@ -1578,7 +1771,51 @@ Rectangle {
                     }
                 }
 
+            } // end ListView
+
+            // ── Floating Back Button (always visible) ──────────────────
+            Rectangle {
+                id: floatingBackBtn
+                z: 20
+                anchors.bottom: parent.bottom
+                anchors.right: parent.right
+                anchors.bottomMargin: 16
+                anchors.rightMargin: 16
+                width: floatingBtnText.implicitWidth + 16
+                height: Qt.platform.os === "android" ? 36 : 26
+                radius: height / 2
+                color: app.selectedLanguage === "sw" ? "green" : "blue"
+                opacity: 0.85
+
+                Text {
+                    id: floatingBtnText
+                    anchors.centerIn: parent
+                    text: app.selectedLanguage === "sw" ? "← Rudi" : "← Back"
+                    color: "white"
+                    font.pointSize: Qt.platform.os === "android" ? 10 : 8
+                    font.bold: true
+                }
+
+                // Press scale animation
+                property bool pressed: false
+                scale: pressed ? 0.93 : 1.0
+                Behavior on scale {
+                    NumberAnimation { duration: 100; easing.type: Easing.OutQuad }
+                }
+
+                MouseArea {
+                    anchors.fill: parent
+                    onPressed:  floatingBackBtn.pressed = true
+                    onReleased: floatingBackBtn.pressed = false
+                    onCanceled: floatingBackBtn.pressed = false
+                    onClicked: {
+                        app.searchText = "";
+                        viewComponentLoader.sourceComponent = languageSelectionComponent;
+                        app.selectedLanguage = "";
+                    }
+                }
             }
-        }
-    }
-}
+
+        } // end outer Rectangle
+    } // end Component attractionViewComponent2
+} // end root Rectangle
