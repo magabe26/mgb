@@ -1726,6 +1726,33 @@ Rectangle {
                 Behavior on opacity { NumberAnimation { duration: 350; easing.type: Easing.InOutQuad } }
             }
 
+            // ── Full-screen swipe + tap handler ───────────────────────
+            MouseArea {
+                id: swipeArea
+                anchors.fill: parent
+                z: 10
+                property real startX: 0
+                property bool isDrag: false
+
+                onPressed: {
+                    startX = mouse.x;
+                    isDrag = false;
+                }
+                onPositionChanged: {
+                    if (Math.abs(mouse.x - startX) > 15)
+                        isDrag = true;
+                }
+                onReleased: {
+                    if (isDrag) {
+                        var delta = mouse.x - startX;
+                        if (Math.abs(delta) > app.width * 0.18) {
+                            if (delta < 0) navigateNext();
+                            else           navigatePrevious();
+                        }
+                    }
+                }
+            }
+
             // ── Top gradient overlay (title + desc) ───────────────────
             Rectangle {
                 id: topOverlay
@@ -1734,13 +1761,12 @@ Rectangle {
                 anchors.top: parent.top
                 height: overlayCol.height + 20
                 color: "transparent"
+                z: 11
 
                 Rectangle {
                     anchors.fill: parent
                     color: "#dd000000"
                 }
-
-                MouseArea { anchors.fill: parent; onClicked: app.close() }
 
                 Column {
                     id: overlayCol
