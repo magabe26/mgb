@@ -13,6 +13,36 @@ Rectangle {
     property int currentAttractionIndex: 0
     property int appMode: 2
     property string searchText: ""
+    property string activeFilter: "All"          // category filter — always English key
+    property var recentlyViewed: []              // recently viewed indices
+
+    // ── Android back button ────────────────────────────────────────────
+    Keys.onBackPressed: {
+        if (contextMenu.visible) {
+            contextMenu.close();
+            event.accepted = true;
+        } else if (modeSelectionDialog.visible) {
+            modeSelectionDialog.close();
+            event.accepted = true;
+        } else if (app.selectedLanguage !== "") {
+            app.searchText = "";
+            viewComponentLoader.sourceComponent = languageSelectionComponent;
+            app.selectedLanguage = "";
+            event.accepted = true;
+        } else {
+            event.accepted = false;
+        }
+    }
+
+    function addRecentlyViewed(idx) {
+        var arr = app.recentlyViewed.slice();
+        // remove if already present
+        var pos = arr.indexOf(idx);
+        if (pos !== -1) arr.splice(pos, 1);
+        arr.unshift(idx);
+        if (arr.length > 5) arr = arr.slice(0, 5);
+        app.recentlyViewed = arr;
+    }
 
 
 
@@ -947,11 +977,11 @@ Rectangle {
     Item {
         id: contextMenu
 
-        // ── Full-screen attraction detail overlay ──────────────────────
         property string detailName: ""
         property string detailDesc: ""
         property string detailImage: ""
         property string detailLang: ""
+        property int    detailIndex: -1   // current attraction index for swipe nav
 
         visible: false
         anchors.fill: parent
@@ -961,8 +991,8 @@ Rectangle {
         Rectangle {
             anchors.fill: parent
             color: "#000000"
-            opacity: 0.0
             id: detailBackdrop
+            opacity: 0.0
             Behavior on opacity { NumberAnimation { duration: 300 } }
         }
 
@@ -977,7 +1007,7 @@ Rectangle {
             Behavior on opacity { NumberAnimation { duration: 350; easing.type: Easing.OutCubic } }
         }
 
-        // Bottom gradient for text readability
+        // Bottom gradient
         Rectangle {
             anchors.left: parent.left
             anchors.right: parent.right
@@ -991,7 +1021,43 @@ Rectangle {
             opacity: detailBgImage.opacity
         }
 
-        // Detail text — slides up from bottom
+        // ── Swipe gesture area ─────────────────────────────────────────
+        MouseArea {
+            anchors.fill: parent
+            property real startX: 0
+            onPressed:  startX = mouse.x
+            onReleased: {
+                var delta = mouse.x - startX;
+                if (Math.abs(delta) > app.width * 0.25) {
+                    if (delta < 0) contextMenu.navigateNext();
+                    else           contextMenu.navigatePrev();
+                }
+            }
+        }
+
+        // ── Swipe hint arrows ──────────────────────────────────────────
+        Text {
+            anchors.left: parent.left
+            anchors.leftMargin: 8
+            anchors.verticalCenter: parent.verticalCenter
+            text: "‹"
+            font.pointSize: Qt.platform.os === "android" ? 36 : 28
+            color: "#55ffffff"
+            font.bold: true
+            opacity: detailBgImage.opacity
+        }
+        Text {
+            anchors.right: parent.right
+            anchors.rightMargin: 8
+            anchors.verticalCenter: parent.verticalCenter
+            text: "›"
+            font.pointSize: Qt.platform.os === "android" ? 36 : 28
+            color: "#55ffffff"
+            font.bold: true
+            opacity: detailBgImage.opacity
+        }
+
+        // ── Detail text ────────────────────────────────────────────────
         Column {
             id: detailTextCol
             anchors.bottom: detailBtnRow.top
@@ -1005,7 +1071,16 @@ Rectangle {
             transform: Translate { id: detailTextSlide; y: 40 }
             Behavior on opacity { NumberAnimation { duration: 350; easing.type: Easing.OutCubic } }
 
-            // Attraction name
+            // Index counter
+            Text {
+                text: contextMenu.detailIndex >= 0
+                      ? (contextMenu.detailIndex + 1) + " / " + attractionModel.count
+                      : ""
+                font.pointSize: Qt.platform.os === "android" ? 11 : 9
+                color: "cyan"
+                font.bold: true
+            }
+
             Text {
                 width: parent.width
                 text: contextMenu.detailName
@@ -1015,19 +1090,13 @@ Rectangle {
                 wrapMode: Text.WordWrap
             }
 
-            // Cyan accent line
-            Rectangle {
-                width: 50; height: 3; radius: 2
-                color: contextMenu.detailLang === "sw" ? "green" : "cyan"
-            }
+            Rectangle { width: 50; height: 3; radius: 2; color: contextMenu.detailLang === "sw" ? "green" : "cyan" }
 
-            // Description — scrollable if long
             Flickable {
                 width: parent.width
                 height: Math.min(detailDescText.implicitHeight, app.height * 0.25)
                 contentHeight: detailDescText.implicitHeight
                 clip: true
-
                 Text {
                     id: detailDescText
                     width: parent.width
@@ -1039,62 +1108,84 @@ Rectangle {
             }
         }
 
-        // Bottom button row
+        // ── Button row ─────────────────────────────────────────────────
         Row {
             id: detailBtnRow
             anchors.bottom: parent.bottom
             anchors.bottomMargin: 20
             anchors.horizontalCenter: parent.horizontalCenter
-            spacing: 16
+            spacing: 12
             opacity: detailTextCol.opacity
 
-            // Go back to front page
             Rectangle {
                 id: detailHomeBtn
-                width: app.width * 0.38
+                width: app.width * 0.28
                 height: Qt.platform.os === "android" ? 52 : 40
                 radius: height / 2
                 color: contextMenu.detailLang === "sw" ? "green" : "blue"
                 property bool pressed: false
                 scale: pressed ? 0.95 : 1.0
                 Behavior on scale { NumberAnimation { duration: 100 } }
-                Text {
-                    anchors.centerIn: parent
-                    text: contextMenu.detailLang === "sw" ? "⌂ Nyumbani" : "⌂ Home"
-                    font.pointSize: Qt.platform.os === "android" ? 13 : 10
-                    font.bold: true
-                    color: "white"
-                }
+                Text { anchors.centerIn: parent; text: "⌂"; font.pointSize: Qt.platform.os === "android" ? 18 : 14; color: "white" }
                 MouseArea {
                     anchors.fill: parent
                     onPressed:  detailHomeBtn.pressed = true
                     onReleased: detailHomeBtn.pressed = false
                     onCanceled: detailHomeBtn.pressed = false
-                    onClicked: {
-                        contextMenu.close();
-                        viewComponentLoader.sourceComponent = languageSelectionComponent;
-                        app.selectedLanguage = "";
-                    }
+                    onClicked: { contextMenu.close(); viewComponentLoader.sourceComponent = languageSelectionComponent; app.selectedLanguage = ""; }
                 }
             }
 
-            // Close detail view
+            Rectangle {
+                id: detailPrevBtn
+                width: app.width * 0.18
+                height: Qt.platform.os === "android" ? 52 : 40
+                radius: height / 2
+                color: "#1a2a2a"
+                border.color: "#44ffffff"; border.width: 1
+                property bool pressed: false
+                scale: pressed ? 0.95 : 1.0
+                Behavior on scale { NumberAnimation { duration: 100 } }
+                Text { anchors.centerIn: parent; text: "‹"; font.pointSize: Qt.platform.os === "android" ? 20 : 16; font.bold: true; color: "white" }
+                MouseArea {
+                    anchors.fill: parent
+                    onPressed:  detailPrevBtn.pressed = true
+                    onReleased: detailPrevBtn.pressed = false
+                    onCanceled: detailPrevBtn.pressed = false
+                    onClicked:  contextMenu.navigatePrev()
+                }
+            }
+
+            Rectangle {
+                id: detailNextBtn
+                width: app.width * 0.18
+                height: Qt.platform.os === "android" ? 52 : 40
+                radius: height / 2
+                color: "#1a2a2a"
+                border.color: "#44ffffff"; border.width: 1
+                property bool pressed: false
+                scale: pressed ? 0.95 : 1.0
+                Behavior on scale { NumberAnimation { duration: 100 } }
+                Text { anchors.centerIn: parent; text: "›"; font.pointSize: Qt.platform.os === "android" ? 20 : 16; font.bold: true; color: "white" }
+                MouseArea {
+                    anchors.fill: parent
+                    onPressed:  detailNextBtn.pressed = true
+                    onReleased: detailNextBtn.pressed = false
+                    onCanceled: detailNextBtn.pressed = false
+                    onClicked:  contextMenu.navigateNext()
+                }
+            }
+
             Rectangle {
                 id: detailCloseBtn
-                width: app.width * 0.38
+                width: app.width * 0.28
                 height: Qt.platform.os === "android" ? 52 : 40
                 radius: height / 2
                 color: "#cc2200"
                 property bool pressed: false
                 scale: pressed ? 0.95 : 1.0
                 Behavior on scale { NumberAnimation { duration: 100 } }
-                Text {
-                    anchors.centerIn: parent
-                    text: contextMenu.detailLang === "sw" ? "x Funga" : "x Close"
-                    font.pointSize: Qt.platform.os === "android" ? 13 : 10
-                    font.bold: true
-                    color: "white"
-                }
+                Text { anchors.centerIn: parent; text: contextMenu.detailLang === "sw" ? "x Funga" : "x Close"; font.pointSize: Qt.platform.os === "android" ? 12 : 9; font.bold: true; color: "white" }
                 MouseArea {
                     anchors.fill: parent
                     onPressed:  detailCloseBtn.pressed = true
@@ -1105,11 +1196,32 @@ Rectangle {
             }
         }
 
-        function doOpen(lag, name, desc, imagePath) {
+        function loadAttraction(idx) {
+            var a = attractionModel.get(idx);
+            if (!a) return;
+            contextMenu.detailIndex = idx;
+            contextMenu.detailName  = contextMenu.detailLang === "en" ? a.name_en : a.name_sw;
+            contextMenu.detailDesc  = contextMenu.detailLang === "en" ? a.desc_en : a.desc_sw;
+            contextMenu.detailImage = a.imageFile;
+            app.addRecentlyViewed(idx);
+        }
+
+        function navigateNext() {
+            var next = (contextMenu.detailIndex + 1) % attractionModel.count;
+            loadAttraction(next);
+        }
+
+        function navigatePrev() {
+            var prev = contextMenu.detailIndex > 0 ? contextMenu.detailIndex - 1 : attractionModel.count - 1;
+            loadAttraction(prev);
+        }
+
+        function doOpen(lag, name, desc, imagePath, idx) {
             contextMenu.detailLang  = lag;
             contextMenu.detailName  = name;
             contextMenu.detailDesc  = desc;
             contextMenu.detailImage = imagePath;
+            contextMenu.detailIndex = (idx !== undefined) ? idx : -1;
             contextMenu.visible     = true;
             detailBackdrop.opacity  = 1.0;
             detailBgImage.opacity   = 1.0;
@@ -1227,7 +1339,7 @@ Rectangle {
                                 spacing: 2
                                 Text {
                                     anchors.horizontalCenter: parent.horizontalCenter
-                                    text: attractionModel.count + "+"
+                                    text: attractionModel.count
                                     font.pointSize: Qt.platform.os === "android" ? 16 : 13
                                     font.bold: true
                                     color: "cyan"
@@ -1462,6 +1574,48 @@ Rectangle {
                                     onReleased: enBtn.pressed = false
                                     onCanceled: enBtn.pressed = false
                                     onClicked:  modeSelectionDialog.doOpen("en", "blue")
+                                }
+                            }
+
+                            // 🎲 Surprise me button
+                            Rectangle {
+                                id: randomBtn
+                                anchors.horizontalCenter: parent.horizontalCenter
+                                width: app.width * 0.82
+                                height: Qt.platform.os === "android" ? 62 : 48
+                                radius: 10
+                                gradient: Gradient {
+                                    GradientStop { position: 0.0; color: "#1a6060" }
+                                    GradientStop { position: 1.0; color: "#001413" }
+                                }
+                                border.color: "cyan"
+                                border.width: 1
+                                property bool pressed: false
+                                scale: pressed ? 0.96 : 1.0
+                                Behavior on scale { NumberAnimation { duration: 100 } }
+
+                                Row {
+                                    anchors.centerIn: parent
+                                    spacing: 10
+                                    Text { text: "🎲"; font.pointSize: Qt.platform.os === "android" ? 18 : 14 }
+                                    Text {
+                                        text: "Nishangaze!  ·  Surprise me!"
+                                        font.pointSize: Qt.platform.os === "android" ? 13 : 11
+                                        font.bold: true
+                                        color: "cyan"
+                                        anchors.verticalCenter: parent.verticalCenter
+                                    }
+                                }
+                                MouseArea {
+                                    anchors.fill: parent
+                                    onPressed:  randomBtn.pressed = true
+                                    onReleased: randomBtn.pressed = false
+                                    onCanceled: randomBtn.pressed = false
+                                    onClicked: {
+                                        app.currentAttractionIndex = Math.floor(Math.random() * attractionModel.count);
+                                        app.appMode = 1;
+                                        app.selectedLanguage = "en";
+                                    }
                                 }
                             }
                         }
@@ -1878,100 +2032,292 @@ Rectangle {
                 spacing: 0
 
                 // ── SCROLLABLE HEADER ─────────────────────────────────────
-                header: Rectangle {
+                header: Item {
                     width: parent.width
-                    height: listTitle.height + listFlag.height + searchBarBg.height + countText.height + 20
-                    color: "white"
+                    height: headerCol.height
 
-                    Text {
-                        id: listTitle
-                        anchors.top: parent.top
-                        anchors.topMargin: 4
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        text: app.selectedLanguage === "sw"
-                              ? "<font color=\"green\">Utalii wa Tanzania</font>"
-                              : "<font color=\"blue\">Tanzania Tourism</font>"
-                        font.pointSize: Qt.platform.os === "android" ? 16 : 14
-                        font.bold: true
-                        textFormat: Text.RichText
-                    }
+                    Column {
+                        id: headerCol
+                        width: parent.width
 
-                    AnimatedImage {
-                        id: listFlag
-                        source: "./tzflag.gif"
-                        anchors.top: listTitle.bottom
-                        anchors.horizontalCenter: parent.horizontalCenter
-                    }
-
-                    Rectangle {
-                        id: searchBarBg
-                        anchors.top: listFlag.bottom
-                        anchors.topMargin: 6
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        width: parent.width * 0.92
-                        height: searchField.implicitHeight + 10
-                        color: "#1a2a2a"
-                        radius: 6
-                        border.color: "cyan"
-                        border.width: 1
-
-                        TextField {
-                            id: searchField
-                            anchors.verticalCenter: parent.verticalCenter
-                            anchors.left: parent.left
-                            anchors.right: clearBtn.left
-                            anchors.leftMargin: 8
-                            anchors.rightMargin: 4
-                            placeholderText: app.selectedLanguage === "sw" ? "Tafuta..." : "Search..."
-                            font.pointSize: Qt.platform.os === "android" ? 13 : 11
+                        // ── Title + flag block ─────────────────────────────
+                        Rectangle {
+                            width: parent.width
+                            height: listTitle.height + listFlag.height + 12
                             color: "white"
-                            placeholderTextColor: "#888888"
-                            background: Rectangle { color: "transparent" }
-                            onTextChanged: app.searchText = text.toLowerCase()
-                        }
 
-                        Text {
-                            id: clearBtn
-                            anchors.right: parent.right
-                            anchors.rightMargin: 8
-                            anchors.verticalCenter: parent.verticalCenter
-                            text: "X"
-                            color: searchField.text.length > 0 ? "cyan" : "#555555"
-                            font.pixelSize: 18
-                            font.bold: true
-                            MouseArea {
-                                anchors.fill: parent
-                                onClicked: { searchField.text = ""; app.searchText = ""; }
+                            Text {
+                                id: listTitle
+                                anchors.top: parent.top
+                                anchors.topMargin: 4
+                                anchors.horizontalCenter: parent.horizontalCenter
+                                text: app.selectedLanguage === "sw"
+                                      ? "<font color=\"green\">Utalii wa Tanzania</font>"
+                                      : "<font color=\"blue\">Tanzania Tourism</font>"
+                                font.pointSize: Qt.platform.os === "android" ? 16 : 14
+                                font.bold: true
+                                textFormat: Text.RichText
+                            }
+
+                            AnimatedImage {
+                                id: listFlag
+                                source: "./tzflag.gif"
+                                anchors.top: listTitle.bottom
+                                anchors.horizontalCenter: parent.horizontalCenter
                             }
                         }
-                    }
 
-                    Text {
-                        id: countText
-                        anchors.top: searchBarBg.bottom
-                        anchors.topMargin: 4
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        font.pointSize: Qt.platform.os === "android" ? 12 : 10
-                        font.bold: true
-                        color: foundCount > 0 ? "#006600" : "red"
+                        // ── Search bar ─────────────────────────────────────
+                        Rectangle {
+                            width: parent.width
+                            height: searchBarBg.height + 12
+                            color: "#050f0e"
 
-                        property int foundCount: {
-                            if (app.searchText === "") return attractionModel.count;
-                            var c = 0;
-                            for (var i = 0; i < attractionModel.count; i++) {
-                                var item = attractionModel.get(i);
-                                var n = app.selectedLanguage === "en" ? item.name_en : item.name_sw;
-                                var d = app.selectedLanguage === "en" ? item.desc_en : item.desc_sw;
-                                if (n.toLowerCase().indexOf(app.searchText) !== -1
-                                        || d.toLowerCase().indexOf(app.searchText) !== -1)
-                                    c++;
+                            Rectangle {
+                                id: searchBarBg
+                                anchors.centerIn: parent
+                                width: parent.width * 0.92
+                                height: searchField.implicitHeight + 10
+                                color: "#1a2a2a"
+                                radius: 6
+                                border.color: "cyan"
+                                border.width: 1
+
+                                TextField {
+                                    id: searchField
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    anchors.left: parent.left
+                                    anchors.right: clearBtn.left
+                                    anchors.leftMargin: 8
+                                    anchors.rightMargin: 4
+                                    placeholderText: app.selectedLanguage === "sw" ? "Tafuta..." : "Search..."
+                                    font.pointSize: Qt.platform.os === "android" ? 13 : 11
+                                    color: "white"
+                                    placeholderTextColor: "#888888"
+                                    background: Rectangle { color: "transparent" }
+                                    onTextChanged: app.searchText = text.toLowerCase()
+                                }
+
+                                Text {
+                                    id: clearBtn
+                                    anchors.right: parent.right
+                                    anchors.rightMargin: 8
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    text: "✕"
+                                    color: searchField.text.length > 0 ? "cyan" : "#555555"
+                                    font.pixelSize: 16
+                                    font.bold: true
+                                    MouseArea {
+                                        anchors.fill: parent
+                                        onClicked: { searchField.text = ""; app.searchText = ""; }
+                                    }
+                                }
                             }
-                            return c;
                         }
 
-                        text: app.selectedLanguage === "sw"
-                              ? (app.searchText === "" ? "Vivutio: " + foundCount : "Vimepatikana: " + foundCount)
-                              : (app.searchText === "" ? "Attractions: " + foundCount : "Found: " + foundCount)
+                        // ── Category filter chips ──────────────────────────
+                        Rectangle {
+                            width: parent.width
+                            height: filterRow.height + 12
+                            color: "#050f0e"
+
+                            Flickable {
+                                anchors.centerIn: parent
+                                width: parent.width
+                                height: filterRow.height
+                                contentWidth: filterRow.width + 24
+                                clip: true
+
+                                Row {
+                                    id: filterRow
+                                    x: 12
+                                    spacing: 8
+
+                                    Repeater {
+                                        model: [
+                                            { key: "All",       label_en: "All",       label_sw: "Zote",       icon: "🌍" },
+                                            { key: "Parks",     label_en: "Parks",     label_sw: "Hifadhi",    icon: "🦁" },
+                                            { key: "Coast",     label_en: "Coast",     label_sw: "Pwani",      icon: "🌊" },
+                                            { key: "Mountains", label_en: "Mountains", label_sw: "Milima",     icon: "🏔" },
+                                            { key: "Falls",     label_en: "Falls",     label_sw: "Maporomoko", icon: "💧" },
+                                            { key: "Culture",   label_en: "Culture",   label_sw: "Utamaduni",  icon: "🏛" },
+                                            { key: "Food",      label_en: "Food",      label_sw: "Chakula",    icon: "🍽" }
+                                        ]
+
+                                        Rectangle {
+                                            height: Qt.platform.os === "android" ? 36 : 28
+                                            width: chipRow.width + 18
+                                            radius: height / 2
+                                            color: app.activeFilter === modelData.key ? (app.selectedLanguage === "sw" ? "green" : "blue") : "#1a2a2a"
+                                            border.color: app.activeFilter === modelData.key ? "transparent" : "#33ffffff"
+                                            border.width: 1
+
+                                            Row {
+                                                id: chipRow
+                                                anchors.centerIn: parent
+                                                spacing: 4
+                                                Text {
+                                                    text: modelData.icon
+                                                    font.pointSize: Qt.platform.os === "android" ? 12 : 10
+                                                    anchors.verticalCenter: parent.verticalCenter
+                                                }
+                                                Text {
+                                                    text: app.selectedLanguage === "sw" ? modelData.label_sw : modelData.label_en
+                                                    font.pointSize: Qt.platform.os === "android" ? 11 : 9
+                                                    font.bold: app.activeFilter === modelData.key
+                                                    color: "white"
+                                                    anchors.verticalCenter: parent.verticalCenter
+                                                }
+                                            }
+                                            MouseArea {
+                                                anchors.fill: parent
+                                                onClicked: app.activeFilter = modelData.key
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        // ── Recently viewed row ────────────────────────────
+                        Rectangle {
+                            width: parent.width
+                            height: app.recentlyViewed.length > 0 ? recentCol.height + 12 : 0
+                            color: "#050f0e"
+                            visible: app.recentlyViewed.length > 0
+                            clip: true
+
+                            Column {
+                                id: recentCol
+                                anchors.top: parent.top
+                                anchors.topMargin: 6
+                                width: parent.width
+                                spacing: 4
+
+                                Text {
+                                    anchors.left: parent.left
+                                    anchors.leftMargin: 10
+                                    text: app.selectedLanguage === "sw" ? "🕐 Uliyoona Hivi Karibuni" : "🕐 Recently Viewed"
+                                    font.pointSize: Qt.platform.os === "android" ? 11 : 9
+                                    font.bold: true
+                                    color: "cyan"
+                                }
+
+                                Flickable {
+                                    width: parent.width
+                                    height: Qt.platform.os === "android" ? 70 : 56
+                                    contentWidth: recentRow.width + 20
+                                    clip: true
+
+                                    Row {
+                                        id: recentRow
+                                        x: 10
+                                        spacing: 8
+
+                                        Repeater {
+                                            model: app.recentlyViewed
+
+                                            Rectangle {
+                                                width: Qt.platform.os === "android" ? 90 : 72
+                                                height: Qt.platform.os === "android" ? 64 : 50
+                                                radius: 8
+                                                color: "#1a2a2a"
+                                                border.color: "#33ffffff"
+                                                border.width: 1
+                                                clip: true
+
+                                                property var attraction: attractionModel.get(modelData)
+
+                                                Image {
+                                                    anchors.fill: parent
+                                                    source: attraction ? attraction.imageFile : ""
+                                                    fillMode: Image.PreserveAspectCrop
+                                                    opacity: 0.6
+                                                }
+
+                                                Text {
+                                                    anchors.bottom: parent.bottom
+                                                    anchors.bottomMargin: 3
+                                                    anchors.left: parent.left
+                                                    anchors.right: parent.right
+                                                    anchors.leftMargin: 3
+                                                    anchors.rightMargin: 3
+                                                    text: attraction ? (app.selectedLanguage === "en" ? attraction.name_en : attraction.name_sw) : ""
+                                                    font.pointSize: Qt.platform.os === "android" ? 8 : 6
+                                                    color: "white"
+                                                    wrapMode: Text.WordWrap
+                                                    maximumLineCount: 2
+                                                    elide: Text.ElideRight
+                                                }
+
+                                                MouseArea {
+                                                    anchors.fill: parent
+                                                    onClicked: {
+                                                        var a = attractionModel.get(modelData);
+                                                        if (a) {
+                                                            contextMenu.doOpen(
+                                                                        app.selectedLanguage,
+                                                                        app.selectedLanguage === "en" ? a.name_en : a.name_sw,
+                                                                        app.selectedLanguage === "en" ? a.desc_en : a.desc_sw,
+                                                                        a.imageFile,
+                                                                        modelData
+                                                                        );
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        // ── Count text ─────────────────────────────────────
+                        Rectangle {
+                            width: parent.width
+                            height: countText.height + 8
+                            color: "#050f0e"
+
+                            Text {
+                                id: countText
+                                anchors.centerIn: parent
+                                font.pointSize: Qt.platform.os === "android" ? 12 : 10
+                                font.bold: true
+                                color: foundCount > 0 ? "#006600" : "red"
+
+                                property int foundCount: {
+                                    var c = 0;
+                                    var s = app.searchText;
+                                    var af = app.activeFilter;
+                                    for (var i = 0; i < attractionModel.count; i++) {
+                                        var item = attractionModel.get(i);
+                                        var n = app.selectedLanguage === "en" ? item.name_en : item.name_sw;
+                                        var d = app.selectedLanguage === "en" ? item.desc_en : item.desc_sw;
+                                        var nameL = item.name_en.toLowerCase();
+                                        var descL = item.desc_en.toLowerCase();
+
+                                        var textMatch = s === "" || n.toLowerCase().indexOf(s) !== -1 || d.toLowerCase().indexOf(s) !== -1;
+
+                                        var filterMatch = true;
+                                        if (af !== "All") {
+                                            if      (af === "Parks")     filterMatch = nameL.indexOf("park") !== -1 || nameL.indexOf("reserve") !== -1 || nameL.indexOf("conservation") !== -1;
+                                            else if (af === "Coast")     filterMatch = nameL.indexOf("beach") !== -1 || nameL.indexOf("island") !== -1 || nameL.indexOf("marine") !== -1 || nameL.indexOf("zanzibar") !== -1 || descL.indexOf("ocean") !== -1 || descL.indexOf("coast") !== -1;
+                                            else if (af === "Mountains") filterMatch = nameL.indexOf("mountain") !== -1 || nameL.indexOf("mount") !== -1 || nameL.indexOf("kilimanjaro") !== -1 || nameL.indexOf("peak") !== -1 || nameL.indexOf("view point") !== -1;
+                                            else if (af === "Falls")     filterMatch = nameL.indexOf("falls") !== -1 || nameL.indexOf("waterfall") !== -1;
+                                            else if (af === "Culture")   filterMatch = nameL.indexOf("museum") !== -1 || nameL.indexOf("cathedral") !== -1 || nameL.indexOf("art") !== -1 || nameL.indexOf("culture") !== -1 || nameL.indexOf("rock") !== -1 || nameL.indexOf("boma") !== -1 || nameL.indexOf("ruins") !== -1 || nameL.indexOf("cave") !== -1 || nameL.indexOf("house") !== -1 || nameL.indexOf("kanga") !== -1;
+                                            else if (af === "Food")      filterMatch = descL.indexOf("food") !== -1 || descL.indexOf("fish") !== -1 || descL.indexOf("cuisine") !== -1 || nameL.indexOf("taste") !== -1 || nameL.indexOf("dagaa") !== -1;
+                                        }
+
+                                        if (textMatch && filterMatch) c++;
+                                    }
+                                    return c;
+                                }
+
+                                text: app.selectedLanguage === "sw"
+                                      ? (app.searchText === "" && app.activeFilter === "All" ? "Vivutio: " + foundCount : "Vimepatikana: " + foundCount)
+                                      : (app.searchText === "" && app.activeFilter === "All" ? "Attractions: " + foundCount : "Found: " + foundCount)
+                            }
+                        }
                     }
                 } // end header
 
@@ -1981,10 +2327,24 @@ Rectangle {
                     width: parent.width
                     property bool matchesSearch: {
                         var s = app.searchText;
-                        if (s === "") return true;
                         var n = app.selectedLanguage === "en" ? name_en : name_sw;
                         var d = app.selectedLanguage === "en" ? desc_en : desc_sw;
-                        return n.toLowerCase().indexOf(s) !== -1 || d.toLowerCase().indexOf(s) !== -1;
+                        var textMatch = s === "" || n.toLowerCase().indexOf(s) !== -1 || d.toLowerCase().indexOf(s) !== -1;
+
+                        // Category filter
+                        var af = app.activeFilter;
+                        var filterMatch = true;
+                        if (af !== "All") {
+                            var nameL = name_en.toLowerCase();
+                            var descL = desc_en.toLowerCase();
+                            if      (af === "Parks")     filterMatch = nameL.indexOf("park") !== -1 || nameL.indexOf("reserve") !== -1 || nameL.indexOf("conservation") !== -1;
+                            else if (af === "Coast")     filterMatch = nameL.indexOf("beach") !== -1 || nameL.indexOf("island") !== -1 || nameL.indexOf("marine") !== -1 || nameL.indexOf("zanzibar") !== -1 || descL.indexOf("ocean") !== -1 || descL.indexOf("coast") !== -1;
+                            else if (af === "Mountains") filterMatch = nameL.indexOf("mountain") !== -1 || nameL.indexOf("mount") !== -1 || nameL.indexOf("kilimanjaro") !== -1 || nameL.indexOf("peak") !== -1 || nameL.indexOf("view point") !== -1;
+                            else if (af === "Falls")     filterMatch = nameL.indexOf("falls") !== -1 || nameL.indexOf("waterfall") !== -1;
+                            else if (af === "Culture")   filterMatch = nameL.indexOf("museum") !== -1 || nameL.indexOf("cathedral") !== -1 || nameL.indexOf("art") !== -1 || nameL.indexOf("culture") !== -1 || nameL.indexOf("rock") !== -1 || nameL.indexOf("boma") !== -1 || nameL.indexOf("ruins") !== -1 || nameL.indexOf("cave") !== -1 || nameL.indexOf("house") !== -1 || nameL.indexOf("kanga") !== -1;
+                            else if (af === "Food")      filterMatch = descL.indexOf("food") !== -1 || descL.indexOf("fish") !== -1 || descL.indexOf("cuisine") !== -1 || nameL.indexOf("taste") !== -1 || nameL.indexOf("dagaa") !== -1;
+                        }
+                        return textMatch && filterMatch;
                     }
                     height: matchesSearch ? (card.height + 12) : 0
                     visible: matchesSearch
@@ -2062,13 +2422,15 @@ Rectangle {
                             onPressed:  card.pressed = true
                             onReleased: card.pressed = false
                             onCanceled: card.pressed = false
-                            onDoubleClicked: {
+                            onClicked: {
+                                app.addRecentlyViewed(index);
                                 contextMenu.doOpen(
-                                    app.selectedLanguage,
-                                    delegateWrapper.attrName,
-                                    delegateWrapper.attrDesc,
-                                    delegateWrapper.attrPath
-                                );
+                                            app.selectedLanguage,
+                                            delegateWrapper.attrName,
+                                            delegateWrapper.attrDesc,
+                                            delegateWrapper.attrPath,
+                                            index
+                                            );
                             }
                         }
 
@@ -2163,37 +2525,7 @@ Rectangle {
                     } // end card Rectangle
                 } // end delegateWrapper Item
 
-                // ── FOOTER (back button, scrolls with list) ───────────────
-                footer: Button {
-                    id: backBtn
-                    width: parent.width * 0.6
-                    x: (parent.width - width) / 2
-                    text: app.selectedLanguage === "en" ? "← Go Back" : "← Rudi Nyuma"
-                    font.pointSize: Qt.platform.os === "android" ? 16 : 13
-                    font.bold: true
-                    topPadding: 8
-                    bottomPadding: 8
 
-                    background: Rectangle {
-                        implicitHeight: 48
-                        color: app.selectedLanguage === "sw" ? "green" : "blue"
-                        radius: 6
-                    }
-
-                    contentItem: Text {
-                        text: parent.text
-                        color: "white"
-                        font: parent.font
-                        horizontalAlignment: Text.AlignHCenter
-                        verticalAlignment: Text.AlignVCenter
-                    }
-
-                    onClicked: {
-                        app.searchText = "";
-                        viewComponentLoader.sourceComponent = languageSelectionComponent;
-                        app.selectedLanguage = "";
-                    }
-                }
 
             } // end ListView
 
