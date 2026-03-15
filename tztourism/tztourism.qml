@@ -1949,6 +1949,12 @@ Rectangle {
                             NumberAnimation { duration: 120; easing.type: Easing.OutQuad }
                         }
 
+                        MouseArea {
+                            anchors.fill: parent
+                            onPressed:  card.pressed = true
+                            onReleased: card.pressed = false
+                            onCanceled: card.pressed = false
+                        }
 
                         // ── Number badge (top-left corner) ─────────────────
                         Rectangle {
