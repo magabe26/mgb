@@ -35,12 +35,16 @@ Rectangle {
     }
 
     function addRecentlyViewed(idx) {
+        var thumbW  = Qt.platform.os === "android" ? 90 : 72;
+        var spacing = 8;
+        var padding = 20; // left + right margin
+        var maxCount = Math.max(1, Math.floor((app.width - padding) / (thumbW + spacing)));
+
         var arr = app.recentlyViewed.slice();
-        // remove if already present
         var pos = arr.indexOf(idx);
         if (pos !== -1) arr.splice(pos, 1);
         arr.unshift(idx);
-        if (arr.length > 5) arr = arr.slice(0, 5);
+        if (arr.length > maxCount) arr = arr.slice(0, maxCount);
         app.recentlyViewed = arr;
     }
 
@@ -1339,7 +1343,7 @@ Rectangle {
                                 spacing: 2
                                 Text {
                                     anchors.horizontalCenter: parent.horizontalCenter
-                                    text: attractionModel.count
+                                    text: attractionModel.count + "+"
                                     font.pointSize: Qt.platform.os === "android" ? 16 : 13
                                     font.bold: true
                                     color: "cyan"
@@ -2203,66 +2207,63 @@ Rectangle {
                                     color: "cyan"
                                 }
 
-                                Flickable {
-                                    width: parent.width
-                                    height: Qt.platform.os === "android" ? 70 : 56
-                                    contentWidth: recentRow.width + 20
-                                    clip: true
+                                Row {
+                                    id: recentRow
+                                    anchors.left: parent.left
+                                    anchors.right: parent.right
+                                    anchors.leftMargin: 10
+                                    anchors.rightMargin: 10
+                                    height: Qt.platform.os === "android" ? 64 : 50
+                                    spacing: 8
 
-                                    Row {
-                                        id: recentRow
-                                        x: 10
-                                        spacing: 8
+                                    Repeater {
+                                        model: app.recentlyViewed
 
-                                        Repeater {
-                                            model: app.recentlyViewed
+                                        Rectangle {
+                                            width: Qt.platform.os === "android" ? 90 : 72
+                                            height: Qt.platform.os === "android" ? 64 : 50
+                                            radius: 8
+                                            color: "#1a2a2a"
+                                            border.color: "#33ffffff"
+                                            border.width: 1
+                                            clip: true
 
-                                            Rectangle {
-                                                width: Qt.platform.os === "android" ? 90 : 72
-                                                height: Qt.platform.os === "android" ? 64 : 50
-                                                radius: 8
-                                                color: "#1a2a2a"
-                                                border.color: "#33ffffff"
-                                                border.width: 1
-                                                clip: true
+                                            property var attraction: attractionModel.get(modelData)
 
-                                                property var attraction: attractionModel.get(modelData)
+                                            Image {
+                                                anchors.fill: parent
+                                                source: attraction ? attraction.imageFile : ""
+                                                fillMode: Image.PreserveAspectCrop
+                                                opacity: 0.6
+                                            }
 
-                                                Image {
-                                                    anchors.fill: parent
-                                                    source: attraction ? attraction.imageFile : ""
-                                                    fillMode: Image.PreserveAspectCrop
-                                                    opacity: 0.6
-                                                }
+                                            Text {
+                                                anchors.bottom: parent.bottom
+                                                anchors.bottomMargin: 3
+                                                anchors.left: parent.left
+                                                anchors.right: parent.right
+                                                anchors.leftMargin: 3
+                                                anchors.rightMargin: 3
+                                                text: attraction ? (app.selectedLanguage === "en" ? attraction.name_en : attraction.name_sw) : ""
+                                                font.pointSize: Qt.platform.os === "android" ? 8 : 6
+                                                color: "white"
+                                                wrapMode: Text.WordWrap
+                                                maximumLineCount: 2
+                                                elide: Text.ElideRight
+                                            }
 
-                                                Text {
-                                                    anchors.bottom: parent.bottom
-                                                    anchors.bottomMargin: 3
-                                                    anchors.left: parent.left
-                                                    anchors.right: parent.right
-                                                    anchors.leftMargin: 3
-                                                    anchors.rightMargin: 3
-                                                    text: attraction ? (app.selectedLanguage === "en" ? attraction.name_en : attraction.name_sw) : ""
-                                                    font.pointSize: Qt.platform.os === "android" ? 8 : 6
-                                                    color: "white"
-                                                    wrapMode: Text.WordWrap
-                                                    maximumLineCount: 2
-                                                    elide: Text.ElideRight
-                                                }
-
-                                                MouseArea {
-                                                    anchors.fill: parent
-                                                    onClicked: {
-                                                        var a = attractionModel.get(modelData);
-                                                        if (a) {
-                                                            contextMenu.doOpen(
-                                                                        app.selectedLanguage,
-                                                                        app.selectedLanguage === "en" ? a.name_en : a.name_sw,
-                                                                        app.selectedLanguage === "en" ? a.desc_en : a.desc_sw,
-                                                                        a.imageFile,
-                                                                        modelData
-                                                                        );
-                                                        }
+                                            MouseArea {
+                                                anchors.fill: parent
+                                                onClicked: {
+                                                    var a = attractionModel.get(modelData);
+                                                    if (a) {
+                                                        contextMenu.doOpen(
+                                                            app.selectedLanguage,
+                                                            app.selectedLanguage === "en" ? a.name_en : a.name_sw,
+                                                            app.selectedLanguage === "en" ? a.desc_en : a.desc_sw,
+                                                            a.imageFile,
+                                                            modelData
+                                                        );
                                                     }
                                                 }
                                             }
