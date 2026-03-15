@@ -944,86 +944,194 @@ Rectangle {
 
 
 
-    Dialog {
+    Item {
         id: contextMenu
-        property real dialogWidth: app.width * 0.6
-        property string frontPageBtnText
-        property string closeAppBtnText
-        property color frontPageBtnColor: "blue"
 
-        contentItem: Rectangle {
-            color: "#001413"
-            border.color: "cyan"
-            border.width: 1
-            implicitWidth: modeSelectionDialog.width
-            implicitHeight: frontPageBtn.height + frontPageBtn.anchors.topMargin + closeAppBtn.height + closeAppBtn.anchors.topMargin + closeAppBtn.anchors.bottomMargin;
+        // ── Full-screen attraction detail overlay ──────────────────────
+        property string detailName: ""
+        property string detailDesc: ""
+        property string detailImage: ""
+        property string detailLang: ""
 
-            Button {
-                id: frontPageBtn
-                anchors.top: parent.top
-                anchors.topMargin: 8
-                anchors.horizontalCenter: parent.horizontalCenter
-                text: contextMenu.frontPageBtnText
-                font.pointSize: Qt.platform.os === "android" ? 14 : 12
-                background: Rectangle {
-                    implicitWidth: contextMenu.dialogWidth * 0.8
-                    implicitHeight: 40
-                    color: contextMenu.frontPageBtnColor
-                    radius: 5
-                }
+        visible: false
+        anchors.fill: parent
+        z: 200
 
-                contentItem: Text {
-                    text: parent.text
-                    color: "white"
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-                }
+        // Dimmed backdrop
+        Rectangle {
+            anchors.fill: parent
+            color: "#000000"
+            opacity: 0.0
+            id: detailBackdrop
+            Behavior on opacity { NumberAnimation { duration: 300 } }
+        }
 
-                onClicked: {
-                    viewComponentLoader.sourceComponent = languageSelectionComponent;
-                    app.selectedLanguage = "";
-                    contextMenu.close();
-                }
+        // Full image background
+        Image {
+            id: detailBgImage
+            anchors.fill: parent
+            source: contextMenu.detailImage
+            fillMode: Image.PreserveAspectFit
+            smooth: true
+            opacity: 0.0
+            Behavior on opacity { NumberAnimation { duration: 350; easing.type: Easing.OutCubic } }
+        }
 
+        // Bottom gradient for text readability
+        Rectangle {
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.bottom: parent.bottom
+            height: parent.height * 0.55
+            gradient: Gradient {
+                GradientStop { position: 0.0; color: "transparent" }
+                GradientStop { position: 0.5; color: "#cc001413" }
+                GradientStop { position: 1.0; color: "#f0000000" }
+            }
+            opacity: detailBgImage.opacity
+        }
+
+        // Detail text — slides up from bottom
+        Column {
+            id: detailTextCol
+            anchors.bottom: detailBtnRow.top
+            anchors.bottomMargin: 16
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.leftMargin: 18
+            anchors.rightMargin: 18
+            spacing: 10
+            opacity: 0.0
+            transform: Translate { id: detailTextSlide; y: 40 }
+            Behavior on opacity { NumberAnimation { duration: 350; easing.type: Easing.OutCubic } }
+
+            // Attraction name
+            Text {
+                width: parent.width
+                text: contextMenu.detailName
+                font.pointSize: Qt.platform.os === "android" ? 20 : 16
+                font.bold: true
+                color: "white"
+                wrapMode: Text.WordWrap
             }
 
+            // Cyan accent line
+            Rectangle {
+                width: 50; height: 3; radius: 2
+                color: contextMenu.detailLang === "sw" ? "green" : "cyan"
+            }
 
-            Button {
-                id: closeAppBtn
-                anchors.top: frontPageBtn.bottom
-                anchors.topMargin: 12
-                anchors.bottomMargin: 18
-                anchors.horizontalCenter: parent.horizontalCenter
-                text: contextMenu.closeAppBtnText
-                font.pointSize: Qt.platform.os === "android" ? 14 : 12
+            // Description — scrollable if long
+            Flickable {
+                width: parent.width
+                height: Math.min(detailDescText.implicitHeight, app.height * 0.25)
+                contentHeight: detailDescText.implicitHeight
+                clip: true
 
-                background: Rectangle {
-                    implicitWidth: contextMenu.dialogWidth * 0.8
-                    implicitHeight: 40
-                    color: "red"
-                    radius: 5
-                }
-
-                contentItem: Text {
-                    text: parent.text
-                    color: "white"
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-                }
-
-                onClicked: {
-                    contextMenu.close();
+                Text {
+                    id: detailDescText
+                    width: parent.width
+                    text: contextMenu.detailDesc
+                    font.pointSize: Qt.platform.os === "android" ? 13 : 11
+                    color: "#e0e0e0"
+                    wrapMode: Text.WordWrap
                 }
             }
         }
 
-        function doOpen(lag){
-            contextMenu.frontPageBtnColor = lag === "sw" ? "green" : "blue";
-            contextMenu.frontPageBtnText = lag === "sw" ? "Rudi Nyuma" : "Go Back";
-            contextMenu.closeAppBtnText = lag === "sw" ? "Funga" : "Close";
-            open();
+        // Bottom button row
+        Row {
+            id: detailBtnRow
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: 20
+            anchors.horizontalCenter: parent.horizontalCenter
+            spacing: 16
+            opacity: detailTextCol.opacity
+
+            // Go back to front page
+            Rectangle {
+                id: detailHomeBtn
+                width: app.width * 0.38
+                height: Qt.platform.os === "android" ? 52 : 40
+                radius: height / 2
+                color: contextMenu.detailLang === "sw" ? "green" : "blue"
+                property bool pressed: false
+                scale: pressed ? 0.95 : 1.0
+                Behavior on scale { NumberAnimation { duration: 100 } }
+                Text {
+                    anchors.centerIn: parent
+                    text: contextMenu.detailLang === "sw" ? "⌂ Nyumbani" : "⌂ Home"
+                    font.pointSize: Qt.platform.os === "android" ? 13 : 10
+                    font.bold: true
+                    color: "white"
+                }
+                MouseArea {
+                    anchors.fill: parent
+                    onPressed:  detailHomeBtn.pressed = true
+                    onReleased: detailHomeBtn.pressed = false
+                    onCanceled: detailHomeBtn.pressed = false
+                    onClicked: {
+                        contextMenu.close();
+                        viewComponentLoader.sourceComponent = languageSelectionComponent;
+                        app.selectedLanguage = "";
+                    }
+                }
+            }
+
+            // Close detail view
+            Rectangle {
+                id: detailCloseBtn
+                width: app.width * 0.38
+                height: Qt.platform.os === "android" ? 52 : 40
+                radius: height / 2
+                color: "#cc2200"
+                property bool pressed: false
+                scale: pressed ? 0.95 : 1.0
+                Behavior on scale { NumberAnimation { duration: 100 } }
+                Text {
+                    anchors.centerIn: parent
+                    text: contextMenu.detailLang === "sw" ? "✕ Funga" : "✕ Close"
+                    font.pointSize: Qt.platform.os === "android" ? 13 : 10
+                    font.bold: true
+                    color: "white"
+                }
+                MouseArea {
+                    anchors.fill: parent
+                    onPressed:  detailCloseBtn.pressed = true
+                    onReleased: detailCloseBtn.pressed = false
+                    onCanceled: detailCloseBtn.pressed = false
+                    onClicked:  contextMenu.close()
+                }
+            }
         }
 
+        function doOpen(lag, name, desc, imagePath) {
+            contextMenu.detailLang  = lag;
+            contextMenu.detailName  = name;
+            contextMenu.detailDesc  = desc;
+            contextMenu.detailImage = imagePath;
+            contextMenu.visible     = true;
+            detailBackdrop.opacity  = 1.0;
+            detailBgImage.opacity   = 1.0;
+            detailTextCol.opacity   = 1.0;
+            detailTextSlideAnim.start();
+        }
+
+        function close() {
+            detailBackdrop.opacity = 0.0;
+            detailBgImage.opacity  = 0.0;
+            detailTextCol.opacity  = 0.0;
+            contextMenu.visible    = false;
+        }
+
+        NumberAnimation {
+            id: detailTextSlideAnim
+            target: detailTextSlide
+            property: "y"
+            from: 40; to: 0
+            duration: 380
+            easing.type: Easing.OutCubic
+        }
     }
 
 
@@ -1954,6 +2062,14 @@ Rectangle {
                             onPressed:  card.pressed = true
                             onReleased: card.pressed = false
                             onCanceled: card.pressed = false
+                            onDoubleClicked: {
+                                contextMenu.doOpen(
+                                    app.selectedLanguage,
+                                    delegateWrapper.attrName,
+                                    delegateWrapper.attrDesc,
+                                    delegateWrapper.attrPath
+                                );
+                            }
                         }
 
                         // ── Number badge (top-left corner) ─────────────────
