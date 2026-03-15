@@ -2562,7 +2562,7 @@ Rectangle {
                             Text { width: parent.width; text: "📢 Advertise Your Property on Tanzania Tourism App!"
                                 font.pointSize: Qt.platform.os === "android" ? 13 : 11; font.bold: true
                                 color: "#1a0dab"; wrapMode: Text.WordWrap }
-                            Text { text: "tztourism.app › advertise"
+                            Text { text: "tanzaniatourism.app › advertise"
                                 font.pointSize: Qt.platform.os === "android" ? 10 : 8; color: "#006621" }
                             Text { width: parent.width
                                 text: "Reach thousands of tourists daily! List your Hotel, Hostel or Rental House and get noticed by visitors from around the world."
@@ -2585,7 +2585,7 @@ Rectangle {
                                         font.pointSize: Qt.platform.os === "android" ? 12 : 10; font.bold: true; color: "white" }
                                     MouseArea { anchors.fill: parent
                                         onPressed: enCallBtn.pressed = true; onReleased: enCallBtn.pressed = false; onCanceled: enCallBtn.pressed = false
-                                        onClicked: app.showToastMessage("Call: 0789 081 122") }
+                                        onClicked: Qt.openUrlExternally("tel:+255789081122") }
                                 }
                                 Rectangle {
                                     id: enWaBtn; height: enWaTxt.implicitHeight + 10; width: enWaTxt.implicitWidth + 20
@@ -2648,7 +2648,7 @@ Rectangle {
                             Text { width: parent.width; text: "📢 Tangaza Nyumba Yako kwenye App ya Utalii wa Tanzania!"
                                 font.pointSize: Qt.platform.os === "android" ? 13 : 11; font.bold: true
                                 color: "#1a0dab"; wrapMode: Text.WordWrap }
-                            Text { text: "tztourism.app › matangazo"
+                            Text { text: "tanzaniatourism.app › matangazo"
                                 font.pointSize: Qt.platform.os === "android" ? 10 : 8; color: "#006621" }
                             Text { width: parent.width
                                 text: "Fikia maelfu ya watalii kila siku! Tangaza Hoteli, Hostel au Nyumba ya Kupanga na uonekane na wageni kutoka duniani kote."
@@ -2671,7 +2671,7 @@ Rectangle {
                                         font.pointSize: Qt.platform.os === "android" ? 12 : 10; font.bold: true; color: "white" }
                                     MouseArea { anchors.fill: parent
                                         onPressed: swCallBtn.pressed = true; onReleased: swCallBtn.pressed = false; onCanceled: swCallBtn.pressed = false
-                                        onClicked: app.showToastMessage("Piga simu: 0789 081 122") }
+                                        onClicked: Qt.openUrlExternally("tel:+255789081122") }
                                 }
                                 Rectangle {
                                     id: swWaBtn; height: swWaTxt.implicitHeight + 10; width: swWaTxt.implicitWidth + 20
