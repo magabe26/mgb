@@ -887,7 +887,7 @@ Rectangle {
 
                     Text {
                         anchors.centerIn: parent
-                        text: modeSelectionDialog.lag === "sw" ? "✕  Funga" : "✕  Close"
+                        text: modeSelectionDialog.lag === "sw" ? "X  Funga" : "X  Close"
                         font.pointSize: Qt.platform.os === "android" ? 13 : 11
                         font.bold: true
                         color: "white"
@@ -1090,7 +1090,7 @@ Rectangle {
                 Behavior on scale { NumberAnimation { duration: 100 } }
                 Text {
                     anchors.centerIn: parent
-                    text: contextMenu.detailLang === "sw" ? "✕ Funga" : "✕ Close"
+                    text: contextMenu.detailLang === "sw" ? "X Funga" : "X Close"
                     font.pointSize: Qt.platform.os === "android" ? 13 : 10
                     font.bold: true
                     color: "white"
@@ -1539,7 +1539,7 @@ Rectangle {
 
                             Text {
                                 anchors.centerIn: parent
-                                text: "✕  Funga / Close"
+                                text: "X  Funga / Close"
                                 font.pointSize: Qt.platform.os === "android" ? 12 : 10
                                 font.bold: true
                                 color: "white"
