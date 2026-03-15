@@ -26,7 +26,7 @@ Rectangle {
             event.accepted = true;
         } else if (app.selectedLanguage !== "") {
             app.searchText = "";
-            viewComponentLoader.sourceComponent = languageSelectionComponent;
+            viewComponentLoader.switchTo(languageSelectionComponent, app.width / 2, app.height / 2);
             app.selectedLanguage = "";
             event.accepted = true;
         } else {
@@ -681,20 +681,130 @@ Rectangle {
         return selectedLanguage === "en" ? attraction.desc_en : attraction.desc_sw;
     }
 
+    property real lastTapX: 0
+    property real lastTapY: 0
+
     onSelectedLanguageChanged: {
         if (selectedLanguage !== "") {
             if(app.appMode === 1){
-                viewComponentLoader.sourceComponent = attractionViewComponent1;
+                viewComponentLoader.switchTo(attractionViewComponent1, app.lastTapX, app.lastTapY);
             } else if(app.appMode === 2){
-                viewComponentLoader.sourceComponent = attractionViewComponent2;
+                viewComponentLoader.switchTo(attractionViewComponent2, app.lastTapX, app.lastTapY);
             }
         }
     }
 
-    Loader {
-        id: viewComponentLoader
+    // ── View transition container ──────────────────────────────────────
+    Item {
+        id: viewTransitionRoot
         anchors.fill: parent
-        sourceComponent: languageSelectionComponent
+
+        Loader {
+            id: viewComponentLoader
+            anchors.fill: parent
+            sourceComponent: languageSelectionComponent
+
+            function switchTo(component, tapX, tapY) {
+                rippleTransition.start(component, tapX, tapY);
+            }
+        }
+
+        // ── Ripple overlay ─────────────────────────────────────────────
+        Item {
+            id: rippleOverlay
+            anchors.fill: parent
+            visible: false
+            z: 50
+
+            Rectangle {
+                id: rippleCircle
+                property real cx: 0
+                property real cy: 0
+                property real maxR: 0
+                property color rippleColor: "#cc000088"
+
+                x: cx - width  / 2
+                y: cy - height / 2
+                width:  rippleCircle.maxR * 2 * rippleScale.xScale
+                height: rippleCircle.maxR * 2 * rippleScale.xScale
+                radius: width / 2
+                color: rippleCircle.rippleColor
+                transform: Scale {
+                    id: rippleScale
+                    xScale: 0
+                    yScale: 0
+                    origin.x: rippleCircle.width  / 2
+                    origin.y: rippleCircle.height / 2
+                }
+            }
+        }
+
+        QtObject {
+            id: rippleTransition
+            property var pendingComponent: null
+
+            function start(component, tapX, tapY) {
+                pendingComponent = component;
+
+                // Set ripple origin to tap point (default to center)
+                var tx = (tapX !== undefined && tapX > 0) ? tapX : app.width  / 2;
+                var ty = (tapY !== undefined && tapY > 0) ? tapY : app.height / 2;
+
+                // Max radius = diagonal from tap to farthest corner
+                var corners = [
+                    Math.sqrt(tx*tx + ty*ty),
+                    Math.sqrt((app.width-tx)*(app.width-tx) + ty*ty),
+                    Math.sqrt(tx*tx + (app.height-ty)*(app.height-ty)),
+                    Math.sqrt((app.width-tx)*(app.width-tx) + (app.height-ty)*(app.height-ty))
+                ];
+                var maxR = Math.max(corners[0], corners[1], corners[2], corners[3]) + 10;
+
+                rippleCircle.cx   = tx;
+                rippleCircle.cy   = ty;
+                rippleCircle.maxR = maxR;
+                rippleCircle.rippleColor = app.selectedLanguage === "sw" ? "#cc006600" : "#cc000088";
+                rippleScale.xScale = 0;
+                rippleScale.yScale = 0;
+                rippleOverlay.visible = true;
+
+                rippleExpandAnim.start();
+            }
+
+            function finish() {
+                rippleCollapseAnim.start();
+            }
+        }
+
+        // Expand: ripple grows to fill screen
+        SequentialAnimation {
+            id: rippleExpandAnim
+            NumberAnimation {
+                target: rippleScale; properties: "xScale,yScale"
+                from: 0; to: 1
+                duration: 380
+                easing.type: Easing.OutCubic
+            }
+            ScriptAction {
+                script: {
+                    viewComponentLoader.sourceComponent = rippleTransition.pendingComponent;
+                    rippleTransition.finish();
+                }
+            }
+        }
+
+        // Collapse: ripple shrinks to reveal new view
+        SequentialAnimation {
+            id: rippleCollapseAnim
+            NumberAnimation {
+                target: rippleScale; properties: "xScale,yScale"
+                from: 1; to: 0
+                duration: 320
+                easing.type: Easing.InCubic
+            }
+            ScriptAction {
+                script: { rippleOverlay.visible = false; }
+            }
+        }
     }
 
     // ── Fancy Layout Selection Overlay ────────────────────────────────────
@@ -830,7 +940,11 @@ Rectangle {
                         onPressed:  mode1Card.pressed = true
                         onReleased: mode1Card.pressed = false
                         onCanceled: mode1Card.pressed = false
-                        onClicked:  modeSelectionDialog.setMode1()
+                        onClicked: {
+                            app.lastTapX = mouse.x + mode1Card.x;
+                            app.lastTapY = mouse.y + mode1Card.y;
+                            modeSelectionDialog.setMode1();
+                        }
                     }
                 }
 
@@ -902,7 +1016,11 @@ Rectangle {
                         onPressed:  mode2Card.pressed = true
                         onReleased: mode2Card.pressed = false
                         onCanceled: mode2Card.pressed = false
-                        onClicked:  modeSelectionDialog.setMode2()
+                        onClicked: {
+                            app.lastTapX = mouse.x + mode2Card.x;
+                            app.lastTapY = mouse.y + mode2Card.y;
+                            modeSelectionDialog.setMode2();
+                        }
                     }
                 }
 
@@ -1136,7 +1254,7 @@ Rectangle {
                     onPressed:  detailHomeBtn.pressed = true
                     onReleased: detailHomeBtn.pressed = false
                     onCanceled: detailHomeBtn.pressed = false
-                    onClicked: { contextMenu.close(); viewComponentLoader.sourceComponent = languageSelectionComponent; app.selectedLanguage = ""; }
+                    onClicked: { contextMenu.close(); viewComponentLoader.switchTo(languageSelectionComponent, app.width / 2, app.height / 2); app.selectedLanguage = ""; }
                 }
             }
 
@@ -2337,7 +2455,7 @@ Rectangle {
                         onReleased: homeBtn.pressed = false
                         onCanceled: homeBtn.pressed = false
                         onClicked: {
-                            viewComponentLoader.sourceComponent = languageSelectionComponent;
+                            viewComponentLoader.switchTo(languageSelectionComponent, app.width / 2, app.height / 2);
                             app.selectedLanguage = "";
                         }
                     }
@@ -2798,7 +2916,7 @@ Rectangle {
                         anchors.topMargin: 6
 
                         // Auto-size to content
-                        height: cardNumberBadge.height + 8 + cardImg.height + 8 + divider.height + 8 + cardTextCol.height + 16
+                        height: cardNumberBadge.height + 8 + cardImgWrapper.height + 8 + divider.height + 8 + cardTextCol.height + 16
 
                         radius: 10
                         clip: true
@@ -2863,28 +2981,78 @@ Rectangle {
                         }
 
                         // ── Attraction image ───────────────────────────────
-                        Image {
-                            id: cardImg
+                        Item {
+                            id: cardImgWrapper
                             anchors.top: cardNumberBadge.bottom
                             anchors.topMargin: 8
                             anchors.horizontalCenter: parent.horizontalCenter
-                            source: delegateWrapper.attrPath
                             width: parent.width - 16
                             height: width * 0.56
-                            fillMode: Image.PreserveAspectCrop
-                            layer.enabled: true
-                            // Rounded top image corners via clip
+
+                            // Skeleton shimmer (shown while image loads)
                             Rectangle {
+                                id: skeleton
                                 anchors.fill: parent
-                                color: "transparent"
                                 radius: 6
+                                color: "#1a2a2a"
+                                visible: cardImg.status !== Image.Ready
+
+                                // Shimmer sweep
+                                Rectangle {
+                                    id: shimmer
+                                    anchors.top: parent.top
+                                    anchors.bottom: parent.bottom
+                                    width: parent.width * 0.35
+                                    x: -width
+                                    gradient: Gradient {
+                                        GradientStop { position: 0.0; color: "transparent" }
+                                        GradientStop { position: 0.5; color: "#18ffffff" }
+                                        GradientStop { position: 1.0; color: "transparent" }
+                                    }
+
+                                    NumberAnimation on x {
+                                        from: -shimmer.width
+                                        to: skeleton.width
+                                        duration: 1200
+                                        loops: Animation.Infinite
+                                        easing.type: Easing.InOutSine
+                                        running: skeleton.visible
+                                    }
+                                }
+
+                                // Skeleton content lines
+                                Column {
+                                    anchors.centerIn: parent
+                                    spacing: 8
+                                    opacity: 0.3
+
+                                    Rectangle { width: 60; height: 60; radius: 30; color: "#44ffffff"; anchors.horizontalCenter: parent.horizontalCenter }
+                                    Rectangle { width: 80; height: 8; radius: 4; color: "#44ffffff"; anchors.horizontalCenter: parent.horizontalCenter }
+                                    Rectangle { width: 55; height: 6; radius: 3; color: "#44ffffff"; anchors.horizontalCenter: parent.horizontalCenter }
+                                }
+                            }
+
+                            Image {
+                                id: cardImg
+                                anchors.fill: parent
+                                source: delegateWrapper.attrPath
+                                fillMode: Image.PreserveAspectCrop
+                                layer.enabled: true
+                                opacity: cardImg.status === Image.Ready ? 1 : 0
+                                Behavior on opacity { NumberAnimation { duration: 300; easing.type: Easing.OutCubic } }
+
+                                Rectangle {
+                                    anchors.fill: parent
+                                    color: "transparent"
+                                    radius: 6
+                                }
                             }
                         }
 
                         // ── Thin cyan divider line ─────────────────────────
                         Rectangle {
                             id: divider
-                            anchors.top: cardImg.bottom
+                            anchors.top: cardImgWrapper.bottom
                             anchors.topMargin: 8
                             anchors.horizontalCenter: parent.horizontalCenter
                             width: parent.width - 20
@@ -2987,7 +3155,7 @@ Rectangle {
                     onCanceled: floatingBackBtn.pressed = false
                     onClicked: {
                         app.searchText = "";
-                        viewComponentLoader.sourceComponent = languageSelectionComponent;
+                        viewComponentLoader.switchTo(languageSelectionComponent, app.width / 2, app.height / 2);
                         app.selectedLanguage = "";
                     }
                 }
