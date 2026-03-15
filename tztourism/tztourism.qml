@@ -1253,6 +1253,212 @@ Rectangle {
 
 
 
+    // ════════════════════════════════════════════════════════════════════
+    // AD SYSTEM — each ad is a plain Component (no custom properties)
+    // Lang is tracked separately in adsLang array, same index as adsPool.
+    //
+    // To add a client ad:
+    //   1. Add a Component { id: adClientX ... } below
+    //   2. Add it to adsPool list
+    //   3. Add its lang ("en","sw","both") at the same index in adsLang
+    // ════════════════════════════════════════════════════════════════════
+
+    property var adsPool: [ adOwnerEN, adOwnerSW ]
+    property var adsLang: [ "en",      "sw"      ]
+    // ↑ add client components and their langs here, same order
+
+    property int adRandomSeed: Math.floor(Math.random() * 9999)
+
+    function pickAd(language) {
+        var pool = [];
+        for (var i = 0; i < adsPool.length; i++) {
+            var l = adsLang[i] !== undefined ? adsLang[i] : "both";
+            if (l === language || l === "both") pool.push(i);
+        }
+        return pool; // all matching indices
+    }
+
+    // Returns ad index for a given slot — each ad shows once, no repeats
+    function pickAdForSlot(language, slot) {
+        var pool = pickAd(language);
+        if (pool.length === 0 || slot >= pool.length) return -1;
+        return pool[slot];
+    }
+
+    // ── YOUR EN AD ────────────────────────────────────────────────────
+    Component {
+        id: adOwnerEN
+        Rectangle {
+            width: parent ? parent.width : 0
+            height: _enCol.height + 20
+            color: "#ffffff"; radius: 8
+            border.color: "#dadce0"; border.width: 1; clip: true
+
+            Rectangle {
+                anchors.top: parent.top; anchors.left: parent.left
+                anchors.topMargin: 8; anchors.leftMargin: 10
+                width: _enBadge.implicitWidth + 8; height: _enBadge.implicitHeight + 4
+                radius: 3; color: "#f0f0f0"; border.color: "#bbbbbb"; border.width: 1
+                Text { id: _enBadge; anchors.centerIn: parent; text: "Ad"
+                    font.pointSize: Qt.platform.os === "android" ? 9 : 7; color: "#555555" }
+            }
+            Column {
+                id: _enCol
+                anchors.top: parent.top; anchors.topMargin: 30
+                anchors.left: parent.left; anchors.right: parent.right
+                anchors.leftMargin: 10; anchors.rightMargin: 10
+                spacing: 6
+                Text { width: parent.width; wrapMode: Text.WordWrap; font.bold: true; color: "#1a0dab"
+                    font.pointSize: Qt.platform.os === "android" ? 13 : 11
+                    text: "📢 Advertise Your Property on Tanzania Tourism App!" }
+                Text { text: "tztourism.app › advertise"
+                    font.pointSize: Qt.platform.os === "android" ? 10 : 8; color: "#006621" }
+                Text { width: parent.width; wrapMode: Text.WordWrap; color: "#333333"
+                    font.pointSize: Qt.platform.os === "android" ? 11 : 9
+                    text: "Reach thousands of tourists daily! List your Hotel, Hostel or Rental House and get noticed by visitors from around the world." }
+                Rectangle {
+                    height: _enPrice.implicitHeight+8; width: _enPrice.implicitWidth+16
+                    radius: 4; color: "#e8f5e9"; border.color: "#4caf50"; border.width: 1
+                    Text { id: _enPrice; anchors.centerIn: parent; font.bold: true; color: "#2e7d32"
+                        font.pointSize: Qt.platform.os === "android" ? 11 : 9
+                        text: "💰 From TZS 50,000/= per month" }
+                }
+                Row {
+                    spacing: 8
+                    Rectangle {
+                        id: _enCall; radius: 4; color: "#1a73e8"
+                        height: _enCallTxt.implicitHeight+10; width: _enCallTxt.implicitWidth+20
+                        property bool pressed: false; scale: pressed ? 0.96:1.0
+                        Behavior on scale { NumberAnimation { duration: 100 } }
+                        Text { id: _enCallTxt; anchors.centerIn: parent; font.bold: true; color: "white"
+                            font.pointSize: Qt.platform.os === "android" ? 12:10; text: "📞  0789 081 122" }
+                        MouseArea { anchors.fill: parent
+                            onPressed: _enCall.pressed=true; onReleased: _enCall.pressed=false; onCanceled: _enCall.pressed=false
+                            onClicked: Qt.openUrlExternally("tel:+255789081122") }
+                    }
+                    Rectangle {
+                        id: _enWa; radius: 4; color: "#25D366"
+                        height: _enWaTxt.implicitHeight+10; width: _enWaTxt.implicitWidth+20
+                        property bool pressed: false; scale: pressed ? 0.96:1.0
+                        Behavior on scale { NumberAnimation { duration: 100 } }
+                        Text { id: _enWaTxt; anchors.centerIn: parent; font.bold: true; color: "white"
+                            font.pointSize: Qt.platform.os === "android" ? 12:10; text: "💬 WhatsApp" }
+                        MouseArea { anchors.fill: parent
+                            onPressed: _enWa.pressed=true; onReleased: _enWa.pressed=false; onCanceled: _enWa.pressed=false
+                            onClicked: Qt.openUrlExternally("https://wa.me/255789081122?text=Hello%2C%20I%20want%20to%20advertise%20my%20property.") }
+                    }
+                    Rectangle {
+                        id: _enBook; radius: 4; color: "#f8f9fa"; border.color: "#dadce0"; border.width: 1
+                        height: _enBookTxt.implicitHeight+10; width: _enBookTxt.implicitWidth+20
+                        property bool pressed: false; scale: pressed ? 0.96:1.0
+                        Behavior on scale { NumberAnimation { duration: 100 } }
+                        Text { id: _enBookTxt; anchors.centerIn: parent; font.bold: true; color: "#1a73e8"
+                            font.pointSize: Qt.platform.os === "android" ? 12:10; text: "Book →" }
+                        MouseArea { anchors.fill: parent
+                            onPressed: _enBook.pressed=true; onReleased: _enBook.pressed=false; onCanceled: _enBook.pressed=false
+                            onClicked: app.showToastMessage("Call or WhatsApp 0789 081 122 to book your slot!") }
+                    }
+                }
+                Item { width: 1; height: 4 }
+            }
+        }
+    }
+
+    // ── YOUR SW AD ────────────────────────────────────────────────────
+    Component {
+        id: adOwnerSW
+        Rectangle {
+            width: parent ? parent.width : 0
+            height: _swCol.height + 20
+            color: "#ffffff"; radius: 8
+            border.color: "#dadce0"; border.width: 1; clip: true
+
+            Rectangle {
+                anchors.top: parent.top; anchors.left: parent.left
+                anchors.topMargin: 8; anchors.leftMargin: 10
+                width: _swBadge.implicitWidth + 8; height: _swBadge.implicitHeight + 4
+                radius: 3; color: "#f0f0f0"; border.color: "#bbbbbb"; border.width: 1
+                Text { id: _swBadge; anchors.centerIn: parent; text: "Tangazo"
+                    font.pointSize: Qt.platform.os === "android" ? 9 : 7; color: "#555555" }
+            }
+            Column {
+                id: _swCol
+                anchors.top: parent.top; anchors.topMargin: 30
+                anchors.left: parent.left; anchors.right: parent.right
+                anchors.leftMargin: 10; anchors.rightMargin: 10
+                spacing: 6
+                Text { width: parent.width; wrapMode: Text.WordWrap; font.bold: true; color: "#1a0dab"
+                    font.pointSize: Qt.platform.os === "android" ? 13 : 11
+                    text: "📢 Tangaza Nyumba Yako kwenye App ya Utalii wa Tanzania!" }
+                Text { text: "tztourism.app › matangazo"
+                    font.pointSize: Qt.platform.os === "android" ? 10 : 8; color: "#006621" }
+                Text { width: parent.width; wrapMode: Text.WordWrap; color: "#333333"
+                    font.pointSize: Qt.platform.os === "android" ? 11 : 9
+                    text: "Fikia maelfu ya watalii kila siku! Tangaza Hoteli, Hostel au Nyumba ya Kupanga na uonekane na wageni kutoka duniani kote." }
+                Rectangle {
+                    height: _swPrice.implicitHeight+8; width: _swPrice.implicitWidth+16
+                    radius: 4; color: "#e8f5e9"; border.color: "#4caf50"; border.width: 1
+                    Text { id: _swPrice; anchors.centerIn: parent; font.bold: true; color: "#2e7d32"
+                        font.pointSize: Qt.platform.os === "android" ? 11 : 9
+                        text: "💰 Kuanzia TZS 50,000/= kwa mwezi" }
+                }
+                Row {
+                    spacing: 8
+                    Rectangle {
+                        id: _swCall; radius: 4; color: "#1a73e8"
+                        height: _swCallTxt.implicitHeight+10; width: _swCallTxt.implicitWidth+20
+                        property bool pressed: false; scale: pressed ? 0.96:1.0
+                        Behavior on scale { NumberAnimation { duration: 100 } }
+                        Text { id: _swCallTxt; anchors.centerIn: parent; font.bold: true; color: "white"
+                            font.pointSize: Qt.platform.os === "android" ? 12:10; text: "📞  0789 081 122" }
+                        MouseArea { anchors.fill: parent
+                            onPressed: _swCall.pressed=true; onReleased: _swCall.pressed=false; onCanceled: _swCall.pressed=false
+                            onClicked: Qt.openUrlExternally("tel:+255789081122") }
+                    }
+                    Rectangle {
+                        id: _swWa; radius: 4; color: "#25D366"
+                        height: _swWaTxt.implicitHeight+10; width: _swWaTxt.implicitWidth+20
+                        property bool pressed: false; scale: pressed ? 0.96:1.0
+                        Behavior on scale { NumberAnimation { duration: 100 } }
+                        Text { id: _swWaTxt; anchors.centerIn: parent; font.bold: true; color: "white"
+                            font.pointSize: Qt.platform.os === "android" ? 12:10; text: "💬 WhatsApp" }
+                        MouseArea { anchors.fill: parent
+                            onPressed: _swWa.pressed=true; onReleased: _swWa.pressed=false; onCanceled: _swWa.pressed=false
+                            onClicked: Qt.openUrlExternally("https://wa.me/255789081122?text=Habari%2C%20nataka%20kutangaza%20nyumba%20yangu.") }
+                    }
+                    Rectangle {
+                        id: _swBook; radius: 4; color: "#f8f9fa"; border.color: "#dadce0"; border.width: 1
+                        height: _swBookTxt.implicitHeight+10; width: _swBookTxt.implicitWidth+20
+                        property bool pressed: false; scale: pressed ? 0.96:1.0
+                        Behavior on scale { NumberAnimation { duration: 100 } }
+                        Text { id: _swBookTxt; anchors.centerIn: parent; font.bold: true; color: "#1a73e8"
+                            font.pointSize: Qt.platform.os === "android" ? 12:10; text: "Nafasi →" }
+                        MouseArea { anchors.fill: parent
+                            onPressed: _swBook.pressed=true; onReleased: _swBook.pressed=false; onCanceled: _swBook.pressed=false
+                            onClicked: app.showToastMessage("Piga simu au WhatsApp 0789 081 122 kuhifadhi nafasi yako!") }
+                    }
+                }
+                Item { width: 1; height: 4 }
+            }
+        }
+    }
+
+    // ── CLIENT ADS ────────────────────────────────────────────────────
+    // Step 1: Add your Component here with a unique id
+    // Step 2: Add the id to adsPool and its lang to adsLang (same index)
+    //
+    // Component {
+    //     id: adClient1
+    //     Rectangle {
+    //         width: parent ? parent.width : 0
+    //         height: ...
+    //         // completely custom layout — no restrictions!
+    //     }
+    // }
+
+
+
+
     Component {
         id: languageSelectionComponent
 
@@ -2323,8 +2529,7 @@ Rectangle {
                         return textMatch && filterMatch;
                     }
                     height: matchesSearch ? (card.height + 12
-                            + (visibleRank === 1 && app.selectedLanguage === "sw" ? adBannerSW.height + 8 : 0)
-                            + (visibleRank === 1 && app.selectedLanguage === "en" ? adBannerEN.height + 8 : 0)) : 0
+                            + (adLoader.visible && adLoader.item ? adLoader.item.height + 8 : 0)) : 0
                     visible: matchesSearch
                     clip: true
 
@@ -2528,176 +2733,24 @@ Rectangle {
                         }
                     } // end card Rectangle
 
-                    // ── Ad Banner EN (after 10th visible item) ─────────────
-                    Rectangle {
-                        id: adBannerEN
-                        visible: delegateWrapper.visibleRank === 1 && app.selectedLanguage === "en"
+                    // ── Ad Loader (every 3rd visible item, rotating) ───────
+                    Loader {
+                        id: adLoader
+                        property bool isAdSlot: delegateWrapper.visibleRank > 0
+                                                && delegateWrapper.visibleRank % 3 === 1
+                        property int adSlot:    isAdSlot
+                                                ? Math.floor((delegateWrapper.visibleRank - 1) / 3)
+                                                : -1
+                        property int adIdx:     isAdSlot
+                                                ? app.pickAdForSlot(app.selectedLanguage, adSlot)
+                                                : -1
+                        visible: adIdx >= 0
                         width: parent.width - 12
-                        height: visible ? adENCol.height + 20 : 0
+                        height: visible && item ? item.height : 0
                         anchors.top: card.bottom
                         anchors.topMargin: visible ? 8 : 0
                         anchors.horizontalCenter: parent.horizontalCenter
-                        color: "#ffffff"
-                        radius: 8
-                        border.color: "#dadce0"
-                        border.width: 1
-                        clip: true
-
-                        Rectangle {
-                            anchors.top: parent.top; anchors.left: parent.left
-                            anchors.topMargin: 8; anchors.leftMargin: 10
-                            width: enBadgeTxt.implicitWidth + 8; height: enBadgeTxt.implicitHeight + 4
-                            radius: 3; color: "#f0f0f0"; border.color: "#bbbbbb"; border.width: 1
-                            Text { id: enBadgeTxt; anchors.centerIn: parent; text: "Ad"
-                                font.pointSize: Qt.platform.os === "android" ? 9 : 7; color: "#555555" }
-                        }
-
-                        Column {
-                            id: adENCol
-                            anchors.top: parent.top; anchors.topMargin: 30
-                            anchors.left: parent.left; anchors.right: parent.right
-                            anchors.leftMargin: 10; anchors.rightMargin: 10
-                            spacing: 5
-
-                            Text { width: parent.width; text: "📢 Advertise Your Property on Tanzania Tourism App!"
-                                font.pointSize: Qt.platform.os === "android" ? 13 : 11; font.bold: true
-                                color: "#1a0dab"; wrapMode: Text.WordWrap }
-                            Text { text: "tztourism.app.app › advertise"
-                                font.pointSize: Qt.platform.os === "android" ? 10 : 8; color: "#006621" }
-                            Text { width: parent.width
-                                text: "Reach thousands of tourists daily! List your Hotel, Hostel or Rental House and get noticed by visitors from around the world."
-                                font.pointSize: Qt.platform.os === "android" ? 11 : 9; color: "#333333"; wrapMode: Text.WordWrap }
-                            Rectangle {
-                                height: enPriceTxt.implicitHeight + 8; width: enPriceTxt.implicitWidth + 16
-                                radius: 4; color: "#e8f5e9"; border.color: "#4caf50"; border.width: 1
-                                Text { id: enPriceTxt; anchors.centerIn: parent
-                                    text: "💰 From TZS 50,000/= per month"
-                                    font.pointSize: Qt.platform.os === "android" ? 11 : 9; font.bold: true; color: "#2e7d32" }
-                            }
-                            Row {
-                                spacing: 8
-                                Rectangle {
-                                    id: enCallBtn; height: enCallTxt.implicitHeight + 10; width: enCallTxt.implicitWidth + 20
-                                    radius: 4; color: "#1a73e8"
-                                    property bool pressed: false; scale: pressed ? 0.96 : 1.0
-                                    Behavior on scale { NumberAnimation { duration: 100 } }
-                                    Text { id: enCallTxt; anchors.centerIn: parent; text: "📞  0789 081 122"
-                                        font.pointSize: Qt.platform.os === "android" ? 12 : 10; font.bold: true; color: "white" }
-                                    MouseArea { anchors.fill: parent
-                                        onPressed: enCallBtn.pressed = true; onReleased: enCallBtn.pressed = false; onCanceled: enCallBtn.pressed = false
-                                        onClicked: Qt.openUrlExternally("tel:+255789081122") }
-                                }
-                                Rectangle {
-                                    id: enWaBtn; height: enWaTxt.implicitHeight + 10; width: enWaTxt.implicitWidth + 20
-                                    radius: 4; color: "#25D366"
-                                    property bool pressed: false; scale: pressed ? 0.96 : 1.0
-                                    Behavior on scale { NumberAnimation { duration: 100 } }
-                                    Text { id: enWaTxt; anchors.centerIn: parent; text: "💬 WhatsApp"
-                                        font.pointSize: Qt.platform.os === "android" ? 12 : 10; font.bold: true; color: "white" }
-                                    MouseArea { anchors.fill: parent
-                                        onPressed: enWaBtn.pressed = true; onReleased: enWaBtn.pressed = false; onCanceled: enWaBtn.pressed = false
-                                        onClicked: Qt.openUrlExternally("https://wa.me/255789081122?text=Hello%2C%20I%20want%20to%20advertise%20my%20property%20on%20Tanzania%20Tourism%20App.") }
-                                }
-                                Rectangle {
-                                    id: enBookBtn; height: enBookTxt.implicitHeight + 10; width: enBookTxt.implicitWidth + 20
-                                    radius: 4; color: "#f8f9fa"; border.color: "#dadce0"; border.width: 1
-                                    property bool pressed: false; scale: pressed ? 0.96 : 1.0
-                                    Behavior on scale { NumberAnimation { duration: 100 } }
-                                    Text { id: enBookTxt; anchors.centerIn: parent; text: "Book →"
-                                        font.pointSize: Qt.platform.os === "android" ? 12 : 10; font.bold: true; color: "#1a73e8" }
-                                    MouseArea { anchors.fill: parent
-                                        onPressed: enBookBtn.pressed = true; onReleased: enBookBtn.pressed = false; onCanceled: enBookBtn.pressed = false
-                                        onClicked: app.showToastMessage("Call or WhatsApp 0789 081 122 to book your slot!") }
-                                }
-                            }
-                            Item { width: 1; height: 4 }
-                        }
-                    }
-
-                    // ── Ad Banner SW (after 30th visible item) ─────────────
-                    Rectangle {
-                        id: adBannerSW
-                        visible: delegateWrapper.visibleRank === 1 && app.selectedLanguage === "sw"
-                        width: parent.width - 12
-                        height: visible ? adSWCol.height + 20 : 0
-                        anchors.top: card.bottom
-                        anchors.topMargin: visible ? 8 : 0
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        color: "#ffffff"
-                        radius: 8
-                        border.color: "#dadce0"
-                        border.width: 1
-                        clip: true
-
-                        Rectangle {
-                            anchors.top: parent.top; anchors.left: parent.left
-                            anchors.topMargin: 8; anchors.leftMargin: 10
-                            width: swBadgeTxt.implicitWidth + 8; height: swBadgeTxt.implicitHeight + 4
-                            radius: 3; color: "#f0f0f0"; border.color: "#bbbbbb"; border.width: 1
-                            Text { id: swBadgeTxt; anchors.centerIn: parent; text: "Tangazo"
-                                font.pointSize: Qt.platform.os === "android" ? 9 : 7; color: "#555555" }
-                        }
-
-                        Column {
-                            id: adSWCol
-                            anchors.top: parent.top; anchors.topMargin: 30
-                            anchors.left: parent.left; anchors.right: parent.right
-                            anchors.leftMargin: 10; anchors.rightMargin: 10
-                            spacing: 5
-
-                            Text { width: parent.width; text: "📢 Tangaza Nyumba Yako kwenye App ya Utalii wa Tanzania!"
-                                font.pointSize: Qt.platform.os === "android" ? 13 : 11; font.bold: true
-                                color: "#1a0dab"; wrapMode: Text.WordWrap }
-                            Text { text: "tztourism.app.app › matangazo"
-                                font.pointSize: Qt.platform.os === "android" ? 10 : 8; color: "#006621" }
-                            Text { width: parent.width
-                                text: "Fikia maelfu ya watalii kila siku! Tangaza Hoteli, Hostel au Nyumba ya Kupanga na uonekane na wageni kutoka duniani kote."
-                                font.pointSize: Qt.platform.os === "android" ? 11 : 9; color: "#333333"; wrapMode: Text.WordWrap }
-                            Rectangle {
-                                height: swPriceTxt.implicitHeight + 8; width: swPriceTxt.implicitWidth + 16
-                                radius: 4; color: "#e8f5e9"; border.color: "#4caf50"; border.width: 1
-                                Text { id: swPriceTxt; anchors.centerIn: parent
-                                    text: "💰 Kuanzia TZS 50,000/= kwa mwezi"
-                                    font.pointSize: Qt.platform.os === "android" ? 11 : 9; font.bold: true; color: "#2e7d32" }
-                            }
-                            Row {
-                                spacing: 8
-                                Rectangle {
-                                    id: swCallBtn; height: swCallTxt.implicitHeight + 10; width: swCallTxt.implicitWidth + 20
-                                    radius: 4; color: "#1a73e8"
-                                    property bool pressed: false; scale: pressed ? 0.96 : 1.0
-                                    Behavior on scale { NumberAnimation { duration: 100 } }
-                                    Text { id: swCallTxt; anchors.centerIn: parent; text: "📞  0789 081 122"
-                                        font.pointSize: Qt.platform.os === "android" ? 12 : 10; font.bold: true; color: "white" }
-                                    MouseArea { anchors.fill: parent
-                                        onPressed: swCallBtn.pressed = true; onReleased: swCallBtn.pressed = false; onCanceled: swCallBtn.pressed = false
-                                        onClicked: Qt.openUrlExternally("tel:+255789081122") }
-                                }
-                                Rectangle {
-                                    id: swWaBtn; height: swWaTxt.implicitHeight + 10; width: swWaTxt.implicitWidth + 20
-                                    radius: 4; color: "#25D366"
-                                    property bool pressed: false; scale: pressed ? 0.96 : 1.0
-                                    Behavior on scale { NumberAnimation { duration: 100 } }
-                                    Text { id: swWaTxt; anchors.centerIn: parent; text: "💬 WhatsApp"
-                                        font.pointSize: Qt.platform.os === "android" ? 12 : 10; font.bold: true; color: "white" }
-                                    MouseArea { anchors.fill: parent
-                                        onPressed: swWaBtn.pressed = true; onReleased: swWaBtn.pressed = false; onCanceled: swWaBtn.pressed = false
-                                        onClicked: Qt.openUrlExternally("https://wa.me/255789081122?text=Habari%2C%20nataka%20kutangaza%20nyumba%20yangu%20kwenye%20App%20ya%20Utalii%20wa%20Tanzania.") }
-                                }
-                                Rectangle {
-                                    id: swBookBtn; height: swBookTxt.implicitHeight + 10; width: swBookTxt.implicitWidth + 20
-                                    radius: 4; color: "#f8f9fa"; border.color: "#dadce0"; border.width: 1
-                                    property bool pressed: false; scale: pressed ? 0.96 : 1.0
-                                    Behavior on scale { NumberAnimation { duration: 100 } }
-                                    Text { id: swBookTxt; anchors.centerIn: parent; text: "Nafasi →"
-                                        font.pointSize: Qt.platform.os === "android" ? 12 : 10; font.bold: true; color: "#1a73e8" }
-                                    MouseArea { anchors.fill: parent
-                                        onPressed: swBookBtn.pressed = true; onReleased: swBookBtn.pressed = false; onCanceled: swBookBtn.pressed = false
-                                        onClicked: app.showToastMessage("Piga simu au WhatsApp 0789 081 122 kuhifadhi nafasi yako!") }
-                                }
-                            }
-                            Item { width: 1; height: 4 }
-                        }
+                        sourceComponent: adIdx >= 0 ? app.adsPool[adIdx] : null
                     }
 
                 } // end delegateWrapper Item
