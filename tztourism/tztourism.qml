@@ -1876,7 +1876,7 @@ Rectangle {
                     anchors.right: parent.right
                     anchors.rightMargin: 8
                     anchors.verticalCenter: parent.verticalCenter
-                    text: "✕"
+                    text: "X"
                     color: cardSearchField.text.length > 0 ? "cyan" : "#444444"
                     font.pixelSize: 14
                     font.bold: true
@@ -2107,7 +2107,7 @@ Rectangle {
                                     anchors.right: parent.right
                                     anchors.rightMargin: 8
                                     anchors.verticalCenter: parent.verticalCenter
-                                    text: "✕"
+                                    text: "X"
                                     color: searchField.text.length > 0 ? "cyan" : "#555555"
                                     font.pixelSize: 16
                                     font.bold: true
