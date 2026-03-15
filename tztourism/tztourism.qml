@@ -939,11 +939,6 @@ Rectangle {
             app.appMode = 2;
             close();
             app.selectedLanguage = modeSelectionDialog.lag;
-            if (app.selectedLanguage === "sw") {
-                app.showToastMessage("Bonyeza mara mbili -> Kurudi nyuma");
-            } else {
-                app.showToastMessage("Double click -> To go back");
-            }
         }
     }
 
@@ -1403,14 +1398,14 @@ Rectangle {
                                 MouseArea {
                                     anchors.fill: parent
                                     onClicked: {
-                                        return;
+                                        /*
                                         if(typeof n3ctaApp !== "undefined"){
                                             n3ctaApp.pasteToClipboard("8647491");
                                             n3ctaApp.showToastMessage("Namba ya changisha imenakiliwa.");
                                         }else if(typeof loader !== "undefined"){
                                             loader.pasteToClipboard("8647491");
                                             loader.showToastMessage("Changisha number copied.");
-                                        }
+                                        } */
                                     }
                                 }
                             }
@@ -1780,11 +1775,6 @@ Rectangle {
                     height: listTitle.height + listFlag.height + searchBarBg.height + countText.height + 20
                     color: "white"
 
-                    MouseArea {
-                        anchors.fill: parent
-                        onDoubleClicked: { contextMenu.doOpen(app.selectedLanguage); }
-                    }
-
                     Text {
                         id: listTitle
                         anchors.top: parent.top
@@ -1959,13 +1949,6 @@ Rectangle {
                             NumberAnimation { duration: 120; easing.type: Easing.OutQuad }
                         }
 
-                        MouseArea {
-                            anchors.fill: parent
-                            onPressed:  card.pressed = true
-                            onReleased: card.pressed = false
-                            onCanceled: card.pressed = false
-                            onDoubleClicked: { contextMenu.doOpen(app.selectedLanguage); }
-                        }
 
                         // ── Number badge (top-left corner) ─────────────────
                         Rectangle {
