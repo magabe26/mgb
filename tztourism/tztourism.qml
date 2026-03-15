@@ -1671,6 +1671,188 @@ Rectangle {
                         }
                     }
 
+                    // ══ ATTRACTION OF THE DAY ══════════════════════════════
+                    Rectangle {
+                        id: aotdSection
+                        width: app.width
+                        height: aotdInner.height + 24
+                        color: "#0a1a19"
+
+                        // Compute today's attraction index from date — changes daily
+                        property int todayIdx: {
+                            var d = new Date();
+                            var dayOfYear = Math.floor((d - new Date(d.getFullYear(), 0, 0)) / 86400000);
+                            return dayOfYear % attractionModel.count;
+                        }
+                        property var todayAttraction: attractionModel.get(todayIdx)
+
+                        Column {
+                            id: aotdInner
+                            anchors.top: parent.top
+                            anchors.topMargin: 12
+                            anchors.left: parent.left
+                            anchors.right: parent.right
+                            anchors.leftMargin: 12
+                            anchors.rightMargin: 12
+                            spacing: 10
+
+                            // Title row
+                            Row {
+                                spacing: 8
+                                anchors.horizontalCenter: parent.horizontalCenter
+                                Text {
+                                    text: "🌟"
+                                    font.pointSize: Qt.platform.os === "android" ? 16 : 13
+                                    anchors.verticalCenter: parent.verticalCenter
+                                }
+                                Text {
+                                    text: app.selectedLanguage === "sw"
+                                          ? "Kivutio cha Leo"
+                                          : "Attraction of the Day"
+                                    font.pointSize: Qt.platform.os === "android" ? 15 : 13
+                                    font.bold: true
+                                    color: "cyan"
+                                    anchors.verticalCenter: parent.verticalCenter
+                                }
+                                Text {
+                                    text: "🌟"
+                                    font.pointSize: Qt.platform.os === "android" ? 16 : 13
+                                    anchors.verticalCenter: parent.verticalCenter
+                                }
+                            }
+
+                            // Card
+                            Rectangle {
+                                width: parent.width
+                                height: aotdImg.height + aotdTextCol.height + 16
+                                radius: 12
+                                color: "#1a2a2a"
+                                border.color: "cyan"
+                                border.width: 1
+                                clip: true
+
+                                property bool pressed: false
+                                scale: pressed ? 0.98 : 1.0
+                                Behavior on scale { NumberAnimation { duration: 120 } }
+
+                                // Image
+                                Image {
+                                    id: aotdImg
+                                    anchors.top: parent.top
+                                    anchors.left: parent.left
+                                    anchors.right: parent.right
+                                    height: width * 0.52
+                                    source: aotdSection.todayAttraction ? aotdSection.todayAttraction.imageFile : ""
+                                    fillMode: Image.PreserveAspectCrop
+                                }
+
+                                // Gradient over image bottom
+                                Rectangle {
+                                    anchors.bottom: aotdImg.bottom
+                                    anchors.left: parent.left
+                                    anchors.right: parent.right
+                                    height: aotdImg.height * 0.4
+                                    gradient: Gradient {
+                                        GradientStop { position: 0.0; color: "transparent" }
+                                        GradientStop { position: 1.0; color: "#1a2a2a" }
+                                    }
+                                }
+
+                                Column {
+                                    id: aotdTextCol
+                                    anchors.top: aotdImg.bottom
+                                    anchors.topMargin: 8
+                                    anchors.left: parent.left
+                                    anchors.right: parent.right
+                                    anchors.leftMargin: 10
+                                    anchors.rightMargin: 10
+                                    spacing: 4
+
+                                    Text {
+                                        width: parent.width
+                                        text: aotdSection.todayAttraction
+                                              ? (app.selectedLanguage === "sw"
+                                                 ? aotdSection.todayAttraction.name_sw
+                                                 : aotdSection.todayAttraction.name_en)
+                                              : ""
+                                        font.pointSize: Qt.platform.os === "android" ? 14 : 12
+                                        font.bold: true
+                                        color: "cyan"
+                                        wrapMode: Text.WordWrap
+                                    }
+
+                                    Text {
+                                        width: parent.width
+                                        text: aotdSection.todayAttraction
+                                              ? (app.selectedLanguage === "sw"
+                                                 ? aotdSection.todayAttraction.desc_sw
+                                                 : aotdSection.todayAttraction.desc_en)
+                                              : ""
+                                        font.pointSize: Qt.platform.os === "android" ? 11 : 9
+                                        color: "#cccccc"
+                                        wrapMode: Text.WordWrap
+                                        maximumLineCount: 3
+                                        elide: Text.ElideRight
+                                    }
+
+                                    // Explore button
+                                    Rectangle {
+                                        id: aotdBtn
+                                        anchors.right: parent.right
+                                        width: aotdBtnTxt.implicitWidth + 24
+                                        height: Qt.platform.os === "android" ? 40 : 32
+                                        radius: height / 2
+                                        color: app.selectedLanguage === "sw" ? "green" : "blue"
+                                        property bool pressed: false
+                                        scale: pressed ? 0.95 : 1.0
+                                        Behavior on scale { NumberAnimation { duration: 100 } }
+
+                                        Text {
+                                            id: aotdBtnTxt
+                                            anchors.centerIn: parent
+                                            text: app.selectedLanguage === "sw" ? "Chunguza →" : "Explore →"
+                                            font.pointSize: Qt.platform.os === "android" ? 12 : 10
+                                            font.bold: true
+                                            color: "white"
+                                        }
+                                        MouseArea {
+                                            anchors.fill: parent
+                                            onPressed:  aotdBtn.pressed = true
+                                            onReleased: aotdBtn.pressed = false
+                                            onCanceled: aotdBtn.pressed = false
+                                            onClicked: {
+                                                app.currentAttractionIndex = aotdSection.todayIdx;
+                                                app.appMode = 1;
+                                                app.selectedLanguage = app.selectedLanguage || "en";
+                                            }
+                                        }
+                                    }
+
+                                    Item { width: 1; height: 4 }
+                                }
+
+                                MouseArea {
+                                    anchors.fill: parent
+                                    onPressed:  parent.pressed = true
+                                    onReleased: parent.pressed = false
+                                    onCanceled: parent.pressed = false
+                                    onClicked: {
+                                        var a = aotdSection.todayAttraction;
+                                        if (a) {
+                                            contextMenu.doOpen(
+                                                app.selectedLanguage || "en",
+                                                app.selectedLanguage === "sw" ? a.name_sw : a.name_en,
+                                                app.selectedLanguage === "sw" ? a.desc_sw : a.desc_en,
+                                                a.imageFile,
+                                                aotdSection.todayIdx
+                                            );
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
                     // ══ CHOOSE LANGUAGE SECTION ════════════════════════════
                     Rectangle {
                         width: app.width
