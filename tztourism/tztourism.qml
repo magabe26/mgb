@@ -1843,7 +1843,7 @@ Rectangle {
                 radius: 6
                 border.color: "cyan"
                 border.width: 1
-                z: 10
+                z: 20
 
                 TextField {
                     id: cardSearchField
@@ -1898,6 +1898,7 @@ Rectangle {
                 color: "#e6001413"
                 border.color: "#33ffffff"
                 border.width: 0
+                z: 20
 
                 // Prev button
                 Rectangle {
