@@ -2562,7 +2562,7 @@ Rectangle {
                             Text { width: parent.width; text: "📢 Advertise Your Property on Tanzania Tourism App!"
                                 font.pointSize: Qt.platform.os === "android" ? 13 : 11; font.bold: true
                                 color: "#1a0dab"; wrapMode: Text.WordWrap }
-                            Text { text: "tanzaniatourism.app › advertise"
+                            Text { text: "tztourism.app › advertise"
                                 font.pointSize: Qt.platform.os === "android" ? 10 : 8; color: "#006621" }
                             Text { width: parent.width
                                 text: "Reach thousands of tourists daily! List your Hotel, Hostel or Rental House and get noticed by visitors from around the world."
@@ -2637,7 +2637,7 @@ Rectangle {
                             Text { width: parent.width; text: "📢 Tangaza Nyumba Yako kwenye App ya Utalii wa Tanzania!"
                                 font.pointSize: Qt.platform.os === "android" ? 13 : 11; font.bold: true
                                 color: "#1a0dab"; wrapMode: Text.WordWrap }
-                            Text { text: "tanzaniatourism.app › matangazo"
+                            Text { text: "tztourism.app › matangazo"
                                 font.pointSize: Qt.platform.os === "android" ? 10 : 8; color: "#006621" }
                             Text { width: parent.width
                                 text: "Fikia maelfu ya watalii kila siku! Tangaza Hoteli, Hostel au Nyumba ya Kupanga na uonekane na wageni kutoka duniani kote."
