@@ -1275,14 +1275,8 @@ Rectangle {
             var l = adsLang[i] !== undefined ? adsLang[i] : "both";
             if (l === language || l === "both") pool.push(i);
         }
-        return pool; // all matching indices
-    }
-
-    // Returns ad index for a given slot — each ad shows once, no repeats
-    function pickAdForSlot(language, slot) {
-        var pool = pickAd(language);
-        if (pool.length === 0 || slot >= pool.length) return -1;
-        return pool[slot];
+        if (pool.length === 0) return -1;
+        return pool[app.adRandomSeed % pool.length];
     }
 
     // ── YOUR EN AD ────────────────────────────────────────────────────
@@ -1932,6 +1926,27 @@ Rectangle {
                 Behavior on opacity { NumberAnimation { duration: 350; easing.type: Easing.InOutQuad } }
             }
 
+            // ── Full-screen swipe handler ─────────────────────────────
+            MouseArea {
+                id: swipeArea
+                anchors.fill: parent
+                z: 10
+                property real startX: 0
+                property bool isDrag: false
+
+                onPressed:  { startX = mouse.x; isDrag = false; }
+                onPositionChanged: { if (Math.abs(mouse.x - startX) > 15) isDrag = true; }
+                onReleased: {
+                    if (isDrag) {
+                        var delta = mouse.x - startX;
+                        if (Math.abs(delta) > app.width * 0.18) {
+                            if (delta < 0) navigateNext();
+                            else           navigatePrevious();
+                        }
+                    }
+                }
+            }
+
             // ── Top gradient overlay (title + desc) ───────────────────
             Rectangle {
                 id: topOverlay
@@ -1940,13 +1955,12 @@ Rectangle {
                 anchors.top: parent.top
                 height: overlayCol.height + 20
                 color: "transparent"
+                z: 11
 
                 Rectangle {
                     anchors.fill: parent
                     color: "#dd000000"
                 }
-
-                MouseArea { anchors.fill: parent; onClicked: app.close() }
 
                 Column {
                     id: overlayCol
@@ -2020,10 +2034,10 @@ Rectangle {
                 width: parent.width * 0.6
                 height: cardSearchField.implicitHeight + 10
                 color: "#cc001413"
+                z: 20
                 radius: 6
                 border.color: "cyan"
                 border.width: 1
-                z: 10
 
                 TextField {
                     id: cardSearchField
@@ -2078,6 +2092,7 @@ Rectangle {
                 color: "#e6001413"
                 border.color: "#33ffffff"
                 border.width: 0
+                z: 20
 
                 // Prev button
                 Rectangle {
@@ -2529,7 +2544,7 @@ Rectangle {
                         return textMatch && filterMatch;
                     }
                     height: matchesSearch ? (card.height + 12
-                            + (adLoader.visible && adLoader.item ? adLoader.item.height + 8 : 0)) : 0
+                            + (visibleRank === 1 ? (adLoader.visible && adLoader.item ? adLoader.item.height + 8 : 0) : 0)) : 0
                     visible: matchesSearch
                     clip: true
 
@@ -2733,17 +2748,11 @@ Rectangle {
                         }
                     } // end card Rectangle
 
-                    // ── Ad Loader (every 3rd visible item, rotating) ───────
+                    // ── Ad Loader ──────────────────────────────────────────
                     Loader {
                         id: adLoader
-                        property bool isAdSlot: delegateWrapper.visibleRank > 0
-                                                && delegateWrapper.visibleRank % 3 === 1
-                        property int adSlot:    isAdSlot
-                                                ? Math.floor((delegateWrapper.visibleRank - 1) / 3)
-                                                : -1
-                        property int adIdx:     isAdSlot
-                                                ? app.pickAdForSlot(app.selectedLanguage, adSlot)
-                                                : -1
+                        property int adIdx: delegateWrapper.visibleRank === 1
+                                            ? app.pickAd(app.selectedLanguage) : -1
                         visible: adIdx >= 0
                         width: parent.width - 12
                         height: visible && item ? item.height : 0
