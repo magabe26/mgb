@@ -1129,7 +1129,7 @@ Rectangle {
                             NumberAnimation on x {
                                 from: 0
                                 to: -(app.width * 4)
-                                duration: 22000
+                                duration: 24000
                                 loops: Animation.Infinite
                                 easing.type: Easing.Linear
                             }
@@ -1150,7 +1150,7 @@ Rectangle {
 
                             Text {
                                 anchors.horizontalCenter: parent.horizontalCenter
-                                text: "Choose your language · Chagua lugha yako"
+                                text: "Chagua lugha yako · Choose your language"
                                 font.pointSize: Qt.platform.os === "android" ? 12 : 10
                                 color: "#888888"
                             }
