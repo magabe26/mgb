@@ -1442,56 +1442,31 @@ Rectangle {
                         }
                     }
 
-                    // ══ WILDLIFE IMAGE MARQUEE (auto-scroll) ══════════════
+                    // ══ WILDLIFE IMAGES SIDE BY SIDE ══════════════════════
                     Rectangle {
-                        id: marqueeContainer
                         width: app.width
-                        height: app.height * 0.28
+                        height: imgRow.height
                         color: "#001413"
-                        clip: true
 
-                        Item {
-                            id: marqueeStrip
-                            width: app.width * 8
-                            height: parent.height
+                        Row {
+                            id: imgRow
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            spacing: 6
 
-                            // img1, img2, img1, img2 — seamless loop
                             Image {
-                                x: app.width * 0
-                                width: app.width * 2
-                                height: marqueeContainer.height
                                 source: "./wanyama-tz-3.png"
+                                width: (app.width - 18) / 2
+                                height: implicitHeight > 0 ? width * implicitHeight / implicitWidth : width
                                 fillMode: Image.PreserveAspectFit
-                            }
-                            Image {
-                                x: app.width * 2
-                                width: app.width * 2
-                                height: marqueeContainer.height
-                                source: "./wanyama-tz-3-b.png"
-                                fillMode: Image.PreserveAspectFit
-                            }
-                            Image {
-                                x: app.width * 4
-                                width: app.width * 2
-                                height: marqueeContainer.height
-                                source: "./wanyama-tz-3.png"
-                                fillMode: Image.PreserveAspectFit
-                            }
-                            Image {
-                                x: app.width * 6
-                                width: app.width * 2
-                                height: marqueeContainer.height
-                                source: "./wanyama-tz-3-b.png"
-                                fillMode: Image.PreserveAspectFit
+                                smooth: true
                             }
 
-                            // Scroll left by exactly half the strip, then loop invisibly
-                            NumberAnimation on x {
-                                from: 0
-                                to: -(app.width * 4)
-                                duration: 24000
-                                loops: Animation.Infinite
-                                easing.type: Easing.Linear
+                            Image {
+                                source: "./wanyama-tz-3-b.png"
+                                width: (app.width - 18) / 2
+                                height: implicitHeight > 0 ? width * implicitHeight / implicitWidth : width
+                                fillMode: Image.PreserveAspectFit
+                                smooth: true
                             }
                         }
                     }
