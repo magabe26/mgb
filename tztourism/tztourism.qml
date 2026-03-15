@@ -2575,7 +2575,7 @@ Rectangle {
                                     font.pointSize: Qt.platform.os === "android" ? 11 : 9; font.bold: true; color: "#2e7d32" }
                             }
                             Row {
-                                spacing: 10
+                                spacing: 8
                                 Rectangle {
                                     id: enCallBtn; height: enCallTxt.implicitHeight + 10; width: enCallTxt.implicitWidth + 20
                                     radius: 4; color: "#1a73e8"
@@ -2585,14 +2585,25 @@ Rectangle {
                                         font.pointSize: Qt.platform.os === "android" ? 12 : 10; font.bold: true; color: "white" }
                                     MouseArea { anchors.fill: parent
                                         onPressed: enCallBtn.pressed = true; onReleased: enCallBtn.pressed = false; onCanceled: enCallBtn.pressed = false
-                                        onClicked: app.showToastMessage("Call or WhatsApp: 0789 081 122") }
+                                        onClicked: app.showToastMessage("Call: 0789 081 122") }
+                                }
+                                Rectangle {
+                                    id: enWaBtn; height: enWaTxt.implicitHeight + 10; width: enWaTxt.implicitWidth + 20
+                                    radius: 4; color: "#25D366"
+                                    property bool pressed: false; scale: pressed ? 0.96 : 1.0
+                                    Behavior on scale { NumberAnimation { duration: 100 } }
+                                    Text { id: enWaTxt; anchors.centerIn: parent; text: "💬 WhatsApp"
+                                        font.pointSize: Qt.platform.os === "android" ? 12 : 10; font.bold: true; color: "white" }
+                                    MouseArea { anchors.fill: parent
+                                        onPressed: enWaBtn.pressed = true; onReleased: enWaBtn.pressed = false; onCanceled: enWaBtn.pressed = false
+                                        onClicked: Qt.openUrlExternally("https://wa.me/255789081122?text=Hello%2C%20I%20want%20to%20advertise%20my%20property%20on%20Tanzania%20Tourism%20App.") }
                                 }
                                 Rectangle {
                                     id: enBookBtn; height: enBookTxt.implicitHeight + 10; width: enBookTxt.implicitWidth + 20
                                     radius: 4; color: "#f8f9fa"; border.color: "#dadce0"; border.width: 1
                                     property bool pressed: false; scale: pressed ? 0.96 : 1.0
                                     Behavior on scale { NumberAnimation { duration: 100 } }
-                                    Text { id: enBookTxt; anchors.centerIn: parent; text: "Book a Slot →"
+                                    Text { id: enBookTxt; anchors.centerIn: parent; text: "Book →"
                                         font.pointSize: Qt.platform.os === "android" ? 12 : 10; font.bold: true; color: "#1a73e8" }
                                     MouseArea { anchors.fill: parent
                                         onPressed: enBookBtn.pressed = true; onReleased: enBookBtn.pressed = false; onCanceled: enBookBtn.pressed = false
@@ -2650,7 +2661,7 @@ Rectangle {
                                     font.pointSize: Qt.platform.os === "android" ? 11 : 9; font.bold: true; color: "#2e7d32" }
                             }
                             Row {
-                                spacing: 10
+                                spacing: 8
                                 Rectangle {
                                     id: swCallBtn; height: swCallTxt.implicitHeight + 10; width: swCallTxt.implicitWidth + 20
                                     radius: 4; color: "#1a73e8"
@@ -2660,14 +2671,25 @@ Rectangle {
                                         font.pointSize: Qt.platform.os === "android" ? 12 : 10; font.bold: true; color: "white" }
                                     MouseArea { anchors.fill: parent
                                         onPressed: swCallBtn.pressed = true; onReleased: swCallBtn.pressed = false; onCanceled: swCallBtn.pressed = false
-                                        onClicked: app.showToastMessage("Piga simu au WhatsApp: 0789 081 122") }
+                                        onClicked: app.showToastMessage("Piga simu: 0789 081 122") }
+                                }
+                                Rectangle {
+                                    id: swWaBtn; height: swWaTxt.implicitHeight + 10; width: swWaTxt.implicitWidth + 20
+                                    radius: 4; color: "#25D366"
+                                    property bool pressed: false; scale: pressed ? 0.96 : 1.0
+                                    Behavior on scale { NumberAnimation { duration: 100 } }
+                                    Text { id: swWaTxt; anchors.centerIn: parent; text: "💬 WhatsApp"
+                                        font.pointSize: Qt.platform.os === "android" ? 12 : 10; font.bold: true; color: "white" }
+                                    MouseArea { anchors.fill: parent
+                                        onPressed: swWaBtn.pressed = true; onReleased: swWaBtn.pressed = false; onCanceled: swWaBtn.pressed = false
+                                        onClicked: Qt.openUrlExternally("https://wa.me/255789081122?text=Habari%2C%20nataka%20kutangaza%20nyumba%20yangu%20kwenye%20App%20ya%20Utalii%20wa%20Tanzania.") }
                                 }
                                 Rectangle {
                                     id: swBookBtn; height: swBookTxt.implicitHeight + 10; width: swBookTxt.implicitWidth + 20
                                     radius: 4; color: "#f8f9fa"; border.color: "#dadce0"; border.width: 1
                                     property bool pressed: false; scale: pressed ? 0.96 : 1.0
                                     Behavior on scale { NumberAnimation { duration: 100 } }
-                                    Text { id: swBookTxt; anchors.centerIn: parent; text: "Hifadhi Nafasi →"
+                                    Text { id: swBookTxt; anchors.centerIn: parent; text: "Nafasi →"
                                         font.pointSize: Qt.platform.os === "android" ? 12 : 10; font.bold: true; color: "#1a73e8" }
                                     MouseArea { anchors.fill: parent
                                         onPressed: swBookBtn.pressed = true; onReleased: swBookBtn.pressed = false; onCanceled: swBookBtn.pressed = false
