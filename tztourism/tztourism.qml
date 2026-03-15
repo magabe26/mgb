@@ -816,6 +816,7 @@ Rectangle {
 
         property string lag: ""
         property color btnColor: "green"
+        property bool isRandom: false
 
         // Dimmed backdrop
         Rectangle {
@@ -870,15 +871,17 @@ Rectangle {
                     opacity: 0.5
                 }
 
-                // ── Mode 1 Card: Default ───────────────────────────────
+                // ── Mode 1 Card: Default (hidden in random mode) ──────
                 Rectangle {
                     id: mode1Card
                     width: parent.width
-                    height: Qt.platform.os === "android" ? 90 : 72
+                    height: modeSelectionDialog.isRandom ? 0 : (Qt.platform.os === "android" ? 90 : 72)
+                    visible: !modeSelectionDialog.isRandom
                     radius: 12
                     color: "#0d2a28"
                     border.color: modeSelectionDialog.btnColor
                     border.width: 2
+                    clip: true
 
                     property bool pressed: false
                     scale: pressed ? 0.97 : 1.0
@@ -890,19 +893,13 @@ Rectangle {
                         anchors.leftMargin: 16
                         spacing: 14
 
-                        // Icon box
                         Rectangle {
                             width: Qt.platform.os === "android" ? 52 : 42
                             height: width
                             radius: 10
                             color: modeSelectionDialog.btnColor
                             anchors.verticalCenter: parent.verticalCenter
-
-                            Text {
-                                anchors.centerIn: parent
-                                text: "🖼"
-                                font.pointSize: Qt.platform.os === "android" ? 20 : 16
-                            }
+                            Text { anchors.centerIn: parent; text: "🖼"; font.pointSize: Qt.platform.os === "android" ? 20 : 16 }
                         }
 
                         Column {
@@ -911,28 +908,22 @@ Rectangle {
                             Text {
                                 text: modeSelectionDialog.lag === "sw" ? "Kawaida" : "Default"
                                 font.pointSize: Qt.platform.os === "android" ? 14 : 12
-                                font.bold: true
-                                color: "white"
+                                font.bold: true; color: "white"
                             }
                             Text {
                                 text: modeSelectionDialog.lag === "sw"
                                       ? "Picha moja kwa wakati mmoja"
                                       : "One image at a time · swipe to navigate"
-                                font.pointSize: Qt.platform.os === "android" ? 11 : 9
-                                color: "#aaaaaa"
+                                font.pointSize: Qt.platform.os === "android" ? 11 : 9; color: "#aaaaaa"
                             }
                         }
                     }
 
-                    // Chevron
                     Text {
-                        anchors.right: parent.right
-                        anchors.rightMargin: 14
+                        anchors.right: parent.right; anchors.rightMargin: 14
                         anchors.verticalCenter: parent.verticalCenter
-                        text: "›"
-                        font.pointSize: Qt.platform.os === "android" ? 22 : 18
-                        font.bold: true
-                        color: modeSelectionDialog.btnColor
+                        text: "›"; font.pointSize: Qt.platform.os === "android" ? 22 : 18
+                        font.bold: true; color: modeSelectionDialog.btnColor
                     }
 
                     MouseArea {
@@ -948,15 +939,17 @@ Rectangle {
                     }
                 }
 
-                // ── Mode 2 Card: List ──────────────────────────────────
+                // ── Mode 2 Card: List (hidden in random mode) ──────────
                 Rectangle {
                     id: mode2Card
                     width: parent.width
-                    height: Qt.platform.os === "android" ? 90 : 72
+                    height: modeSelectionDialog.isRandom ? 0 : (Qt.platform.os === "android" ? 90 : 72)
+                    visible: !modeSelectionDialog.isRandom
                     radius: 12
                     color: "#0d2a28"
                     border.color: modeSelectionDialog.btnColor
                     border.width: 2
+                    clip: true
 
                     property bool pressed: false
                     scale: pressed ? 0.97 : 1.0
@@ -974,12 +967,7 @@ Rectangle {
                             radius: 10
                             color: modeSelectionDialog.btnColor
                             anchors.verticalCenter: parent.verticalCenter
-
-                            Text {
-                                anchors.centerIn: parent
-                                text: "📋"
-                                font.pointSize: Qt.platform.os === "android" ? 20 : 16
-                            }
+                            Text { anchors.centerIn: parent; text: "📋"; font.pointSize: Qt.platform.os === "android" ? 20 : 16 }
                         }
 
                         Column {
@@ -988,27 +976,22 @@ Rectangle {
                             Text {
                                 text: modeSelectionDialog.lag === "sw" ? "Orodha" : "List"
                                 font.pointSize: Qt.platform.os === "android" ? 14 : 12
-                                font.bold: true
-                                color: "white"
+                                font.bold: true; color: "white"
                             }
                             Text {
                                 text: modeSelectionDialog.lag === "sw"
                                       ? "Vivutio vyote kwenye orodha"
                                       : "Browse all attractions in a scrollable list"
-                                font.pointSize: Qt.platform.os === "android" ? 11 : 9
-                                color: "#aaaaaa"
+                                font.pointSize: Qt.platform.os === "android" ? 11 : 9; color: "#aaaaaa"
                             }
                         }
                     }
 
                     Text {
-                        anchors.right: parent.right
-                        anchors.rightMargin: 14
+                        anchors.right: parent.right; anchors.rightMargin: 14
                         anchors.verticalCenter: parent.verticalCenter
-                        text: "›"
-                        font.pointSize: Qt.platform.os === "android" ? 22 : 18
-                        font.bold: true
-                        color: modeSelectionDialog.btnColor
+                        text: "›"; font.pointSize: Qt.platform.os === "android" ? 22 : 18
+                        font.bold: true; color: modeSelectionDialog.btnColor
                     }
 
                     MouseArea {
@@ -1020,6 +1003,120 @@ Rectangle {
                             app.lastTapX = mouse.x + mode2Card.x;
                             app.lastTapY = mouse.y + mode2Card.y;
                             modeSelectionDialog.setMode2();
+                        }
+                    }
+                }
+
+                // ── Random: Swahili card (shown only in random mode) ───
+                Rectangle {
+                    id: randomSwCard
+                    width: parent.width
+                    height: modeSelectionDialog.isRandom ? (Qt.platform.os === "android" ? 90 : 72) : 0
+                    visible: modeSelectionDialog.isRandom
+                    radius: 12
+                    color: "#0d2a28"
+                    border.color: "green"
+                    border.width: 2
+                    clip: true
+
+                    property bool pressed: false
+                    scale: pressed ? 0.97 : 1.0
+                    Behavior on scale { NumberAnimation { duration: 100 } }
+
+                    Row {
+                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.left: parent.left
+                        anchors.leftMargin: 16
+                        spacing: 14
+
+                        Rectangle {
+                            width: Qt.platform.os === "android" ? 52 : 42
+                            height: width; radius: 10; color: "green"
+                            anchors.verticalCenter: parent.verticalCenter
+                            Text { anchors.centerIn: parent; text: "🇹🇿"; font.pointSize: Qt.platform.os === "android" ? 20 : 16 }
+                        }
+
+                        Column {
+                            anchors.verticalCenter: parent.verticalCenter
+                            spacing: 3
+                            Text { text: "Kiswahili"; font.pointSize: Qt.platform.os === "android" ? 14 : 12; font.bold: true; color: "white" }
+                            Text { text: "Nishangaze kwa Kiswahili"; font.pointSize: Qt.platform.os === "android" ? 11 : 9; color: "#aaaaaa" }
+                        }
+                    }
+
+                    Text {
+                        anchors.right: parent.right; anchors.rightMargin: 14
+                        anchors.verticalCenter: parent.verticalCenter
+                        text: "›"; font.pointSize: Qt.platform.os === "android" ? 22 : 18
+                        font.bold: true; color: "green"
+                    }
+
+                    MouseArea {
+                        anchors.fill: parent
+                        onPressed:  randomSwCard.pressed = true
+                        onReleased: randomSwCard.pressed = false
+                        onCanceled: randomSwCard.pressed = false
+                        onClicked: {
+                            modeSelectionDialog.close();
+                            app.appMode = 1;
+                            app.selectedLanguage = "sw";
+                        }
+                    }
+                }
+
+                // ── Random: English card (shown only in random mode) ───
+                Rectangle {
+                    id: randomEnCard
+                    width: parent.width
+                    height: modeSelectionDialog.isRandom ? (Qt.platform.os === "android" ? 90 : 72) : 0
+                    visible: modeSelectionDialog.isRandom
+                    radius: 12
+                    color: "#0d2a28"
+                    border.color: "blue"
+                    border.width: 2
+                    clip: true
+
+                    property bool pressed: false
+                    scale: pressed ? 0.97 : 1.0
+                    Behavior on scale { NumberAnimation { duration: 100 } }
+
+                    Row {
+                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.left: parent.left
+                        anchors.leftMargin: 16
+                        spacing: 14
+
+                        Rectangle {
+                            width: Qt.platform.os === "android" ? 52 : 42
+                            height: width; radius: 10; color: "blue"
+                            anchors.verticalCenter: parent.verticalCenter
+                            Text { anchors.centerIn: parent; text: "🌐"; font.pointSize: Qt.platform.os === "android" ? 20 : 16 }
+                        }
+
+                        Column {
+                            anchors.verticalCenter: parent.verticalCenter
+                            spacing: 3
+                            Text { text: "English"; font.pointSize: Qt.platform.os === "android" ? 14 : 12; font.bold: true; color: "white" }
+                            Text { text: "Surprise me in English"; font.pointSize: Qt.platform.os === "android" ? 11 : 9; color: "#aaaaaa" }
+                        }
+                    }
+
+                    Text {
+                        anchors.right: parent.right; anchors.rightMargin: 14
+                        anchors.verticalCenter: parent.verticalCenter
+                        text: "›"; font.pointSize: Qt.platform.os === "android" ? 22 : 18
+                        font.bold: true; color: "blue"
+                    }
+
+                    MouseArea {
+                        anchors.fill: parent
+                        onPressed:  randomEnCard.pressed = true
+                        onReleased: randomEnCard.pressed = false
+                        onCanceled: randomEnCard.pressed = false
+                        onClicked: {
+                            modeSelectionDialog.close();
+                            app.appMode = 1;
+                            app.selectedLanguage = "en";
                         }
                     }
                 }
@@ -1061,7 +1158,16 @@ Rectangle {
         function doOpen(lag, btnColor) {
             modeSelectionDialog.lag = lag;
             modeSelectionDialog.btnColor = btnColor;
+            modeSelectionDialog.isRandom = false;
             dialogTitle.text = lag === "sw" ? "Chagua mpangilio" : "Select a layout";
+            modeSelectionDialog.visible = true;
+            modePanel.opacity = 1;
+            panelSlideAnim.start();
+        }
+
+        function doOpenRandom() {
+            modeSelectionDialog.isRandom = true;
+            dialogTitle.text = "🎲 Nishangaze!  ·  Surprise me!";
             modeSelectionDialog.visible = true;
             modePanel.opacity = 1;
             panelSlideAnim.start();
@@ -2093,7 +2199,9 @@ Rectangle {
                                     onClicked: {
                                         app.currentAttractionIndex = Math.floor(Math.random() * attractionModel.count);
                                         app.appMode = 1;
-                                        app.selectedLanguage = "en";
+                                        app.lastTapX = mouse.x + randomBtn.x;
+                                        app.lastTapY = mouse.y + randomBtn.y;
+                                        modeSelectionDialog.doOpenRandom();
                                     }
                                 }
                             }
