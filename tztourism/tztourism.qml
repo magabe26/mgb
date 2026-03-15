@@ -1090,7 +1090,7 @@ Rectangle {
                 Behavior on scale { NumberAnimation { duration: 100 } }
                 Text {
                     anchors.centerIn: parent
-                    text: contextMenu.detailLang === "sw" ? "X Funga" : "X Close"
+                    text: contextMenu.detailLang === "sw" ? "x Funga" : "x Close"
                     font.pointSize: Qt.platform.os === "android" ? 13 : 10
                     font.bold: true
                     color: "white"
