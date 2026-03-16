@@ -21,6 +21,8 @@ Rectangle {
     property string viewState: "START"
     property int maxQuestions: 26 // Tunataka maswali 26 tu kila mchezo
     property int noOfPassedQuestion: 0
+    property string answerResult: ""   // "", "correct", "wrong"
+    property string selectedAnswer: "" // the option the user tapped
 
 
     // --- IQ CATEGORY LOGIC ---
@@ -133,17 +135,7 @@ Rectangle {
     }
 
     function indexToLetter(i){
-        let letter;
-        if(i === 0){
-            letter = "A";
-        } else if(i === 1){
-            letter = "B";
-        }else if(i === 2){
-            letter = "C";
-        }else if(i === 3){
-            letter = "D";
-        }
-        return letter;
+        return ["A", "B", "C", "D"][i] || "?";
     }
 
 
@@ -189,7 +181,7 @@ Rectangle {
         //COMPUTER SCIENCE & TECHNOLOGY
         ListElement { q: "Katika lugha ya kompyuta, 'RAM' inamaanisha nini?"; a: "Read Access Memory"; b: "Random Access Memory"; c: "Real Access Memory"; d: "Run Access Memory"; correct: "Random Access Memory" }
         ListElement { q: "Ni kifaa kipi ni 'Brain' ya kompyuta?"; a: "Monitor"; b: "CPU"; c: "Hard Disk"; d: "Keyboard"; correct: "CPU" }
-        ListElement { q: "Lugha gani inatumika kutengeneza Apps za QML?"; a: "Java"; b: "JavaScript"; c: "PHP"; d: "Swift"; correct: "JavaScript" }
+        ListElement { q: "Lugha gani inatumika kutengeneza Apps za QML?"; a: "Java"; b: "QML (Qt Quick)"; c: "PHP"; d: "Swift"; correct: "QML (Qt Quick)" }
         ListElement { q: "Kifupi cha 'WWW' ni nini?"; a: "World Wide Web"; b: "Word Wide Web"; c: "World Web Wide"; d: "Web Wide World"; correct: "World Wide Web" }
         ListElement { q: "Ni kampuni gani ilitengeneza mfumo wa Android?"; a: "Apple"; b: "Microsoft"; c: "Google"; d: "Nokia"; correct: "Google" }
 
@@ -540,10 +532,6 @@ Rectangle {
         ListElement { q: "Chakula cha asili cha Wachagga kinachotengenezwa kwa ndizi na maharage huitwa?"; a: "Ugali"; b: "Mtori"; c: "Kiburu"; d: "Wali"; correct: "Kiburu" }
 
         ListElement { q: "Ni sayari gani iliyo kubwa zaidi katika mfumo wetu wa Jua?"; a: "Dunia"; b: "Saturn"; c: "Jupiter"; d: "Neptune"; correct: "Jupiter" }
-        ListElement { q: "Galaxy yetu tunamoishi inaitwa jina gani?"; a: "Andromeda"; b: "Milky Way (Njia ya Mtindi)"; c: "Sombrero"; d: "Black Eye"; correct: "Milky Way (Njia ya Mtindi)" }
-        ListElement { q: "Sayari ya Saturn inafahamika zaidi kwa kuwa na nini kinachoizunguka?"; a: "Maji"; b: "Pete (Rings)"; c: "Moto"; d: "Mwangaza wa kijani"; correct: "Pete (Rings)" }
-        ListElement { q: "Jua ni nini hasa katika sayansi ya anga?"; a: "Sayari"; b: "Nyota (Star)"; c: "Satelaiti"; d: "Jiwe"; correct: "Nyota (Star)" }
-        ListElement { q: "Ni sayari gani iliyo karibu zaidi na Jua?"; a: "Venus"; b: "Mars"; c: "Mercury"; d: "Dunia"; correct: "Mercury" }
         ListElement { q: "Mwanga wa Jua huchukua takriban dakika ngapi kufika Duniani?"; a: "Sekunde 30"; b: "Dakika 8"; c: "Saa 1"; d: "Siku 2"; correct: "Dakika 8" }
         ListElement { q: "Ni sayari gani inayofahamika kama 'Pacha wa Dunia' kwa sababu ya ukubwa wake?"; a: "Venus"; b: "Jupiter"; c: "Mars"; d: "Uranus"; correct: "Venus" }
         ListElement { q: "Eneo lenye nguvu kubwa ya uvutano angani ambapo hata mwanga hauwezi kutoroka huitwa?"; a: "Galaxy"; b: "Black Hole"; c: "Asteroid"; d: "Comet"; correct: "Black Hole" }
@@ -665,14 +653,6 @@ Rectangle {
 
         ListElement { q: "Jina la awali la shule ya Tabora Boys kabla ya kuitwa jina la sasa lilikuwa nani?"; a: "Pugu School"; b: "Government Central School, Tabora"; c: "Milambo Secondary"; d: "Royal Boys Academy"; correct: "Government Central School, Tabora" }
 
-        // --- MAGABE LAB
-        ListElement { q: "Magabe Lab inajihusisha na nini?"; a: "Utengenezaji wa Apps na Programu za Kompyuta"; b: "Kilimo cha kisasa"; c: "Ujenzi wa barabara"; d: "Ufugaji wa nyuki"; correct: "Utengenezaji wa Apps na Programu za Kompyuta" }
-
-        ListElement { q: "Ni lugha gani ya programu (Coding) inayotumiwa na Magabe Lab kutengeneza interface ya App hii?"; a: "Python"; b: "C++"; c: "QML (Qt Quick)"; d: "PHP"; correct: "QML (Qt Quick)" }
-
-        ListElement { q: "Kwenye Magabe Lab, 'Frontend' ya App inahusika na nini?"; a: "Muonekano unaoonekana na mtumiaji"; b: "Uhifadhi wa siri kwenye database"; c: "Kutengeneza vioo vya simu"; d: "Kupiga picha za satelaiti"; correct: "Muonekano unaoonekana na mtumiaji" }
-
-        ListElement { q: "Ni mfumo upi wa uendeshaji (OS) ambao App za Magabe Lab zinaweza kufanya kazi?"; a: "Android pekee"; b: "Windows pekee"; c: "Android, iOS, na Windows"; d: "Redio za mbao pekee"; correct: "Android, iOS, na Windows" }
 
 
         ListElement { q: "Mwanangu analia kichakani."; a: "Ndege"; b: "Shoka"; c: "Upepo"; d: "Simba"; correct: "Shoka" }
@@ -851,6 +831,8 @@ Rectangle {
         totalScore = 0;
         timerValue = timeInterval;
         noOfPassedQuestion = 0;
+        answerResult = "";
+        selectedAnswer = "";
 
         // 6. Anza Mchezo
         viewState = "QUIZ";
@@ -866,24 +848,50 @@ Rectangle {
         id: mainTimer
         interval: 1000; repeat: true
         onTriggered: {
-            if (timerValue > 0) timerValue--;
-            else processAnswer("");
+            if (timerValue > 0) {
+                timerValue--;
+            } else {
+                mainTimer.stop();
+                // Timeout: treat as wrong answer with no selection
+                answerResult = "wrong";
+                selectedAnswer = "";
+                feedbackTimer.start();
+            }
         }
     }
 
     function processAnswer(selected) {
-        if (selected === quizModel.get(currentIdx).correct) {
+        if (answerResult !== "") return; // block double-tap during feedback
+        mainTimer.stop();
+        selectedAnswer = selected;
+        var isCorrect = (selected === quizModel.get(currentIdx).correct) || (selected === "");
+        if (selected !== "" && selected === quizModel.get(currentIdx).correct) {
             totalScore += (timerValue * 3) + 10;
             ++app.noOfPassedQuestion;
+            answerResult = "correct";
+        } else {
+            answerResult = "wrong";
         }
+        feedbackTimer.start();
+    }
+
+    function advanceQuestion() {
+        answerResult = "";
+        selectedAnswer = "";
         if (currentIdx < quizModel.count - 1) {
             currentIdx++;
             timerValue = timeInterval;
+            mainTimer.start();
         } else {
-            mainTimer.stop();
             viewState = "END";
             app.ad();
         }
+    }
+
+    Timer {
+        id: feedbackTimer
+        interval: 1200; repeat: false
+        onTriggered: advanceQuestion()
     }
 
 
@@ -1353,13 +1361,43 @@ Rectangle {
                         Layout.fillWidth: true
                         Layout.fillHeight: true
                         radius: Math.round(12 * dp)
-                        color: optMA.pressed
-                               ? (modelData === quizModel.get(currentIdx).correct ? Qt.rgba(0.13,0.77,0.33,0.25) : Qt.rgba(0.94,0.27,0.27,0.2))
-                               : card
-                        border.color: optMA.pressed
-                                      ? (modelData === quizModel.get(currentIdx).correct ? success : danger)
-                                      : Qt.rgba(0, 0.9, 1, 0.15)
-                        border.width: optMA.pressed ? Math.round(1.5 * dp) : 1
+
+                        // Feedback color logic:
+                        // - During feedback: correct answer = green, selected wrong = red, others = dim
+                        // - During press: immediate preview
+                        // - Default: card color
+                        color: {
+                            if (answerResult !== "") {
+                                if (modelData === quizModel.get(currentIdx).correct)
+                                    return Qt.rgba(0.13, 0.77, 0.33, 0.25);
+                                if (modelData === selectedAnswer)
+                                    return Qt.rgba(0.94, 0.27, 0.27, 0.20);
+                                return Qt.rgba(0.04, 0.12, 0.12, 0.5);
+                            }
+                            if (optMA.pressed)
+                                return (modelData === quizModel.get(currentIdx).correct
+                                        ? Qt.rgba(0.13,0.77,0.33,0.25)
+                                        : Qt.rgba(0.94,0.27,0.27,0.2));
+                            return card;
+                        }
+                        border.color: {
+                            if (answerResult !== "") {
+                                if (modelData === quizModel.get(currentIdx).correct) return success;
+                                if (modelData === selectedAnswer) return danger;
+                                return Qt.rgba(0, 0.9, 1, 0.06);
+                            }
+                            if (optMA.pressed)
+                                return (modelData === quizModel.get(currentIdx).correct ? success : danger);
+                            return Qt.rgba(0, 0.9, 1, 0.15);
+                        }
+                        border.width: {
+                            if (answerResult !== "") {
+                                if (modelData === quizModel.get(currentIdx).correct
+                                        || modelData === selectedAnswer)
+                                    return Math.round(1.5 * dp);
+                            }
+                            return optMA.pressed ? Math.round(1.5 * dp) : 1;
+                        }
 
                         Behavior on color { ColorAnimation { duration: 120 } }
 
@@ -1398,6 +1436,7 @@ Rectangle {
                         MouseArea {
                             id: optMA
                             anchors.fill: parent
+                            enabled: answerResult === ""
                             onPressed:  { optRect.scale = 0.98; }
                             onReleased: { optRect.scale = 1.0; processAnswer(modelData); }
                             onCanceled: { optRect.scale = 1.0; }
