@@ -26,6 +26,7 @@ Rectangle {
     property int questionsAttempted: maxQuestions // tracks how many were shown
     property int speedBonusTotal: 0   // jumla ya pointi za kasi (kwa IQ bora)
     property int lastSpeedBonus: 0    // bonus ya swali la mwisho (kwa popup)
+    property int skippedQuestions: 0  // maswali aliyokimbia kwa kufunga mapema
 
     // Hifadhi majibu ya kila swali ili yaonyeshwe kwenye matokeo
     ListModel { id: userAnswers }  // { q, correct, chosen, wasCorrect }
@@ -959,6 +960,7 @@ Rectangle {
         questionsAttempted = maxQuestions;
         speedBonusTotal = 0;
         lastSpeedBonus = 0;
+        skippedQuestions = 0;
         userAnswers.clear();
 
         // 6. Anza Mchezo
@@ -1694,7 +1696,10 @@ Rectangle {
                                 feedbackTimer.stop();
                                 answerResult = "";
                                 selectedAnswer = "";
-                                questionsAttempted = currentIdx;
+                                // userAnswers.count = maswali yaliyojibiwa kweli kweli
+                                // quizModel.count - userAnswers.count = yaliyokimbwa (hayakujibiwa)
+                                skippedQuestions = quizModel.count - userAnswers.count;
+                                questionsAttempted = userAnswers.count;
                                 viewState = "END";
                                 app.ad();
                             }
@@ -1714,18 +1719,23 @@ Rectangle {
         // --- IQ FORMULA ILIYOBORESHWA ---
         // Accuracy (sahihi / jumla) ndiyo msingi mkuu wa IQ
         // Speed bonus inaongeza kidogo (max +10 pointi za IQ)
+        // Penalty ya kukimbia: accuracy inashuka + IQ minus 2 kwa kila swali lililokimbwa
         // Mtu asiyejibu chochote → IQ 70 (kiwango cha chini)
         // Mtu anayejibu yote kwa kasi → IQ 145
         property int finalIQ: {
-            var accuracy = noOfPassedQuestion / Math.max(questionsAttempted, 1);
+            // userAnswers.count = maswali yaliyojibiwa kweli kweli (si currentIdx)
+            var attempted = Math.max(userAnswers.count, 1);
+            var accuracy = noOfPassedQuestion / attempted;
             // Base IQ kutoka 70 hadi 135 kulingana na usahihi
             var baseIQ = 70 + Math.round(accuracy * 65);
-            // Speed bonus: max pointi za kasi zinazowezekana = questionsAttempted * timeInterval * 3
-            var maxSpeed = questionsAttempted * timeInterval * 3;
+            // Speed bonus: max pointi za kasi zinazowezekana
+            var maxSpeed = attempted * timeInterval * 3;
             var speedRatio = maxSpeed > 0 ? Math.min(speedBonusTotal / maxSpeed, 1.0) : 0;
             // Speed inaongeza hadi pointi 10 za IQ — lakini tu kama accuracy >= 50%
             var speedIQ = accuracy >= 0.5 ? Math.round(speedRatio * 10) : 0;
-            return Math.min(145, baseIQ + speedIQ);
+            // Penalty: kila swali lililokimbwa = -2 IQ
+            var skipPenalty = skippedQuestions * 2;
+            return Math.max(70, Math.min(145, baseIQ + speedIQ - skipPenalty));
         }
         opacity: viewState === "END" ? 1.0 : 0.0
         enabled: viewState === "END"
@@ -1854,8 +1864,8 @@ Rectangle {
 
                     Repeater {
                         model: [
-                            { icon: "\u2713", val: noOfPassedQuestion,                   lbl: "Sahihi" },
-                            { icon: "x", val: questionsAttempted - noOfPassedQuestion,   lbl: "Makosa" }
+                            { icon: "\u2713", val: noOfPassedQuestion,                        lbl: "Sahihi" },
+                            { icon: "x", val: userAnswers.count - noOfPassedQuestion,          lbl: "Makosa" }
                         ]
                         delegate: Rectangle {
                             width: (statsCardsRow.width - Math.round(10 * dp)) / 2
@@ -1885,6 +1895,69 @@ Rectangle {
                     }
                 }
 
+                // ── PENALTY CARD — inaonekana tu kama alikimbia ──────────
+                Rectangle {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: parent.width
+                    height: Math.round(64 * dp)
+                    radius: Math.round(14 * dp)
+                    visible: skippedQuestions > 0
+                    color: Qt.rgba(0.94, 0.27, 0.27, 0.08)
+                    border.color: Qt.rgba(0.94, 0.27, 0.27, 0.4)
+                    border.width: 1
+
+                    Row {
+                        anchors.centerIn: parent
+                        spacing: Math.round(14 * dp)
+
+                        Column {
+                            anchors.verticalCenter: parent.verticalCenter
+                            spacing: Math.round(3 * dp)
+                            Text {
+                                anchors.horizontalCenter: parent.horizontalCenter
+                                text: skippedQuestions
+                                font.pointSize: 18
+                                font.bold: true
+                                color: danger
+                            }
+                            Text {
+                                anchors.horizontalCenter: parent.horizontalCenter
+                                text: "Yaliyokimbwa"
+                                font.pointSize: 9
+                                color: textDim
+                                font.letterSpacing: 1
+                            }
+                        }
+
+                        // Divider
+                        Rectangle {
+                            width: 1
+                            height: Math.round(36 * dp)
+                            color: Qt.rgba(0.94, 0.27, 0.27, 0.3)
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+
+                        Column {
+                            anchors.verticalCenter: parent.verticalCenter
+                            spacing: Math.round(3 * dp)
+                            Text {
+                                anchors.horizontalCenter: parent.horizontalCenter
+                                text: "-" + (skippedQuestions * 2) + " IQ"
+                                font.pointSize: 18
+                                font.bold: true
+                                color: danger
+                            }
+                            Text {
+                                anchors.horizontalCenter: parent.horizontalCenter
+                                text: "Penalty ya kukimbia"
+                                font.pointSize: 9
+                                color: textDim
+                                font.letterSpacing: 1
+                            }
+                        }
+                    }
+                }
+
                 Item { width: 1; height: Math.round(4 * dp) }
 
                 // ── MAPITIO YA MASWALI (Maswali yaliyokosewa) ──────────
@@ -1892,7 +1965,7 @@ Rectangle {
                     width: parent.width
                     // Onyesha tu kama kuna makosa
                     height: wrongReviewCol.implicitHeight
-                    visible: userAnswers.count > 0 && (questionsAttempted - noOfPassedQuestion) > 0
+                    visible: userAnswers.count > 0 && (userAnswers.count - noOfPassedQuestion) > 0
 
                     Column {
                         id: wrongReviewCol
@@ -1918,7 +1991,7 @@ Rectangle {
                                     anchors.verticalCenter: parent.verticalCenter
                                 }
                                 Text {
-                                    text: "MASWALI YALIYOKOSEWA  (" + (questionsAttempted - noOfPassedQuestion) + ")"
+                                    text: "MASWALI YALIYOKOSEWA  (" + (userAnswers.count - noOfPassedQuestion) + ")"
                                     font.pointSize: 10
                                     font.bold: true
                                     font.letterSpacing: Math.round(1 * dp)
