@@ -1882,7 +1882,7 @@ Rectangle {
                                                 color: Qt.rgba(0.94, 0.27, 0.27, 0.2)
                                                 Text {
                                                     anchors.centerIn: parent
-                                                    text: "\u2717"
+                                                    text: "x"
                                                     font.pointSize: 8
                                                     font.bold: true
                                                     color: danger
