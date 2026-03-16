@@ -695,6 +695,126 @@ Rectangle {
         ListElement { q: "Zao la Chai hustawi zaidi katika mkoa gani?"; a: "Dodoma"; b: "Njombe"; c: "Mwanza"; d: "Dar"; correct: "Njombe" }
         ListElement { q: "Mti wa Mnazi hutoa bidhaa gani maarufu pwani?"; a: "Mafuta ya mawese"; b: "Nazi na madafu"; c: "Kahawa"; d: "Zambarau"; correct: "Nazi na madafu" }
 
+        // --- MASWALI MAPYA (47) ---
+
+        // IQ & LOGIC
+        ListElement {
+            q: "Kama unaandika namba zote kutoka 1 hadi 20, namba '1' itaonekana mara ngapi?"
+            a: "10"; b: "11"; c: "12"; d: "13"
+            correct: "12"
+        }
+
+        ListElement {
+            q: "Ndugu wawili walizaliwa mwaka mmoja, mwezi mmoja, siku moja — lakini si mapacha. Inawezekana vipi?"
+            a: "Haiwezekani"; b: "Wana baba tofauti"; c: "Ni watatu wa kuzaliwa pamoja"; d: "Walizaliwa mji tofauti"
+            correct: "Ni watatu wa kuzaliwa pamoja"
+        }
+
+        ListElement {
+            q: "Kama unakata mkate mara 3, unapata vipande vingapi?"
+            a: "3"; b: "4"; c: "6"; d: "8"
+            correct: "4"
+        }
+
+        ListElement {
+            q: "Ni namba gani inayofuata: 1, 1, 2, 3, 5, 8, ..."
+            a: "10"; b: "11"; c: "12"; d: "13"
+            correct: "13"
+        }
+
+        // SAYANSI
+        ListElement {
+            q: "Nuru inasafiri kwa kasi ya takriban kilomita ngapi kwa sekunde moja?"
+            a: "300,000 km/s"; b: "3,000 km/s"; c: "30,000 km/s"; d: "3,000,000 km/s"
+            correct: "300,000 km/s"
+        }
+
+        ListElement {
+            q: "Binadamu ana mifupa mingapi mwilini ukiwa mtu mzima?"
+            a: "206"; b: "250"; c: "180"; d: "300"
+            correct: "206"
+        }
+
+        // TANZANIA
+        ListElement {
+            q: "Mji Mkuu wa Tanzania (Makao Makuu ya Serikali) ni upi?"
+            a: "Dar es Salaam"; b: "Arusha"; c: "Dodoma"; d: "Mwanza"
+            correct: "Dodoma"
+        }
+
+        ListElement {
+            q: "Tanzania ilipata Uhuru wake tarehe ngapi mwaka 1961?"
+            a: "9 Desemba"; b: "26 Aprili"; c: "12 Januari"; d: "1 Julai"
+            correct: "9 Desemba"
+        }
+
+        // VITENDAWILI
+        ListElement {
+            q: "Kitendawili: Nina miguu lakini siwezi kutembea, nina mkono lakini siwezi kushika. Mimi ni nani?"
+            a: "Sanduku"; b: "Meza"; c: "Kiti"; d: "Kabati"
+            correct: "Meza"
+        }
+
+        // HESABU YA AKILI
+        ListElement {
+            q: "Kama mwalimu anasema: 'Nusu ya wanafunzi wangu ni wasichana, robo ni wavulana, waliobaki ni 6.' Darasa lina wanafunzi wangapi?"
+            a: "18"; b: "24"; c: "12"; d: "30"
+            correct: "24"
+        }
+
+        // --- MASWALI MAPYA ZAIDI (37) ---
+
+        // LOGIC & IQ
+        ListElement { q: "Kama A ni kubwa kuliko B, na B ni kubwa kuliko C, nani ndiye mdogo zaidi?"; a: "A"; b: "B"; c: "C"; d: "Wote ni sawa"; correct: "C" }
+        ListElement { q: "Maneno 3 ya kwanza ya alfabeti ya Kiswahili ni?"; a: "A, B, C"; b: "A, E, I"; c: "A, B, D"; d: "A, C, D"; correct: "A, B, C" }
+        ListElement { q: "Kama leo ni Ijumaa, siku ya 100 ijayo itakuwa siku gani?"; a: "Ijumaa"; b: "Alhamisi"; c: "Jumamosi"; d: "Jumatano"; correct: "Jumamosi" }
+        ListElement { q: "Namba ngapi ikiongezwa kwenye yenyewe inatoa 0?"; a: "1"; b: "Haipo"; c: "0"; d: "2"; correct: "0" }
+        ListElement { q: "Kama gari linasafiri umbali wa km 120 kwa saa 2, kasi yake ni km ngapi kwa saa?"; a: "60 km/h"; b: "240 km/h"; c: "80 km/h"; d: "40 km/h"; correct: "60 km/h" }
+        ListElement { q: "Pembe zote za mstatili (Rectangle) ni nyuzi ngapi kila moja?"; a: "45"; b: "60"; c: "90"; d: "180"; correct: "90" }
+        ListElement { q: "Kama unapiga folda katikati mara 7, tabaka ngapi utapata?"; a: "14"; b: "49"; c: "128"; d: "64"; correct: "128" }
+
+        // TANZANIA — JIOGRAFIA & HISTORIA
+        ListElement { q: "Mlima Kilimanjaro una urefu wa mita ngapi?"; a: "4,895m"; b: "5,895m"; c: "6,895m"; d: "3,895m"; correct: "5,895m" }
+        ListElement { q: "Tanzania iliungana na Zanzibar kuunda Jamhuri mwaka gani?"; a: "1961"; b: "1963"; c: "1964"; d: "1967"; correct: "1964" }
+        ListElement { q: "Jiji la pili kwa ukubwa nchini Tanzania ni?"; a: "Arusha"; b: "Mwanza"; c: "Dodoma"; d: "Tanga"; correct: "Mwanza" }
+        ListElement { q: "Hifadhi ya Taifa ya kwanza kuanzishwa Tanzania ni?"; a: "Serengeti"; b: "Ruaha"; c: "Mikumi"; d: "Gombe"; correct: "Serengeti" }
+        ListElement { q: "Ziwa Tanganyika ni ziwa la pili kwa kina duniani — kina chake ni mita ngapi?"; a: "800m"; b: "1,200m"; c: "1,470m"; d: "600m"; correct: "1,470m" }
+        ListElement { q: "Rais wa kwanza wa Tanzania Bara (Tanganyika) alikuwa nani?"; a: "Ali Hassan Mwinyi"; b: "Julius Kambarage Nyerere"; c: "Abeid Karume"; d: "Benjamin Mkapa"; correct: "Julius Kambarage Nyerere" }
+        ListElement { q: "Bandari kubwa zaidi ya Tanzania ipo wapi?"; a: "Tanga"; b: "Mtwara"; c: "Dar es Salaam"; d: "Zanzibar"; correct: "Dar es Salaam" }
+
+        // SAYANSI
+        ListElement { q: "Kemikali inayotumika kufanya picha kwenye X-Ray ni ipi?"; a: "Sodium"; b: "Barium"; c: "Calcium"; d: "Potassium"; correct: "Barium" }
+        ListElement { q: "Nishati inayotoka kwa mgawanyiko wa atomu inaitwa?"; a: "Nishati ya jua"; b: "Nishati ya nyuklia"; c: "Nishati ya mvuke"; d: "Nishati ya upepo"; correct: "Nishati ya nyuklia" }
+        ListElement { q: "Damu ya binadamu ina pH ya takriban?"; a: "6.0"; b: "7.4"; c: "8.5"; d: "5.5"; correct: "7.4" }
+        ListElement { q: "Mwili wa binadamu una asilimia ngapi ya maji?"; a: "40%"; b: "50%"; c: "60%"; d: "70%"; correct: "60%" }
+        ListElement { q: "Nyota ya karibu zaidi na Jua letu inaitwa?"; a: "Sirius"; b: "Betelgeuse"; c: "Proxima Centauri"; d: "Vega"; correct: "Proxima Centauri" }
+        ListElement { q: "Gesi inayofanya puto kuruka angani ni?"; a: "Oxygen"; b: "Nitrogen"; c: "Helium"; d: "Carbon Dioxide"; correct: "Helium" }
+
+        // TEKNOLOJIA
+        ListElement { q: "Kifupi cha 'PDF' ni nini?"; a: "Portable Document Format"; b: "Printed Data File"; c: "Personal Data Form"; d: "Public Document File"; correct: "Portable Document Format" }
+        ListElement { q: "Ni kampuni gani ilianzisha mfumo wa iOS?"; a: "Samsung"; b: "Google"; c: "Apple"; d: "Microsoft"; correct: "Apple" }
+        ListElement { q: "Kitufe cha 'Ctrl + Z' kwenye kompyuta hufanya nini?"; a: "Kufunga programu"; b: "Kuhifadhi faili"; c: "Kufuta (Undo)"; d: "Kunakili"; correct: "Kufuta (Undo)" }
+        ListElement { q: "Namba ya 'byte' moja ina 'bits' ngapi?"; a: "4"; b: "8"; c: "16"; d: "2"; correct: "8" }
+        ListElement { q: "Mtandao wa kwanza wa intaneti duniani ulianza mwaka gani?"; a: "1969"; b: "1985"; c: "1991"; d: "1999"; correct: "1969" }
+
+        // MICHEZO
+        ListElement { q: "Mbio za marathon zina urefu wa kilomita ngapi?"; a: "40km"; b: "42.195km"; c: "45km"; d: "38km"; correct: "42.195km" }
+        ListElement { q: "Mchezo wa 'Volleyball' una wachezaji wangapi kwa timu moja?"; a: "5"; b: "7"; c: "6"; d: "8"; correct: "6" }
+        ListElement { q: "Klabu ya Manchester United inacheza uwanjani gani?"; a: "Anfield"; b: "Stamford Bridge"; c: "Old Trafford"; d: "Emirates"; correct: "Old Trafford" }
+        ListElement { q: "Kombe la Dunia la Soka hufanyika kila baada ya miaka mingapi?"; a: "2"; b: "3"; c: "4"; d: "5"; correct: "4" }
+
+        // VITENDAWILI VIPYA
+        ListElement { q: "Kitendawili: Nina uso lakini sina macho, nina mikono lakini sina vidole. Mimi ni nani?"; a: "Sanamu"; b: "Saa"; c: "Picha"; d: "Mwili"; correct: "Saa" }
+        ListElement { q: "Kitendawili: Ndugu wawili wanaokimbia daima lakini hawakutani kamwe."; a: "Mikono"; b: "Macho"; c: "Miguu"; d: "Masikio"; correct: "Miguu" }
+        ListElement { q: "Kitendawili: Ninazidi kukua lakini siwezi kutembea, ninapunguza ninavyokula."; a: "Nyota"; b: "Moto"; c: "Mwaka"; d: "Jiwe"; correct: "Moto" }
+
+        // AFYA
+        ListElement { q: "Shinikizo la damu la kawaida kwa mtu mzima ni?"; a: "100/60"; b: "120/80"; c: "140/100"; d: "160/90"; correct: "120/80" }
+        ListElement { q: "Vitamini inayosaidia maono (kuona) vizuri ni?"; a: "Vitamini B"; b: "Vitamini C"; c: "Vitamini A"; d: "Vitamini K"; correct: "Vitamini A" }
+        ListElement { q: "Ugonjwa wa 'Kisukari' husababishwa na tatizo la homoni gani?"; a: "Adrenaline"; b: "Insulin"; c: "Estrogen"; d: "Testosterone"; correct: "Insulin" }
+        ListElement { q: "Meno ya binadamu mtu mzima ni mangapi kwa kawaida?"; a: "28"; b: "30"; c: "32"; d: "36"; correct: "32" }
+        ListElement { q: "Nchi kubwa zaidi duniani kwa eneo ni?"; a: "Canada"; b: "China"; c: "USA"; d: "Russia"; correct: "Russia" }
+
     }
 
     Settings{
