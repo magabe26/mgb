@@ -222,24 +222,24 @@ Rectangle {
         ListElement { q: "Nusu ya robo ya 400 ni ngapi?"; a: "100"; b: "50"; c: "25"; d: "200"; correct: "50"; cat: "M"; diff: 2 }
 
         //KILIMO NA UVUVI
-        ListElement { q: "Zao lipi ni 'Dhahabu ya Kijani' mkoani Kagera na Kilimanjaro?"; a: "Kahawa"; b: "Pamba"; c: "Karafuu"; d: "Chai"; correct: "Kahawa"; cat: "T"; diff: 2 }
-        ListElement { q: "Ziwa lipi linaongoza kwa uzalishaji wa Sangara Tanzania?"; a: "Victoria"; b: "Tanganyika"; c: "Nyasa"; d: "Eyasi"; correct: "Victoria"; cat: "T"; diff: 1 }
-        ListElement { q: "Bodi ya Korosho Tanzania (CBT) ina makao makuu mkoa gani?"; a: "Lindi"; b: "Mtwara"; c: "Pwani"; d: "Tanga"; correct: "Mtwara"; cat: "T"; diff: 2 }
-        ListElement { q: "Zao kuu la biashara visiwani Pemba ni?"; a: "Karafuu"; b: "Tangawizi"; c: "Ulanga"; d: "Mdalasini"; correct: "Karafuu"; cat: "T"; diff: 2 }
+        ListElement { q: "Zao lipi ni 'Dhahabu ya Kijani' mkoani Kagera na Kilimanjaro?"; a: "Kahawa"; b: "Pamba"; c: "Karafuu"; d: "Chai"; correct: "Kahawa"; cat: "GEO"; diff: 2 }
+        ListElement { q: "Ziwa lipi linaongoza kwa uzalishaji wa Sangara Tanzania?"; a: "Victoria"; b: "Tanganyika"; c: "Nyasa"; d: "Eyasi"; correct: "Victoria"; cat: "GEO"; diff: 1 }
+        ListElement { q: "Bodi ya Korosho Tanzania (CBT) ina makao makuu mkoa gani?"; a: "Lindi"; b: "Mtwara"; c: "Pwani"; d: "Tanga"; correct: "Mtwara"; cat: "GEO"; diff: 2 }
+        ListElement { q: "Zao kuu la biashara visiwani Pemba ni?"; a: "Karafuu"; b: "Tangawizi"; c: "Ulanga"; d: "Mdalasini"; correct: "Karafuu"; cat: "GEO"; diff: 2 }
 
         //MADINI (MINERALS)
-        ListElement { q: "Madini ya kipekee yanayopatikana Tanzania pekee duniani ni?"; a: "Dhahabu"; b: "Tanzanite"; c: "Almasi"; d: "Shaba"; correct: "Tanzanite"; cat: "T"; diff: 2 }
-        ListElement { q: "Mgodi wa Almasi wa Mwadui unapatikana mkoa gani?"; a: "Geita"; b: "Shinyanga"; c: "Mara"; d: "Mwanza"; correct: "Shinyanga"; cat: "T"; diff: 1 }
-        ListElement { q: "Mji gani unajulikana kama kitovu cha biashara ya Dhahabu Tanzania?"; a: "Geita"; b: "Chunya"; c: "Mbeya"; d: "Kahama"; correct: "Geita"; cat: "T"; diff: 2 }
+        ListElement { q: "Madini ya kipekee yanayopatikana Tanzania pekee duniani ni?"; a: "Dhahabu"; b: "Tanzanite"; c: "Almasi"; d: "Shaba"; correct: "Tanzanite"; cat: "GEO"; diff: 2 }
+        ListElement { q: "Mgodi wa Almasi wa Mwadui unapatikana mkoa gani?"; a: "Geita"; b: "Shinyanga"; c: "Mara"; d: "Mwanza"; correct: "Shinyanga"; cat: "GEO"; diff: 1 }
+        ListElement { q: "Mji gani unajulikana kama kitovu cha biashara ya Dhahabu Tanzania?"; a: "Geita"; b: "Chunya"; c: "Mbeya"; d: "Kahama"; correct: "Geita"; cat: "GEO"; diff: 2 }
 
         //MAPISHI NA CHAKULA (FOOD)
-        ListElement { q: "Chakula gani ni maarufu kwa watu wa Kilimanjaro (Ndizi na Nyama)?"; a: "Mtori"; b: "Makande"; c: "Kande"; d: "Kiti moto"; correct: "Mtori"; cat: "T"; diff: 1 }
-        ListElement { q: "Kande ni mchanganyiko wa maharage na nini?"; a: "Mchele"; b: "Mahindi"; c: "Viazi"; d: "Mtama"; correct: "Mahindi"; cat: "T"; diff: 1 }
-        ListElement { q: "Pilau ni chakula chenye asili ya wapi nchini?"; a: "Pwani/Zanzibar"; b: "Kanda ya Ziwa"; c: "Kusini"; d: "Kaskazini"; correct: "Pwani/Zanzibar"; cat: "T"; diff: 1 }
+        ListElement { q: "Chakula gani ni maarufu kwa watu wa Kilimanjaro (Ndizi na Nyama)?"; a: "Mtori"; b: "Makande"; c: "Kande"; d: "Kiti moto"; correct: "Mtori"; cat: "BUR"; diff: 1 }
+        ListElement { q: "Kande ni mchanganyiko wa maharage na nini?"; a: "Mchele"; b: "Mahindi"; c: "Viazi"; d: "Mtama"; correct: "Mahindi"; cat: "BUR"; diff: 1 }
+        ListElement { q: "Pilau ni chakula chenye asili ya wapi nchini?"; a: "Pwani/Zanzibar"; b: "Kanda ya Ziwa"; c: "Kusini"; d: "Kaskazini"; correct: "Pwani/Zanzibar"; cat: "BUR"; diff: 1 }
 
         //ELIMU NA JAMII
-        ListElement { q: "Chuo Kikuu kikongwe zaidi nchini Tanzania ni?"; a: "UDSM"; b: "Mzumbe"; c: "SUA"; d: "UDOM"; correct: "UDSM"; cat: "T"; diff: 2 }
-        ListElement { q: "Lugha ya Taifa ya Tanzania ni?"; a: "Kiingereza"; b: "Kiswahili"; c: "Kiarabu"; d: "Kinyamwezi"; correct: "Kiswahili"; cat: "T"; diff: 1 }
+        ListElement { q: "Chuo Kikuu kikongwe zaidi nchini Tanzania ni?"; a: "UDSM"; b: "Mzumbe"; c: "SUA"; d: "UDOM"; correct: "UDSM"; cat: "UR"; diff: 2 }
+        ListElement { q: "Lugha ya Taifa ya Tanzania ni?"; a: "Kiingereza"; b: "Kiswahili"; c: "Kiarabu"; d: "Kinyamwezi"; correct: "Kiswahili"; cat: "UR"; diff: 1 }
 
         //HESABU (LOGIC & MATH)
         ListElement { q: "Kama 5 + x = 12, basi x ni ngapi?"; a: "5"; b: "7"; c: "8"; d: "6"; correct: "7"; cat: "M"; diff: 2 }
@@ -252,7 +252,7 @@ Rectangle {
         ListElement { q: "Mshindi wa kwanza wa medali ya Olimpiki kwa Tanzania alikuwa nani?"; a: "Filbert Bayi"; b: "Suleiman Nyambui"; c: "Samson Ramadhani"; d: "Juma Ikangaa"; correct: "Suleiman Nyambui"; cat: "SP"; diff: 2 }
         ListElement { q: "Klabu ya Yanga SC ilianzishwa mwaka gani?"; a: "1935"; b: "1938"; c: "1940"; d: "1932"; correct: "1935"; cat: "SP"; diff: 1 }
         ListElement { q: "Uwanja wa Kaitaba unapatikana mkoa gani?"; a: "Mwanza"; b: "Kagera"; c: "Mara"; d: "Shinyanga"; correct: "Kagera"; cat: "SP"; diff: 1 }
-        ListElement { q: "Ni mwanamuziki gani wa Tanzania alishinda tuzo ya BET (Best International Act)?"; a: "Diamond Platnumz"; b: "Rayvanny"; c: "Alikiba"; d: "Harmonize"; correct: "Rayvanny"; cat: "T"; diff: 2 }
+        ListElement { q: "Ni mwanamuziki gani wa Tanzania alishinda tuzo ya BET (Best International Act)?"; a: "Diamond Platnumz"; b: "Rayvanny"; c: "Alikiba"; d: "Harmonize"; correct: "Rayvanny"; cat: "BUR"; diff: 2 }
         ListElement { q: "Shirikisho la Mpira wa Miguu Tanzania linajulikana kwa kifupi kama?"; a: "TFF"; b: "FAT"; c: "BMT"; d: "DRFA"; correct: "TFF"; cat: "SP"; diff: 1 }
         ListElement { q: "Mchezo wa asili wa 'Bao' unachezwa na watu wangapi kwa wakati mmoja?"; a: "3"; b: "2"; c: "4"; d: "1"; correct: "2"; cat: "SP"; diff: 2 }
 
@@ -267,19 +267,19 @@ Rectangle {
         ListElement { q: "Ni zipi kati ya hizi ni 'Operating System'?"; a: "Google"; b: "Windows"; c: "Facebook"; d: "WhatsApp"; correct: "Windows"; cat: "TK"; diff: 1 }
 
         //KILIMO & UVUVI
-        ListElement { q: "Zao lipi la biashara ni maarufu mkoani Tabora?"; a: "Tumbaku"; b: "Chai"; c: "Karafuu"; d: "Sisal"; correct: "Tumbaku"; cat: "T"; diff: 2 }
-        ListElement { q: "Wizara ya Kilimo nchini Tanzania ina makao makuu mji gani?"; a: "Dar es Salaam"; b: "Dodoma"; c: "Morogoro"; d: "Arusha"; correct: "Dodoma"; cat: "T"; diff: 1 }
-        ListElement { q: "Chuo kikuu maarufu cha kilimo nchini Tanzania kinaitwa?"; a: "UDSM"; b: "SUA"; c: "SAUT"; d: "Mzumbe"; correct: "SUA"; cat: "T"; diff: 2 }
-        ListElement { q: "Zao la mkonge (Sisal) huzalishwa kwa wingi mkoa gani?"; a: "Tanga"; b: "Mtwara"; c: "Lindi"; d: "Ruvuma"; correct: "Tanga"; cat: "T"; diff: 2 }
-        ListElement { q: "Dagaa wa Kigoma wanapatikana katika ziwa gani?"; a: "Victoria"; b: "Tanganyika"; c: "Nyasa"; d: "Rukwa"; correct: "Tanganyika"; cat: "T"; diff: 2 }
-        ListElement { q: "Ni mbinu gani ya kilimo inayozuia mmomonyoko wa udongo milimani?"; a: "Kilimo cha matuta"; b: "Kilimo cha mikingamo"; c: "Kilimo cha kuhamahama"; d: "Kilimo cha umwagiliaji"; correct: "Kilimo cha mikingamo"; cat: "T"; diff: 2 }
+        ListElement { q: "Zao lipi la biashara ni maarufu mkoani Tabora?"; a: "Tumbaku"; b: "Chai"; c: "Karafuu"; d: "Sisal"; correct: "Tumbaku"; cat: "GEO"; diff: 2 }
+        ListElement { q: "Wizara ya Kilimo nchini Tanzania ina makao makuu mji gani?"; a: "Dar es Salaam"; b: "Dodoma"; c: "Morogoro"; d: "Arusha"; correct: "Dodoma"; cat: "GEO"; diff: 1 }
+        ListElement { q: "Chuo kikuu maarufu cha kilimo nchini Tanzania kinaitwa?"; a: "UDSM"; b: "SUA"; c: "SAUT"; d: "Mzumbe"; correct: "SUA"; cat: "MK"; diff: 2 }
+        ListElement { q: "Zao la mkonge (Sisal) huzalishwa kwa wingi mkoa gani?"; a: "Tanga"; b: "Mtwara"; c: "Lindi"; d: "Ruvuma"; correct: "Tanga"; cat: "GEO"; diff: 2 }
+        ListElement { q: "Dagaa wa Kigoma wanapatikana katika ziwa gani?"; a: "Victoria"; b: "Tanganyika"; c: "Nyasa"; d: "Rukwa"; correct: "Tanganyika"; cat: "GEO"; diff: 2 }
+        ListElement { q: "Ni mbinu gani ya kilimo inayozuia mmomonyoko wa udongo milimani?"; a: "Kilimo cha matuta"; b: "Kilimo cha mikingamo"; c: "Kilimo cha kuhamahama"; d: "Kilimo cha umwagiliaji"; correct: "Kilimo cha mikingamo"; cat: "MK"; diff: 2 }
 
         //MADINI
-        ListElement { q: "Madini ya makaa ya mawe yanapatikana kwa wingi mkoa gani?"; a: "Njombe"; b: "Ruvuma"; c: "Geita"; d: "Pwani"; correct: "Ruvuma"; cat: "T"; diff: 2 }
-        ListElement { q: "Mji wa Mererani unajulikana kwa uchimbaji wa madini gani?"; a: "Dhahabu"; b: "Tanzanite"; c: "Chuma"; d: "Shaba"; correct: "Tanzanite"; cat: "T"; diff: 2 }
-        ListElement { q: "Mgodi wa dhahabu wa Geita unaitwa?"; a: "GGML"; b: "Bulyanhulu"; c: "North Mara"; d: "Williamson"; correct: "GGML"; cat: "T"; diff: 3 }
-        ListElement { q: "Tanzania ni nchi ya ngapi Afrika kwa uzalishaji wa Dhahabu?"; a: "Kwanza"; b: "Nne"; c: "Pili"; d: "Tano"; correct: "Nne"; cat: "T"; diff: 2 }
-        ListElement { q: "Chuma kinapatikana katika eneo gani nchini?"; a: "Liganga"; b: "Mwadui"; c: "Kahama"; d: "Ngerengere"; correct: "Liganga"; cat: "T"; diff: 2 }
+        ListElement { q: "Madini ya makaa ya mawe yanapatikana kwa wingi mkoa gani?"; a: "Njombe"; b: "Ruvuma"; c: "Geita"; d: "Pwani"; correct: "Ruvuma"; cat: "GEO"; diff: 2 }
+        ListElement { q: "Mji wa Mererani unajulikana kwa uchimbaji wa madini gani?"; a: "Dhahabu"; b: "Tanzanite"; c: "Chuma"; d: "Shaba"; correct: "Tanzanite"; cat: "GEO"; diff: 2 }
+        ListElement { q: "Mgodi wa dhahabu wa Geita unaitwa?"; a: "GGML"; b: "Bulyanhulu"; c: "North Mara"; d: "Williamson"; correct: "GGML"; cat: "GEO"; diff: 3 }
+        ListElement { q: "Tanzania ni nchi ya ngapi Afrika kwa uzalishaji wa Dhahabu?"; a: "Kwanza"; b: "Nne"; c: "Pili"; d: "Tano"; correct: "Nne"; cat: "GEO"; diff: 2 }
+        ListElement { q: "Chuma kinapatikana katika eneo gani nchini?"; a: "Liganga"; b: "Mwadui"; c: "Kahama"; d: "Ngerengere"; correct: "Liganga"; cat: "GEO"; diff: 2 }
 
         //LOGIC & MATH
         ListElement { q: "Kama una dakika 60, na unatumia sekunde 30 kwa kila swali, utajibu maswali mangapi?"; a: "2"; b: "120"; c: "60"; d: "30"; correct: "120"; cat: "M"; diff: 2 }
@@ -287,26 +287,26 @@ Rectangle {
         ListElement { q: "Jumla ya pembe za ndani za mraba (Square) ni ngapi?"; a: "180"; b: "360"; c: "90"; d: "270"; correct: "360"; cat: "M"; diff: 2 }
 
         //MAPISHI NA CHAKULA
-        ListElement { q: "Chakula cha asili cha Wahaya kinachoitwa 'Senene' ni nini?"; a: "Samaki"; b: "Panzi"; c: "Kunde"; d: "Mimea"; correct: "Panzi"; cat: "T"; diff: 1 }
-        ListElement { q: "Ugabigabi ni chakula cha asili cha mkoa gani?"; a: "Dodoma"; b: "Mara"; c: "Mtwara"; d: "Singida"; correct: "Singida"; cat: "T"; diff: 1 }
-        ListElement { q: "Wali wa nazi ni maarufu sana katika maeneo yapi?"; a: "Pwani"; b: "Nyanda za juu"; c: "Kanda ya ziwa"; d: "Kati"; correct: "Pwani"; cat: "T"; diff: 1 }
-        ListElement { q: "Kifupi cha neno 'Chai' katika Kiswahili cha zamani ilikuwa 'Mchai'. Jani la mchai linaitwa?"; a: "Mkandaa"; b: "Mchai"; c: "Mchai-chai"; d: "Mchai-bara"; correct: "Mchai-chai"; cat: "T"; diff: 1 }
-        ListElement { q: "Kiungo gani hukupa pilau harufu nzuri?"; a: "Chumvi"; b: "Binzari"; c: "Sukari"; d: "Mafuta"; correct: "Binzari"; cat: "T"; diff: 1 }
+        ListElement { q: "Chakula cha asili cha Wahaya kinachoitwa 'Senene' ni nini?"; a: "Samaki"; b: "Panzi"; c: "Kunde"; d: "Mimea"; correct: "Panzi"; cat: "BUR"; diff: 1 }
+        ListElement { q: "Ugabigabi ni chakula cha asili cha mkoa gani?"; a: "Dodoma"; b: "Mara"; c: "Mtwara"; d: "Singida"; correct: "Singida"; cat: "BUR"; diff: 1 }
+        ListElement { q: "Wali wa nazi ni maarufu sana katika maeneo yapi?"; a: "Pwani"; b: "Nyanda za juu"; c: "Kanda ya ziwa"; d: "Kati"; correct: "Pwani"; cat: "BUR"; diff: 1 }
+        ListElement { q: "Kifupi cha neno 'Chai' katika Kiswahili cha zamani ilikuwa 'Mchai'. Jani la mchai linaitwa?"; a: "Mkandaa"; b: "Mchai"; c: "Mchai-chai"; d: "Mchai-bara"; correct: "Mchai-chai"; cat: "BUR"; diff: 1 }
+        ListElement { q: "Kiungo gani hukupa pilau harufu nzuri?"; a: "Chumvi"; b: "Binzari"; c: "Sukari"; d: "Mafuta"; correct: "Binzari"; cat: "BUR"; diff: 1 }
 
         //HISTORIA & SIASA
-        ListElement { q: "Bendera ya Tanganyika ilikuwa na rangi gani kabla ya Muungano?"; a: "Kijani, Nyeusi, Kijani"; b: "Kijani, Nyeusi, Njano"; c: "Bluu, Nyeusi, Kijani"; d: "Nyekundu, Nyeusi, Kijani"; correct: "Kijani, Nyeusi, Kijani"; cat: "T"; diff: 2 }
-        ListElement { q: "Azimio la Arusha lilitangazwa mwaka gani?"; a: "1961"; b: "1967"; c: "1977"; d: "1964"; correct: "1967"; cat: "T"; diff: 2 }
-        ListElement { q: "Chama cha TANU kilianzishwa tarehe 7 Julai mwaka gani?"; a: "1954"; b: "1961"; c: "1950"; d: "1945"; correct: "1954"; cat: "T"; diff: 2 }
+        ListElement { q: "Bendera ya Tanganyika ilikuwa na rangi gani kabla ya Muungano?"; a: "Kijani, Nyeusi, Kijani"; b: "Kijani, Nyeusi, Njano"; c: "Bluu, Nyeusi, Kijani"; d: "Nyekundu, Nyeusi, Kijani"; correct: "Kijani, Nyeusi, Kijani"; cat: "H"; diff: 2 }
+        ListElement { q: "Azimio la Arusha lilitangazwa mwaka gani?"; a: "1961"; b: "1967"; c: "1977"; d: "1964"; correct: "1967"; cat: "H"; diff: 2 }
+        ListElement { q: "Chama cha TANU kilianzishwa tarehe 7 Julai mwaka gani?"; a: "1954"; b: "1961"; c: "1950"; d: "1945"; correct: "1954"; cat: "H"; diff: 2 }
         ListElement { q: "Makao makuu ya Umoja wa Afrika (AU) yapo nchi gani?"; a: "Tanzania"; b: "Ethiopia"; c: "Kenya"; d: "Misri"; correct: "Ethiopia"; cat: "H"; diff: 2 }
-        ListElement { q: "Rais wa kwanza wa Zanzibar baada ya Mapinduzi alikuwa?"; a: "Abeid Karume"; b: "Idris Abdul Wakil"; c: "Salmin Amour"; d: "Ali Hassan Mwinyi"; correct: "Abeid Karume"; cat: "T"; diff: 2 }
-        ListElement { q: "Nyerere alistaafu urais mwaka gani?"; a: "1980"; b: "1985"; c: "1990"; d: "1975"; correct: "1985"; cat: "T"; diff: 2 }
+        ListElement { q: "Rais wa kwanza wa Zanzibar baada ya Mapinduzi alikuwa?"; a: "Abeid Karume"; b: "Idris Abdul Wakil"; c: "Salmin Amour"; d: "Ali Hassan Mwinyi"; correct: "Abeid Karume"; cat: "H"; diff: 2 }
+        ListElement { q: "Nyerere alistaafu urais mwaka gani?"; a: "1980"; b: "1985"; c: "1990"; d: "1975"; correct: "1985"; cat: "H"; diff: 2 }
 
         //ELIMU & JIOGRAFIA
-        ListElement { q: "Mlima wa pili kwa urefu nchini Tanzania unaitwa?"; a: "Meru"; b: "Oldonyo Lengai"; c: "Hanang"; d: "Rungwe"; correct: "Meru"; cat: "T"; diff: 2 }
-        ListElement { q: "Ziwa la pili kwa kina kirefu duniani lililopo Tanzania ni?"; a: "Victoria"; b: "Tanganyika"; c: "Nyasa"; d: "Natron"; correct: "Tanganyika"; cat: "T"; diff: 2 }
-        ListElement { q: "Mkoa wa Dar es Salaam una wilaya ngapi kwa sasa?"; a: "3"; b: "5"; c: "7"; d: "4"; correct: "5"; cat: "T"; diff: 2 }
-        ListElement { q: "Mto mrefu kuliko yote nchini Tanzania ni?"; a: "Rufiji"; b: "Pangani"; c: "Ruvuma"; d: "Malagarasi"; correct: "Rufiji"; cat: "T"; diff: 2 }
-        ListElement { q: "Hifadhi ya Saadani ina upekee gani?"; a: "Ina chui wengi"; b: "Imepakana na bahari"; c: "Ina milima"; d: "Ina baridi kali"; correct: "Imepakana na bahari"; cat: "T"; diff: 2 }
+        ListElement { q: "Mlima wa pili kwa urefu nchini Tanzania unaitwa?"; a: "Meru"; b: "Oldonyo Lengai"; c: "Hanang"; d: "Rungwe"; correct: "Meru"; cat: "GEO"; diff: 2 }
+        ListElement { q: "Ziwa la pili kwa kina kirefu duniani lililopo Tanzania ni?"; a: "Victoria"; b: "Tanganyika"; c: "Nyasa"; d: "Natron"; correct: "Tanganyika"; cat: "GEO"; diff: 2 }
+        ListElement { q: "Mkoa wa Dar es Salaam una wilaya ngapi kwa sasa?"; a: "3"; b: "5"; c: "7"; d: "4"; correct: "5"; cat: "GEO"; diff: 2 }
+        ListElement { q: "Mto mrefu kuliko yote nchini Tanzania ni?"; a: "Rufiji"; b: "Pangani"; c: "Ruvuma"; d: "Malagarasi"; correct: "Rufiji"; cat: "GEO"; diff: 2 }
+        ListElement { q: "Hifadhi ya Saadani ina upekee gani?"; a: "Ina chui wengi"; b: "Imepakana na bahari"; c: "Ina milima"; d: "Ina baridi kali"; correct: "Imepakana na bahari"; cat: "GEO"; diff: 2 }
 
         //IQ & LOGIC (HESABU)
         ListElement { q: "Nusu ya nusu ya 100 ni ngapi?"; a: "50"; b: "25"; c: "12.5"; d: "75"; correct: "25"; cat: "M"; diff: 2 }
@@ -316,48 +316,48 @@ Rectangle {
         ListElement { q: "Dazeni moja ni sawa na vitu vingapi?"; a: "10"; b: "12"; c: "24"; d: "6"; correct: "12"; cat: "M"; diff: 2 }
 
         // MZIKI WA TANZANIA
-        ListElement { q: "Aina ya muziki wa asili nchini Tanzania unaotumia ala ya zeze na ilali unaitwa?"; a: "Bongo Fleva"; b: "Mchiriku"; c: "Taarab"; d: "Dansi"; correct: "Taarab"; cat: "T"; diff: 2 }
-        ListElement { q: "Mwanamuziki gani anafahamika kama 'Mfalme wa Taarab' nchini Tanzania?"; a: "Mzee Yusuf"; b: "Diamond Platnumz"; c: "Alikiba"; d: "Moni Centrozone"; correct: "Mzee Yusuf"; cat: "T"; diff: 2 }
-        ListElement { q: "Wimbo wa Taifa wa Tanzania unaitwa?"; a: "Tanzania Nakupenda"; b: "Mungu Ibariki Afrika"; c: "Tanzania Tanzania"; d: "Uzendo wa Taifa"; correct: "Mungu Ibariki Afrika"; cat: "T"; diff: 2 }
-        ListElement { q: "Ni mwanamuziki gani aliyeasisi mtindo wa 'Zuku' nchini Tanzania?"; a: "Marijani Rajab"; b: "Bi Kidude"; c: "Hukwe Zawose"; d: "Remmy Ongala"; correct: "Bi Kidude"; cat: "T"; diff: 2 }
-        ListElement { q: "Tuzo kubwa za muziki duniani ambazo wasanii wa TZ hupania kushinda nchini Marekani ni?"; a: "Grammy"; b: "Kili Awards"; c: "BET"; d: "MTV"; correct: "Grammy"; cat: "T"; diff: 2 }
+        ListElement { q: "Aina ya muziki wa asili nchini Tanzania unaotumia ala ya zeze na ilali unaitwa?"; a: "Bongo Fleva"; b: "Mchiriku"; c: "Taarab"; d: "Dansi"; correct: "Taarab"; cat: "BUR"; diff: 2 }
+        ListElement { q: "Mwanamuziki gani anafahamika kama 'Mfalme wa Taarab' nchini Tanzania?"; a: "Mzee Yusuf"; b: "Diamond Platnumz"; c: "Alikiba"; d: "Moni Centrozone"; correct: "Mzee Yusuf"; cat: "BUR"; diff: 2 }
+        ListElement { q: "Wimbo wa Taifa wa Tanzania unaitwa?"; a: "Tanzania Nakupenda"; b: "Mungu Ibariki Afrika"; c: "Tanzania Tanzania"; d: "Uzendo wa Taifa"; correct: "Mungu Ibariki Afrika"; cat: "UR"; diff: 2 }
+        ListElement { q: "Ni mwanamuziki gani aliyeasisi mtindo wa 'Zuku' nchini Tanzania?"; a: "Marijani Rajab"; b: "Bi Kidude"; c: "Hukwe Zawose"; d: "Remmy Ongala"; correct: "Bi Kidude"; cat: "BUR"; diff: 2 }
+        ListElement { q: "Tuzo kubwa za muziki duniani ambazo wasanii wa TZ hupania kushinda nchini Marekani ni?"; a: "Grammy"; b: "Kili Awards"; c: "BET"; d: "MTV"; correct: "Grammy"; cat: "BUR"; diff: 2 }
 
         //LOGIC & MATH
         ListElement { q: "Ni namba gani inafuata?\n1, 2, 4, 7, 11, ..."; a: "15"; b: "16"; c: "14"; d: "18"; correct: "16"; cat: "M"; diff: 2 }
         ListElement { q: "Nusu ya 2 plus 2 ni ngapi?"; a: "2"; b: "3"; c: "4"; d: "1"; correct: "3"; cat: "M"; diff: 2 }
 
         // SERIKALI NA BUNGE
-        ListElement { q: "Bunge la Jamhuri ya Muungano wa Tanzania linaongozwa na nani kwa sasa?"; a: "Spika"; b: "Waziri Mkuu"; c: "Rais"; d: "Jaji Mkuu"; correct: "Spika"; cat: "T"; diff: 2 }
-        ListElement { q: "Kiongozi wa shughuli za Serikali Bungeni ni nani?"; a: "Rais"; b: "Waziri Mkuu"; c: "Spika"; d: "Mwanasheria Mkuu"; correct: "Waziri Mkuu"; cat: "T"; diff: 2 }
-        ListElement { q: "Uchaguzi mkuu nchini Tanzania hufanyika kila baada ya miaka mingapi?"; a: "4"; b: "5"; c: "10"; d: "6"; correct: "5"; cat: "T"; diff: 2 }
-        ListElement { q: "Mhimili wa Serikali unaohusika na kutafsiri sheria unaitwa?"; a: "Bunge"; b: "Mahakama"; c: "Baraza la Mawaziri"; d: "Tume ya Uchaguzi"; correct: "Mahakama"; cat: "T"; diff: 2 }
+        ListElement { q: "Bunge la Jamhuri ya Muungano wa Tanzania linaongozwa na nani kwa sasa?"; a: "Spika"; b: "Waziri Mkuu"; c: "Rais"; d: "Jaji Mkuu"; correct: "Spika"; cat: "UR"; diff: 2 }
+        ListElement { q: "Kiongozi wa shughuli za Serikali Bungeni ni nani?"; a: "Rais"; b: "Waziri Mkuu"; c: "Spika"; d: "Mwanasheria Mkuu"; correct: "Waziri Mkuu"; cat: "UR"; diff: 2 }
+        ListElement { q: "Uchaguzi mkuu nchini Tanzania hufanyika kila baada ya miaka mingapi?"; a: "4"; b: "5"; c: "10"; d: "6"; correct: "5"; cat: "UR"; diff: 2 }
+        ListElement { q: "Mhimili wa Serikali unaohusika na kutafsiri sheria unaitwa?"; a: "Bunge"; b: "Mahakama"; c: "Baraza la Mawaziri"; d: "Tume ya Uchaguzi"; correct: "Mahakama"; cat: "UR"; diff: 2 }
 
-        ListElement { q: "Nani anayemteua Waziri Mkuu wa Tanzania?"; a: "Bunge"; b: "Rais"; c: "Spika"; d: "Wananchi"; correct: "Rais"; cat: "T"; diff: 2 }
-        ListElement { q: "Jumla ya mikoa ya Tanzania Bara na Visiwani ni mingapi kwa sasa?"; a: "26"; b: "31"; c: "30"; d: "21"; correct: "31"; cat: "T"; diff: 2 }
-        ListElement { q: "Kiti cha Spika wa Bunge la Tanzania kipo mji gani?"; a: "Dar es Salaam"; b: "Dodoma"; c: "Arusha"; d: "Zanzibar"; correct: "Dodoma"; cat: "T"; diff: 1 }
+        ListElement { q: "Nani anayemteua Waziri Mkuu wa Tanzania?"; a: "Bunge"; b: "Rais"; c: "Spika"; d: "Wananchi"; correct: "Rais"; cat: "UR"; diff: 2 }
+        ListElement { q: "Jumla ya mikoa ya Tanzania Bara na Visiwani ni mingapi kwa sasa?"; a: "26"; b: "31"; c: "30"; d: "21"; correct: "31"; cat: "UR"; diff: 2 }
+        ListElement { q: "Kiti cha Spika wa Bunge la Tanzania kipo mji gani?"; a: "Dar es Salaam"; b: "Dodoma"; c: "Arusha"; d: "Zanzibar"; correct: "Dodoma"; cat: "UR"; diff: 1 }
 
         // UTAMADUNI
-        ListElement { q: "Neno 'Ujamaa' lililokuwa falsafa ya Tanzania linamaanisha nini?"; a: "Uhuru wa binadamu"; b: "Undugu/Familia"; c: "Nguvu za pamoja"; d: "Amani na utulivu"; correct: "Undugu/Familia"; cat: "T"; diff: 2 }
-        ListElement { q: "Mavazi ya asili ya kabila la Wamasai yanaitwa?"; a: "Kanzu"; b: "Shuka"; c: "Lubega"; d: "Suti"; correct: "Shuka"; cat: "T"; diff: 2 }
-        ListElement { q: "Sikukuu ya 'Nane Nane' nchini Tanzania huadhimisha nini?"; a: "Wafanyakazi"; b: "Wakulima"; c: "Muungano"; d: "Mapinduzi"; correct: "Wakulima"; cat: "T"; diff: 2 }
-        ListElement { q: "Ngoma ya asili ya kabila la Wasukuma inayohusisha nyoka inaitwa?"; a: "Bugobogobo"; b: "Bughu"; c: "Mdundiko"; d: "Sindimba"; correct: "Bugobogobo"; cat: "T"; diff: 2 }
-        ListElement { q: "Chakula gani cha asili ni maarufu sana kwa kabila la Wachaga?"; a: "Ugali"; b: "Kande"; c: "Mtori/Machalari"; d: "Wali"; correct: "Mtori/Machalari"; cat: "T"; diff: 2 }
-        ListElement { q: "Mwenge wa Uhuru uliwashwa kwa mara ya kwanza kilele cha Kilimanjaro mwaka gani?"; a: "1961"; b: "1964"; c: "1967"; d: "1977"; correct: "1961"; cat: "T"; diff: 2 }
-        ListElement { q: "Sanamu ya Askari (Askari Monument) inapatikana katikati ya jiji gani?"; a: "Mwanza"; b: "Dodoma"; c: "Dar es Salaam"; d: "Tanga"; correct: "Dar es Salaam"; cat: "T"; diff: 1 }
-        ListElement { q: "Zanzibar ni maarufu kwa mlango wa aina gani wa kitamaduni?"; a: "Mlango wa Chuma"; b: "Mlango wa Nakshi (Zanzibar Door)"; c: "Mlango wa Kioo"; d: "Mlango wa Plastiki"; correct: "Mlango wa Nakshi (Zanzibar Door)"; cat: "T"; diff: 2 }
+        ListElement { q: "Neno 'Ujamaa' lililokuwa falsafa ya Tanzania linamaanisha nini?"; a: "Uhuru wa binadamu"; b: "Undugu/Familia"; c: "Nguvu za pamoja"; d: "Amani na utulivu"; correct: "Undugu/Familia"; cat: "H"; diff: 2 }
+        ListElement { q: "Mavazi ya asili ya kabila la Wamasai yanaitwa?"; a: "Kanzu"; b: "Shuka"; c: "Lubega"; d: "Suti"; correct: "Shuka"; cat: "BUR"; diff: 2 }
+        ListElement { q: "Sikukuu ya 'Nane Nane' nchini Tanzania huadhimisha nini?"; a: "Wafanyakazi"; b: "Wakulima"; c: "Muungano"; d: "Mapinduzi"; correct: "Wakulima"; cat: "BUR"; diff: 2 }
+        ListElement { q: "Ngoma ya asili ya kabila la Wasukuma inayohusisha nyoka inaitwa?"; a: "Bugobogobo"; b: "Bughu"; c: "Mdundiko"; d: "Sindimba"; correct: "Bugobogobo"; cat: "BUR"; diff: 2 }
+        ListElement { q: "Chakula gani cha asili ni maarufu sana kwa kabila la Wachaga?"; a: "Ugali"; b: "Kande"; c: "Mtori/Machalari"; d: "Wali"; correct: "Mtori/Machalari"; cat: "BUR"; diff: 2 }
+        ListElement { q: "Mwenge wa Uhuru uliwashwa kwa mara ya kwanza kilele cha Kilimanjaro mwaka gani?"; a: "1961"; b: "1964"; c: "1967"; d: "1977"; correct: "1961"; cat: "H"; diff: 2 }
+        ListElement { q: "Sanamu ya Askari (Askari Monument) inapatikana katikati ya jiji gani?"; a: "Mwanza"; b: "Dodoma"; c: "Dar es Salaam"; d: "Tanga"; correct: "Dar es Salaam"; cat: "H"; diff: 1 }
+        ListElement { q: "Zanzibar ni maarufu kwa mlango wa aina gani wa kitamaduni?"; a: "Mlango wa Chuma"; b: "Mlango wa Nakshi (Zanzibar Door)"; c: "Mlango wa Kioo"; d: "Mlango wa Plastiki"; correct: "Mlango wa Nakshi (Zanzibar Door)"; cat: "BUR"; diff: 2 }
 
         //LOGIC & MATH
-        ListElement { q: "Kama utageuza neno 'KILIMANJARO', herufi ya tatu itakuwa?"; a: "A"; b: "R"; c: "O"; d: "J"; correct: "R"; cat: "T"; diff: 2 }
-        ListElement { q: "Tanzania imepakana na nchi ngapi?"; a: "6"; b: "8"; c: "10"; d: "7"; correct: "8"; cat: "T"; diff: 2 }
-        ListElement { q: "Rangi za bendera ya Tanzania ni ngapi?"; a: "3"; b: "4"; c: "5"; d: "2"; correct: "4"; cat: "T"; diff: 2 }
-        ListElement { q: "Nchi ya Tanzania ipo upande gani wa bara la Afrika?"; a: "Magharibi"; b: "Kaskazini"; c: "Mashariki"; d: "Kati"; correct: "Mashariki"; cat: "T"; diff: 2 }
+        ListElement { q: "Kama utageuza neno 'KILIMANJARO', herufi ya tatu itakuwa?"; a: "A"; b: "R"; c: "O"; d: "J"; correct: "R"; cat: "M"; diff: 2 }
+        ListElement { q: "Tanzania imepakana na nchi ngapi?"; a: "6"; b: "8"; c: "10"; d: "7"; correct: "8"; cat: "GEO"; diff: 2 }
+        ListElement { q: "Rangi za bendera ya Tanzania ni ngapi?"; a: "3"; b: "4"; c: "5"; d: "2"; correct: "4"; cat: "UR"; diff: 2 }
+        ListElement { q: "Nchi ya Tanzania ipo upande gani wa bara la Afrika?"; a: "Magharibi"; b: "Kaskazini"; c: "Mashariki"; d: "Kati"; correct: "Mashariki"; cat: "GEO"; diff: 2 }
 
         //WANYAMAPORI
-        ListElement { q: "Mnyama yupi anapatikana katika nembo ya Taifa ya Tanzania (Coat of Arms)?"; a: "Simba"; b: "Twiga"; c: "Chui"; d: "Tembo"; correct: "Twiga"; cat: "T"; diff: 1 }
-        ListElement { q: "Ni mnyama yupi anajulikana kama 'Mfalme wa Mwitu'?"; a: "Tembo"; b: "Simba"; c: "Kifaru"; d: "Chui"; correct: "Simba"; cat: "T"; diff: 1 }
-        ListElement { q: "Tanzania ina mnyama mrefu zaidi duniani, anaitwa?"; a: "Twiga"; b: "Swala"; c: "Nyumbu"; d: "Duma"; correct: "Twiga"; cat: "T"; diff: 1 }
-        ListElement { q: "Ni mnyama yupi kati ya hawa anaunda kundi la 'Big Five' nchini Tanzania?"; a: "Pundamilia"; b: "Kifaru"; c: "Twiga"; d: "Mamba"; correct: "Kifaru"; cat: "T"; diff: 1 }
-        ListElement { q: "Ziwa Victoria ni maarufu kwa aina gani ya samaki wa biashara?"; a: "Sangara"; b: "Paremisi"; c: "Mwatiko"; d: "Kibua"; correct: "Sangara"; cat: "T"; diff: 1 }
+        ListElement { q: "Mnyama yupi anapatikana katika nembo ya Taifa ya Tanzania (Coat of Arms)?"; a: "Simba"; b: "Twiga"; c: "Chui"; d: "Tembo"; correct: "Twiga"; cat: "S"; diff: 1 }
+        ListElement { q: "Ni mnyama yupi anajulikana kama 'Mfalme wa Mwitu'?"; a: "Tembo"; b: "Simba"; c: "Kifaru"; d: "Chui"; correct: "Simba"; cat: "S"; diff: 1 }
+        ListElement { q: "Tanzania ina mnyama mrefu zaidi duniani, anaitwa?"; a: "Twiga"; b: "Swala"; c: "Nyumbu"; d: "Duma"; correct: "Twiga"; cat: "S"; diff: 1 }
+        ListElement { q: "Ni mnyama yupi kati ya hawa anaunda kundi la 'Big Five' nchini Tanzania?"; a: "Pundamilia"; b: "Kifaru"; c: "Twiga"; d: "Mamba"; correct: "Kifaru"; cat: "S"; diff: 1 }
+        ListElement { q: "Ziwa Victoria ni maarufu kwa aina gani ya samaki wa biashara?"; a: "Sangara"; b: "Paremisi"; c: "Mwatiko"; d: "Kibua"; correct: "Sangara"; cat: "GEO"; diff: 1 }
 
         //IQ & LOGIC (HESABU)
         ListElement { q: "Kama unayo mayai 3 na ukavunja 2, unayo mayai mangapi?"; a: "1"; b: "2"; c: "3"; d: "0"; correct: "3"; cat: "M"; diff: 2 }
@@ -368,11 +368,11 @@ Rectangle {
         ListElement { q: "Tafuta namba inayokosekana: 1, 3, 5, ?, 9"; a: "6"; b: "7"; c: "8"; d: "4"; correct: "7"; cat: "M"; diff: 2 }
 
         //SAMAKI
-        ListElement { q: "Samaki aina ya 'Dagaa wa Kigoma' wanapatikana katika ziwa gani?"; a: "Victoria"; b: "Tanganyika"; c: "Nyasa"; d: "Eyasi"; correct: "Tanganyika"; cat: "T"; diff: 1 }
-        ListElement { q: "Ni mnyama yupi anaongoza kwa uhamiaji mkubwa wa kila mwaka (Great Migration) Serengeti?"; a: "Simba"; b: "Nyumbu"; c: "Swala"; d: "Tembo"; correct: "Nyumbu"; cat: "T"; diff: 1 }
-        ListElement { q: "Mnyama yupi ni maarufu kwa kuwa na pembe moja au mbili na yupo hatarini kutoweka?"; a: "Kifaru"; b: "Kiboko"; c: "Ngiri"; d: "Punda"; correct: "Kifaru"; cat: "T"; diff: 1 }
-        ListElement { q: "Samaki aina ya Perege (Tilapia) hupatikana kwa wingi katika mazingira gani?"; a: "Maji ya Bahari"; b: "Maji Baridi (Maziwa/Mito)"; c: "Maji ya Chumvi"; d: "Maji ya Mafuta"; correct: "Maji Baridi (Maziwa/Mito)"; cat: "T"; diff: 1 }
-        ListElement { q: "Mnyama yupi anaishi majini na nchi kavu na anaonekana kwa wingi mto Rufiji?"; a: "Mamba"; b: "Nyati"; c: "Duma"; d: "Sungura"; correct: "Mamba"; cat: "T"; diff: 1 }
+        ListElement { q: "Samaki aina ya 'Dagaa wa Kigoma' wanapatikana katika ziwa gani?"; a: "Victoria"; b: "Tanganyika"; c: "Nyasa"; d: "Eyasi"; correct: "Tanganyika"; cat: "GEO"; diff: 1 }
+        ListElement { q: "Ni mnyama yupi anaongoza kwa uhamiaji mkubwa wa kila mwaka (Great Migration) Serengeti?"; a: "Simba"; b: "Nyumbu"; c: "Swala"; d: "Tembo"; correct: "Nyumbu"; cat: "MK"; diff: 1 }
+        ListElement { q: "Mnyama yupi ni maarufu kwa kuwa na pembe moja au mbili na yupo hatarini kutoweka?"; a: "Kifaru"; b: "Kiboko"; c: "Ngiri"; d: "Punda"; correct: "Kifaru"; cat: "MK"; diff: 1 }
+        ListElement { q: "Samaki aina ya Perege (Tilapia) hupatikana kwa wingi katika mazingira gani?"; a: "Maji ya Bahari"; b: "Maji Baridi (Maziwa/Mito)"; c: "Maji ya Chumvi"; d: "Maji ya Mafuta"; correct: "Maji Baridi (Maziwa/Mito)"; cat: "GEO"; diff: 1 }
+        ListElement { q: "Mnyama yupi anaishi majini na nchi kavu na anaonekana kwa wingi mto Rufiji?"; a: "Mamba"; b: "Nyati"; c: "Duma"; d: "Sungura"; correct: "Mamba"; cat: "GEO"; diff: 1 }
 
         //AFYA NA MIMEA
 
@@ -419,9 +419,9 @@ Rectangle {
         ListElement { q: "Kitendawili: Mvua hapa, mvua kule, lakini katikati pakavu."; a: "Mwavuli"; b: "Nyumba"; c: "Mtu aliyevaa koti"; d: "Daraja"; correct: "Nyumba"; cat: "V"; diff: 3 }
 
         // --- UKEREWE (3 QUESTIONS) ---
-        ListElement { q: "Kisiwa cha Ukerewe kinapatikana ndani ya ziwa gani?"; a: "Tanganyika"; b: "Nyasa"; c: "Victoria"; d: "Eyasi"; correct: "Victoria"; cat: "T"; diff: 2 }
+        ListElement { q: "Kisiwa cha Ukerewe kinapatikana ndani ya ziwa gani?"; a: "Tanganyika"; b: "Nyasa"; c: "Victoria"; d: "Eyasi"; correct: "Victoria"; cat: "GEO"; diff: 2 }
 
-        ListElement { q: "Ukerewe ni wilaya inayopatikana katika mkoa gani nchini Tanzania?"; a: "Mwanza"; b: "Mara"; c: "Geita"; d: "Kagera"; correct: "Mwanza"; cat: "T"; diff: 2 }
+        ListElement { q: "Ukerewe ni wilaya inayopatikana katika mkoa gani nchini Tanzania?"; a: "Mwanza"; b: "Mara"; c: "Geita"; d: "Kagera"; correct: "Mwanza"; cat: "GEO"; diff: 2 }
 
         // --- TEKNOLOJIA YA ANGA
         ListElement { q: "Ni sayari gani inajulikana kama 'Sayari Nyekundu' (Red Planet)?"; a: "Jupiter"; b: "Venus"; c: "Mars"; d: "Saturn"; correct: "Mars"; cat: "S"; diff: 3 }
@@ -433,9 +433,9 @@ Rectangle {
         ListElement { q: "Gesi gani inapatikana kwa wingi zaidi katika anga la Dunia (Atmosphere)?"; a: "Oxygen"; b: "Nitrogen"; c: "Carbon Dioxide"; d: "Argon"; correct: "Nitrogen"; cat: "S"; diff: 1 }
 
         // --- ELIMU
-        ListElement { q: "Kirefu cha neno NECTA ni nini kwa Kiswahili?"; a: "Baraza la Mitihani la Tanzania"; b: "Wizara ya Elimu"; c: "Bodi ya Mikopo"; d: "Tume ya Vyuo Vikuu"; correct: "Baraza la Mitihani la Tanzania"; cat: "T"; diff: 1 }
-        ListElement { q: "Katika mfumo wa NECTA, daraja 'A' kwenye mtihani wa kidato cha nne huanzia alama ngapi?"; a: "70"; b: "75"; c: "81"; d: "65"; correct: "75"; cat: "T"; diff: 3 }
-        ListElement { q: "Ni mwaka gani Tanzania ilianza rasmi mfumo wa elimu ya bila malipo kwa shule za msingi na sekondari?"; a: "2010"; b: "2015"; c: "2020"; d: "2005"; correct: "2015"; cat: "T"; diff: 3 }
+        ListElement { q: "Kirefu cha neno NECTA ni nini kwa Kiswahili?"; a: "Baraza la Mitihani la Tanzania"; b: "Wizara ya Elimu"; c: "Bodi ya Mikopo"; d: "Tume ya Vyuo Vikuu"; correct: "Baraza la Mitihani la Tanzania"; cat: "UR"; diff: 1 }
+        ListElement { q: "Katika mfumo wa NECTA, daraja 'A' kwenye mtihani wa kidato cha nne huanzia alama ngapi?"; a: "70"; b: "75"; c: "81"; d: "65"; correct: "75"; cat: "UR"; diff: 3 }
+        ListElement { q: "Ni mwaka gani Tanzania ilianza rasmi mfumo wa elimu ya bila malipo kwa shule za msingi na sekondari?"; a: "2010"; b: "2015"; c: "2020"; d: "2005"; correct: "2015"; cat: "UR"; diff: 3 }
 
         ListElement { q: "Siku ya kwanza ya mzunguko wa hedhi huhesabiwa kuanzia lini?"; a: "Siku hedhi inapoisha"; b: "Siku ya kwanza kuona damu"; c: "Siku ya 14"; d: "Siku yoyote"; correct: "Siku ya kwanza kuona damu"; cat: "A"; diff: 3 }
         ListElement { q: "Kirusi kinachosababisha UKIMWI kinaitwa?"; a: "Bacteria"; b: "VVU (HIV)"; c: "Plasmodium"; d: "Fungi"; correct: "VVU (HIV)"; cat: "A"; diff: 3 }
@@ -555,11 +555,11 @@ Rectangle {
         ListElement { q: "Siku ya Malaria Duniani huadhimishwa kila mwaka tarehe ngapi?"; a: "Aprili 25"; b: "Desemba 1"; c: "Machi 8"; d: "Januari 1"; correct: "Aprili 25"; cat: "A"; diff: 3 }
         ListElement { q: "Ni mkoa upi Tanzania unaotajwa kuwa na maambukizi makubwa ya Malaria kutokana na hali ya hewa?"; a: "Kigoma/Geita"; b: "Dodoma"; c: "Arusha"; d: "Manyara"; correct: "Kigoma/Geita"; cat: "A"; diff: 1 }
 
-        ListElement { q: "Ni kundi gani la kabila nchini Tanzania linalojulikana kwa kuishi kwa kuwinda na kula mizizi?"; a: "Wamasai"; b: "Wahadzabe"; c: "Wachagga"; d: "Wanyamwezi"; correct: "Wahadzabe"; cat: "T"; diff: 3 }
-        ListElement { q: "Kabila la Wamakonde linasifika duniani kwa kipaji gani cha asili?"; a: "Ufugaji wa nyuki"; b: "Uchongaji wa vinyago"; c: "Kusuka mikeka"; d: "Ujenzi wa meli"; correct: "Uchongaji wa vinyago"; cat: "T"; diff: 3 }
-        ListElement { q: "Ngoma ya 'Sindimba' inatokea katika makabila ya mikoa gani ya Kusini?"; a: "Mtwara na Lindi"; b: "Mbeya na Iringa"; c: "Kigoma na Tabora"; d: "Mwanza na Mara"; correct: "Mtwara na Lindi"; cat: "T"; diff: 3 }
-        ListElement { q: "Kabila gani nchini Tanzania linaongoza kwa idadi kubwa ya watu?"; a: "Wasukuma"; b: "Waha"; c: "Wagogo"; d: "Wazaramo"; correct: "Wasukuma"; cat: "T"; diff: 3 }
-        ListElement { q: "Chakula cha asili cha Wachagga kinachotengenezwa kwa ndizi na maharage huitwa?"; a: "Ugali"; b: "Mtori"; c: "Kiburu"; d: "Wali"; correct: "Kiburu"; cat: "T"; diff: 3 }
+        ListElement { q: "Ni kundi gani la kabila nchini Tanzania linalojulikana kwa kuishi kwa kuwinda na kula mizizi?"; a: "Wamasai"; b: "Wahadzabe"; c: "Wachagga"; d: "Wanyamwezi"; correct: "Wahadzabe"; cat: "BUR"; diff: 3 }
+        ListElement { q: "Kabila la Wamakonde linasifika duniani kwa kipaji gani cha asili?"; a: "Ufugaji wa nyuki"; b: "Uchongaji wa vinyago"; c: "Kusuka mikeka"; d: "Ujenzi wa meli"; correct: "Uchongaji wa vinyago"; cat: "BUR"; diff: 3 }
+        ListElement { q: "Ngoma ya 'Sindimba' inatokea katika makabila ya mikoa gani ya Kusini?"; a: "Mtwara na Lindi"; b: "Mbeya na Iringa"; c: "Kigoma na Tabora"; d: "Mwanza na Mara"; correct: "Mtwara na Lindi"; cat: "BUR"; diff: 3 }
+        ListElement { q: "Kabila gani nchini Tanzania linaongoza kwa idadi kubwa ya watu?"; a: "Wasukuma"; b: "Waha"; c: "Wagogo"; d: "Wazaramo"; correct: "Wasukuma"; cat: "BUR"; diff: 3 }
+        ListElement { q: "Chakula cha asili cha Wachagga kinachotengenezwa kwa ndizi na maharage huitwa?"; a: "Ugali"; b: "Mtori"; c: "Kiburu"; d: "Wali"; correct: "Kiburu"; cat: "BUR"; diff: 3 }
 
         ListElement { q: "Ni sayari gani iliyo kubwa zaidi katika mfumo wetu wa Jua?"; a: "Dunia"; b: "Saturn"; c: "Jupiter"; d: "Neptune"; correct: "Jupiter"; cat: "S"; diff: 3 }
         ListElement { q: "Mwanga wa Jua huchukua takriban dakika ngapi kufika Duniani?"; a: "Sekunde 30"; b: "Dakika 8"; c: "Saa 1"; d: "Siku 2"; correct: "Dakika 8"; cat: "S"; diff: 3 }
@@ -576,16 +576,16 @@ Rectangle {
         ListElement { q: "Ni nchi gani ilivamia Poland na kusababisha kuanza kwa Vita vya Pili vya Dunia?"; a: "Uingereza"; b: "Ujerumani"; c: "Urusi"; d: "Italia"; correct: "Ujerumani"; cat: "H"; diff: 3 }
         ListElement { q: "Kiongozi wa kijeshi wa Ujerumani wakati wa Vita vya Pili vya Dunia alikuwa nani?"; a: "Adolf Hitler"; b: "Winston Churchill"; c: "Benito Mussolini"; d: "Joseph Stalin"; correct: "Adolf Hitler"; cat: "H"; diff: 3 }
         ListElement { q: "Mkataba wa Versailles ulihitimisha vita gani?"; a: "Vita vya Kwanza vya Dunia"; b: "Vita vya Pili vya Dunia"; c: "Vita vya Kagera"; d: "Vita vya Maji Maji"; correct: "Vita vya Kwanza vya Dunia"; cat: "H"; diff: 3 }
-        ListElement { q: "Mji mkuu wa kitumwa ambapo watumwa walipewa jina la 'Bwagamoyo' (Bagamoyo) unamaanisha nini?"; a: "Pumzika moyo"; b: "Tupa moyo"; c: "Furahisha moyo"; d: "Fariji moyo"; correct: "Tupa moyo"; cat: "T"; diff: 3 }
+        ListElement { q: "Mji mkuu wa kitumwa ambapo watumwa walipewa jina la 'Bwagamoyo' (Bagamoyo) unamaanisha nini?"; a: "Pumzika moyo"; b: "Tupa moyo"; c: "Furahisha moyo"; d: "Fariji moyo"; correct: "Tupa moyo"; cat: "H"; diff: 3 }
 
-        ListElement { q: "Rais gani wa Tanzania alijulikana kama 'Mzee wa Ruksa'?"; a: "Nyerere"; b: "Mwinyi"; c: "Mkapa"; d: "Kikwete"; correct: "Mwinyi"; cat: "T"; diff: 3 }
-        ListElement { q: "Vita vya Kagera (1978-1979) vilikuwa kati ya Tanzania na nchi gani?"; a: "Kenya"; b: "Uganda"; c: "Rwanda"; d: "Malawi"; correct: "Uganda"; cat: "T"; diff: 3 }
-        ListElement { q: "Ni nani alikuwa Rais wa Uganda wakati wa Vita vya Kagera?"; a: "Milton Obote"; b: "Idi Amin Dada"; c: "Yoweri Museveni"; d: "Tito Okello"; correct: "Idi Amin Dada"; cat: "T"; diff: 3 }
-        ListElement { q: "Rais wa awamu ya nne wa Tanzania ni nani?"; a: "Ali Hassan Mwinyi"; b: "Jakaya Kikwete"; c: "Benjamin Mkapa"; d: "John Magufuli"; correct: "Jakaya Kikwete"; cat: "T"; diff: 3 }
-        ListElement { q: "Rais Samia Suluhu Hassan alizaliwa katika mkoa gani?"; a: "Unguja - Kizimkazi"; b: "Pwani"; c: "Dar es Salaam"; d: "Pemba"; correct: "Unguja - Kizimkazi"; cat: "T"; diff: 3 }
-        ListElement { q: "Wimbo maarufu wa kishujaa uliotumika wakati wa Vita vya Kagera unaitwa?"; a: "Tanzania Tanzania"; b: "Mwenge wa Uhuru"; c: "Mvua ya Radi"; d: "Kifochura"; correct: "Kifochura"; cat: "T"; diff: 3 }
-        ListElement { q: "Rais Benjamin Mkapa alipewa jina la utani la?"; a: "Mzee wa Mapinduzi"; b: "Mr. Clean"; c: "Bulldozer"; d: "Chuma"; correct: "Mr. Clean"; cat: "T"; diff: 3 }
-        ListElement { q: "Ni Rais yupi alifariki akiwa madarakani mwaka 2021?"; a: "Nyerere"; b: "Magufuli"; c: "Mkapa"; d: "Karume"; correct: "Magufuli"; cat: "T"; diff: 3 }
+        ListElement { q: "Rais gani wa Tanzania alijulikana kama 'Mzee wa Ruksa'?"; a: "Nyerere"; b: "Mwinyi"; c: "Mkapa"; d: "Kikwete"; correct: "Mwinyi"; cat: "H"; diff: 3 }
+        ListElement { q: "Vita vya Kagera (1978-1979) vilikuwa kati ya Tanzania na nchi gani?"; a: "Kenya"; b: "Uganda"; c: "Rwanda"; d: "Malawi"; correct: "Uganda"; cat: "H"; diff: 3 }
+        ListElement { q: "Ni nani alikuwa Rais wa Uganda wakati wa Vita vya Kagera?"; a: "Milton Obote"; b: "Idi Amin Dada"; c: "Yoweri Museveni"; d: "Tito Okello"; correct: "Idi Amin Dada"; cat: "H"; diff: 3 }
+        ListElement { q: "Rais wa awamu ya nne wa Tanzania ni nani?"; a: "Ali Hassan Mwinyi"; b: "Jakaya Kikwete"; c: "Benjamin Mkapa"; d: "John Magufuli"; correct: "Jakaya Kikwete"; cat: "H"; diff: 3 }
+        ListElement { q: "Rais Samia Suluhu Hassan alizaliwa katika mkoa gani?"; a: "Unguja - Kizimkazi"; b: "Pwani"; c: "Dar es Salaam"; d: "Pemba"; correct: "Unguja - Kizimkazi"; cat: "H"; diff: 3 }
+        ListElement { q: "Wimbo maarufu wa kishujaa uliotumika wakati wa Vita vya Kagera unaitwa?"; a: "Tanzania Tanzania"; b: "Mwenge wa Uhuru"; c: "Mvua ya Radi"; d: "Kifochura"; correct: "Kifochura"; cat: "H"; diff: 3 }
+        ListElement { q: "Rais Benjamin Mkapa alipewa jina la utani la?"; a: "Mzee wa Mapinduzi"; b: "Mr. Clean"; c: "Bulldozer"; d: "Chuma"; correct: "Mr. Clean"; cat: "H"; diff: 3 }
+        ListElement { q: "Ni Rais yupi alifariki akiwa madarakani mwaka 2021?"; a: "Nyerere"; b: "Magufuli"; c: "Mkapa"; d: "Karume"; correct: "Magufuli"; cat: "H"; diff: 3 }
 
         ListElement { q: "Alama ya kikemia ya dhahabu (Gold) ni ipi?"; a: "Ag"; b: "Fe"; c: "Au"; d: "Gd"; correct: "Au"; cat: "S"; diff: 3 }
         ListElement { q: "Gesi inayotumika kuzima moto inaitwa?"; a: "Oxygen"; b: "Carbon Dioxide"; c: "Hydrogen"; d: "Nitrogen"; correct: "Carbon Dioxide"; cat: "S"; diff: 1 }
@@ -603,7 +603,7 @@ Rectangle {
 
         ListElement { q: "Chombo cha usafiri wa majini kinachoweza kuzama na kutembea chini ya maji huitwa?"; a: "Meli"; b: "Nyambizi (Submarine)"; c: "Mtumbwi"; d: "Pantoni"; correct: "Nyambizi (Submarine)"; cat: "S"; diff: 3 }
         ListElement { q: "Ni nani anasifika kwa kuvumbua ndege ya kwanza duniani?"; a: "Wright Brothers"; b: "Thomas Edison"; c: "Henry Ford"; d: "Nikola Tesla"; correct: "Wright Brothers"; cat: "S"; diff: 3 }
-        ListElement { q: "Treni ya mwendokasi inayotumia umeme nchini Tanzania inajulikana kama?"; a: "TAZARA"; b: "SGR"; c: "Mwendokasi"; d: "TRC"; correct: "SGR"; cat: "T"; diff: 3 }
+        ListElement { q: "Treni ya mwendokasi inayotumia umeme nchini Tanzania inajulikana kama?"; a: "TAZARA"; b: "SGR"; c: "Mwendokasi"; d: "TRC"; correct: "SGR"; cat: "UR"; diff: 3 }
         ListElement { q: "Kifaa kinachotumika kuongoza meli au ndege kujua upande wa Kaskazini huitwa?"; a: "Thermometer"; b: "Compass"; c: "Barometer"; d: "Radar"; correct: "Compass"; cat: "S"; diff: 3 }
         ListElement { q: "Usafiri wa anga unaotumia puto kubwa lenye hewa ya moto unaitwa?"; a: "Helikopta"; b: "Hot Air Balloon"; c: "Parachute"; d: "Drone"; correct: "Hot Air Balloon"; cat: "S"; diff: 3 }
 
@@ -613,31 +613,31 @@ Rectangle {
         ListElement { q: "Kitendawili: Anatembea kwa miguu minne asubuhi, miwili mchana, na mitatu jioni."; a: "Binadamu"; b: "Kobe"; c: "Mzee"; d: "Mtoto"; correct: "Binadamu"; cat: "V"; diff: 1 }
 
         //music
-        ListElement { q: "Msanii gani wa Tanzania alikuwa wa kwanza kushinda tuzo ya BET (Viewer's Choice Best New International Act)?"; a: "Diamond Platnumz"; b: "Rayvanny"; c: "Harmonize"; d: "Ali Kiba"; correct: "Rayvanny"; cat: "T"; diff: 2 }
+        ListElement { q: "Msanii gani wa Tanzania alikuwa wa kwanza kushinda tuzo ya BET (Viewer's Choice Best New International Act)?"; a: "Diamond Platnumz"; b: "Rayvanny"; c: "Harmonize"; d: "Ali Kiba"; correct: "Rayvanny"; cat: "BUR"; diff: 2 }
 
-        ListElement { q: "Kundi la vichekesho lililojizolea umaarufu mkubwa nchini Tanzania kuanzia miaka ya 2000 linaitwa?"; a: "Orijino Komedi"; b: "Vituko Show"; c: "Mizengwe"; d: "Ze Komedi"; correct: "Orijino Komedi"; cat: "T"; diff: 2 }
+        ListElement { q: "Kundi la vichekesho lililojizolea umaarufu mkubwa nchini Tanzania kuanzia miaka ya 2000 linaitwa?"; a: "Orijino Komedi"; b: "Vituko Show"; c: "Mizengwe"; d: "Ze Komedi"; correct: "Orijino Komedi"; cat: "BUR"; diff: 2 }
 
-        ListElement { q: "Marehemu Steven Kanumba alikuwa mwigizaji maarufu aliyejulikana pia kwa jina lipi la kisanii?"; a: "The Great"; b: "The King"; c: "Director"; d: "Chairman"; correct: "The Great"; cat: "T"; diff: 2 }
+        ListElement { q: "Marehemu Steven Kanumba alikuwa mwigizaji maarufu aliyejulikana pia kwa jina lipi la kisanii?"; a: "The Great"; b: "The King"; c: "Director"; d: "Chairman"; correct: "The Great"; cat: "BUR"; diff: 2 }
 
-        ListElement { q: "Msanii wa kike wa Bongo Flava anayeshikilia rekodi ya kutazamwa zaidi (Most Viewed) YouTube ni?"; a: "Nandy"; b: "Zuchu"; c: "Shilole"; d: "Maua Sama"; correct: "Zuchu"; cat: "T"; diff: 2 }
+        ListElement { q: "Msanii wa kike wa Bongo Flava anayeshikilia rekodi ya kutazamwa zaidi (Most Viewed) YouTube ni?"; a: "Nandy"; b: "Zuchu"; c: "Shilole"; d: "Maua Sama"; correct: "Zuchu"; cat: "BUR"; diff: 2 }
 
-        ListElement { q: "Mchekeshaji gani nchini Tanzania anajulikana kwa mtindo wake wa kuvaa kama mwanamke na kutumia jina la 'Mkude Simba'?"; a: "Joti"; b: "Kitale"; c: "Mpoki"; d: "Mwijaku"; correct: "Kitale"; cat: "T"; diff: 1 }
+        ListElement { q: "Mchekeshaji gani nchini Tanzania anajulikana kwa mtindo wake wa kuvaa kama mwanamke na kutumia jina la 'Mkude Simba'?"; a: "Joti"; b: "Kitale"; c: "Mpoki"; d: "Mwijaku"; correct: "Kitale"; cat: "BUR"; diff: 1 }
 
-        ListElement { q: "Filamu ya kwanza ya Kitanzania kuingia katika mashindano makubwa ya 'Oscars' nchini Marekani inaitwa?"; a: "Tug of War (Vuta N'kuvute)"; b: "Bulyanhulu"; c: "Siri ya Mtungi"; d: "Dar ni Njema"; correct: "Tug of War (Vuta N'kuvute)"; cat: "T"; diff: 2 }
+        ListElement { q: "Filamu ya kwanza ya Kitanzania kuingia katika mashindano makubwa ya 'Oscars' nchini Marekani inaitwa?"; a: "Tug of War (Vuta N'kuvute)"; b: "Bulyanhulu"; c: "Siri ya Mtungi"; d: "Dar ni Njema"; correct: "Tug of War (Vuta N'kuvute)"; cat: "BUR"; diff: 2 }
 
-        ListElement { q: "Msanii wa muziki anayefahamika kama 'King of Bongo Flava' na mmiliki wa lebo ya Kings Music ni?"; a: "Ali Kiba"; b: "Marioo"; c: "Dully Sykes"; d: "Professor Jay"; correct: "Ali Kiba"; cat: "T"; diff: 2 }
+        ListElement { q: "Msanii wa muziki anayefahamika kama 'King of Bongo Flava' na mmiliki wa lebo ya Kings Music ni?"; a: "Ali Kiba"; b: "Marioo"; c: "Dully Sykes"; d: "Professor Jay"; correct: "Ali Kiba"; cat: "BUR"; diff: 2 }
 
-        ListElement { q: "Mwigizaji gani wa kike nchini Tanzania alishinda tuzo ya 'Best Actress' katika tamasha la AMVCA nchini Nigeria?"; a: "Wema Sepetu"; b: "Elizabeth Michael (Lulu)"; c: "Jacqueline Wolper"; d: "Irene Uwoya"; correct: "Elizabeth Michael (Lulu)"; cat: "T"; diff: 2 }
+        ListElement { q: "Mwigizaji gani wa kike nchini Tanzania alishinda tuzo ya 'Best Actress' katika tamasha la AMVCA nchini Nigeria?"; a: "Wema Sepetu"; b: "Elizabeth Michael (Lulu)"; c: "Jacqueline Wolper"; d: "Irene Uwoya"; correct: "Elizabeth Michael (Lulu)"; cat: "BUR"; diff: 2 }
 
-        ListElement { q: "Msanii gani wa vichekesho anayesifika kwa uwezo wa kuigiza sauti za viongozi mbalimbali na watu maarufu?"; a: "Mpoki"; b: "Joti"; c: "Ebitoke"; d: "Bwakila"; correct: "Joti"; cat: "T"; diff: 2 }
+        ListElement { q: "Msanii gani wa vichekesho anayesifika kwa uwezo wa kuigiza sauti za viongozi mbalimbali na watu maarufu?"; a: "Mpoki"; b: "Joti"; c: "Ebitoke"; d: "Bwakila"; correct: "Joti"; cat: "BUR"; diff: 2 }
 
-        ListElement { q: "Lebo ya muziki inayomilikiwa na Diamond Platnumz inaitwa?"; a: "WCB Wasafi"; b: "Konde Gang"; c: "Kings Music"; d: "Next Level"; correct: "WCB Wasafi"; cat: "T"; diff: 2 }
+        ListElement { q: "Lebo ya muziki inayomilikiwa na Diamond Platnumz inaitwa?"; a: "WCB Wasafi"; b: "Konde Gang"; c: "Kings Music"; d: "Next Level"; correct: "WCB Wasafi"; cat: "BUR"; diff: 2 }
 
-        ListElement { q: "Marehemu ambae alikuwa mwigizaji nguli wa maigizo ya runinga na kiongozi wa kundi la Kaole Sanaa Group ni?"; a: "Mzee Small"; b: "Mzee Majuto"; c: "Sajuki"; d: "Steve Kanumba"; correct: "Mzee Majuto"; cat: "T"; diff: 2 }
+        ListElement { q: "Marehemu ambae alikuwa mwigizaji nguli wa maigizo ya runinga na kiongozi wa kundi la Kaole Sanaa Group ni?"; a: "Mzee Small"; b: "Mzee Majuto"; c: "Sajuki"; d: "Steve Kanumba"; correct: "Mzee Majuto"; cat: "BUR"; diff: 2 }
 
-        ListElement { q: "Wimbo wa 'Number One' uliomtangaza Diamond Platnumz kimataifa alimshirikisha msanii gani kutoka Nigeria?"; a: "Davido"; b: "Wizkid"; c: "Burna Boy"; d: "P-Square"; correct: "Davido"; cat: "T"; diff: 2 }
+        ListElement { q: "Wimbo wa 'Number One' uliomtangaza Diamond Platnumz kimataifa alimshirikisha msanii gani kutoka Nigeria?"; a: "Davido"; b: "Wizkid"; c: "Burna Boy"; d: "P-Square"; correct: "Davido"; cat: "BUR"; diff: 2 }
 
-        ListElement { q: "Mchekeshaji Coy Mzero anajulikana zaidi kupitia jukwaa gani la vichekesho nchini?"; a: "Cheka Tu"; b: "Comedy Knights"; c: "Stand Up Tanzania"; d: "Funny Fellas"; correct: "Cheka Tu"; cat: "T"; diff: 2 }
+        ListElement { q: "Mchekeshaji Coy Mzero anajulikana zaidi kupitia jukwaa gani la vichekesho nchini?"; a: "Cheka Tu"; b: "Comedy Knights"; c: "Stand Up Tanzania"; d: "Funny Fellas"; correct: "Cheka Tu"; cat: "BUR"; diff: 2 }
 
         // --- MAWASILIANO
         ListElement { q: "Mamlaka inayosimamia mawasiliano ya simu, intaneti, na utangazaji nchini Tanzania inaitwa?"; a: "TRA"; b: "TCRA"; c: "TANESCO"; d: "NIDA"; correct: "TCRA"; cat: "TK"; diff: 2 }
@@ -652,34 +652,34 @@ Rectangle {
         ListElement { q: "Namba ya huduma kwa wateja kwa kampuni zote za simu Tanzania iliyosanifiwa na TCRA ni ipi?"; a: "100"; b: "911"; c: "112"; d: "101"; correct: "100"; cat: "TK"; diff: 2 }
 
         // --- SHULE NA HISTORIA
-        ListElement { q: "Mwalimu Julius K. Nyerere alisoma elimu yake ya sekondari katika shule gani maarufu?"; a: "Tabora Boys"; b: "Pugu Secondary"; c: "Mzumbe"; d: "Kibaha"; correct: "Tabora Boys"; cat: "T"; diff: 2 }
+        ListElement { q: "Mwalimu Julius K. Nyerere alisoma elimu yake ya sekondari katika shule gani maarufu?"; a: "Tabora Boys"; b: "Pugu Secondary"; c: "Mzumbe"; d: "Kibaha"; correct: "Tabora Boys"; cat: "UR"; diff: 2 }
 
-        ListElement { q: "Ni shule ipi kati ya hizi inajulikana kama shule ya kitaifa ya wavulana yenye vipaji maalum (Special Talents School)?"; a: "Ilboru"; b: "Msalato"; c: "Jangwani"; d: "Azania"; correct: "Ilboru"; cat: "T"; diff: 2 }
+        ListElement { q: "Ni shule ipi kati ya hizi inajulikana kama shule ya kitaifa ya wavulana yenye vipaji maalum (Special Talents School)?"; a: "Ilboru"; b: "Msalato"; c: "Jangwani"; d: "Azania"; correct: "Ilboru"; cat: "UR"; diff: 2 }
 
-        ListElement { q: "Shule gani ya wasichana ya serikali mkoani Dodoma inajulikana kwa ufaulu mzuri na ni ya kiwango cha kitaifa?"; a: "Msalato Girls"; b: "Kilakala"; c: "Loleza"; d: "Weruweru"; correct: "Msalato Girls"; cat: "T"; diff: 1 }
+        ListElement { q: "Shule gani ya wasichana ya serikali mkoani Dodoma inajulikana kwa ufaulu mzuri na ni ya kiwango cha kitaifa?"; a: "Msalato Girls"; b: "Kilakala"; c: "Loleza"; d: "Weruweru"; correct: "Msalato Girls"; cat: "UR"; diff: 1 }
 
-        ListElement { q: "Shule ya sekondari ya Tabora Girls inasifika kwa kuwa shule ya kwanza ya serikali kwa ajili ya?"; a: "Wasichana wenye vipaji"; b: "Walimu wa kike"; c: "Viongozi wa dini"; d: "Kilimo"; correct: "Wasichana wenye vipaji"; cat: "T"; diff: 2 }
+        ListElement { q: "Shule ya sekondari ya Tabora Girls inasifika kwa kuwa shule ya kwanza ya serikali kwa ajili ya?"; a: "Wasichana wenye vipaji"; b: "Walimu wa kike"; c: "Viongozi wa dini"; d: "Kilimo"; correct: "Wasichana wenye vipaji"; cat: "UR"; diff: 2 }
 
-        ListElement { q: "Shule ya sekondari Kibaha (Kibaha Boys) inapatikana katika mkoa gani?"; a: "Dar es Salaam"; b: "Pwani"; c: "Morogoro"; d: "Tanga"; correct: "Pwani"; cat: "T"; diff: 2 }
+        ListElement { q: "Shule ya sekondari Kibaha (Kibaha Boys) inapatikana katika mkoa gani?"; a: "Dar es Salaam"; b: "Pwani"; c: "Morogoro"; d: "Tanga"; correct: "Pwani"; cat: "UR"; diff: 2 }
 
-        ListElement { q: "Shule ipi ya kiume mkoani Morogoro inasifika kwa nidhamu ya kijeshi na ufaulu mkubwa wa masomo ya sayansi?"; a: "Mzumbe Secondary"; b: "Iyunga"; c: "Kantare"; d: "Milambo"; correct: "Mzumbe Secondary"; cat: "T"; diff: 2 }
+        ListElement { q: "Shule ipi ya kiume mkoani Morogoro inasifika kwa nidhamu ya kijeshi na ufaulu mkubwa wa masomo ya sayansi?"; a: "Mzumbe Secondary"; b: "Iyunga"; c: "Kantare"; d: "Milambo"; correct: "Mzumbe Secondary"; cat: "UR"; diff: 2 }
 
         // --- KILIMO CHA ZABIBU DODOMA
-        ListElement { q: "Zao kuu la kibiashara linalosifika kulimwa mkoani Dodoma na kutumika kutengeneza mvinyo (Wine) ni?"; a: "Pamba"; b: "Zabibu"; c: "Karafuu"; d: "Mkonge"; correct: "Zabibu"; cat: "T"; diff: 1 }
+        ListElement { q: "Zao kuu la kibiashara linalosifika kulimwa mkoani Dodoma na kutumika kutengeneza mvinyo (Wine) ni?"; a: "Pamba"; b: "Zabibu"; c: "Karafuu"; d: "Mkonge"; correct: "Zabibu"; cat: "MK"; diff: 1 }
 
 
-        ListElement { q: "Ni kata gani mkoani Dodoma inayojulikana zaidi kwa kuanzisha na kuendeleza kilimo cha zabibu?"; a: "Makutupora"; b: "Chamwino"; c: "Kizota"; d: "Msalato"; correct: "Makutupora"; cat: "T"; diff: 1 }
+        ListElement { q: "Ni kata gani mkoani Dodoma inayojulikana zaidi kwa kuanzisha na kuendeleza kilimo cha zabibu?"; a: "Makutupora"; b: "Chamwino"; c: "Kizota"; d: "Msalato"; correct: "Makutupora"; cat: "MK"; diff: 1 }
 
-        ListElement { q: "Kwa nini mkoa wa Dodoma unafaa zaidi kwa kilimo cha zabibu kuliko mikoa mingine ya Tanzania?"; a: "Udongo mweusi na baridi"; b: "Hali ya hewa kavu na jua la kutosha"; c: "Mvua nyingi mwaka mzima"; d: "Uwepo wa bahari"; correct: "Hali ya hewa kavu na jua la kutosha"; cat: "T"; diff: 1 }
+        ListElement { q: "Kwa nini mkoa wa Dodoma unafaa zaidi kwa kilimo cha zabibu kuliko mikoa mingine ya Tanzania?"; a: "Udongo mweusi na baridi"; b: "Hali ya hewa kavu na jua la kutosha"; c: "Mvua nyingi mwaka mzima"; d: "Uwepo wa bahari"; correct: "Hali ya hewa kavu na jua la kutosha"; cat: "MK"; diff: 1 }
 
-        ListElement { q: "Ni mwezi gani mara nyingi wakulima wa zabibu Dodoma hufanya mavuno ya kwanza ya mwaka?"; a: "Januari - Machi"; b: "Juni - Julai"; c: "Oktoba - Novemba"; d: "Septemba"; correct: "Januari - Machi"; cat: "T"; diff: 1 }
+        ListElement { q: "Ni mwezi gani mara nyingi wakulima wa zabibu Dodoma hufanya mavuno ya kwanza ya mwaka?"; a: "Januari - Machi"; b: "Juni - Julai"; c: "Oktoba - Novemba"; d: "Septemba"; correct: "Januari - Machi"; cat: "MK"; diff: 1 }
 
         // --- TABORA BOYS
-        ListElement { q: "Shule ya Tabora Boys ilianzishwa mwaka 1922 na Waingereza kwa lengo la kuwasomesha nani?"; a: "Watoto wa machifu"; b: "Wafanyakazi wa reli"; c: "Wakulima wa pamba"; d: "Askari wa vita"; correct: "Watoto wa machifu"; cat: "T"; diff: 3 }
+        ListElement { q: "Shule ya Tabora Boys ilianzishwa mwaka 1922 na Waingereza kwa lengo la kuwasomesha nani?"; a: "Watoto wa machifu"; b: "Wafanyakazi wa reli"; c: "Wakulima wa pamba"; d: "Askari wa vita"; correct: "Watoto wa machifu"; cat: "UR"; diff: 3 }
 
-        ListElement { q: "Mwalimu Julius K. Nyerere alipokuwa mwanafunzi Tabora Boys (1937-1942), alikuwa kiongozi wa klabu gani?"; a: "Klabu ya Mdahalo (Debating Society)"; b: "Klabu ya Mpira"; c: "Klabu ya Skauti"; d: "Klabu ya Kilimo"; correct: "Klabu ya Mdahalo (Debating Society)"; cat: "T"; diff: 3 }
+        ListElement { q: "Mwalimu Julius K. Nyerere alipokuwa mwanafunzi Tabora Boys (1937-1942), alikuwa kiongozi wa klabu gani?"; a: "Klabu ya Mdahalo (Debating Society)"; b: "Klabu ya Mpira"; c: "Klabu ya Skauti"; d: "Klabu ya Kilimo"; correct: "Klabu ya Mdahalo (Debating Society)"; cat: "UR"; diff: 3 }
 
-        ListElement { q: "Jina la awali la shule ya Tabora Boys kabla ya kuitwa jina la sasa lilikuwa nani?"; a: "Pugu School"; b: "Government Central School, Tabora"; c: "Milambo Secondary"; d: "Royal Boys Academy"; correct: "Government Central School, Tabora"; cat: "T"; diff: 3 }
+        ListElement { q: "Jina la awali la shule ya Tabora Boys kabla ya kuitwa jina la sasa lilikuwa nani?"; a: "Pugu School"; b: "Government Central School, Tabora"; c: "Milambo Secondary"; d: "Royal Boys Academy"; correct: "Government Central School, Tabora"; cat: "UR"; diff: 3 }
 
 
 
@@ -713,12 +713,12 @@ Rectangle {
         ListElement { q: "Kombe la AFCON 2027 litafanyika katika nchi zipi?"; a: "Tanzania pekee"; b: "Tanzania, Kenya & Uganda"; c: "Ivory Coast"; d: "South Africa"; correct: "Tanzania, Kenya & Uganda"; cat: "SP"; diff: 3 }
         ListElement { q: "Klabu ya Azam FC inamilikiwa na nani?"; a: "Mo Dewji"; b: "GSM"; c: "Said Salim Bakhresa"; d: "Manji"; correct: "Said Salim Bakhresa"; cat: "SP"; diff: 3 }
 
-        ListElement { q: "Mti gani maarufu Tanzania unaitwa 'Mti wa Maisha' (Tree of Life)?"; a: "Mwembe"; b: "Mbuyu"; c: "Mkaratusi"; d: "Mnazi"; correct: "Mbuyu"; cat: "T"; diff: 1 }
-        ListElement { q: "Zanzibar inajulikana kimataifa kama 'Kisiwa cha' nini kutokana na zao lake kuu?"; a: "Karafuu"; b: "Kahawa"; c: "Nazi"; d: "Tangawizi"; correct: "Karafuu"; cat: "T"; diff: 3 }
-        ListElement { q: "Mmea gani hutumika kutengeneza kamba na magunia?"; a: "Mkonge"; b: "Mpunga"; c: "Mkatani"; d: "Mwanzi"; correct: "Mkonge"; cat: "T"; diff: 3 }
-        ListElement { q: "Mmea gani hutoa mafuta ya kula kwa wingi mkoani Singida?"; a: "Alizeti"; b: "Pamba"; c: "Karanga"; d: "Ufuta"; correct: "Alizeti"; cat: "T"; diff: 3 }
-        ListElement { q: "Zao la Chai hustawi zaidi katika mkoa gani?"; a: "Dodoma"; b: "Njombe"; c: "Mwanza"; d: "Dar"; correct: "Njombe"; cat: "T"; diff: 1 }
-        ListElement { q: "Mti wa Mnazi hutoa bidhaa gani maarufu pwani?"; a: "Mafuta ya mawese"; b: "Nazi na madafu"; c: "Kahawa"; d: "Zambarau"; correct: "Nazi na madafu"; cat: "T"; diff: 3 }
+        ListElement { q: "Mti gani maarufu Tanzania unaitwa 'Mti wa Maisha' (Tree of Life)?"; a: "Mwembe"; b: "Mbuyu"; c: "Mkaratusi"; d: "Mnazi"; correct: "Mbuyu"; cat: "MK"; diff: 1 }
+        ListElement { q: "Zanzibar inajulikana kimataifa kama 'Kisiwa cha' nini kutokana na zao lake kuu?"; a: "Karafuu"; b: "Kahawa"; c: "Nazi"; d: "Tangawizi"; correct: "Karafuu"; cat: "MK"; diff: 3 }
+        ListElement { q: "Mmea gani hutumika kutengeneza kamba na magunia?"; a: "Mkonge"; b: "Mpunga"; c: "Mkatani"; d: "Mwanzi"; correct: "Mkonge"; cat: "MK"; diff: 3 }
+        ListElement { q: "Mmea gani hutoa mafuta ya kula kwa wingi mkoani Singida?"; a: "Alizeti"; b: "Pamba"; c: "Karanga"; d: "Ufuta"; correct: "Alizeti"; cat: "MK"; diff: 3 }
+        ListElement { q: "Zao la Chai hustawi zaidi katika mkoa gani?"; a: "Dodoma"; b: "Njombe"; c: "Mwanza"; d: "Dar"; correct: "Njombe"; cat: "MK"; diff: 1 }
+        ListElement { q: "Mti wa Mnazi hutoa bidhaa gani maarufu pwani?"; a: "Mafuta ya mawese"; b: "Nazi na madafu"; c: "Kahawa"; d: "Zambarau"; correct: "Nazi na madafu"; cat: "MK"; diff: 3 }
 
         // --- MASWALI MAPYA (47) ---
 
@@ -737,9 +737,9 @@ Rectangle {
         ListElement { q: "Binadamu ana mifupa mingapi mwilini ukiwa mtu mzima?"; a: "206"; b: "250"; c: "180"; d: "300"; correct: "206"; cat: "A"; diff: 2 }
 
         // TANZANIA
-        ListElement { q: "Mji Mkuu wa Tanzania (Makao Makuu ya Serikali) ni upi?"; a: "Dar es Salaam"; b: "Arusha"; c: "Dodoma"; d: "Mwanza"; correct: "Dodoma"; cat: "T"; diff: 1 }
+        ListElement { q: "Mji Mkuu wa Tanzania (Makao Makuu ya Serikali) ni upi?"; a: "Dar es Salaam"; b: "Arusha"; c: "Dodoma"; d: "Mwanza"; correct: "Dodoma"; cat: "GEO"; diff: 1 }
 
-        ListElement { q: "Tanzania ilipata Uhuru wake tarehe ngapi mwaka 1961?"; a: "9 Desemba"; b: "26 Aprili"; c: "12 Januari"; d: "1 Julai"; correct: "9 Desemba"; cat: "T"; diff: 1 }
+        ListElement { q: "Tanzania ilipata Uhuru wake tarehe ngapi mwaka 1961?"; a: "9 Desemba"; b: "26 Aprili"; c: "12 Januari"; d: "1 Julai"; correct: "9 Desemba"; cat: "UR"; diff: 1 }
 
         // VITENDAWILI
         ListElement { q: "Kitendawili: Nina miguu lakini siwezi kutembea, nina mkono lakini siwezi kushika. Mimi ni nani?"; a: "Sanduku"; b: "Meza"; c: "Kiti"; d: "Kabati"; correct: "Meza"; cat: "V"; diff: 2 }
@@ -759,13 +759,13 @@ Rectangle {
         ListElement { q: "Kama unapiga folda katikati mara 7, tabaka ngapi utapata?"; a: "14"; b: "49"; c: "128"; d: "64"; correct: "128"; cat: "M"; diff: 2 }
 
         // TANZANIA — JIOGRAFIA & HISTORIA
-        ListElement { q: "Mlima Kilimanjaro una urefu wa mita ngapi?"; a: "4,895m"; b: "5,895m"; c: "6,895m"; d: "3,895m"; correct: "5,895m"; cat: "T"; diff: 2 }
-        ListElement { q: "Tanzania iliungana na Zanzibar kuunda Jamhuri mwaka gani?"; a: "1961"; b: "1963"; c: "1964"; d: "1967"; correct: "1964"; cat: "T"; diff: 2 }
-        ListElement { q: "Jiji la pili kwa ukubwa nchini Tanzania ni?"; a: "Arusha"; b: "Mwanza"; c: "Dodoma"; d: "Tanga"; correct: "Mwanza"; cat: "T"; diff: 1 }
-        ListElement { q: "Hifadhi ya Taifa ya kwanza kuanzishwa Tanzania ni?"; a: "Serengeti"; b: "Ruaha"; c: "Mikumi"; d: "Gombe"; correct: "Serengeti"; cat: "T"; diff: 2 }
-        ListElement { q: "Ziwa Tanganyika ni ziwa la pili kwa kina duniani — kina chake ni mita ngapi?"; a: "800m"; b: "1,200m"; c: "1,470m"; d: "600m"; correct: "1,470m"; cat: "T"; diff: 2 }
+        ListElement { q: "Mlima Kilimanjaro una urefu wa mita ngapi?"; a: "4,895m"; b: "5,895m"; c: "6,895m"; d: "3,895m"; correct: "5,895m"; cat: "GEO"; diff: 2 }
+        ListElement { q: "Tanzania iliungana na Zanzibar kuunda Jamhuri mwaka gani?"; a: "1961"; b: "1963"; c: "1964"; d: "1967"; correct: "1964"; cat: "UR"; diff: 2 }
+        ListElement { q: "Jiji la pili kwa ukubwa nchini Tanzania ni?"; a: "Arusha"; b: "Mwanza"; c: "Dodoma"; d: "Tanga"; correct: "Mwanza"; cat: "GEO"; diff: 1 }
+        ListElement { q: "Hifadhi ya Taifa ya kwanza kuanzishwa Tanzania ni?"; a: "Serengeti"; b: "Ruaha"; c: "Mikumi"; d: "Gombe"; correct: "Serengeti"; cat: "H"; diff: 2 }
+        ListElement { q: "Ziwa Tanganyika ni ziwa la pili kwa kina duniani — kina chake ni mita ngapi?"; a: "800m"; b: "1,200m"; c: "1,470m"; d: "600m"; correct: "1,470m"; cat: "GEO"; diff: 2 }
         ListElement { q: "Rais wa kwanza wa Tanzania Bara (Tanganyika) alikuwa nani?"; a: "Ali Hassan Mwinyi"; b: "Julius Kambarage Nyerere"; c: "Abeid Karume"; d: "Benjamin Mkapa"; correct: "Julius Kambarage Nyerere"; cat: "H"; diff: 2 }
-        ListElement { q: "Bandari kubwa zaidi ya Tanzania ipo wapi?"; a: "Tanga"; b: "Mtwara"; c: "Dar es Salaam"; d: "Zanzibar"; correct: "Dar es Salaam"; cat: "T"; diff: 2 }
+        ListElement { q: "Bandari kubwa zaidi ya Tanzania ipo wapi?"; a: "Tanga"; b: "Mtwara"; c: "Dar es Salaam"; d: "Zanzibar"; correct: "Dar es Salaam"; cat: "GEO"; diff: 2 }
 
         // SAYANSI
         ListElement { q: "Kemikali inayotumika kufanya picha kwenye X-Ray ni ipi?"; a: "Sodium"; b: "Barium"; c: "Calcium"; d: "Potassium"; correct: "Barium"; cat: "S"; diff: 3 }
@@ -1011,6 +1011,101 @@ Rectangle {
         ListElement { q: "Kisima cha maji kinachochimbwa kwa teknolojia ya kisasa bila kutumia nguvu za binadamu nyingi inaitwa?"; a: "Kisima cha bomba"; b: "Kisima cha mkono"; c: "Kisima cha hand pump"; d: "Borehole"; correct: "Borehole"; cat: "MK"; diff: 1 }
         ListElement { q: "Jangwa linaloenea karibu na Tanzania kaskazini-mashariki ni?"; a: "Sahara"; b: "Kalahari"; c: "Namib"; d: "Chalbi"; correct: "Chalbi"; cat: "MK"; diff: 3 }
 
+        // ═══════════════════════════════════════════════════
+        // MADA MPYA: MUZIKI WA TANZANIA (MUZ) — 40 maswali
+        // ═══════════════════════════════════════════════════
+
+        // BONGO FLAVA & WASANII WA KISASA
+        ListElement { q: "Diamond Platnumz alizaliwa jina gani la kweli?"; a: "Nasibu Abdul Juma"; b: "Abdul Diamond Platnumz"; c: "Juma Diamond Naseeb"; d: "Naseeb Abdul Juma"; correct: "Nasebu Abdul Juma"; cat: "BUR"; diff: 2 }
+        ListElement { q: "Msanii wa Bongo Flava anayejulikana kama 'Simba wa Bongo' ni?"; a: "Diamond Platnumz"; b: "Professor Jay"; c: "Mr. Blue"; d: "Juma Nature"; correct: "Mr. Blue"; cat: "BUR"; diff: 3 }
+        ListElement { q: "Konde Gang ni lebo ya muziki inayomilikiwa na nani?"; a: "Diamond Platnumz"; b: "Harmonize"; c: "Rayvanny"; d: "Alikiba"; correct: "Harmonize"; cat: "BUR"; diff: 2 }
+        ListElement { q: "Msanii wa kwanza wa Tanzania kupata platinum YouTube ni?"; a: "Rayvanny"; b: "Zuchu"; c: "Diamond Platnumz"; d: "Alikiba"; correct: "Diamond Platnumz"; cat: "BUR"; diff: 2 }
+        ListElement { q: "Zuchu ni msanii anayeshirikiana na lebo gani?"; a: "Konde Gang"; b: "Kings Music"; c: "WCB Wasafi"; d: "Zoom Extra"; correct: "WCB Wasafi"; cat: "BUR"; diff: 1 }
+        ListElement { q: "Msanii Marioo anajulikana zaidi kwa mtindo gani wa muziki?"; a: "Taarab"; b: "Bongo Flava/Afropop"; c: "Gospel"; d: "Dansi"; correct: "Bongo Flava/Afropop"; cat: "BUR"; diff: 2 }
+        ListElement { q: "Jina la kweli la msanii Harmonize ni?"; a: "Rajab Abdul Kahali"; b: "Khadija Kopa"; c: "Juma Harmonize"; d: "Abdul Rajab"; correct: "Rajab Abdul Kahali"; cat: "BUR"; diff: 2 }
+        ListElement { q: "Msanii wa kike aliyejulikana kama 'Queen of Bongo' ni?"; a: "Zuchu"; b: "Lady Jaydee"; c: "Nandy"; d: "Shilole"; correct: "Lady Jaydee"; cat: "BUR"; diff: 2 }
+        ListElement { q: "Wimbo wa 'Sugua' uliofanya msanii gani mashuhuri zaidi?"; a: "Diamond Platnumz"; b: "Rayvanny"; c: "Zuchu"; d: "Harmonize"; correct: "Rayvanny"; cat: "BUR"; diff: 2 }
+        ListElement { q: "Professor Jay anajulikana zaidi kwa aina gani ya muziki?"; a: "Taarab"; b: "Gospel"; c: "Bongo Flava/Hip hop"; d: "Dansi"; correct: "Bongo Flava/Hip hop"; cat: "BUR"; diff: 1 }
+
+        // TAARAB & MUZIKI WA ASILI
+        ListElement { q: "Taarab ina asili ya nchi gani kabla ya kufika Tanzania?"; a: "India na Arabia"; b: "Uingereza na Ufaransa"; c: "Afrika Kusini"; d: "Ethiopia"; correct: "India na Arabia"; cat: "BUR"; diff: 2 }
+        ListElement { q: "Kina Bi Kidude alijulikana zaidi kwa muziki gani?"; a: "Bongo Flava"; b: "Taarab ya Kisanaa"; c: "Gospel"; d: "Dansi"; correct: "Taarab ya Kisanaa"; cat: "BUR"; diff: 2 }
+        ListElement { q: "Kikundi cha Taarab kilichojulikana sana Zanzibar kinachocheza 'Taarab ya Kidart' kinaitwa?"; a: "TOT"; b: "Culture Musical Club"; c: "Egyptian Musical Club"; d: "Muungano Cultural Troupe"; correct: "Culture Musical Club"; cat: "BUR"; diff: 3 }
+        ListElement { q: "Ala ya muziki inayotumika zaidi katika Taarab ni?"; a: "Gitaa"; b: "Kinanda (Keyboard/Accordion)"; c: "Ngoma"; d: "Filimbi"; correct: "Kinanda (Keyboard/Accordion)"; cat: "BUR"; diff: 2 }
+        ListElement { q: "Nyimbo za Taarab mara nyingi zinaandikwa kwa lugha gani?"; a: "Kiingereza"; b: "Kiarabu na Kiswahili"; c: "Kifaransa"; d: "Kihindi"; correct: "Kiarabu na Kiswahili"; cat: "BUR"; diff: 1 }
+        ListElement { q: "Hukwe Zawose alijulikana duniani kwa kucheza ala gani ya asili?"; a: "Zeze na Ilimba"; b: "Ngoma ya Bongo"; c: "Kinanda"; d: "Gitaa la umeme"; correct: "Zeze na Ilimba"; cat: "BUR"; diff: 2 }
+        ListElement { q: "Muziki wa 'Chakacha' ni ngoma ya asili ya watu wa?"; a: "Wachagga"; b: "Wamasai"; c: "Waswahili wa pwani"; d: "Wasukuma"; correct: "Waswahili wa pwani"; cat: "BUR"; diff: 2 }
+        ListElement { q: "Aina ya muziki wa dansi uliokuwa maarufu miaka ya 1960-80 Tanzania unaitwa?"; a: "Bongo Flava"; b: "Muziki wa Dansi (Tanzania Jazz)"; c: "Gospel"; d: "Hip hop"; correct: "Muziki wa Dansi (Tanzania Jazz)"; cat: "BUR"; diff: 2 }
+        ListElement { q: "Kikundi cha muziki wa dansi kilichokuwa mashuhuri sana Tanzania miaka ya 70-80 ni?"; a: "WCB Wasafi"; b: "OTTU Jazz Band"; c: "Diamond Orchestra"; d: "Kings Music"; correct: "OTTU Jazz Band"; cat: "BUR"; diff: 3 }
+        ListElement { q: "Remmy Ongala (Omari Ramadhan) alijulikana kimataifa kwa aina gani ya muziki?"; a: "Taarab"; b: "Soukous/Dansi ya Tanzania"; c: "Gospel"; d: "Bongo Flava"; correct: "Soukous/Dansi ya Tanzania"; cat: "BUR"; diff: 3 }
+
+        // GOSPEL & INJILI
+        ListElement { q: "Msanii maarufu wa muziki wa gospel Tanzania anayejulikana kama 'Mama Gospel' ni?"; a: "Rose Muhando"; b: "Zuchu"; c: "Nandy"; d: "Lady Jaydee"; correct: "Rose Muhando"; cat: "BUR"; diff: 1 }
+        ListElement { q: "Msanii wa gospel Bahati Bukuku anajulikana zaidi kwa wimbo gani?"; a: "Mungu Baba"; b: "Yesu ni Bwana"; c: "Nikiwa Mbali"; d: "Sitolia"; correct: "Nikiwa Mbali"; cat: "BUR"; diff: 2 }
+        ListElement { q: "Kikundi cha gospel kilichojulikana sana Tanzania miaka ya 2000 ni?"; a: "Sauti Sol"; b: "Muungano National Choir"; c: "WCB Wasafi"; d: "Kings Music"; correct: "Muungano National Choir"; cat: "BUR"; diff: 2 }
+        ListElement { q: "Msanii wa gospel Judith Babirye anatoka nchi gani lakini maarufu Tanzania?"; a: "Kenya"; b: "Uganda"; c: "Rwanda"; d: "Burundi"; correct: "Uganda"; cat: "BUR"; diff: 2 }
+        ListElement { q: "Msanii wa kwanza wa Tanzania kushinda tuzo ya Kili Music Awards ni?"; a: "Diamond Platnumz"; b: "Rose Muhando"; c: "Professor Jay"; d: "Ali Kiba"; correct: "Diamond Platnumz"; cat: "BUR"; diff: 3 }
+
+        // HISTORIA YA MUZIKI WA TZ
+        ListElement { q: "Kikundi cha kwanza cha muziki wa kisasa kuanzishwa Tanzania kilichoitwa 'Dar es Salaam Jazz Band' kilianzishwa lini?"; a: "Miaka ya 1940"; b: "Miaka ya 1960"; c: "Miaka ya 1980"; d: "Miaka ya 2000"; correct: "Miaka ya 1940"; cat: "BUR"; diff: 3 }
+        ListElement { q: "TOT (Tanzania One Theatre) ilijulikana zaidi kwa aina gani ya sanaa?"; a: "Muziki wa dansi na maigizo"; b: "Bongo Flava"; c: "Taarab tu"; d: "Hip hop"; correct: "Muziki wa dansi na maigizo"; cat: "BUR"; diff: 2 }
+        ListElement { q: "Msanii Mbaraka Mwinshehe alijulikana kwa aina gani ya muziki?"; a: "Taarab"; b: "Chakacha na Dansi"; c: "Gospel"; d: "Hip hop"; correct: "Chakacha na Dansi"; cat: "BUR"; diff: 3 }
+        ListElement { q: "Tamasha kubwa la muziki Tanzania linalofanyika Dar es Salaam linaitwa?"; a: "Sauti za Busara"; b: "Fiesta"; c: "Karibu New Music Tanzania"; d: "Wasafi Festival"; correct: "Wasafi Festival"; cat: "BUR"; diff: 2 }
+        ListElement { q: "Tamasha la 'Sauti za Busara' linafanyika kila mwaka wapi?"; a: "Dar es Salaam"; b: "Arusha"; c: "Zanzibar"; d: "Mwanza"; correct: "Zanzibar"; cat: "BUR"; diff: 2 }
+
+        // WASANII WENGINE MAARUFU
+        ListElement { q: "Msanii Alikiba anajulikana zaidi kwa aina gani ya muziki?"; a: "Gospel"; b: "Taarab"; c: "Bongo Flava/R&B"; d: "Dansi"; correct: "Bongo Flava/R&B"; cat: "BUR"; diff: 1 }
+        ListElement { q: "Jina la kweli la msanii Nandy ni?"; a: "Faustina Charles"; b: "Nandi Charles"; c: "Faustina Minzi"; d: "Nancy Charles"; correct: "Faustina Charles"; cat: "BUR"; diff: 2 }
+        ListElement { q: "Msanii Dully Sykes anajulikana kwa jina gani lingine?"; a: "King of Bongo"; b: "The Gentleman"; c: "Simba"; d: "Mfalme wa Dansi"; correct: "The Gentleman"; cat: "BUR"; diff: 2 }
+        ListElement { q: "Msanii Mrisho Mpoto anajulikana kwa aina gani ya muziki?"; a: "Gospel"; b: "Taarab"; c: "Bongo Flava/Hip hop"; d: "Dansi"; correct: "Bongo Flava/Hip hop"; cat: "BUR"; diff: 2 }
+        ListElement { q: "Kikundi cha muziki kilichojumuisha wasanii Juma Nature na Afande Sele kilikuwa?"; a: "P-Square TZ"; b: "X Plastaz"; c: "TMK"; d: "East African Bashment Crew"; correct: "X Plastaz"; cat: "BUR"; diff: 3 }
+        ListElement { q: "Msanii Shilole anajulikana zaidi kwa?"; a: "Muziki wa taarab na nyimbo za mapenzi"; b: "Gospel"; c: "Dansi ya zamani"; d: "Hip hop"; correct: "Muziki wa taarab na nyimbo za mapenzi"; cat: "BUR"; diff: 2 }
+        ListElement { q: "Wasanii wa Tanzania walioshinda tuzo ya AFRIMA (All Africa Music Awards) ni wengi — tuzo hizi hufanyika nchi gani?"; a: "Tanzania"; b: "Nigeria"; c: "Afrika Kusini"; d: "Kenya"; correct: "Nigeria"; cat: "BUR"; diff: 3 }
+        ListElement { q: "Msanii wa kike anayejulikana kwa jina 'Lulu' katika muziki ni nani?"; a: "Zuchu"; b: "Nandy"; c: "Elizabeth Michael"; d: "Shilole"; correct: "Elizabeth Michael"; cat: "BUR"; diff: 2 }
+        ListElement { q: "Ala ya 'Tinde' inayopigwa kwa mikono ni ala ya asili ya kabila gani Tanzania?"; a: "Wachagga"; b: "Wagogo"; c: "Wamasai"; d: "Wasukuma"; correct: "Wagogo"; cat: "BUR"; diff: 3 }
+        ListElement { q: "Msanii Ommy Dimpoz anajulikana kwa ushirikiano wake maarufu na msanii gani wa kimataifa?"; a: "Davido"; b: "Wizkid"; c: "P-Square"; d: "Don Jazzy"; correct: "P-Square"; cat: "BUR"; diff: 3 }
+        ListElement { q: "Neno 'Bongo Flava' linamaanisha nini hasa?"; a: "Muziki wa Tanzania wenye ladha ya hapa"; b: "Muziki wa dansi tu"; c: "Muziki wa gospel"; d: "Muziki wa watoto"; correct: "Muziki wa Tanzania wenye ladha ya hapa"; cat: "BUR"; diff: 1 }
+
+        // ═══════════════════════════════════════════════════
+        // BUR — MAIGIZO, VICHEKESHO, FILAMU MPYA (+30)
+        // ═══════════════════════════════════════════════════
+
+        // VICHEKESHO
+        ListElement { q: "Jukwaa la vichekesho la 'Cheka Tu' linafanyika jijini gani Tanzania?"; a: "Arusha"; b: "Mwanza"; c: "Dar es Salaam"; d: "Dodoma"; correct: "Dar es Salaam"; cat: "BUR"; diff: 1 }
+        ListElement { q: "Mchekeshaji Ebitoke anajulikana kwa nini hasa?"; a: "Kuimba vichekesho"; b: "Kuigiza wahusika wa kisiasa na kuchanganya lugha"; c: "Kucheza ngoma"; d: "Kuandika vitabu"; correct: "Kuigiza wahusika wa kisiasa na kuchanganya lugha"; cat: "BUR"; diff: 2 }
+        ListElement { q: "Kikundi cha 'Vituko Show' kilifanya vichekesho vyake kupitia njia gani kuu?"; a: "Runinga ya ITV"; b: "YouTube na Runinga"; c: "Redio tu"; d: "Maonyesho ya uwanja tu"; correct: "YouTube na Runinga"; cat: "BUR"; diff: 2 }
+        ListElement { q: "Mchekeshaji Bwakila anajulikana zaidi kwa?"; a: "Mchezo wa kuigiza kwenye runinga"; b: "Vichekesho vya stand-up na kuigiza sauti"; c: "Kuandika filamu"; d: "Kuimba nyimbo za vichekesho"; correct: "Vichekesho vya stand-up na kuigiza sauti"; cat: "BUR"; diff: 2 }
+        ListElement { q: "Mchekeshaji Mwijaku anajulikana kwa jukwaa gani la vichekesho?"; a: "Cheka Tu"; b: "Laugh Industry"; c: "Comedy Festival TZ"; d: "Stand Up Dar"; correct: "Laugh Industry"; cat: "BUR"; diff: 3 }
+        ListElement { q: "Kundi la vichekesho 'Ze Komedi' lilianzishwa na nani?"; a: "Mpoki"; b: "Joti na washirika"; c: "Ebitoke"; d: "Kitale"; correct: "Joti na washirika"; cat: "BUR"; diff: 3 }
+        ListElement { q: "Mtangazaji na mchekeshaji wa runinga anayejulikana kwa 'Ngosha' ni maarufu kupitia runinga gani?"; a: "ITV"; b: "TBC 1"; c: "Clouds TV"; d: "Star TV"; correct: "Clouds TV"; cat: "BUR"; diff: 2 }
+        ListElement { q: "Tamasha la vichekesho la 'Comedy Knights' Tanzania lilifanyika mara ngapi kwa mwaka kawaida?"; a: "Kila wiki"; b: "Kila mwezi"; c: "Mara mbili kwa mwaka"; d: "Kila siku"; correct: "Kila mwezi"; cat: "BUR"; diff: 3 }
+        ListElement { q: "Mchekeshaji anayejulikana kama 'MC' wa harusi wengi Tanzania na vichekesho vya Clouds TV ni?"; a: "Bwakila"; b: "Coy Mzero"; c: "Mpoki"; d: "Mwijaku"; correct: "Coy Mzero"; cat: "BUR"; diff: 2 }
+        ListElement { q: "Nani kati ya hawa ni mchekeshaji wa Tanzania anayejulikana kwa sauti ya pua na vichekesho vya kijamii?"; a: "Joti"; b: "Kitale"; c: "Mpoki"; d: "Ebitoke"; correct: "Mpoki"; cat: "BUR"; diff: 2 }
+
+        // MAIGIZO YA RUNINGA
+        ListElement { q: "Msururu maarufu wa maigizo ya Tanzania ulioonyeshwa ITV ulihusu familia inaitwa?"; a: "Familia"; b: "Tazama Jirani"; c: "Bongo"; d: "Mtaa Wangu"; correct: "Familia"; cat: "BUR"; diff: 2 }
+        ListElement { q: "Mwigizaji Wema Sepetu anajulikana zaidi kwa?"; a: "Muziki wa gospel"; b: "Maigizo ya filamu na runinga za Tanzania"; c: "Vichekesho vya stand-up"; d: "Uandishi wa vitabu"; correct: "Maigizo ya filamu na runinga za Tanzania"; cat: "BUR"; diff: 1 }
+        ListElement { q: "Mwigizaji Jacqueline Wolper anajulikana zaidi kwa?"; a: "Nyimbo za taarab"; b: "Maigizo ya filamu za Tanzania"; c: "Vichekesho"; d: "Uandishi wa habari"; correct: "Maigizo ya filamu za Tanzania"; cat: "BUR"; diff: 2 }
+        ListElement { q: "Mwigizaji maarufu wa Tanzania Steven Kanumba alifariki mwaka gani?"; a: "2010"; b: "2012"; c: "2014"; d: "2015"; correct: "2012"; cat: "BUR"; diff: 2 }
+        ListElement { q: "Tamasha la Filamu la Kimataifa la Zanzibar (ZIFF) hufanyika wapi?"; a: "Dar es Salaam"; b: "Arusha"; c: "Zanzibar"; d: "Mwanza"; correct: "Zanzibar"; cat: "BUR"; diff: 2 }
+        ListElement { q: "Mwigizaji Irene Uwoya anajulikana zaidi kwa?"; a: "Nyimbo za Bongo Flava"; b: "Maigizo ya filamu na runinga"; c: "Vichekesho"; d: "Uandishi wa magazeti"; correct: "Maigizo ya filamu na runinga"; cat: "BUR"; diff: 1 }
+        ListElement { q: "Kikundi cha 'Kaole Sanaa Group' kilijulikana kwa aina gani ya sanaa?"; a: "Muziki wa dansi"; b: "Maigizo ya runinga na ukumbi"; c: "Vichekesho tu"; d: "Ngoma za asili"; correct: "Maigizo ya runinga na ukumbi"; cat: "BUR"; diff: 2 }
+        ListElement { q: "Runinga ya kwanza ya kibinafsi Tanzania iliyoanza kutangaza ni?"; a: "ITV"; b: "Clouds TV"; c: "Star TV"; d: "Channel Ten"; correct: "ITV"; cat: "BUR"; diff: 2 }
+        ListElement { q: "Msururu wa maigizo ya Tanzania 'Ndoto za Elisha' ulihusu nini?"; a: "Maisha ya biashara"; b: "Mapenzi na ndoto za kijana maskini"; c: "Vita vya kikabila"; d: "Maisha ya polisi"; correct: "Mapenzi na ndoto za kijana maskini"; cat: "BUR"; diff: 2 }
+        ListElement { q: "Mwigizaji wa Tanzania aliyepata umaarufu wa kimataifa kupitia filamu za Nigeria (Nollywood) ni?"; a: "Wema Sepetu"; b: "Elizabeth Michael Lulu"; c: "Jacqueline Wolper"; d: "Irene Uwoya"; correct: "Irene Uwoya"; cat: "BUR"; diff: 2 }
+
+        // FILAMU ZA TANZANIA
+        ListElement { q: "Tasnia ya filamu ya Tanzania inajulikana kwa jina gani maarufu?"; a: "Tanzwood"; b: "Bongwood"; c: "Swahiliwood"; d: "Dawood"; correct: "Swahiliwood"; cat: "BUR"; diff: 2 }
+        ListElement { q: "Filamu ya Tanzania 'Siri ya Mtungi' ilihusu nini hasa?"; a: "Vita vya Kagera"; b: "Uchawi na mila za Tanzania"; c: "Mapenzi ya vijana"; d: "Biashara ya dawa za kulevya"; correct: "Uchawi na mila za Tanzania"; cat: "BUR"; diff: 2 }
+        ListElement { q: "Tuzo ya AMVCA inayoshughulika na filamu na maigizo hufanyika nchi gani?"; a: "Ghana"; b: "Afrika Kusini"; c: "Nigeria"; d: "Kenya"; correct: "Nigeria"; cat: "BUR"; diff: 2 }
+        ListElement { q: "Nollywood ni jina linalotumiwa kwa tasnia ya filamu ya nchi gani?"; a: "Ghana"; b: "Kenya"; c: "Nigeria"; d: "Afrika Kusini"; correct: "Nigeria"; cat: "BUR"; diff: 1 }
+        ListElement { q: "Filamu ya Tanzania 'Dar ni Njema' ilihusu nini?"; a: "Safari za utalii"; b: "Maisha ya vijana wa Dar es Salaam na changamoto zao"; c: "Historia ya Tanzania"; d: "Vita dhidi ya ujangili"; correct: "Maisha ya vijana wa Dar es Salaam na changamoto zao"; cat: "BUR"; diff: 2 }
+        ListElement { q: "Mkurugenzi maarufu wa filamu za Tanzania anayejulikana kwa filamu za mapenzi na vitendo ni?"; a: "Steven Kanumba"; b: "Francis Njau (Bob Njau)"; c: "John Mwangi"; d: "Ali Hassan"; correct: "Francis Njau (Bob Njau)"; cat: "BUR"; diff: 3 }
+        ListElement { q: "Filamu za Tanzania mara nyingi zinaimbwa au zinaandikwa kwa lugha gani?"; a: "Kiingereza tu"; b: "Kiswahili hasa"; c: "Kiarabu"; d: "Kihindi"; correct: "Kiswahili hasa"; cat: "BUR"; diff: 1 }
+        ListElement { q: "Mwigizaji wa Tanzania aliyecheza kwenye filamu ya kimataifa 'Vuta N'kuvute' alikuwa?"; a: "Wema Sepetu"; b: "Vanessa Myamba"; c: "Irene Uwoya"; d: "Jacqueline Wolper"; correct: "Vanessa Myamba"; cat: "BUR"; diff: 3 }
+        ListElement { q: "Tamasha la filamu la ZIFF lilianzishwa mwaka gani?"; a: "1990"; b: "1998"; c: "2005"; d: "2010"; correct: "1998"; cat: "BUR"; diff: 3 }
+        ListElement { q: "Filamu ya Tanzania inayohusu vita vya uhuru na mkoloni inayojulikana ni?"; a: "Siri ya Mtungi"; b: "Vuta N'kuvute"; c: "Dar ni Njema"; d: "Bongo"; correct: "Vuta N'kuvute"; cat: "BUR"; diff: 2 }
+
     }
 
     // Hifadhi maswali yaliyoulizwa — data ni array ya maswali (q strings)
@@ -1055,7 +1150,7 @@ Rectangle {
 
         var totalCount = iqModel.count;
         var cats = selectedCategories.length === 0
-            ? ["S","M","T","SP","TK","H","A","V","GEO","UR","MK"]
+            ? ["S","M","SP","TK","H","A","V","GEO","UR","MK","BUR"]
             : selectedCategories.slice();
 
         var shuffleArray = function(arr) {
@@ -1521,7 +1616,6 @@ Rectangle {
                         model: [
                             { label: "Sayansi",        cat: "S"   },
                             { label: "Hisabati",       cat: "M"   },
-                            { label: "Tanzania",       cat: "T"   },
                             { label: "Michezo",        cat: "SP"  },
                             { label: "Teknolojia",     cat: "TK"  },
                             { label: "Historia",       cat: "H"   },
@@ -1529,7 +1623,8 @@ Rectangle {
                             { label: "Vitendawili",    cat: "V"   },
                             { label: "Mitaa & Maeneo", cat: "GEO" },
                             { label: "Elimu ya Uraia", cat: "UR"  },
-                            { label: "Mazingira",      cat: "MK"  }
+                            { label: "Mazingira",      cat: "MK"  },
+                            { label: "Burudani",       cat: "BUR" }
                         ]
                         delegate: Rectangle {
                             width: catLabel.implicitWidth + Math.round(20*dp)
@@ -2584,12 +2679,13 @@ Rectangle {
                     Row {
                         anchors.centerIn: parent
                         spacing: Math.round(8 * dp)
+                      /*
                         Text {
                             text: "\u2630"
                             font.pointSize: 11
                             color: gold
                             anchors.verticalCenter: parent.verticalCenter
-                        }
+                        } */
                         Text {
                             text: "BADILISHA MADA"
                             font.pointSize: 10; font.bold: true
