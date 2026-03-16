@@ -446,6 +446,35 @@ Rectangle {
             desc_sw: "Pepo ya kijani mkoani Tanga inayojulikana kwa miti mikubwa ya msaji (Teak), aina nyingi za mimea, na mazingira tulivu kwa matembezi."
         }
 
+ListElement {
+    name_en: "Kigosi National Park"; name_sw: "Hifadhi ya Taifa ya Kigosi"
+    imageFile: "./kigosi.jpg"
+    desc_en: "A vast wetland ecosystem protecting rare water birds and sitatunga antelopes."
+    desc_sw: "Mfumo mkubwa wa ardhi oevu unaolinda ndege wa majini na swala wa sitatunga."
+}
+
+ListElement {
+    name_en: "Burigi-Chato National Park"; name_sw: "Hifadhi ya Taifa ya Burigi-Chato"
+    imageFile: "./burigi.jpeg"
+    desc_en: "One of Tanzania's newest parks featuring Lake Burigi and diverse wildlife."
+    desc_sw: "Moja ya hifadhi mpya zaidi ikiwa na Ziwa Burigi na wanyamapori wa aina mbalimbali."
+}
+
+ListElement {
+    name_en: "Mbozi Meteorite, Mbeya"; name_sw: "Kimondo cha Mbozi, Mbeya"
+    imageFile: "./mbozi_meteorite.jpeg"
+    desc_en: "One of the world's largest meteorites, a massive iron block from space."
+    desc_sw: "Moja ya vimondo vikubwa zaidi duniani, kipande kikubwa cha chuma kutoka angani."
+}
+
+ListElement {
+    name_en: "Kiwira River & God's Bridge"; name_sw: "Mto Kiwira na Daraja la Mungu"
+    imageFile: "./gods_bridge.jpeg"
+    desc_en: "A natural stone bridge formed by the Kiwira River in Rungwe district."
+    desc_sw: "Daraja la asili la jiwe lililotokana na Mto Kiwira katika wilaya ya Rungwe."
+}
+
+
         ListElement {
             name_en: "Shamiani Island, Pemba";
             name_sw: "Kisiwa cha Shamiani, Pemba"
