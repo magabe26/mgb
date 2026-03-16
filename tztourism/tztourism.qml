@@ -1528,7 +1528,7 @@ Rectangle {
                 spacing: 6
                 Text { width: parent.width; wrapMode: Text.WordWrap; font.bold: true; color: "#1a0dab"
                     font.pointSize: Qt.platform.os === "android" ? 13 : 11
-                    text: "📢 Advertise Your Property on Tanzania Tourism App!" }
+                    text: "📢 Advertise on Tanzania Tourism App!" }
                 Text { text: "tztourism.app › advertise"
                     font.pointSize: Qt.platform.os === "android" ? 10 : 8; color: "#006621" }
                 Text { width: parent.width; wrapMode: Text.WordWrap; color: "#333333"
@@ -1563,7 +1563,7 @@ Rectangle {
                             font.pointSize: Qt.platform.os === "android" ? 12:10; text: "💬 WhatsApp" }
                         MouseArea { anchors.fill: parent
                             onPressed: _enWa.pressed=true; onReleased: _enWa.pressed=false; onCanceled: _enWa.pressed=false
-                            onClicked: Qt.openUrlExternally("https://wa.me/255789081122?text=Hello%2C%20I%20want%20to%20advertise%20my%20property.") }
+                            onClicked: Qt.openUrlExternally("https://wa.me/255789081122?text=Hello%2C%20I%20want%20to%20advertise") }
                     }
                     Rectangle {
                         id: _enBook; radius: 4; color: "#f8f9fa"; border.color: "#dadce0"; border.width: 1
@@ -1607,12 +1607,12 @@ Rectangle {
                 spacing: 6
                 Text { width: parent.width; wrapMode: Text.WordWrap; font.bold: true; color: "#1a0dab"
                     font.pointSize: Qt.platform.os === "android" ? 13 : 11
-                    text: "📢 Tangaza Nyumba Yako kwenye App ya Utalii wa Tanzania!" }
+                    text: "📢 Tangaza kwenye Aplikesheni ya Utalii wa Tanzania!" }
                 Text { text: "tztourism.app › matangazo"
                     font.pointSize: Qt.platform.os === "android" ? 10 : 8; color: "#006621" }
                 Text { width: parent.width; wrapMode: Text.WordWrap; color: "#333333"
                     font.pointSize: Qt.platform.os === "android" ? 11 : 9
-                    text: "Fikia maelfu ya watalii kila siku! Tangaza Bidhaa, Hoteli, Hostel au Nyumba ya Kupanga n.k na uonekane na wageni kutoka duniani kote." }
+                    text: "Fikia maelfu ya watalii kila siku! Tangaza Bidhaa, Hoteli, Hostel, Nyumba ya Kupanga n.k na uonekane na wageni kutoka duniani kote." }
                 Rectangle {
                     height: _swPrice.implicitHeight+8; width: _swPrice.implicitWidth+16
                     radius: 4; color: "#e8f5e9"; border.color: "#4caf50"; border.width: 1
@@ -1642,7 +1642,7 @@ Rectangle {
                             font.pointSize: Qt.platform.os === "android" ? 12:10; text: "💬 WhatsApp" }
                         MouseArea { anchors.fill: parent
                             onPressed: _swWa.pressed=true; onReleased: _swWa.pressed=false; onCanceled: _swWa.pressed=false
-                            onClicked: Qt.openUrlExternally("https://wa.me/255789081122?text=Habari%2C%20nataka%20kutangaza%20nyumba%20yangu.") }
+                            onClicked: Qt.openUrlExternally("https://wa.me/255789081122?text=Habari%2C%20nataka%20kutangaza") }
                     }
                     Rectangle {
                         id: _swBook; radius: 4; color: "#f8f9fa"; border.color: "#dadce0"; border.width: 1
