@@ -1533,7 +1533,7 @@ Rectangle {
                     font.pointSize: Qt.platform.os === "android" ? 10 : 8; color: "#006621" }
                 Text { width: parent.width; wrapMode: Text.WordWrap; color: "#333333"
                     font.pointSize: Qt.platform.os === "android" ? 11 : 9
-                    text: "Reach thousands of tourists daily! List your Hotel, Hostel or Rental House and get noticed by visitors from around the world." }
+                    text: "Reach thousands of tourists daily! List your Hotel, Hostel, Rental House e.t.c and get noticed by visitors from around the world." }
                 Rectangle {
                     height: _enPrice.implicitHeight+8; width: _enPrice.implicitWidth+16
                     radius: 4; color: "#e8f5e9"; border.color: "#4caf50"; border.width: 1
@@ -1612,7 +1612,7 @@ Rectangle {
                     font.pointSize: Qt.platform.os === "android" ? 10 : 8; color: "#006621" }
                 Text { width: parent.width; wrapMode: Text.WordWrap; color: "#333333"
                     font.pointSize: Qt.platform.os === "android" ? 11 : 9
-                    text: "Fikia maelfu ya watalii kila siku! Tangaza Hoteli, Hostel au Nyumba ya Kupanga na uonekane na wageni kutoka duniani kote." }
+                    text: "Fikia maelfu ya watalii kila siku! Tangaza Bidhaa, Hoteli, Hostel au Nyumba ya Kupanga n.k na uonekane na wageni kutoka duniani kote." }
                 Rectangle {
                     height: _swPrice.implicitHeight+8; width: _swPrice.implicitWidth+16
                     radius: 4; color: "#e8f5e9"; border.color: "#4caf50"; border.width: 1
