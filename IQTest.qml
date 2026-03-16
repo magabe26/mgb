@@ -812,7 +812,6 @@ Rectangle {
         ListElement { q: "Nchi ya kwanza kutua binadamu mwezini ilikuwa ipi?"; a: "Urusi"; b: "China"; c: "Marekani"; d: "Uingereza"; correct: "Marekani"; cat: "H"; diff: 1 }
         ListElement { q: "Mwaka gani Columbus alifika Amerika?"; a: "1388"; b: "1492"; c: "1512"; d: "1620"; correct: "1492"; cat: "H"; diff: 2 }
         ListElement { q: "Dola ya Roma ilianguka mwaka gani?"; a: "476 BK"; b: "395 BK"; c: "410 BK"; d: "550 BK"; correct: "476 BK"; cat: "H"; diff: 3 }
-        ListElement { q: "Vita vya Msalaba (Crusades) vilifanyika kati ya makundi gani?"; a: "Waroma na Wagiriki"; b: "Wakristo na Waislamu"; c: "Wazungu na Waafrica"; d: "Wachina na Wahindi"; correct: "Wakristo na Waislamu"; cat: "H"; diff: 2 }
         ListElement { q: "Nchi ya kwanza Afrika kupata uhuru wa kisasa ilikuwa ipi?"; a: "Nigeria"; b: "Ghana"; c: "Ethiopia"; d: "Misri"; correct: "Ghana"; cat: "H"; diff: 3 }
         ListElement { q: "Vita vya Pili vya Dunia viliisha baada ya nchi gani kusalimu amri mnamo Septemba 1945?"; a: "Ujerumani"; b: "Italia"; c: "Japan"; d: "Austria"; correct: "Japan"; cat: "H"; diff: 3 }
         ListElement { q: "Mtu wa kwanza kwenda angani (cosmonaut) alikuwa nani?"; a: "Neil Armstrong"; b: "Yuri Gagarin"; c: "Buzz Aldrin"; d: "Alan Shepard"; correct: "Yuri Gagarin"; cat: "H"; diff: 2 }
@@ -1040,11 +1039,11 @@ Rectangle {
         ListElement { q: "Remmy Ongala (Omari Ramadhan) alijulikana kimataifa kwa aina gani ya muziki?"; a: "Taarab"; b: "Soukous/Dansi ya Tanzania"; c: "Gospel"; d: "Bongo Flava"; correct: "Soukous/Dansi ya Tanzania"; cat: "BUR"; diff: 3 }
 
         // GOSPEL & INJILI
+        ListElement { q: "Msanii wa kwanza wa Tanzania kushinda tuzo ya Kili Music Awards ni?"; a: "Diamond Platnumz"; b: "Rose Muhando"; c: "Professor Jay"; d: "Ali Kiba"; correct: "Diamond Platnumz"; cat: "BUR"; diff: 3 }
         ListElement { q: "Msanii maarufu wa muziki wa gospel Tanzania anayejulikana kama 'Mama Gospel' ni?"; a: "Rose Muhando"; b: "Zuchu"; c: "Nandy"; d: "Lady Jaydee"; correct: "Rose Muhando"; cat: "BUR"; diff: 1 }
         ListElement { q: "Msanii wa gospel Bahati Bukuku anajulikana zaidi kwa wimbo gani?"; a: "Mungu Baba"; b: "Yesu ni Bwana"; c: "Nikiwa Mbali"; d: "Sitolia"; correct: "Nikiwa Mbali"; cat: "BUR"; diff: 2 }
         ListElement { q: "Kikundi cha gospel kilichojulikana sana Tanzania miaka ya 2000 ni?"; a: "Sauti Sol"; b: "Muungano National Choir"; c: "WCB Wasafi"; d: "Kings Music"; correct: "Muungano National Choir"; cat: "BUR"; diff: 2 }
         ListElement { q: "Msanii wa gospel Judith Babirye anatoka nchi gani lakini maarufu Tanzania?"; a: "Kenya"; b: "Uganda"; c: "Rwanda"; d: "Burundi"; correct: "Uganda"; cat: "BUR"; diff: 2 }
-        ListElement { q: "Msanii wa kwanza wa Tanzania kushinda tuzo ya Kili Music Awards ni?"; a: "Diamond Platnumz"; b: "Rose Muhando"; c: "Professor Jay"; d: "Ali Kiba"; correct: "Diamond Platnumz"; cat: "BUR"; diff: 3 }
 
         // HISTORIA YA MUZIKI WA TZ
         ListElement { q: "Kikundi cha kwanza cha muziki wa kisasa kuanzishwa Tanzania kilichoitwa 'Dar es Salaam Jazz Band' kilianzishwa lini?"; a: "Miaka ya 1940"; b: "Miaka ya 1960"; c: "Miaka ya 1980"; d: "Miaka ya 2000"; correct: "Miaka ya 1940"; cat: "BUR"; diff: 3 }
