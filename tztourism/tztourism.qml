@@ -1413,7 +1413,8 @@ ListElement {
                 width: app.width * 0.28
                 height: Qt.platform.os === "android" ? 52 : 40
                 radius: height / 2
-                color: contextMenu.detailLang === "sw" ? "green" : "blue"
+                property color frozenColor: app.selectedLanguage === "sw" ? "green" : "blue"
+                color: frozenColor
                 property bool pressed: false
                 scale: pressed ? 0.95 : 1.0
                 Behavior on scale { NumberAnimation { duration: 100 } }
@@ -1423,7 +1424,12 @@ ListElement {
                     onPressed:  detailHomeBtn.pressed = true
                     onReleased: detailHomeBtn.pressed = false
                     onCanceled: detailHomeBtn.pressed = false
-                    onClicked: { contextMenu.close(); viewComponentLoader.switchTo(languageSelectionComponent, app.width / 2, app.height / 2); app.selectedLanguage = ""; }
+                    onClicked: {
+                        detailHomeBtn.frozenColor = app.selectedLanguage === "sw" ? "green" : "blue";
+                        contextMenu.close();
+                        viewComponentLoader.switchTo(languageSelectionComponent, app.width / 2, app.height / 2);
+                        app.selectedLanguage = "";
+                    }
                 }
             }
 
@@ -1513,6 +1519,7 @@ ListElement {
             contextMenu.detailDesc  = desc;
             contextMenu.detailImage = imagePath;
             contextMenu.detailIndex = (idx !== undefined) ? idx : -1;
+            detailHomeBtn.frozenColor = lag === "sw" ? "green" : "blue";
             contextMenu.visible     = true;
             detailBackdrop.opacity  = 1.0;
             detailBgImage.opacity   = 1.0;
@@ -2605,7 +2612,8 @@ ListElement {
                     width: Qt.platform.os === "android" ? 90 : 64
                     height: Qt.platform.os === "android" ? 52 : 36
                     radius: height / 2
-                    color: app.selectedLanguage === "sw" ? "#88006600" : "#880000aa"
+                    property color frozenColor: app.selectedLanguage === "sw" ? "#88006600" : "#880000aa"
+                    color: frozenColor
                     border.color: "cyan"
                     border.width: 1
 
@@ -2626,6 +2634,7 @@ ListElement {
                         onReleased: homeBtn.pressed = false
                         onCanceled: homeBtn.pressed = false
                         onClicked: {
+                            homeBtn.frozenColor = app.selectedLanguage === "sw" ? "#88006600" : "#880000aa";
                             viewComponentLoader.switchTo(languageSelectionComponent, app.width / 2, app.height / 2);
                             app.selectedLanguage = "";
                         }
