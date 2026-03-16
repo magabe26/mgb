@@ -76,3 +76,8 @@ zanzibar_kanga.jpg,
 iringa_fashion_crafts.jpeg,
 
 tururu_waterfalls.jpeg,
+
+mbozi_meteorite.jpeg,
+burigi.jpeg,
+kigosi.jpg,
+gods_bridge.jpeg,
