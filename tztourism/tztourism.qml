@@ -397,6 +397,40 @@ Rectangle {
             desc_sw: "Makao ya sokwe pembezoni mwa Ziwa Tanganyika, inayotoa uzoefu wa kipekee wa kufuatilia nyani."
         }
 
+ListElement {
+    name_en: "Isimila Stone Age Site, Iringa"; name_sw: "Eneo la Zama za Mawe la Isimila, Iringa"
+    imageFile: "./isimila.jpg"
+    desc_en: "Features towering sandstone pillars and ancient stone tools from thousands of years ago."
+    desc_sw: "Ina nguzo ndefu za mchanga na zana za mawe za kale za maelfu ya miaka iliyopita."
+}
+
+ListElement {
+    name_en: "Lake Duluti, Arusha"; name_sw: "Ziwa Duluti, Arusha"
+    imageFile: "./duluti.jpeg"
+    desc_en: "A peaceful volcanic crater lake near Arusha, ideal for canoeing."
+    desc_sw: "Ziwa tulivu la volkano karibu na Arusha, linafaa kwa kuendesha mitumbwi."
+}
+
+ListElement {
+    name_en: "Lake Eyasi, Arusha"; name_sw: "Ziwa Eyasi, Arusha"
+    imageFile: "./eyasi.jpeg"
+    desc_en: "Home to the Hadzabe tribe, one of the last hunter-gatherer groups in Africa."
+    desc_sw: "Makazi ya kabila la Wahadzabe, wawindaji na waokota matunda wa mwisho Afrika."
+}
+
+ListElement {
+    name_en: "Ibanda-Kyerwa National Park"; name_sw: "Hifadhi ya Taifa ya Ibanda-Kyerwa"
+    imageFile: "./ibanda.jpeg"
+    desc_en: "Scenic park in Kagera region featuring rolling hills and acacia woodlands."
+    desc_sw: "Hifadhi nzuri mkoani Kagera yenye vilima na misitu ya miiba."
+}
+
+ListElement {
+    name_en: "Rumanyika-Karagwe National Park"; name_sw: "Hifadhi ya Taifa ya Rumanyika-Karagwe"
+    imageFile: "./rumanyika.jpeg"
+    desc_en: "A haven for wild animals and birds in the northwest of Tanzania."
+    desc_sw: "Makazi ya wanyamapori na ndege kaskazini-magharibi mwa Tanzania."
+}
 
         ListElement {
             name_en: "Bird Watching, Serengeti";
