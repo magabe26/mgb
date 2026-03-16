@@ -23,6 +23,12 @@ Rectangle {
     property int noOfPassedQuestion: 0
     property string answerResult: ""   // "", "correct", "wrong"
     property string selectedAnswer: "" // the option the user tapped
+    property int questionsAttempted: maxQuestions // tracks how many were shown
+    property int speedBonusTotal: 0   // jumla ya pointi za kasi (kwa IQ bora)
+    property int lastSpeedBonus: 0    // bonus ya swali la mwisho (kwa popup)
+
+    // Hifadhi majibu ya kila swali ili yaonyeshwe kwenye matokeo
+    ListModel { id: userAnswers }  // { q, correct, chosen, wasCorrect }
 
 
     // --- IQ CATEGORY LOGIC ---
@@ -144,7 +150,6 @@ Rectangle {
         // Inafuta mabano na yaliyomo ndani, kisha inafuta nafasi zilizoziada
         return text.replace(/\s*\(.*?\)\s*/g, "").trim();
     }
-
 
     // --- QUESTION MODEL (Maswali 26) ---
     ListModel {
@@ -307,7 +312,7 @@ Rectangle {
         ListElement { q: "Kiti cha Spika wa Bunge la Tanzania kipo mji gani?"; a: "Dar es Salaam"; b: "Dodoma"; c: "Arusha"; d: "Zanzibar"; correct: "Dodoma" }
 
         // UTAMADUNI
-        ListElement { q: "Lugha ipi inatambulika kama lugha ya Taifa na kiunganishi cha Watanzania?"; a: "Kiingereza"; b: "Kiswahili"; c: "Kiarabu"; d: "Kinyamwezi"; correct: "Kiswahili" }
+        ListElement { q: "Neno 'Ujamaa' lililokuwa falsafa ya Tanzania linamaanisha nini?"; a: "Uhuru wa binadamu"; b: "Undugu/Familia"; c: "Nguvu za pamoja"; d: "Amani na utulivu"; correct: "Undugu/Familia" }
         ListElement { q: "Mavazi ya asili ya kabila la Wamasai yanaitwa?"; a: "Kanzu"; b: "Shuka"; c: "Lubega"; d: "Suti"; correct: "Shuka" }
         ListElement { q: "Sikukuu ya 'Nane Nane' nchini Tanzania huadhimisha nini?"; a: "Wafanyakazi"; b: "Wakulima"; c: "Muungano"; d: "Mapinduzi"; correct: "Wakulima" }
         ListElement { q: "Ngoma ya asili ya kabila la Wasukuma inayohusisha nyoka inaitwa?"; a: "Bugobogobo"; b: "Bughu"; c: "Mdundiko"; d: "Sindimba"; correct: "Bugobogobo" }
@@ -348,7 +353,7 @@ Rectangle {
 
         ListElement { q: "Ni tunda gani linajulikana kwa kuwa na kiasi kikubwa cha Vitamin C?"; a: "Chungwa"; b: "Ndizi"; c: "Tikiti"; d: "Tufaha (Apple)"; correct: "Chungwa" }
         ListElement { q: "Mmea unahitaji gesi gani kutoka kwa binadamu ili kutengeneza chakula?"; a: "Oxygen"; b: "Carbon Dioxide"; c: "Nitrogen"; d: "Hydrogen"; correct: "Carbon Dioxide" }
-        ListElement { q: "Ugonjwa wa Malaria husababishwa na vimelea vinavyoenezwa na?"; a: "Inzi"; b: "Mbu Jike (Anopheles)"; c: "Mbu Dume"; d: "Funza"; correct: "Mbu Jike (Anopheles)" }
+        ListElement { q: "Ugonjwa wa Malaria husababishwa na vimelea vya aina gani?"; a: "Virusi"; b: "Bacteria"; c: "Plasmodium"; d: "Fangasi"; correct: "Plasmodium" }
         ListElement { q: "Sehemu ya mmea inayohusika na kufyonza maji na madini ardhini ni?"; a: "Matawi"; b: "Mizizi"; c: "Maua"; d: "Shina"; correct: "Mizizi" }
         ListElement { q: "Ni vitamin gani inayopatikana kwa urahisi kupitia mwanga wa Jua la asubuhi?"; a: "Vitamin A"; b: "Vitamin C"; c: "Vitamin D"; d: "Vitamin K"; correct: "Vitamin D" }
 
@@ -578,8 +583,6 @@ Rectangle {
         ListElement { q: "Usafiri wa anga unaotumia puto kubwa lenye hewa ya moto unaitwa?"; a: "Helikopta"; b: "Hot Air Balloon"; c: "Parachute"; d: "Drone"; correct: "Hot Air Balloon" }
 
 
-        ListElement { q: "Kitendawili: Askari wangu wote huvaa kofia nyekundu."; a: "Kiberiti"; b: "Meno"; c: "Askari"; d: "Mawingu"; correct: "Kiberiti" }
-        ListElement { q: "Kitendawili: Kamba yangu ndefu lakini haifungi kuni."; a: "Njia/Barabara"; b: "Nyoka"; c: "Maji"; d: "Upepo"; correct: "Njia/Barabara" }
         ListElement { q: "Kitendawili: Huenda lakini harudi."; a: "Maji ya mto"; b: "Miguu"; c: "Gari"; d: "Muda"; correct: "Maji ya mto" }
         ListElement { q: "Kitendawili: Nyumbani kwangu kumesitiriwa kwa kuta nyeupe lakini hakuingiliki."; a: "Yai"; b: "Chumba"; c: "Gereza"; d: "Chupa"; correct: "Yai" }
         ListElement { q: "Kitendawili: Anatembea kwa miguu minne asubuhi, miwili mchana, na mitatu jioni."; a: "Binadamu"; b: "Kobe"; c: "Mzee"; d: "Mtoto"; correct: "Binadamu" }
@@ -686,8 +689,8 @@ Rectangle {
         ListElement { q: "Klabu ya Azam FC inamilikiwa na nani?"; a: "Mo Dewji"; b: "GSM"; c: "Said Salim Bakhresa"; d: "Manji"; correct: "Said Salim Bakhresa" }
 
         ListElement { q: "Mti gani maarufu Tanzania unaitwa 'Mti wa Maisha' (Tree of Life)?"; a: "Mwembe"; b: "Mbuyu"; c: "Mkaratusi"; d: "Mnazi"; correct: "Mbuyu" }
-        ListElement { q: "Zao kuu la biashara visiwani Zanzibar ni?"; a: "Karafuu"; b: "Pamba"; c: "Tumbaku"; d: "Chai"; correct: "Karafuu" }
-        ListElement { q: "Mmea gani hutumika kutengeneza kamba na magunia?"; a: "Mkonge"; b: "Mpunga"; c: "Mkatani"; d: "Mkonge"; correct: "Mkonge" }
+        ListElement { q: "Zanzibar inajulikana kimataifa kama 'Kisiwa cha' nini kutokana na zao lake kuu?"; a: "Karafuu"; b: "Kahawa"; c: "Nazi"; d: "Tangawizi"; correct: "Karafuu" }
+        ListElement { q: "Mmea gani hutumika kutengeneza kamba na magunia?"; a: "Mkonge"; b: "Mpunga"; c: "Mkatani"; d: "Mwanzi"; correct: "Mkonge" }
         ListElement { q: "Mmea gani hutoa mafuta ya kula kwa wingi mkoani Singida?"; a: "Alizeti"; b: "Pamba"; c: "Karanga"; d: "Ufuta"; correct: "Alizeti" }
         ListElement { q: "Zao la Chai hustawi zaidi katika mkoa gani?"; a: "Dodoma"; b: "Njombe"; c: "Mwanza"; d: "Dar"; correct: "Njombe" }
         ListElement { q: "Mti wa Mnazi hutoa bidhaa gani maarufu pwani?"; a: "Mafuta ya mawese"; b: "Nazi na madafu"; c: "Kahawa"; d: "Zambarau"; correct: "Nazi na madafu" }
@@ -833,6 +836,10 @@ Rectangle {
         noOfPassedQuestion = 0;
         answerResult = "";
         selectedAnswer = "";
+        questionsAttempted = maxQuestions;
+        speedBonusTotal = 0;
+        lastSpeedBonus = 0;
+        userAnswers.clear();
 
         // 6. Anza Mchezo
         viewState = "QUIZ";
@@ -852,9 +859,17 @@ Rectangle {
                 timerValue--;
             } else {
                 mainTimer.stop();
-                // Timeout: treat as wrong answer with no selection
+                // Timeout: rekodi kama jibu la makosa bila chaguo
+                var correctAns = quizModel.get(currentIdx).correct;
+                userAnswers.append({
+                    "q":          quizModel.get(currentIdx).q,
+                    "correct":    correctAns,
+                    "chosen":     "",
+                    "wasCorrect": false
+                });
                 answerResult = "wrong";
                 selectedAnswer = "";
+                lastSpeedBonus = 0;
                 feedbackTimer.start();
             }
         }
@@ -864,14 +879,26 @@ Rectangle {
         if (answerResult !== "") return; // block double-tap during feedback
         mainTimer.stop();
         selectedAnswer = selected;
-        var isCorrect = (selected === quizModel.get(currentIdx).correct) || (selected === "");
-        if (selected !== "" && selected === quizModel.get(currentIdx).correct) {
-            totalScore += (timerValue * 3) + 10;
+        var correctAns = quizModel.get(currentIdx).correct;
+        var wasRight = (selected !== "" && selected === correctAns);
+        if (wasRight) {
+            var bonus = timerValue * 3;
+            totalScore += bonus + 10;
+            speedBonusTotal += bonus;
+            lastSpeedBonus = bonus;
             ++app.noOfPassedQuestion;
             answerResult = "correct";
         } else {
+            lastSpeedBonus = 0;
             answerResult = "wrong";
         }
+        // Hifadhi rekodi ya swali hili
+        userAnswers.append({
+            "q":          quizModel.get(currentIdx).q,
+            "correct":    correctAns,
+            "chosen":     selected,
+            "wasCorrect": wasRight
+        });
         feedbackTimer.start();
     }
 
@@ -883,6 +910,7 @@ Rectangle {
             timerValue = timeInterval;
             mainTimer.start();
         } else {
+            questionsAttempted = quizModel.count;
             viewState = "END";
             app.ad();
         }
@@ -1445,6 +1473,89 @@ Rectangle {
                     }
                 }
 
+                // ── SPEED BONUS POPUP ─────────────────────────────────
+                // Popup inayoruka juu inapojibu sahihi — inaonyesha bonus ya kasi
+                Item {
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: 0   // haichukui nafasi — popup ni overlay
+                    clip: false
+
+                    Item {
+                        id: speedPopup
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        y: 0
+                        width: speedPopupRow.implicitWidth + Math.round(20 * dp)
+                        height: Math.round(32 * dp)
+                        opacity: 0
+                        visible: opacity > 0
+
+                        // Acha ifanye kazi mara answerResult inabadilika kuwa "correct"
+                        states: State {
+                            name: "visible"
+                            when: answerResult === "correct" && lastSpeedBonus > 0
+                            PropertyChanges { target: speedPopup; opacity: 1.0; y: Math.round(-44 * dp) }
+                        }
+
+                        transitions: [
+                            Transition {
+                                from: ""; to: "visible"
+                                NumberAnimation { target: speedPopup; property: "opacity"; from: 0; to: 1.0; duration: 150 }
+                                NumberAnimation { target: speedPopup; property: "y"; from: 0; to: Math.round(-44 * dp); duration: 350; easing.type: Easing.OutCubic }
+                            },
+                            Transition {
+                                from: "visible"; to: ""
+                                NumberAnimation { target: speedPopup; property: "opacity"; from: 1.0; to: 0; duration: 300 }
+                                NumberAnimation { target: speedPopup; property: "y"; from: Math.round(-44 * dp); to: Math.round(-64 * dp); duration: 300; easing.type: Easing.InCubic }
+                            }
+                        ]
+
+                        Rectangle {
+                            anchors.fill: parent
+                            radius: Math.round(16 * dp)
+                            color: Qt.rgba(0.0, 0.13, 0.13, 0.92)
+                            border.color: gold
+                            border.width: 1
+
+                            // Glow effect
+                            layer.enabled: true
+                            layer.effect: Glow {
+                                radius: 6
+                                samples: 12
+                                color: gold
+                                spread: 0.1
+                            }
+                        }
+
+                        Row {
+                            id: speedPopupRow
+                            anchors.centerIn: parent
+                            spacing: Math.round(5 * dp)
+
+                            Text {
+                                text: "\u26A1"   // ⚡
+                                font.pointSize: 12
+                                color: gold
+                                anchors.verticalCenter: parent.verticalCenter
+                            }
+                            Text {
+                                text: "+" + lastSpeedBonus + " pointi"
+                                font.pointSize: 12
+                                font.bold: true
+                                color: gold
+                                anchors.verticalCenter: parent.verticalCenter
+                            }
+                            Text {
+                                text: "KASI!"
+                                font.pointSize: 9
+                                font.bold: true
+                                font.letterSpacing: Math.round(1.5 * dp)
+                                color: goldGlow
+                                anchors.verticalCenter: parent.verticalCenter
+                            }
+                        }
+                    }
+                }
+
                 // ── KIMBIA ────────────────────────────────────
                 Item {
                     Layout.fillWidth: true
@@ -1460,6 +1571,10 @@ Rectangle {
                             anchors.fill: parent
                             onClicked: {
                                 mainTimer.stop();
+                                feedbackTimer.stop();
+                                answerResult = "";
+                                selectedAnswer = "";
+                                questionsAttempted = currentIdx;
                                 viewState = "END";
                                 app.ad();
                             }
@@ -1476,7 +1591,22 @@ Rectangle {
     Item {
         id: endView
         anchors.fill: parent
-        property int finalIQ: 70 + Math.round((noOfPassedQuestion / 26) * 70) + Math.min(5, Math.floor(totalScore / 500))
+        // --- IQ FORMULA ILIYOBORESHWA ---
+        // Accuracy (sahihi / jumla) ndiyo msingi mkuu wa IQ
+        // Speed bonus inaongeza kidogo (max +10 pointi za IQ)
+        // Mtu asiyejibu chochote → IQ 70 (kiwango cha chini)
+        // Mtu anayejibu yote kwa kasi → IQ 145
+        property int finalIQ: {
+            var accuracy = noOfPassedQuestion / Math.max(questionsAttempted, 1);
+            // Base IQ kutoka 70 hadi 135 kulingana na usahihi
+            var baseIQ = 70 + Math.round(accuracy * 65);
+            // Speed bonus: max pointi za kasi zinazowezekana = questionsAttempted * timeInterval * 3
+            var maxSpeed = questionsAttempted * timeInterval * 3;
+            var speedRatio = maxSpeed > 0 ? Math.min(speedBonusTotal / maxSpeed, 1.0) : 0;
+            // Speed inaongeza hadi pointi 10 za IQ — lakini tu kama accuracy >= 50%
+            var speedIQ = accuracy >= 0.5 ? Math.round(speedRatio * 10) : 0;
+            return Math.min(145, baseIQ + speedIQ);
+        }
         opacity: viewState === "END" ? 1.0 : 0.0
         enabled: viewState === "END"
         Behavior on opacity { NumberAnimation { duration: 300 } }
@@ -1604,8 +1734,8 @@ Rectangle {
 
                     Repeater {
                         model: [
-                            { icon: "\u2713", val: noOfPassedQuestion,          lbl: "Sahihi" },
-                            { icon: "x", val: maxQuestions - noOfPassedQuestion, lbl: "Makosa" }
+                            { icon: "\u2713", val: noOfPassedQuestion,                   lbl: "Sahihi" },
+                            { icon: "x", val: questionsAttempted - noOfPassedQuestion,   lbl: "Makosa" }
                         ]
                         delegate: Rectangle {
                             width: (statsCardsRow.width - Math.round(10 * dp)) / 2
@@ -1629,6 +1759,154 @@ Rectangle {
                                     font.pointSize: 10
                                     color: textDim
                                     font.letterSpacing: 1
+                                }
+                            }
+                        }
+                    }
+                }
+
+                Item { width: 1; height: Math.round(4 * dp) }
+
+                // ── MAPITIO YA MASWALI (Maswali yaliyokosewa) ──────────
+                Item {
+                    width: parent.width
+                    // Onyesha tu kama kuna makosa
+                    height: wrongReviewCol.implicitHeight
+                    visible: userAnswers.count > 0 && (questionsAttempted - noOfPassedQuestion) > 0
+
+                    Column {
+                        id: wrongReviewCol
+                        width: parent.width
+                        spacing: Math.round(8 * dp)
+
+                        // Kichwa cha sehemu
+                        Rectangle {
+                            width: parent.width
+                            height: Math.round(40 * dp)
+                            radius: Math.round(10 * dp)
+                            color: Qt.rgba(0.94, 0.27, 0.27, 0.12)
+                            border.color: Qt.rgba(0.94, 0.27, 0.27, 0.35)
+                            border.width: 1
+
+                            Row {
+                                anchors.centerIn: parent
+                                spacing: Math.round(8 * dp)
+                                Text {
+                                    text: "\u26A0"
+                                    font.pointSize: 11
+                                    color: danger
+                                    anchors.verticalCenter: parent.verticalCenter
+                                }
+                                Text {
+                                    text: "MASWALI YALIYOKOSEWA  (" + (questionsAttempted - noOfPassedQuestion) + ")"
+                                    font.pointSize: 10
+                                    font.bold: true
+                                    font.letterSpacing: Math.round(1 * dp)
+                                    color: danger
+                                    anchors.verticalCenter: parent.verticalCenter
+                                }
+                            }
+                        }
+
+                        // Orodha ya maswali yaliyokosewa
+                        Repeater {
+                            model: userAnswers
+                            delegate: Item {
+                                width: wrongReviewCol.width
+                                height: model.wasCorrect ? 0 : wrongCard.implicitHeight + Math.round(2 * dp)
+                                visible: !model.wasCorrect
+                                clip: true
+
+                                Rectangle {
+                                    id: wrongCard
+                                    width: parent.width
+                                    implicitHeight: wrongCardCol.implicitHeight + Math.round(16 * dp)
+                                    radius: Math.round(10 * dp)
+                                    color: card
+                                    border.color: Qt.rgba(0.94, 0.27, 0.27, 0.2)
+                                    border.width: 1
+
+                                    Column {
+                                        id: wrongCardCol
+                                        anchors {
+                                            left: parent.left; right: parent.right
+                                            top: parent.top
+                                            margins: Math.round(12 * dp)
+                                        }
+                                        spacing: Math.round(7 * dp)
+
+                                        // Swali
+                                        Text {
+                                            width: parent.width
+                                            text: (index + 1) + ". " + model.q
+                                            font.pointSize: 11
+                                            font.bold: true
+                                            color: textPri
+                                            wrapMode: Text.WordWrap
+                                            lineHeight: 1.35
+                                            lineHeightMode: Text.ProportionalHeight
+                                        }
+
+                                        // Jibu sahihi
+                                        Row {
+                                            spacing: Math.round(6 * dp)
+                                            Rectangle {
+                                                width: Math.round(18 * dp); height: width
+                                                radius: Math.round(4 * dp)
+                                                color: Qt.rgba(0.13, 0.77, 0.33, 0.2)
+                                                Text {
+                                                    anchors.centerIn: parent
+                                                    text: "\u2713"
+                                                    font.pointSize: 8
+                                                    font.bold: true
+                                                    color: success
+                                                }
+                                            }
+                                            Text {
+                                                text: app.cleanOption(model.correct)
+                                                font.pointSize: 10
+                                                color: success
+                                                wrapMode: Text.WordWrap
+                                                width: wrongCardCol.width - Math.round(24 * dp)
+                                                anchors.verticalCenter: parent.verticalCenter
+                                            }
+                                        }
+
+                                        // Jibu la mtumiaji (kama alitoa jibu)
+                                        Row {
+                                            spacing: Math.round(6 * dp)
+                                            visible: model.chosen !== ""
+                                            Rectangle {
+                                                width: Math.round(18 * dp); height: width
+                                                radius: Math.round(4 * dp)
+                                                color: Qt.rgba(0.94, 0.27, 0.27, 0.2)
+                                                Text {
+                                                    anchors.centerIn: parent
+                                                    text: "\u2717"
+                                                    font.pointSize: 8
+                                                    font.bold: true
+                                                    color: danger
+                                                }
+                                            }
+                                            Text {
+                                                text: app.cleanOption(model.chosen)
+                                                font.pointSize: 10
+                                                color: danger
+                                                wrapMode: Text.WordWrap
+                                                width: wrongCardCol.width - Math.round(24 * dp)
+                                                anchors.verticalCenter: parent.verticalCenter
+                                            }
+                                        }
+
+                                        // Timeout label
+                                        Text {
+                                            visible: model.chosen === ""
+                                            text: "\u23F0  Muda uliisha"
+                                            font.pointSize: 10
+                                            font.italic: true
+                                            color: textDim
+                                        }
+                                    }
                                 }
                             }
                         }
