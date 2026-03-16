@@ -1922,7 +1922,7 @@ Rectangle {
                             }
                             Text {
                                 anchors.horizontalCenter: parent.horizontalCenter
-                                text: "Yaliyokimbwa"
+                                text: "Yaliyokimbiwa"
                                 font.pointSize: 9
                                 color: textDim
                                 font.letterSpacing: 1
@@ -1949,7 +1949,7 @@ Rectangle {
                             }
                             Text {
                                 anchors.horizontalCenter: parent.horizontalCenter
-                                text: "Penalty ya kukimbia"
+                                text: "Penati ya kukimbia"
                                 font.pointSize: 9
                                 color: textDim
                                 font.letterSpacing: 1
