@@ -3237,7 +3237,8 @@ Rectangle {
                 width: floatingBtnText.implicitWidth + 16
                 height: Qt.platform.os === "android" ? 36 : 26
                 radius: height / 2
-                color: app.selectedLanguage === "sw" ? "green" : "blue"
+                property color frozenColor: app.selectedLanguage === "sw" ? "green" : "blue"
+                color: frozenColor
                 opacity: 0.85
 
                 Text {
@@ -3262,6 +3263,7 @@ Rectangle {
                     onReleased: floatingBackBtn.pressed = false
                     onCanceled: floatingBackBtn.pressed = false
                     onClicked: {
+                        floatingBackBtn.frozenColor = app.selectedLanguage === "sw" ? "green" : "blue";
                         app.searchText = "";
                         viewComponentLoader.switchTo(languageSelectionComponent, app.width / 2, app.height / 2);
                         app.selectedLanguage = "";
