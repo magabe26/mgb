@@ -3,10 +3,70 @@ import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.14
 
 Rectangle {
-    id: root
-    width: parent ? parent.width : 400
+    id: app
+    width:  parent ? parent.width  : 400
     height: parent ? parent.height : 800
     color: "#0a0a0a"
+
+    // ── App wrapper helpers (kwa mazingira ya nje) ────────────────────────────
+    function cleanParent(t) {
+        return t ? t.replace(/\s*\(.*?\)\s*/g, "").trim() : "";
+    }
+    function isPrimaryResultsApp() {
+        return (typeof n3ctaApp !== "undefined");
+    }
+    function isSecondaryResultsApp() {
+        return (typeof loader !== "undefined");
+    }
+    function isInsideApp() {
+        var t = cleanParent(String(parent.parent.parent.parent));
+        if (isPrimaryResultsApp()) return t === "QQuickRootItem";
+        var i = t.indexOf("_");
+        return i !== -1 && t.substr(0, i) === "SwipeView";
+    }
+    function isQMLDialogApp() {
+        return cleanParent(String(parent.parent.parent)) === "QQuickRectangle";
+    }
+    function closeIfInsideApp() {
+        if (!isInsideApp()) return;
+        if (isPrimaryResultsApp()) {
+            n3ctaApp.closeCustomPage();
+        } else if (isSecondaryResultsApp()) {
+            loader.isMenuWindowVisible = true;
+            loader.isMainResultsWindowVisible = true;
+            loader.isFooterVisible = true;
+            if (typeof loader.mode !== "undefined") loader.mode = 2;
+            loader.closeCustomPage();
+        }
+    }
+    function closeIfQMLDialogApp() {
+        if (!isQMLDialogApp()) return;
+        if (isPrimaryResultsApp()) {
+            n3ctaApp.closeQMLDialog();
+        } else if (isSecondaryResultsApp()) {
+            nectaMainResultsPageDownloaderHtmlToXmlConveterAndSaver.closeQMLDialog();
+        }
+    }
+    function cmd(url) {
+        if (isPrimaryResultsApp()) {
+            n3ctaApp.onUrlVisited(url);
+        } else if (isSecondaryResultsApp()) {
+            if (isQMLDialogApp()) {
+                n3ctaQmlConnectionsPipe.onUrlVisited(url);
+            } else if (isInsideApp()) {
+                loader.onUrlVisited(url);
+            }
+        }
+    }
+    function showToastMessage(msg) {
+        if (isPrimaryResultsApp()) {
+            n3ctaApp.showToastMessage(msg);
+        } else if (isSecondaryResultsApp()) {
+            nectaMainResultsPageDownloaderHtmlToXmlConveterAndSaver.showToastMessage(msg);
+        }
+    }
+    function ad() { cmd("#showGoogleAd"); }
+    function close() { closeIfInsideApp(); closeIfQMLDialogApp(); ad(); }
 
     readonly property color gold:       "#c9a84c"
     readonly property color goldDim:    "#7a6128"
@@ -109,15 +169,24 @@ Rectangle {
                 Grid {
                     anchors.horizontalCenter: parent.horizontalCenter; columns: 2; spacing: Math.round(10*dp)
                     Repeater {
-                        model: [ {label:"Wasifu",icon:"\uD83D\uDCCC",sec:1}, {label:"Mafanikio",icon:"\u2605",sec:2}, {label:"Maneno",icon:"\uD83D\uDCAC",sec:3}, {label:"Picha",icon:"\uD83D\uDDBC",sec:4} ]
+                        model: [ {label:"Wasifu",icon:"\uD83D\uDCCC",sec:1}, {label:"Mafanikio",icon:"\u2605",sec:2}, {label:"Maneno",icon:"\uD83D\uDCAC",sec:3}, {label:"Picha",icon:"\uD83D\uDDBC",sec:4}, {label:"Funga",icon:"X",sec:5} ]
                         delegate: Rectangle {
                             width: Math.round(138*dp); height: Math.round(56*dp); radius: Math.round(12*dp); color: darkCard
                             border.color: Qt.rgba(0.79,0.66,0.30,0.25); border.width: 1
                             Row { anchors.centerIn: parent; spacing: Math.round(8*dp)
                                 Text { text: modelData.icon; font.pointSize: Math.round(16*dp); anchors.verticalCenter: parent.verticalCenter }
-                                Text { text: modelData.label; font.pointSize: Math.round(11*dp); font.bold: true; color: cream; anchors.verticalCenter: parent.verticalCenter }
+                                Text { text: modelData.label; font.pointSize: Math.round(10*dp); font.bold: true; color: cream; anchors.verticalCenter: parent.verticalCenter }
                             }
-                            MouseArea { anchors.fill: parent; onPressed: parent.scale=0.95; onReleased: { parent.scale=1.0; section=modelData.sec } onCanceled: parent.scale=1.0 }
+                            MouseArea { anchors.fill: parent; onPressed: parent.scale=0.95;
+                                onReleased: {
+                                    if(modelData.sec === 5){
+                                       app.close();
+                                        return;
+                                    }
+                                    parent.scale=1.0;
+                                    section=modelData.sec;
+                                }
+                                onCanceled: parent.scale=1.0 }
                             Behavior on scale { NumberAnimation { duration: 100 } }
                         }
                     }
