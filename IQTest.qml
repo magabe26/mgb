@@ -19,6 +19,7 @@ Rectangle {
     property int timeInterval: 20
     property int timerValue: timeInterval
     property string viewState: "START"
+    // Itabadilishwa kuwa ONBOARD Component.onCompleted kama ni mara ya kwanza
     property int maxQuestions: 26
     property int noOfPassedQuestion: 0
     property string answerResult: ""
@@ -38,6 +39,14 @@ Rectangle {
     Settings {
         id: highscoreSettings
         property int bestIQ: 0
+        property bool hasSeenOnboard: false
+    }
+
+    // Weka viewState kuwa ONBOARD kama ni mara ya kwanza
+    Component.onCompleted: {
+        if (!highscoreSettings.hasSeenOnboard) {
+            viewState = "ONBOARD";
+        }
     }
 
     // Hifadhi majibu ya kila swali
@@ -2771,7 +2780,11 @@ Rectangle {
                     MouseArea {
                         anchors.fill: parent
                         onPressed:  { retryBtn.scale = 0.97; }
-                        onReleased: { retryBtn.scale = 1.0; app.startCountdown(); }
+                        onReleased: {
+                            retryBtn.scale = 1.0;
+                            transitionCurtain.action = "retry";
+                            curtainAnim.start();
+                        }
                         onCanceled: { retryBtn.scale = 1.0; }
                     }
                     Behavior on scale { NumberAnimation { duration: 100 } }
@@ -2809,7 +2822,11 @@ Rectangle {
                     MouseArea {
                         anchors.fill: parent
                         onPressed:  { changeCatBtn.scale = 0.97; }
-                        onReleased: { changeCatBtn.scale = 1.0; viewState = "START"; }
+                        onReleased: {
+                            changeCatBtn.scale = 1.0;
+                            transitionCurtain.action = "start";
+                            curtainAnim.start();
+                        }
                         onCanceled: { changeCatBtn.scale = 1.0; }
                     }
                     Behavior on scale { NumberAnimation { duration: 100 } }
@@ -2845,6 +2862,250 @@ Rectangle {
 
                 Item { width: 1; height: Math.round(8 * dp) }
             }
+        }
+    }
+
+    // ══════════════════════════════════════════════════════
+    // VIEW: ONBOARDING — inaonyeshwa mara ya kwanza tu
+    // ══════════════════════════════════════════════════════
+    Item {
+        id: onboardView
+        anchors.fill: parent
+        opacity: viewState === "ONBOARD" ? 1.0 : 0.0
+        enabled: viewState === "ONBOARD"
+        Behavior on opacity { NumberAnimation { duration: 350 } }
+
+        // Background gradient overlay
+        Rectangle {
+            anchors.fill: parent
+            gradient: Gradient {
+                GradientStop { position: 0.0; color: "#020d0d" }
+                GradientStop { position: 1.0; color: "#041a1a" }
+            }
+        }
+
+        Flickable {
+            anchors.fill: parent
+            contentWidth: width
+            contentHeight: onboardCol.implicitHeight + Math.round(60 * dp)
+            clip: true
+            boundsBehavior: Flickable.StopAtBounds
+
+            Column {
+                id: onboardCol
+                width: parent.width
+                spacing: 0
+
+                // Header
+                Item { width: 1; height: Math.round(52 * dp) }
+
+                // Logo / Icon
+                Rectangle {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: Math.round(90 * dp)
+                    height: width
+                    radius: width / 2
+                    gradient: Gradient {
+                        GradientStop { position: 0.0; color: "#007a8a" }
+                        GradientStop { position: 1.0; color: "#00e5ff" }
+                    }
+                    Text {
+                        anchors.centerIn: parent
+                        text: "IQ"
+                        font.pointSize: 30
+                        font.bold: true
+                        color: "#020d0d"
+                    }
+                }
+
+                Item { width: 1; height: Math.round(24 * dp) }
+
+                // Title
+                Text {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    text: "Karibu Samia IQ Lab!"
+                    font.pointSize: 20
+                    font.bold: true
+                    color: "#00e5ff"
+                    font.letterSpacing: 1
+                }
+
+                Item { width: 1; height: Math.round(6 * dp) }
+
+                Text {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: parent.width - Math.round(48 * dp)
+                    text: "Pima akili yako na ujaribu maswali kutoka mada mbalimbali za Tanzania na dunia."
+                    font.pointSize: 11
+                    color: "#8ab8b8"
+                    horizontalAlignment: Text.AlignHCenter
+                    wrapMode: Text.WordWrap
+                }
+
+                Item { width: 1; height: Math.round(36 * dp) }
+
+                // Steps
+                Repeater {
+                    model: [
+                        { icon: "\u2460", title: "Chagua Mada",    desc: "Chagua mada unayopenda au cheza maswali yote mchanganyiko." },
+                        { icon: "\u2461", title: "Jibu Haraka",    desc: "Kila swali lina muda maalum. Jibu haraka zaidi upate bonus ya kasi!" },
+                        { icon: "\u2462", title: "Pata IQ Yako",   desc: "Matokeo yako yanakokotolewa kulingana na usahihi na kasi yako." },
+                        { icon: "\u2463", title: "Vunja Rekodi",   desc: "Jaribu tena na tena uboreshe IQ yako ya juu zaidi." },
+                    ]
+                    delegate: Item {
+                        width: onboardCol.width
+                        height: stepRow.implicitHeight + Math.round(28 * dp)
+
+                        Row {
+                            id: stepRow
+                            anchors {
+                                left: parent.left; right: parent.right
+                                verticalCenter: parent.verticalCenter
+                                leftMargin: Math.round(28 * dp)
+                                rightMargin: Math.round(28 * dp)
+                            }
+                            spacing: Math.round(16 * dp)
+
+                            // Icon circle
+                            Rectangle {
+                                width: Math.round(44 * dp); height: width
+                                radius: width / 2
+                                color: Qt.rgba(0, 0.9, 1, 0.1)
+                                border.color: Qt.rgba(0, 0.9, 1, 0.25)
+                                border.width: 1
+                                anchors.verticalCenter: parent.verticalCenter
+                                Text {
+                                    anchors.centerIn: parent
+                                    text: modelData.icon
+                                    font.pointSize: 18
+                                    color: "#00e5ff"
+                                }
+                            }
+
+                            Column {
+                                spacing: Math.round(3 * dp)
+                                width: parent.width - Math.round(44 * dp) - Math.round(16 * dp)
+                                anchors.verticalCenter: parent.verticalCenter
+                                Text {
+                                    text: modelData.title
+                                    font.pointSize: 12
+                                    font.bold: true
+                                    color: "#e0f7f7"
+                                }
+                                Text {
+                                    text: modelData.desc
+                                    font.pointSize: 10
+                                    color: "#8ab8b8"
+                                    wrapMode: Text.WordWrap
+                                    width: parent.width
+                                }
+                            }
+                        }
+
+                        // Divider
+                        Rectangle {
+                            anchors.bottom: parent.bottom
+                            anchors.left: parent.left; anchors.right: parent.right
+                            anchors.leftMargin: Math.round(28 * dp)
+                            anchors.rightMargin: Math.round(28 * dp)
+                            height: 1
+                            color: Qt.rgba(0, 0.9, 1, 0.07)
+                            visible: index < 3
+                        }
+                    }
+                }
+
+                Item { width: 1; height: Math.round(36 * dp) }
+
+                // CTA Button
+                Rectangle {
+                    id: onboardBtn
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: parent.width - Math.round(48 * dp)
+                    height: Math.round(56 * dp)
+                    radius: Math.round(16 * dp)
+                    gradient: Gradient {
+                        orientation: Gradient.Horizontal
+                        GradientStop { position: 0.0; color: "#007a8a" }
+                        GradientStop { position: 1.0; color: "#f0c040" }
+                    }
+                    Text {
+                        anchors.centerIn: parent
+                        text: "ANZA KUCHEZA  \u203a"
+                        font.pointSize: 13
+                        font.bold: true
+                        font.letterSpacing: Math.round(2 * dp)
+                        color: "#020d0d"
+                    }
+                    MouseArea {
+                        anchors.fill: parent
+                        onPressed:  { onboardBtn.scale = 0.97; }
+                        onReleased: {
+                            onboardBtn.scale = 1.0;
+                            highscoreSettings.hasSeenOnboard = true;
+                            viewState = "START";
+                        }
+                        onCanceled: { onboardBtn.scale = 1.0; }
+                    }
+                    Behavior on scale { NumberAnimation { duration: 100 } }
+                }
+
+                Item { width: 1; height: Math.round(32 * dp) }
+            }
+        }
+    }
+
+    // ══════════════════════════════════════════════════════
+    // TRANSITION OVERLAY: END → START (iliyoimarishwa)
+    // ══════════════════════════════════════════════════════
+    // Inatumia "curtain" ya kijani inayofunika screen kisha kuifungua upya
+    Rectangle {
+        id: transitionCurtain
+        anchors.fill: parent
+        color: "#020d0d"
+        opacity: 0
+        visible: opacity > 0
+        z: 500
+        property string action: "start"  // "start" = rudi START, "retry" = anza mchezo upya
+
+        // Shimmer line inayopita katikati wakati wa transition
+        Rectangle {
+            id: shimmerLine
+            width: parent.width
+            height: Math.round(2 * dp)
+            y: parent.height / 2
+            gradient: Gradient {
+                orientation: Gradient.Horizontal
+                GradientStop { position: 0.0; color: "transparent" }
+                GradientStop { position: 0.4; color: "#00e5ff" }
+                GradientStop { position: 0.6; color: "#f0c040" }
+                GradientStop { position: 1.0; color: "transparent" }
+            }
+            opacity: 0
+        }
+
+        SequentialAnimation {
+            id: curtainAnim
+            // Fade in (funika screen)
+            NumberAnimation { target: transitionCurtain; property: "opacity"; from: 0; to: 1.0; duration: 280; easing.type: Easing.InCubic }
+            // Shimmer line inapita
+            ParallelAnimation {
+                NumberAnimation { target: shimmerLine; property: "opacity"; from: 0; to: 1.0; duration: 120 }
+                NumberAnimation { target: shimmerLine; property: "y"; from: 0; to: transitionCurtain.height; duration: 340; easing.type: Easing.InOutCubic }
+            }
+            // Tekeleza action iliyowekwa
+            ScriptAction {
+                script: {
+                    shimmerLine.opacity = 0;
+                    if (transitionCurtain.action === "retry") {
+                        app.startCountdown();
+                    } else {
+                        viewState = "START";
+                    }
+                }
+            }
+            // Fade out
+            NumberAnimation { target: transitionCurtain; property: "opacity"; from: 1.0; to: 0; duration: 380; easing.type: Easing.OutCubic }
         }
     }
 }
