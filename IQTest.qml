@@ -206,9 +206,9 @@ Rectangle {
 
         //LOGIC & MATH
         ListElement { q: "Robo ya 200 ikiongezewa 50 unapata?"; a: "100"; b: "150"; c: "75"; d: "250"; correct: "100"; cat: "M"; diff: 2 }
-        ListElement { q: "Kama 1=5, 2=25, 3=125, basi 5=?"; a: "625"; b: "1"; c: "3125"; d: "500"; correct: "1"; cat: "M"; diff: 2 }
+        ListElement { q: "Kama 1=5, 2=25, 3=125, basi 5=?"; a: "625"; b: "1"; c: "3125"; d: "500"; correct: "1"; cat: "LG"; diff: 2 }
         ListElement { q: "Saa kumi na mbili za jioni ni saa ngapi katika mfumo wa saa 24?"; a: "12:00"; b: "18:00"; c: "00:00"; d: "20:00"; correct: "18:00"; cat: "M"; diff: 2 }
-        ListElement { q: "Kati ya kilo 1 ya pamba na kilo 1 ya chuma, nini kizito zaidi?"; a: "Chuma"; b: "Pamba"; c: "Zinalingana"; d: "Inategemea"; correct: "Zinalingana"; cat: "M"; diff: 2 }
+        ListElement { q: "Kati ya kilo 1 ya pamba na kilo 1 ya chuma, nini kizito zaidi?"; a: "Chuma"; b: "Pamba"; c: "Zinalingana"; d: "Inategemea"; correct: "Zinalingana"; cat: "LG"; diff: 2 }
         ListElement { q: "Tafuta wastani wa namba hizi: 5, 10, 15, 20, 25"; a: "15"; b: "10"; c: "20"; d: "12"; correct: "15"; cat: "M"; diff: 2 }
 
         //MICHEZO (SPORTS)
@@ -227,7 +227,7 @@ Rectangle {
         //HESABU & LOGIC
         ListElement { q: "Ni namba gani inafuata?\n2, 5, 11, 23, ..."; a: "35"; b: "47"; c: "46"; d: "50"; correct: "47"; cat: "M"; diff: 2 }
         ListElement { q: "Tafuta thamani ya 'x' kama:\n2x + 10 = 30"; a: "5"; b: "15"; c: "10"; d: "20"; correct: "10"; cat: "M"; diff: 2 }
-        ListElement { q: "Kama 3 ni 9, na 4 ni 16, basi 6 ni nini?"; a: "36"; b: "24"; c: "12"; d: "30"; correct: "36"; cat: "M"; diff: 2 }
+        ListElement { q: "Kama 3 ni 9, na 4 ni 16, basi 6 ni nini?"; a: "36"; b: "24"; c: "12"; d: "30"; correct: "36"; cat: "LG"; diff: 2 }
         ListElement { q: "Nusu ya robo ya 400 ni ngapi?"; a: "100"; b: "50"; c: "25"; d: "200"; correct: "50"; cat: "M"; diff: 2 }
 
         //KILIMO NA UVUVI
@@ -315,12 +315,12 @@ Rectangle {
         ListElement { q: "Ziwa la pili kwa kina kirefu duniani lililopo Tanzania ni?"; a: "Victoria"; b: "Tanganyika"; c: "Nyasa"; d: "Natron"; correct: "Tanganyika"; cat: "GEO"; diff: 2 }
         ListElement { q: "Mkoa wa Dar es Salaam una wilaya ngapi kwa sasa?"; a: "3"; b: "5"; c: "7"; d: "4"; correct: "5"; cat: "GEO"; diff: 2 }
         ListElement { q: "Mto mrefu kuliko yote nchini Tanzania ni?"; a: "Rufiji"; b: "Pangani"; c: "Ruvuma"; d: "Malagarasi"; correct: "Rufiji"; cat: "GEO"; diff: 2 }
-        ListElement { q: "Hifadhi ya Saadani ina upekee gani?"; a: "Ina chui wengi"; b: "Imepakana na bahari"; c: "Ina milima"; d: "Ina baridi kali"; correct: "Imepakana na bahari"; cat: "GEO"; diff: 2 }
+        ListElement { q: "Hifadhi ya Saadani ina upekee gani?"; a: "Ina chui wengi"; b: "Imepakana na bahari"; c: "Ina milima"; d: "Ina baridi kali"; correct: "Imepakana na bahari"; cat: "UT"; diff: 2 }
 
         //IQ & LOGIC (HESABU)
         ListElement { q: "Nusu ya nusu ya 100 ni ngapi?"; a: "50"; b: "25"; c: "12.5"; d: "75"; correct: "25"; cat: "M"; diff: 2 }
-        ListElement { q: "Kuna miezi mingapi yenye siku 28?"; a: "1"; b: "12"; c: "0"; d: "6"; correct: "12"; cat: "M"; diff: 2 }
-        ListElement { q: "Kama jana ilikuwa Jumatatu, kesho kutwa itakuwa siku gani?"; a: "Jumatano"; b: "Alhamisi"; c: "Ijumaa"; d: "Jumanne"; correct: "Alhamisi"; cat: "M"; diff: 2 }
+        ListElement { q: "Kuna miezi mingapi yenye siku 28?"; a: "1"; b: "12"; c: "0"; d: "6"; correct: "12"; cat: "LG"; diff: 2 }
+        ListElement { q: "Kama jana ilikuwa Jumatatu, kesho kutwa itakuwa siku gani?"; a: "Jumatano"; b: "Alhamisi"; c: "Ijumaa"; d: "Jumanne"; correct: "Alhamisi"; cat: "LG"; diff: 2 }
         ListElement { q: "Umbo lenye pande 6 linaitwa?"; a: "Pentagon"; b: "Hexagon"; c: "Octagon"; d: "Square"; correct: "Hexagon"; cat: "M"; diff: 2 }
         ListElement { q: "Dazeni moja ni sawa na vitu vingapi?"; a: "10"; b: "12"; c: "24"; d: "6"; correct: "12"; cat: "M"; diff: 2 }
 
@@ -333,7 +333,7 @@ Rectangle {
 
         //LOGIC & MATH
         ListElement { q: "Ni namba gani inafuata?\n1, 2, 4, 7, 11, ..."; a: "15"; b: "16"; c: "14"; d: "18"; correct: "16"; cat: "M"; diff: 2 }
-        ListElement { q: "Nusu ya 2 plus 2 ni ngapi?"; a: "2"; b: "3"; c: "4"; d: "1"; correct: "3"; cat: "M"; diff: 2 }
+        ListElement { q: "Nusu ya 2 plus 2 ni ngapi?"; a: "2"; b: "3"; c: "4"; d: "1"; correct: "3"; cat: "LG"; diff: 2 }
 
         // SERIKALI NA BUNGE
         ListElement { q: "Bunge la Jamhuri ya Muungano wa Tanzania linaongozwa na nani kwa sasa?"; a: "Spika"; b: "Waziri Mkuu"; c: "Rais"; d: "Jaji Mkuu"; correct: "Spika"; cat: "UR"; diff: 2 }
@@ -356,7 +356,7 @@ Rectangle {
         ListElement { q: "Zanzibar ni maarufu kwa mlango wa aina gani wa kitamaduni?"; a: "Mlango wa Chuma"; b: "Mlango wa Nakshi (Zanzibar Door)"; c: "Mlango wa Kioo"; d: "Mlango wa Plastiki"; correct: "Mlango wa Nakshi (Zanzibar Door)"; cat: "BUR"; diff: 2 }
 
         //LOGIC & MATH
-        ListElement { q: "Kama utageuza neno 'KILIMANJARO', herufi ya tatu itakuwa?"; a: "A"; b: "R"; c: "O"; d: "J"; correct: "R"; cat: "M"; diff: 2 }
+        ListElement { q: "Kama utageuza neno 'KILIMANJARO', herufi ya tatu itakuwa?"; a: "A"; b: "R"; c: "O"; d: "J"; correct: "R"; cat: "LG"; diff: 2 }
         ListElement { q: "Tanzania imepakana na nchi ngapi?"; a: "6"; b: "8"; c: "10"; d: "7"; correct: "8"; cat: "GEO"; diff: 2 }
         ListElement { q: "Rangi za bendera ya Tanzania ni ngapi?"; a: "3"; b: "4"; c: "5"; d: "2"; correct: "4"; cat: "UR"; diff: 2 }
         ListElement { q: "Nchi ya Tanzania ipo upande gani wa bara la Afrika?"; a: "Magharibi"; b: "Kaskazini"; c: "Mashariki"; d: "Kati"; correct: "Mashariki"; cat: "GEO"; diff: 2 }
@@ -369,7 +369,7 @@ Rectangle {
         ListElement { q: "Ziwa Victoria ni maarufu kwa aina gani ya samaki wa biashara?"; a: "Sangara"; b: "Paremisi"; c: "Mwatiko"; d: "Kibua"; correct: "Sangara"; cat: "GEO"; diff: 1 }
 
         //IQ & LOGIC (HESABU)
-        ListElement { q: "Kama unayo mayai 3 na ukavunja 2, unayo mayai mangapi?"; a: "1"; b: "2"; c: "3"; d: "0"; correct: "3"; cat: "M"; diff: 2 }
+        ListElement { q: "Kama unayo mayai 3 na ukavunja 2, unayo mayai mangapi?"; a: "1"; b: "2"; c: "3"; d: "0"; correct: "3"; cat: "LG"; diff: 2 }
         ListElement { q: "Namba gani inafuata: 10, 20, 40, 80, ..."; a: "100"; b: "160"; c: "120"; d: "140"; correct: "160"; cat: "M"; diff: 2 }
         ListElement { q: "Kama kaka ana miaka 6 na dada ana nusu ya umri wake, kaka akifikisha 10, dada ana miaka mingapi?"; a: "5"; b: "7"; c: "8"; d: "3"; correct: "7"; cat: "M"; diff: 2 }
         ListElement { q: "Ni namba gani kubwa zaidi: 0.5, 0.05, 0.55, 0.1?"; a: "0.5"; b: "0.55"; c: "0.1"; d: "0.05"; correct: "0.55"; cat: "M"; diff: 2 }
@@ -378,7 +378,7 @@ Rectangle {
 
         //SAMAKI
         ListElement { q: "Samaki aina ya 'Dagaa wa Kigoma' wanapatikana katika ziwa gani?"; a: "Victoria"; b: "Tanganyika"; c: "Nyasa"; d: "Eyasi"; correct: "Tanganyika"; cat: "GEO"; diff: 1 }
-        ListElement { q: "Ni mnyama yupi anaongoza kwa uhamiaji mkubwa wa kila mwaka (Great Migration) Serengeti?"; a: "Simba"; b: "Nyumbu"; c: "Swala"; d: "Tembo"; correct: "Nyumbu"; cat: "MK"; diff: 1 }
+        ListElement { q: "Ni mnyama yupi anaongoza kwa uhamiaji mkubwa wa kila mwaka (Great Migration) Serengeti?"; a: "Simba"; b: "Nyumbu"; c: "Swala"; d: "Tembo"; correct: "Nyumbu"; cat: "UT"; diff: 1 }
         ListElement { q: "Mnyama yupi ni maarufu kwa kuwa na pembe moja au mbili na yupo hatarini kutoweka?"; a: "Kifaru"; b: "Kiboko"; c: "Ngiri"; d: "Punda"; correct: "Kifaru"; cat: "MK"; diff: 1 }
         ListElement { q: "Samaki aina ya Perege (Tilapia) hupatikana kwa wingi katika mazingira gani?"; a: "Maji ya Bahari"; b: "Maji Baridi (Maziwa/Mito)"; c: "Maji ya Chumvi"; d: "Maji ya Mafuta"; correct: "Maji Baridi (Maziwa/Mito)"; cat: "GEO"; diff: 1 }
         ListElement { q: "Mnyama yupi anaishi majini na nchi kavu na anaonekana kwa wingi mto Rufiji?"; a: "Mamba"; b: "Nyati"; c: "Duma"; d: "Sungura"; correct: "Mamba"; cat: "GEO"; diff: 1 }
@@ -399,7 +399,7 @@ Rectangle {
         ListElement { q: "Upungufu wa madini ya Chuma mwilini husababisha ugonjwa gani?"; a: "Anemia (Upungufu wa damu)"; b: "Kisukari"; c: "Pumu"; d: "Tezi dume"; correct: "Anemia (Upungufu wa damu)"; cat: "A"; diff: 2 }
 
         //LOGIC & MATH
-        ListElement { q: "Kama namba 3 ni 18, na 5 ni 30, basi 10 ni nini?"; a: "60"; b: "50"; c: "100"; d: "80"; correct: "60"; cat: "M"; diff: 2 }
+        ListElement { q: "Kama namba 3 ni 18, na 5 ni 30, basi 10 ni nini?"; a: "60"; b: "50"; c: "100"; d: "80"; correct: "60"; cat: "LG"; diff: 2 }
         ListElement { q: "Tafuta namba inayokosekana:\n100, 95, 85, 70, ?"; a: "50"; b: "60"; c: "55"; d: "45"; correct: "50"; cat: "M"; diff: 2 }
         ListElement { q: "Ni namba gani ikiidhinishwa na 0 jibu linakuwa 0?"; a: "Namba yoyote"; b: "100 pekee"; c: "Hakuna"; d: "1 pekee"; correct: "Namba yoyote"; cat: "M"; diff: 2 }
         ListElement { q: "Kama mti mmoja una matawi 5, na kila tawi lina ndege 5, kuna ndege wangapi jumla?"; a: "10"; b: "25"; c: "20"; d: "15"; correct: "25"; cat: "M"; diff: 2 }
@@ -407,17 +407,17 @@ Rectangle {
 
         // --- LOGIC ZA KUTEGA (10 QUESTIONS)
 
-        ListElement { q: "Kama unaniita, mimi huvunjika. Mimi ni nani?"; a: "Kioo"; b: "Ukuta"; c: "Ukimya"; d: "Siri"; correct: "Ukimya"; cat: "V"; diff: 3 }
-        ListElement { q: "Baba yake Juma ana watoto wanne: Januari, Februari, na Machi. Wa nne anaitwa nani?"; a: "Aprili"; b: "Juma"; c: "Mei"; d: "Agosti"; correct: "Juma"; cat: "V"; diff: 3 }
-        ListElement { q: "Ni nini kina kichwa na mguu, lakini hakina mwili?"; a: "Senti/Sarafu"; b: "Msumari"; c: "Kitanda"; d: "Mlima"; correct: "Kitanda"; cat: "V"; diff: 3 }
-        ListElement { q: "Kuna nini katikati ya 'TANZANIA'?"; a: "Z"; b: "N"; c: "A"; d: "I"; correct: "Z"; cat: "V"; diff: 3 }
-        ListElement { q: "Ninaruka bila mabawa na ninalia bila macho. Mimi ni nani?"; a: "Ndege"; b: "Wingu/Mvua"; c: "Upepo"; d: "Moshi"; correct: "Wingu/Mvua"; cat: "V"; diff: 1 }
+        ListElement { q: "Kama unaniita, mimi huvunjika. Mimi ni nani?"; a: "Kioo"; b: "Ukuta"; c: "Ukimya"; d: "Siri"; correct: "Ukimya"; cat: "LG"; diff: 3 }
+        ListElement { q: "Baba yake Juma ana watoto wanne: Januari, Februari, na Machi. Wa nne anaitwa nani?"; a: "Aprili"; b: "Juma"; c: "Mei"; d: "Agosti"; correct: "Juma"; cat: "LG"; diff: 3 }
+        ListElement { q: "Ni nini kina kichwa na mguu, lakini hakina mwili?"; a: "Senti/Sarafu"; b: "Msumari"; c: "Kitanda"; d: "Mlima"; correct: "Kitanda"; cat: "LG"; diff: 3 }
+        ListElement { q: "Kuna nini katikati ya 'TANZANIA'?"; a: "Z"; b: "N"; c: "A"; d: "I"; correct: "Z"; cat: "LG"; diff: 3 }
+        ListElement { q: "Ninaruka bila mabawa na ninalia bila macho. Mimi ni nani?"; a: "Ndege"; b: "Wingu/Mvua"; c: "Upepo"; d: "Moshi"; correct: "Wingu/Mvua"; cat: "LG"; diff: 1 }
 
-        ListElement { q: "Mtu mmoja alikuwa nje kwenye mvua kubwa bila mwavuli wala kofia, lakini unywele wake hata mmoja haukulowa. Kwa nini?"; a: "Alikimbia sana"; b: "Alikuwa na kipara (hana nywele)"; c: "Mvua ilikuwa ndogo"; d: "Alivaa koti"; correct: "Alikuwa na kipara (hana nywele)"; cat: "V"; diff: 3 }
-        ListElement { q: "Ni nini kinaingia majini lakini hakilowi?"; a: "Kivuli"; b: "Chumvi"; c: "Karatasi"; d: "Sifongo"; correct: "Kivuli"; cat: "V"; diff: 3 }
-        ListElement { q: "Ni neno gani limeandikwa vibaya kwenye kamusi zote duniani?"; a: "Makosa"; b: "Vibaya"; c: "Uongo"; d: "Sahihisha"; correct: "Vibaya"; cat: "V"; diff: 3 }
-        ListElement { q: "Ukienda kulala saa mbili usiku na ukategesha saa ya mshale kukuamsha saa tatu asubuhi, utakuwa umelala saa ngapi?"; a: "Saa 13"; b: "Saa 1"; c: "Saa 11"; d: "Saa 9"; correct: "Saa 1"; cat: "V"; diff: 3 }
-        ListElement { q: "Kama mzungu mweusi akivaa koti la bluu na akaingia kwenye Bahari ya Shamu (Red Sea), anakuwa nani?"; a: "Mzungu mwekundu"; b: "Mlowezi"; c: "Mzungu mweusi aliyelowa"; d: "Mfu"; correct: "Mzungu mweusi aliyelowa"; cat: "V"; diff: 3 }
+        ListElement { q: "Mtu mmoja alikuwa nje kwenye mvua kubwa bila mwavuli wala kofia, lakini unywele wake hata mmoja haukulowa. Kwa nini?"; a: "Alikimbia sana"; b: "Alikuwa na kipara (hana nywele)"; c: "Mvua ilikuwa ndogo"; d: "Alivaa koti"; correct: "Alikuwa na kipara (hana nywele)"; cat: "LG"; diff: 3 }
+        ListElement { q: "Ni nini kinaingia majini lakini hakilowi?"; a: "Kivuli"; b: "Chumvi"; c: "Karatasi"; d: "Sifongo"; correct: "Kivuli"; cat: "LG"; diff: 3 }
+        ListElement { q: "Ni neno gani limeandikwa vibaya kwenye kamusi zote duniani?"; a: "Makosa"; b: "Vibaya"; c: "Uongo"; d: "Sahihisha"; correct: "Vibaya"; cat: "LG"; diff: 3 }
+        ListElement { q: "Ukienda kulala saa mbili usiku na ukategesha saa ya mshale kukuamsha saa tatu asubuhi, utakuwa umelala saa ngapi?"; a: "Saa 13"; b: "Saa 1"; c: "Saa 11"; d: "Saa 9"; correct: "Saa 1"; cat: "LG"; diff: 3 }
+        ListElement { q: "Kama mzungu mweusi akivaa koti la bluu na akaingia kwenye Bahari ya Shamu (Red Sea), anakuwa nani?"; a: "Mzungu mwekundu"; b: "Mlowezi"; c: "Mzungu mweusi aliyelowa"; d: "Mfu"; correct: "Mzungu mweusi aliyelowa"; cat: "LG"; diff: 3 }
 
         // --- VITENDAWILI
 
@@ -576,7 +576,7 @@ Rectangle {
         ListElement { q: "Eneo lenye nguvu kubwa ya uvutano angani ambapo hata mwanga hauwezi kutoroka huitwa?"; a: "Galaxy"; b: "Black Hole"; c: "Asteroid"; d: "Comet"; correct: "Black Hole"; cat: "S"; diff: 3 }
 
         ListElement { q: "Fuvu la binadamu wa kale (Zinjanthropus) liligunduliwa na kina Leakey katika bonde gani?"; a: "Ngorongoro"; b: "Olduvai Gorge"; c: "Bonde la Ufa"; d: "Kilimatinde"; correct: "Olduvai Gorge"; cat: "H"; diff: 3 }
-        ListElement { q: "Michoro ya mapangoni ya Kondoa Irangi inasadikiwa kuchorwa na nani?"; a: "Wajerumani"; b: "Watu wa kale (Bushmen)"; c: "Waarabu"; d: "Wamasai"; correct: "Watu wa kale (Bushmen)"; cat: "H"; diff: 3 }
+        ListElement { q: "Michoro ya mapangoni ya Kondoa Irangi inasadikiwa kuchorwa na nani?"; a: "Wajerumani"; b: "Watu wa kale (Bushmen)"; c: "Waarabu"; d: "Wamasai"; correct: "Watu wa kale (Bushmen)"; cat: "UT"; diff: 3 }
         ListElement { q: "Zama ambapo binadamu alianza kutumia mawe kutengeneza vifaa huitwa?"; a: "Zama za Mawe"; b: "Zama za Chuma"; c: "Zama za Viwanda"; d: "Zama za Giza"; correct: "Zama za Mawe"; cat: "H"; diff: 3 }
         ListElement { q: "Mji wa kale wa Kilwa Kisiwani ulikuwa kitovu cha biashara katika pwani ya?"; a: "Bahari ya Hindi"; b: "Bahari ya Shamu"; c: "Ziwa Victoria"; d: "Bahari ya Mediteranea"; correct: "Bahari ya Hindi"; cat: "H"; diff: 3 }
 
@@ -732,11 +732,11 @@ Rectangle {
         // --- MASWALI MAPYA (47) ---
 
         // IQ & LOGIC
-        ListElement { q: "Kama unaandika namba zote kutoka 1 hadi 20, namba '1' itaonekana mara ngapi?"; a: "10"; b: "11"; c: "12"; d: "13"; correct: "12"; cat: "M"; diff: 3 }
+        ListElement { q: "Kama unaandika namba zote kutoka 1 hadi 20, namba '1' itaonekana mara ngapi?"; a: "10"; b: "11"; c: "12"; d: "13"; correct: "12"; cat: "LG"; diff: 3 }
 
-        ListElement { q: "Ndugu wawili walizaliwa mwaka mmoja, mwezi mmoja, siku moja — lakini si mapacha. Inawezekana vipi?"; a: "Haiwezekani"; b: "Wana baba tofauti"; c: "Ni watatu wa kuzaliwa pamoja"; d: "Walizaliwa mji tofauti"; correct: "Ni watatu wa kuzaliwa pamoja"; cat: "M"; diff: 3 }
+        ListElement { q: "Ndugu wawili walizaliwa mwaka mmoja, mwezi mmoja, siku moja — lakini si mapacha. Inawezekana vipi?"; a: "Haiwezekani"; b: "Wana baba tofauti"; c: "Ni watatu wa kuzaliwa pamoja"; d: "Walizaliwa mji tofauti"; correct: "Ni watatu wa kuzaliwa pamoja"; cat: "LG"; diff: 3 }
 
-        ListElement { q: "Kama unakata mkate mara 3, unapata vipande vingapi?"; a: "3"; b: "4"; c: "6"; d: "8"; correct: "4"; cat: "M"; diff: 2 }
+        ListElement { q: "Kama unakata mkate mara 3, unapata vipande vingapi?"; a: "3"; b: "4"; c: "6"; d: "8"; correct: "4"; cat: "LG"; diff: 2 }
 
         ListElement { q: "Ni namba gani inayofuata: 1, 1, 2, 3, 5, 8, ..."; a: 1; b: "11"; c: "12"; d: "13"; correct: "13"; cat: "M"; diff: 2 }
 
@@ -754,24 +754,24 @@ Rectangle {
         ListElement { q: "Kitendawili: Nina miguu lakini siwezi kutembea, nina mkono lakini siwezi kushika. Mimi ni nani?"; a: "Sanduku"; b: "Meza"; c: "Kiti"; d: "Kabati"; correct: "Meza"; cat: "V"; diff: 2 }
 
         // HESABU YA AKILI
-        ListElement { q: "Kama mwalimu anasema: 'Nusu ya wanafunzi wangu ni wasichana, robo ni wavulana, waliobaki ni 6.' Darasa lina wanafunzi wangapi?"; a: "18"; b: "24"; c: "12"; d: "30"; correct: "24"; cat: "M"; diff: 3 }
+        ListElement { q: "Kama mwalimu anasema: 'Nusu ya wanafunzi wangu ni wasichana, robo ni wavulana, waliobaki ni 6.' Darasa lina wanafunzi wangapi?"; a: "18"; b: "24"; c: "12"; d: "30"; correct: "24"; cat: "LG"; diff: 3 }
 
         // --- MASWALI MAPYA ZAIDI (37) ---
 
         // LOGIC & IQ
-        ListElement { q: "Kama A ni kubwa kuliko B, na B ni kubwa kuliko C, nani ndiye mdogo zaidi?"; a: "A"; b: "B"; c: "C"; d: "Wote ni sawa"; correct: "C"; cat: "M"; diff: 2 }
+        ListElement { q: "Kama A ni kubwa kuliko B, na B ni kubwa kuliko C, nani ndiye mdogo zaidi?"; a: "A"; b: "B"; c: "C"; d: "Wote ni sawa"; correct: "C"; cat: "LG"; diff: 2 }
         ListElement { q: "Maneno 3 ya kwanza ya alfabeti ya Kiswahili ni?"; a: "A, B, C"; b: "A, E, I"; c: "A, B, D"; d: "A, C, D"; correct: "A, B, C"; cat: "M"; diff: 1 }
-        ListElement { q: "Kama leo ni Ijumaa, siku ya 100 ijayo itakuwa siku gani?"; a: "Ijumaa"; b: "Alhamisi"; c: "Jumamosi"; d: "Jumatano"; correct: "Jumamosi"; cat: "M"; diff: 2 }
+        ListElement { q: "Kama leo ni Ijumaa, siku ya 100 ijayo itakuwa siku gani?"; a: "Ijumaa"; b: "Alhamisi"; c: "Jumamosi"; d: "Jumatano"; correct: "Jumamosi"; cat: "LG"; diff: 2 }
         ListElement { q: "Namba ngapi ikiongezwa kwenye yenyewe inatoa 0?"; a: "1"; b: "Haipo"; c: "0"; d: "2"; correct: "0"; cat: "M"; diff: 2 }
         ListElement { q: "Kama gari linasafiri umbali wa km 120 kwa saa 2, kasi yake ni km ngapi kwa saa?"; a: "60 km/h"; b: "240 km/h"; c: "80 km/h"; d: "40 km/h"; correct: "60 km/h"; cat: "M"; diff: 2 }
         ListElement { q: "Pembe zote za mstatili (Rectangle) ni nyuzi ngapi kila moja?"; a: "45"; b: "60"; c: "90"; d: "180"; correct: "90"; cat: "M"; diff: 2 }
-        ListElement { q: "Kama unapiga folda katikati mara 7, tabaka ngapi utapata?"; a: "14"; b: "49"; c: "128"; d: "64"; correct: "128"; cat: "M"; diff: 2 }
+        ListElement { q: "Kama unapiga folda katikati mara 7, tabaka ngapi utapata?"; a: "14"; b: "49"; c: "128"; d: "64"; correct: "128"; cat: "LG"; diff: 2 }
 
         // TANZANIA — JIOGRAFIA & HISTORIA
-        ListElement { q: "Mlima Kilimanjaro una urefu wa mita ngapi?"; a: "4,895m"; b: "5,895m"; c: "6,895m"; d: "3,895m"; correct: "5,895m"; cat: "GEO"; diff: 2 }
+        ListElement { q: "Mlima Kilimanjaro una urefu wa mita ngapi?"; a: "4,895m"; b: "5,895m"; c: "6,895m"; d: "3,895m"; correct: "5,895m"; cat: "UT"; diff: 2 }
         ListElement { q: "Tanzania iliungana na Zanzibar kuunda Jamhuri mwaka gani?"; a: "1961"; b: "1963"; c: "1964"; d: "1967"; correct: "1964"; cat: "UR"; diff: 2 }
         ListElement { q: "Jiji la pili kwa ukubwa nchini Tanzania ni?"; a: "Arusha"; b: "Mwanza"; c: "Dodoma"; d: "Tanga"; correct: "Mwanza"; cat: "GEO"; diff: 1 }
-        ListElement { q: "Hifadhi ya Taifa ya kwanza kuanzishwa Tanzania ni?"; a: "Serengeti"; b: "Ruaha"; c: "Mikumi"; d: "Gombe"; correct: "Serengeti"; cat: "H"; diff: 2 }
+        ListElement { q: "Hifadhi ya Taifa ya kwanza kuanzishwa Tanzania ni?"; a: "Serengeti"; b: "Ruaha"; c: "Mikumi"; d: "Gombe"; correct: "Serengeti"; cat: "UT"; diff: 2 }
         ListElement { q: "Ziwa Tanganyika ni ziwa la pili kwa kina duniani — kina chake ni mita ngapi?"; a: "800m"; b: "1,200m"; c: "1,470m"; d: "600m"; correct: "1,470m"; cat: "GEO"; diff: 2 }
         ListElement { q: "Rais wa kwanza wa Tanzania Bara (Tanganyika) alikuwa nani?"; a: "Ali Hassan Mwinyi"; b: "Julius Kambarage Nyerere"; c: "Abeid Karume"; d: "Benjamin Mkapa"; correct: "Julius Kambarage Nyerere"; cat: "H"; diff: 2 }
         ListElement { q: "Bandari kubwa zaidi ya Tanzania ipo wapi?"; a: "Tanga"; b: "Mtwara"; c: "Dar es Salaam"; d: "Zanzibar"; correct: "Dar es Salaam"; cat: "GEO"; diff: 2 }
@@ -868,16 +868,16 @@ Rectangle {
         ListElement { q: "Kisiwa cha Pemba kina mji mkuu unaeitwa?"; a: "Stone Town"; b: "Chake Chake"; c: "Wete"; d: "Mkokotoni"; correct: "Chake Chake"; cat: "GEO"; diff: 2 }
         ListElement { q: "Mkoa wa Kagera unapakana na nchi gani upande wa kaskazini?"; a: "Kenya"; b: "Uganda na Rwanda"; c: "Burundi"; d: "DRC"; correct: "Uganda na Rwanda"; cat: "GEO"; diff: 2 }
         ListElement { q: "Mji wa Mwanza unapigiwa kura kama jiji la pili kwa ukubwa Tanzania — uko karibu na ziwa gani?"; a: "Tanganyika"; b: "Nyasa"; c: "Victoria"; d: "Eyasi"; correct: "Victoria"; cat: "GEO"; diff: 1 }
-        ListElement { q: "Wilaya ya Ngorongoro inajulikana zaidi kwa nini?"; a: "Mgodi wa dhahabu"; b: "Bonde la Ngorongoro na wanyama"; c: "Mlima Kilimanjaro"; d: "Hifadhi ya samaki"; correct: "Bonde la Ngorongoro na wanyama"; cat: "GEO"; diff: 1 }
+        ListElement { q: "Wilaya ya Ngorongoro inajulikana zaidi kwa nini?"; a: "Mgodi wa dhahabu"; b: "Bonde la Ngorongoro na wanyama"; c: "Mlima Kilimanjaro"; d: "Hifadhi ya samaki"; correct: "Bonde la Ngorongoro na wanyama"; cat: "UT"; diff: 1 }
         ListElement { q: "Mji wa Tanga uliojulikana kikoloni kama 'Lango la Tanzania' uko mkoa gani?"; a: "Pwani"; b: "Moshi"; c: "Tanga"; d: "Kilimanjaro"; correct: "Tanga"; cat: "GEO"; diff: 2 }
         ListElement { q: "Mkoa ulio na mipaka na nchi nyingi zaidi Tanzania ni?"; a: "Kagera"; b: "Mara"; c: "Kigoma"; d: "Ruvuma"; correct: "Kagera"; cat: "GEO"; diff: 3 }
-        ListElement { q: "Hifadhi ya Taifa ya Serengeti ipo mkoa gani?"; a: "Mara"; b: "Arusha"; c: "Manyara"; d: "Simiyu"; correct: "Mara"; cat: "GEO"; diff: 2 }
+        ListElement { q: "Hifadhi ya Taifa ya Serengeti ipo mkoa gani?"; a: "Mara"; b: "Arusha"; c: "Manyara"; d: "Simiyu"; correct: "Mara"; cat: "UT"; diff: 2 }
         ListElement { q: "Mji wa Morogoro unajulikana kwa kitu gani?"; a: "Bandari"; b: "Mlima Uluguru na elimu (SUA)"; c: "Mgodi wa almasi"; d: "Pwani ndefu"; correct: "Mlima Uluguru na elimu (SUA)"; cat: "GEO"; diff: 2 }
         ListElement { q: "Wilaya ya Kilosa ipo mkoa gani?"; a: "Dodoma"; b: "Morogoro"; c: "Pwani"; d: "Iringa"; correct: "Morogoro"; cat: "GEO"; diff: 2 }
         ListElement { q: "Mto Rufiji unamwaga maji yake baharini katika eneo lipi?"; a: "Dar es Salaam"; b: "Lindi"; c: "Delta ya Rufiji (Pwani)"; d: "Tanga"; correct: "Delta ya Rufiji (Pwani)"; cat: "GEO"; diff: 3 }
         ListElement { q: "Mkoa wa Iringa unajulikana kwa zao gani kuu?"; a: "Kahawa"; b: "Mahindi na chai"; c: "Tumbaku"; d: "Pamba"; correct: "Mahindi na chai"; cat: "GEO"; diff: 2 }
         ListElement { q: "Jiji la Mbeya linajulikana kama 'Mlango wa Kusini' kwa sababu?"; a: "Lina bandari"; b: "Ni mpakani mwa Zambia na Malawi"; c: "Lina milima mingi"; d: "Lina soko kubwa"; correct: "Ni mpakani mwa Zambia na Malawi"; cat: "GEO"; diff: 2 }
-        ListElement { q: "Hifadhi ya Msitu wa Jozani ipo kisiwa gani?"; a: "Pemba"; b: "Unguja (Zanzibar)"; c: "Mafia"; d: "Ukerewe"; correct: "Unguja (Zanzibar)"; cat: "GEO"; diff: 2 }
+        ListElement { q: "Hifadhi ya Msitu wa Jozani ipo kisiwa gani?"; a: "Pemba"; b: "Unguja (Zanzibar)"; c: "Mafia"; d: "Ukerewe"; correct: "Unguja (Zanzibar)"; cat: "UT"; diff: 2 }
         ListElement { q: "Kisiwa cha Mafia kipo mkoa gani?"; a: "Dar es Salaam"; b: "Lindi"; c: "Pwani"; d: "Mtwara"; correct: "Pwani"; cat: "GEO"; diff: 3 }
         ListElement { q: "Mji wa Tabora uliokuwa kitovu cha njia za biashara ya watumwa unajulikana kwa jina gani la kale?"; a: "Kazeh"; b: "Ujiji"; c: "Kondoa"; d: "Kilwa"; correct: "Kazeh"; cat: "GEO"; diff: 3 }
         ListElement { q: "Mkoa wa Lindi uko upande gani wa Tanzania?"; a: "Kaskazini-Mashariki"; b: "Kusini-Mashariki"; c: "Kaskazini-Magharibi"; d: "Kati"; correct: "Kusini-Mashariki"; cat: "GEO"; diff: 1 }
@@ -886,31 +886,31 @@ Rectangle {
         ListElement { q: "Mkoa wa Geita ulianzishwa mwaka gani?"; a: "2002"; b: "2005"; c: "2012"; d: "2015"; correct: "2012"; cat: "GEO"; diff: 3 }
         ListElement { q: "Wilaya ya Kibaha ipo mkoa gani?"; a: "Dar es Salaam"; b: "Morogoro"; c: "Pwani"; d: "Tanga"; correct: "Pwani"; cat: "GEO"; diff: 2 }
         ListElement { q: "Mji wa Musoma uko pwani ya ziwa gani?"; a: "Tanganyika"; b: "Victoria"; c: "Nyasa"; d: "Natron"; correct: "Victoria"; cat: "GEO"; diff: 2 }
-        ListElement { q: "Hifadhi ya Taifa ya Ruaha ipo mkoa gani?"; a: "Iringa"; b: "Morogoro"; c: "Dodoma"; d: "Njombe"; correct: "Iringa"; cat: "GEO"; diff: 2 }
+        ListElement { q: "Hifadhi ya Taifa ya Ruaha ipo mkoa gani?"; a: "Iringa"; b: "Morogoro"; c: "Dodoma"; d: "Njombe"; correct: "Iringa"; cat: "UT"; diff: 2 }
         ListElement { q: "Mkoa wa Njombe unajulikana zaidi kwa nini?"; a: "Madini ya dhahabu"; b: "Chai na mbao"; c: "Uvuvi"; d: "Pamba"; correct: "Chai na mbao"; cat: "GEO"; diff: 2 }
         ListElement { q: "Mji wa Songea uko mkoa gani?"; a: "Lindi"; b: "Mtwara"; c: "Ruvuma"; d: "Njombe"; correct: "Ruvuma"; cat: "GEO"; diff: 1 }
         ListElement { q: "Ziwa Rukwa lipo mkoa gani?"; a: "Katavi"; b: "Kigoma"; c: "Tabora"; d: "Mbeya"; correct: "Katavi"; cat: "GEO"; diff: 3 }
         ListElement { q: "Mkoa wa Simiyu ulianzishwa kutoka mkoa gani?"; a: "Mara"; b: "Shinyanga"; c: "Mwanza"; d: "Tabora"; correct: "Shinyanga"; cat: "GEO"; diff: 3 }
         ListElement { q: "Mto Kagera unatoka wapi na kumwaga maji wapi?"; a: "Rwanda → Ziwa Victoria"; b: "Uganda → Ziwa Tanganyika"; c: "Burundi → Bahari ya Hindi"; d: "Kenya → Ziwa Nyasa"; correct: "Rwanda → Ziwa Victoria"; cat: "GEO"; diff: 3 }
         ListElement { q: "Wilaya ya Nzega ipo mkoa gani?"; a: "Shinyanga"; b: "Tabora"; c: "Mwanza"; d: "Simiyu"; correct: "Tabora"; cat: "GEO"; diff: 2 }
-        ListElement { q: "Hifadhi ya Taifa ya Mikumi ipo mkoa gani?"; a: "Iringa"; b: "Dodoma"; c: "Morogoro"; d: "Pwani"; correct: "Morogoro"; cat: "GEO"; diff: 2 }
+        ListElement { q: "Hifadhi ya Taifa ya Mikumi ipo mkoa gani?"; a: "Iringa"; b: "Dodoma"; c: "Morogoro"; d: "Pwani"; correct: "Morogoro"; cat: "UT"; diff: 2 }
         ListElement { q: "Mji wa Babati uko mkoa gani?"; a: "Arusha"; b: "Manyara"; c: "Kilimanjaro"; d: "Singida"; correct: "Manyara"; cat: "GEO"; diff: 2 }
         ListElement { q: "Mkoa wa Katavi ulijulikana zamani kwa jina gani?"; a: "Tabora Kaskazini"; b: "Mpanda"; c: "Kigoma Kusini"; d: "Rukwa Magharibi"; correct: "Mpanda"; cat: "GEO"; diff: 3 }
         ListElement { q: "Wilaya ya Monduli ipo mkoa gani?"; a: "Kilimanjaro"; b: "Manyara"; c: "Arusha"; d: "Tanga"; correct: "Arusha"; cat: "GEO"; diff: 2 }
         ListElement { q: "Mji wa Shinyanga unajulikana kwa kitu gani?"; a: "Uvuvi"; b: "Almasi na pamba"; c: "Kahawa"; d: "Chai"; correct: "Almasi na pamba"; cat: "GEO"; diff: 1 }
-        ListElement { q: "Hifadhi ya Taifa ya Gombe ipo mkoa gani na inajulikana kwa nini?"; a: "Kigoma — sokwe"; b: "Mara — simba"; c: "Kagera — ndege"; d: "Katavi — tembo"; correct: "Kigoma — sokwe"; cat: "GEO"; diff: 2 }
+        ListElement { q: "Hifadhi ya Taifa ya Gombe ipo mkoa gani na inajulikana kwa nini?"; a: "Kigoma — sokwe"; b: "Mara — simba"; c: "Kagera — ndege"; d: "Katavi — tembo"; correct: "Kigoma — sokwe"; cat: "UT"; diff: 2 }
         ListElement { q: "Wilaya ya Bagamoyo ipo mkoa gani?"; a: "Dar es Salaam"; b: "Tanga"; c: "Pwani"; d: "Morogoro"; correct: "Pwani"; cat: "GEO"; diff: 2 }
         ListElement { q: "Jiji la Dar es Salaam lina wilaya ngapi?"; a: "3"; b: "4"; c: "5"; d: "6"; correct: "5"; cat: "GEO"; diff: 2 }
         ListElement { q: "Mkoa wa Manyara ulianzishwa kutoka mkoa gani?"; a: "Arusha"; b: "Dodoma"; c: "Kilimanjaro"; d: "Singida"; correct: "Arusha"; cat: "GEO"; diff: 3 }
         ListElement { q: "Wilaya ya Muleba ipo mkoa gani?"; a: "Mwanza"; b: "Geita"; c: "Kagera"; d: "Mara"; correct: "Kagera"; cat: "GEO"; diff: 2 }
         ListElement { q: "Mji wa Korogwe uko mkoa gani?"; a: "Morogoro"; b: "Tanga"; c: "Pwani"; d: "Kilimanjaro"; correct: "Tanga"; cat: "GEO"; diff: 2 }
-        ListElement { q: "Hifadhi ya Taifa ya Mahale ipo mkoa gani na inajulikana kwa nini?"; a: "Kigoma — sokwe"; b: "Katavi — simba"; c: "Rukwa — ndege wa maji"; d: "Tabora — tembo"; correct: "Kigoma — sokwe"; cat: "GEO"; diff: 3 }
+        ListElement { q: "Hifadhi ya Taifa ya Mahale ipo mkoa gani na inajulikana kwa nini?"; a: "Kigoma — sokwe"; b: "Katavi — simba"; c: "Rukwa — ndege wa maji"; d: "Tabora — tembo"; correct: "Kigoma — sokwe"; cat: "UT"; diff: 3 }
         ListElement { q: "Wilaya ya Chato ipo mkoa gani?"; a: "Mwanza"; b: "Kagera"; c: "Geita"; d: "Mara"; correct: "Geita"; cat: "GEO"; diff: 2 }
         ListElement { q: "Mji wa Voi uko upande gani wa mpaka wa Tanzania-Kenya?"; a: "Upande wa Kenya"; b: "Upande wa Tanzania"; c: "Katikati ya mpaka"; d: "Ni jina la ziwa"; correct: "Upande wa Kenya"; cat: "GEO"; diff: 2 }
         ListElement { q: "Mkoa wa Pwani una wilaya ngapi?"; a: "5"; b: "6"; c: "7"; d: "8"; correct: "7"; cat: "GEO"; diff: 3 }
         ListElement { q: "Wilaya ya Ilala ipo jijini gani?"; a: "Mwanza"; b: "Dar es Salaam"; c: "Dodoma"; d: "Arusha"; correct: "Dar es Salaam"; cat: "GEO"; diff: 1 }
         ListElement { q: "Mji wa Bukoba uko pwani ya ziwa gani?"; a: "Tanganyika"; b: "Victoria"; c: "Nyasa"; d: "Rukwa"; correct: "Victoria"; cat: "GEO"; diff: 1 }
-        ListElement { q: "Hifadhi ya Taifa ya Kitulo ipo mkoa gani?"; a: "Mbeya"; b: "Njombe"; c: "Iringa"; d: "Songwe"; correct: "Njombe"; cat: "GEO"; diff: 3 }
+        ListElement { q: "Hifadhi ya Taifa ya Kitulo ipo mkoa gani?"; a: "Mbeya"; b: "Njombe"; c: "Iringa"; d: "Songwe"; correct: "Njombe"; cat: "UT"; diff: 3 }
         ListElement { q: "Wilaya ya Moshi ipo mkoa gani?"; a: "Arusha"; b: "Manyara"; c: "Kilimanjaro"; d: "Tanga"; correct: "Kilimanjaro"; cat: "GEO"; diff: 1 }
         ListElement { q: "Mkoa wa Songwe ulianzishwa kutoka mkoa gani mwaka 2016?"; a: "Iringa"; b: "Mbeya"; c: "Njombe"; d: "Rukwa"; correct: "Mbeya"; cat: "GEO"; diff: 3 }
         ListElement { q: "Mji wa Sumbawanga uko mkoa gani?"; a: "Katavi"; b: "Kigoma"; c: "Rukwa"; d: "Tabora"; correct: "Rukwa"; cat: "GEO"; diff: 2 }
@@ -918,7 +918,7 @@ Rectangle {
         ListElement { q: "Mji wa Lindi uko mkoa gani na upande gani wa Tanzania?"; a: "Lindi — Kusini-Mashariki"; b: "Mtwara — Kusini"; c: "Ruvuma — Kusini-Magharibi"; d: "Pwani — Mashariki"; correct: "Lindi — Kusini-Mashariki"; cat: "GEO"; diff: 2 }
         ListElement { q: "Wilaya ya Bariadi ipo mkoa gani?"; a: "Shinyanga"; b: "Mwanza"; c: "Simiyu"; d: "Mara"; correct: "Simiyu"; cat: "GEO"; diff: 2 }
         ListElement { q: "Mkoa wa Mara unapakana na nchi gani?"; a: "Uganda"; b: "Kenya"; c: "Rwanda"; d: "Burundi"; correct: "Kenya"; cat: "GEO"; diff: 2 }
-        ListElement { q: "Hifadhi ya Taifa ya Udzungwa ipo mkoa gani?"; a: "Iringa"; b: "Morogoro"; c: "Dodoma"; d: "Njombe"; correct: "Morogoro"; cat: "GEO"; diff: 3 }
+        ListElement { q: "Hifadhi ya Taifa ya Udzungwa ipo mkoa gani?"; a: "Iringa"; b: "Morogoro"; c: "Dodoma"; d: "Njombe"; correct: "Morogoro"; cat: "UT"; diff: 3 }
         ListElement { q: "Wilaya ya Masasi ipo mkoa gani?"; a: "Lindi"; b: "Ruvuma"; c: "Mtwara"; d: "Pwani"; correct: "Mtwara"; cat: "GEO"; diff: 2 }
 
         // ═══════════════════════════════════════════════════
@@ -997,7 +997,7 @@ Rectangle {
         ListElement { q: "Mbinu ya kilimo inayolinda udongo inayojumuisha kupanda miti kati ya mazao inaitwa?"; a: "Kilimo mseto (Agroforestry)"; b: "Kilimo cha matuta"; c: "Kilimo cha mikingamo"; d: "Kilimo cha mzunguko"; correct: "Kilimo mseto (Agroforestry)"; cat: "MK"; diff: 2 }
         ListElement { q: "Zao linalopandwa kurutubisha udongo kwa naitrojeni linaitwa?"; a: "Mazao ya nafaka"; b: "Mazao ya mikunde (legumes)"; c: "Mazao ya mizizi"; d: "Mazao ya matunda"; correct: "Mazao ya mikunde (legumes)"; cat: "MK"; diff: 2 }
         ListElement { q: "Mabadiliko ya tabianchi yanasababisha tatizo gani kubwa Tanzania?"; a: "Mafuriko na ukame zaidi"; b: "Baridi kali zaidi"; c: "Dhoruba za radi zaidi"; d: "Mvua nyingi zaidi tu"; correct: "Mafuriko na ukame zaidi"; cat: "MK"; diff: 1 }
-        ListElement { q: "Mwelekeo wa barafu ya Kilimanjaro umekuwa ukipungua kwa sababu ya?"; a: "Upepo mkali"; b: "Ongezeko la joto duniani"; c: "Mvua nyingi"; d: "Volkano"; correct: "Ongezeko la joto duniani"; cat: "MK"; diff: 1 }
+        ListElement { q: "Mwelekeo wa barafu ya Kilimanjaro umekuwa ukipungua kwa sababu ya?"; a: "Upepo mkali"; b: "Ongezeko la joto duniani"; c: "Mvua nyingi"; d: "Volkano"; correct: "Ongezeko la joto duniani"; cat: "UT"; diff: 1 }
         ListElement { q: "Ufugaji wa nyuki unasaidia mazingira kwa njia gani?"; a: "Kupunguza wadudu"; b: "Uchavushaji wa maua na mazao"; c: "Kulinda maji"; d: "Kuongeza mvua"; correct: "Uchavushaji wa maua na mazao"; cat: "MK"; diff: 2 }
         ListElement { q: "Msitu wa Miombo unaofunika sehemu kubwa ya Tanzania ni muhimu kwa?"; a: "Kuzalisha dhahabu"; b: "Kuhifadhi maji, hewa na makazi ya wanyama"; c: "Kuzalisha nishati ya nyuklia"; d: "Kulima pamba"; correct: "Kuhifadhi maji, hewa na makazi ya wanyama"; cat: "MK"; diff: 2 }
         ListElement { q: "Mbolea ya asili inayotengenezwa kutoka kwa mabaki ya mimea na wanyama inaitwa?"; a: "Urea"; b: "Mboji (Compost)"; c: "DAP"; d: "CAN"; correct: "Mboji (Compost)"; cat: "MK"; diff: 1 }
@@ -1014,7 +1014,7 @@ Rectangle {
         ListElement { q: "Mfumo wa kilimo unaolinda udongo dhidi ya mmomonyoko kwa kupanda mstari wa miti au nyasi pembeni mwa shamba unaitwa?"; a: "Contour farming"; b: "Strip cropping"; c: "Windbreak/Shelterbelt"; d: "Mulching"; correct: "Windbreak/Shelterbelt"; cat: "MK"; diff: 3 }
         ListElement { q: "Uvunaji wa maji ya mvua (rainwater harvesting) unasaidia nini hasa maeneo ya ukame?"; a: "Kuongeza mvua"; b: "Kuhifadhi maji kwa matumizi ya kilimo wakati wa ukame"; c: "Kupunguza joto"; d: "Kuondoa mafuriko"; correct: "Kuhifadhi maji kwa matumizi ya kilimo wakati wa ukame"; cat: "MK"; diff: 2 }
         ListElement { q: "Zao la miwa (sugarcane) Tanzania huzalishwa zaidi mkoa gani?"; a: "Morogoro"; b: "Kilosa na Morogoro (Kilombero Sugar)"; c: "Mwanza"; d: "Tanga"; correct: "Kilosa na Morogoro (Kilombero Sugar)"; cat: "MK"; diff: 2 }
-        ListElement { q: "Hifadhi ya Biosphere ya Selous (Nyerere National Park) ni kubwa kiasi gani?"; a: "Kubwa kuliko nchi ya Switzerland"; b: "Ndogo kuliko Serengeti"; c: "Sawa na nchi ya Kenya"; d: "Kubwa kuliko nchi ya Germany"; correct: "Kubwa kuliko nchi ya Switzerland"; cat: "MK"; diff: 3 }
+        ListElement { q: "Hifadhi ya Biosphere ya Selous (Nyerere National Park) ni kubwa kiasi gani?"; a: "Kubwa kuliko nchi ya Switzerland"; b: "Ndogo kuliko Serengeti"; c: "Sawa na nchi ya Kenya"; d: "Kubwa kuliko nchi ya Germany"; correct: "Kubwa kuliko nchi ya Switzerland"; cat: "UT"; diff: 3 }
         ListElement { q: "Mbinu ya 'mulching' katika kilimo inamaanisha?"; a: "Kumwagilia kwa bomba"; b: "Kufunika udongo kwa nyasi au majani kukinga unyevunyevu"; c: "Kutumia mbolea ya kemikali"; d: "Kupanda mazao mseto"; correct: "Kufunika udongo kwa nyasi au majani kukinga unyevunyevu"; cat: "MK"; diff: 2 }
         ListElement { q: "Mbuguma (wetlands) zina umuhimu gani kwa mazingira?"; a: "Kutoa madini tu"; b: "Kuchuja maji, kuzuia mafuriko na makazi ya viumbe"; c: "Kupata nishati"; d: "Kulima mchele tu"; correct: "Kuchuja maji, kuzuia mafuriko na makazi ya viumbe"; cat: "MK"; diff: 2 }
         ListElement { q: "Tatizo la upotevu wa bioanuwai (biodiversity loss) Tanzania linahusiana hasa na?"; a: "Ukosefu wa maji"; b: "Ukataji miti na ujangili"; c: "Ukosefu wa mbolea"; d: "Ukame"; correct: "Ukataji miti na ujangili"; cat: "MK"; diff: 2 }
@@ -1033,12 +1033,12 @@ Rectangle {
         ListElement { q: "Kilimo hai (organic farming) kinatofautiana na kilimo cha kawaida kwa?"; a: "Hakitumii mbolea wala dawa za kemikali"; b: "Hulima usiku tu"; c: "Hutumia mbegu za kisasa pekee"; d: "Huhitaji ardhi kubwa"; correct: "Hakitumii mbolea wala dawa za kemikali"; cat: "MK"; diff: 2 }
         ListElement { q: "Tatizo la magugu baharini yanayoitwa 'water hyacinth' yanaathiri hasa?"; a: "Kilimo cha nchi kavu"; b: "Uvuvi na usafiri wa maji kwenye maziwa"; c: "Hali ya hewa"; d: "Uchimbaji madini"; correct: "Uvuvi na usafiri wa maji kwenye maziwa"; cat: "MK"; diff: 2 }
         ListElement { q: "Mto Pangani unatoka wapi?"; a: "Mlima Meru"; b: "Mlima Kilimanjaro na Meru"; c: "Ziwa Victoria"; d: "Bonde la Ngorongoro"; correct: "Mlima Kilimanjaro na Meru"; cat: "MK"; diff: 3 }
-        ListElement { q: "Ardhi oevu (wetlands) inayopata hifadhi ya kimataifa (Ramsar) Tanzania ni?"; a: "Bonde la Kilombero"; b: "Mto Rufiji"; c: "Ziwa Natron"; d: "Msitu wa Jozani"; correct: "Bonde la Kilombero"; cat: "MK"; diff: 3 }
+        ListElement { q: "Ardhi oevu (wetlands) inayopata hifadhi ya kimataifa (Ramsar) Tanzania ni?"; a: "Bonde la Kilombero"; b: "Mto Rufiji"; c: "Ziwa Natron"; d: "Msitu wa Jozani"; correct: "Bonde la Kilombero"; cat: "UT"; diff: 3 }
         ListElement { q: "Hewa ya oksijeni inayomfanya binadamu aishi nyingi zaidi inatoka wapi?"; a: "Bahari na msitu"; b: "Mchanga"; c: "Mawe ya volkano"; d: "Mvua"; correct: "Bahari na msitu"; cat: "MK"; diff: 1 }
         ListElement { q: "Nishati inayotokana na mkaa wa miti (biomass) ina tatizo gani Tanzania?"; a: "Ni ghali sana"; b: "Husababisha ukataji miti kupita kiasi"; c: "Haifanyi kazi vizuri"; d: "Haitumiki nyumbani"; correct: "Husababisha ukataji miti kupita kiasi"; cat: "MK"; diff: 2 }
         ListElement { q: "Aina ya udongo mwekundu unaofaa kwa kilimo cha chai na kahawa Tanzania unaitwa?"; a: "Udongo mfinyanzi (clay)"; b: "Udongo tifutifu (loam)"; c: "Udongo mwekundu wa miinuko (ferralsols)"; d: "Udongo wa mchanga (sandy)"; correct: "Udongo mwekundu wa miinuko (ferralsols)"; cat: "MK"; diff: 3 }
         ListElement { q: "Tahadhari ya awali (early warning system) kwa ukame Tanzania inashughulikiwa na?"; a: "TRA"; b: "Tanzania Meteorological Authority (TMA)"; c: "TANESCO"; d: "Wizara ya Maji"; correct: "Tanzania Meteorological Authority (TMA)"; cat: "MK"; diff: 2 }
-        ListElement { q: "Maeneo ya hifadhi (conservation areas) ya Tanzania yanachukua asilimia ngapi ya ardhi yote?"; a: "Karibu 10%"; b: "Karibu 16%"; c: "Karibu 25%"; d: "Karibu 38%"; correct: "Karibu 38%"; cat: "MK"; diff: 3 }
+        ListElement { q: "Maeneo ya hifadhi (conservation areas) ya Tanzania yanachukua asilimia ngapi ya ardhi yote?"; a: "Karibu 10%"; b: "Karibu 16%"; c: "Karibu 25%"; d: "Karibu 38%"; correct: "Karibu 38%"; cat: "UT"; diff: 3 }
         ListElement { q: "Utaratibu wa 'zero grazing' katika ufugaji wa ng'ombe unamaanisha?"; a: "Kutofuga ng'ombe"; b: "Kulisha ng'ombe zizizi badala ya kuwaacha wachunge"; c: "Kutumia dawa tu kulisha"; d: "Kufuga ng'ombe msituni"; correct: "Kulisha ng'ombe zizizi badala ya kuwaacha wachunge"; cat: "MK"; diff: 2 }
         ListElement { q: "Kisima cha maji kinachochimbwa kwa teknolojia ya kisasa bila kutumia nguvu za binadamu nyingi inaitwa?"; a: "Kisima cha bomba"; b: "Kisima cha mkono"; c: "Kisima cha hand pump"; d: "Borehole"; correct: "Borehole"; cat: "MK"; diff: 1 }
         ListElement { q: "Jangwa linaloenea karibu na Tanzania kaskazini-mashariki ni?"; a: "Sahara"; b: "Kalahari"; c: "Namib"; d: "Chalbi"; correct: "Chalbi"; cat: "MK"; diff: 3 }
@@ -1137,6 +1137,321 @@ Rectangle {
         ListElement { q: "Mwigizaji wa Tanzania aliyecheza kwenye filamu ya kimataifa 'Vuta N'kuvute' alikuwa?"; a: "Wema Sepetu"; b: "Vanessa Myamba"; c: "Irene Uwoya"; d: "Jacqueline Wolper"; correct: "Vanessa Myamba"; cat: "BUR"; diff: 3 }
         ListElement { q: "Tamasha la filamu la ZIFF lilianzishwa mwaka gani?"; a: "1990"; b: "1998"; c: "2005"; d: "2010"; correct: "1998"; cat: "BUR"; diff: 3 }
         ListElement { q: "Filamu ya Tanzania inayohusu vita vya uhuru na mkoloni inayojulikana ni?"; a: "Siri ya Mtungi"; b: "Vuta N'kuvute"; c: "Dar ni Njema"; d: "Bongo"; correct: "Vuta N'kuvute"; cat: "BUR"; diff: 2 }
+        ListElement { q: "Kitendawili: Ninaingia kila chumba bila kugonga hodi, lakini huwezi kuniona. Mimi ni nani?"; a: "Mwizi"; b: "Nuru"; c: "Baridi"; d: "Pumzi"; correct: "Nuru"; cat: "V"; diff: 2 }
+        ListElement { q: "Kitendawili: Sehemu yangu ya chini iko juu na sehemu yangu ya juu iko chini. Mimi ni nani?"; a: "Mlima"; b: "Mti uliogeuziwa"; c: "Mguu"; d: "Nywele"; correct: "Mguu"; cat: "V"; diff: 3 }
+        ListElement { q: "Ziwa Chala linalopatikana mpakani wa Tanzania na Kenya linajulikana kwa nini katika utalii?"; a: "Samaki wakubwa"; b: "Ziwa la volkano (crater lake) lenye maji ya buluu"; c: "Ndege adimu"; d: "Maporomoko ya maji"; correct: "Ziwa la volkano (crater lake) lenye maji ya buluu"; cat: "UT"; diff: 3 }
+        ListElement { q: "Hifadhi ya wanyama ya Loliondo ipo karibu na hifadhi gani kubwa?"; a: "Ruaha"; b: "Serengeti"; c: "Mikumi"; d: "Nyerere"; correct: "Serengeti"; cat: "UT"; diff: 3 }
+        ListElement { q: "Kama mfululizo ni 2, 6, 18, 54, nambari inayofuata ni?"; a: "108"; b: "144"; c: "162"; d: "180"; correct: "162"; cat: "LG"; diff: 2 }
+
+        // ══════════════════════════════════════════════════════════
+        // UTALII WA TANZANIA (UT) — maswali mapya +82
+        // ══════════════════════════════════════════════════════════
+        ListElement { q: "Hifadhi ya Taifa ya Tarangire inajulikana zaidi kwa wanyama gani?"; a: "Sokwe"; b: "Tembo na Miti ya Baobab"; c: "Nyangumi"; d: "Flamingo"; correct: "Tembo na Miti ya Baobab"; cat: "UT"; diff: 1 }
+        ListElement { q: "Ziwa Manyara linajulikana kwa nini katika utalii?"; a: "Simba wanaopanda miti"; b: "Sokwe wengi"; c: "Nyumbu wengi"; d: "Ndege wa bahari"; correct: "Simba wanaopanda miti"; cat: "UT"; diff: 2 }
+        ListElement { q: "Hifadhi ya Taifa ya Kilimanjaro ilianzishwa mwaka gani?"; a: "1968"; b: "1973"; c: "1977"; d: "1985"; correct: "1973"; cat: "UT"; diff: 3 }
+        ListElement { q: "Njia maarufu zaidi ya kupanda Mlima Kilimanjaro inaitwa?"; a: "Machame Route"; b: "Marangu Route"; c: "Lemosho Route"; d: "Rongai Route"; correct: "Marangu Route"; cat: "UT"; diff: 2 }
+        ListElement { q: "Njia ya Kilimanjaro inayoitwa 'Whisky Route' ni ipi?"; a: "Marangu"; b: "Rongai"; c: "Machame"; d: "Umbwe"; correct: "Machame"; cat: "UT"; diff: 3 }
+        ListElement { q: "Kilele cha juu zaidi cha Mlima Kilimanjaro kinaitwa?"; a: "Mawenzi"; b: "Shira"; c: "Uhuru Peak"; d: "Kibo"; correct: "Uhuru Peak"; cat: "UT"; diff: 1 }
+        ListElement { q: "Mlima Kilimanjaro una vilele vikuu vingapi?"; a: "2"; b: "3"; c: "4"; d: "5"; correct: "3"; cat: "UT"; diff: 2 }
+        ListElement { q: "Stone Town ya Zanzibar imeorodheshwa na UNESCO kama?"; a: "Hifadhi ya Taifa"; b: "Urithi wa Dunia (World Heritage Site)"; c: "Bustani ya Kimataifa"; d: "Mji wa Biashara"; correct: "Urithi wa Dunia (World Heritage Site)"; cat: "UT"; diff: 2 }
+        ListElement { q: "Zanzibar inajulikana kwa jina lingine gani la utalii?"; a: "Kisiwa cha Amani"; b: "Kisiwa cha Viungo (Spice Island)"; c: "Kisiwa cha Dhahabu"; d: "Kisiwa cha Rangi"; correct: "Kisiwa cha Viungo (Spice Island)"; cat: "UT"; diff: 1 }
+        ListElement { q: "Pwani maarufu ya utalii kaskazini mwa Zanzibar inaitwa?"; a: "Nungwi Beach"; b: "Bongoyo Beach"; c: "Kunduchi Beach"; d: "Msasani Beach"; correct: "Nungwi Beach"; cat: "UT"; diff: 2 }
+        ListElement { q: "Hifadhi ya Taifa ya Nyerere (Selous) ni hifadhi ya aina gani ya kipekee?"; a: "Hifadhi ya bahari"; b: "Hifadhi kubwa zaidi ya wanyama Afrika"; c: "Hifadhi ya msitu tu"; d: "Hifadhi ya ndege"; correct: "Hifadhi kubwa zaidi ya wanyama Afrika"; cat: "UT"; diff: 2 }
+        ListElement { q: "Bonde la Ngorongoro linajulikana kwa jina gani la kisayansi?"; a: "Caldera kubwa zaidi duniani iliyobaki"; b: "Volkano hai"; c: "Bonde la Ufa"; d: "Ziwa kame"; correct: "Caldera kubwa zaidi duniani iliyobaki"; cat: "UT"; diff: 3 }
+        ListElement { q: "Mlima mrefu wa pili Afrika (Mount Kenya) uko karibu na Mlima Kilimanjaro — Kilimanjaro kiko nchi gani hasa?"; a: "Kenya"; b: "Tanzania"; c: "Uganda"; d: "Mpakani wa Tanzania na Kenya"; correct: "Tanzania"; cat: "UT"; diff: 2 }
+        ListElement { q: "Wanyama wanaojulikana kama 'Big Five' Tanzania ni?"; a: "Simba, Tembo, Nyati, Kifaru, Chui"; b: "Simba, Tembo, Nyumbu, Pundamilia, Twiga"; c: "Simba, Kiboko, Swala, Nyati, Tembo"; d: "Simba, Chui, Duma, Fisi, Mbwa mwitu"; correct: "Simba, Tembo, Nyati, Kifaru, Chui"; cat: "UT"; diff: 1 }
+        ListElement { q: "Hifadhi ya Taifa ya Arusha ina upekee gani?"; a: "Ina flamingo wengi"; b: "Ipo karibu na jiji la Arusha na ina Mlima Meru"; c: "Ina sokwe wengi"; d: "Ina tembo weupe"; correct: "Ipo karibu na jiji la Arusha na ina Mlima Meru"; cat: "UT"; diff: 2 }
+        ListElement { q: "Mlima Meru uko mkoa gani Tanzania?"; a: "Kilimanjaro"; b: "Manyara"; c: "Arusha"; d: "Tanga"; correct: "Arusha"; cat: "UT"; diff: 2 }
+        ListElement { q: "Ziwa la chumvi linaloitwa 'Ziwa la Flamingo' Tanzania ni?"; a: "Ziwa Manyara"; b: "Ziwa Natron"; c: "Ziwa Eyasi"; d: "Ziwa Rukwa"; correct: "Ziwa Natron"; cat: "UT"; diff: 2 }
+        ListElement { q: "Flamingo wekundu wanaozaliana Tanzania wanapatikana zaidi wapi?"; a: "Ziwa Victoria"; b: "Ziwa Manyara"; c: "Ziwa Natron"; d: "Ziwa Tanganyika"; correct: "Ziwa Natron"; cat: "UT"; diff: 2 }
+        ListElement { q: "Circuit ya utalii inayojumuisha Serengeti, Ngorongoro, Tarangire na Manyara inaitwa?"; a: "Southern Circuit"; b: "Northern Circuit"; c: "Western Circuit"; d: "Coastal Circuit"; correct: "Northern Circuit"; cat: "UT"; diff: 2 }
+        ListElement { q: "Circuit ya utalii inayojumuisha Ruaha, Selous na Mikumi inaitwa?"; a: "Northern Circuit"; b: "Western Circuit"; c: "Southern Circuit"; d: "Eastern Circuit"; correct: "Southern Circuit"; cat: "UT"; diff: 2 }
+        ListElement { q: "Hifadhi ya Taifa ya Katavi ipo mkoa gani na inajulikana kwa nini?"; a: "Kigoma — sokwe"; b: "Katavi — kiboko na mamba wengi"; c: "Rukwa — ndege"; d: "Tabora — simba"; correct: "Katavi — kiboko na mamba wengi"; cat: "UT"; diff: 2 }
+        ListElement { q: "Kisiwa cha Mafia kinajulikana kwa utalii wa aina gani?"; a: "Utalii wa milima"; b: "Kupiga mbizi (diving) na whale sharks"; c: "Safari ya wanyama"; d: "Utalii wa historia"; correct: "Kupiga mbizi (diving) na whale sharks"; cat: "UT"; diff: 2 }
+        ListElement { q: "Nyangumi wakubwa (Whale Sharks) Tanzania wanapatikana wapi kwa wingi?"; a: "Zanzibar"; b: "Dar es Salaam"; c: "Mafia Island"; d: "Pemba"; correct: "Mafia Island"; cat: "UT"; diff: 2 }
+        ListElement { q: "Hifadhi ya Taifa ya Saadani ina upekee gani wa pekee Afrika Mashariki?"; a: "Ina volkano hai"; b: "Ni hifadhi ya pekee yenye wanyama na pwani ya bahari"; c: "Ina sokwe wengi"; d: "Ina ndege adimu zaidi"; correct: "Ni hifadhi ya pekee yenye wanyama na pwani ya bahari"; cat: "UT"; diff: 2 }
+        ListElement { q: "Wapi Tanzania unaweza kuogelea na Sea Turtles (Kasa wa Bahari)?"; a: "Dar es Salaam"; b: "Mafia, Pemba na Zanzibar"; c: "Tanga tu"; d: "Mtwara tu"; correct: "Mafia, Pemba na Zanzibar"; cat: "UT"; diff: 2 }
+        ListElement { q: "Hifadhi ya Msitu wa Amani inajulikana kwa nini?"; a: "Wanyama wakubwa"; b: "Ndege adimu na viumbe vya msitu wa milima"; c: "Maporomoko ya maji"; d: "Mapango ya historia"; correct: "Ndege adimu na viumbe vya msitu wa milima"; cat: "UT"; diff: 3 }
+        ListElement { q: "Ushoroba wa wanyama unaounganisha Serengeti (Tanzania) na Masai Mara (Kenya) unaitwa?"; a: "Ngorongoro Corridor"; b: "Mara River Corridor"; c: "Serengeti-Mara Ecosystem"; d: "Tanzanian Wildlife Corridor"; correct: "Serengeti-Mara Ecosystem"; cat: "UT"; diff: 3 }
+        ListElement { q: "Mto Mara unaopitiwa na nyumbu wakati wa Great Migration unatoka wapi?"; a: "Tanzania"; b: "Kenya na Tanzania"; c: "Uganda"; d: "Rwanda"; correct: "Kenya na Tanzania"; cat: "UT"; diff: 3 }
+        ListElement { q: "Watu wa asili wanaoishi karibu na Ngorongoro na wanaovutia watalii ni?"; a: "Wahehe"; b: "Wamasai"; c: "Wasukuma"; d: "Wachagga"; correct: "Wamasai"; cat: "UT"; diff: 1 }
+        ListElement { q: "Ngome ya Portugali inayovutia watalii Kilwa Kisiwani ilijengwa karne gani?"; a: "Karne ya 13"; b: "Karne ya 15-16"; c: "Karne ya 18"; d: "Karne ya 19"; correct: "Karne ya 15-16"; cat: "UT"; diff: 3 }
+        ListElement { q: "Mapango ya Amboni yanayovutia watalii yanapatikana wapi?"; a: "Arusha"; b: "Tanga"; c: "Morogoro"; d: "Lindi"; correct: "Tanga"; cat: "UT"; diff: 2 }
+        ListElement { q: "Maporomoko ya Kalambo yaliyo karibu na Ziwa Tanganyika ni maarufu kwa nini?"; a: "Ni makubwa zaidi Afrika"; b: "Ni marefu ya pili Afrika"; c: "Yana maji ya moto"; d: "Yanazalisha umeme"; correct: "Ni marefu ya pili Afrika"; cat: "UT"; diff: 3 }
+        ListElement { q: "Ziwa Eyasi linapatikana karibu na eneo la utalii gani?"; a: "Serengeti"; b: "Ngorongoro na Makabila ya Hadzabe"; c: "Tarangire"; d: "Manyara"; correct: "Ngorongoro na Makabila ya Hadzabe"; cat: "UT"; diff: 3 }
+        ListElement { q: "Watu wa kabila la Hadzabe Tanzania wanaishi vipi na wanafanya nini kinachowavutia watalii?"; a: "Wafugaji wa ng'ombe"; b: "Wakulima wa kahawa"; c: "Wawindaji na wakusanyaji chakula (hunter-gatherers)"; d: "Wavuvi wa ziwa"; correct: "Wawindaji na wakusanyaji chakula (hunter-gatherers)"; cat: "UT"; diff: 2 }
+        ListElement { q: "Pwani ndefu ya utalii upande wa mashariki wa Tanzania kutoka Tanga hadi Mtwara inaitwa?"; a: "Swahili Coast"; b: "Tanzania Coast"; c: "Indian Ocean Coast"; d: "Msumbiji Coast"; correct: "Swahili Coast"; cat: "UT"; diff: 2 }
+        ListElement { q: "Mji wa Bagamoyo unafaa kwa utalii wa aina gani?"; a: "Safari ya wanyama"; b: "Utalii wa historia ya utumwa na ukoloni"; c: "Utalii wa bahari"; d: "Utalii wa milima"; correct: "Utalii wa historia ya utumwa na ukoloni"; cat: "UT"; diff: 2 }
+        ListElement { q: "Hifadhi ya Taifa ya Burigi-Chato ipo mkoa gani?"; a: "Kagera na Geita"; b: "Mara"; c: "Shinyanga"; d: "Simiyu"; correct: "Kagera na Geita"; cat: "UT"; diff: 3 }
+        ListElement { q: "Ziwa Tanganyika ni maarufu kwa aina gani za samaki wa kipekee?"; a: "Sangara na dagaa tu"; b: "Samaki wa pekee wasiopatikana mahali pengine (endemic cichlids)"; c: "Nyangumi na pomboo"; d: "Kambale wakubwa"; correct: "Samaki wa pekee wasiopatikana mahali pengine (endemic cichlids)"; cat: "UT"; diff: 3 }
+        ListElement { q: "Giza la miti la Msitu wa Kakamega linalofanana na msitu wa mvua unapatikana karibu na Tanzania wapi?"; a: "Kenya"; b: "Uganda"; c: "Rwanda"; d: "Burundi"; correct: "Kenya"; cat: "UT"; diff: 3 }
+        ListElement { q: "Hifadhi ya Biosphere ya Ziwa Manyara inatambulika na shirika gani la kimataifa?"; a: "UNESCO"; b: "WWF"; c: "IUCN"; d: "UN Environment"; correct: "UNESCO"; cat: "UT"; diff: 3 }
+        ListElement { q: "Ughairi (poaching) wa wanyama Tanzania unasababisha upotezaji mkubwa wa wanyama gani?"; a: "Simba na chui"; b: "Tembo na kifaru"; c: "Nyumbu na pundamilia"; d: "Twiga na nyati"; correct: "Tembo na kifaru"; cat: "UT"; diff: 1 }
+        ListElement { q: "Mji wa Arusha unahudumia kama kituo cha utalii kwa sababu?"; a: "Una uwanja mkubwa wa ndege"; b: "Uko katikati ya vivutio vingi vya kaskazini Tanzania"; c: "Ina hoteli nyingi"; d: "Ina reli"; correct: "Uko katikati ya vivutio vingi vya kaskazini Tanzania"; cat: "UT"; diff: 1 }
+        ListElement { q: "Bwawa la samaki maarufu la utalii Ziwa Victoria linaitwa?"; a: "Mwanza Gulf"; b: "Rubondo Island"; c: "Rusinga Island"; d: "Ukerewe"; correct: "Rubondo Island"; cat: "UT"; diff: 3 }
+        ListElement { q: "Tanzania inapata mapato ya ziada kutoka utalii kwa njia gani kuu?"; a: "Park fees na watalii wa hoteli"; b: "Mauzo ya nyara za wanyama"; c: "Uuzaji wa ardhi"; d: "Ushuru wa ndege"; correct: "Park fees na watalii wa hoteli"; cat: "UT"; diff: 2 }
+        ListElement { q: "Vivutio vya utalii vya Zanzibar ni vipi vikuu?"; a: "Wanyama wakubwa"; b: "Fukwe, viungo, historia ya Stone Town na pwani"; c: "Milima na maporomoko"; d: "Mazao ya kahawa"; correct: "Fukwe, viungo, historia ya Stone Town na pwani"; cat: "UT"; diff: 1 }
+        ListElement { q: "Shughuli maarufu ya watalii inayofanyika Serengeti kila mwaka ni?"; a: "Kulima shamba"; b: "Kuona Great Migration ya nyumbu"; c: "Kupiga mbizi"; d: "Kupanda mlima"; correct: "Kuona Great Migration ya nyumbu"; cat: "UT"; diff: 1 }
+        ListElement { q: "Watalii wengi kutoka nchi gani wanatembelea Tanzania zaidi?"; a: "China na India"; b: "Marekani, Uingereza na Ujerumani"; c: "Brazil na Mexico"; d: "Russia na Canada"; correct: "Marekani, Uingereza na Ujerumani"; cat: "UT"; diff: 2 }
+        ListElement { q: "Chandarua cha kulala ambacho kinatumiwa sana kwenye safari za wanyama Tanzania kinaitwa?"; a: "Tent"; b: "Banda"; c: "Camp"; d: "Safari Lodge"; correct: "Tent"; cat: "UT"; diff: 1 }
+        ListElement { q: "Jina la Kiingereza la 'Utalii wa wanyama' Tanzania linaitwa?"; a: "Wildlife Tourism"; b: "Safari"; c: "Bush Walk"; d: "Game Drive"; correct: "Safari"; cat: "UT"; diff: 1 }
+        ListElement { q: "Hifadhi ya Taifa ya Ibanda-Kyerwa ipo mkoa gani?"; a: "Mara"; b: "Kagera"; c: "Kigoma"; d: "Shinyanga"; correct: "Kagera"; cat: "UT"; diff: 3 }
+        ListElement { q: "Tembo wa Tanzania wanapatikana kwa wingi zaidi katika hifadhi gani?"; a: "Serengeti"; b: "Nyerere (Selous) na Ruaha"; c: "Gombe"; d: "Kilimanjaro"; correct: "Nyerere (Selous) na Ruaha"; cat: "UT"; diff: 2 }
+        ListElement { q: "Mji wa Moshi unafaa kwa utalii kwa sababu gani?"; a: "Una pwani nzuri"; b: "Ni mlango wa kupanda Kilimanjaro"; c: "Una hifadhi ya wanyama"; d: "Una historia ya Waarabu"; correct: "Ni mlango wa kupanda Kilimanjaro"; cat: "UT"; diff: 1 }
+        ListElement { q: "Msimu mzuri wa kutembelea Serengeti kwa Great Migration ni?"; a: "Januari - Machi"; b: "Julai - Oktoba"; c: "Aprili - Juni"; d: "Novemba - Desemba"; correct: "Julai - Oktoba"; cat: "UT"; diff: 2 }
+        ListElement { q: "Dawa ya malaria inayopendekezwa kwa watalii wanaoingia Tanzania ni?"; a: "Panadol"; b: "Prophylaxis ya malaria (kama Malarone)"; c: "Aspirini"; d: "Vitamini C"; correct: "Prophylaxis ya malaria (kama Malarone)"; cat: "UT"; diff: 2 }
+        ListElement { q: "Chanjo inayohitajika kisheria kuingia Tanzania kutoka nchi zenye homa ya manjano ni?"; a: "Malaria"; b: "Yellow Fever (Homa ya Manjano)"; c: "Typhoid"; d: "Hepatitis B"; correct: "Yellow Fever (Homa ya Manjano)"; cat: "UT"; diff: 2 }
+        ListElement { q: "Uwanja wa ndege wa kimataifa wa Kilimanjaro uko karibu na mji gani?"; a: "Moshi"; b: "Arusha"; c: "Kati ya Moshi na Arusha"; d: "Tanga"; correct: "Kati ya Moshi na Arusha"; cat: "UT"; diff: 2 }
+        ListElement { q: "Hoteli zinazojulikana kwa kuwa ndani ya hifadhi za wanyama Tanzania zinaitwa?"; a: "Moteli"; b: "Lodge au tented camps"; c: "Nyumba za kulala wageni"; d: "Hostel"; correct: "Lodge au tented camps"; cat: "UT"; diff: 1 }
+        ListElement { q: "Msitu wa Udzungwa unajulikana kwa viumbe gani vya kipekee?"; a: "Sokwe wa kawaida"; b: "Kima (primate) wa kipekee — Udzungwa Red Colobus"; c: "Tembo weupe"; d: "Chui wa dhahabu"; correct: "Kima (primate) wa kipekee — Udzungwa Red Colobus"; cat: "UT"; diff: 3 }
+        ListElement { q: "Shirika la ndege la Tanzania linaitwa nini?"; a: "Air Tanzania"; b: "Tanzania Airlines"; c: "Kilimanjaro Air"; d: "Swahili Airlines"; correct: "Air Tanzania"; cat: "UT"; diff: 1 }
+        ListElement { q: "Watalii wanaopanda Kilimanjaro wana asilimia ngapi ya kufanikiwa kufika kilele?"; a: "Karibu 30%"; b: "Karibu 50%"; c: "Karibu 65%"; d: "Karibu 90%"; correct: "Karibu 65%"; cat: "UT"; diff: 3 }
+        ListElement { q: "Vizuizi vya hali ya hewa kwenye Kilimanjaro vina mikanda (zones) mingapi?"; a: "3"; b: "4"; c: "5"; d: "6"; correct: "5"; cat: "UT"; diff: 3 }
+        ListElement { q: "Hali ya hewa ya 'Arctic Zone' inaanza urefu gani Kilimanjaro?"; a: "Mita 3,000"; b: "Mita 4,000"; c: "Mita 5,000"; d: "Mita 5,500"; correct: "Mita 5,000"; cat: "UT"; diff: 3 }
+        ListElement { q: "Vivutio vya utalii vya Kigoma ni vipi?"; a: "Hifadhi ya Gombe, Mahale na Ziwa Tanganyika"; b: "Mlima na wanyama wa nyanda"; c: "Pwani ya bahari"; d: "Mazao ya kahawa"; correct: "Hifadhi ya Gombe, Mahale na Ziwa Tanganyika"; cat: "UT"; diff: 2 }
+        ListElement { q: "Mwanzishaji wa utafiti wa sokwe Tanzania, mwanamke maarufu aliyefanya kazi Gombe ni?"; a: "Dian Fossey"; b: "Jane Goodall"; c: "Birute Galdikas"; d: "Mary Leakey"; correct: "Jane Goodall"; cat: "UT"; diff: 2 }
+        ListElement { q: "Kivutio kikuu cha utalii kwa watalii wanaokwenda Lindi na Mtwara ni?"; a: "Wanyama wa hifadhi"; b: "Milango ya asili ya Makonde na historia ya pwani"; c: "Pwani za dhahabu"; d: "Maporomoko ya maji"; correct: "Milango ya asili ya Makonde na historia ya pwani"; cat: "UT"; diff: 2 }
+        ListElement { q: "Tanzania ina hifadhi za taifa ngapi rasmi?"; a: "12"; b: "17"; c: "22"; d: "28"; correct: "22"; cat: "UT"; diff: 3 }
+        ListElement { q: "Mwaka ambao Tanzania ilianzisha rasmi utalii kama sekta muhimu ya uchumi ni?"; a: "Miaka ya 1970"; b: "Miaka ya 1980"; c: "Miaka ya 1990"; d: "Miaka ya 2000"; correct: "Miaka ya 1990"; cat: "UT"; diff: 3 }
+        ListElement { q: "Nchi ya Tanzania inashika nafasi ya ngapi Afrika kwa mapato ya utalii?"; a: "Ya kwanza"; b: "Ya pili"; c: "Ya tatu"; d: "Ya nne"; correct: "Ya tatu"; cat: "UT"; diff: 3 }
+        ListElement { q: "Muziki wa 'Taarab' wa Zanzibar unavutia watalii — unachezwa kawaida wapi?"; a: "Fukwe"; b: "Masikani ya Stone Town na harusi"; c: "Viwanja vya michezo"; d: "Shule"; correct: "Masikani ya Stone Town na harusi"; cat: "UT"; diff: 2 }
+        ListElement { q: "Mji wa Zanzibar (Stone Town) ulianzishwa na watu wa kabila gani kama kituo cha biashara?"; a: "Wareno"; b: "Wafaransa"; c: "Waarabu wa Oman"; d: "Wahindi"; correct: "Waarabu wa Oman"; cat: "UT"; diff: 2 }
+        ListElement { q: "Biashara ya karafuu (cloves) Zanzibar ilianzishwa na watawala gani?"; a: "Wareno"; b: "Waarabu wa Oman"; c: "Waingereza"; d: "Wajerumani"; correct: "Waarabu wa Oman"; cat: "UT"; diff: 3 }
+        ListElement { q: "Vivutio vya utalii vya Morogoro ni vipi?"; a: "Bahari na mapango"; b: "Milima ya Uluguru, SUA na mazingira ya kijani"; c: "Wanyama wa savanna"; d: "Historia ya waarabu"; correct: "Milima ya Uluguru, SUA na mazingira ya kijani"; cat: "UT"; diff: 2 }
+        ListElement { q: "Wanyama wa 'Little Five' Tanzania ni kinyume cha Big Five — mfano wake ni?"; a: "Simba mdogo, Tembo mdogo"; b: "Ant Lion, Elephant Shrew, Buffalo Weaver, Rhinoceros Beetle, Leopard Tortoise"; c: "Kobe, Kenge, Nyoka"; d: "Ndege wakubwa 5"; correct: "Ant Lion, Elephant Shrew, Buffalo Weaver, Rhinoceros Beetle, Leopard Tortoise"; cat: "UT"; diff: 3 }
+        ListElement { q: "Maporomoko ya Materuni (Materuni Waterfalls) yanapatikana karibu na mji gani?"; a: "Arusha"; b: "Morogoro"; c: "Moshi"; d: "Tanga"; correct: "Moshi"; cat: "UT"; diff: 2 }
+        ListElement { q: "Utalii wa utamaduni (Cultural Tourism) wa Tanzania unaojulikana zaidi uko wapi?"; a: "Dar es Salaam"; b: "Mto wa Mbu karibu na Manyara"; c: "Mwanza"; d: "Dodoma"; correct: "Mto wa Mbu karibu na Manyara"; cat: "UT"; diff: 2 }
+        ListElement { q: "Hifadhi ya Taifa ya Mkomazi ipo mkoa gani na inajulikana kwa nini?"; a: "Kilimanjaro — kifaru mweusi"; b: "Tanga — tembo"; c: "Arusha — simba"; d: "Manyara — twiga"; correct: "Kilimanjaro — kifaru mweusi"; cat: "UT"; diff: 3 }
+        ListElement { q: "Watalii wanaoingia Tanzania kwa kawaida hupitia uwanja gani mkubwa wa ndege?"; a: "Julius Nyerere International Airport (JNIA)"; b: "Kilimanjaro International Airport"; c: "Zanzibar Airport"; d: "Mwanza Airport"; correct: "Julius Nyerere International Airport (JNIA)"; cat: "UT"; diff: 1 }
+        ListElement { q: "Kivutio maarufu cha utalii kilichopo karibu na Mwanza ni?"; a: "Rubondo Island National Park"; b: "Gombe Stream"; c: "Bukoba"; d: "Mara River"; correct: "Rubondo Island National Park"; cat: "UT"; diff: 2 }
+        ListElement { q: "Milango maarufu ya sanaa ya Makonde inayovutia watalii inapatikana zaidi wapi Tanzania?"; a: "Zanzibar"; b: "Mwanza"; c: "Mtwara na Masasi"; d: "Arusha"; correct: "Mtwara na Masasi"; cat: "UT"; diff: 2 }
+
+        // ══════════════════════════════════════════════════════════
+        // MANTIKI / LOGIC (LG) — maswali 60 mapya
+        // ══════════════════════════════════════════════════════════
+        ListElement { q: "Kama A ni kubwa kuliko B, na C ni ndogo kuliko B, nani ndiye mkubwa zaidi?"; a: "B"; b: "C"; c: "A"; d: "Wote sawa"; correct: "A"; cat: "LG"; diff: 1 }
+        ListElement { q: "Nambari inayofuata: 3, 6, 12, 24, ..."; a: "36"; b: "48"; c: "42"; d: "30"; correct: "48"; cat: "LG"; diff: 1 }
+        ListElement { q: "Kama leo ni Jumanne, wiki 3 ijayo itakuwa siku gani?"; a: "Jumatatu"; b: "Jumanne"; c: "Jumatano"; d: "Alhamisi"; correct: "Jumanne"; cat: "LG"; diff: 2 }
+        ListElement { q: "Katika mfululizo: 1, 4, 9, 16, 25, nambari inayofuata ni?"; a: "30"; b: "36"; c: "35"; d: "32"; correct: "36"; cat: "LG"; diff: 1 }
+        ListElement { q: "Kama watu 5 wanaweza kumalizia kazi katika siku 6, watu 3 watamalizia kazi hiyo kwa siku ngapi?"; a: "8"; b: "9"; c: "10"; d: "12"; correct: "10"; cat: "LG"; diff: 3 }
+        ListElement { q: "Herufi inayokosekana: A, C, F, J, O, ..."; a: "S"; b: "T"; c: "U"; d: "V"; correct: "U"; cat: "LG"; diff: 3 }
+        ListElement { q: "Kama MWALIMU = 7, na DAKTARI = 7, basi MWANAFUNZI = ?"; a: "9"; b: "10"; c: "11"; d: "12"; correct: "10"; cat: "LG"; diff: 2 }
+        ListElement { q: "Saa 3:45 mshale mkubwa unaelekea upande gani?"; a: "Juu"; b: "Chini"; c: "Kushoto"; d: "Kulia"; correct: "Chini"; cat: "LG"; diff: 2 }
+        ListElement { q: "Kama unavyouza kwa bei ya kununulia, faida yako ni?"; a: "Sifuri"; b: "Nusu ya gharama"; c: "Mara mbili"; d: "Theluthi"; correct: "Sifuri"; cat: "LG"; diff: 1 }
+        ListElement { q: "Nambari inayofuata: 2, 3, 5, 8, 13, 21, ..."; a: "29"; b: "32"; c: "34"; d: "36"; correct: "34"; cat: "LG"; diff: 2 }
+        ListElement { q: "Kama x + y = 10 na x - y = 4, basi x ni ngapi?"; a: "5"; b: "6"; c: "7"; d: "8"; correct: "7"; cat: "LG"; diff: 2 }
+        ListElement { q: "Mtu anakimbia mzunguko wa uwanja wa mstatili wenye urefu 80m na upana 50m. Safari moja ni mita ngapi?"; a: "130m"; b: "200m"; c: "260m"; d: "300m"; correct: "260m"; cat: "LG"; diff: 2 }
+        ListElement { q: "Kama nusu ya idadi ni 24, robo ya idadi hiyo ni?"; a: "6"; b: "12"; c: "18"; d: "24"; correct: "12"; cat: "LG"; diff: 1 }
+        ListElement { q: "Neno: ASUBUHI — herufi ngapi ni vokali?"; a: "2"; b: "3"; c: "4"; d: "5"; correct: "4"; cat: "LG"; diff: 2 }
+        ListElement { q: "Mfululizo: 100, 90, 81, 73, 66, ... Nambari inayofuata ni?"; a: "59"; b: "60"; c: "61"; d: "62"; correct: "60"; cat: "LG"; diff: 3 }
+        ListElement { q: "Kama mnyororo una pete 5 na kila pete imeunganishwa na pete mbili, pete ya katikati imeunganishwa na pete ngapi?"; a: "1"; b: "2"; c: "3"; d: "4"; correct: "2"; cat: "LG"; diff: 2 }
+        ListElement { q: "Nambari gani haijakamilika kwenye mfululizo: 2, 5, 10, 17, 26, __, 50?"; a: "35"; b: "36"; c: "37"; d: "38"; correct: "37"; cat: "LG"; diff: 3 }
+        ListElement { q: "Kama tunda moja la machungwa lina thamani ya shilingi 500, matunda 8 yana thamani gani?"; a: "3,500"; b: "4,000"; c: "4,500"; d: "5,000"; correct: "4,000"; cat: "LG"; diff: 1 }
+        ListElement { q: "Upande wa kaskazini unaangalia mbele yako, upande wa mashariki uko wapi?"; a: "Nyuma yako"; b: "Mkono wako wa kulia"; c: "Mkono wako wa kushoto"; d: "Juu yako"; correct: "Mkono wako wa kulia"; cat: "LG"; diff: 1 }
+        ListElement { q: "Kama unaandika namba zote kutoka 1 hadi 50, tarakimu '1' itaonekana mara ngapi?"; a: "10"; b: "14"; c: "15"; d: "16"; correct: "15"; cat: "LG"; diff: 3 }
+        ListElement { q: "Kizazi cha babu ni kizazi cha ngapi kutoka kwako?"; a: "Cha kwanza"; b: "Cha pili"; c: "Cha tatu"; d: "Cha nne"; correct: "Cha tatu"; cat: "LG"; diff: 2 }
+        ListElement { q: "Kama darasa lina wanafunzi 30 na asilimia 40 ni wavulana, wasichana ni wangapi?"; a: "12"; b: "15"; c: "18"; d: "20"; correct: "18"; cat: "LG"; diff: 2 }
+        ListElement { q: "Mfululizo wa piramidi: 1, 3, 6, 10, 15, ... Nambari inayofuata ni?"; a: "18"; b: "20"; c: "21"; d: "22"; correct: "21"; cat: "LG"; diff: 2 }
+        ListElement { q: "Kama neno 'LOGIC' linaandikwa nyuma, linaandikwaje?"; a: "CIGOL"; b: "LOGCI"; c: "COLOG"; d: "GILOC"; correct: "CIGOL"; cat: "LG"; diff: 1 }
+        ListElement { q: "Kama Jana alikuwa ni Jumamosi, wiki ijayo siku ya leo itakuwa nini?"; a: "Jumapili"; b: "Jumatatu"; c: "Jumanne"; d: "Jumatano"; correct: "Jumapili"; cat: "LG"; diff: 2 }
+        ListElement { q: "Gari linasafiri kwa kasi ya km 60 kwa saa. Litafika wapi baada ya dakika 30?"; a: "Km 20"; b: "Km 30"; c: "Km 45"; d: "Km 60"; correct: "Km 30"; cat: "LG"; diff: 1 }
+        ListElement { q: "Kama bidhaa imepanda bei kwa 20% na kisha kushuka kwa 20%, bei ya mwisho ni?"; a: "Sawa na mwanzo"; b: "Chini ya mwanzo kwa 4%"; c: "Juu ya mwanzo kwa 4%"; d: "Chini ya mwanzo kwa 2%"; correct: "Chini ya mwanzo kwa 4%"; cat: "LG"; diff: 3 }
+        ListElement { q: "Kama una vizuri vilivyopangwa kwenye mstari: Nyekundu, Bluu, Kijani, Njano, Nyekundu, Bluu, Kijani... Rangi ya 11 ni?"; a: "Nyekundu"; b: "Bluu"; c: "Kijani"; d: "Njano"; correct: "Kijani"; cat: "LG"; diff: 2 }
+        ListElement { q: "Tatizo: Watu 3 wana mikono 3. Watu 10 wana mikono mingapi?"; a: "10"; b: "20"; c: "30"; d: "15"; correct: "20"; cat: "LG"; diff: 1 }
+        ListElement { q: "Nambari inayofuata: 1, 2, 4, 7, 11, 16, ..."; a: "20"; b: "21"; c: "22"; d: "23"; correct: "22"; cat: "LG"; diff: 2 }
+        ListElement { q: "Kama mzigo wa ndizi ni kilo 25, sehemu ya tano ya mzigo ni kilo ngapi?"; a: "4"; b: "5"; c: "6"; d: "7"; correct: "5"; cat: "LG"; diff: 1 }
+        ListElement { q: "Mfululizo: Z, X, V, T, R, ... Herufi inayofuata ni?"; a: "P"; b: "Q"; c: "N"; d: "O"; correct: "P"; cat: "LG"; diff: 2 }
+        ListElement { q: "Kama gurudumu la baiskeli lina msumari ulioumia, msumari unapiga ardhini mara ngapi kwa zamu moja kamili?"; a: "Mara moja"; b: "Mara mbili"; c: "Mara tatu"; d: "Mara nne"; correct: "Mara moja"; cat: "LG"; diff: 1 }
+        ListElement { q: "Kama mtu anakimbia mbio za mita 400 na anafanikiwa mara 3, jumla ni mita ngapi?"; a: "800"; b: "1000"; c: "1200"; d: "1600"; correct: "1200"; cat: "LG"; diff: 1 }
+        ListElement { q: "Kama A=1, B=2, C=3, basi CAB inawakilisha nambari gani?"; a: "123"; b: "312"; c: "321"; d: "213"; correct: "312"; cat: "LG"; diff: 2 }
+        ListElement { q: "Mti una matawi 4. Kila tawi lina matawi 4. Kila tawi dogo lina matawi 4. Jumla ya matawi yote ni?"; a: "16"; b: "64"; c: "84"; d: "20"; correct: "84"; cat: "LG"; diff: 3 }
+        ListElement { q: "Kama mstatili una urefu mara 3 ya upana wake, na mzingo ni cm 64, upana wake ni cm ngapi?"; a: "6"; b: "8"; c: "10"; d: "12"; correct: "8"; cat: "LG"; diff: 3 }
+        ListElement { q: "Kama una sarafu 7 za shilingi 50, sarafu 3 za shilingi 100, na noti 2 za shilingi 500, una shilingi ngapi?"; a: "1,150"; b: "1,350"; c: "1,650"; d: "2,150"; correct: "1,650"; cat: "LG"; diff: 2 }
+        ListElement { q: "Somo la historia linaanza saa 2 asubuhi na hudumu saa 1 na nusu. Linaisha saa ngapi?"; a: "Saa 3 asubuhi"; b: "Saa 3:30 asubuhi"; c: "Saa 4 asubuhi"; d: "Saa 3:45 asubuhi"; correct: "Saa 3:30 asubuhi"; cat: "LG"; diff: 2 }
+        ListElement { q: "Kama SIKU = 4 na WIKI = 4 na MWAKA = 5, basi hesabu inayofuata ni nini?"; a: "DAKIKA = 6"; b: "DAKIKA = 7"; c: "DAKIKA = 5"; d: "DAKIKA = 4"; correct: "DAKIKA = 6"; cat: "LG"; diff: 3 }
+        ListElement { q: "Mfululizo: 1, 8, 27, 64, ... Nambari inayofuata ni?"; a: "100"; b: "115"; c: "125"; d: "130"; correct: "125"; cat: "LG"; diff: 2 }
+        ListElement { q: "Kama wewe una umri wa miaka 15 na dada yako ana nusu ya umri wako, umri wako ukifikia miaka 30, dada atakuwa na miaka mingapi?"; a: "15"; b: "20"; c: "22"; d: "23"; correct: "22"; cat: "LG"; diff: 3 }
+        ListElement { q: "Nambari ngapi zisizo za kawaida (odd) zipo kati ya 10 na 20?"; a: "4"; b: "5"; c: "6"; d: "7"; correct: "5"; cat: "LG"; diff: 2 }
+        ListElement { q: "Kama pembe tatu za pembetatu ni 60°, 70° na x°, thamani ya x ni?"; a: "40°"; b: "50°"; c: "60°"; d: "70°"; correct: "50°"; cat: "LG"; diff: 2 }
+        ListElement { q: "Wafanyakazi 4 wanachimba shimo kwa masaa 8. Wafanyakazi 8 watachimba shimo sawa kwa masaa mangapi?"; a: "2"; b: "3"; c: "4"; d: "6"; correct: "4"; cat: "LG"; diff: 2 }
+        ListElement { q: "Kama MAMA ana dada mmoja, na dada wake ana mtoto mmoja, uhusiano wa mtoto huyo na MAMA ni?"; a: "Mtoto"; b: "Shangazi na mpwa"; c: "Shangazi na mpwa wa nje"; d: "Kaka na dada"; correct: "Shangazi na mpwa"; cat: "LG"; diff: 2 }
+        ListElement { q: "Nambari ya ajabu (prime) kati ya 20 na 30 ni ipi?"; a: "21"; b: "23"; c: "25"; d: "27"; correct: "23"; cat: "LG"; diff: 2 }
+        ListElement { q: "Kama hesabu 5 × 5 = 25, basi 55 × 55 = ?"; a: "2525"; b: "3025"; c: "2550"; d: "3005"; correct: "3025"; cat: "LG"; diff: 3 }
+        ListElement { q: "Picha 3 zinaweza kuchukua nafasi ya paka 4. Paka 8 zinaweza kuchukua nafasi ya picha ngapi?"; a: "4"; b: "5"; c: "6"; d: "7"; correct: "6"; cat: "LG"; diff: 3 }
+        ListElement { q: "Kama kila pembe ya mraba ni 90°, jumla ya pembe zote ni?"; a: "180°"; b: "270°"; c: "360°"; d: "450°"; correct: "360°"; cat: "LG"; diff: 1 }
+        ListElement { q: "Mfululizo: 0.5, 1, 2, 4, 8, ... Nambari inayofuata ni?"; a: "12"; b: "14"; c: "16"; d: "18"; correct: "16"; cat: "LG"; diff: 1 }
+        ListElement { q: "Kama kiganjani kuna pesa 500 na unatoa robo tatu, unabakisha kiasi gani?"; a: "100"; b: "125"; c: "150"; d: "175"; correct: "125"; cat: "LG"; diff: 2 }
+        ListElement { q: "Nambari ngapi ni ndogo kuliko 100 zinazogawanyika na 7 na 3 zote mbili?"; a: "3"; b: "4"; c: "5"; d: "6"; correct: "4"; cat: "LG"; diff: 3 }
+        ListElement { q: "Kama msururu wa herufi ni AZBYCX, herufi inayofuata baada ya X ni?"; a: "DW"; b: "WD"; c: "DV"; d: "VD"; correct: "DW"; cat: "LG"; diff: 3 }
+        ListElement { q: "Kama nyumba ina vyumba 4 na kila chumba kina kona 4, jumla ya kona za nyumba ni?"; a: "12"; b: "16"; c: "20"; d: "24"; correct: "16"; cat: "LG"; diff: 1 }
+        ListElement { q: "Kama mtu anakula chakula kwa dakika 20 na kinywaji kwa dakika 5, atachukua muda gani kwa milo 3 ya chakula na vinywaji?"; a: "60 dakika"; b: "65 dakika"; c: "75 dakika"; d: "90 dakika"; correct: "75 dakika"; cat: "LG"; diff: 2 }
+        ListElement { q: "Kama bei ya kitu imepanda kutoka 800 hadi 1000, imepanda kwa asilimia ngapi?"; a: "15%"; b: "20%"; c: "25%"; d: "30%"; correct: "25%"; cat: "LG"; diff: 2 }
+        ListElement { q: "Nambari inayofuata mfululizo: 1, 1, 2, 3, 5, 8, 13, ..."; a: "18"; b: "19"; c: "20"; d: "21"; correct: "21"; cat: "LG"; diff: 2 }
+        ListElement { q: "Kama Juma ana ndugu 4 wa kiume, na kila mmoja ana dada 1, Juma ana dada wangapi?"; a: "1"; b: "2"; c: "4"; d: "5"; correct: "1"; cat: "LG"; diff: 3 }
+
+        // ══════════════════════════════════════════════════════════
+        // KUONGEZA MASWALI (+18 kwa kila cat inayohitaji)
+        // ══════════════════════════════════════════════════════════
+
+        // AFYA (+18)
+        ListElement { q: "Shinikizo la damu la kawaida kwa mtu mwenye afya ni?"; a: "80/60 mmHg"; b: "120/80 mmHg"; c: "140/90 mmHg"; d: "160/100 mmHg"; correct: "120/80 mmHg"; cat: "A"; diff: 2 }
+        ListElement { q: "Damu ya binadamu ina pH ya takriban ngapi?"; a: "6.0 - 6.5"; b: "7.35 - 7.45"; c: "8.0 - 8.5"; d: "5.5 - 6.0"; correct: "7.35 - 7.45"; cat: "A"; diff: 3 }
+        ListElement { q: "Mfupa mrefu zaidi mwilini mwa binadamu ni?"; a: "Mgongo"; b: "Ubavu"; c: "Femur (paja)"; d: "Tibia (mguu wa chini)"; correct: "Femur (paja)"; cat: "A"; diff: 2 }
+        ListElement { q: "Cholera husambazwa kwa njia gani?"; a: "Hewa"; b: "Mbu"; c: "Maji na chakula vilivyochafuliwa"; d: "Mgusano wa ngozi"; correct: "Maji na chakula vilivyochafuliwa"; cat: "A"; diff: 1 }
+        ListElement { q: "Chanjo ya BCG inakinga dhidi ya ugonjwa gani?"; a: "Kipindupindu"; b: "Kifua kikuu (TB)"; c: "Surua"; d: "Polio"; correct: "Kifua kikuu (TB)"; cat: "A"; diff: 2 }
+        ListElement { q: "Dawa ya kwanza ya antibiotiki iliyogunduliwa duniani ni?"; a: "Amoxicillin"; b: "Tetracycline"; c: "Penicillin"; d: "Streptomycin"; correct: "Penicillin"; cat: "A"; diff: 2 }
+        ListElement { q: "Sehemu ya ubongo inayodhibiti kumbukumbu na hisia inaitwa?"; a: "Cerebellum"; b: "Hippocampus"; c: "Medulla"; d: "Cortex"; correct: "Hippocampus"; cat: "A"; diff: 3 }
+        ListElement { q: "Ini (Liver) ina kazi ngapi kuu mwilini?"; a: "Moja"; b: "Mbili"; c: "Tatu"; d: "Zaidi ya 500"; correct: "Zaidi ya 500"; cat: "A"; diff: 3 }
+        ListElement { q: "Kisukari cha aina ya 2 kinahusiana zaidi na?"; a: "Maambukizi ya virusi"; b: "Unene kupita kiasi na lishe mbaya"; c: "Urithi wa kinasaba tu"; d: "Mzigo wa kazi"; correct: "Unene kupita kiasi na lishe mbaya"; cat: "A"; diff: 2 }
+        ListElement { q: "Matumizi ya sigara yanasababisha hasa saratani ya?"; a: "Saratani ya ngozi"; b: "Saratani ya mapafu"; c: "Saratani ya tumbo"; d: "Saratani ya damu"; correct: "Saratani ya mapafu"; cat: "A"; diff: 1 }
+        ListElement { q: "Kinga ya mwili (immune system) inazalisha nini kupigana na maambukizi?"; a: "Hemoglobin"; b: "Antibodies"; c: "Platelets"; d: "Insulin"; correct: "Antibodies"; cat: "A"; diff: 2 }
+        ListElement { q: "Usingizi wa kutosha kwa mtu mzima kwa siku ni masaa mangapi?"; a: "4-5"; b: "6-7"; c: "7-9"; d: "10-12"; correct: "7-9"; cat: "A"; diff: 1 }
+        ListElement { q: "Mazoezi ya mwili yanasaidia kupunguza?"; a: "Kinga ya mwili"; b: "Msongo wa mawazo na magonjwa ya moyo"; c: "Nguvu za mwili"; d: "Uzito wa mifupa"; correct: "Msongo wa mawazo na magonjwa ya moyo"; cat: "A"; diff: 1 }
+        ListElement { q: "Mgonjwa wa kisukari anapaswa kufuatilia nini mara kwa mara?"; a: "Shinikizo la damu tu"; b: "Kiwango cha sukari (glucose) mwilini"; c: "Uzito wa mwili tu"; d: "Joto la mwili"; correct: "Kiwango cha sukari (glucose) mwilini"; cat: "A"; diff: 2 }
+        ListElement { q: "Nini tofauti kuu kati ya bakteria na virusi?"; a: "Bakteria ni wakubwa na wanaweza kutibiwa na antibiotiki"; b: "Virusi ni wakubwa"; c: "Bakteria husababisha magonjwa makubwa zaidi"; d: "Hakuna tofauti"; correct: "Bakteria ni wakubwa na wanaweza kutibiwa na antibiotiki"; cat: "A"; diff: 2 }
+        ListElement { q: "Tumbo (stomach) lina asidi inayoitwa?"; a: "Asidi ya Citric"; b: "Asidi ya Hydrochloric (HCl)"; c: "Asidi ya Acetic"; d: "Asidi ya Sulfuric"; correct: "Asidi ya Hydrochloric (HCl)"; cat: "A"; diff: 3 }
+        ListElement { q: "Kupumua kwa binadamu kunafanywa na viungo vipi?"; a: "Moyo na mishipa"; b: "Mapafu na diaphragm"; c: "Ini na figo"; d: "Ubongo na mishipa"; correct: "Mapafu na diaphragm"; cat: "A"; diff: 1 }
+        ListElement { q: "Chanjo ya COVID-19 ilizalishwa kwa muda mfupi zaidi wa chanjo yoyote kwa historia — ilichukua muda gani?"; a: "Miezi 6"; b: "Mwaka 1"; c: "Miaka 2"; d: "Miaka 5"; correct: "Mwaka 1"; cat: "A"; diff: 3 }
+
+        // SAYANSI (+18)
+        ListElement { q: "Einstein aliunda nadharia gani maarufu?"; a: "Nadharia ya Mageuzi"; b: "Nadharia ya Mvuto"; c: "Nadharia ya Uhusiano (Relativity)"; d: "Nadharia ya Quantum"; correct: "Nadharia ya Uhusiano (Relativity)"; cat: "S"; diff: 2 }
+        ListElement { q: "Gesi inayofanya ozoni angani kuwa na mwiba ni?"; a: "CO2"; b: "Methane"; c: "CFC (Chlorofluorocarbons)"; d: "Nitrogen"; correct: "CFC (Chlorofluorocarbons)"; cat: "S"; diff: 3 }
+        ListElement { q: "Mwanga unaosafiri kwa kasi ya sekunde moja unakwenda umbali gani?"; a: "Km 30,000"; b: "Km 300,000"; c: "Km 3,000,000"; d: "Km 30,000,000"; correct: "Km 300,000"; cat: "S"; diff: 2 }
+        ListElement { q: "Molekuli ya maji ina atomi ngapi?"; a: "2"; b: "3"; c: "4"; d: "5"; correct: "3"; cat: "S"; diff: 1 }
+        ListElement { q: "Sayari inayozunguka Jua kwa muda mfupi zaidi ni?"; a: "Venus"; b: "Mars"; c: "Mercury"; d: "Earth"; correct: "Mercury"; cat: "S"; diff: 2 }
+        ListElement { q: "DNA iko wapi kwenye seli?"; a: "Membrane ya seli"; b: "Cytoplasm"; c: "Nucleus (kiini)"; d: "Mitochondria"; correct: "Nucleus (kiini)"; cat: "S"; diff: 1 }
+        ListElement { q: "Kipengele cha kemikali chenye alama 'Au' ni?"; a: "Fedha"; b: "Shaba"; c: "Dhahabu"; d: "Aluminium"; correct: "Dhahabu"; cat: "S"; diff: 1 }
+        ListElement { q: "Nguvu ya mvuto kati ya vitu viwili inategemea nini?"; a: "Rangi ya vitu"; b: "Wingi (mass) na umbali wao"; c: "Joto la vitu"; d: "Rangi ya vitu"; correct: "Wingi (mass) na umbali wao"; cat: "S"; diff: 2 }
+        ListElement { q: "Uundaji wa glukosi kutoka CO2 na maji kwa nishati ya jua unaitwa?"; a: "Upumuaji"; b: "Photosynthesis"; c: "Osmosis"; d: "Diffusion"; correct: "Photosynthesis"; cat: "S"; diff: 1 }
+        ListElement { q: "Sauti ya ngurumo (thunder) ni matokeo ya nini?"; a: "Mawingu yanagongana"; b: "Hewa inayopanuka kwa haraka kutokana na radi"; c: "Mvua kubwa"; d: "Upepo mkali"; correct: "Hewa inayopanuka kwa haraka kutokana na radi"; cat: "S"; diff: 3 }
+        ListElement { q: "Sayari ya Saturn inajulikana kwa nini?"; a: "Rangi yake ya nyekundu"; b: "Pete zake zinazozunguka"; c: "Ukubwa wake mdogo"; d: "Mwezi mmoja mkubwa"; correct: "Pete zake zinazozunguka"; cat: "S"; diff: 1 }
+        ListElement { q: "Nguvu inayofanya sumaku kuvutia chuma inaitwa?"; a: "Nguvu ya uvutano"; b: "Nguvu ya umeme"; c: "Nguvu ya sumaku (magnetism)"; d: "Nguvu ya msuguano"; correct: "Nguvu ya sumaku (magnetism)"; cat: "S"; diff: 1 }
+        ListElement { q: "Mwaka wa nuru (light year) ni kipimo cha nini?"; a: "Muda"; b: "Uzito"; c: "Umbali"; d: "Kasi"; correct: "Umbali"; cat: "S"; diff: 2 }
+        ListElement { q: "Kupima joto la vitu hutumia kipimo gani cha msingi cha kisayansi?"; a: "Celsius"; b: "Fahrenheit"; c: "Kelvin"; d: "Newton"; correct: "Kelvin"; cat: "S"; diff: 3 }
+        ListElement { q: "Ubongo wa binadamu una asilimia ngapi ya mwili lakini unatumia asilimia ngapi ya nishati?"; a: "2% - 20%"; b: "5% - 10%"; c: "10% - 30%"; d: "15% - 25%"; correct: "2% - 20%"; cat: "S"; diff: 3 }
+        ListElement { q: "Nini maana ya 'ecosystem'?"; a: "Mfumo wa umeme"; b: "Mfumo wa viumbe na mazingira yao wanayoshirikiana"; c: "Aina ya mmea"; d: "Aina ya hewa"; correct: "Mfumo wa viumbe na mazingira yao wanayoshirikiana"; cat: "S"; diff: 2 }
+        ListElement { q: "Viumbe vidogo visivyoonekana kwa jicho inaitwa?"; a: "Insects"; b: "Microorganisms"; c: "Fungi"; d: "Algae"; correct: "Microorganisms"; cat: "S"; diff: 1 }
+        ListElement { q: "Kwa nini mbinguni ni rangi ya buluu mchana?"; a: "Mawingu ya buluu"; b: "Mwanga wa jua unaosambazwa na hewa hupitisha rangi buluu zaidi"; c: "Bahari inarudisha rangi buluu juu"; d: "Oksijeni ni ya rangi buluu"; correct: "Mwanga wa jua unaosambazwa na hewa hupitisha rangi buluu zaidi"; cat: "S"; diff: 3 }
+
+        // HISTORIA (+18)
+        ListElement { q: "Mji wa kale wa Rumi (Rome) ulikuwa mji mkuu wa dola gani?"; a: "Dola ya Ugiriki"; b: "Dola ya Roma"; c: "Dola ya Misri"; d: "Dola ya Ufaransa"; correct: "Dola ya Roma"; cat: "H"; diff: 1 }
+        ListElement { q: "Majarida ya zamani ya Misri yaliyoandikwa kwenye mimea yaliitwa?"; a: "Papyrus"; b: "Parchment"; c: "Canvas"; d: "Velvet"; correct: "Papyrus"; cat: "H"; diff: 2 }
+        ListElement { q: "Cleopatra alikuwa malkia wa nchi gani?"; a: "Ugiriki"; b: "Roma"; c: "Misri"; d: "Mesopotamia"; correct: "Misri"; cat: "H"; diff: 1 }
+        ListElement { q: "Barabara ya Hariri (Silk Road) iliunganisha nchi gani kwa biashara?"; a: "Afrika na Amerika"; b: "China na Ulaya kupitia Asia ya Kati"; c: "India na Afrika"; d: "Arabia na Uingereza"; correct: "China na Ulaya kupitia Asia ya Kati"; cat: "H"; diff: 2 }
+        ListElement { q: "Vita vya Kwanza vya Dunia viliisha mwaka gani?"; a: "1916"; b: "1917"; c: "1918"; d: "1919"; correct: "1918"; cat: "H"; diff: 1 }
+        ListElement { q: "Bomba la atomu lililotupwa Hiroshima liliitwa?"; a: "Fat Man"; b: "Little Boy"; c: "Big Baby"; d: "Thunder"; correct: "Little Boy"; cat: "H"; diff: 3 }
+        ListElement { q: "Mapinduzi ya Viwanda (Industrial Revolution) yalianza nchi gani?"; a: "Ufaransa"; b: "Ujerumani"; c: "Uingereza"; d: "Marekani"; correct: "Uingereza"; cat: "H"; diff: 2 }
+        ListElement { q: "Mkataba wa Oslo uliotiwa sahihi mwaka 1993 ulihusiana na amani kati ya nchi zipi?"; a: "India na Pakistan"; b: "Israel na Palestine"; c: "Amerika na Urusi"; d: "Iraq na Kuwait"; correct: "Israel na Palestine"; cat: "H"; diff: 3 }
+        ListElement { q: "Mwaka gani Apartheid ilimalizika Afrika Kusini?"; a: "1990"; b: "1991"; c: "1994"; d: "1996"; correct: "1994"; cat: "H"; diff: 2 }
+        ListElement { q: "Mgeni wa kwanza wa Uropa aliyefika India kwa bahari ya Afrika alikuwa?"; a: "Christopher Columbus"; b: "Vasco da Gama"; c: "Ferdinand Magellan"; d: "Francis Drake"; correct: "Vasco da Gama"; cat: "H"; diff: 2 }
+        ListElement { q: "Vita vya Maji Maji Tanzania vilipiganwa dhidi ya wakoloni wa nchi gani?"; a: "Waingereza"; b: "Wafaransa"; c: "Wajerumani"; d: "Wareno"; correct: "Wajerumani"; cat: "H"; diff: 1 }
+        ListElement { q: "Kiongozi wa Uhuru wa India aliyetumia njia ya amani alikuwa?"; a: "Jawaharlal Nehru"; b: "Subhas Bose"; c: "Mahatma Gandhi"; d: "Indira Gandhi"; correct: "Mahatma Gandhi"; cat: "H"; diff: 1 }
+        ListElement { q: "Msalaba Mwekundu (Red Cross) ulianzishwa na nani?"; a: "Florence Nightingale"; b: "Henry Dunant"; c: "Louis Pasteur"; d: "Albert Schweitzer"; correct: "Henry Dunant"; cat: "H"; diff: 3 }
+        ListElement { q: "Mwaka gani Umoja wa Mataifa (UN) ulianzishwa?"; a: "1943"; b: "1944"; c: "1945"; d: "1946"; correct: "1945"; cat: "H"; diff: 2 }
+        ListElement { q: "Nchi ya kwanza kuweka demokrasia ya kisasa ilikuwa?"; a: "Roma ya kale"; b: "Ugiriki wa kale (Athens)"; c: "Uingereza"; d: "Marekani"; correct: "Ugiriki wa kale (Athens)"; cat: "H"; diff: 2 }
+        ListElement { q: "Sera ya ukoloni ya Ujerumani Tanzania (Tanganyika) iliisha mwaka gani?"; a: "1914"; b: "1916"; c: "1918"; d: "1920"; correct: "1918"; cat: "H"; diff: 2 }
+        ListElement { q: "Mji wa Constantinople wa kale sasa unaitwa?"; a: "Ankara"; b: "Athens"; c: "Istanbul"; d: "Beirut"; correct: "Istanbul"; cat: "H"; diff: 2 }
+        ListElement { q: "Vita vya Kagera viliisha mwaka gani baada ya Tanzania kumshinda Idi Amin?"; a: "1978"; b: "1979"; c: "1980"; d: "1981"; correct: "1979"; cat: "H"; diff: 2 }
+
+        // MICHEZO (+18) — hadi 58 jumla
+        ListElement { q: "Mchezo wa Badminton unachezwa kwa kutumia?"; a: "Mpira wa mviringo"; b: "Shuttlecock (manyoya)"; c: "Mpira wa kikapu"; d: "Mpira laini"; correct: "Shuttlecock (manyoya)"; cat: "SP"; diff: 1 }
+        ListElement { q: "Klabu ya Liverpool inacheza uwanjani gani?"; a: "Old Trafford"; b: "Etihad Stadium"; c: "Anfield"; d: "Stamford Bridge"; correct: "Anfield"; cat: "SP"; diff: 1 }
+        ListElement { q: "Mbio za 5000m na 10000m ni mbio za aina gani?"; a: "Sprint"; b: "Middle distance"; c: "Long distance"; d: "Marathon"; correct: "Long distance"; cat: "SP"; diff: 2 }
+        ListElement { q: "Nchi gani imeshinda Kombe la Afrika (AFCON) mara nyingi zaidi?"; a: "Nigeria"; b: "Egypt"; c: "Ghana"; d: "Cameroon"; correct: "Egypt"; cat: "SP"; diff: 3 }
+        ListElement { q: "Samba ya FIFA World Cup inapiganwa kila miaka 4 — ilianzishwa mwaka gani?"; a: "1924"; b: "1928"; c: "1930"; d: "1934"; correct: "1930"; cat: "SP"; diff: 2 }
+        ListElement { q: "Mchezo wa formula 1 unashindana kwa nini?"; a: "Baiskeli"; b: "Magari ya mbio"; c: "Meli"; d: "Ndege"; correct: "Magari ya mbio"; cat: "SP"; diff: 1 }
+        ListElement { q: "Rekodi ya dunia ya mbio za mita 100 inashikiliwa na nani?"; a: "Carl Lewis"; b: "Asafa Powell"; c: "Usain Bolt"; d: "Yohan Blake"; correct: "Usain Bolt"; cat: "SP"; diff: 1 }
+        ListElement { q: "Mpira wa rugby wenye umbo la yai unaitwa?"; a: "Spherical ball"; b: "Oval ball"; c: "Round ball"; d: "Flat ball"; correct: "Oval ball"; cat: "SP"; diff: 2 }
+        ListElement { q: "Mchezaji wa kwanza wa Afrika kushinda Ballon d'Or (Golden Ball) alikuwa?"; a: "Samuel Eto'o"; b: "Didier Drogba"; c: "George Weah"; d: "Michael Essien"; correct: "George Weah"; cat: "SP"; diff: 3 }
+        ListElement { q: "Wimbledon ni mashindano ya mchezo gani?"; a: "Golf"; b: "Tenisi"; c: "Squash"; d: "Badminton"; correct: "Tenisi"; cat: "SP"; diff: 1 }
+        ListElement { q: "Mchezo wa Boxing una raundi za dakika ngapi kila moja?"; a: "2 dakika"; b: "3 dakika"; c: "4 dakika"; d: "5 dakika"; correct: "3 dakika"; cat: "SP"; diff: 2 }
+        ListElement { q: "Timu ya taifa ya Afrika Kusini ya rugby inajulikana kwa jina gani?"; a: "Springboks"; b: "All Blacks"; c: "Wallabies"; d: "Lions"; correct: "Springboks"; cat: "SP"; diff: 2 }
+        ListElement { q: "Mchezo wa Sumo ni mchezo wa mapigano wa nchi gani?"; a: "China"; b: "Korea"; c: "Japan"; d: "Mongolia"; correct: "Japan"; cat: "SP"; diff: 1 }
+        ListElement { q: "Michezo ya Paralympic inashughulika na watu wa aina gani?"; a: "Vijana tu"; b: "Wazee tu"; c: "Walemavu"; d: "Wanawake tu"; correct: "Walemavu"; cat: "SP"; diff: 1 }
+        ListElement { q: "Nchi gani imeshinda medali nyingi zaidi katika historia ya Olimpiki?"; a: "China"; b: "Urusi"; c: "Marekani"; d: "Uingereza"; correct: "Marekani"; cat: "SP"; diff: 2 }
+        ListElement { q: "Kombe la dunia la rugby (Rugby World Cup) hufanyika kila baada ya miaka mingapi?"; a: "2"; b: "3"; c: "4"; d: "5"; correct: "4"; cat: "SP"; diff: 2 }
+        ListElement { q: "Mchezo wa cricket unaochezwa ndani ya masaa 20 upande mmoja unaitwa?"; a: "Test cricket"; b: "One Day International"; c: "T20"; d: "T10"; correct: "T20"; cat: "SP"; diff: 2 }
+        ListElement { q: "Mchezaji maarufu wa basketball Michael Jordan alicheza kwa klabu gani?"; a: "LA Lakers"; b: "Chicago Bulls"; c: "Miami Heat"; d: "Boston Celtics"; correct: "Chicago Bulls"; cat: "SP"; diff: 2 }
+
+        // TEKNOLOJIA (+18)
+        ListElement { q: "Lugha ya programu Python ilitengenezwa na nani?"; a: "Dennis Ritchie"; b: "Guido van Rossum"; c: "James Gosling"; d: "Brendan Eich"; correct: "Guido van Rossum"; cat: "TK"; diff: 3 }
+        ListElement { q: "GPS inafanya kazi kwa kutumia satelaiti ngapi angani?"; a: "12"; b: "18"; c: "24"; d: "30"; correct: "24"; cat: "TK"; diff: 3 }
+        ListElement { q: "Kompyuta ya kwanza duniani ilitengenezwa miaka gani?"; a: "Miaka ya 1920"; b: "Miaka ya 1940"; c: "Miaka ya 1960"; d: "Miaka ya 1980"; correct: "Miaka ya 1940"; cat: "TK"; diff: 2 }
+        ListElement { q: "App inayotumiwa zaidi duniani kwa piga simu za video ni?"; a: "Skype"; b: "Zoom"; c: "WhatsApp"; d: "FaceTime"; correct: "WhatsApp"; cat: "TK"; diff: 1 }
+        ListElement { q: "Neno 'Algorithm' katika kompyuta linamaanisha?"; a: "Lugha ya kompyuta"; b: "Mfumo wa hatua za kutatua tatizo"; c: "Aina ya programu"; d: "Hifadhi ya data"; correct: "Mfumo wa hatua za kutatua tatizo"; cat: "TK"; diff: 2 }
+        ListElement { q: "Simu ya kwanza ya kisasa (smartphone) yenye touchscreen ilitengenezwa na?"; a: "Samsung"; b: "Nokia"; c: "Apple (iPhone)"; d: "Motorola"; correct: "Apple (iPhone)"; cat: "TK"; diff: 2 }
+        ListElement { q: "Bandwidth ya intaneti inapimwa kwa?"; a: "Megapixels"; b: "Megabytes per second (Mbps)"; c: "Megahertz"; d: "Megawatts"; correct: "Megabytes per second (Mbps)"; cat: "TK"; diff: 2 }
+        ListElement { q: "Blockchain technology inatumika hasa kwa?"; a: "Kupiga picha"; b: "Kuhifadhi rekodi za muamala zinazolindwa"; c: "Kutuma barua pepe"; d: "Kufanya kazi za ofisi"; correct: "Kuhifadhi rekodi za muamala zinazolindwa"; cat: "TK"; diff: 3 }
+        ListElement { q: "VPN inasaidia kufanya nini?"; a: "Kuongeza kasi ya intaneti"; b: "Kulinda faragha na kubadilisha eneo lako la mtandaoni"; c: "Kurekebisha virusi"; d: "Kuhifadhi picha"; correct: "Kulinda faragha na kubadilisha eneo lako la mtandaoni"; cat: "TK"; diff: 2 }
+        ListElement { q: "App store ya Android inaitwa?"; a: "Apple Store"; b: "Microsoft Store"; c: "Google Play Store"; d: "Samsung Store"; correct: "Google Play Store"; cat: "TK"; diff: 1 }
+        ListElement { q: "Kifupi cha URL kinamaanisha nini?"; a: "Universal Resource Locator"; b: "Uniform Resource Locator"; c: "United Resource Link"; d: "Universal Reference Link"; correct: "Uniform Resource Locator"; cat: "TK"; diff: 3 }
+        ListElement { q: "Nani alianzisha kampuni ya Tesla?"; a: "Bill Gates"; b: "Jeff Bezos"; c: "Elon Musk"; d: "Mark Zuckerberg"; correct: "Elon Musk"; cat: "TK"; diff: 1 }
+        ListElement { q: "USB-C inafanya nini tofauti na USB-A?"; a: "Ni ndogo na inaweza kupigwa upande wowote"; b: "Ni kubwa zaidi"; c: "Inafanya kazi polepole"; d: "Inafanya kazi na simu tu"; correct: "Ni ndogo na inaweza kupigwa upande wowote"; cat: "TK"; diff: 2 }
+        ListElement { q: "Neno 'Open Source' katika programu linamaanisha?"; a: "Programu inayolipiwa"; b: "Msimbo wa programu unaoweza kuonekana na kubadilishwa na wote"; c: "Programu ya serikali"; d: "Programu ya wazi kwa watoto"; correct: "Msimbo wa programu unaoweza kuonekana na kubadilishwa na wote"; cat: "TK"; diff: 2 }
+        ListElement { q: "Kamera ya simu inayopiga picha za nyuma ya simu inaitwa?"; a: "Front camera"; b: "Selfie camera"; c: "Rear camera"; d: "Wide camera"; correct: "Rear camera"; cat: "TK"; diff: 1 }
+        ListElement { q: "RAM nyingi zaidi kwenye simu au kompyuta inasaidia?"; a: "Picha bora"; b: "Betri kudumu zaidi"; c: "Kufanya kazi nyingi kwa wakati mmoja (multitasking)"; d: "Uunganisho wa mtandao"; correct: "Kufanya kazi nyingi kwa wakati mmoja (multitasking)"; cat: "TK"; diff: 2 }
+        ListElement { q: "Neno 'Streaming' linamaanisha nini katika teknolojia?"; a: "Kupakua faili kubwa"; b: "Kutazama au kusikiliza maudhui mtandaoni moja kwa moja"; c: "Kuhifadhi data"; d: "Kufuta data"; correct: "Kutazama au kusikiliza maudhui mtandaoni moja kwa moja"; cat: "TK"; diff: 1 }
+        ListElement { q: "Kampuni ya Amazon ilianzishwa kufanya nini mwanzoni?"; a: "Kutengeneza programu"; b: "Kuuza vitabu mtandaoni"; c: "Kufanya vifaa vya umeme"; d: "Kutengeneza simu"; correct: "Kuuza vitabu mtandaoni"; cat: "TK"; diff: 2 }
+
+        // HISABATI (+18)
+        ListElement { q: "Pi (π) ni thamani gani takriban?"; a: "3.14"; b: "2.71"; c: "1.41"; d: "4.13"; correct: "3.14"; cat: "M"; diff: 1 }
+        ListElement { q: "Eneo la duara lenye radius ya 7 cm ni? (π = 22/7)"; a: "22 cm²"; b: "44 cm²"; c: "154 cm²"; d: "308 cm²"; correct: "154 cm²"; cat: "M"; diff: 2 }
+        ListElement { q: "√169 ni sawa na?"; a: "11"; b: "12"; c: "13"; d: "14"; correct: "13"; cat: "M"; diff: 2 }
+        ListElement { q: "Kama bei inaongezeka kwa 50% na kisha kupungua kwa 50%, matokeo yake ni?"; a: "Sawa na mwanzo"; b: "Chini ya mwanzo kwa 25%"; c: "Juu ya mwanzo kwa 25%"; d: "Chini ya mwanzo kwa 50%"; correct: "Chini ya mwanzo kwa 25%"; cat: "M"; diff: 3 }
+        ListElement { q: "Thamani ya 2³ + 3² ni?"; a: "13"; b: "17"; c: "19"; d: "21"; correct: "17"; cat: "M"; diff: 2 }
+        ListElement { q: "Kama pembe mbili za pembetatu ni 45° na 65°, pembe ya tatu ni?"; a: "60°"; b: "70°"; c: "75°"; d: "80°"; correct: "70°"; cat: "M"; diff: 2 }
+        ListElement { q: "Nambari hasi mara nambari hasi inatoa jibu?"; a: "Hasi"; b: "Chanya (positive)"; c: "Sifuri"; d: "Inategemea"; correct: "Chanya (positive)"; cat: "M"; diff: 2 }
+        ListElement { q: "Mfululizo wa Fibonacci unaanza hivi: 0, 1, 1, 2, 3, 5, 8 — nambari ya 10 ni?"; a: "29"; b: "34"; c: "39"; d: "43"; correct: "34"; cat: "M"; diff: 3 }
+        ListElement { q: "Kama duka linapata faida ya 30% kwenye bidhaa iliyonunuliwa kwa 7,000, bei ya kuuza ni?"; a: "9,000"; b: "9,100"; c: "9,500"; d: "10,000"; correct: "9,100"; cat: "M"; diff: 2 }
+        ListElement { q: "Pembetatu yenye pembe zote 60° inaitwa?"; a: "Isosceles"; b: "Scalene"; c: "Right angle"; d: "Equilateral"; correct: "Equilateral"; cat: "M"; diff: 2 }
+        ListElement { q: "Kama kiwango cha riba ni 5% kwa mwaka na umeweka 10,000 kwa miaka 2, riba rahisi ni?"; a: "500"; b: "1,000"; c: "1,500"; d: "2,000"; correct: "1,000"; cat: "M"; diff: 2 }
+        ListElement { q: "Hesabu ya 15% ya 2,400 ni?"; a: "280"; b: "320"; c: "360"; d: "400"; correct: "360"; cat: "M"; diff: 1 }
+        ListElement { q: "Kama mstatili una eneo la 48 cm² na urefu wa 8 cm, upana wake ni?"; a: "4 cm"; b: "5 cm"; c: "6 cm"; d: "7 cm"; correct: "6 cm"; cat: "M"; diff: 2 }
+        ListElement { q: "Jumla ya pembe za nyota ya pointi 5 (pentagram) ni?"; a: "360°"; b: "540°"; c: "720°"; d: "900°"; correct: "180°"; cat: "M"; diff: 3 }
+        ListElement { q: "Kama gari linasafiri km 120 kwa saa 2, litachukua muda gani kusafiri km 300?"; a: "3.5 saa"; b: "4 saa"; c: "4.5 saa"; d: "5 saa"; correct: "5 saa"; cat: "M"; diff: 2 }
+        ListElement { q: "Nambari inayoitwa 'kamili' (perfect number) kwa sababu jumla ya vigawanyo vyake ni sawa nayo ni?"; a: "6"; b: "8"; c: "10"; d: "12"; correct: "6"; cat: "M"; diff: 3 }
+        ListElement { q: "Kiwango cha wastani cha darasa la wanafunzi 5 wenye alama: 70, 85, 90, 60, 95 ni?"; a: "78"; b: "80"; c: "82"; d: "85"; correct: "80"; cat: "M"; diff: 2 }
+        ListElement { q: "Kama n = 4, thamani ya n² + 2n + 1 ni?"; a: "21"; b: "24"; c: "25"; d: "28"; correct: "25"; cat: "M"; diff: 2 }
+
+        // GEO (+18)
+        ListElement { q: "Mji mkuu wa Kenya ni?"; a: "Mombasa"; b: "Kisumu"; c: "Nairobi"; d: "Nakuru"; correct: "Nairobi"; cat: "GEO"; diff: 1 }
+        ListElement { q: "Mlima mrefu zaidi Afrika ni?"; a: "Mlima Kenya"; b: "Mlima Kilimanjaro"; c: "Mlima Cameroon"; d: "Mlima Atlas"; correct: "Mlima Kilimanjaro"; cat: "GEO"; diff: 1 }
+        ListElement { q: "Jangwa kubwa zaidi duniani ni?"; a: "Kalahari"; b: "Gobi"; c: "Sahara"; d: "Arabian"; correct: "Sahara"; cat: "GEO"; diff: 1 }
+        ListElement { q: "Mto mrefu zaidi duniani ni?"; a: "Amazon"; b: "Nile"; c: "Congo"; d: "Yangtze"; correct: "Nile"; cat: "GEO"; diff: 1 }
+        ListElement { q: "Nchi ya Kenya inapakana na Tanzania upande gani?"; a: "Kaskazini"; b: "Kusini"; c: "Mashariki"; d: "Magharibi"; correct: "Kusini"; cat: "GEO"; diff: 1 }
+        ListElement { q: "Bahari inayozunguka Tanzania upande wa mashariki ni?"; a: "Bahari ya Atlantiki"; b: "Bahari ya Hindi"; c: "Bahari ya Pasifiki"; d: "Bahari ya Kaskazini"; correct: "Bahari ya Hindi"; cat: "GEO"; diff: 1 }
+        ListElement { q: "Nchi kubwa zaidi barani Afrika ni?"; a: "Sudan"; b: "Congo DRC"; c: "Algeria"; d: "Libya"; correct: "Algeria"; cat: "GEO"; diff: 2 }
+        ListElement { q: "Ziwa la chumvi kubwa zaidi Afrika ni?"; a: "Ziwa Turkana"; b: "Ziwa Natron"; c: "Ziwa Manyara"; d: "Ziwa Assal"; correct: "Ziwa Assal"; cat: "GEO"; diff: 3 }
+        ListElement { q: "Dar es Salaam inamaanisha nini kwa Kiarabu?"; a: "Bandari ya Amani"; b: "Mji wa Dhahabu"; c: "Nyumba ya Amani"; d: "Nchi ya Amani"; correct: "Bandari ya Amani"; cat: "GEO"; diff: 2 }
+        ListElement { q: "Wilaya gani ya Tanzania ina mpaka mrefu zaidi na Msumbiji?"; a: "Mtwara"; b: "Songea"; c: "Tunduru"; d: "Lindi"; correct: "Tunduru"; cat: "GEO"; diff: 3 }
+        ListElement { q: "Mji wa Arusha uko urefu wa mita ngapi juu ya usawa wa bahari?"; a: "800m"; b: "1,400m"; c: "2,000m"; d: "2,500m"; correct: "1,400m"; cat: "GEO"; diff: 3 }
+        ListElement { q: "Ziwa Victoria ni ziwa la ngapi kwa ukubwa duniani?"; a: "La kwanza"; b: "La pili"; c: "La tatu"; d: "La nne"; correct: "La pili"; cat: "GEO"; diff: 2 }
+        ListElement { q: "Mkoa gani wa Tanzania hauna mpaka na nchi nyingine?"; a: "Kagera"; b: "Dodoma"; c: "Mara"; d: "Kigoma"; correct: "Dodoma"; cat: "GEO"; diff: 2 }
+        ListElement { q: "Mji wa Pemba (kaskazini mwa Mozambique) upo nchi gani?"; a: "Tanzania"; b: "Msumbiji"; c: "Malawi"; d: "Zambia"; correct: "Msumbiji"; cat: "GEO"; diff: 2 }
+        ListElement { q: "Bonde la Ufa (Great Rift Valley) linapita Tanzania na kuathiri nini?"; a: "Hali ya hewa tu"; b: "Kuumba maziwa, mabonde na milima"; c: "Uzalishaji wa mazao"; d: "Mifumo ya maji ya bahari"; correct: "Kuumba maziwa, mabonde na milima"; cat: "GEO"; diff: 2 }
+        ListElement { q: "Mkoa wa Shinyanga unajulikana kwa nini?"; a: "Uvuvi wa ziwa"; b: "Almasi na pamba"; c: "Utalii wa wanyama"; d: "Kahawa"; correct: "Almasi na pamba"; cat: "GEO"; diff: 1 }
+        ListElement { q: "Kisiwa kikubwa zaidi Afrika ni?"; a: "Zanzibar"; b: "Madagascar"; c: "Comoros"; d: "Reunion"; correct: "Madagascar"; cat: "GEO"; diff: 1 }
+        ListElement { q: "Nchi gani iko kaskazini kabisa barani Afrika?"; a: "Libya"; b: "Tunisia"; c: "Morocco"; d: "Egypt"; correct: "Tunisia"; cat: "GEO"; diff: 3 }
+
+        // MAZINGIRA (+18)
+        ListElement { q: "Tabaka la ozoni linalolinda Dunia lipo wapi angani?"; a: "Troposphere"; b: "Stratosphere"; c: "Mesosphere"; d: "Thermosphere"; correct: "Stratosphere"; cat: "MK"; diff: 3 }
+        ListElement { q: "Mti mrefu zaidi duniani ni aina gani?"; a: "Oak"; b: "Sequoia (Redwood)"; c: "Eucalyptus"; d: "Pine"; correct: "Sequoia (Redwood)"; cat: "MK"; diff: 3 }
+        ListElement { q: "Mwaka gani Mkataba wa Paris wa hali ya hewa ulisainiwa?"; a: "2010"; b: "2012"; c: "2015"; d: "2018"; correct: "2015"; cat: "MK"; diff: 2 }
+        ListElement { q: "Nishati ya umeme inayotokana na mvuke wa ardhi (geothermal) inapatikana Tanzania wapi?"; a: "Kilimanjaro"; b: "Serengeti"; c: "Bonde la Ufa (Olkaria/Mbeya)"; d: "Zanzibar"; correct: "Bonde la Ufa (Olkaria/Mbeya)"; cat: "MK"; diff: 3 }
+        ListElement { q: "Kusafisha hewa ndani ya nyumba kwa mimea ni kweli — mmea gani mzuri zaidi?"; a: "Nyasi"; b: "Aloe Vera na Peace Lily"; c: "Cactus"; d: "Rose"; correct: "Aloe Vera na Peace Lily"; cat: "MK"; diff: 3 }
+        ListElement { q: "Methane (CH4) ni gesi ya greenhouse inayotoka wapi Tanzania?"; a: "Magari tu"; b: "Mifugo (ng'ombe) na maeneo ya mvua"; c: "Viwanda tu"; d: "Meli za bahari"; correct: "Mifugo (ng'ombe) na maeneo ya mvua"; cat: "MK"; diff: 3 }
+        ListElement { q: "Mto Amazon (Brazil) unazalisha asilimia ngapi ya oksijeni ya dunia?"; a: "10%"; b: "15%"; c: "20%"; d: "30%"; correct: "20%"; cat: "MK"; diff: 3 }
+        ListElement { q: "Mfumo wa kilimo endelevu unaochanganya samaki na mimea (fish + plants) unaitwa?"; a: "Hydroponics"; b: "Aquaponics"; c: "Aeroponics"; d: "Permaculture"; correct: "Aquaponics"; cat: "MK"; diff: 3 }
+        ListElement { q: "Siku ya Dunia ya Miti (World Tree Day) huadhimishwa lini?"; a: "Machi 21"; b: "Juni 5"; c: "Aprili 22"; d: "Julai 28"; correct: "Machi 21"; cat: "MK"; diff: 3 }
+        ListElement { q: "Mabadiliko ya tabianchi yanaweza kusababisha kupanda kwa usawa wa bahari — hii inaathiri nini Tanzania?"; a: "Milima tu"; b: "Visiwa vidogo na maeneo ya pwani"; c: "Jangwa"; d: "Msitu wa milima"; correct: "Visiwa vidogo na maeneo ya pwani"; cat: "MK"; diff: 2 }
+        ListElement { q: "Kilimo cha 'permaculture' kinamaanisha nini?"; a: "Kilimo cha mazao makubwa"; b: "Mfumo wa kudumu wa kilimo unaoigwa kutoka asili"; c: "Kilimo cha kemikali nyingi"; d: "Kilimo cha muda mfupi"; correct: "Mfumo wa kudumu wa kilimo unaoigwa kutoka asili"; cat: "MK"; diff: 3 }
+        ListElement { q: "Taka za plastiki zinachukua muda gani kuoza kabisa?"; a: "Miaka 10-20"; b: "Miaka 50-100"; c: "Miaka 400-1000"; d: "Kamwe haziozi"; correct: "Miaka 400-1000"; cat: "MK"; diff: 2 }
+        ListElement { q: "Nguvu ya mawimbi ya bahari (wave energy) inaweza kutumika kuzalisha?"; a: "Chakula"; b: "Umeme"; c: "Mafuta"; d: "Maji safi"; correct: "Umeme"; cat: "MK"; diff: 2 }
+        ListElement { q: "Nini maana ya 'carbon footprint' katika mazingira?"; a: "Alama ya mguu kwenye mchanga"; b: "Kiasi cha CO2 kinachozalishwa na shughuli za mtu au shirika"; c: "Aina ya mazao"; d: "Aina ya nishati"; correct: "Kiasi cha CO2 kinachozalishwa na shughuli za mtu au shirika"; cat: "MK"; diff: 2 }
+        ListElement { q: "Upandaji wa miti wa 'The Great Green Wall' unalenga kupambana na tatizo gani Afrika?"; a: "Ukosefu wa maji ya kunywa"; b: "Kuzuia kuenea kwa Jangwa la Sahara"; c: "Kuzalisha chakula zaidi"; d: "Kulinda wanyama"; correct: "Kuzuia kuenea kwa Jangwa la Sahara"; cat: "MK"; diff: 2 }
+        ListElement { q: "Biogas inayozalishwa kutoka taka za mifugo inaweza kutumika kwa nini?"; a: "Kupiga picha"; b: "Kupika na kutoa mwanga"; c: "Kutengeneza plastiki"; d: "Kumwagilia maji"; correct: "Kupika na kutoa mwanga"; cat: "MK"; diff: 1 }
+        ListElement { q: "Mfumo wa hali ya hewa wa 'monsoon' una athari gani Tanzania?"; a: "Huleta baridi kali"; b: "Huleta mvua za masika na mwelekeo wa upepo wa bahari"; c: "Husababisha dhoruba za radi tu"; d: "Hauna athari Tanzania"; correct: "Huleta mvua za masika na mwelekeo wa upepo wa bahari"; cat: "MK"; diff: 2 }
+        ListElement { q: "Hifadhi ya kibayolojia (biodiversity hotspot) kubwa zaidi Afrika Mashariki ipo wapi?"; a: "Serengeti"; b: "Msitu wa Albertine Rift"; c: "Bonde la Ngorongoro"; d: "Ziwa Tanganyika"; correct: "Msitu wa Albertine Rift"; cat: "MK"; diff: 3 }
 
     }
 
@@ -1182,7 +1497,7 @@ Rectangle {
 
         var totalCount = iqModel.count;
         var cats = selectedCategories.length === 0
-            ? ["S","M","SP","TK","H","A","V","GEO","UR","MK","BUR"]
+            ? ["S","M","SP","TK","H","A","V","GEO","UR","MK","BUR","UT","LG"]
             : selectedCategories.slice();
 
         var shuffleArray = function(arr) {
@@ -1656,7 +1971,9 @@ Rectangle {
                             { label: "Mitaa & Maeneo", cat: "GEO" },
                             { label: "Elimu ya Uraia", cat: "UR"  },
                             { label: "Mazingira",      cat: "MK"  },
-                            { label: "Burudani",       cat: "BUR" }
+                            { label: "Burudani",       cat: "BUR" },
+                            { label: "Utalii wa TZ",    cat: "UT"  },
+                            { label: "Mantiki",          cat: "LG"  }
                         ]
                         delegate: Rectangle {
                             width: catLabel.implicitWidth + Math.round(20*dp)
