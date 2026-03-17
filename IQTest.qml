@@ -1930,10 +1930,29 @@ Rectangle {
 
             // ── Question card ─────────────────────────────────────────
             Rectangle {
+                id: questionCard
                 Layout.fillWidth: true
                 Layout.preferredHeight: parent.height * 0.4
                 radius: Math.round(16 * dp)
                 color: card
+                opacity: 1.0
+                x: 0
+
+                // Slide in animation when question changes
+                SequentialAnimation {
+                    id: slideInAnim
+                    NumberAnimation { target: questionCard; property: "opacity"; to: 0; duration: 80 }
+                    NumberAnimation { target: questionCard; property: "x"; to: Math.round(-20 * dp); duration: 0 }
+                    NumberAnimation { target: questionCard; property: "opacity"; to: 1; duration: 0 }
+                    NumberAnimation { target: questionCard; property: "x"; to: 0; duration: 220; easing.type: Easing.OutCubic }
+                }
+
+                Connections {
+                    target: app
+                    function onCurrentIdxChanged() {
+                        if (app.viewState === "QUIZ") slideInAnim.start();
+                    }
+                }
 
                 // Gold left accent bar
                 Rectangle {
@@ -1989,64 +2008,150 @@ Rectangle {
                         Layout.fillWidth: true
                         Layout.fillHeight: true
                         radius: Math.round(12 * dp)
+                        clip: true
 
-                        // Feedback color logic:
-                        // - During feedback: correct answer = green, selected wrong = red, others = dim
-                        // - During press: immediate preview
-                        // - Default: card color
+                        // Safe accessor — huzuia TypeError kama quizModel ni tupu
+                        readonly property string correctAnswer: (quizModel.count > currentIdx)
+                            ? quizModel.get(currentIdx).correct : ""
+
+                        // Feedback color logic
                         color: {
                             if (answerResult !== "") {
-                                if (modelData === quizModel.get(currentIdx).correct)
+                                if (modelData === correctAnswer)
                                     return Qt.rgba(0.13, 0.77, 0.33, 0.25);
                                 if (modelData === selectedAnswer)
                                     return Qt.rgba(0.94, 0.27, 0.27, 0.20);
                                 return Qt.rgba(0.04, 0.12, 0.12, 0.5);
                             }
                             if (optMA.pressed)
-                                return (modelData === quizModel.get(currentIdx).correct
+                                return (modelData === correctAnswer
                                         ? Qt.rgba(0.13,0.77,0.33,0.25)
                                         : Qt.rgba(0.94,0.27,0.27,0.2));
                             return card;
                         }
                         border.color: {
                             if (answerResult !== "") {
-                                if (modelData === quizModel.get(currentIdx).correct) return success;
+                                if (modelData === correctAnswer) return success;
                                 if (modelData === selectedAnswer) return danger;
                                 return Qt.rgba(0, 0.9, 1, 0.06);
                             }
                             if (optMA.pressed)
-                                return (modelData === quizModel.get(currentIdx).correct ? success : danger);
+                                return (modelData === correctAnswer ? success : danger);
                             return Qt.rgba(0, 0.9, 1, 0.15);
                         }
                         border.width: {
                             if (answerResult !== "") {
-                                if (modelData === quizModel.get(currentIdx).correct
+                                if (modelData === correctAnswer
                                         || modelData === selectedAnswer)
                                     return Math.round(1.5 * dp);
                             }
                             return optMA.pressed ? Math.round(1.5 * dp) : 1;
                         }
 
-                        Behavior on color { ColorAnimation { duration: 120 } }
+                        Behavior on color  { ColorAnimation { duration: 120 } }
+                        Behavior on border.color { ColorAnimation { duration: 120 } }
+
+                        // ── SHAKE animation (wrong answer) ──────────────
+                        SequentialAnimation {
+                            id: shakeAnim
+                            NumberAnimation { target: optRect; property: "x"; to:  Math.round(8*dp);  duration: 40 }
+                            NumberAnimation { target: optRect; property: "x"; to: -Math.round(8*dp);  duration: 40 }
+                            NumberAnimation { target: optRect; property: "x"; to:  Math.round(5*dp);  duration: 35 }
+                            NumberAnimation { target: optRect; property: "x"; to: -Math.round(5*dp);  duration: 35 }
+                            NumberAnimation { target: optRect; property: "x"; to:  Math.round(2*dp);  duration: 30 }
+                            NumberAnimation { target: optRect; property: "x"; to:  0;                 duration: 30 }
+                        }
+
+                        // ── BOUNCE animation (correct answer) ───────────
+                        SequentialAnimation {
+                            id: bounceAnim
+                            NumberAnimation { target: optRect; property: "scale"; to: 1.04; duration: 100; easing.type: Easing.OutCubic }
+                            NumberAnimation { target: optRect; property: "scale"; to: 0.98; duration: 80  }
+                            NumberAnimation { target: optRect; property: "scale"; to: 1.0;  duration: 100; easing.type: Easing.OutBounce }
+                        }
+
+                        // Trigger animations when answerResult changes
+                        Connections {
+                            target: app
+                            function onAnswerResultChanged() {
+                                if (app.answerResult === "wrong" && modelData === app.selectedAnswer) {
+                                    shakeAnim.start();
+                                } else if (app.answerResult === "correct"
+                                           && quizModel.count > app.currentIdx
+                                           && modelData === correctAnswer) {
+                                    bounceAnim.start();
+                                }
+                            }
+                        }
+
+                        // ── Ripple overlay (flash on tap) ───────────────
+                        Rectangle {
+                            id: ripple
+                            anchors.fill: parent
+                            radius: parent.radius
+                            color: "white"
+                            opacity: 0
+                            SequentialAnimation on opacity {
+                                id: rippleAnim
+                                running: false
+                                NumberAnimation { to: 0.12; duration: 60 }
+                                NumberAnimation { to: 0;    duration: 180 }
+                            }
+                        }
+
+                        // ── Tick / X icon overlay (feedback) ───────────
+                        Text {
+                            anchors.right: parent.right
+                            anchors.verticalCenter: parent.verticalCenter
+                            anchors.rightMargin: Math.round(14 * dp)
+                            text: {
+                                if (answerResult === "" ) return "";
+                                if (modelData === correctAnswer) return "\u2713";
+                                if (modelData === selectedAnswer) return "x";
+                                return "";
+                            }
+                            font.pointSize: 14
+                            font.bold: true
+                            color: modelData === correctAnswer ? success : danger
+                            opacity: answerResult !== "" ? 1 : 0
+                            scale:  answerResult !== "" ? 1 : 0.3
+                            Behavior on opacity { NumberAnimation { duration: 180 } }
+                            Behavior on scale   { NumberAnimation { duration: 200; easing.type: Easing.OutBack } }
+                        }
 
                         Row {
                             anchors.left: parent.left
                             anchors.right: parent.right
                             anchors.verticalCenter: parent.verticalCenter
                             anchors.leftMargin: Math.round(14 * dp)
-                            anchors.rightMargin: Math.round(14 * dp)
+                            anchors.rightMargin: Math.round(40 * dp)
                             spacing: Math.round(12 * dp)
 
                             // Letter badge
                             Rectangle {
+                                id: letterBadge
                                 width: Math.round(34 * dp); height: width; radius: Math.round(6 * dp)
-                                color: Qt.rgba(0, 0.9, 1, 0.1)
+                                color: {
+                                    if (answerResult !== "") {
+                                        if (modelData === correctAnswer) return Qt.rgba(0.13,0.77,0.33,0.3);
+                                        if (modelData === selectedAnswer) return Qt.rgba(0.94,0.27,0.27,0.3);
+                                    }
+                                    return Qt.rgba(0, 0.9, 1, 0.1);
+                                }
+                                Behavior on color { ColorAnimation { duration: 150 } }
                                 Text {
                                     anchors.centerIn: parent
                                     text: app.indexToLetter(index)
                                     font.pointSize: 13
                                     font.bold: true
-                                    color: gold
+                                    color: {
+                                        if (answerResult !== "") {
+                                            if (modelData === correctAnswer) return success;
+                                            if (modelData === selectedAnswer) return danger;
+                                        }
+                                        return gold;
+                                    }
+                                    Behavior on color { ColorAnimation { duration: 150 } }
                                 }
                             }
 
@@ -2054,7 +2159,15 @@ Rectangle {
                                 width: parent.width - Math.round(34 * dp) - Math.round(12 * dp)
                                 text: app.cleanOption(modelData)
                                 font.pointSize: 16
-                                color: textPri
+                                color: {
+                                    if (answerResult !== "") {
+                                        if (modelData === correctAnswer) return success;
+                                        if (modelData === selectedAnswer) return danger;
+                                        return Qt.rgba(1,1,1,0.3);
+                                    }
+                                    return textPri;
+                                }
+                                Behavior on color { ColorAnimation { duration: 150 } }
                                 wrapMode: Text.WordWrap
                                 lineHeight: 1.3
                                 lineHeightMode: Text.ProportionalHeight
@@ -2065,7 +2178,7 @@ Rectangle {
                             id: optMA
                             anchors.fill: parent
                             enabled: answerResult === ""
-                            onPressed:  { optRect.scale = 0.98; }
+                            onPressed:  { optRect.scale = 0.97; rippleAnim.start(); }
                             onReleased: { optRect.scale = 1.0; processAnswer(modelData); }
                             onCanceled: { optRect.scale = 1.0; }
                         }
