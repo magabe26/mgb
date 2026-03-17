@@ -830,8 +830,32 @@ Rectangle {
         ListElement { q: "Mpira wa miguu ulianzishwa rasmi kwa sheria za kwanza nchini gani?"; a: "Ufaransa"; b: "Ujerumani"; c: "Uingereza"; d: "Italia"; correct: "Uingereza"; cat: "SP"; diff: 2 }
         ListElement { q: "Mchezaji gani anajulikana zaidi kama 'GOAT' wa mpira wa miguu duniani?"; a: "Cristiano Ronaldo"; b: "Neymar"; c: "Mbappe"; d: "Lionel Messi"; correct: "Lionel Messi"; cat: "SP"; diff: 1 }
 
-        // ═══════════════════════════════════════════════════
-        // MADA MPYA 1: MITAA & MAENEO (GEO) — 60 maswali
+        // --- MICHEZO ZAIDI (+14) ---
+        ListElement { q: "Mchezo wa Rugby una wachezaji wangapi kwa timu moja?"; a: "11"; b: "13"; c: "15"; d: "17"; correct: "15"; cat: "SP"; diff: 2 }
+        ListElement { q: "Klabu ya Barcelona inacheza uwanjani gani?"; a: "Santiago Bernabeu"; b: "Camp Nou"; c: "Wanda Metropolitano"; d: "Mestalla"; correct: "Camp Nou"; cat: "SP"; diff: 1 }
+        ListElement { q: "Nchi gani imeshinda Kombe la Dunia la Soka mara nyingi zaidi?"; a: "Ujerumani"; b: "Argentina"; c: "Ufaransa"; d: "Brazil"; correct: "Brazil"; cat: "SP"; diff: 2 }
+        ListElement { q: "Michezo ya Olimpiki hufanyika kila baada ya miaka mingapi?"; a: "2"; b: "3"; c: "4"; d: "5"; correct: "4"; cat: "SP"; diff: 1 }
+        ListElement { q: "Urefu wa bwawa la kuogelea la Olympic ni mita ngapi?"; a: "25"; b: "50"; c: "75"; d: "100"; correct: "50"; cat: "SP"; diff: 2 }
+        ListElement { q: "Mchezo wa Cricket una wachezaji wangapi kwa timu moja?"; a: "9"; b: "10"; c: "11"; d: "12"; correct: "11"; cat: "SP"; diff: 2 }
+        ListElement { q: "Mchezaji wa tenisi aliyeshinda Grand Slam nyingi zaidi duniani ni?"; a: "Rafael Nadal"; b: "Roger Federer"; c: "Novak Djokovic"; d: "Pete Sampras"; correct: "Novak Djokovic"; cat: "SP"; diff: 2 }
+        ListElement { q: "Mchezo wa Table Tennis (Ping Pong) ulianzishwa nchi gani?"; a: "China"; b: "Japan"; c: "Uingereza"; d: "Marekani"; correct: "Uingereza"; cat: "SP"; diff: 3 }
+        ListElement { q: "Klabu ya Real Madrid ina lakabu gani maarufu?"; a: "Los Blancos"; b: "Los Rojos"; c: "El Clasico"; d: "La Furia"; correct: "Los Blancos"; cat: "SP"; diff: 2 }
+        ListElement { q: "Michezo ya Olimpiki ya kisasa ilianzishwa mwaka gani na nchi gani?"; a: "1892 — Ufaransa"; b: "1896 — Ugiriki"; c: "1900 — Uingereza"; d: "1904 — Marekani"; correct: "1896 — Ugiriki"; cat: "SP"; diff: 2 }
+        ListElement { q: "Mchezaji wa mpira wa kikapu (NBA) anayejulikana kwa jina 'King James' ni nani?"; a: "Kobe Bryant"; b: "Michael Jordan"; c: "LeBron James"; d: "Stephen Curry"; correct: "LeBron James"; cat: "SP"; diff: 1 }
+        ListElement { q: "Mchezo wa Golf unachezwa kwenye mashimo mangapi kwa raundi kamili?"; a: "9"; b: "12"; c: "18"; d: "24"; correct: "18"; cat: "SP"; diff: 2 }
+        ListElement { q: "Mbio za kasi zaidi duniani za mita 100 zinashikiliwa na mwanariadha gani?"; a: "Carl Lewis"; b: "Asafa Powell"; c: "Yohan Blake"; d: "Usain Bolt"; correct: "Usain Bolt"; cat: "SP"; diff: 1 }
+        ListElement { q: "Timu ya Tanzania ya Netball inaitwa jina gani rasmi?"; a: "Tanzania Leopards"; b: "Twiga Stars"; c: "Serengeti Queens"; d: "Kilimanjaro Stars"; correct: "Twiga Stars"; cat: "SP"; diff: 2 }
+
+        // --- VITENDAWILI ZAIDI (+7) ---
+        ListElement { q: "Kitendawili: Nina ndugu wengi lakini hatuzaliwi na mama mmoja. Sisi ni nini?"; a: "Nyota"; b: "Meno"; c: "Vidole"; d: "Matawi"; correct: "Vidole"; cat: "V"; diff: 2 }
+        ListElement { q: "Kitendawili: Ninakuona lakini huwezi kunishika. Mimi ni nani?"; a: "Pumzi"; b: "Kivuli"; c: "Ndoto"; d: "Upepo"; correct: "Kivuli"; cat: "V"; diff: 1 }
+        ListElement { q: "Kitendawili: Nina miguu mingi lakini siendi popote. Mimi ni nani?"; a: "Meza"; b: "Mti"; c: "Kiti"; d: "Mlango"; correct: "Meza"; cat: "V"; diff: 1 }
+        ListElement { q: "Kitendawili: Ninaingia ukuta lakini siuvunji. Mimi ni nani?"; a: "Msumari"; b: "Jicho"; c: "Sindano"; d: "Neno"; correct: "Msumari"; cat: "V"; diff: 2 }
+        ListElement { q: "Kitendawili: Kadiri unavyonichimba ndivyo ninavyokukua. Mimi ni nani?"; a: "Mto"; b: "Shimo"; c: "Kisima"; d: "Mazao"; correct: "Shimo"; cat: "V"; diff: 2 }
+        ListElement { q: "Kitendawili: Ninazaliwa maji, ninaishi maji, lakini nikitumbukizwa majini, ninakufa. Mimi ni nani?"; a: "Samaki"; b: "Chumvi"; c: "Mchanga"; d: "Barafu"; correct: "Chumvi"; cat: "V"; diff: 3 }
+        ListElement { q: "Kitendawili: Ninapita mlangoni bila kusema hodi. Mimi ni nani?"; a: "Mwizi"; b: "Pumzi"; c: "Upepo"; d: "Nuru"; correct: "Upepo"; cat: "V"; diff: 2 }
+
+
         // ═══════════════════════════════════════════════════
         ListElement { q: "Mtaa maarufu wa biashara jijini Dar es Salaam unaofahamika kwa soko kubwa ni?"; a: "Kinondoni"; b: "Kariakoo"; c: "Ilala"; d: "Temeke"; correct: "Kariakoo"; cat: "GEO"; diff: 1 }
         ListElement { q: "Wilaya ya Kinondoni ipo katika mkoa gani?"; a: "Pwani"; b: "Morogoro"; c: "Dar es Salaam"; d: "Coast"; correct: "Dar es Salaam"; cat: "GEO"; diff: 1 }
