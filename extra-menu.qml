@@ -404,7 +404,7 @@ Rectangle{
             }
         }
 
-/*
+
 
 Rectangle{
             z: root.z + 1
@@ -419,7 +419,7 @@ Rectangle{
                 anchors.top: parent.top
                 anchors.left: parent.left
                 anchors.leftMargin: menu.imgLeftMargin
-                source: getIconSource("fa::automobile","#00e6e6")
+                source: getIconSource("fa::star","#00e6e6")
             }
 
             Text {
@@ -427,16 +427,17 @@ Rectangle{
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.leftMargin: menu.textLeftMargin
                 color: Qt.lighter("gray",1.7)
-                text: "Used Motor Vehicle Valuation System"
+                text: "John Pombe Magufuli"
             }
 
             MouseArea{
                 anchors.fill: parent
                 onClicked: {
-                    root.executeCommand("#openApp;TZ_UMVVS.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/;Please wait!;dependencies.txt;#;2;1;1;100;", []);
+                    root.executeCommand("
+#openApp;Magufuli.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Magufuli/;Please wait;dependencies.txt;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Magufuli/images/;2;1;1;600;", []);
                 }
             }
-        } */
+        } 
 
 
         AnimatedImage{
