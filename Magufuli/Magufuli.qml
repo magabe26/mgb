@@ -389,11 +389,7 @@ Rectangle {
                     width: parent.width; height: Math.round(200*dp); radius: Math.round(12*dp)
                     color: "#1a1a1a"; border.color: Qt.rgba(0.79,0.66,0.30,0.2); border.width: 1; clip: true
                     Image { anchors.fill: parent; fillMode: Image.PreserveAspectCrop; source: "./magufuli0.jpeg" /* ← "./magufuli0.jpeg" */ }
-                    Column { anchors.centerIn: parent; spacing: Math.round(6*dp)
-                        // Text { anchors.horizontalCenter: parent.horizontalCenter; text: "\uD83D\uDDBC"; font.pointSize: 36 }
-                        Text { anchors.horizontalCenter: parent.horizontalCenter; text: "Picha Kuu"; font.pointSize: Math.round(10*dp); color: goldDim }
-                        Text { anchors.horizontalCenter: parent.horizontalCenter; text: "source: \"./magufuli0.jpeg\""; font.pointSize: Math.round(7*dp); color: "#555" }
-                    }
+
                 }
 
                 // Grid 2x3
