@@ -591,7 +591,7 @@ Rectangle {
         ListElement { q: "Vita vya Kagera (1978-1979) vilikuwa kati ya Tanzania na nchi gani?"; a: "Kenya"; b: "Uganda"; c: "Rwanda"; d: "Malawi"; correct: "Uganda"; cat: "H"; diff: 3 }
         ListElement { q: "Ni nani alikuwa Rais wa Uganda wakati wa Vita vya Kagera?"; a: "Milton Obote"; b: "Idi Amin Dada"; c: "Yoweri Museveni"; d: "Tito Okello"; correct: "Idi Amin Dada"; cat: "H"; diff: 3 }
         ListElement { q: "Rais wa awamu ya nne wa Tanzania ni nani?"; a: "Ali Hassan Mwinyi"; b: "Jakaya Kikwete"; c: "Benjamin Mkapa"; d: "John Magufuli"; correct: "Jakaya Kikwete"; cat: "H"; diff: 3 }
-        ListElement { q: "Rais Samia Suluhu Hassan alizaliwa katika mkoa gani?"; a: "Unguja - Kizimkazi"; b: "Pwani"; c: "Dar es Salaam"; d: "Pemba"; correct: "Unguja - Kizimkazi"; cat: "H"; diff: 3 }
+        ListElement { q: "Tanzania ilikuwa nchi ya kwanza Afrika Mashariki kupata rais wa kike — hii ilitokea mwaka gani?"; a: "2015"; b: "2019"; c: "2021"; d: "2023"; correct: "2021"; cat: "H"; diff: 2 }
         ListElement { q: "Wimbo maarufu wa kishujaa uliotumika wakati wa Vita vya Kagera unaitwa?"; a: "Tanzania Tanzania"; b: "Mwenge wa Uhuru"; c: "Mvua ya Radi"; d: "Kifochura"; correct: "Kifochura"; cat: "H"; diff: 3 }
         ListElement { q: "Rais Benjamin Mkapa alipewa jina la utani la?"; a: "Mzee wa Mapinduzi"; b: "Mr. Clean"; c: "Bulldozer"; d: "Chuma"; correct: "Mr. Clean"; cat: "H"; diff: 3 }
         ListElement { q: "Ni Rais yupi alifariki akiwa madarakani mwaka 2021?"; a: "Nyerere"; b: "Magufuli"; c: "Mkapa"; d: "Karume"; correct: "Magufuli"; cat: "H"; diff: 3 }
@@ -1867,7 +1867,7 @@ Rectangle {
 
                 Text {
                     anchors.horizontalCenter: parent.horizontalCenter
-                    text: "SAMIA IQ LAB"
+                    text: "IQ LAB"
                     font.pointSize: 17; font.bold: true
                     font.letterSpacing: Math.round(4*dp); color: textPri
                 }
@@ -3264,7 +3264,7 @@ Rectangle {
                 // Title
                 Text {
                     anchors.horizontalCenter: parent.horizontalCenter
-                    text: "Karibu Samia IQ Lab!"
+                    text: "Karibu IQ Lab!"
                     font.pointSize: 20
                     font.bold: true
                     color: "#00e5ff"
