@@ -1916,6 +1916,15 @@ Rectangle {
                     font.letterSpacing: Math.round(4*dp); color: textPri
                 }
 
+                Text {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    text: "Pima uwezo wa akili yako sasa."
+                    font.pointSize: 9
+                    font.italic: true
+                    color: textDim
+                    font.letterSpacing: Math.round(0.5*dp)
+                }
+
                 Item { width:1; height: Math.round(6*dp) }
 
                 // Highscore badge
