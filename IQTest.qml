@@ -81,6 +81,50 @@ Rectangle {
         return "UNAHITAJI MAZOEZI";
     }
 
+    function getGrade(iq) {
+        if (iq >= 130) return "A+";
+        if (iq >= 120) return "A";
+        if (iq >= 110) return "B+";
+        if (iq >= 100) return "B";
+        if (iq >= 90)  return "C";
+        if (iq >= 80)  return "D";
+        return "E";
+    }
+
+    function getGradeColor(iq) {
+        if (iq >= 120) return "#00e5ff";
+        if (iq >= 100) return "#f0c040";
+        if (iq >= 90)  return "#4caf50";
+        return "#ef4444";
+    }
+
+    // Hesabu mada iliyofanya vizuri zaidi kutoka userAnswers
+    function getBestCat() {
+        var cats = {}; var bests = {};
+        for (var i = 0; i < userAnswers.count; i++) {
+            var a = userAnswers.get(i);
+            var q = quizModel.count > 0 ? null : null;
+            // Find cat from quizModel by matching q text
+            for (var j = 0; j < quizModel.count; j++) {
+                if (quizModel.get(j).q === a.q) { var c = quizModel.get(j).cat; break; }
+            }
+            if (!c) c = "?";
+            if (!cats[c]) { cats[c] = 0; bests[c] = 0; }
+            cats[c]++;
+            if (a.wasCorrect) bests[c]++;
+        }
+        var bestCat = ""; var bestRatio = -1;
+        for (var k in cats) {
+            var r = cats[k] > 0 ? bests[k] / cats[k] : 0;
+            if (r > bestRatio) { bestRatio = r; bestCat = k; }
+        }
+        var names = {"S":"Sayansi","M":"Hisabati","SP":"Michezo","TK":"Teknolojia",
+                     "H":"Historia","A":"Afya","V":"Vitendawili","GEO":"Mitaa & Maeneo",
+                     "UR":"Elimu ya Uraia","MK":"Mazingira","BUR":"Burudani",
+                     "UT":"Utalii wa TZ","LG":"Mantiki"};
+        return bestCat ? (names[bestCat] || bestCat) : "";
+    }
+
 
     function cleanParent(text)
     {
@@ -1867,7 +1911,7 @@ Rectangle {
 
                 Text {
                     anchors.horizontalCenter: parent.horizontalCenter
-                    text: "IQ LAB"
+                    text: "ML IQ LAB"
                     font.pointSize: 17; font.bold: true
                     font.letterSpacing: Math.round(4*dp); color: textPri
                 }
@@ -1956,49 +2000,63 @@ Rectangle {
                 }
                 Item { width:1; height: Math.round(8*dp) }
 
-                Flow {
+                ListView {
                     width: parent.width
+                    height: Math.round(40*dp)
+                    orientation: ListView.Horizontal
                     spacing: Math.round(8*dp)
-                    Repeater {
-                        model: [
-                            { label: "Sayansi",        cat: "S"   },
-                            { label: "Hisabati",       cat: "M"   },
-                            { label: "Michezo",        cat: "SP"  },
-                            { label: "Teknolojia",     cat: "TK"  },
-                            { label: "Historia",       cat: "H"   },
-                            { label: "Afya",           cat: "A"   },
-                            { label: "Vitendawili",    cat: "V"   },
-                            { label: "Mitaa & Maeneo", cat: "GEO" },
-                            { label: "Elimu ya Uraia", cat: "UR"  },
-                            { label: "Mazingira",      cat: "MK"  },
-                            { label: "Burudani",       cat: "BUR" },
-                            { label: "Utalii wa TZ",    cat: "UT"  },
-                            { label: "Mantiki",          cat: "LG"  }
-                        ]
-                        delegate: Rectangle {
-                            width: catLabel.implicitWidth + Math.round(20*dp)
-                            height: Math.round(30*dp)
-                            radius: Math.round(15*dp)
-                            color: selectedCategories.indexOf(modelData.cat) !== -1 ? Qt.rgba(0,0.9,1,0.18) : card
-                            border.color: selectedCategories.indexOf(modelData.cat) !== -1 ? gold : Qt.rgba(0,0.9,1,0.12)
-                            border.width: selectedCategories.indexOf(modelData.cat) !== -1 ? 2 : 1
-                            Behavior on color { ColorAnimation { duration: 150 } }
+                    clip: true
+                    boundsBehavior: Flickable.StopAtBounds
+                    ScrollBar.horizontal: ScrollBar { policy: ScrollBar.AlwaysOff }
+                    model: ListModel {
+                        ListElement { label: "Sayansi";        icon: "\u2697";  cat: "S"   }
+                        ListElement { label: "Hisabati";       icon: "\u2211";  cat: "M"   }
+                        ListElement { label: "Michezo";        icon: "\u26bd";  cat: "SP"  }
+                        ListElement { label: "Teknolojia";     icon: "\u2328";  cat: "TK"  }
+                        ListElement { label: "Historia";       icon: "\ud83d\udcdc"; cat: "H"   }
+                        ListElement { label: "Afya";           icon: "\u2665";  cat: "A"   }
+                        ListElement { label: "Vitendawili";    icon: "\u2753";  cat: "V"   }
+                        ListElement { label: "Mitaa & Maeneo"; icon: "\ud83d\uddfa"; cat: "GEO" }
+                        ListElement { label: "Elimu ya Uraia"; icon: "\u2696";  cat: "UR"  }
+                        ListElement { label: "Mazingira";      icon: "\ud83c\udf31"; cat: "MK"  }
+                        ListElement { label: "Burudani";       icon: "\ud83c\udfb5"; cat: "BUR" }
+                        ListElement { label: "Utalii wa TZ";   icon: "\ud83c\udf04"; cat: "UT"  }
+                        ListElement { label: "Mantiki";        icon: "\ud83e\udde0"; cat: "LG"  }
+                    }
+                    delegate: Rectangle {
+                        property bool isSelected: selectedCategories.indexOf(cat) !== -1
+                        width: chipText.implicitWidth + Math.round(36*dp)
+                        height: Math.round(34*dp)
+                        radius: Math.round(17*dp)
+                        color: isSelected ? Qt.rgba(0,0.9,1,0.18) : card
+                        border.color: isSelected ? gold : Qt.rgba(0,0.9,1,0.12)
+                        border.width: isSelected ? 2 : 1
+                        Behavior on color { ColorAnimation { duration: 150 } }
+                        Row {
+                            anchors.centerIn: parent
+                            spacing: Math.round(4*dp)
                             Text {
-                                id: catLabel
-                                anchors.centerIn: parent
-                                text: modelData.label; font.pointSize: 9
-                                font.bold: selectedCategories.indexOf(modelData.cat) !== -1
-                                color: selectedCategories.indexOf(modelData.cat) !== -1 ? gold : textSec
+                                text: icon
+                                font.pointSize: 10
+                                anchors.verticalCenter: parent.verticalCenter
                             }
-                            MouseArea {
-                                anchors.fill: parent
-                                onClicked: {
-                                    var arr = selectedCategories.slice();
-                                    var idx = arr.indexOf(modelData.cat);
-                                    if (idx === -1) arr.push(modelData.cat);
-                                    else arr.splice(idx, 1);
-                                    selectedCategories = arr;
-                                }
+                            Text {
+                                id: chipText
+                                text: label
+                                font.pointSize: 9
+                                font.bold: isSelected
+                                color: isSelected ? gold : textSec
+                                anchors.verticalCenter: parent.verticalCenter
+                            }
+                        }
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: {
+                                var arr = selectedCategories.slice();
+                                var i = arr.indexOf(cat);
+                                if (i === -1) arr.push(cat);
+                                else arr.splice(i, 1);
+                                selectedCategories = arr;
                             }
                         }
                     }
@@ -2178,20 +2236,39 @@ Rectangle {
                     radius: Math.round(8 * dp)
                     color: card
 
-                    Text {
+                    Column {
                         anchors.centerIn: parent
-                        text: (currentIdx + 1) + " / " + quizModel.count
-                        font.pointSize: 12
-                        font.bold: true
-                        color: gold
+                        spacing: 0
+                        Text {
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            text: "Swali"
+                            font.pointSize: 7
+                            color: textDim
+                        }
+                        Text {
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            text: (currentIdx + 1) + " / " + quizModel.count
+                            font.pointSize: 11
+                            font.bold: true
+                            color: gold
+                        }
                     }
                 }
 
-                // Timer ring (circular)
+                // Timer ring (circular) with pulse on low time
                 Item {
+                    id: timerItem
                     anchors.centerIn: parent
                     width: Math.round(52 * dp)
                     height: width
+
+                    SequentialAnimation on scale {
+                        id: timerPulseAnim
+                        running: timerValue <= 5 && timerValue > 0 && viewState === "QUIZ"
+                        loops: Animation.Infinite
+                        NumberAnimation { to: 1.12; duration: 300; easing.type: Easing.InOutSine }
+                        NumberAnimation { to: 1.0;  duration: 300; easing.type: Easing.InOutSine }
+                    }
 
                     Canvas {
                         id: timerCanvas
@@ -2235,8 +2312,9 @@ Rectangle {
                     }
                 }
 
-                // Score badge
+                // Score badge with jump animation
                 Rectangle {
+                    id: scoreBadge
                     anchors.right: parent.right
                     anchors.verticalCenter: parent.verticalCenter
                     width: Math.round(90 * dp)
@@ -2244,37 +2322,50 @@ Rectangle {
                     radius: Math.round(8 * dp)
                     color: card
 
+                    SequentialAnimation {
+                        id: scoreJumpAnim
+                        NumberAnimation { target: scoreBadge; property: "scale"; to: 1.25; duration: 120; easing.type: Easing.OutBack }
+                        NumberAnimation { target: scoreBadge; property: "scale"; to: 1.0;  duration: 180; easing.type: Easing.OutBounce }
+                    }
+
+                    Connections {
+                        target: app
+                        function onNoOfPassedQuestionChanged() {
+                            scoreJumpAnim.start();
+                        }
+                    }
+
                     Row {
                         anchors.centerIn: parent
                         spacing: Math.round(4 * dp)
-                        Text { text: "\u2605"; color: gold; font.pointSize: 8 }
+                        Text { text: "\u2605"; color: gold; font.pointSize: 8; anchors.verticalCenter: parent.verticalCenter }
                         Text {
                             text: noOfPassedQuestion
                             font.pointSize: 12
                             font.bold: true
-                            color: textPri
+                            color: success
                         }
                     }
                 }
             }
 
-            // ── Progress bar ─────────────────────────────────────────
+            // ── Progress bar — inabadilika rangi kulingana na jibu ─────
             Rectangle {
                 Layout.fillWidth: true
-                height: Math.round(5 * dp)
+                height: Math.round(6 * dp)
                 radius: Math.round(3 * dp)
                 color: "#0a2424"
 
                 Rectangle {
-                    width: ((currentIdx) / Math.max(quizModel.count - 1, 1)) * parent.width
+                    id: progressFill
+                    width: ((currentIdx + 1) / Math.max(quizModel.count, 1)) * parent.width
                     height: parent.height
                     radius: parent.radius
-                    gradient: Gradient {
-                        orientation: Gradient.Horizontal
-                        GradientStop { position: 0.0; color: "#007a8a" }
-                        GradientStop { position: 1.0; color: gold }
-                    }
+                    color: answerResult === "correct" ? success
+                         : answerResult === "wrong"   ? danger
+                         : "#007a8a"
                     Behavior on width { NumberAnimation { duration: 400; easing.type: Easing.OutCubic } }
+                    Behavior on color { ColorAnimation { duration: 200 } }
                 }
             }
 
@@ -2318,17 +2409,84 @@ Rectangle {
                     }
                 }
 
+                // Difficulty + Category badges (top right of question card)
+                Row {
+                    anchors.top: parent.top
+                    anchors.right: parent.right
+                    anchors.topMargin: Math.round(8*dp)
+                    anchors.rightMargin: Math.round(10*dp)
+                    spacing: Math.round(5*dp)
+
+                    // Category badge
+                    Rectangle {
+                        height: Math.round(20*dp)
+                        width: catBadgeText.implicitWidth + Math.round(10*dp)
+                        radius: Math.round(10*dp)
+                        color: Qt.rgba(0,0.9,1,0.10)
+                        border.color: Qt.rgba(0,0.9,1,0.25); border.width: 1
+                        Text {
+                            id: catBadgeText
+                            anchors.centerIn: parent
+                            text: {
+                                if (quizModel.count <= currentIdx) return "";
+                                var c = quizModel.get(currentIdx).cat;
+                                var m = {"S":"Sayansi","M":"Hisabati","SP":"Michezo","TK":"Teknolojia",
+                                         "H":"Historia","A":"Afya","V":"Vitendawili","GEO":"Mitaa",
+                                         "UR":"Uraia","MK":"Mazingira","BUR":"Burudani",
+                                         "UT":"Utalii","LG":"Mantiki"};
+                                return m[c] || c;
+                            }
+                            font.pointSize: 7; color: "#00e5ff"
+                        }
+                    }
+
+                    // Difficulty dot
+                    Rectangle {
+                        height: Math.round(20*dp)
+                        width: diffText.implicitWidth + Math.round(10*dp)
+                        radius: Math.round(10*dp)
+                        color: {
+                            if (quizModel.count <= currentIdx) return "transparent";
+                            var d = quizModel.get(currentIdx).diff;
+                            return d === 1 ? Qt.rgba(0.13,0.77,0.33,0.2)
+                                 : d === 3 ? Qt.rgba(0.94,0.27,0.27,0.2)
+                                 : Qt.rgba(1,0.75,0,0.2);
+                        }
+                        border.color: {
+                            if (quizModel.count <= currentIdx) return "transparent";
+                            var d = quizModel.get(currentIdx).diff;
+                            return d === 1 ? success : d === 3 ? danger : "#f0c040";
+                        }
+                        border.width: 1
+                        Text {
+                            id: diffText
+                            anchors.centerIn: parent
+                            text: {
+                                if (quizModel.count <= currentIdx) return "";
+                                var d = quizModel.get(currentIdx).diff;
+                                return d === 1 ? "Rahisi" : d === 3 ? "Ngumu" : "Wastani";
+                            }
+                            font.pointSize: 7
+                            color: {
+                                if (quizModel.count <= currentIdx) return textDim;
+                                var d = quizModel.get(currentIdx).diff;
+                                return d === 1 ? success : d === 3 ? danger : "#f0c040";
+                            }
+                        }
+                    }
+                }
+
                 Text {
                     anchors {
                         left: parent.left; right: parent.right
                         top: parent.top; bottom: parent.bottom
                         leftMargin: Math.round(22 * dp)
                         rightMargin: Math.round(16 * dp)
-                        topMargin: Math.round(14 * dp)
-                        bottomMargin: Math.round(14 * dp)
+                        topMargin: Math.round(32 * dp)
+                        bottomMargin: Math.round(10 * dp)
                     }
                     text: (quizModel.count > currentIdx) ? quizModel.get(currentIdx).q : ""
-                    font.pointSize: 18
+                    font.pointSize: 16
                     font.bold: true
                     color: textPri
                     wrapMode: Text.WordWrap
@@ -2702,9 +2860,27 @@ Rectangle {
         // Mtu asiyejibu chochote → IQ 70 (kiwango cha chini)
         // Mtu anayejibu yote kwa kasi → IQ 145
         property int finalIQ: calculateFinalIQ()
+        property real animatedRatio: 0.0
         opacity: viewState === "END" ? 1.0 : 0.0
         enabled: viewState === "END"
         Behavior on opacity { NumberAnimation { duration: 300 } }
+
+        onOpacityChanged: {
+            if (opacity > 0.9) {
+                iqRatioAnim.start();
+                if (finalIQ >= 110) confettiLaunchTimer.start();
+            }
+        }
+
+        NumberAnimation {
+            id: iqRatioAnim
+            target: endView
+            property: "animatedRatio"
+            from: 0.0
+            to: endView.finalIQ / 145.0
+            duration: 1200
+            easing.type: Easing.OutCubic
+        }
 
         // Scrollable in case screen is short
         Flickable {
@@ -2742,7 +2918,7 @@ Rectangle {
                     Canvas {
                         id: iqRingCanvas
                         anchors.fill: parent
-                        property real ratio: endView.finalIQ / 145.0
+                        property real ratio: endView.animatedRatio
 
                         onRatioChanged: requestPaint()
 
@@ -2788,11 +2964,73 @@ Rectangle {
 
                         Text {
                             anchors.horizontalCenter: parent.horizontalCenter
-                            text: endView.finalIQ
+                            text: Math.round(endView.animatedRatio * 145)
                             font.pointSize: 24
                             font.bold: true
-                            color: gold
+                            color: getGradeColor(endView.finalIQ)
                         }
+                    }
+                }
+
+                // Grade letter badge
+                Row {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    spacing: Math.round(12*dp)
+
+                    Rectangle {
+                        width: Math.round(64*dp); height: Math.round(64*dp)
+                        radius: Math.round(14*dp)
+                        gradient: Gradient {
+                            orientation: Gradient.Horizontal
+                            GradientStop { position: 0.0; color: Qt.rgba(0,0.1,0.15,1) }
+                            GradientStop { position: 1.0; color: Qt.rgba(0,0.15,0.2,1) }
+                        }
+                        border.color: getGradeColor(endView.finalIQ); border.width: 2
+                        Column {
+                            anchors.centerIn: parent; spacing: 0
+                            Text {
+                                anchors.horizontalCenter: parent.horizontalCenter
+                                text: getGrade(endView.finalIQ)
+                                font.pointSize: 22; font.bold: true
+                                color: getGradeColor(endView.finalIQ)
+                            }
+                            Text {
+                                anchors.horizontalCenter: parent.horizontalCenter
+                                text: "Daraja"
+                                font.pointSize: 7; color: textDim
+                            }
+                        }
+                        opacity: endView.animatedRatio > 0.8 ? 1 : 0
+                        Behavior on opacity { NumberAnimation { duration: 400 } }
+                        scale: endView.animatedRatio > 0.8 ? 1.0 : 0.5
+                        Behavior on scale { NumberAnimation { duration: 400; easing.type: Easing.OutBack } }
+                    }
+
+                    // Best category badge
+                    Rectangle {
+                        visible: getBestCat() !== ""
+                        width: Math.round(130*dp); height: Math.round(64*dp)
+                        radius: Math.round(14*dp)
+                        color: Qt.rgba(0,0.12,0.12,1)
+                        border.color: Qt.rgba(0,0.9,1,0.25); border.width: 1
+                        Column {
+                            anchors.centerIn: parent; spacing: Math.round(2*dp)
+                            Text {
+                                anchors.horizontalCenter: parent.horizontalCenter
+                                text: "Bora Zaidi"
+                                font.pointSize: 7; color: textDim
+                            }
+                            Text {
+                                anchors.horizontalCenter: parent.horizontalCenter
+                                text: getBestCat()
+                                font.pointSize: 10; font.bold: true; color: "#00e5ff"
+                                wrapMode: Text.WordWrap
+                                width: Math.round(115*dp)
+                                horizontalAlignment: Text.AlignHCenter
+                            }
+                        }
+                        opacity: endView.animatedRatio > 0.8 ? 1 : 0
+                        Behavior on opacity { NumberAnimation { duration: 500 } }
                     }
                 }
 
@@ -3264,7 +3502,7 @@ Rectangle {
                 // Title
                 Text {
                     anchors.horizontalCenter: parent.horizontalCenter
-                    text: "Karibu IQ Lab!"
+                    text: "Karibu ML IQ Lab!"
                     font.pointSize: 20
                     font.bold: true
                     color: "#00e5ff"
@@ -3449,4 +3687,80 @@ Rectangle {
             NumberAnimation { target: transitionCurtain; property: "opacity"; from: 1.0; to: 0; duration: 380; easing.type: Easing.OutCubic }
         }
     }
+
+    // ── CONFETTI — inaonekana END screen kama IQ >= 110 ──────────────────
+    Timer {
+        id: confettiLaunchTimer
+        interval: 400
+        repeat: false
+        onTriggered: confettiCanvas.launch()
+    }
+
+    Canvas {
+        id: confettiCanvas
+        anchors.fill: parent
+        z: 998
+        opacity: 0
+        visible: opacity > 0
+
+        property var pieces: []
+
+        function launch() {
+            pieces = [];
+            for (var i = 0; i < 80; i++) {
+                pieces.push({
+                    x:     Math.random() * width,
+                    y:    -20 - Math.random() * 120,
+                    vx:    (Math.random() - 0.5) * 5,
+                    vy:    2 + Math.random() * 5,
+                    r:     Math.random() * 7 + 3,
+                    color: ["#00e5ff","#f0c040","#4caf50","#ef4444","#ffffff","#ff69b4"][Math.floor(Math.random()*6)],
+                    rot:   Math.random() * 360,
+                    vrot:  (Math.random() - 0.5) * 8
+                });
+            }
+            opacity = 1;
+            confettiTimer.start();
+        }
+
+        onPaint: {
+            var ctx = getContext("2d");
+            ctx.clearRect(0, 0, width, height);
+            for (var i = 0; i < pieces.length; i++) {
+                var p = pieces[i];
+                ctx.save();
+                ctx.translate(p.x, p.y);
+                ctx.rotate(p.rot * Math.PI / 180);
+                ctx.fillStyle = p.color;
+                ctx.fillRect(-p.r / 2, -p.r * 0.3, p.r, p.r * 0.6);
+                ctx.restore();
+            }
+        }
+
+        Behavior on opacity { NumberAnimation { duration: 400 } }
+
+        Timer {
+            id: confettiTimer
+            interval: 30
+            repeat: true
+            onTriggered: {
+                var alive = false;
+                for (var i = 0; i < confettiCanvas.pieces.length; i++) {
+                    var p = confettiCanvas.pieces[i];
+                    p.x   += p.vx;
+                    p.y   += p.vy;
+                    p.vy  += 0.12;
+                    p.rot += p.vrot;
+                    if (p.y < confettiCanvas.height + 20) alive = true;
+                }
+                if (!alive) {
+                    confettiTimer.stop();
+                    confettiCanvas.opacity = 0;
+                    return;
+                }
+                confettiCanvas.requestPaint();
+            }
+        }
+    }
+    // ─────────────────────────────────────────────────────────────────────
 }
