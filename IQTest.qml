@@ -35,6 +35,23 @@ Rectangle {
     property int countdownValue: 0             // 3,2,1 kabla mchezo haujaanza
     property bool isNewHighscore: false        // true kama IQ mpya ni rekodi
 
+    // --- STREAK ---
+    property int currentStreak: 0             // mfululizo wa majibu sahihi
+    property int maxStreak: 0                 // rekodi ya streak ya mchezo huu
+    property real streakMultiplier: 1.0       // x1, x1.5, x2, x3
+
+    // --- TIME ATTACK MODE ---
+    property bool isTimeAttack: false         // true = Time Attack mode
+    property int timeAttackSeconds: 120       // sekunde 120 = dakika 2
+    property int timeAttackRemaining: 120     // countdown ya Time Attack
+    property int timeAttackScore: 0           // maswali sahihi kwenye Time Attack
+
+    // --- FONT SIZE ---
+    property real fontScale: 1.0             // 0.85=ndogo, 1.0=kawaida, 1.2=kubwa
+
+    // --- BADGES ---
+    property var earnedBadges: []            // badges zilizopatikana mchezo huu
+
     // Highscore — hifadhiwa kwenye Settings
     Settings {
         id: highscoreSettings
@@ -1187,9 +1204,30 @@ Rectangle {
         ListElement { q: "Hifadhi ya wanyama ya Loliondo ipo karibu na hifadhi gani kubwa?"; a: "Ruaha"; b: "Serengeti"; c: "Mikumi"; d: "Nyerere"; correct: "Serengeti"; cat: "UT"; diff: 3 }
         ListElement { q: "Kama mfululizo ni 2, 6, 18, 54, nambari inayofuata ni?"; a: "108"; b: "144"; c: "162"; d: "180"; correct: "162"; cat: "LG"; diff: 2 }
 
-        // ══════════════════════════════════════════════════════════
-        // UTALII WA TANZANIA (UT) — maswali mapya +82
-        // ══════════════════════════════════════════════════════════
+        // --- MANTIKI ZAIDI (+21) ---
+        ListElement { q: "Kama A ni ndugu wa B, na C ni mtoto wa B, A ni nini kwa C?"; a: "Baba/Mama"; b: "Shangazi/Mjomba"; c: "Babu/Bibi"; d: "Binamu"; correct: "Shangazi/Mjomba"; cat: "LG"; diff: 2 }
+        ListElement { q: "Nambari ngapi zisizogawanyika kati ya 1 na 10?"; a: "3"; b: "4"; c: "5"; d: "6"; correct: "4"; cat: "LG"; diff: 2 }
+        ListElement { q: "Kama chupa na kikombe vina thamani ya 110, na chupa peke yake ni 100 zaidi ya kikombe, kikombe ni bei gani?"; a: "5"; b: "10"; c: "50"; d: "100"; correct: "5"; cat: "LG"; diff: 3 }
+        ListElement { q: "Mfululizo: 1, 3, 7, 13, 21, ... nambari inayofuata ni?"; a: "29"; b: "31"; c: "33"; d: "35"; correct: "31"; cat: "LG"; diff: 3 }
+        ListElement { q: "Kama watu 100 wana umri wa wastani wa miaka 30, na mtu 1 aongezeke mwenye umri wa miaka 130, wastani mpya ni?"; a: "30"; b: "31"; c: "32"; d: "35"; correct: "31"; cat: "LG"; diff: 3 }
+        ListElement { q: "Kama saa inabonyeza mara 2 saa mbili, na mara 3 saa tatu, itabonyeza mara ngapi saa kumi na mbili?"; a: "12"; b: "11"; c: "10"; d: "78"; correct: "78"; cat: "LG"; diff: 3 }
+        ListElement { q: "Kama PAKA : MEOW, basi MBWA : ?"; a: "BASS"; b: "BARK"; c: "MOO"; d: "ROAR"; correct: "BARK"; cat: "LG"; diff: 1 }
+        ListElement { q: "Mtu ana ndugu 3 wa kike na kaka 2. Dada yake ana ndugu wa kike wangapi?"; a: "2"; b: "3"; c: "4"; d: "5"; correct: "3"; cat: "LG"; diff: 3 }
+        ListElement { q: "Kama unaandika hesabu 1 hadi 100, tarakimu '9' itatokea mara ngapi?"; a: "10"; b: "19"; c: "20"; d: "21"; correct: "20"; cat: "LG"; diff: 3 }
+        ListElement { q: "Kama ndege anaweza kuruka km 10 kwa saa, atafika umbali gani kwa dakika 90?"; a: "9 km"; b: "12 km"; c: "15 km"; d: "18 km"; correct: "15 km"; cat: "LG"; diff: 2 }
+        ListElement { q: "Mfululizo wa nambari: 2, 5, 10, 17, 26, 37, ... inayofuata ni?"; a: "48"; b: "49"; c: "50"; d: "51"; correct: "50"; cat: "LG"; diff: 3 }
+        ListElement { q: "Kama ukitenganisha neno BANANA kwa herufi tofauti, una herufi ngapi tofauti?"; a: "2"; b: "3"; c: "4"; d: "5"; correct: "3"; cat: "LG"; diff: 2 }
+        ListElement { q: "Kama bei ya bidhaa ipandapo kwa 10% kisha 10% tena, jumla imepanda kwa asilimia ngapi?"; a: "20%"; b: "21%"; c: "22%"; d: "25%"; correct: "21%"; cat: "LG"; diff: 3 }
+        ListElement { q: "Masharti: Wote wanaoimba wanapenda muziki. Juma anapenda muziki. Je Juma anaimba?"; a: "Ndiyo"; b: "Hapana"; c: "Haiwezekani kujua"; d: "Labda"; correct: "Haiwezekani kujua"; cat: "LG"; diff: 3 }
+        ListElement { q: "Kama mraba mmoja una mstari wa 4 cm, miraba 4 inaunganishwa — mzingo wote ni cm ngapi?"; a: "32"; b: "40"; c: "48"; d: "64"; correct: "40"; cat: "LG"; diff: 3 }
+        ListElement { q: "Kama MWALIMU ana WANAFUNZI 30 na aliwagawanya nusu kwa nusu, kila kundi lina wangapi?"; a: "10"; b: "12"; c: "15"; d: "20"; correct: "15"; cat: "LG"; diff: 1 }
+        ListElement { q: "Mfululizo: O, T, T, F, F, S, S, E, ... herufi inayofuata ni?"; a: "N"; b: "T"; c: "E"; d: "N"; correct: "N"; cat: "LG"; diff: 3 }
+        ListElement { q: "Kama 1 = 3, 2 = 3, 3 = 5, 4 = 4, 5 = 4, basi 6 = ?"; a: "3"; b: "4"; c: "5"; d: "6"; correct: "3"; cat: "LG"; diff: 3 }
+        ListElement { q: "Kama kanzu ina mikono 2, suruali ina miguu 2, soksi 2 na viatu 2, vitu ngapi jumla?"; a: "6"; b: "7"; c: "8"; d: "10"; correct: "8"; cat: "LG"; diff: 1 }
+        ListElement { q: "Meza ina miguu 4. Kiti kina miguu 4. Chumba kina meza 1 na viti 6. Miguu yote ni mingapi?"; a: "28"; b: "32"; c: "36"; d: "40"; correct: "32"; cat: "LG"; diff: 2 }
+        ListElement { q: "Kama unachomeka 3 vipande vya mkaa pamoja, hutapata vipande 4 ukivunja. Kwa nini? Kwa sababu?"; a: "Unafanya 4"; b: "Unafanya 6"; c: "Swali ni udanganyifu — unavunja 3 kupata 6"; d: "Haiwezekani"; correct: "Swali ni udanganyifu — unavunja 3 kupata 6"; cat: "LG"; diff: 3 }
+
+
         ListElement { q: "Hifadhi ya Taifa ya Tarangire inajulikana zaidi kwa wanyama gani?"; a: "Sokwe"; b: "Tembo na Miti ya Baobab"; c: "Nyangumi"; d: "Flamingo"; correct: "Tembo na Miti ya Baobab"; cat: "UT"; diff: 1 }
         ListElement { q: "Ziwa Manyara linajulikana kwa nini katika utalii?"; a: "Simba wanaopanda miti"; b: "Sokwe wengi"; c: "Nyumbu wengi"; d: "Ndege wa bahari"; correct: "Simba wanaopanda miti"; cat: "UT"; diff: 2 }
         ListElement { q: "Hifadhi ya Taifa ya Kilimanjaro ilianzishwa mwaka gani?"; a: "1968"; b: "1973"; c: "1977"; d: "1985"; correct: "1973"; cat: "UT"; diff: 3 }
@@ -1697,10 +1735,18 @@ Rectangle {
         lastSpeedBonus = 0;
         skippedQuestions = 0;
         isNewHighscore = false;
+        currentStreak = 0;
+        maxStreak = 0;
+        streakMultiplier = 1.0;
+        earnedBadges = [];
+        if (!isTimeAttack) {
+            timeAttackScore = 0;
+        }
         userAnswers.clear();
 
         viewState = "QUIZ";
         mainTimer.start();
+        if (isTimeAttack) timeAttackTimer.start();
     }
 
 
@@ -1739,13 +1785,26 @@ Rectangle {
         var correctAns = quizModel.get(currentIdx).correct;
         var wasRight = (selected !== "" && selected === correctAns);
         if (wasRight) {
+            // Streak logic
+            currentStreak++;
+            if (currentStreak > maxStreak) maxStreak = currentStreak;
+            if      (currentStreak >= 6) streakMultiplier = 3.0;
+            else if (currentStreak >= 4) streakMultiplier = 2.0;
+            else if (currentStreak >= 2) streakMultiplier = 1.5;
+            else                          streakMultiplier = 1.0;
+
+            var base  = 10;
             var bonus = timerValue * 3;
-            totalScore += bonus + 10;
+            var streakBonus = Math.round((base + bonus) * (streakMultiplier - 1.0));
+            totalScore += base + bonus + streakBonus;
             speedBonusTotal += bonus;
             lastSpeedBonus = bonus;
             ++app.noOfPassedQuestion;
+            if (isTimeAttack) timeAttackScore++;
             answerResult = "correct";
         } else {
+            currentStreak = 0;
+            streakMultiplier = 1.0;
             lastSpeedBonus = 0;
             answerResult = "wrong";
         }
@@ -1762,14 +1821,23 @@ Rectangle {
     function advanceQuestion() {
         answerResult = "";
         selectedAnswer = "";
-        if (currentIdx < quizModel.count - 1) {
+        if (isTimeAttack) {
+            // Time Attack — endelea na swali jipya bila mwisho hadi muda uishe
+            if (timeAttackRemaining > 0) {
+                // Chagua swali jipya random kutoka quizModel
+                if (quizModel.count > 1) {
+                    var next = (currentIdx + 1 + Math.floor(Math.random() * (quizModel.count - 1))) % quizModel.count;
+                    currentIdx = next;
+                }
+                timerValue = timeInterval;
+                mainTimer.start();
+            }
+        } else if (currentIdx < quizModel.count - 1) {
             currentIdx++;
             timerValue = timeInterval;
             mainTimer.start();
         } else {
             questionsAttempted = quizModel.count;
-            // Angalia highscore — itahesabiwa na endView.finalIQ
-            // Tunatumia timer ndogo kutoa muda wa finalIQ kuhesabiwa kwanza
             highscoreCheckTimer.start();
             viewState = "END";
             app.ad();
@@ -1785,6 +1853,21 @@ Rectangle {
                 highscoreSettings.bestIQ = iq;
                 isNewHighscore = true;
             }
+            // Hesabu badges
+            var badges = [];
+            var total = maxQuestions;
+            var correct = noOfPassedQuestion;
+            if (total > 0 && correct === total)
+                badges.push({ icon: "\ud83c\udfc6", name: "Mkamilifu",  desc: "Maswali yote sahihi!" });
+            if (maxStreak >= 5)
+                badges.push({ icon: "\ud83d\udd25", name: "Mfalme wa Mfululizo",    desc: "Sahihi " + maxStreak + " mfululizo!" });
+            if (iq >= 130)
+                badges.push({ icon: "\ud83d\udcda", name: "Msomi",        desc: "IQ " + iq + " — Akili ya hali ya juu!" });
+            if (speedBonusTotal >= 200)
+                badges.push({ icon: "\u26a1",         name: "Mwepesi",   desc: "Ulijibu kwa kasi ya ajabu!" });
+            if (isTimeAttack && timeAttackScore >= 15)
+                badges.push({ icon: "\u23f1",         name: "Bingwa wa Muda", desc: "Maswali " + timeAttackScore + " kwa dakika 2!" });
+            earnedBadges = badges;
         }
     }
 
@@ -1792,6 +1875,28 @@ Rectangle {
         id: feedbackTimer
         interval: 1200; repeat: false
         onTriggered: advanceQuestion()
+    }
+
+    // Time Attack countdown (inaendesha parallel na mainTimer wakati wa TA)
+    Timer {
+        id: timeAttackTimer
+        interval: 1000; repeat: true
+        onTriggered: {
+            if (timeAttackRemaining > 1) {
+                timeAttackRemaining--;
+            } else {
+                timeAttackRemaining = 0;
+                timeAttackTimer.stop();
+                mainTimer.stop();
+                feedbackTimer.stop();
+                // Muda uliisha — nenda END
+                questionsAttempted = userAnswers.count;
+                skippedQuestions = 0;
+                highscoreCheckTimer.start();
+                viewState = "END";
+                app.ad();
+            }
+        }
     }
 
 
@@ -2114,6 +2219,99 @@ Rectangle {
 
                 Item { width:1; height: Math.round(20*dp) }
 
+                // MODE SELECTOR — Normal / Time Attack
+                Row {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    spacing: Math.round(8*dp)
+                    Repeater {
+                        model: [
+                            { label: "KAWAIDA",     icon: "\u2609", ta: false },
+                            { label: "MASHAMBULIZI", icon: "\u23f1", ta: true  }
+                        ]
+                        delegate: Rectangle {
+                            width: Math.round(140*dp); height: Math.round(44*dp)
+                            radius: Math.round(12*dp)
+                            color: isTimeAttack === modelData.ta ? Qt.rgba(0,0.9,1,0.18) : card
+                            border.color: isTimeAttack === modelData.ta ? gold : Qt.rgba(0,0.9,1,0.12)
+                            border.width: isTimeAttack === modelData.ta ? 2 : 1
+                            Behavior on color { ColorAnimation { duration: 150 } }
+                            Row {
+                                anchors.centerIn: parent; spacing: Math.round(6*dp)
+                                Text { text: modelData.icon; font.pointSize: 13; anchors.verticalCenter: parent.verticalCenter }
+                                Column {
+                                    anchors.verticalCenter: parent.verticalCenter; spacing: 0
+                                    Text {
+                                        text: modelData.label; font.pointSize: 8; font.bold: true
+                                        color: isTimeAttack === modelData.ta ? gold : textSec
+                                    }
+                                    Text {
+                                        text: modelData.ta ? "Dakika 2" : "Maswali 26"
+                                        font.pointSize: 7; color: textDim
+                                    }
+                                }
+                            }
+                            MouseArea {
+                                anchors.fill: parent
+                                onClicked: isTimeAttack = modelData.ta
+                            }
+                        }
+                    }
+                }
+
+                Item { width:1; height: Math.round(10*dp) }
+
+                // FONT SIZE toggle
+                Text {
+                    text: "UKUBWA WA MAANDISHI"
+                    font.pointSize: 9; font.bold: true
+                    font.letterSpacing: Math.round(2*dp); color: textDim
+                }
+                Item { width:1; height: Math.round(6*dp) }
+                Row {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    spacing: Math.round(6*dp)
+                    Repeater {
+                        model: [
+                            { label: "A",  hint: "Ndogo",   size: 0.85 },
+                            { label: "A",  hint: "Kawaida", size: 1.0  },
+                            { label: "A",  hint: "Kubwa",   size: 1.2  }
+                        ]
+                        delegate: Column {
+                            spacing: Math.round(3*dp)
+                            anchors.verticalCenter: parent.verticalCenter
+
+                            Rectangle {
+                                anchors.horizontalCenter: parent.horizontalCenter
+                                width: Math.round(52*dp); height: Math.round(36*dp)
+                                radius: Math.round(8*dp)
+                                color: Math.abs(fontScale - modelData.size) < 0.05 ? Qt.rgba(0,0.9,1,0.18) : card
+                                border.color: Math.abs(fontScale - modelData.size) < 0.05 ? gold : Qt.rgba(0,0.9,1,0.12)
+                                border.width: 1
+                                Behavior on color { ColorAnimation { duration: 150 } }
+                                Text {
+                                    anchors.centerIn: parent
+                                    text: modelData.label
+                                    font.pointSize: 7 + index * 2
+                                    font.bold: true
+                                    color: Math.abs(fontScale - modelData.size) < 0.05 ? gold : textSec
+                                }
+                                MouseArea {
+                                    anchors.fill: parent
+                                    onClicked: fontScale = modelData.size
+                                }
+                            }
+                            Text {
+                                anchors.horizontalCenter: parent.horizontalCenter
+                                text: modelData.hint
+                                font.pointSize: 7
+                                color: Math.abs(fontScale - modelData.size) < 0.05 ? gold : textDim
+                            }
+                        }
+                    }
+                }
+
+                Item { width:1; height: Math.round(14*dp) }
+
                 // ANZA button
                 Rectangle {
                     id: startBtn
@@ -2123,13 +2321,34 @@ Rectangle {
                     gradient: Gradient {
                         orientation: Gradient.Horizontal
                         GradientStop { position: 0.0; color: "#007a8a" }
-                        GradientStop { position: 1.0; color: "#00e5ff" }
+                        GradientStop { position: 1.0; color: isTimeAttack ? "#f0c040" : "#00e5ff" }
                     }
-                    Text { anchors.centerIn:parent; text:"ANZA JARIBIO"; font.pointSize:11; font.bold:true; font.letterSpacing: Math.round(2*dp); color:"#020d0d" }
+                    Behavior on gradient { }
+                    Row {
+                        anchors.centerIn: parent; spacing: Math.round(8*dp)
+                        Text {
+                            text: isTimeAttack ? "\u23f1" : "\u25b6"
+                            font.pointSize: 12; color: "#020d0d"
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+                        Text {
+                            text: isTimeAttack ? "ANZA MASHAMBULIZI" : "ANZA JARIBIO"
+                            font.pointSize: 11; font.bold: true
+                            font.letterSpacing: Math.round(2*dp); color: "#020d0d"
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+                    }
                     MouseArea {
                         anchors.fill: parent
                         onPressed:  { startBtn.scale = 0.97; }
-                        onReleased: { startBtn.scale = 1.0; startCountdown(); }
+                        onReleased: {
+                            startBtn.scale = 1.0;
+                            if (isTimeAttack) {
+                                timeAttackRemaining = timeAttackSeconds;
+                                timeAttackScore = 0;
+                            }
+                            startCountdown();
+                        }
                         onCanceled: { startBtn.scale = 1.0; }
                     }
                     Behavior on scale { NumberAnimation { duration: 100 } }
@@ -2321,6 +2540,48 @@ Rectangle {
                     }
                 }
 
+                // Streak indicator — inaonyesha streak na multiplier
+                Rectangle {
+                    anchors.right: parent.right
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.rightMargin: Math.round(98*dp)
+                    width: streakLabel.implicitWidth + Math.round(16*dp)
+                    height: Math.round(28*dp)
+                    radius: Math.round(14*dp)
+                    visible: currentStreak >= 2
+                    color: currentStreak >= 6 ? Qt.rgba(0.94,0.27,0.27,0.25)
+                         : currentStreak >= 4 ? Qt.rgba(1,0.75,0,0.25)
+                         : Qt.rgba(0.13,0.77,0.33,0.2)
+                    border.color: currentStreak >= 6 ? danger
+                                : currentStreak >= 4 ? "#f0c040"
+                                : success
+                    border.width: 1
+                    Row {
+                        anchors.centerIn: parent; spacing: Math.round(3*dp)
+                        Text { text: "\ud83d\udd25"; font.pointSize: 9; anchors.verticalCenter: parent.verticalCenter }
+                        Text {
+                            id: streakLabel
+                            text: currentStreak + "x" + (streakMultiplier > 1 ? " \u00d7" + streakMultiplier : "")
+                            font.pointSize: 8; font.bold: true
+                            color: currentStreak >= 6 ? danger : currentStreak >= 4 ? "#f0c040" : success
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+                    }
+                    // Pulse animation ukiongeza streak
+                    SequentialAnimation on scale {
+                        id: streakPulse
+                        running: false
+                        NumberAnimation { to: 1.3; duration: 100; easing.type: Easing.OutBack }
+                        NumberAnimation { to: 1.0; duration: 150 }
+                    }
+                    Connections {
+                        target: app
+                        function onCurrentStreakChanged() {
+                            if (app.currentStreak >= 2) streakPulse.start();
+                        }
+                    }
+                }
+
                 // Score badge with jump animation
                 Rectangle {
                     id: scoreBadge
@@ -2358,7 +2619,7 @@ Rectangle {
                 }
             }
 
-            // ── Progress bar — inabadilika rangi kulingana na jibu ─────
+            // ── Progress / Time Attack bar ───────────────────────────
             Rectangle {
                 Layout.fillWidth: true
                 height: Math.round(6 * dp)
@@ -2367,14 +2628,25 @@ Rectangle {
 
                 Rectangle {
                     id: progressFill
-                    width: ((currentIdx + 1) / Math.max(quizModel.count, 1)) * parent.width
+                    width: isTimeAttack
+                        ? (timeAttackRemaining / timeAttackSeconds) * parent.width
+                        : ((currentIdx + 1) / Math.max(quizModel.count, 1)) * parent.width
                     height: parent.height
                     radius: parent.radius
-                    color: answerResult === "correct" ? success
-                         : answerResult === "wrong"   ? danger
-                         : "#007a8a"
-                    Behavior on width { NumberAnimation { duration: 400; easing.type: Easing.OutCubic } }
+                    color: isTimeAttack
+                        ? (timeAttackRemaining < 30 ? danger : timeAttackRemaining < 60 ? "#f0c040" : "#00e5ff")
+                        : (answerResult === "correct" ? success : answerResult === "wrong" ? danger : "#007a8a")
+                    Behavior on width { NumberAnimation { duration: isTimeAttack ? 980 : 400; easing.type: Easing.Linear } }
                     Behavior on color { ColorAnimation { duration: 200 } }
+                }
+
+                // TA score overlay
+                Text {
+                    anchors.centerIn: parent
+                    visible: isTimeAttack
+                    text: timeAttackRemaining + "s  |  " + timeAttackScore + " sahihi"
+                    font.pointSize: 6; font.bold: true
+                    color: timeAttackRemaining < 30 ? danger : gold
                 }
             }
 
@@ -2495,7 +2767,7 @@ Rectangle {
                         bottomMargin: Math.round(10 * dp)
                     }
                     text: (quizModel.count > currentIdx) ? quizModel.get(currentIdx).q : ""
-                    font.pointSize: 16
+                    font.pointSize: Math.round(16 * fontScale)
                     font.bold: true
                     color: textPri
                     wrapMode: Text.WordWrap
@@ -2675,7 +2947,7 @@ Rectangle {
                             Text {
                                 width: parent.width - Math.round(34 * dp) - Math.round(12 * dp)
                                 text: app.cleanOption(modelData)
-                                font.pointSize: 16
+                                font.pointSize: Math.round(16 * fontScale)
                                 color: {
                                     if (answerResult !== "") {
                                         if (modelData === correctAnswer) return success;
@@ -3345,6 +3617,63 @@ Rectangle {
                 }
 
                 Item { width: 1; height: Math.round(4 * dp) }
+
+                // BADGES zilizopatikana
+                Item {
+                    width: parent.width
+                    height: earnedBadges.length > 0 ? badgesCol.implicitHeight + Math.round(16*dp) : 0
+                    visible: earnedBadges.length > 0
+                    Behavior on height { NumberAnimation { duration: 300 } }
+
+                    Column {
+                        id: badgesCol
+                        anchors { left: parent.left; right: parent.right; top: parent.top; topMargin: Math.round(8*dp) }
+                        spacing: Math.round(8*dp)
+
+                        Text {
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            text: "TUZO ZAKO"
+                            font.pointSize: 9; font.bold: true
+                            font.letterSpacing: Math.round(2*dp); color: textDim
+                        }
+
+                        Repeater {
+                            model: earnedBadges
+                            delegate: Rectangle {
+                                anchors.horizontalCenter: parent.horizontalCenter
+                                width: parent.width
+                                height: Math.round(54*dp)
+                                radius: Math.round(12*dp)
+                                gradient: Gradient {
+                                    orientation: Gradient.Horizontal
+                                    GradientStop { position: 0.0; color: "#001a0d" }
+                                    GradientStop { position: 1.0; color: "#002a14" }
+                                }
+                                border.color: Qt.rgba(0.13,0.77,0.33,0.5); border.width: 1
+
+                                Row {
+                                    anchors { left: parent.left; verticalCenter: parent.verticalCenter; leftMargin: Math.round(16*dp) }
+                                    spacing: Math.round(12*dp)
+                                    Text { text: modelData.icon; font.pointSize: 22; anchors.verticalCenter: parent.verticalCenter }
+                                    Column {
+                                        anchors.verticalCenter: parent.verticalCenter; spacing: Math.round(2*dp)
+                                        Text { text: modelData.name; font.pointSize: 11; font.bold: true; color: "#4caf50" }
+                                        Text { text: modelData.desc; font.pointSize: 9; color: textDim; wrapMode: Text.WordWrap; width: Math.round(200*dp) }
+                                    }
+                                }
+
+                                // Entry animation
+                                opacity: 0
+                                scale: 0.8
+                                Component.onCompleted: {
+                                    opacity = 1; scale = 1.0;
+                                }
+                                Behavior on opacity { NumberAnimation { duration: 400; easing.type: Easing.OutCubic } }
+                                Behavior on scale   { NumberAnimation { duration: 400; easing.type: Easing.OutBack } }
+                            }
+                        }
+                    }
+                }
 
                 // JARIBU TENA — maswali mapya, mada ile ile
                 Rectangle {
