@@ -250,7 +250,7 @@ Rectangle {
                     Column {
                         spacing: Math.round(5*dp); width: parent.width - Math.round(102*dp)
                         Repeater {
-                            model: [ {l:"Jina Kamili",v:"John Pombe Joseph Magufuli"}, {l:"Kuzaliwa",v:"29 Oktoba 1959, Chato"}, {l:"Kufariki",v:"17 Machi 2021"}, {l:"Umri",v:"Miaka 61"}, {l:"Kabila",v:"Msukuma"} ]
+                            model: [ {l:"Jina",v:"John Pombe Joseph Magufuli"}, {l:"Kuzaliwa",v:"29 Oktoba 1959, Chato"}, {l:"Kufariki",v:"17 Machi 2021"}, {l:"Umri",v:"Miaka 61"}, {l:"Kabila",v:"Msukuma"} ]
                             delegate: Row { spacing: Math.round(4*dp); width: parent.width
                                 Text { text: modelData.l+":"; font.pointSize: Math.round(7.5*dp); font.bold: true; color: goldDim; width: Math.round(68*dp) }
                                 Text { text: modelData.v; font.pointSize: Math.round(7.5*dp); color: cream; wrapMode: Text.WordWrap; width: parent.width - Math.round(72*dp) }
