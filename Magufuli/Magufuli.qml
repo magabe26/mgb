@@ -1406,8 +1406,8 @@ Rectangle {
                     model: [
                         {n:"1", t:"Gusa card yoyote kuigeua"},
                         {n:"2", t:"Kisha gusa card nyingine"},
-                        {n:"3", t:"Zikifanana — zinabaki wazi \u2705"},
-                        {n:"4", t:"Hazifanani — zinarudi nyuma \uD83D\uDD04"},
+                        {n:"3", t:"Zikifanana — zinabaki wazi \u2705, unapata pointi"},
+                        {n:"4", t:"Hazifanani — zinarudi nyuma \uD83D\uDD04, unapoteza pointi"},
                         {n:"5", t:"Pata pairs zote 6 kushinda!"}
                     ]
                     delegate: Row {
