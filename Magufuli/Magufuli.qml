@@ -216,17 +216,36 @@ Rectangle {
 
                 Item { width: 1; height: Math.round(6 * dp) }
 
-                // CCM slogan + torch
+                // CCM slogan + torch — fade-in then inawaka inazima
                 Row {
+                    id: sloganRow
                     anchors.horizontalCenter: parent.horizontalCenter
                     spacing: Math.round(6 * dp)
+                    opacity: 0
                     Text { text: "\uD83D\uDD25"; font.pointSize: Math.round(11 * dp); anchors.verticalCenter: parent.verticalCenter }
                     Text {
+                        id: sloganText
                         text: "UMOJA NI NGUVU"
                         font.pointSize: Math.round(9 * dp); font.bold: true; font.letterSpacing: Math.round(1.5 * dp)
                         color: gold; anchors.verticalCenter: parent.verticalCenter
                     }
                     Text { text: "\uD83D\uDD25"; font.pointSize: Math.round(11 * dp); anchors.verticalCenter: parent.verticalCenter }
+                    // Hatua 1: fade-in baada ya jina
+                    SequentialAnimation on opacity {
+                        id: sloganFadeIn
+                        PauseAnimation  { duration: 900 }
+                        NumberAnimation { from: 0; to: 1; duration: 700; easing.type: Easing.OutCubic }
+                        onStopped: { sloganBlink.start(); }
+                    }
+                    // Hatua 2: inawaka inazima milele
+                    SequentialAnimation {
+                        id: sloganBlink
+                        loops: Animation.Infinite
+                        NumberAnimation { target: sloganText; property: "opacity"; to: 0.15; duration: 600; easing.type: Easing.InOutSine }
+                        NumberAnimation { target: sloganText; property: "opacity"; to: 1.0;  duration: 600; easing.type: Easing.InOutSine }
+                        PauseAnimation  { duration: 400 }
+                    }
+                    Component.onCompleted: { sloganFadeIn.start(); }
                 }
 
                 Item { width: 1; height: Math.round(6 * dp) }
@@ -333,9 +352,18 @@ Rectangle {
                             MouseArea {
                                 id: navMA
                                 anchors.fill: parent
-                                onPressed:  { navBtn.scale = 0.95; }
-                                onReleased: { navBtn.scale = 1.0; section = modelData.sec; }
+                                onPressed:  { navBtn.scale = 0.92; }
+                                onReleased: {
+                                    section = modelData.sec;
+                                    navBtnSpring.start();
+                                }
                                 onCanceled: { navBtn.scale = 1.0; }
+                            }
+                            SequentialAnimation {
+                                id: navBtnSpring
+                                NumberAnimation { target: navBtn; property: "scale"; to: 1.08; duration: 120; easing.type: Easing.OutQuad }
+                                NumberAnimation { target: navBtn; property: "scale"; to: 0.96; duration: 80;  easing.type: Easing.InQuad  }
+                                NumberAnimation { target: navBtn; property: "scale"; to: 1.0;  duration: 100; easing.type: Easing.OutQuad }
                             }
                         }
                     }
@@ -558,8 +586,17 @@ Rectangle {
                         radius: Math.round(12 * dp)
                         color: mafMA.pressed ? "#142a14" : darkCard
                         border.color: Qt.rgba(0.0, 0.50, 0.0, 0.22); border.width: 1
+                        opacity: 0
                         Behavior on color { ColorAnimation { duration: 120 } }
                         Behavior on scale { NumberAnimation { duration: 100 } }
+                        SequentialAnimation on opacity {
+                            PauseAnimation  { duration: index * 80 }
+                            NumberAnimation { from: 0; to: 1; duration: 350; easing.type: Easing.OutCubic }
+                        }
+                        SequentialAnimation on anchors.topMargin {
+                            PauseAnimation  { duration: index * 80 }
+                            NumberAnimation { from: Math.round(18 * dp); to: 0; duration: 350; easing.type: Easing.OutCubic }
+                        }
 
                         // Alternating CCM stripe: even=gold, odd=green
                         Rectangle {
@@ -859,12 +896,17 @@ Rectangle {
                     width: Math.round(app.width / 4)
                     height: Math.round(52 * dp)
                     Rectangle {
-                        anchors.top: parent.top; anchors.topMargin: Math.round(2 * dp)
+                        id: navDot
                         anchors.horizontalCenter: parent.horizontalCenter
-                        width: Math.round(20 * dp); height: Math.round(2 * dp); radius: 1
+                        anchors.top: parent.top
+                        anchors.topMargin: section === modelData.sec ? Math.round(2 * dp) : -Math.round(4 * dp)
+                        width: section === modelData.sec ? Math.round(20 * dp) : Math.round(8 * dp)
+                        height: Math.round(2 * dp); radius: 1
                         color: gold
                         opacity: section === modelData.sec ? 1.0 : 0.0
-                        Behavior on opacity { NumberAnimation { duration: 200 } }
+                        Behavior on opacity     { NumberAnimation { duration: 200 } }
+                        Behavior on anchors.topMargin { NumberAnimation { duration: 220; easing.type: Easing.OutBack } }
+                        Behavior on width       { NumberAnimation { duration: 200; easing.type: Easing.OutCubic } }
                     }
                     Column {
                         anchors.centerIn: parent
@@ -917,12 +959,46 @@ Rectangle {
             Behavior on scale { NumberAnimation { duration: 300; easing.type: Easing.OutBack } }
         }
 
-        Text {
-            anchors.bottom: parent.bottom; anchors.bottomMargin: Math.round(24 * dp)
+        // CCM-styled close button
+        Rectangle {
+            id: lbCloseBtn
+            anchors.bottom: parent.bottom; anchors.bottomMargin: Math.round(20 * dp)
             anchors.horizontalCenter: parent.horizontalCenter
-            text: "x  Gusa kufunga"; font.pointSize: Math.round(9 * dp); color: Qt.rgba(1, 1, 1, 0.5)
+            width: lbCloseRow.implicitWidth + Math.round(28 * dp)
+            height: Math.round(38 * dp); radius: Math.round(19 * dp)
+            color: lbCloseMA.pressed ? Qt.rgba(0.96, 0.77, 0.0, 0.25) : Qt.rgba(0.96, 0.77, 0.0, 0.12)
+            border.color: gold; border.width: 1
+            Behavior on color { ColorAnimation { duration: 120 } }
+            Behavior on scale { NumberAnimation { duration: 100 } }
+            // Mini CCM stripe at bottom of button
+            Rectangle {
+                anchors.bottom: parent.bottom; anchors.left: parent.left; anchors.right: parent.right
+                height: Math.round(3 * dp); radius: Math.round(19 * dp)
+                gradient: Gradient {
+                    GradientStop { position: 0.0;  color: "#006400" }
+                    GradientStop { position: 0.40; color: "#006400" }
+                    GradientStop { position: 0.42; color: "#f5c400" }
+                    GradientStop { position: 0.58; color: "#f5c400" }
+                    GradientStop { position: 0.60; color: "#000000" }
+                    GradientStop { position: 1.0;  color: "#000000" }
+                }
+            }
+            Row {
+                id: lbCloseRow
+                anchors.centerIn: parent; spacing: Math.round(6 * dp)
+                Text { text: "X"; font.pointSize: Math.round(10 * dp); color: gold; anchors.verticalCenter: parent.verticalCenter }
+                Text { text: "Funga"; font.pointSize: Math.round(9 * dp); font.bold: true; color: gold; anchors.verticalCenter: parent.verticalCenter }
+            }
+            MouseArea {
+                id: lbCloseMA
+                anchors.fill: parent
+                onPressed:  { lbCloseBtn.scale = 0.95; }
+                onReleased: { lbCloseBtn.scale = 1.0; lightboxOpen = false; }
+                onCanceled: { lbCloseBtn.scale = 1.0; }
+            }
         }
 
+        // Tap anywhere else to close
         MouseArea {
             anchors.fill: parent
             onClicked: { lightboxOpen = false; }
