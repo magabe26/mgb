@@ -234,7 +234,7 @@ MouseArea{
             MouseArea{
                 anchors.fill: parent
                 onClicked: {
-                    root.executeCommand("#saveAndPlayVideoAd;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Ads/nyerere.mp4;#showGoogleAd;Baba wa Taifa la Tanzania;#004040;nyerere.mp4;", []);
+                    root.executeCommand("#openApp;Nyerere.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Nyerere/;Please wait;dependencies.txt;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Nyerere/images/;2;1;1;600;", []);
                 }
             }
         }
