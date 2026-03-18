@@ -3625,6 +3625,9 @@ Rectangle {
         property int  moves:      0
         property bool gameWon:    false
         property bool showInstr:  true
+        property real score:      0
+        property bool showMatchAnim: false
+        property bool showMissAnim:  false
 
         function shuffleArr(arr) {
             var a = arr.slice();
@@ -3654,7 +3657,7 @@ Rectangle {
             shuffled  = shuffleArr(idx);
             flipped   = []; matched = [];
             firstPick  = -1; secondPick = -1;
-            busy = false; moves = 0; gameWon = false;
+            busy = false; moves = 0; gameWon = false; score = 0;
         }
         function cardFlipped(pos) {
             if (busy) return;
@@ -3672,12 +3675,18 @@ Rectangle {
             var idA = pairs[Math.floor(shuffled[firstPick]  / 2)].id;
             var idB = pairs[Math.floor(shuffled[secondPick] / 2)].id;
             if (idA === idB) {
+                score = Math.round((score + 12.5) * 10) / 10;
+                showMatchAnim = true;
+                matchAnimTimer.start();
                 var m = matched.slice(); m.push(idA); matched = m;
                 if (matched.length === pairs.length) {
                     gameWon = true;
                     app.ad();
                 }
             } else {
+                score = score - 3;
+                showMissAnim = true;
+                missAnimTimer.start();
                 var f2 = flipped.slice();
                 f2.splice(f2.indexOf(firstPick),  1);
                 f2.splice(f2.indexOf(secondPick), 1);
@@ -3686,7 +3695,9 @@ Rectangle {
             firstPick = -1; secondPick = -1; busy = false;
         }
 
-        Timer { id: matchTimer; interval: 900; repeat: false; onTriggered: gameOverlay.checkMatch() }
+        Timer { id: matchTimer;     interval: 900; repeat: false; onTriggered: gameOverlay.checkMatch() }
+        Timer { id: matchAnimTimer; interval: 700; repeat: false; onTriggered: gameOverlay.showMatchAnim = false }
+        Timer { id: missAnimTimer;  interval: 700; repeat: false; onTriggered: gameOverlay.showMissAnim  = false }
         Component.onCompleted: gameOverlay.initGame()
         onVisibleChanged: { if (visible) { gameOverlay.initGame(); gameOverlay.showInstr = true; } }
 
@@ -3736,16 +3747,74 @@ Rectangle {
         Rectangle {
             id: gameStats
             anchors.top: gameHeader.bottom; width: parent.width
-            height: Qt.platform.os === "android" ? 36 : 28; color: "#000f0e"
+            height: Qt.platform.os === "android" ? 40 : 32; color: "#000f0e"
             Row {
-                anchors.centerIn: parent; spacing: Qt.platform.os === "android" ? 28 : 20
-                Row { spacing: 6
-                    Text { text: "\uD83C\uDFAF"; font.pointSize: Qt.platform.os === "android" ? 10 : 8; anchors.verticalCenter: parent.verticalCenter }
-                    Text { text: (app.gameLang === "sw" ? "Hatua: " : "Moves: ") + gameOverlay.moves; font.pointSize: Qt.platform.os === "android" ? 10 : 8; color: "white"; font.bold: true; anchors.verticalCenter: parent.verticalCenter }
+                anchors.centerIn: parent; spacing: Qt.platform.os === "android" ? 16 : 12
+                Row { spacing: 4
+                    Text { text: "\uD83C\uDFAF"; font.pointSize: Qt.platform.os === "android" ? 9 : 7; anchors.verticalCenter: parent.verticalCenter }
+                    Text { text: (app.gameLang === "sw" ? "Hatua: " : "Moves: ") + gameOverlay.moves; font.pointSize: Qt.platform.os === "android" ? 9 : 7; color: "white"; font.bold: true; anchors.verticalCenter: parent.verticalCenter }
                 }
-                Row { spacing: 6
-                    Text { text: "\u2705"; font.pointSize: Qt.platform.os === "android" ? 10 : 8; anchors.verticalCenter: parent.verticalCenter }
-                    Text { text: (app.gameLang === "sw" ? "Pairs: " : "Pairs: ") + gameOverlay.matched.length + "/" + gameOverlay.pairs.length; font.pointSize: Qt.platform.os === "android" ? 10 : 8; color: app.gameLang === "sw" ? "green" : "blue"; font.bold: true; anchors.verticalCenter: parent.verticalCenter }
+                Rectangle { width: 1; height: Qt.platform.os === "android" ? 20 : 16; color: "#33ffffff"; anchors.verticalCenter: parent.verticalCenter }
+                Row { spacing: 4
+                    Text { text: "\u2705"; font.pointSize: Qt.platform.os === "android" ? 9 : 7; anchors.verticalCenter: parent.verticalCenter }
+                    Text { text: gameOverlay.matched.length + "/" + gameOverlay.pairs.length; font.pointSize: Qt.platform.os === "android" ? 9 : 7; color: app.gameLang === "sw" ? "green" : "blue"; font.bold: true; anchors.verticalCenter: parent.verticalCenter }
+                }
+                Rectangle { width: 1; height: Qt.platform.os === "android" ? 20 : 16; color: "#33ffffff"; anchors.verticalCenter: parent.verticalCenter }
+                Row { spacing: 4
+                    Text { text: "\u2B50"; font.pointSize: Qt.platform.os === "android" ? 9 : 7; anchors.verticalCenter: parent.verticalCenter }
+                    Text {
+                        text: (app.gameLang === "sw" ? "Pointi: " : "Score: ") + Math.round(gameOverlay.score)
+                        font.pointSize: Qt.platform.os === "android" ? 9 : 7; font.bold: true; anchors.verticalCenter: parent.verticalCenter
+                        color: gameOverlay.score >= 0 ? "#00ff88" : "#ff6666"
+                    }
+                }
+            }
+        }
+
+        // ── Match / Miss floating indicators ──────────────────────────
+        Item {
+            anchors.fill: parent
+            z: 10
+            // +12.5 green flash
+            Rectangle {
+                anchors.centerIn: parent
+                width: matchPopTxt.implicitWidth + Math.round(24)
+                height: Math.round(Qt.platform.os === "android" ? 44 : 34)
+                radius: height / 2
+                color: "#cc003300"
+                border.color: "#00ff88"; border.width: 2
+                visible: gameOverlay.showMatchAnim
+                opacity: gameOverlay.showMatchAnim ? 1.0 : 0.0
+                Behavior on opacity { NumberAnimation { duration: 300; easing.type: Easing.OutCubic } }
+                anchors.verticalCenterOffset: gameOverlay.showMatchAnim ? -Math.round(40) : 0
+                Behavior on anchors.verticalCenterOffset { NumberAnimation { duration: 600; easing.type: Easing.OutCubic } }
+                Text {
+                    id: matchPopTxt
+                    anchors.centerIn: parent
+                    text: "+12.5 \uD83C\uDF89"
+                    font.pointSize: Qt.platform.os === "android" ? 14 : 11
+                    font.bold: true; color: "#00ff88"
+                }
+            }
+            // -5 red flash
+            Rectangle {
+                anchors.centerIn: parent
+                width: missPopTxt.implicitWidth + Math.round(24)
+                height: Math.round(Qt.platform.os === "android" ? 44 : 34)
+                radius: height / 2
+                color: "#cc330000"
+                border.color: "#ff4444"; border.width: 2
+                visible: gameOverlay.showMissAnim
+                opacity: gameOverlay.showMissAnim ? 1.0 : 0.0
+                Behavior on opacity { NumberAnimation { duration: 300; easing.type: Easing.OutCubic } }
+                anchors.verticalCenterOffset: gameOverlay.showMissAnim ? Math.round(40) : 0
+                Behavior on anchors.verticalCenterOffset { NumberAnimation { duration: 600; easing.type: Easing.OutCubic } }
+                Text {
+                    id: missPopTxt
+                    anchors.centerIn: parent
+                    text: "-3 \uD83D\uDE15"
+                    font.pointSize: Qt.platform.os === "android" ? 14 : 11
+                    font.bold: true; color: "#ff4444"
                 }
             }
         }
@@ -3771,6 +3840,12 @@ Rectangle {
                     property bool isMatched: pairId >= 0 && gameOverlay.matched.indexOf(pairId) !== -1
                     property bool faceUp:    isFlipped || isMatched
                     Behavior on scale { NumberAnimation { duration: 100 } }
+                    // Bounce when matched
+                    SequentialAnimation on scale {
+                        running: cardItem.isMatched && gameOverlay.showMatchAnim
+                        NumberAnimation { to: 1.12; duration: 120; easing.type: Easing.OutQuad }
+                        NumberAnimation { to: 1.0;  duration: 120; easing.type: Easing.InQuad  }
+                    }
 
                     // Back face
                     Rectangle {
@@ -3918,10 +3993,64 @@ Rectangle {
                     text: app.gameLang === "sw" ? "Hongera! Umeshinda!" : "Congratulations!"
                     font.pointSize: Qt.platform.os === "android" ? 22 : 18; font.bold: true; color: (app.gameLang === "sw" ? "green" : "blue")
                 }
-                Text {
+                // Stats summary
+                Rectangle {
                     anchors.horizontalCenter: parent.horizontalCenter
-                    text: (app.gameLang === "sw" ? "Hatua: " : "Moves: ") + gameOverlay.moves
-                    font.pointSize: Qt.platform.os === "android" ? 13 : 11; color: "white"
+                    width: winStatsRow.implicitWidth + (Qt.platform.os === "android" ? 56 : 44)
+                    height: Qt.platform.os === "android" ? 64 : 52
+                    radius: 14; color: "#0d2a28"
+                    border.color: app.gameLang === "sw" ? "green" : "blue"; border.width: 1
+                    Row {
+                        id: winStatsRow
+                        anchors.centerIn: parent; spacing: Qt.platform.os === "android" ? 28 : 22
+                        Column { spacing: 2
+                            Text { anchors.horizontalCenter: parent.horizontalCenter; text: "\uD83C\uDFAF"; font.pointSize: Qt.platform.os === "android" ? 14 : 11 }
+                            Text {
+                                anchors.horizontalCenter: parent.horizontalCenter
+                                text: gameOverlay.moves
+                                font.pointSize: Qt.platform.os === "android" ? 13 : 10; font.bold: true; color: "white"
+                            }
+                            Text {
+                                anchors.horizontalCenter: parent.horizontalCenter
+                                text: app.gameLang === "sw" ? "Hatua" : "Moves"
+                                font.pointSize: Qt.platform.os === "android" ? 9 : 7; color: "#aaaaaa"
+                            }
+                        }
+                        Rectangle { width: 1; height: Qt.platform.os === "android" ? 36 : 28; color: "#33ffffff"; anchors.verticalCenter: parent.verticalCenter }
+                        Column { spacing: 2
+                            Text { anchors.horizontalCenter: parent.horizontalCenter; text: "\u2B50"; font.pointSize: Qt.platform.os === "android" ? 14 : 11 }
+                            Text {
+                                anchors.horizontalCenter: parent.horizontalCenter
+                                text: Math.round(gameOverlay.score) + "/100"
+                                font.pointSize: Qt.platform.os === "android" ? 13 : 10; font.bold: true
+                                color: gameOverlay.score >= 80 ? "#00ff88" : gameOverlay.score >= 50 ? "#f5c400" : gameOverlay.score >= 0 ? "white" : "#ff6666"
+                            }
+                            Text {
+                                anchors.horizontalCenter: parent.horizontalCenter
+                                text: app.gameLang === "sw" ? "Pointi" : "Score"
+                                font.pointSize: Qt.platform.os === "android" ? 9 : 7; color: "#aaaaaa"
+                            }
+                        }
+                        Rectangle { width: 1; height: Qt.platform.os === "android" ? 36 : 28; color: "#33ffffff"; anchors.verticalCenter: parent.verticalCenter }
+                        Column { spacing: 2
+                            Text { anchors.horizontalCenter: parent.horizontalCenter; text: "\uD83C\uDFC6"; font.pointSize: Qt.platform.os === "android" ? 14 : 11 }
+                            Text {
+                                anchors.horizontalCenter: parent.horizontalCenter
+                                text: gameOverlay.score >= 100 ? (app.gameLang === "sw" ? "Bora!" : "Perfect!")
+                                    : gameOverlay.score >= 75  ? (app.gameLang === "sw" ? "Safi!" : "Great!")
+                                    : gameOverlay.score >= 50  ? (app.gameLang === "sw" ? "Vizuri" : "Good")
+                                    : gameOverlay.score >= 0   ? (app.gameLang === "sw" ? "Jaribu" : "Try+")
+                                    :                            (app.gameLang === "sw" ? "Rudia" : "Retry")
+                                font.pointSize: Qt.platform.os === "android" ? 13 : 10; font.bold: true
+                                color: gameOverlay.score >= 75 ? "#00ff88" : gameOverlay.score >= 50 ? "#f5c400" : gameOverlay.score >= 0 ? "white" : "#ff6666"
+                            }
+                            Text {
+                                anchors.horizontalCenter: parent.horizontalCenter
+                                text: app.gameLang === "sw" ? "Daraja" : "Grade"
+                                font.pointSize: Qt.platform.os === "android" ? 9 : 7; color: "#aaaaaa"
+                            }
+                        }
+                    }
                 }
                 Text {
                     anchors.horizontalCenter: parent.horizontalCenter
