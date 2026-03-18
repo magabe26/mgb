@@ -427,7 +427,7 @@ Rectangle{
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.leftMargin: menu.textLeftMargin
                 color: Qt.lighter("gray",1.7)
-                text: "John Pombe Magufuli"
+                text: "Dr. John Pombe Magufuli"
             }
 
             MouseArea{
