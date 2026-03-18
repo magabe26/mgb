@@ -1036,6 +1036,467 @@ Rectangle {
         }
     }
 
+
+    // ════════════════════════════════════════════════
+    // MCHEZO — Memory Card Game  (section 5)
+    // ════════════════════════════════════════════════
+    Item {
+        id: gameSection
+        anchors.fill: parent
+        visible: opacity > 0
+        opacity: section === 5 ? 1.0 : 0.0
+        x:       section === 5 ? 0 : (section < 5 ? app.width * 0.18 : -app.width * 0.18)
+        Behavior on opacity { NumberAnimation { duration: 350; easing.type: Easing.InOutQuad } }
+        Behavior on x       { NumberAnimation { duration: 350; easing.type: Easing.OutCubic  } }
+
+        // ── Game state ───────────────────────────────────────────────────────
+        property var  cardData:    [
+            {id:0, icon:"\uD83D\uDE82", label:"SGR"},
+            {id:1, icon:"\uD83D\uDCA1", label:"Bwawa"},
+            {id:2, icon:"\uD83C\uDFEB", label:"Elimu"},
+            {id:3, icon:"\uD83D\uDCB0", label:"Ufisadi"},
+            {id:4, icon:"\uD83C\uDF31", label:"Miti"},
+            {id:5, icon:"\u26A1",        label:"Umeme"},
+            {id:0, icon:"\uD83D\uDE82", label:"SGR"},
+            {id:1, icon:"\uD83D\uDCA1", label:"Bwawa"},
+            {id:2, icon:"\uD83C\uDFEB", label:"Elimu"},
+            {id:3, icon:"\uD83D\uDCB0", label:"Ufisadi"},
+            {id:4, icon:"\uD83C\uDF31", label:"Miti"},
+            {id:5, icon:"\u26A1",        label:"Umeme"}
+        ]
+        property var  shuffled:    []
+        property var  flipped:     []
+        property var  matched:     []
+        property int  firstPick:   -1
+        property int  secondPick:  -1
+        property bool busy:        false
+        property int  moves:       0
+        property bool gameWon:        false
+        property bool showInstructions: true
+
+        function shuffle(arr) {
+            var a = arr.slice();
+            for (var i = a.length - 1; i > 0; i--) {
+                var j = Math.floor(Math.random() * (i + 1));
+                var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+            }
+            return a;
+        }
+
+        function initGame() {
+            var s = [];
+            for (var i = 0; i < cardData.length; i++) { s.push(i); }
+            shuffled   = shuffle(s);
+            flipped    = [];
+            matched    = [];
+            firstPick  = -1;
+            secondPick = -1;
+            busy       = false;
+            moves      = 0;
+            gameWon    = false;
+        }
+
+        function cardFlipped(pos) {
+            if (busy) return;
+            if (flipped.indexOf(pos) !== -1) return;
+            if (matched.indexOf(cardData[shuffled[pos]].id) !== -1) return;
+
+            var f = flipped.slice();
+            f.push(pos);
+            flipped = f;
+
+            if (firstPick === -1) {
+                firstPick = pos;
+            } else {
+                secondPick = pos;
+                moves = moves + 1;
+                busy = true;
+                checkTimer.start();
+            }
+        }
+
+        function checkMatch() {
+            var a = cardData[shuffled[firstPick]];
+            var b = cardData[shuffled[secondPick]];
+            if (a.id === b.id) {
+                var m = matched.slice();
+                m.push(a.id);
+                matched = m;
+                if (matched.length === 6) { gameWon = true; }
+            } else {
+                var f2 = flipped.slice();
+                f2.splice(f2.indexOf(firstPick), 1);
+                f2.splice(f2.indexOf(secondPick), 1);
+                flipped = f2;
+            }
+            firstPick  = -1;
+            secondPick = -1;
+            busy       = false;
+        }
+
+        Timer {
+            id: checkTimer
+            interval: 900; repeat: false
+            onTriggered: { gameSection.checkMatch(); }
+        }
+
+        Component.onCompleted: { initGame(); }
+
+        // ── Header ───────────────────────────────────────────────────────────
+        Rectangle {
+            id: hGame
+            anchors.top: parent.top; width: parent.width; height: Math.round(54 * dp); color: "#0a160a"
+            Rectangle { anchors.bottom: parent.bottom; width: parent.width; height: 1; color: Qt.rgba(0.0, 0.50, 0.0, 0.40) }
+            Rectangle {
+                anchors.horizontalCenter: parent.horizontalCenter; anchors.bottom: parent.bottom
+                height: 2; radius: 1; color: gold; width: 0
+                NumberAnimation on width { to: hGameTitleRow.implicitWidth + Math.round(16 * dp); duration: 350; easing.type: Easing.OutCubic; running: true }
+            }
+            Rectangle {
+                anchors.left: parent.left; anchors.verticalCenter: parent.verticalCenter; anchors.leftMargin: Math.round(14 * dp)
+                width: Math.round(36 * dp); height: Math.round(36 * dp); radius: Math.round(18 * dp)
+                color: hGameBackMA.pressed ? Qt.rgba(0.0, 0.55, 0.0, 0.30) : Qt.rgba(0.0, 0.50, 0.0, 0.12)
+                border.color: Qt.rgba(0.0, 0.50, 0.0, 0.40); border.width: 1
+                Behavior on color { ColorAnimation { duration: 120 } }
+                Text { anchors.centerIn: parent; text: "\u2190"; font.pointSize: Math.round(14 * dp); color: gold }
+                MouseArea { id: hGameBackMA; anchors.fill: parent; onClicked: { section = 0; } }
+            }
+            Row {
+                id: hGameTitleRow
+                anchors.centerIn: parent; spacing: Math.round(8 * dp)
+                Text { text: "\uD83C\uDFAE"; font.pointSize: Math.round(14 * dp); anchors.verticalCenter: parent.verticalCenter }
+                Text { text: "Mchezo wa Kumbukumbu"; font.pointSize: Math.round(11 * dp); font.bold: true; color: cream; anchors.verticalCenter: parent.verticalCenter }
+            }
+        }
+
+        // ── Stats bar ────────────────────────────────────────────────────────
+        Rectangle {
+            id: statsBar
+            anchors.top: hGame.bottom; width: parent.width; height: Math.round(36 * dp)
+            color: "#060f06"
+            Row {
+                anchors.centerIn: parent; spacing: Math.round(24 * dp)
+                Row { spacing: Math.round(6 * dp)
+                    Text { text: "\uD83C\uDFAF"; font.pointSize: Math.round(10 * dp); anchors.verticalCenter: parent.verticalCenter }
+                    Text { text: "Hatua: " + gameSection.moves; font.pointSize: Math.round(9 * dp); color: cream; font.bold: true; anchors.verticalCenter: parent.verticalCenter }
+                }
+                Row { spacing: Math.round(6 * dp)
+                    Text { text: "\u2705"; font.pointSize: Math.round(10 * dp); anchors.verticalCenter: parent.verticalCenter }
+                    Text { text: "Pairs: " + gameSection.matched.length + "/6"; font.pointSize: Math.round(9 * dp); color: gold; font.bold: true; anchors.verticalCenter: parent.verticalCenter }
+                }
+            }
+        }
+
+        // ── Card grid ────────────────────────────────────────────────────────
+        Grid {
+            id: cardGrid
+            anchors.top: statsBar.bottom; anchors.topMargin: Math.round(16 * dp)
+            anchors.bottom: parent.bottom; anchors.bottomMargin: Math.round(52 * dp + 16 * dp)
+            anchors.horizontalCenter: parent.horizontalCenter
+            width: parent.width - Math.round(32 * dp)
+            columns: 3
+            spacing: Math.round(10 * dp)
+
+            Repeater {
+                model: 12
+                delegate: Item {
+                    id: cardItem
+                    width:  (cardGrid.width - 2 * Math.round(10 * dp)) / 3
+                    height: width * 1.15
+
+                    property bool isFlipped: gameSection.flipped.indexOf(index) !== -1
+                    property bool isMatched: {
+                        var d = gameSection.cardData[gameSection.shuffled[index]];
+                        return d ? gameSection.matched.indexOf(d.id) !== -1 : false;
+                    }
+                    property bool faceUp: isFlipped || isMatched
+
+                    Behavior on scale { NumberAnimation { duration: 100 } }
+
+                    // Back face (green CCM card)
+                    Rectangle {
+                        anchors.fill: parent
+                        radius: Math.round(10 * dp)
+                        color: darkCard
+                        border.color: isMatched ? gold : Qt.rgba(0.0, 0.50, 0.0, 0.45)
+                        border.width: isMatched ? Math.round(2 * dp) : 1
+                        visible: !cardItem.faceUp
+                        Behavior on border.color { ColorAnimation { duration: 200 } }
+
+                        // JPM on back
+                        Column {
+                            anchors.centerIn: parent; spacing: Math.round(2 * dp)
+                            Text {
+                                anchors.horizontalCenter: parent.horizontalCenter
+                                text: "JPM"
+                                font.pointSize: Math.round(13 * dp); font.bold: true
+                                color: gold; font.letterSpacing: Math.round(3 * dp)
+                            }
+                            Text {
+                                anchors.horizontalCenter: parent.horizontalCenter
+                                text: "\u2605"
+                                font.pointSize: Math.round(9 * dp); color: Qt.rgba(0.96, 0.77, 0.0, 0.5)
+                            }
+                        }
+
+                        // CCM flag stripe bottom
+                        Rectangle {
+                            anchors.bottom: parent.bottom; anchors.left: parent.left; anchors.right: parent.right
+                            height: Math.round(3 * dp); radius: Math.round(10 * dp)
+                            gradient: Gradient {
+                                GradientStop { position: 0.0;  color: "#006400" }
+                                GradientStop { position: 0.40; color: "#006400" }
+                                GradientStop { position: 0.42; color: "#f5c400" }
+                                GradientStop { position: 0.58; color: "#f5c400" }
+                                GradientStop { position: 0.60; color: "#000000" }
+                                GradientStop { position: 1.0;  color: "#000000" }
+                            }
+                        }
+
+                        MouseArea {
+                            anchors.fill: parent
+                            onPressed:  { cardItem.scale = 0.92; }
+                            onReleased: {
+                                cardItem.scale = 1.0;
+                                if (!gameSection.gameWon) { gameSection.cardFlipped(index); }
+                            }
+                            onCanceled: { cardItem.scale = 1.0; }
+                        }
+                    }
+
+                    // Front face (gold — shows icon + label)
+                    Rectangle {
+                        anchors.fill: parent
+                        radius: Math.round(10 * dp)
+                        color: cardItem.isMatched ? "#1a3a00" : "#1a2e00"
+                        border.color: cardItem.isMatched ? gold : Qt.rgba(0.96, 0.77, 0.0, 0.45)
+                        border.width: Math.round(2 * dp)
+                        visible: cardItem.faceUp
+
+                        // Matched shimmer overlay
+                        Rectangle {
+                            anchors.fill: parent; radius: parent.radius
+                            color: "transparent"; border.color: gold; border.width: 1
+                            visible: cardItem.isMatched
+                            SequentialAnimation on opacity {
+                                loops: Animation.Infinite; running: cardItem.isMatched
+                                NumberAnimation { to: 0.1; duration: 900; easing.type: Easing.InOutSine }
+                                NumberAnimation { to: 0.8; duration: 900; easing.type: Easing.InOutSine }
+                            }
+                        }
+
+                        Column {
+                            anchors.centerIn: parent; spacing: Math.round(4 * dp)
+                            Text {
+                                anchors.horizontalCenter: parent.horizontalCenter
+                                text: {
+                                    var d = gameSection.cardData[gameSection.shuffled[index]];
+                                    return d ? d.icon : "";
+                                }
+                                font.pointSize: Math.round(20 * dp)
+                            }
+                            Text {
+                                anchors.horizontalCenter: parent.horizontalCenter
+                                text: {
+                                    var d = gameSection.cardData[gameSection.shuffled[index]];
+                                    return d ? d.label : "";
+                                }
+                                font.pointSize: Math.round(7 * dp); font.bold: true
+                                color: cardItem.isMatched ? gold : cream
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // ── INSTRUCTIONS overlay — inaonyeshwa kwanza kabla mchezo haujaanza ──
+        Rectangle {
+            anchors.fill: parent
+            color: Qt.rgba(0, 0, 0, 0.88)
+            visible: gameSection.showInstructions
+            opacity: gameSection.showInstructions ? 1.0 : 0.0
+            Behavior on opacity { NumberAnimation { duration: 350 } }
+
+            Column {
+                anchors.centerIn: parent
+                width: parent.width - Math.round(48 * dp)
+                spacing: Math.round(14 * dp)
+
+                // Kichwa
+                Text {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    text: "\uD83C\uDFAE Mchezo wa Kumbukumbu"
+                    font.pointSize: Math.round(13 * dp); font.bold: true; color: gold
+                    horizontalAlignment: Text.AlignHCenter; wrapMode: Text.WordWrap; width: parent.width
+                }
+
+                // CCM divider
+                Rectangle {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: parent.width * 0.8; height: Math.round(1 * dp)
+                    gradient: Gradient {
+                        GradientStop { position: 0.0; color: "transparent" }
+                        GradientStop { position: 0.3; color: Qt.rgba(0.96, 0.77, 0.0, 0.5) }
+                        GradientStop { position: 0.7; color: Qt.rgba(0.96, 0.77, 0.0, 0.5) }
+                        GradientStop { position: 1.0; color: "transparent" }
+                    }
+                }
+
+                // Maelezo ya mchezo — hatua kwa hatua
+                Repeater {
+                    model: [
+                        {n:"1", t:"Gusa card yoyote kuigeua"},
+                        {n:"2", t:"Kisha gusa card nyingine"},
+                        {n:"3", t:"Zikifanana — zinabaki wazi \u2705"},
+                        {n:"4", t:"Hazifanani — zinarudi nyuma \uD83D\uDD04"},
+                        {n:"5", t:"Pata pairs zote 6 kushinda!"}
+                    ]
+                    delegate: Row {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        spacing: Math.round(10 * dp)
+                        Rectangle {
+                            width: Math.round(22 * dp); height: Math.round(22 * dp)
+                            radius: Math.round(11 * dp); color: green
+                            border.color: greenLight; border.width: 1
+                            anchors.verticalCenter: parent.verticalCenter
+                            Text { anchors.centerIn: parent; text: modelData.n; font.pointSize: Math.round(8 * dp); font.bold: true; color: gold }
+                        }
+                        Text {
+                            text: modelData.t; font.pointSize: Math.round(9 * dp); color: cream
+                            anchors.verticalCenter: parent.verticalCenter
+                            wrapMode: Text.WordWrap; width: parent.parent.width - Math.round(42 * dp)
+                        }
+                    }
+                }
+
+                // CCM divider
+                Rectangle {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: parent.width * 0.8; height: Math.round(1 * dp)
+                    gradient: Gradient {
+                        GradientStop { position: 0.0; color: "transparent" }
+                        GradientStop { position: 0.3; color: Qt.rgba(0.0, 0.55, 0.0, 0.5) }
+                        GradientStop { position: 0.7; color: Qt.rgba(0.0, 0.55, 0.0, 0.5) }
+                        GradientStop { position: 1.0; color: "transparent" }
+                    }
+                }
+
+                // Kitufe cha kuanza
+                Rectangle {
+                    id: startBtn
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: startRow.implicitWidth + Math.round(36 * dp)
+                    height: Math.round(46 * dp); radius: Math.round(23 * dp)
+                    color: startMA.pressed ? Qt.rgba(0.96, 0.77, 0.0, 0.30) : Qt.rgba(0.96, 0.77, 0.0, 0.15)
+                    border.color: gold; border.width: Math.round(2 * dp)
+                    Behavior on color { ColorAnimation { duration: 120 } }
+                    Behavior on scale { NumberAnimation { duration: 100 } }
+                    // CCM stripe
+                    Rectangle {
+                        anchors.bottom: parent.bottom; anchors.left: parent.left; anchors.right: parent.right
+                        height: Math.round(3 * dp); radius: Math.round(23 * dp)
+                        gradient: Gradient {
+                            GradientStop { position: 0.0;  color: "#006400" }
+                            GradientStop { position: 0.40; color: "#006400" }
+                            GradientStop { position: 0.42; color: "#f5c400" }
+                            GradientStop { position: 0.58; color: "#f5c400" }
+                            GradientStop { position: 0.60; color: "#000000" }
+                            GradientStop { position: 1.0;  color: "#000000" }
+                        }
+                    }
+                    Row {
+                        id: startRow
+                        anchors.centerIn: parent; spacing: Math.round(8 * dp)
+                        Text { text: "\uD83C\uDFAE"; font.pointSize: Math.round(14 * dp); anchors.verticalCenter: parent.verticalCenter }
+                        Text { text: "Anza Mchezo"; font.pointSize: Math.round(12 * dp); font.bold: true; color: gold; anchors.verticalCenter: parent.verticalCenter }
+                    }
+                    MouseArea {
+                        id: startMA
+                        anchors.fill: parent
+                        onPressed:  { startBtn.scale = 0.95; }
+                        onReleased: { startBtn.scale = 1.0; gameSection.showInstructions = false; }
+                        onCanceled: { startBtn.scale = 1.0; }
+                    }
+                }
+            }
+        }
+
+        // ── WIN overlay ───────────────────────────────────────────────────────
+        Rectangle {
+            anchors.fill: parent
+            color: Qt.rgba(0, 0, 0, 0.82)
+            visible: gameSection.gameWon
+            opacity: gameSection.gameWon ? 1.0 : 0.0
+            Behavior on opacity { NumberAnimation { duration: 400 } }
+
+            Column {
+                anchors.centerIn: parent; spacing: Math.round(16 * dp)
+
+                Text {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    text: "\uD83C\uDF89"; font.pointSize: Math.round(40 * dp)
+                    SequentialAnimation on scale {
+                        loops: Animation.Infinite; running: gameSection.gameWon
+                        NumberAnimation { to: 1.15; duration: 600; easing.type: Easing.InOutSine }
+                        NumberAnimation { to: 1.0;  duration: 600; easing.type: Easing.InOutSine }
+                    }
+                }
+                Text {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    text: "Hongera!"; font.pointSize: Math.round(22 * dp); font.bold: true; color: gold
+                }
+                Text {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    text: "Umecheza hatua " + gameSection.moves
+                    font.pointSize: Math.round(10 * dp); color: cream
+                }
+                Text {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    text: gameSection.moves <= 10 ? "\u2B50 Bingwa!" : gameSection.moves <= 15 ? "\uD83D\uDC4D Vizuri!" : "\uD83D\uDE0A Jaribu tena!"
+                    font.pointSize: Math.round(10 * dp); color: greenLight; font.bold: true
+                }
+
+                // Restart button
+                Rectangle {
+                    id: restartBtn
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: restartRow.implicitWidth + Math.round(32 * dp)
+                    height: Math.round(44 * dp); radius: Math.round(22 * dp)
+                    color: restartMA.pressed ? Qt.rgba(0.96, 0.77, 0.0, 0.30) : Qt.rgba(0.96, 0.77, 0.0, 0.15)
+                    border.color: gold; border.width: Math.round(2 * dp)
+                    Behavior on color { ColorAnimation { duration: 120 } }
+                    Behavior on scale { NumberAnimation { duration: 100 } }
+                    Rectangle {
+                        anchors.bottom: parent.bottom; anchors.left: parent.left; anchors.right: parent.right
+                        height: Math.round(3 * dp); radius: Math.round(22 * dp)
+                        gradient: Gradient {
+                            GradientStop { position: 0.0;  color: "#006400" }
+                            GradientStop { position: 0.40; color: "#006400" }
+                            GradientStop { position: 0.42; color: "#f5c400" }
+                            GradientStop { position: 0.58; color: "#f5c400" }
+                            GradientStop { position: 0.60; color: "#000000" }
+                            GradientStop { position: 1.0;  color: "#000000" }
+                        }
+                    }
+                    Row {
+                        id: restartRow
+                        anchors.centerIn: parent; spacing: Math.round(8 * dp)
+                        Text { text: "\uD83D\uDD04"; font.pointSize: Math.round(14 * dp); anchors.verticalCenter: parent.verticalCenter }
+                        Text { text: "Cheza Tena"; font.pointSize: Math.round(11 * dp); font.bold: true; color: gold; anchors.verticalCenter: parent.verticalCenter }
+                    }
+                    MouseArea {
+                        id: restartMA
+                        anchors.fill: parent
+                        onPressed:  { restartBtn.scale = 0.95; }
+                        onReleased: { restartBtn.scale = 1.0; gameSection.initGame(); gameSection.showInstructions = false; }
+                        onCanceled: { restartBtn.scale = 1.0; }
+                    }
+                }
+            }
+        }
+    }
+
     // ── Bottom nav bar ────────────────────────────────────────────────────────
     Rectangle {
         id: bottomNav
@@ -1044,8 +1505,8 @@ Rectangle {
         anchors.right:  parent.right
         height: Math.round(52 * dp)
         color: "#0a160a"
-        visible: section >= 1 && !lightboxOpen
-        opacity: section >= 1 ? 1.0 : 0.0
+        visible: section >= 1 && section <= 5 && !lightboxOpen
+        opacity: (section >= 1 && section <= 5) ? 1.0 : 0.0
         Behavior on opacity { NumberAnimation { duration: 250 } }
         Rectangle { anchors.top: parent.top; width: parent.width; height: 1; color: Qt.rgba(0.0, 0.50, 0.0, 0.40) }
         Rectangle {
@@ -1067,10 +1528,11 @@ Rectangle {
                     {icon:"\uD83D\uDCCC", label:"Wasifu",    sec:1},
                     {icon:"\u2605",        label:"Mafanikio", sec:2},
                     {icon:"\uD83D\uDCAC",  label:"Maneno",    sec:3},
-                    {icon:"\uD83D\uDDBC",  label:"Picha",     sec:4}
+                    {icon:"\uD83D\uDDBC",  label:"Picha",     sec:4},
+                    {icon:"\uD83C\uDFAE",  label:"Mchezo",    sec:5}
                 ]
                 delegate: Item {
-                    width: Math.round(app.width / 4)
+                    width: Math.round(app.width / 5)
                     height: Math.round(52 * dp)
                     Rectangle {
                         id: navDot
