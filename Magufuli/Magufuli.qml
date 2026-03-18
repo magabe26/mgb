@@ -152,6 +152,37 @@ Rectangle {
                 anchors.top: parent.top; anchors.topMargin: Math.round(36 * dp)
                 spacing: 0
 
+                // ── Sentensi juu ya picha — neno moja moja fade-in ──────
+                Item {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: parent.width
+                    height: memorialRow.implicitHeight + Math.round(10 * dp)
+
+                    Row {
+                        id: memorialRow
+                        anchors.centerIn: parent
+                        spacing: Math.round(4 * dp)
+                        // Kila neno — delay inazidi kwa 150ms
+                        Repeater {
+                            model: ["Miaka", "5", "tangu", "kifo", "cha", "Dr.", "John", "Pombe", "Joseph", "Magufuli"]
+                            delegate: Text {
+                                text: modelData
+                                font.pointSize: Math.round(9 * dp)
+                                font.bold: modelData === "Magufuli" || modelData === "5"
+                                color: modelData === "5" ? gold :
+                                       modelData === "Magufuli" ? gold : cream
+                                opacity: 0
+                                SequentialAnimation on opacity {
+                                    PauseAnimation  { duration: 600 + (index * 150) }
+                                    NumberAnimation { from: 0; to: 1; duration: 400; easing.type: Easing.OutCubic }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                Item { width: 1; height: Math.round(4 * dp) }
+
                 // ── Profile photo with gold border rect ──────────────────
                 Item {
                     anchors.horizontalCenter: parent.horizontalCenter
