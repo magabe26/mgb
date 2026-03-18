@@ -242,7 +242,7 @@ Rectangle {
                 Text {
                     anchors.horizontalCenter: parent.horizontalCenter
                     text: "Samia Suluhu Hassan"
-                    font.pointSize: Math.round(20 * dp); font.bold: true
+                    font.pointSize: Math.round(18 * dp); font.bold: true
                     color: cream; horizontalAlignment: Text.AlignHCenter
                     opacity: 0
                     SequentialAnimation on opacity {
