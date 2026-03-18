@@ -3791,7 +3791,8 @@ Rectangle {
 
                     // Front face
                     Rectangle {
-                        anchors.fill: parent
+                        width: parent.width * 0.93
+                        height: parent.height * 0.9
                         radius: Qt.platform.os === "android" ? 8 : 5
                         color: cardItem.isMatched ? "#0a2a14" : "#0d1f1e"
                         border.color: cardItem.isMatched ? "#00ff88" : "cyan"
@@ -3809,7 +3810,8 @@ Rectangle {
                             Image {
                                 width: parent.width
                                 height: parent.height * 0.60
-                                fillMode: Image.PreserveAspectCrop; smooth: true
+                                fillMode: Image.PreserveAspectCrop;
+                                smooth: true
                                 source: cardItem.pairData ? cardItem.pairData.img : ""
                                 opacity: cardItem.faceUp ? 1.0 : 0.0
                                 Behavior on opacity { NumberAnimation { duration: 200 } }
