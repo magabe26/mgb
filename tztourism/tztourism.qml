@@ -3763,7 +3763,7 @@ Rectangle {
                 Row { spacing: 4
                     Text { text: "\u2B50"; font.pointSize: Qt.platform.os === "android" ? 9 : 7; anchors.verticalCenter: parent.verticalCenter }
                     Text {
-                        text: (app.gameLang === "sw" ? "Pointi: " : "Score: ") + Math.round(gameOverlay.score)
+                        text: (app.gameLang === "sw" ? "Pointi: " : "Score: ") + Math.round(gameOverlay.score) + "/100"
                         font.pointSize: Qt.platform.os === "android" ? 9 : 7; font.bold: true; anchors.verticalCenter: parent.verticalCenter
                         color: gameOverlay.score >= 0 ? "#00ff88" : "#ff6666"
                     }
