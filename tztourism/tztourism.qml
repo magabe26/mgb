@@ -397,40 +397,40 @@ Rectangle {
             desc_sw: "Makao ya sokwe pembezoni mwa Ziwa Tanganyika, inayotoa uzoefu wa kipekee wa kufuatilia nyani."
         }
 
-ListElement {
-    name_en: "Isimila Stone Age Site, Iringa"; name_sw: "Eneo la Zama za Mawe la Isimila, Iringa"
-    imageFile: "./isimila.jpg"
-    desc_en: "Features towering sandstone pillars and ancient stone tools from thousands of years ago."
-    desc_sw: "Ina nguzo ndefu za mchanga na zana za mawe za kale za maelfu ya miaka iliyopita."
-}
+        ListElement {
+            name_en: "Isimila Stone Age Site, Iringa"; name_sw: "Eneo la Zama za Mawe la Isimila, Iringa"
+            imageFile: "./isimila.jpg"
+            desc_en: "Features towering sandstone pillars and ancient stone tools from thousands of years ago."
+            desc_sw: "Ina nguzo ndefu za mchanga na zana za mawe za kale za maelfu ya miaka iliyopita."
+        }
 
-ListElement {
-    name_en: "Lake Duluti, Arusha"; name_sw: "Ziwa Duluti, Arusha"
-    imageFile: "./duluti.jpeg"
-    desc_en: "A peaceful volcanic crater lake near Arusha, ideal for canoeing."
-    desc_sw: "Ziwa tulivu la volkano karibu na Arusha, linafaa kwa kuendesha mitumbwi."
-}
+        ListElement {
+            name_en: "Lake Duluti, Arusha"; name_sw: "Ziwa Duluti, Arusha"
+            imageFile: "./duluti.jpeg"
+            desc_en: "A peaceful volcanic crater lake near Arusha, ideal for canoeing."
+            desc_sw: "Ziwa tulivu la volkano karibu na Arusha, linafaa kwa kuendesha mitumbwi."
+        }
 
-ListElement {
-    name_en: "Lake Eyasi, Arusha"; name_sw: "Ziwa Eyasi, Arusha"
-    imageFile: "./eyasi.jpeg"
-    desc_en: "Home to the Hadzabe tribe, one of the last hunter-gatherer groups in Africa."
-    desc_sw: "Makazi ya kabila la Wahadzabe, wawindaji na waokota matunda wa mwisho Afrika."
-}
+        ListElement {
+            name_en: "Lake Eyasi, Arusha"; name_sw: "Ziwa Eyasi, Arusha"
+            imageFile: "./eyasi.jpeg"
+            desc_en: "Home to the Hadzabe tribe, one of the last hunter-gatherer groups in Africa."
+            desc_sw: "Makazi ya kabila la Wahadzabe, wawindaji na waokota matunda wa mwisho Afrika."
+        }
 
-ListElement {
-    name_en: "Ibanda-Kyerwa National Park"; name_sw: "Hifadhi ya Taifa ya Ibanda-Kyerwa"
-    imageFile: "./ibanda.jpeg"
-    desc_en: "Scenic park in Kagera region featuring rolling hills and acacia woodlands."
-    desc_sw: "Hifadhi nzuri mkoani Kagera yenye vilima na misitu ya miiba."
-}
+        ListElement {
+            name_en: "Ibanda-Kyerwa National Park"; name_sw: "Hifadhi ya Taifa ya Ibanda-Kyerwa"
+            imageFile: "./ibanda.jpeg"
+            desc_en: "Scenic park in Kagera region featuring rolling hills and acacia woodlands."
+            desc_sw: "Hifadhi nzuri mkoani Kagera yenye vilima na misitu ya miiba."
+        }
 
-ListElement {
-    name_en: "Rumanyika-Karagwe National Park"; name_sw: "Hifadhi ya Taifa ya Rumanyika-Karagwe"
-    imageFile: "./rumanyika.jpeg"
-    desc_en: "A haven for wild animals and birds in the northwest of Tanzania."
-    desc_sw: "Makazi ya wanyamapori na ndege kaskazini-magharibi mwa Tanzania."
-}
+        ListElement {
+            name_en: "Rumanyika-Karagwe National Park"; name_sw: "Hifadhi ya Taifa ya Rumanyika-Karagwe"
+            imageFile: "./rumanyika.jpeg"
+            desc_en: "A haven for wild animals and birds in the northwest of Tanzania."
+            desc_sw: "Makazi ya wanyamapori na ndege kaskazini-magharibi mwa Tanzania."
+        }
 
         ListElement {
             name_en: "Bird Watching, Serengeti";
@@ -480,33 +480,33 @@ ListElement {
             desc_sw: "Pepo ya kijani mkoani Tanga inayojulikana kwa miti mikubwa ya msaji (Teak), aina nyingi za mimea, na mazingira tulivu kwa matembezi."
         }
 
-ListElement {
-    name_en: "Kigosi National Park"; name_sw: "Hifadhi ya Taifa ya Kigosi"
-    imageFile: "./kigosi.jpg"
-    desc_en: "A vast wetland ecosystem protecting rare water birds and sitatunga antelopes."
-    desc_sw: "Mfumo mkubwa wa ardhi oevu unaolinda ndege wa majini na swala wa sitatunga."
-}
+        ListElement {
+            name_en: "Kigosi National Park"; name_sw: "Hifadhi ya Taifa ya Kigosi"
+            imageFile: "./kigosi.jpg"
+            desc_en: "A vast wetland ecosystem protecting rare water birds and sitatunga antelopes."
+            desc_sw: "Mfumo mkubwa wa ardhi oevu unaolinda ndege wa majini na swala wa sitatunga."
+        }
 
-ListElement {
-    name_en: "Burigi-Chato National Park"; name_sw: "Hifadhi ya Taifa ya Burigi-Chato"
-    imageFile: "./burigi.jpeg"
-    desc_en: "One of Tanzania's newest parks featuring Lake Burigi and diverse wildlife."
-    desc_sw: "Moja ya hifadhi mpya zaidi ikiwa na Ziwa Burigi na wanyamapori wa aina mbalimbali."
-}
+        ListElement {
+            name_en: "Burigi-Chato National Park"; name_sw: "Hifadhi ya Taifa ya Burigi-Chato"
+            imageFile: "./burigi.jpeg"
+            desc_en: "One of Tanzania's newest parks featuring Lake Burigi and diverse wildlife."
+            desc_sw: "Moja ya hifadhi mpya zaidi ikiwa na Ziwa Burigi na wanyamapori wa aina mbalimbali."
+        }
 
-ListElement {
-    name_en: "Mbozi Meteorite, Mbeya"; name_sw: "Kimondo cha Mbozi, Mbeya"
-    imageFile: "./mbozi_meteorite.jpeg"
-    desc_en: "One of the world's largest meteorites, a massive iron block from space."
-    desc_sw: "Moja ya vimondo vikubwa zaidi duniani, kipande kikubwa cha chuma kutoka angani."
-}
+        ListElement {
+            name_en: "Mbozi Meteorite, Mbeya"; name_sw: "Kimondo cha Mbozi, Mbeya"
+            imageFile: "./mbozi_meteorite.jpeg"
+            desc_en: "One of the world's largest meteorites, a massive iron block from space."
+            desc_sw: "Moja ya vimondo vikubwa zaidi duniani, kipande kikubwa cha chuma kutoka angani."
+        }
 
-ListElement {
-    name_en: "Kiwira River & God's Bridge"; name_sw: "Mto Kiwira na Daraja la Mungu"
-    imageFile: "./gods_bridge.jpeg"
-    desc_en: "A natural stone bridge formed by the Kiwira River in Rungwe district."
-    desc_sw: "Daraja la asili la jiwe lililotokana na Mto Kiwira katika wilaya ya Rungwe."
-}
+        ListElement {
+            name_en: "Kiwira River & God's Bridge"; name_sw: "Mto Kiwira na Daraja la Mungu"
+            imageFile: "./gods_bridge.jpeg"
+            desc_en: "A natural stone bridge formed by the Kiwira River in Rungwe district."
+            desc_sw: "Daraja la asili la jiwe lililotokana na Mto Kiwira katika wilaya ya Rungwe."
+        }
 
 
         ListElement {
@@ -746,6 +746,8 @@ ListElement {
 
     property real lastTapX: 0
     property real lastTapY: 0
+    property bool gameVisible: false
+    property string gameLang: ""
 
     onSelectedLanguageChanged: {
         if (selectedLanguage !== "") {
@@ -815,11 +817,11 @@ ListElement {
 
                 // Max radius = diagonal from tap to farthest corner
                 var corners = [
-                    Math.sqrt(tx*tx + ty*ty),
-                    Math.sqrt((app.width-tx)*(app.width-tx) + ty*ty),
-                    Math.sqrt(tx*tx + (app.height-ty)*(app.height-ty)),
-                    Math.sqrt((app.width-tx)*(app.width-tx) + (app.height-ty)*(app.height-ty))
-                ];
+                            Math.sqrt(tx*tx + ty*ty),
+                            Math.sqrt((app.width-tx)*(app.width-tx) + ty*ty),
+                            Math.sqrt(tx*tx + (app.height-ty)*(app.height-ty)),
+                            Math.sqrt((app.width-tx)*(app.width-tx) + (app.height-ty)*(app.height-ty))
+                        ];
                 var maxR = Math.max(corners[0], corners[1], corners[2], corners[3]) + 10;
 
                 rippleCircle.cx   = tx;
@@ -2134,12 +2136,12 @@ ListElement {
                                         var a = aotdSection.todayAttraction;
                                         if (a) {
                                             contextMenu.doOpen(
-                                                app.selectedLanguage || "en",
-                                                app.selectedLanguage === "sw" ? a.name_sw : a.name_en,
-                                                app.selectedLanguage === "sw" ? a.desc_sw : a.desc_en,
-                                                a.imageFile,
-                                                aotdSection.todayIdx
-                                            );
+                                                        app.selectedLanguage || "en",
+                                                        app.selectedLanguage === "sw" ? a.name_sw : a.name_en,
+                                                        app.selectedLanguage === "sw" ? a.desc_sw : a.desc_en,
+                                                        a.imageFile,
+                                                        aotdSection.todayIdx
+                                                        );
                                         }
                                     }
                                 }
@@ -2229,6 +2231,48 @@ ListElement {
                                     onReleased: enBtn.pressed = false
                                     onCanceled: enBtn.pressed = false
                                     onClicked:  modeSelectionDialog.doOpen("en", "blue")
+                                }
+                            }
+
+                            // 🎮 Game button — opens language dialog
+                            Rectangle {
+                                id: gameBtn
+                                anchors.horizontalCenter: parent.horizontalCenter
+                                width: app.width * 0.82
+                                height: Qt.platform.os === "android" ? 62 : 48
+                                radius: 10
+                                color: "#0d2a28"
+                                border.color: "cyan"; border.width: 1
+                                property bool pressed: false
+                                scale: pressed ? 0.96 : 1.0
+                                Behavior on scale { NumberAnimation { duration: 100 } }
+                                Row {
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    anchors.left: parent.left; anchors.leftMargin: 16
+                                    spacing: 14
+                                    Rectangle {
+                                        width: Qt.platform.os === "android" ? 52 : 42; height: width
+                                        radius: 10; color: "cyan"
+                                        anchors.verticalCenter: parent.verticalCenter
+                                        Text { anchors.centerIn: parent; text: "🎮"; font.pointSize: Qt.platform.os === "android" ? 20 : 16 }
+                                    }
+                                    Column {
+                                        anchors.verticalCenter: parent.verticalCenter; spacing: 3
+                                        Text { text: "Mchezo wa Utalii"; font.pointSize: Qt.platform.os === "android" ? 14 : 12; font.bold: true; color: "white" }
+                                        Text { text: "Tourism Memory Game"; font.pointSize: Qt.platform.os === "android" ? 11 : 9; color: "#aaaaaa" }
+                                    }
+                                }
+                                Text {
+                                    anchors.right: parent.right; anchors.rightMargin: 14
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    text: "›"; font.pointSize: Qt.platform.os === "android" ? 22 : 18
+                                    font.bold: true; color: "cyan"
+                                }
+                                MouseArea {
+                                    anchors.fill: parent
+                                    onPressed:  gameBtn.pressed = true
+                                    onReleased: { gameBtn.pressed = false; gameLangDialog.doOpen(mouse.x + gameBtn.x, mouse.y + gameBtn.y); }
+                                    onCanceled: gameBtn.pressed = false
                                 }
                             }
 
@@ -2934,12 +2978,12 @@ ListElement {
                                                     var a = attractionModel.get(modelData);
                                                     if (a) {
                                                         contextMenu.doOpen(
-                                                            app.selectedLanguage,
-                                                            app.selectedLanguage === "en" ? a.name_en : a.name_sw,
-                                                            app.selectedLanguage === "en" ? a.desc_en : a.desc_sw,
-                                                            a.imageFile,
-                                                            modelData
-                                                        );
+                                                                    app.selectedLanguage,
+                                                                    app.selectedLanguage === "en" ? a.name_en : a.name_sw,
+                                                                    app.selectedLanguage === "en" ? a.desc_en : a.desc_sw,
+                                                                    a.imageFile,
+                                                                    modelData
+                                                                    );
                                                     }
                                                 }
                                             }
@@ -3024,7 +3068,7 @@ ListElement {
                         return textMatch && filterMatch;
                     }
                     height: matchesSearch ? (card.height + 12
-                            + (visibleRank === 1 ? (adLoader.visible && adLoader.item ? adLoader.item.height + 8 : 0) : 0)) : 0
+                                             + (visibleRank === 1 ? (adLoader.visible && adLoader.item ? adLoader.item.height + 8 : 0) : 0)) : 0
                     visible: matchesSearch
                     clip: true
 
@@ -3345,4 +3389,577 @@ ListElement {
 
         } // end outer Rectangle
     } // end Component attractionViewComponent2
+
+
+    // ════════════════════════════════════════════════════════════════════
+    // ── Game Language Selection Dialog (same style as modeSelectionDialog) ──
+    Item {
+        id: gameLangDialog
+        anchors.fill: parent
+        visible: false
+        z: 400
+
+        property real tapX: 0
+        property real tapY: 0
+
+        function doOpen(tx, ty) {
+            gameLangDialog.tapX = (tx !== undefined && tx > 0) ? tx : app.width / 2;
+            gameLangDialog.tapY = (ty !== undefined && ty > 0) ? ty : app.height / 2;
+            gameLangDialog.visible = true;
+            gameLangPanel.opacity = 1;
+            gameLangSlideAnim.start();
+        }
+
+        function close() {
+            gameLangPanel.opacity = 0;
+            gameLangDialog.visible = false;
+        }
+
+        // Dimmed backdrop
+        Rectangle {
+            anchors.fill: parent; color: "#cc000000"
+            MouseArea { anchors.fill: parent }
+        }
+
+        // Panel — same style as modePanel
+        Rectangle {
+            id: gameLangPanel
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.verticalCenter: parent.verticalCenter
+            width: app.width * 0.92
+            height: gameLangCol.height + 32
+            radius: 16
+            color: "#001413"
+            border.color: "cyan"; border.width: 1
+            transform: Translate { id: gameLangSlide; y: 60 }
+            opacity: 0
+            Behavior on opacity { NumberAnimation { duration: 250; easing.type: Easing.OutCubic } }
+            NumberAnimation { id: gameLangSlideAnim; target: gameLangSlide; property: "y"; from: 60; to: 0; duration: 280; easing.type: Easing.OutCubic }
+
+            Column {
+                id: gameLangCol
+                anchors.top: parent.top; anchors.topMargin: 20
+                anchors.horizontalCenter: parent.horizontalCenter
+                width: parent.width - 32; spacing: 14
+
+                // Title
+                Text {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    text: "🎮 Mchezo wa Utalii"
+                    color: "cyan"
+                    font.pointSize: Qt.platform.os === "android" ? 15 : 13
+                    font.bold: true
+                }
+                Text {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    text: "Tourism Memory Game"
+                    color: "#aaaaaa"
+                    font.pointSize: Qt.platform.os === "android" ? 11 : 9
+                }
+
+                // Cyan divider
+                Rectangle {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: parent.width * 0.4; height: 2; radius: 1; color: "cyan"; opacity: 0.5
+                }
+
+                // Kiswahili card
+                Rectangle {
+                    id: gameLangSwCard
+                    width: parent.width
+                    height: Qt.platform.os === "android" ? 90 : 72
+                    radius: 12; color: "#0d2a28"; border.color: "green"; border.width: 2; clip: true
+                    property bool pressed: false; scale: pressed ? 0.97 : 1.0
+                    Behavior on scale { NumberAnimation { duration: 100 } }
+                    Row {
+                        anchors.verticalCenter: parent.verticalCenter; anchors.left: parent.left; anchors.leftMargin: 16; spacing: 14
+                        Rectangle { width: Qt.platform.os === "android" ? 52 : 42; height: width; radius: 10; color: "green"; anchors.verticalCenter: parent.verticalCenter
+                            Text { anchors.centerIn: parent; text: "🇹🇿"; font.pointSize: Qt.platform.os === "android" ? 20 : 16 }
+                        }
+                        Column { anchors.verticalCenter: parent.verticalCenter; spacing: 3
+                            Text { text: "Kiswahili"; font.pointSize: Qt.platform.os === "android" ? 14 : 12; font.bold: true; color: "white" }
+                            Text { text: "Cheza kwa Kiswahili"; font.pointSize: Qt.platform.os === "android" ? 11 : 9; color: "#aaaaaa" }
+                        }
+                    }
+                    Text { anchors.right: parent.right; anchors.rightMargin: 14; anchors.verticalCenter: parent.verticalCenter; text: "›"; font.pointSize: Qt.platform.os === "android" ? 22 : 18; font.bold: true; color: "green" }
+                    MouseArea {
+                        anchors.fill: parent
+                        onPressed:  gameLangSwCard.pressed = true
+                        onReleased: {
+                            gameLangSwCard.pressed = false;
+                            app.gameLang = "sw";
+                            gameLangDialog.close();
+                            app.gameVisible = true;
+                        }
+                        onCanceled: gameLangSwCard.pressed = false
+                    }
+                }
+
+                // English card
+                Rectangle {
+                    id: gameLangEnCard
+                    width: parent.width
+                    height: Qt.platform.os === "android" ? 90 : 72
+                    radius: 12; color: "#0d2a28"; border.color: "blue"; border.width: 2; clip: true
+                    property bool pressed: false; scale: pressed ? 0.97 : 1.0
+                    Behavior on scale { NumberAnimation { duration: 100 } }
+                    Row {
+                        anchors.verticalCenter: parent.verticalCenter; anchors.left: parent.left; anchors.leftMargin: 16; spacing: 14
+                        Rectangle { width: Qt.platform.os === "android" ? 52 : 42; height: width; radius: 10; color: "blue"; anchors.verticalCenter: parent.verticalCenter
+                            Text { anchors.centerIn: parent; text: "🌐"; font.pointSize: Qt.platform.os === "android" ? 20 : 16 }
+                        }
+                        Column { anchors.verticalCenter: parent.verticalCenter; spacing: 3
+                            Text { text: "English"; font.pointSize: Qt.platform.os === "android" ? 14 : 12; font.bold: true; color: "white" }
+                            Text { text: "Play in English"; font.pointSize: Qt.platform.os === "android" ? 11 : 9; color: "#aaaaaa" }
+                        }
+                    }
+                    Text { anchors.right: parent.right; anchors.rightMargin: 14; anchors.verticalCenter: parent.verticalCenter; text: "›"; font.pointSize: Qt.platform.os === "android" ? 22 : 18; font.bold: true; color: "blue" }
+                    MouseArea {
+                        anchors.fill: parent
+                        onPressed:  gameLangEnCard.pressed = true
+                        onReleased: {
+                            gameLangEnCard.pressed = false;
+                            app.gameLang = "en";
+                            gameLangDialog.close();
+                            app.gameVisible = true;
+                        }
+                        onCanceled: gameLangEnCard.pressed = false
+                    }
+                }
+
+                // Close button — same style as modeCloseBtn
+                Rectangle {
+                    id: gameLangCloseBtn
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: parent.width * 0.5
+                    height: Qt.platform.os === "android" ? 48 : 36
+                    radius: height / 2; color: "#cc2200"
+                    property bool pressed: false; scale: pressed ? 0.96 : 1.0
+                    Behavior on scale { NumberAnimation { duration: 100 } }
+                    Text { anchors.centerIn: parent; text: "X  Funga / Close"; font.pointSize: Qt.platform.os === "android" ? 13 : 11; font.bold: true; color: "white" }
+                    MouseArea {
+                        anchors.fill: parent
+                        onPressed:  gameLangCloseBtn.pressed = true
+                        onReleased: { gameLangCloseBtn.pressed = false; gameLangDialog.close(); }
+                        onCanceled: gameLangCloseBtn.pressed = false
+                    }
+                }
+
+                Item { width: 1; height: 4 }
+            }
+        }
+    }
+
+    // MEMORY CARD GAME OVERLAY
+    // ════════════════════════════════════════════════════════════════════
+    Item {
+        id: gameOverlay
+        anchors.fill: parent
+        visible: app.gameVisible
+        z: 300
+
+        Rectangle { anchors.fill: parent; color: "#001413" }
+
+        // ── Full bank of all attractions ────────────────────────
+        property var allPairs: [
+            {id: 0, name_en:"Zanzibar", name_sw:"Zanzibar", img:"./zanzibar_st2.jpg"},
+            {id: 1, name_en:"Kizimkazi Dolphins", name_sw:"Pomboo Kizimkazi", img:"./kizimkazi-d.jpeg"},
+            {id: 2, name_en:"Lake Victoria", name_sw:"Ziwa Victoria", img:"./victoria.jpg"},
+            {id: 3, name_en:"Mt. Kilimanjaro", name_sw:"Mlima Kilimanjaro", img:"./kilimanjaro.jpg"},
+            {id: 4, name_en:"Mikumi NP", name_sw:"Hifadhi ya Mikumi", img:"./mikumi.jpg"},
+            {id: 5, name_en:"Serengeti NP", name_sw:"Hifadhi ya Serengeti", img:"./serengeti.jpg"},
+            {id: 6, name_en:"Ngorongoro", name_sw:"Hifadhi ya Ngorongoro", img:"./ngorongoro.jpg"},
+            {id: 7, name_en:"Tarangire NP", name_sw:"Hifadhi ya Tarangire", img:"./tarangire.jpg"},
+            {id: 8, name_en:"Lake Manyara NP", name_sw:"Ziwa Manyara", img:"./manyara.jpg"},
+            {id: 9, name_en:"Rubondo Island NP", name_sw:"Kisiwa cha Rubondo", img:"./rubondo.jpg"},
+            {id:10, name_en:"Nyerere NP", name_sw:"Hifadhi ya Nyerere", img:"./nyerere.jpg"},
+            {id:11, name_en:"Ruaha NP", name_sw:"Hifadhi ya Ruaha", img:"./ruaha.jpg"},
+            {id:12, name_en:"Mafia Island", name_sw:"Kisiwa cha Mafia", img:"./mafia_island.jpg"},
+            {id:13, name_en:"Katavi NP", name_sw:"Hifadhi ya Katavi", img:"./katavi.jpg"},
+            {id:14, name_en:"Olduvai Gorge", name_sw:"Bonde la Olduvai", img:"./olduvai.jpg"},
+            {id:15, name_en:"Lake Tanganyika", name_sw:"Ziwa Tanganyika", img:"./kigoma.jpg"},
+            {id:16, name_en:"Saadani NP", name_sw:"Hifadhi ya Saadani", img:"./saadani.jpg"},
+            {id:17, name_en:"Amboni Caves", name_sw:"Mapango ya Amboni", img:"./amboni_caves.jpg"},
+            {id:18, name_en:"Kitulo NP", name_sw:"Hifadhi ya Kitulo", img:"./kitulo.jpg"},
+            {id:19, name_en:"Selous Reserve", name_sw:"Hifadhi ya Selous", img:"./selous.jpg"},
+            {id:20, name_en:"Mkomazi NP", name_sw:"Hifadhi ya Mkomazi", img:"./mkomazi.jpg"},
+            {id:21, name_en:"Kaporogwe Falls", name_sw:"Maporomoko Kaporogwe", img:"./kaporogwe_falls.jpeg"},
+            {id:22, name_en:"Kalambo Falls", name_sw:"Maporomoko Kalambo", img:"./kalambo.jpeg"},
+            {id:23, name_en:"Materuni Falls", name_sw:"Maporomoko Materuni", img:"./Materuni.jpg"},
+            {id:24, name_en:"Sanje Falls", name_sw:"Maporomoko ya Sanje", img:"./sanje.jpg"},
+            {id:25, name_en:"Udzungwa Mts NP", name_sw:"Milima ya Udzungwa", img:"./udzungwa.jpg"},
+            {id:26, name_en:"Mt. Meru", name_sw:"Mlima Meru", img:"./meru.jpg"},
+            {id:27, name_en:"Usambara Mts", name_sw:"Milima ya Usambara", img:"./usambara.jpg"},
+            {id:28, name_en:"Mahale Mts NP", name_sw:"Milima ya Mahale", img:"./mahale.jpg"},
+            {id:29, name_en:"Isimila Stone Age", name_sw:"Eneo la Isimila", img:"./isimila.jpg"},
+            {id:30, name_en:"Lake Duluti", name_sw:"Ziwa Duluti", img:"./duluti.jpeg"},
+            {id:31, name_en:"Lake Eyasi", name_sw:"Ziwa Eyasi", img:"./eyasi.jpeg"},
+            {id:32, name_en:"Pemba Island", name_sw:"Kisiwa cha Pemba", img:"./Pemba-Island-2.jpg"},
+            {id:33, name_en:"Lake Natron", name_sw:"Ziwa Natron", img:"./natron.jpg"},
+            {id:34, name_en:"Bagamoyo", name_sw:"Bagamoyo", img:"./bagamoyo.jpg"},
+            {id:35, name_en:"Kilwa Kisiwani", name_sw:"Magofu ya Kilwa", img:"./kilwa_ruins.jpg"},
+            {id:36, name_en:"Kondoa Rock Art", name_sw:"Michoro ya Kondoa", img:"./kondoa.jpg"},
+            {id:37, name_en:"Balloon Safari", name_sw:"Utalii wa Puto", img:"./serengeti_balloon.jpeg"},
+            {id:38, name_en:"Matema Beach", name_sw:"Ufukwe wa Matema", img:"./matema.jpeg"},
+            {id:39, name_en:"Nyerere Museum", name_sw:"Makumbusho ya Nyerere", img:"./nyerere.jpeg"}
+        ]
+        // ── Active 8 pairs for current round (selected randomly) ────
+        property var pairs:    []
+        property var shuffled: []
+        property var flipped:  []
+        property var matched:  []
+        property int  firstPick:  -1
+        property int  secondPick: -1
+        property bool busy:       false
+        property int  moves:      0
+        property bool gameWon:    false
+        property bool showInstr:  true
+
+        function shuffleArr(arr) {
+            var a = arr.slice();
+            for (var i = a.length - 1; i > 0; i--) {
+                var j = Math.floor(Math.random() * (i + 1));
+                var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+            }
+            return a;
+        }
+
+        // Pick 8 random unique pairs from allPairs bank, then shuffle 16 cards
+        function initGame() {
+            // Step 1: pick 8 random indices from bank
+            var bankIdx = [];
+            for (var i = 0; i < allPairs.length; i++) { bankIdx.push(i); }
+            bankIdx = shuffleArr(bankIdx);
+            var chosen = [];
+            for (var k = 0; k < 8; k++) {
+                var p = allPairs[bankIdx[k]];
+                chosen.push({id: k, name_en: p.name_en, name_sw: p.name_sw, img: p.img});
+            }
+            pairs = chosen;
+
+            // Step 2: create 16 card indices (each pair appears twice)
+            var idx = [];
+            for (var j = 0; j < pairs.length * 2; j++) { idx.push(j); }
+            shuffled  = shuffleArr(idx);
+            flipped   = []; matched = [];
+            firstPick  = -1; secondPick = -1;
+            busy = false; moves = 0; gameWon = false;
+        }
+        function cardFlipped(pos) {
+            if (busy) return;
+            if (flipped.indexOf(pos) !== -1) return;
+            var pid = pairs[Math.floor(shuffled[pos] / 2)].id;
+            if (matched.indexOf(pid) !== -1) return;
+            var f = flipped.slice(); f.push(pos); flipped = f;
+            if (firstPick === -1) {
+                firstPick = pos;
+            } else {
+                secondPick = pos; moves = moves + 1; busy = true; matchTimer.start();
+            }
+        }
+        function checkMatch() {
+            var idA = pairs[Math.floor(shuffled[firstPick]  / 2)].id;
+            var idB = pairs[Math.floor(shuffled[secondPick] / 2)].id;
+            if (idA === idB) {
+                var m = matched.slice(); m.push(idA); matched = m;
+                if (matched.length === pairs.length) {
+                    gameWon = true;
+                    app.ad();
+                }
+            } else {
+                var f2 = flipped.slice();
+                f2.splice(f2.indexOf(firstPick),  1);
+                f2.splice(f2.indexOf(secondPick), 1);
+                flipped = f2;
+            }
+            firstPick = -1; secondPick = -1; busy = false;
+        }
+
+        Timer { id: matchTimer; interval: 900; repeat: false; onTriggered: gameOverlay.checkMatch() }
+        Component.onCompleted: gameOverlay.initGame()
+        onVisibleChanged: { if (visible) { gameOverlay.initGame(); gameOverlay.showInstr = true; } }
+
+        // Header
+        Rectangle {
+            id: gameHeader
+            anchors.top: parent.top; width: parent.width
+            height: Qt.platform.os === "android" ? 56 : 44
+            color: "#000d0c"
+            Rectangle { anchors.bottom: parent.bottom; width: parent.width; height: 1; color: (app.gameLang === "sw" ? "green" : "blue"); opacity: 0.4 }
+            Rectangle {
+                id: gameBackBtn
+                anchors.left: parent.left; anchors.leftMargin: 10
+                anchors.verticalCenter: parent.verticalCenter
+                width: backBtnTxt.implicitWidth + 24
+                height: Qt.platform.os === "android" ? 36 : 28; radius: height / 2
+                color: gameBackMA.pressed
+                       ? (app.gameLang === "sw" ? "#0a3a0a" : "#0a0a3a")
+                       : (app.gameLang === "sw" ? "#003a00" : "#00003a")
+                border.color: app.gameLang === "sw" ? "green" : "blue"; border.width: 1
+                Behavior on color { ColorAnimation { duration: 100 } }
+                Text {
+                    id: backBtnTxt
+                    anchors.centerIn: parent
+                    text: app.gameLang === "sw" ? "<- Rudi" : "<- Back"
+                    font.pointSize: Qt.platform.os === "android" ? 12 : 10
+                    font.bold: true
+                    color: app.gameLang === "sw" ? "green" : "blue"
+                }
+                MouseArea {
+                    id: gameBackMA; anchors.fill: parent
+                    onClicked: {
+                        app.gameVisible = false;
+                        app.selectedLanguage = app.gameLang; //for ripple color to be correct
+                        viewComponentLoader.switchTo(languageSelectionComponent, gameBackBtn.x + gameBackBtn.width / 2, gameHeader.y + gameHeader.height / 2);
+                    }
+                }
+            }
+            Text {
+                anchors.centerIn: parent
+                text: app.gameLang === "sw" ? "Mchezo wa Utalii" : "Tourism Memory Game"
+                font.pointSize: Qt.platform.os === "android" ? 14 : 11; font.bold: true; color: "white"
+            }
+        }
+
+        // Stats bar
+        Rectangle {
+            id: gameStats
+            anchors.top: gameHeader.bottom; width: parent.width
+            height: Qt.platform.os === "android" ? 36 : 28; color: "#000f0e"
+            Row {
+                anchors.centerIn: parent; spacing: Qt.platform.os === "android" ? 28 : 20
+                Row { spacing: 6
+                    Text { text: "\uD83C\uDFAF"; font.pointSize: Qt.platform.os === "android" ? 10 : 8; anchors.verticalCenter: parent.verticalCenter }
+                    Text { text: (app.gameLang === "sw" ? "Hatua: " : "Moves: ") + gameOverlay.moves; font.pointSize: Qt.platform.os === "android" ? 10 : 8; color: "white"; font.bold: true; anchors.verticalCenter: parent.verticalCenter }
+                }
+                Row { spacing: 6
+                    Text { text: "\u2705"; font.pointSize: Qt.platform.os === "android" ? 10 : 8; anchors.verticalCenter: parent.verticalCenter }
+                    Text { text: (app.gameLang === "sw" ? "Pairs: " : "Pairs: ") + gameOverlay.matched.length + "/" + gameOverlay.pairs.length; font.pointSize: Qt.platform.os === "android" ? 10 : 8; color: app.gameLang === "sw" ? "green" : "blue"; font.bold: true; anchors.verticalCenter: parent.verticalCenter }
+                }
+            }
+        }
+
+        // Card grid 4x4
+        Grid {
+            id: cardGrid
+            anchors.top: gameStats.bottom; anchors.topMargin: Qt.platform.os === "android" ? 10 : 7
+            anchors.bottom: parent.bottom; anchors.bottomMargin: Qt.platform.os === "android" ? 12 : 8
+            anchors.horizontalCenter: parent.horizontalCenter
+            width: parent.width - (Qt.platform.os === "android" ? 20 : 14)
+            columns: 4; spacing: Qt.platform.os === "android" ? 8 : 5
+
+            Repeater {
+                model: 16
+                delegate: Item {
+                    id: cardItem
+                    width:  (cardGrid.width  - 3 * cardGrid.spacing) / 4
+                    height: (cardGrid.height - 3 * cardGrid.spacing) / 4
+                    property int  pairId:   gameOverlay.shuffled.length > index ? gameOverlay.pairs[Math.floor(gameOverlay.shuffled[index] / 2)].id : -1
+                    property var  pairData: gameOverlay.shuffled.length > index ? gameOverlay.pairs[Math.floor(gameOverlay.shuffled[index] / 2)] : null
+                    property bool isFlipped: gameOverlay.flipped.indexOf(index) !== -1
+                    property bool isMatched: pairId >= 0 && gameOverlay.matched.indexOf(pairId) !== -1
+                    property bool faceUp:    isFlipped || isMatched
+                    Behavior on scale { NumberAnimation { duration: 100 } }
+
+                    // Back face
+                    Rectangle {
+                        width: parent.width * 0.93
+                        height: parent.height * 0.9
+                        radius: Qt.platform.os === "android" ? 8 : 5
+                        color: "#0d2a28"; border.color: (app.gameLang === "sw" ? "green" : "blue"); border.width: 1
+                        visible: !cardItem.faceUp; layer.enabled: true
+                        Column { anchors.centerIn: parent; spacing: 2
+                            Text { anchors.horizontalCenter: parent.horizontalCenter; text: "\uD83C\uDF0D"; font.pointSize: Qt.platform.os === "android" ? 14 : 10 }
+                            Text { anchors.horizontalCenter: parent.horizontalCenter; text: "TZ"; font.pointSize: Qt.platform.os === "android" ? 7 : 5; font.bold: true; color: (app.gameLang === "sw" ? "green" : "blue"); font.letterSpacing: 2 }
+                        }
+                        Rectangle {
+                            anchors.bottom: parent.bottom;
+                            anchors.left: parent.left;
+                            anchors.right: parent.right;
+                            height: 2;
+                            radius: 5;
+                            color: (app.gameLang === "sw" ? "green" : "blue");
+                            opacity: 0.5
+                        }
+                        MouseArea {
+                            anchors.fill: parent
+                            onPressed:  cardItem.scale = 0.92
+                            onReleased: { cardItem.scale = 1.0; if (!gameOverlay.gameWon) gameOverlay.cardFlipped(index); }
+                            onCanceled: cardItem.scale = 1.0
+                        }
+                    }
+
+                    // Front face
+                    Rectangle {
+                        anchors.fill: parent
+                        radius: Qt.platform.os === "android" ? 8 : 5
+                        color: cardItem.isMatched ? "#0a2a14" : "#0d1f1e"
+                        border.color: cardItem.isMatched ? "#00ff88" : "cyan"
+                        border.width: cardItem.isMatched ? 2 : 1
+                        visible: cardItem.faceUp;
+                        layer.enabled: true
+                        clip: true
+
+                        Column {
+                            width: parent.width * 0.93
+                            height: parent.height * 0.9
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            anchors.verticalCenter: parent.verticalCenter
+                            spacing: 0
+                            Image {
+                                width: parent.width
+                                height: parent.height * 0.60
+                                fillMode: Image.PreserveAspectCrop; smooth: true
+                                source: cardItem.pairData ? cardItem.pairData.img : ""
+                                opacity: cardItem.faceUp ? 1.0 : 0.0
+                                Behavior on opacity { NumberAnimation { duration: 200 } }
+                            }
+                            Text {
+                                width: parent.width
+                                height: parent.height * 0.40
+                                text: cardItem.pairData ? (app.gameLang === "sw" ? cardItem.pairData.name_sw : cardItem.pairData.name_en) : ""
+                                font.pointSize: Qt.platform.os === "android" ? 6 : 4.5
+                                font.bold: true; color: cardItem.isMatched ? "#00ff88" : "white"
+                                wrapMode: Text.WordWrap; horizontalAlignment: Text.AlignHCenter
+                                verticalAlignment: Text.AlignVCenter
+                                maximumLineCount: 2; elide: Text.ElideRight
+                            }
+                        }
+                        Rectangle {
+                            anchors.fill: parent; radius: parent.radius; color: "transparent"; border.color: "#00ff88"; border.width: 1
+                            visible: cardItem.isMatched
+                            SequentialAnimation on opacity {
+                                loops: Animation.Infinite; running: cardItem.isMatched
+                                NumberAnimation { to: 0.1; duration: 900; easing.type: Easing.InOutSine }
+                                NumberAnimation { to: 0.7; duration: 900; easing.type: Easing.InOutSine }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // Instructions overlay
+        Rectangle {
+            anchors.fill: parent; color: Qt.rgba(0, 0.06, 0.06, 0.92)
+            visible: gameOverlay.showInstr
+            Column {
+                anchors.centerIn: parent; width: parent.width - (Qt.platform.os === "android" ? 48 : 36); spacing: Qt.platform.os === "android" ? 14 : 10
+                Text {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    text: app.gameLang === "sw" ? "Mchezo wa Kumbukumbu ya Utalii" : "Tourism Memory Game"
+                    font.pointSize: Qt.platform.os === "android" ? 16 : 13; font.bold: true; color: (app.gameLang === "sw" ? "green" : "blue")
+                    horizontalAlignment: Text.AlignHCenter; wrapMode: Text.WordWrap; width: parent.width
+                }
+                Rectangle { anchors.horizontalCenter: parent.horizontalCenter; width: parent.width * 0.7; height: 2; radius: 1; color: (app.gameLang === "sw" ? "green" : "blue"); opacity: 0.5 }
+                Repeater {
+                    model: app.gameLang === "sw"
+                           ? ["1  Gusa card kuigeua", "2  Gusa nyingine kupata pair", "3  Zikifanana — zinabaki wazi \u2705", "4  Hazifanani — zinarudi nyuma", "5  Pata pairs 8 kushinda! \uD83C\uDFC6"]
+                           : ["1  Tap a card to flip it", "2  Tap another to find a pair", "3  Match found — stays open \u2705", "4  No match — cards flip back", "5  Match all 8 pairs to win! \uD83C\uDFC6"]
+                    delegate: Text {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        text: modelData; font.pointSize: Qt.platform.os === "android" ? 12 : 10; color: "#cccccc"
+                        wrapMode: Text.WordWrap; width: parent.width; horizontalAlignment: Text.AlignHCenter
+                    }
+                }
+                Rectangle { anchors.horizontalCenter: parent.horizontalCenter; width: parent.width * 0.7; height: 1; radius: 1; color: (app.gameLang === "sw" ? "green" : "blue"); opacity: 0.3 }
+                Rectangle {
+                    id: instrStartBtn; anchors.horizontalCenter: parent.horizontalCenter
+                    width: instrStartRow.implicitWidth + (Qt.platform.os === "android" ? 40 : 30)
+                    height: Qt.platform.os === "android" ? 50 : 38; radius: height / 2
+                    color: instrMA.pressed ? "#1a6060" : "#0d3a38"; border.color: (app.gameLang === "sw" ? "green" : "blue"); border.width: 2
+                    Behavior on color { ColorAnimation { duration: 120 } }
+                    Behavior on scale { NumberAnimation { duration: 100 } }
+                    Row { id: instrStartRow; anchors.centerIn: parent; spacing: 8
+                        Text { text: "\uD83C\uDFAE"; font.pointSize: Qt.platform.os === "android" ? 16 : 13; anchors.verticalCenter: parent.verticalCenter }
+                        Text { text: app.gameLang === "sw" ? "Anza Mchezo" : "Start Game"; font.pointSize: Qt.platform.os === "android" ? 14 : 11; font.bold: true; color: (app.gameLang === "sw" ? "green" : "blue"); anchors.verticalCenter: parent.verticalCenter }
+                    }
+                    MouseArea { id: instrMA; anchors.fill: parent
+                        onPressed:  instrStartBtn.scale = 0.95
+                        onReleased: { instrStartBtn.scale = 1.0; gameOverlay.showInstr = false; }
+                        onCanceled: instrStartBtn.scale = 1.0
+                    }
+                }
+            }
+        }
+
+        // Win overlay
+        Rectangle {
+            anchors.fill: parent; color: Qt.rgba(0, 0.04, 0.04, 0.92)
+            visible: gameOverlay.gameWon
+            opacity: gameOverlay.gameWon ? 1.0 : 0.0
+            Behavior on opacity { NumberAnimation { duration: 400 } }
+            Column {
+                anchors.centerIn: parent; spacing: Qt.platform.os === "android" ? 16 : 12
+                Text {
+                    anchors.horizontalCenter: parent.horizontalCenter; text: "\uD83C\uDF89"
+                    font.pointSize: Qt.platform.os === "android" ? 44 : 34
+                    SequentialAnimation on scale {
+                        loops: Animation.Infinite; running: gameOverlay.gameWon
+                        NumberAnimation { to: 1.18; duration: 600; easing.type: Easing.InOutSine }
+                        NumberAnimation { to: 1.0;  duration: 600; easing.type: Easing.InOutSine }
+                    }
+                }
+                Text {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    text: app.gameLang === "sw" ? "Hongera! Umeshinda!" : "Congratulations!"
+                    font.pointSize: Qt.platform.os === "android" ? 22 : 18; font.bold: true; color: (app.gameLang === "sw" ? "green" : "blue")
+                }
+                Text {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    text: (app.gameLang === "sw" ? "Hatua: " : "Moves: ") + gameOverlay.moves
+                    font.pointSize: Qt.platform.os === "android" ? 13 : 11; color: "white"
+                }
+                Text {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    text: gameOverlay.moves <= 12 ? (app.gameLang === "sw" ? "\u2B50 Bingwa wa Utalii!" : "\u2B50 Tourism Expert!")
+                                                  : gameOverlay.moves <= 18 ? (app.gameLang === "sw" ? "\uD83D\uDC4D Vizuri sana!" : "\uD83D\uDC4D Well done!")
+                                                                            : (app.gameLang === "sw" ? "\uD83D\uDE0A Jaribu tena!" : "\uD83D\uDE0A Try again!")
+                    font.pointSize: Qt.platform.os === "android" ? 14 : 11; font.bold: true; color: "#00ff88"
+                }
+                Row {
+                    anchors.horizontalCenter: parent.horizontalCenter; spacing: Qt.platform.os === "android" ? 14 : 10
+                    Rectangle {
+                        id: winRestartBtn
+                        width: winRestartRow.implicitWidth + (Qt.platform.os === "android" ? 32 : 24)
+                        height: Qt.platform.os === "android" ? 48 : 38; radius: height / 2
+                        color: winRestartMA.pressed ? "#1a6060" : "#0d3a38"; border.color: (app.gameLang === "sw" ? "green" : "blue"); border.width: 2
+                        Behavior on color { ColorAnimation { duration: 120 } }
+                        Behavior on scale { NumberAnimation { duration: 100 } }
+                        Row { id: winRestartRow; anchors.centerIn: parent; spacing: 6
+                            Text { text: "\uD83D\uDD04"; font.pointSize: Qt.platform.os === "android" ? 14 : 11; anchors.verticalCenter: parent.verticalCenter }
+                            Text { text: app.gameLang === "sw" ? "Cheza Tena" : "Play Again"; font.pointSize: Qt.platform.os === "android" ? 13 : 10; font.bold: true; color: (app.gameLang === "sw" ? "green" : "blue"); anchors.verticalCenter: parent.verticalCenter }
+                        }
+                        MouseArea { id: winRestartMA; anchors.fill: parent
+                            onPressed:  winRestartBtn.scale = 0.95
+                            onReleased: { winRestartBtn.scale = 1.0; gameOverlay.initGame(); }
+                            onCanceled: winRestartBtn.scale = 1.0
+                        }
+                    }
+                    Rectangle {
+                        id: winBackBtn
+                        width: winBackRow.implicitWidth + (Qt.platform.os === "android" ? 32 : 24)
+                        height: Qt.platform.os === "android" ? 48 : 38; radius: height / 2
+                        color: winBackMA.pressed ? "#2a0a0a" : "#1a0808"; border.color: "#cc4444"; border.width: 1
+                        Behavior on color { ColorAnimation { duration: 120 } }
+                        Behavior on scale { NumberAnimation { duration: 100 } }
+                        Row { id: winBackRow; anchors.centerIn: parent; spacing: 6
+                            Text { text: "\uD83C\uDF0D"; font.pointSize: Qt.platform.os === "android" ? 14 : 11; anchors.verticalCenter: parent.verticalCenter }
+                            Text { text: app.gameLang === "sw" ? "Rudi Utalii" : "Back to App"; font.pointSize: Qt.platform.os === "android" ? 13 : 10; font.bold: true; color: "#ff8888"; anchors.verticalCenter: parent.verticalCenter }
+                        }
+                        MouseArea { id: winBackMA; anchors.fill: parent
+                            onPressed:  winBackBtn.scale = 0.95
+                            onReleased: {
+                                winBackBtn.scale = 1.0;
+                                app.gameVisible = false;
+                                viewComponentLoader.switchTo(languageSelectionComponent, app.width / 2, app.height / 2);
+                            }
+                            onCanceled: winBackBtn.scale = 1.0
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 } // end root Rectangle
