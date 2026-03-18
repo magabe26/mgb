@@ -13,7 +13,8 @@
      
 
 <APP>
-      <A HREF="#saveAndPlayVideoAd;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Ads/nyerere.mp4;#showGoogleAd;Baba wa Taifa la Tanzania;#004040;nyerere.mp4;">Baba wa Taifa la Tanzania</A>
+      <A HREF="#openApp;Nyerere.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Nyerere/;Tafadhali subiri;dependencies.txt;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Nyerere/images/;1;1;1;600;
+">Baba wa Taifa la Tanzania</A>
       <COLOR>black</COLOR>
       <BG_COLOR>white</BG_COLOR>
       <ICON>fa::star</ICON>
