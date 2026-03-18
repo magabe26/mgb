@@ -920,7 +920,7 @@ Rectangle {
         Text {
             anchors.bottom: parent.bottom; anchors.bottomMargin: Math.round(24 * dp)
             anchors.horizontalCenter: parent.horizontalCenter
-            text: "\u2715  Gusa kufunga"; font.pointSize: Math.round(9 * dp); color: Qt.rgba(1, 1, 1, 0.5)
+            text: "x  Gusa kufunga"; font.pointSize: Math.round(9 * dp); color: Qt.rgba(1, 1, 1, 0.5)
         }
 
         MouseArea {
