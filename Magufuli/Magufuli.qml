@@ -117,7 +117,17 @@ Rectangle {
         Behavior on opacity { NumberAnimation { duration: 350; easing.type: Easing.InOutQuad } }
         Behavior on x       { NumberAnimation { duration: 350; easing.type: Easing.OutCubic  } }
 
-        // Top flag stripe
+        // Green gradient header banner behind photo
+        Rectangle {
+            anchors.top: parent.top; width: parent.width
+            height: Math.round(220 * dp)
+            gradient: Gradient {
+                GradientStop { position: 0.0; color: "#006400" }
+                GradientStop { position: 0.7; color: "#003a00" }
+                GradientStop { position: 1.0; color: "#050f05" }
+            }
+        }
+        // Top CCM flag stripe over banner
         Rectangle {
             anchors.top: parent.top; width: parent.width; height: Math.round(4 * dp)
             gradient: Gradient {
@@ -204,7 +214,22 @@ Rectangle {
                     font.pointSize: Math.round(9 * dp); font.letterSpacing: Math.round(2 * dp); color: goldDim
                 }
 
-                Item { width: 1; height: Math.round(8 * dp) }
+                Item { width: 1; height: Math.round(6 * dp) }
+
+                // CCM slogan + torch
+                Row {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    spacing: Math.round(6 * dp)
+                    Text { text: "\uD83D\uDD25"; font.pointSize: Math.round(11 * dp); anchors.verticalCenter: parent.verticalCenter }
+                    Text {
+                        text: "UMOJA NI NGUVU"
+                        font.pointSize: Math.round(9 * dp); font.bold: true; font.letterSpacing: Math.round(1.5 * dp)
+                        color: gold; anchors.verticalCenter: parent.verticalCenter
+                    }
+                    Text { text: "\uD83D\uDD25"; font.pointSize: Math.round(11 * dp); anchors.verticalCenter: parent.verticalCenter }
+                }
+
+                Item { width: 1; height: Math.round(6 * dp) }
 
                 // ── Name with fade-in entrance ───────────────────────────
                 // No y animation — animating y inside a Column causes layout overlap onto photo.
@@ -234,8 +259,12 @@ Rectangle {
 
                 Rectangle {
                     anchors.horizontalCenter: parent.horizontalCenter; width: parent.width
-                    height: cQ.implicitHeight + Math.round(28 * dp); radius: Math.round(12 * dp); color: darkCard
-                    border.color: Qt.rgba(0.0, 0.50, 0.0, 0.30); border.width: 1
+                    height: cQ.implicitHeight + Math.round(28 * dp); radius: Math.round(12 * dp)
+                    border.color: Qt.rgba(0.0, 0.70, 0.0, 0.50); border.width: 1
+                    gradient: Gradient {
+                        GradientStop { position: 0.0; color: "#0d2e0d" }
+                        GradientStop { position: 1.0; color: "#051405" }
+                    }
                     Text {
                         anchors.top: parent.top; anchors.left: parent.left; anchors.margins: Math.round(8 * dp)
                         text: "\u201C"; font.pointSize: 32; color: goldDim; lineHeight: 0.6; lineHeightMode: Text.ProportionalHeight
@@ -285,6 +314,20 @@ Rectangle {
                                     color: navMA.pressed ? gold : cream
                                     anchors.verticalCenter: parent.verticalCenter
                                     Behavior on color { ColorAnimation { duration: 120 } }
+                                }
+                            }
+                            // CCM flag stripe at bottom of nav button
+                            Rectangle {
+                                anchors.bottom: parent.bottom
+                                anchors.left: parent.left; anchors.right: parent.right
+                                height: Math.round(3 * dp); radius: Math.round(12 * dp)
+                                gradient: Gradient {
+                                    GradientStop { position: 0.0;  color: "#006400" }
+                                    GradientStop { position: 0.40; color: "#006400" }
+                                    GradientStop { position: 0.42; color: "#f5c400" }
+                                    GradientStop { position: 0.58; color: "#f5c400" }
+                                    GradientStop { position: 0.60; color: "#000000" }
+                                    GradientStop { position: 1.0;  color: "#000000" }
                                 }
                             }
                             MouseArea {
@@ -382,7 +425,7 @@ Rectangle {
         }
 
         Flickable {
-            anchors.top: h1.bottom; anchors.bottom: parent.bottom; width: parent.width
+            anchors.top: h1.bottom; anchors.bottom: parent.bottom; anchors.bottomMargin: Math.round(52 * dp); width: parent.width
             contentWidth: width; contentHeight: wCol.implicitHeight + Math.round(40 * dp)
             clip: true; boundsBehavior: Flickable.StopAtBounds
 
@@ -397,13 +440,14 @@ Rectangle {
                     Rectangle {
                         width: Math.round(90 * dp); height: Math.round(110 * dp); radius: Math.round(10 * dp)
                         color: "#0f1f0f"; border.color: goldDim; border.width: 1
-                        Image { anchors.fill: parent; anchors.margins: 2; fillMode: Image.PreserveAspectCrop; source: "./magufuli0.jpeg" }
+                        layer.enabled: true
+                        Image { anchors.fill: parent; fillMode: Image.PreserveAspectCrop; source: "./magufuli0.jpeg"; smooth: true }
                     }
                     Column {
                         spacing: Math.round(5 * dp); width: parent.width - Math.round(102 * dp)
                         Repeater {
                             model: [
-                                {l:"Jina",     v:"John Pombe Joseph Magufuli"},
+                                {l:"Jina",     v:"Dr. John Pombe Joseph Magufuli"},
                                 {l:"Kuzaliwa", v:"29 Oktoba 1959, Chato"},
                                 {l:"Kufariki", v:"17 Machi 2021"},
                                 {l:"Umri",     v:"Miaka 61"},
@@ -424,7 +468,7 @@ Rectangle {
                         {l:"Elimu",        v:"BSc, MSc, PhD Chemistry — UDSM (2009)"},
                         {l:"Awamu",        v:"Rais wa 5 (2015–2021)"},
                         {l:"Chama",        v:"CCM"},
-                        {l:"Makamu",       v:"Samia Suluhu Hassan"},
+                        {l:"Makamu",       v:"Dr. Samia Suluhu Hassan"},
                         {l:"Kazi ya awali",v:"Mbunge Chato (1995)\nWaziri Ujenzi (2000–2015)"}
                     ]
                     delegate: Row { spacing: Math.round(8 * dp); width: parent.width
@@ -487,7 +531,7 @@ Rectangle {
         }
 
         Flickable {
-            anchors.top: h2.bottom; anchors.bottom: parent.bottom; width: parent.width
+            anchors.top: h2.bottom; anchors.bottom: parent.bottom; anchors.bottomMargin: Math.round(52 * dp); width: parent.width
             contentWidth: width; contentHeight: mafCol.implicitHeight + Math.round(40 * dp)
             clip: true; boundsBehavior: Flickable.StopAtBounds
 
@@ -517,10 +561,11 @@ Rectangle {
                         Behavior on color { ColorAnimation { duration: 120 } }
                         Behavior on scale { NumberAnimation { duration: 100 } }
 
-                        // Left gold accent stripe
+                        // Alternating CCM stripe: even=gold, odd=green
                         Rectangle {
                             anchors.left: parent.left; anchors.top: parent.top; anchors.bottom: parent.bottom
-                            anchors.margins: Math.round(10 * dp); width: Math.round(3 * dp); radius: Math.round(2 * dp); color: gold
+                            anchors.margins: Math.round(10 * dp); width: Math.round(3 * dp); radius: Math.round(2 * dp)
+                            color: (index % 2 === 0) ? gold : greenLight
                         }
 
                         Row {
@@ -597,7 +642,7 @@ Rectangle {
         }
 
         Flickable {
-            anchors.top: h3.bottom; anchors.bottom: parent.bottom; width: parent.width
+            anchors.top: h3.bottom; anchors.bottom: parent.bottom; anchors.bottomMargin: Math.round(52 * dp); width: parent.width
             contentWidth: width; contentHeight: manenoCol.implicitHeight + Math.round(40 * dp)
             clip: true; boundsBehavior: Flickable.StopAtBounds
 
@@ -707,7 +752,7 @@ Rectangle {
         }
 
         Flickable {
-            anchors.top: h4.bottom; anchors.bottom: parent.bottom; width: parent.width
+            anchors.top: h4.bottom; anchors.bottom: parent.bottom; anchors.bottomMargin: Math.round(52 * dp); width: parent.width
             contentWidth: width; contentHeight: pichaCol.implicitHeight + Math.round(40 * dp)
             clip: true; boundsBehavior: Flickable.StopAtBounds
 
@@ -768,6 +813,77 @@ Rectangle {
                                 onCanceled: { gridTile.scale = 1.0; }
                             }
                         }
+                    }
+                }
+            }
+        }
+    }
+
+    // ── Bottom nav bar ────────────────────────────────────────────────────────
+    Rectangle {
+        id: bottomNav
+        anchors.bottom: parent.bottom
+        anchors.left:   parent.left
+        anchors.right:  parent.right
+        height: Math.round(52 * dp)
+        color: "#0a160a"
+        visible: section >= 1 && !lightboxOpen
+        opacity: section >= 1 ? 1.0 : 0.0
+        Behavior on opacity { NumberAnimation { duration: 250 } }
+        Rectangle { anchors.top: parent.top; width: parent.width; height: 1; color: Qt.rgba(0.0, 0.50, 0.0, 0.40) }
+        Rectangle {
+            anchors.top: parent.top; width: parent.width; height: Math.round(2 * dp)
+            gradient: Gradient {
+                GradientStop { position: 0.0;  color: "#006400" }
+                GradientStop { position: 0.44; color: "#006400" }
+                GradientStop { position: 0.46; color: "#f5c400" }
+                GradientStop { position: 0.54; color: "#f5c400" }
+                GradientStop { position: 0.56; color: "#000000" }
+                GradientStop { position: 1.0;  color: "#000000" }
+            }
+        }
+        Row {
+            anchors.centerIn: parent
+            spacing: 0
+            Repeater {
+                model: [
+                    {icon:"\uD83D\uDCCC", label:"Wasifu",    sec:1},
+                    {icon:"\u2605",        label:"Mafanikio", sec:2},
+                    {icon:"\uD83D\uDCAC",  label:"Maneno",    sec:3},
+                    {icon:"\uD83D\uDDBC",  label:"Picha",     sec:4}
+                ]
+                delegate: Item {
+                    width: Math.round(app.width / 4)
+                    height: Math.round(52 * dp)
+                    Rectangle {
+                        anchors.top: parent.top; anchors.topMargin: Math.round(2 * dp)
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        width: Math.round(20 * dp); height: Math.round(2 * dp); radius: 1
+                        color: gold
+                        opacity: section === modelData.sec ? 1.0 : 0.0
+                        Behavior on opacity { NumberAnimation { duration: 200 } }
+                    }
+                    Column {
+                        anchors.centerIn: parent
+                        spacing: Math.round(2 * dp)
+                        Text {
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            text: modelData.icon
+                            font.pointSize: Math.round(14 * dp)
+                            opacity: section === modelData.sec ? 1.0 : 0.5
+                            Behavior on opacity { NumberAnimation { duration: 200 } }
+                        }
+                        Text {
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            text: modelData.label
+                            font.pointSize: Math.round(6.5 * dp); font.bold: section === modelData.sec
+                            color: section === modelData.sec ? gold : creamDim
+                            Behavior on color { ColorAnimation { duration: 200 } }
+                        }
+                    }
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: { section = modelData.sec; }
                     }
                 }
             }
