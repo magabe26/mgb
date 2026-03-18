@@ -158,17 +158,16 @@ Rectangle {
                     width: parent.width
                     height: memorialRow.implicitHeight + Math.round(10 * dp)
 
-                    Flow {
+                    Row {
                         id: memorialRow
                         anchors.centerIn: parent
-                        width: parent.width - Math.round(16 * dp)
                         spacing: Math.round(4 * dp)
                         // Kila neno — delay inazidi kwa 150ms
                         Repeater {
                             model: ["Miaka", "5", "tangu", "kifo", "cha", "Dr.", "John", "Pombe", "Joseph", "Magufuli"]
                             delegate: Text {
                                 text: modelData
-                                font.pointSize: Math.round(9 * dp)
+                                font.pointSize: Math.round(6 * dp)
                                 font.bold: modelData === "Magufuli" || modelData === "5"
                                 color: modelData === "5" ? gold :
                                        modelData === "Magufuli" ? gold : cream
