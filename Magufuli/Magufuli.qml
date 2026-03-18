@@ -1073,6 +1073,9 @@ Rectangle {
         property int  moves:       0
         property bool gameWon:        false
         property bool showInstructions: true
+        property real score:          0
+        property bool showMatchAnim:  false
+        property bool showMissAnim:   false
 
         function shuffle(arr) {
             var a = arr.slice();
@@ -1094,6 +1097,9 @@ Rectangle {
             busy       = false;
             moves      = 0;
             gameWon    = false;
+            score      = 0;
+            showMatchAnim = false;
+            showMissAnim  = false;
         }
 
         function cardFlipped(pos) {
@@ -1119,11 +1125,17 @@ Rectangle {
             var a = cardData[shuffled[firstPick]];
             var b = cardData[shuffled[secondPick]];
             if (a.id === b.id) {
+                score = Math.round((score + (100 / (gameSection.cardData.length / 2))) * 10) / 10;
+                showMatchAnim = true;
+                matchAnimTimer.start();
                 var m = matched.slice();
                 m.push(a.id);
                 matched = m;
                 if (matched.length === 6) { gameWon = true; }
             } else {
+                score = score - 3;
+                showMissAnim = true;
+                missAnimTimer.start();
                 var f2 = flipped.slice();
                 f2.splice(f2.indexOf(firstPick), 1);
                 f2.splice(f2.indexOf(secondPick), 1);
@@ -1139,6 +1151,8 @@ Rectangle {
             interval: 900; repeat: false
             onTriggered: { gameSection.checkMatch(); }
         }
+        Timer { id: matchAnimTimer; interval: 700; repeat: false; onTriggered: { gameSection.showMatchAnim = false; } }
+        Timer { id: missAnimTimer;  interval: 700; repeat: false; onTriggered: { gameSection.showMissAnim  = false; } }
 
         Component.onCompleted: { initGame(); }
 
@@ -1175,15 +1189,54 @@ Rectangle {
             anchors.top: hGame.bottom; width: parent.width; height: Math.round(36 * dp)
             color: "#060f06"
             Row {
-                anchors.centerIn: parent; spacing: Math.round(24 * dp)
-                Row { spacing: Math.round(6 * dp)
-                    Text { text: "\uD83C\uDFAF"; font.pointSize: Math.round(10 * dp); anchors.verticalCenter: parent.verticalCenter }
-                    Text { text: "Hatua: " + gameSection.moves; font.pointSize: Math.round(9 * dp); color: cream; font.bold: true; anchors.verticalCenter: parent.verticalCenter }
+                anchors.centerIn: parent; spacing: Math.round(16 * dp)
+                Row { spacing: Math.round(4 * dp)
+                    Text { text: "\uD83C\uDFAF"; font.pointSize: Math.round(9 * dp); anchors.verticalCenter: parent.verticalCenter }
+                    Text { text: "Hatua: " + gameSection.moves; font.pointSize: Math.round(8 * dp); color: cream; font.bold: true; anchors.verticalCenter: parent.verticalCenter }
                 }
-                Row { spacing: Math.round(6 * dp)
-                    Text { text: "\u2705"; font.pointSize: Math.round(10 * dp); anchors.verticalCenter: parent.verticalCenter }
-                    Text { text: "Pairs: " + gameSection.matched.length + "/6"; font.pointSize: Math.round(9 * dp); color: gold; font.bold: true; anchors.verticalCenter: parent.verticalCenter }
+                Rectangle { width: 1; height: Math.round(16 * dp); color: Qt.rgba(1,1,1,0.2); anchors.verticalCenter: parent.verticalCenter }
+                Row { spacing: Math.round(4 * dp)
+                    Text { text: "\u2705"; font.pointSize: Math.round(9 * dp); anchors.verticalCenter: parent.verticalCenter }
+                    Text { text: "Pairs: " + gameSection.matched.length + "/6"; font.pointSize: Math.round(8 * dp); color: gold; font.bold: true; anchors.verticalCenter: parent.verticalCenter }
                 }
+                Rectangle { width: 1; height: Math.round(16 * dp); color: Qt.rgba(1,1,1,0.2); anchors.verticalCenter: parent.verticalCenter }
+                Row { spacing: Math.round(4 * dp)
+                    Text { text: "\u2B50"; font.pointSize: Math.round(9 * dp); anchors.verticalCenter: parent.verticalCenter }
+                    Text {
+                        text: Math.round(gameSection.score) + "/100"
+                        font.pointSize: Math.round(8 * dp); font.bold: true; anchors.verticalCenter: parent.verticalCenter
+                        color: gameSection.score >= 0 ? gold : "#ff6666"
+                    }
+                }
+            }
+        }
+
+        // ── Floating score indicators ────────────────────────────────────────
+        Item {
+            anchors.fill: parent; z: 10
+            Rectangle {
+                anchors.centerIn: parent
+                anchors.verticalCenterOffset: gameSection.showMatchAnim ? -Math.round(40 * dp) : 0
+                Behavior on anchors.verticalCenterOffset { NumberAnimation { duration: 600; easing.type: Easing.OutCubic } }
+                width: matchPopTxt.implicitWidth + Math.round(24 * dp)
+                height: Math.round(36 * dp); radius: Math.round(18 * dp)
+                color: "#cc003300"; border.color: "#00ff88"; border.width: Math.round(2 * dp)
+                visible: gameSection.showMatchAnim
+                opacity: gameSection.showMatchAnim ? 1.0 : 0.0
+                Behavior on opacity { NumberAnimation { duration: 300 } }
+                Text { id: matchPopTxt; anchors.centerIn: parent; text: "+" + Math.round(1000 / (gameSection.cardData.length / 2)) / 10 + " \uD83C\uDF89"; font.pointSize: Math.round(12 * dp); font.bold: true; color: "#00ff88" }
+            }
+            Rectangle {
+                anchors.centerIn: parent
+                anchors.verticalCenterOffset: gameSection.showMissAnim ? Math.round(40 * dp) : 0
+                Behavior on anchors.verticalCenterOffset { NumberAnimation { duration: 600; easing.type: Easing.OutCubic } }
+                width: missPopTxt.implicitWidth + Math.round(24 * dp)
+                height: Math.round(36 * dp); radius: Math.round(18 * dp)
+                color: "#cc330000"; border.color: "#ff4444"; border.width: Math.round(2 * dp)
+                visible: gameSection.showMissAnim
+                opacity: gameSection.showMissAnim ? 1.0 : 0.0
+                Behavior on opacity { NumberAnimation { duration: 300 } }
+                Text { id: missPopTxt; anchors.centerIn: parent; text: "-3 \uD83D\uDE15"; font.pointSize: Math.round(12 * dp); font.bold: true; color: "#ff4444" }
             }
         }
 
@@ -1201,8 +1254,8 @@ Rectangle {
                 model: 12
                 delegate: Item {
                     id: cardItem
-                    width:  (cardGrid.width - 2 * Math.round(10 * dp)) / 3
-                    height: width * 1.15
+                    width:  (cardGrid.width  - 2 * Math.round(10 * dp)) / 3
+                    height: (cardGrid.height - 3 * cardGrid.spacing) / 4
 
                     property bool isFlipped: gameSection.flipped.indexOf(index) !== -1
                     property bool isMatched: {
@@ -1212,6 +1265,11 @@ Rectangle {
                     property bool faceUp: isFlipped || isMatched
 
                     Behavior on scale { NumberAnimation { duration: 100 } }
+                    SequentialAnimation on scale {
+                        running: cardItem.isMatched && gameSection.showMatchAnim
+                        NumberAnimation { to: 1.12; duration: 120; easing.type: Easing.OutQuad }
+                        NumberAnimation { to: 1.0;  duration: 120; easing.type: Easing.InQuad }
+                    }
 
                     // Back face (green CCM card)
                     Rectangle {
@@ -1446,15 +1504,48 @@ Rectangle {
                     anchors.horizontalCenter: parent.horizontalCenter
                     text: "Hongera!"; font.pointSize: Math.round(22 * dp); font.bold: true; color: gold
                 }
-                Text {
+                // Stats card
+                Rectangle {
                     anchors.horizontalCenter: parent.horizontalCenter
-                    text: "Umecheza hatua " + gameSection.moves
-                    font.pointSize: Math.round(10 * dp); color: cream
-                }
-                Text {
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    text: gameSection.moves <= 10 ? "\u2B50 Bingwa!" : gameSection.moves <= 15 ? "\uD83D\uDC4D Vizuri!" : "\uD83D\uDE0A Jaribu tena!"
-                    font.pointSize: Math.round(10 * dp); color: greenLight; font.bold: true
+                    width: winStatsRow.implicitWidth + Math.round(48 * dp)
+                    height: Math.round(64 * dp)
+                    radius: Math.round(14 * dp); color: darkCard
+                    border.color: gold; border.width: Math.round(1 * dp)
+                    Row {
+                        id: winStatsRow
+                        anchors.centerIn: parent; spacing: Math.round(22 * dp)
+                        Column { spacing: Math.round(2 * dp)
+                            Text { anchors.horizontalCenter: parent.horizontalCenter; text: "\uD83C\uDFAF"; font.pointSize: Math.round(14 * dp) }
+                            Text { anchors.horizontalCenter: parent.horizontalCenter; text: gameSection.moves; font.pointSize: Math.round(12 * dp); font.bold: true; color: cream }
+                            Text { anchors.horizontalCenter: parent.horizontalCenter; text: "Hatua"; font.pointSize: Math.round(7 * dp); color: creamDim }
+                        }
+                        Rectangle { width: 1; height: Math.round(36 * dp); color: Qt.rgba(1,1,1,0.15); anchors.verticalCenter: parent.verticalCenter }
+                        Column { spacing: Math.round(2 * dp)
+                            Text { anchors.horizontalCenter: parent.horizontalCenter; text: "\u2B50"; font.pointSize: Math.round(14 * dp) }
+                            Text {
+                                anchors.horizontalCenter: parent.horizontalCenter
+                                text: Math.round(gameSection.score) + "/100"
+                                font.pointSize: Math.round(12 * dp); font.bold: true
+                                color: gameSection.score >= 75 ? gold : gameSection.score >= 50 ? greenLight : gameSection.score >= 0 ? cream : "#ff6666"
+                            }
+                            Text { anchors.horizontalCenter: parent.horizontalCenter; text: "Pointi"; font.pointSize: Math.round(7 * dp); color: creamDim }
+                        }
+                        Rectangle { width: 1; height: Math.round(36 * dp); color: Qt.rgba(1,1,1,0.15); anchors.verticalCenter: parent.verticalCenter }
+                        Column { spacing: Math.round(2 * dp)
+                            Text { anchors.horizontalCenter: parent.horizontalCenter; text: "\uD83C\uDFC6"; font.pointSize: Math.round(14 * dp) }
+                            Text {
+                                anchors.horizontalCenter: parent.horizontalCenter
+                                text: gameSection.score >= 100 ? "Bora!"
+                                    : gameSection.score >= 75  ? "Safi!"
+                                    : gameSection.score >= 50  ? "Vizuri"
+                                    : gameSection.score >= 0   ? "Jaribu"
+                                    :                            "Rudia"
+                                font.pointSize: Math.round(12 * dp); font.bold: true
+                                color: gameSection.score >= 75 ? gold : gameSection.score >= 50 ? greenLight : gameSection.score >= 0 ? cream : "#ff6666"
+                            }
+                            Text { anchors.horizontalCenter: parent.horizontalCenter; text: "Daraja"; font.pointSize: Math.round(7 * dp); color: creamDim }
+                        }
+                    }
                 }
 
                 // Restart button
