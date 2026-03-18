@@ -1245,8 +1245,8 @@ Rectangle {
                             anchors.centerIn: parent; spacing: Math.round(2 * dp)
                             Text {
                                 anchors.horizontalCenter: parent.horizontalCenter
-                                text: "Mwalimu"
-                                font.pointSize: Math.round(10 * dp); font.bold: false
+                                text: "Nyerere"
+                                font.pointSize: Math.round(8 * dp); font.bold: false
                                 color: gold; font.letterSpacing: Math.round(3 * dp)
                             }
                             Text {
