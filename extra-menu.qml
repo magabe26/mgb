@@ -267,7 +267,7 @@ MouseArea{
             MouseArea{
                 anchors.fill: parent
                 onClicked: {
-                    root.executeCommand("#saveAndPlayVideoAd;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Ads/samia.mp4;#;Rais wa Tanzania;#004040;samia.mp4;", []);
+                    root.executeCommand("#openApp;Samia.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Samia/;Please wait;dependencies.txt;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Samia/images/;2;1;1;600;", []);
                 }
             }
         }
