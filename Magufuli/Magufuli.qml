@@ -558,7 +558,7 @@ Rectangle {
                         spacing: Math.round(5 * dp); width: parent.width - Math.round(102 * dp)
                         Repeater {
                             model: [
-                                {l:"Jina",     v:"Dr. John Pombe Joseph Magufuli"},
+                                {l:"Jina",     v:"Dkt. John Pombe Joseph Magufuli"},
                                 {l:"Kuzaliwa", v:"29 Oktoba 1959, Chato"},
                                 {l:"Kufariki", v:"17 Machi 2021"},
                                 {l:"Umri",     v:"Miaka 61"},
@@ -599,7 +599,7 @@ Rectangle {
                         {l:"Elimu",        v:"BSc, MSc, PhD Chemistry — UDSM (2009)"},
                         {l:"Awamu",        v:"Rais wa 5 (2015–2021)"},
                         {l:"Chama",        v:"CCM"},
-                        {l:"Makamu",       v:"Dr. Samia Suluhu Hassan"},
+                        {l:"Makamu",       v:"Dkt. Samia Suluhu Hassan"},
                         {l:"Kazi ya awali",v:"Mbunge Chato (1995)\nWaziri Ujenzi (2000–2015)"}
                     ]
                     delegate: Row { spacing: Math.round(8 * dp); width: parent.width
