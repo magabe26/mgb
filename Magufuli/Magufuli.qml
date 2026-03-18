@@ -167,7 +167,7 @@ Rectangle {
                             model: ["Miaka", "5", "tangu", "kifo", "cha", "Magufuli"]
                             delegate: Text {
                                 text: modelData
-                                font.pointSize: Math.round(9 * dp)
+                                font.pointSize: Math.round(8 * dp)
                                 font.bold: modelData === "Magufuli" || modelData === "5"
                                 color: modelData === "5" ? gold :
                                        modelData === "Magufuli" ? gold : cream
@@ -299,21 +299,50 @@ Rectangle {
                 Item { width: 1; height: Math.round(10 * dp) }
 
                 Rectangle {
+                    id: cheoBadge
                     anchors.horizontalCenter: parent.horizontalCenter
                     height: Math.round(28 * dp); width: cheoT.implicitWidth + Math.round(24 * dp)
                     radius: Math.round(14 * dp); color: green; border.color: greenLight; border.width: 1
+                    Rectangle {
+                        anchors.fill: parent; radius: parent.radius; color: "transparent"
+                        border.color: gold; border.width: Math.round(1 * dp)
+                        SequentialAnimation on opacity {
+                            loops: Animation.Infinite; running: section === 0
+                            NumberAnimation { to: 0.0; duration: 1200; easing.type: Easing.InOutSine }
+                            NumberAnimation { to: 0.9; duration: 1200; easing.type: Easing.InOutSine }
+                        }
+                    }
                     Text { id: cheoT; anchors.centerIn: parent; text: "Rais wa 5 wa Jamhuri ya Tanzania"; font.pointSize: Math.round(8 * dp); font.bold: true; color: cream }
                 }
 
-                Item { width: 1; height: Math.round(18 * dp) }
+                Item { width: 1; height: Math.round(10 * dp) }
 
                 Rectangle {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: parent.width * 0.8; height: Math.round(1 * dp)
+                    gradient: Gradient {
+                        GradientStop { position: 0.0; color: "transparent" }
+                        GradientStop { position: 0.3; color: Qt.rgba(0.96, 0.77, 0.0, 0.45) }
+                        GradientStop { position: 0.7; color: Qt.rgba(0.96, 0.77, 0.0, 0.45) }
+                        GradientStop { position: 1.0; color: "transparent" }
+                    }
+                }
+
+                Item { width: 1; height: Math.round(10 * dp) }
+
+                Rectangle {
+                    id: quoteCardCover
                     anchors.horizontalCenter: parent.horizontalCenter; width: parent.width
                     height: cQ.implicitHeight + Math.round(28 * dp); radius: Math.round(12 * dp)
                     border.color: Qt.rgba(0.0, 0.70, 0.0, 0.50); border.width: 1
+                    opacity: 0
                     gradient: Gradient {
                         GradientStop { position: 0.0; color: "#0d2e0d" }
                         GradientStop { position: 1.0; color: "#051405" }
+                    }
+                    SequentialAnimation on opacity {
+                        PauseAnimation  { duration: 1200 }
+                        NumberAnimation { from: 0; to: 1; duration: 700; easing.type: Easing.OutCubic }
                     }
                     Text {
                         anchors.top: parent.top; anchors.left: parent.left; anchors.margins: Math.round(8 * dp)
@@ -329,7 +358,20 @@ Rectangle {
                     }
                 }
 
-                Item { width: 1; height: Math.round(28 * dp) }
+                Item { width: 1; height: Math.round(14 * dp) }
+
+                Rectangle {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: parent.width * 0.8; height: Math.round(1 * dp)
+                    gradient: Gradient {
+                        GradientStop { position: 0.0; color: "transparent" }
+                        GradientStop { position: 0.3; color: Qt.rgba(0.0, 0.55, 0.0, 0.55) }
+                        GradientStop { position: 0.7; color: Qt.rgba(0.0, 0.55, 0.0, 0.55) }
+                        GradientStop { position: 1.0; color: "transparent" }
+                    }
+                }
+
+                Item { width: 1; height: Math.round(14 * dp) }
 
                 // ── Nav grid ─────────────────────────────────────────────
                 Grid {
@@ -737,8 +779,17 @@ Rectangle {
                         radius: Math.round(14 * dp)
                         color: quoteMA.pressed ? "#142a14" : darkCard
                         border.color: Qt.rgba(0.0, 0.50, 0.0, 0.30); border.width: 1
+                        opacity: 0
                         Behavior on color { ColorAnimation { duration: 120 } }
                         Behavior on scale { NumberAnimation { duration: 100 } }
+                        SequentialAnimation on opacity {
+                            PauseAnimation  { duration: index * 90 }
+                            NumberAnimation { from: 0; to: 1; duration: 350; easing.type: Easing.OutCubic }
+                        }
+                        SequentialAnimation on anchors.topMargin {
+                            PauseAnimation  { duration: index * 90 }
+                            NumberAnimation { from: Math.round(14 * dp); to: 0; duration: 350; easing.type: Easing.OutCubic }
+                        }
 
                         Rectangle {
                             anchors.left: parent.left; anchors.top: parent.top; anchors.bottom: parent.bottom
@@ -864,7 +915,8 @@ Rectangle {
                             id: gridTile
                             width: (parent.width - Math.round(8 * dp)) / 2; height: width * 0.72
                             radius: Math.round(10 * dp); color: "#0f1f0f"
-                            border.color: Qt.rgba(0.0, 0.50, 0.0, 0.22); border.width: 1; clip: true
+                            border.color: Qt.rgba(0.0, 0.50, 0.0, 0.22); border.width: 1
+                            layer.enabled: true
                             Behavior on scale { NumberAnimation { duration: 100 } }
                             Image {
                                 id: tileImg
