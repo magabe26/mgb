@@ -3769,8 +3769,8 @@ Rectangle {
                         color: "#0d2a28"; border.color: (app.gameLang === "sw" ? "green" : "blue"); border.width: 1
                         visible: !cardItem.faceUp; layer.enabled: true
                         Column { anchors.centerIn: parent; spacing: 2
-                            Text { anchors.horizontalCenter: parent.horizontalCenter; text: "🇹🇿"; font.pointSize: Qt.platform.os === "android" ? 14 : 10 }
-                            Text { anchors.horizontalCenter: parent.horizontalCenter; text: app.gameLang === "sw" ? "Utalii" : "Tourism"; font.pointSize: Qt.platform.os === "android" ? 7 : 5; font.bold: true; color: (app.gameLang === "sw" ? "green" : "blue"); font.letterSpacing: 2 }
+                            Text { anchors.horizontalCenter: parent.horizontalCenter; text: "🇹🇿"; font.pointSize: Qt.platform.os === "android" ? 16 : 12 }
+                            Text { anchors.horizontalCenter: parent.horizontalCenter; text: app.gameLang === "sw" ? "Utalii" : "Tourism"; font.pointSize: Qt.platform.os === "android" ? 9 : 7; font.bold: true; color: (app.gameLang === "sw" ? "green" : "blue"); font.letterSpacing: 2 }
                         }
                         Rectangle {
                             anchors.bottom: parent.bottom;
@@ -3820,7 +3820,7 @@ Rectangle {
                                 width: parent.width
                                 height: parent.height * 0.40
                                 text: cardItem.pairData ? (app.gameLang === "sw" ? cardItem.pairData.name_sw : cardItem.pairData.name_en) : ""
-                                font.pointSize: Qt.platform.os === "android" ? 6 : 4.5
+                                font.pointSize: Qt.platform.os === "android" ? 7 : 5.5
                                 font.bold: true; color: cardItem.isMatched ? "#00ff88" : "white"
                                 wrapMode: Text.WordWrap; horizontalAlignment: Text.AlignHCenter
                                 verticalAlignment: Text.AlignVCenter
@@ -3954,6 +3954,7 @@ Rectangle {
                             onReleased: {
                                 winBackBtn.scale = 1.0;
                                 app.gameVisible = false;
+                                app.selectedLanguage = app.gameLang; //for ripple color to be correct
                                 viewComponentLoader.switchTo(languageSelectionComponent, app.width / 2, app.height / 2);
                             }
                             onCanceled: winBackBtn.scale = 1.0
