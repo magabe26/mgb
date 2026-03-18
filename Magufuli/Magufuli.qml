@@ -762,13 +762,16 @@ Rectangle {
                 anchors.top: parent.top; anchors.topMargin: Math.round(16 * dp)
                 spacing: Math.round(12 * dp)
 
-                // Picha kubwa — tappable
+                // Picha kubwa — tappable, layer.enabled + CCM gold border
                 Rectangle {
                     id: heroTile
                     width: parent.width; height: Math.round(200 * dp); radius: Math.round(12 * dp)
-                    color: "#0f1f0f"; border.color: Qt.rgba(0.0, 0.50, 0.0, 0.30); border.width: 1; clip: true
+                    color: "#0f1f0f"
+                    border.color: gold
+                    border.width: Math.round(2 * dp)
+                    layer.enabled: true
                     Behavior on scale { NumberAnimation { duration: 100 } }
-                    Image { id: heroImg; anchors.fill: parent; fillMode: Image.PreserveAspectCrop; source: "./magufuli0.jpeg" }
+                    Image { id: heroImg; anchors.fill: parent; fillMode: Image.PreserveAspectCrop; source: "./magufuli0.jpeg"; smooth: true }
                     MouseArea {
                         anchors.fill: parent
                         onPressed:  { heroTile.scale = 0.97; }
@@ -870,7 +873,9 @@ Rectangle {
                             anchors.horizontalCenter: parent.horizontalCenter
                             text: modelData.icon
                             font.pointSize: Math.round(14 * dp)
+                            color: section === modelData.sec ? gold : creamDim
                             opacity: section === modelData.sec ? 1.0 : 0.5
+                            Behavior on color   { ColorAnimation  { duration: 200 } }
                             Behavior on opacity { NumberAnimation { duration: 200 } }
                         }
                         Text {
