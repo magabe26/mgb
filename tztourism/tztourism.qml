@@ -16,6 +16,8 @@ Rectangle {
     property string activeFilter: "All"          // category filter — always English key
     property var recentlyViewed: []              // recently viewed indices
 
+
+
     // ── Android back button ────────────────────────────────────────────
     Keys.onBackPressed: {
         if (contextMenu.visible) {
@@ -1970,6 +1972,7 @@ Rectangle {
                     // ══ ATTRACTION OF THE DAY ══════════════════════════════
                     Rectangle {
                         id: aotdSection
+                        property string lag:""
                         width: app.width
                         height: aotdInner.height + 24
                         color: "#0a1a19"
@@ -1981,6 +1984,14 @@ Rectangle {
                             return dayOfYear % attractionModel.count;
                         }
                         property var todayAttraction: attractionModel.get(todayIdx)
+
+                        Component.onCompleted: {
+                            if(app.selectedLanguage === ""){
+                                aotdSection.lag = (Math.random() < 0.5) ? "sw" : "en";
+                            } else {
+                                aotdSection.lag = app.selectedLanguage;
+                            }
+                        }
 
                         Column {
                             id: aotdInner
@@ -2002,7 +2013,7 @@ Rectangle {
                                     anchors.verticalCenter: parent.verticalCenter
                                 }
                                 Text {
-                                    text: app.selectedLanguage === "sw"
+                                    text: aotdSection.lag === "sw"
                                           ? "Kivutio cha Leo"
                                           : "Attraction of the Day"
                                     font.pointSize: Qt.platform.os === "android" ? 15 : 13
@@ -2067,7 +2078,7 @@ Rectangle {
                                     Text {
                                         width: parent.width
                                         text: aotdSection.todayAttraction
-                                              ? (app.selectedLanguage === "sw"
+                                              ? (aotdSection.lag === "sw"
                                                  ? aotdSection.todayAttraction.name_sw
                                                  : aotdSection.todayAttraction.name_en)
                                               : ""
@@ -2080,7 +2091,7 @@ Rectangle {
                                     Text {
                                         width: parent.width
                                         text: aotdSection.todayAttraction
-                                              ? (app.selectedLanguage === "sw"
+                                              ? (aotdSection.lag === "sw"
                                                  ? aotdSection.todayAttraction.desc_sw
                                                  : aotdSection.todayAttraction.desc_en)
                                               : ""
@@ -2098,7 +2109,7 @@ Rectangle {
                                         width: aotdBtnTxt.implicitWidth + 24
                                         height: Qt.platform.os === "android" ? 40 : 32
                                         radius: height / 2
-                                        color: app.selectedLanguage === "sw" ? "green" : "blue"
+                                        color: aotdSection.lag === "sw" ? "green" : "blue"
                                         property bool pressed: false
                                         scale: pressed ? 0.95 : 1.0
                                         Behavior on scale { NumberAnimation { duration: 100 } }
@@ -2106,7 +2117,7 @@ Rectangle {
                                         Text {
                                             id: aotdBtnTxt
                                             anchors.centerIn: parent
-                                            text: app.selectedLanguage === "sw" ? "Chunguza →" : "Explore →"
+                                            text: aotdSection.lag === "sw" ? "Chunguza →" : "Explore →"
                                             font.pointSize: Qt.platform.os === "android" ? 12 : 10
                                             font.bold: true
                                             color: "white"
@@ -2119,7 +2130,7 @@ Rectangle {
                                             onClicked: {
                                                 app.currentAttractionIndex = aotdSection.todayIdx;
                                                 app.appMode = 1;
-                                                app.selectedLanguage = app.selectedLanguage || "en";
+                                                aotdSection.lag = aotdSection.lag || "en";
                                             }
                                         }
                                     }
@@ -2136,9 +2147,9 @@ Rectangle {
                                         var a = aotdSection.todayAttraction;
                                         if (a) {
                                             contextMenu.doOpen(
-                                                        app.selectedLanguage || "en",
-                                                        app.selectedLanguage === "sw" ? a.name_sw : a.name_en,
-                                                        app.selectedLanguage === "sw" ? a.desc_sw : a.desc_en,
+                                                        aotdSection.lag || "en",
+                                                        aotdSection.lag === "sw" ? a.name_sw : a.name_en,
+                                                        aotdSection.lag === "sw" ? a.desc_sw : a.desc_en,
                                                         a.imageFile,
                                                         aotdSection.todayIdx
                                                         );
