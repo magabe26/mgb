@@ -539,9 +539,19 @@ Rectangle {
                 Row {
                     width: parent.width; spacing: Math.round(12 * dp)
                     Rectangle {
+                        id: wasifuThumb
                         width: Math.round(90 * dp); height: Math.round(110 * dp); radius: Math.round(10 * dp)
                         color: "#0f1f0f"; border.color: goldDim; border.width: 1
                         layer.enabled: true
+                        opacity: 0
+                        SequentialAnimation on opacity {
+                            PauseAnimation  { duration: 100 }
+                            NumberAnimation { from: 0; to: 1; duration: 500; easing.type: Easing.OutCubic }
+                        }
+                        SequentialAnimation on x {
+                            PauseAnimation  { duration: 100 }
+                            NumberAnimation { from: -Math.round(30 * dp); to: 0; duration: 500; easing.type: Easing.OutCubic }
+                        }
                         Image { anchors.fill: parent; fillMode: Image.PreserveAspectCrop; source: "./magufuli0.jpeg"; smooth: true }
                     }
                     Column {
@@ -554,7 +564,17 @@ Rectangle {
                                 {l:"Umri",     v:"Miaka 61"},
                                 {l:"Kabila",   v:"Msukuma"}
                             ]
-                            delegate: Row { spacing: Math.round(4 * dp); width: parent.width
+                            delegate: Row {
+                                spacing: Math.round(4 * dp); width: parent.width
+                                opacity: 0
+                                SequentialAnimation on opacity {
+                                    PauseAnimation  { duration: 200 + (index * 80) }
+                                    NumberAnimation { from: 0; to: 1; duration: 300; easing.type: Easing.OutCubic }
+                                }
+                                SequentialAnimation on x {
+                                    PauseAnimation  { duration: 200 + (index * 80) }
+                                    NumberAnimation { from: Math.round(16 * dp); to: 0; duration: 300; easing.type: Easing.OutCubic }
+                                }
                                 Text { text: modelData.l + ":"; font.pointSize: Math.round(7.5 * dp); font.bold: true; color: goldDim; width: Math.round(68 * dp) }
                                 Text { text: modelData.v; font.pointSize: Math.round(7.5 * dp); color: cream; wrapMode: Text.WordWrap; width: parent.width - Math.round(72 * dp) }
                             }
@@ -562,8 +582,18 @@ Rectangle {
                     }
                 }
 
-                Rectangle { width: parent.width; height: 1; color: Qt.rgba(0.0, 0.50, 0.0, 0.22) }
 
+                // CCM divider
+                Rectangle {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: parent.width * 0.8; height: Math.round(1 * dp)
+                    gradient: Gradient {
+                        GradientStop { position: 0.0; color: "transparent" }
+                        GradientStop { position: 0.3; color: Qt.rgba(0.96, 0.77, 0.0, 0.4) }
+                        GradientStop { position: 0.7; color: Qt.rgba(0.96, 0.77, 0.0, 0.4) }
+                        GradientStop { position: 1.0; color: "transparent" }
+                    }
+                }
                 Repeater {
                     model: [
                         {l:"Elimu",        v:"BSc, MSc, PhD Chemistry — UDSM (2009)"},
@@ -578,16 +608,46 @@ Rectangle {
                     }
                 }
 
-                Rectangle { width: parent.width; height: 1; color: Qt.rgba(0.0, 0.50, 0.0, 0.22) }
 
+                // CCM divider
+                Rectangle {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: parent.width * 0.8; height: Math.round(1 * dp)
+                    gradient: Gradient {
+                        GradientStop { position: 0.0; color: "transparent" }
+                        GradientStop { position: 0.3; color: Qt.rgba(0.96, 0.77, 0.0, 0.4) }
+                        GradientStop { position: 0.7; color: Qt.rgba(0.96, 0.77, 0.0, 0.4) }
+                        GradientStop { position: 1.0; color: "transparent" }
+                    }
+                }
                 Repeater {
                     model: [
                         {t:"Maisha ya Kisiasa", b:"Alianza kama Mbunge wa Chato (1995), akawa Waziri wa Ujenzi (2000–2015). Alichaguliwa Rais mwaka 2015 na 2020 kwa wingi mkubwa. Alijulikana kwa utendaji mkali wa kazi na kupigana na ufisadi."},
                         {t:"Asili yake",        b:"Alizaliwa Chato, Geita. Familia ya hali ya chini. Alipata elimu kwa bidii na akawa mmoja wa viongozi wachache Afrika wenye shahada ya uzamivu (PhD) katika Sayansi."}
                     ]
-                    delegate: Column { width: parent.width; spacing: Math.round(6 * dp)
-                        Text { text: modelData.t; font.pointSize: Math.round(10 * dp); font.bold: true; color: gold }
-                        Text { text: modelData.b; font.pointSize: Math.round(9 * dp); color: creamDim; wrapMode: Text.WordWrap; width: parent.width; lineHeight: 1.5; lineHeightMode: Text.ProportionalHeight }
+                    delegate: Rectangle {
+                        width: parent.width
+                        height: bioInner.implicitHeight + Math.round(16 * dp)
+                        color: darkCard; radius: Math.round(10 * dp)
+                        border.color: Qt.rgba(0.0, 0.50, 0.0, 0.20); border.width: 1
+                        opacity: 0
+                        SequentialAnimation on opacity {
+                            PauseAnimation  { duration: 400 + (index * 150) }
+                            NumberAnimation { from: 0; to: 1; duration: 400; easing.type: Easing.OutCubic }
+                        }
+                        // CCM left border — gold kwa wa kwanza, green kwa wa pili
+                        Rectangle {
+                            anchors.left: parent.left; anchors.top: parent.top; anchors.bottom: parent.bottom
+                            anchors.margins: Math.round(10 * dp); width: Math.round(3 * dp); radius: Math.round(2 * dp)
+                            color: index === 0 ? gold : greenLight
+                        }
+                        Column {
+                            id: bioInner
+                            anchors { left: parent.left; right: parent.right; verticalCenter: parent.verticalCenter; leftMargin: Math.round(18 * dp); rightMargin: Math.round(12 * dp) }
+                            spacing: Math.round(5 * dp)
+                            Text { text: modelData.t; font.pointSize: Math.round(10 * dp); font.bold: true; color: gold }
+                            Text { text: modelData.b; font.pointSize: Math.round(9 * dp); color: creamDim; wrapMode: Text.WordWrap; width: parent.width; lineHeight: 1.5; lineHeightMode: Text.ProportionalHeight }
+                        }
                     }
                 }
             }
@@ -800,26 +860,60 @@ Rectangle {
                             anchors { left: parent.left; right: parent.right; verticalCenter: parent.verticalCenter; leftMargin: Math.round(18 * dp); rightMargin: Math.round(14 * dp) }
                             spacing: Math.round(6 * dp)
                             Text { text: "\u201C" + modelData.q + "\u201D"; font.pointSize: Math.round(10 * dp); font.italic: true; color: cream; wrapMode: Text.WordWrap; width: parent.width; lineHeight: 1.5; lineHeightMode: Text.ProportionalHeight }
-                            Text { text: "— " + modelData.c; font.pointSize: Math.round(8 * dp); color: goldDim; font.italic: true }
+                            Item {
+                                width: parent.width
+                                height: quoteSource.implicitHeight
+                                Text {
+                                    id: quoteSource
+                                    anchors.left: parent.left
+                                    text: "— " + modelData.c
+                                    font.pointSize: Math.round(8 * dp); color: goldDim; font.italic: true
+                                }
+                                Text {
+                                    anchors.right: parent.right
+                                    text: (index + 1) + "/8"
+                                    font.pointSize: Math.round(7 * dp); color: Qt.rgba(0.96, 0.77, 0.0, 0.35)
+                                    anchors.verticalCenter: parent.verticalCenter
+                                }
+                            }
                         }
                         MouseArea {
                             id: quoteMA
                             anchors.fill: parent
-                            onPressed:  { quoteCard.scale = 0.97; }
-                            onReleased: { quoteCard.scale = 1.0; }
+                            onPressed:  { quoteCard.scale = 0.95; }
+                            onReleased: { quoteSpring.start(); }
                             onCanceled: { quoteCard.scale = 1.0; }
+                        }
+                        SequentialAnimation {
+                            id: quoteSpring
+                            NumberAnimation { target: quoteCard; property: "scale"; to: 1.04; duration: 100; easing.type: Easing.OutQuad }
+                            NumberAnimation { target: quoteCard; property: "scale"; to: 0.98; duration: 70;  easing.type: Easing.InQuad  }
+                            NumberAnimation { target: quoteCard; property: "scale"; to: 1.0;  duration: 90;  easing.type: Easing.OutQuad }
                         }
                     }
                 }
 
                 // Memorial card
                 Rectangle {
+                    id: memCard
                     width: parent.width; height: memC.implicitHeight + Math.round(28 * dp); radius: Math.round(14 * dp)
+                    opacity: 0
                     gradient: Gradient {
                         GradientStop { position: 0.0; color: "#002800" }
                         GradientStop { position: 1.0; color: "#003800" }
                     }
                     border.color: greenLight; border.width: 1
+                    // Fade-in baada ya quotes zote
+                    SequentialAnimation on opacity {
+                        PauseAnimation  { duration: 8 * 90 + 400 }
+                        NumberAnimation { from: 0; to: 1; duration: 600; easing.type: Easing.OutCubic }
+                    }
+                    // GreenLight border pulse
+                    SequentialAnimation on border.color {
+                        loops: Animation.Infinite
+                        ColorAnimation { to: greenLight;                        duration: 1400; easing.type: Easing.InOutSine }
+                        ColorAnimation { to: Qt.rgba(0.0, 0.40, 0.0, 0.4);     duration: 1400; easing.type: Easing.InOutSine }
+                    }
                     Column {
                         id: memC
                         anchors { left: parent.left; right: parent.right; verticalCenter: parent.verticalCenter; margins: Math.round(20 * dp) }
