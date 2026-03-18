@@ -164,10 +164,10 @@ Rectangle {
                         spacing: Math.round(4 * dp)
                         // Kila neno — delay inazidi kwa 150ms
                         Repeater {
-                            model: ["Miaka", "5", "tangu", "kifo", "cha", "Dr.", "John", "Pombe", "Joseph", "Magufuli"]
+                            model: ["Miaka", "5", "tangu", "kifo", "cha", "Magufuli"]
                             delegate: Text {
                                 text: modelData
-                                font.pointSize: Math.round(6 * dp)
+                                font.pointSize: Math.round(9 * dp)
                                 font.bold: modelData === "Magufuli" || modelData === "5"
                                 color: modelData === "5" ? gold :
                                        modelData === "Magufuli" ? gold : cream
