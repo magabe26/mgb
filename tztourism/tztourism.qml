@@ -2258,7 +2258,7 @@ Rectangle {
                                     }
                                     Column {
                                         anchors.verticalCenter: parent.verticalCenter; spacing: 3
-                                        Text { text: "Mchezo wa Utalii"; font.pointSize: Qt.platform.os === "android" ? 14 : 12; font.bold: true; color: "white" }
+                                        Text { text: "Mchezo wa Utalii"; font.pointSize: Qt.platform.os === "android" ? 13 : 11; font.bold: true; color: "white" }
                                         Text { text: "Tourism Memory Game"; font.pointSize: Qt.platform.os === "android" ? 11 : 9; color: "#aaaaaa" }
                                     }
                                 }
@@ -3769,8 +3769,8 @@ Rectangle {
                         color: "#0d2a28"; border.color: (app.gameLang === "sw" ? "green" : "blue"); border.width: 1
                         visible: !cardItem.faceUp; layer.enabled: true
                         Column { anchors.centerIn: parent; spacing: 2
-                            Text { anchors.horizontalCenter: parent.horizontalCenter; text: "\uD83C\uDF0D"; font.pointSize: Qt.platform.os === "android" ? 14 : 10 }
-                            Text { anchors.horizontalCenter: parent.horizontalCenter; text: "TZ"; font.pointSize: Qt.platform.os === "android" ? 7 : 5; font.bold: true; color: (app.gameLang === "sw" ? "green" : "blue"); font.letterSpacing: 2 }
+                            Text { anchors.horizontalCenter: parent.horizontalCenter; text: "🇹🇿"; font.pointSize: Qt.platform.os === "android" ? 14 : 10 }
+                            Text { anchors.horizontalCenter: parent.horizontalCenter; text: app.gameLang === "sw" ? "Utalii" : "Tourism"; font.pointSize: Qt.platform.os === "android" ? 7 : 5; font.bold: true; color: (app.gameLang === "sw" ? "green" : "blue"); font.letterSpacing: 2 }
                         }
                         Rectangle {
                             anchors.bottom: parent.bottom;
