@@ -1,0 +1,4 @@
+#openApp;Samia.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Samia/;Tafadhali subiri;dependencies.txt;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Samia/images/;1;1;1;600;
+
+
+#openApp;Samia.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Samia/;Please wait;dependencies.txt;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Samia/images/;2;1;1;600;
