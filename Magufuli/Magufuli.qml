@@ -185,7 +185,7 @@ Rectangle {
                         Image {
                             id: coverImg
                             anchors.fill: parent
-                            fillMode: Image.PreserveAspectFit
+                            fillMode: Image.PreserveAspectCrop
                             source: "./magufuli0.jpeg"
                             smooth: true
                         }
