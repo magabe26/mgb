@@ -3942,8 +3942,8 @@ Rectangle {
                 Rectangle { anchors.horizontalCenter: parent.horizontalCenter; width: parent.width * 0.7; height: 2; radius: 1; color: (app.gameLang === "sw" ? "green" : "blue"); opacity: 0.5 }
                 Repeater {
                     model: app.gameLang === "sw"
-                           ? ["1  Gusa card kuigeua", "2  Gusa nyingine kupata pair", "3  Zikifanana — zinabaki wazi \u2705", "4  Hazifanani — zinarudi nyuma", "5  Pata pairs 8 kushinda! \uD83C\uDFC6"]
-                           : ["1  Tap a card to flip it", "2  Tap another to find a pair", "3  Match found — stays open \u2705", "4  No match — cards flip back", "5  Match all 8 pairs to win! \uD83C\uDFC6"]
+                           ? ["1  Gusa card kuigeua", "2  Gusa nyingine kupata pair", "3  Zikifanana — zinabaki wazi \u2705, unapata pointi", "4  Hazifanani — zinarudi nyuma, unapoteza pointi", "5  Pata pairs 8 kushinda! \uD83C\uDFC6"]
+                           : ["1  Tap a card to flip it", "2  Tap another to find a pair", "3  Match found — stays open \u2705, you gain points", "4  No match — cards flip back, you loose points", "5  Match all 8 pairs to win! \uD83C\uDFC6"]
                     delegate: Text {
                         anchors.horizontalCenter: parent.horizontalCenter
                         text: modelData; font.pointSize: Qt.platform.os === "android" ? 12 : 10; color: "#cccccc"
