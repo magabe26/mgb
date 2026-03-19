@@ -442,7 +442,7 @@ Rectangle{
 
 
 
-/*
+
 
 Rectangle{
             z: root.z + 1
@@ -471,13 +471,13 @@ Rectangle{
             MouseArea{
                 anchors.fill: parent
                 onClicked: {
-                    root.executeCommand("#hh", []);
+                    root.executeCommand("#saveAndPlayVideoAd;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Ads/samia.mp4;#showGoogleAd;Rais wa Tanzania;#004040;samia.mp4;
+", []);
 
                 }
             }
         } 
 
-*/
 
 
         AnimatedImage{
