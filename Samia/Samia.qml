@@ -216,24 +216,16 @@ Rectangle {
                 // ── Dkt. pill ────────────────────────────────────────────
                 Rectangle {
                     anchors.horizontalCenter: parent.horizontalCenter
-                    height: Math.round(26 * dp)
-                    width: drLbl.implicitWidth + Math.round(24 * dp)
-                    radius: Math.round(13 * dp)
-                    color: Qt.rgba(0.96, 0.77, 0.0, 0.12)
-                    border.color: gold; border.width: Math.round(1.5 * dp)
-                    opacity: 0
+                    height: Math.round(26 * dp); width: drLbl.implicitWidth + Math.round(24 * dp)
+                    radius: Math.round(13 * dp); color: Qt.rgba(0.96, 0.77, 0.0, 0.12)
+                    border.color: gold; border.width: Math.round(1.5 * dp); opacity: 0
                     NumberAnimation on opacity { from: 0; to: 1; duration: 700; running: true }
                     SequentialAnimation on border.color {
                         loops: Animation.Infinite
-                        ColorAnimation { to: gold;                            duration: 1200; easing.type: Easing.InOutSine }
+                        ColorAnimation { to: gold; duration: 1200; easing.type: Easing.InOutSine }
                         ColorAnimation { to: Qt.rgba(0.96, 0.77, 0.0, 0.35); duration: 1200; easing.type: Easing.InOutSine }
                     }
-                    Text {
-                        id: drLbl; anchors.centerIn: parent
-                        text: "Dkt."
-                        font.pointSize: Math.round(10 * dp); font.bold: true
-                        font.letterSpacing: Math.round(3 * dp); color: gold
-                    }
+                    Text { id: drLbl; anchors.centerIn: parent; text: "Dkt."; font.pointSize: Math.round(10 * dp); font.bold: true; font.letterSpacing: Math.round(3 * dp); color: gold }
                 }
 
                 Item { width: 1; height: Math.round(6 * dp) }
@@ -242,7 +234,7 @@ Rectangle {
                 Text {
                     anchors.horizontalCenter: parent.horizontalCenter
                     text: "Samia Suluhu Hassan"
-                    font.pointSize: Math.round(18 * dp); font.bold: true
+                    font.pointSize: Math.round(20 * dp); font.bold: true
                     color: cream; horizontalAlignment: Text.AlignHCenter
                     opacity: 0
                     SequentialAnimation on opacity {
@@ -551,9 +543,9 @@ Rectangle {
                         Repeater {
                             model: [
                                 {l:"Jina",     v:"Dkt. Samia Suluhu Hassan"},
-                                {l:"Kuzaliwa", v:"27 Januari 1960, Makunduchi"},
+                                {l:"Kuzaliwa", v:"27 Januari 1960, Kizimkazi, Mkoa wa Kusini Unguja"},
                                 {l:"Awamu",    v:"Rais wa 6 (2021 – sasa)"},
-                                {l:"Umri",     v:"Miaka 64"},
+                                {l:"Umri",     v:"Miaka " + (new Date().getFullYear() - 1960) },
                                 {l:"Kabila",   v:"Mzanzibari"}
                             ]
                             delegate: Row {
@@ -588,10 +580,10 @@ Rectangle {
                 }
                 Repeater {
                     model: [
-                        {l:"Elimu",        v:"BA Chuo Kikuu cha Zanzibar; MSc Chuo cha Ulinzi"},
+                        {l:"Elimu",        v:"Stashahada Utawala — Mzumbe/IDM (1986)\nPostgrad Economics — Univ. Manchester (1994)\nMSc Maendeleo ya Jamii — OUT/SNHU (2015)"},
                         {l:"Chama",        v:"CCM"},
                         {l:"Makamu",       v:"Dkt. Emmanuel Nchimbi"},
-                        {l:"Kazi ya awali",v:"Waziri wa Fedha (2010–2015)\nMakamu wa Rais (2015–2021)"}
+                        {l:"Kazi ya awali",v:"Katibu, Wizara ya Mipango (1977)\nMeneja WFP Zanzibar (1988)\nWaziri Zanzibar (2000–2010)\nWaziri wa Muungano (2010–2015)"}
                     ]
                     delegate: Row { spacing: Math.round(8 * dp); width: parent.width
                         Text { text: modelData.l + ":"; font.pointSize: Math.round(8 * dp); font.bold: true; color: goldDim; width: Math.round(95 * dp) }
@@ -613,8 +605,8 @@ Rectangle {
                 }
                 Repeater {
                     model: [
-                        {t:"Maisha ya Kisiasa", b:"Alikuwa Waziri wa Serikali ya Zanzibar, Waziri wa Fedha wa Tanzania, na Makamu wa Rais. Baada ya kifo cha Rais Magufuli Machi 2021, aliapishwa kuwa Rais wa 6 — Rais wa kwanza mwanamke Afrika Mashariki."},
-                        {t:"Asili yake",        b:"Alizaliwa Makunduchi, Zanzibar. Alikua katika mazingira ya kawaida na kupata elimu kwa bidii. Anajulikana kwa utulivu, busara, na ujasiri — kwa kweli kiongozi wa kipekee."}
+                        {t:"Maisha ya Kisiasa", b:"Alikuwa Waziri katika Serikali ya Zanzibar (2000–2010), Mbunge na Waziri wa Muungano (2010–2015), na Makamu wa Rais (2015–2021). Baada ya kifo cha Rais Magufuli Machi 2021, aliapishwa kuwa Rais wa 6 — Rais wa kwanza mwanamke Afrika Mashariki."},
+                        {t:"Asili yake",        b:"Alizaliwa Kizimkazi, Zanzibar. Alikua katika mazingira ya kawaida na kupata elimu kwa bidii. Anajulikana kwa utulivu, busara, na ujasiri — kwa kweli kiongozi wa kipekee."}
                     ]
                     delegate: Rectangle {
                         width: parent.width
@@ -695,14 +687,22 @@ Rectangle {
 
                 Repeater {
                     model: [
-                        {i:"\uD83D\uDC69\u200D\uD83C\uDFEB", t:"Rais wa Kwanza Mwanamke",    d:"Aliapishwa tarehe 19 Machi 2021 baada ya kifo cha Rais Magufuli — Rais wa kwanza mwanamke Afrika Mashariki."},
-                        {i:"\uD83D\uDCB0", t:"Uchumi Imara",                  d:"Alianzisha mageuzi ya uchumi, kupunguza kodi, na kuvutia wawekezaji wa kimataifa — uchumi wa Tanzania uliimarika."},
-                        {i:"\uD83D\uDC89", t:"Kampeni ya Chanjo ya COVID-19",  d:"Alibadilisha msimamo wa serikali kuhusu COVID-19, akapeleka Tanzania kwenye mpango wa chanjo wa kimataifa."},
-                        {i:"\uD83C\uDFD7", t:"Miundombinu ya Kisasa",          d:"Aliendelea na miradi mikubwa — SGR, barabara, umeme vijijini — akiipa nguvu zaidi Tanzania yenye maendeleo."},
-                        {i:"\uD83E\uDD1D", t:"Diplomasia ya Kimataifa",        d:"Alijenga mahusiano mazuri na mataifa mengi, akarudisha Tanzania kwenye jumuiya ya kimataifa kwa nguvu."},
-                        {i:"\uD83C\uDF31", t:"Mazingira na Utalii",            d:"Aliimarisha uhifadhi wa mazingira na kupigana dhidi ya mabadiliko ya tabianchi kwa sauti ya kimataifa."},
-                        {i:"\uD83D\uDCDA", t:"Elimu na Afya",                  d:"Aliendelea na sera ya elimu bure na kuimarisha mfumo wa afya nchini, hasa kwa mama na watoto."},
-                        {i:"\u2696\uFE0F",  t:"Haki za Wanawake",              d:"Alipigana dhidi ya ubaguzi wa jinsia na kufungua milango zaidi kwa wanawake kwenye uongozi nchini Tanzania."}
+                        {i:"\uD83D\uDC69\u200D\uD83C\uDFEB", t:"Rais wa Kwanza Mwanamke (2021)",
+                         d:"Aliapishwa tarehe 19 Machi 2021 — Rais wa kwanza mwanamke Tanzania na Afrika Mashariki."},
+                        {i:"\uD83D\uDC89", t:"Kukabiliana na COVID-19",
+                         d:"Alibatilisha ukanushaji wa COVID, aliingia COVAX na alipokea chanjo hadharani Agosti 2021."},
+                        {i:"\uD83C\uDF10", t:"Diplomasia Mpya",
+                         d:"Aliruhusu mashirika ya kimataifa, aliachilia wafungwa wa kisiasa, akafungua vyombo vya habari."},
+                        {i:"\uD83D\uDCB0", t:"Uchumi Imara",
+                         d:"Uchumi ulikua wastani wa 6% kwa mwaka. Alipunguza vikwazo vya uwekezaji na kuvutia washirika."},
+                        {i:"\uD83C\uDF09", t:"Daraja la Kigongo-Busisi (2025)",
+                         d:"Alifungua daraja refu zaidi Afrika Mashariki linalokata Ziwa Victoria, Juni 2025."},
+                        {i:"\uD83D\uDE82", t:"SGR na Bandari Kavu ya Kwala (2025)",
+                         d:"Alizindua SGR ya umeme na Bandari Kavu ya Kwala Julai 2025, kuimarisha Tanzania kama kitovu cha biashara."},
+                        {i:"\uD83D\uDC69\u200D\uD83C\uDFEB", t:"Elimu ya Wasichana",
+                         d:"Aliondoa marufuku ya wasichana wajawazito kurudi shule — hatua ya kihistoria ya haki za elimu."},
+                        {i:"\uD83D\uDDF3\uFE0F", t:"Uchaguzi wa 2025 — Muhula wa Pili",
+                         d:"Alishinda uchaguzi mkuu wa Oktoba 2025 na 97.66% ya kura, akiapishwa Novemba 3, 2025."}
                     ]
                     delegate: Rectangle {
                         id: mafCard
@@ -815,14 +815,14 @@ Rectangle {
 
                 Repeater {
                     model: [
-                        {q:"Tutaendelea kupigana ili kuhakikisha kwamba kila Mtanzania anapata heshima, elimu, na maisha bora.",           c:"Hotuba ya kuapishwa, 2021"},
-                        {q:"Sijali jinsia yangu. Ninajali uwezo wangu na kazi ninayoifanya kwa Watanzania.",                      c:"Mkutano wa kimataifa"},
-                        {q:"Uchumi imara ndiyo msingi wa uhuru wa kweli — bila uchumi hakuna maisha.",                       c:"Hotuba ya bajeti"},
-                        {q:"Hatuwezi kukimbia mabadiliko. Lazima tuyakabiliane nayo kwa ujasiri na busara.",                       c:"Mkutano wa viongozi"},
-                        {q:"Mwanamke anapoingia madarakani, matumaini ya familia nzima yanainuka.",                               c:"Siku ya Wanawake Duniani"},
-                        {q:"Tanzania ni nyumba ya wote — hakuna anayestahili kuachwa nyuma.",                                c:"Kampeni ya CCM, 2020"},
-                        {q:"Naomba utulivu, lakini sitasimama pale ambapo haki za wananchi zinakanyagwa.",                        c:"Bungeni, Dodoma"},
-                        {q:"Maendeleo ya kweli yanapimwa si kwa majengo, bali kwa furaha ya wananchi.",                           c:"Hotuba ya taifa"}
+                        {q:"Tutaendelea kupigana ili kuhakikisha kwamba kila Mtanzania anapata heshima, elimu, na maisha bora.", c:"Hotuba ya kuapishwa, 2021"},
+                        {q:"Sijali jinsia yangu. Ninajali uwezo wangu na kazi ninayoifanya kwa Watanzania.", c:"Mkutano wa kimataifa"},
+                        {q:"Uchumi imara ndiyo msingi wa uhuru wa kweli — bila uchumi hakuna maisha.", c:"Hotuba ya bajeti"},
+                        {q:"Hatuwezi kukimbia mabadiliko. Lazima tuyakabiliane nayo kwa ujasiri na busara.", c:"Mkutano wa viongozi"},
+                        {q:"Mwanamke anapoingia madarakani, matumaini ya familia nzima yanainuka.", c:"Siku ya Wanawake Duniani"},
+                        {q:"Tanzania ni nyumba ya wote — hakuna anayestahili kuachwa nyuma.", c:"Kampeni ya CCM, 2020"},
+                        {q:"Naomba utulivu, lakini sitasimama pale ambapo haki za wananchi zinakanyagwa.", c:"Bungeni, Dodoma"},
+                        {q:"Maendeleo ya kweli yanapimwa si kwa majengo, bali kwa furaha ya wananchi.", c:"Hotuba ya taifa"}
                     ]
                     delegate: Rectangle {
                         id: quoteCard
@@ -1043,17 +1043,17 @@ Rectangle {
         // ── Game state ───────────────────────────────────────────────────────
         property var  cardData:    [
             {pid:0, icon:"\uD83D\uDC69\u200D\uD83C\uDFEB", label:"Rais"},
-            {pid:1, icon:"\uD83D\uDCB0",               label:"Uchumi"},
-            {pid:2, icon:"\uD83D\uDC89",               label:"Chanjo"},
-            {pid:3, icon:"\uD83C\uDFD7",               label:"Miundombinu"},
-            {pid:4, icon:"\uD83E\uDD1D",               label:"Diplomasia"},
-            {pid:5, icon:"\u2696\uFE0F",               label:"Haki"},
+            {pid:1, icon:"\uD83D\uDC89",               label:"COVID"},
+            {pid:2, icon:"\uD83C\uDF09",               label:"Daraja"},
+            {pid:3, icon:"\uD83D\uDE82",               label:"SGR"},
+            {pid:4, icon:"\uD83D\uDC69\u200D\uD83C\uDFEB", label:"Elimu"},
+            {pid:5, icon:"\uD83C\uDF10",               label:"Diplomasia"},
             {pid:0, icon:"\uD83D\uDC69\u200D\uD83C\uDFEB", label:"Rais"},
-            {pid:1, icon:"\uD83D\uDCB0",               label:"Uchumi"},
-            {pid:2, icon:"\uD83D\uDC89",               label:"Chanjo"},
-            {pid:3, icon:"\uD83C\uDFD8",               label:"Miundombinu"},
-            {pid:4, icon:"\uD83E\uDD1D",               label:"Diplomasia"},
-            {pid:5, icon:"\u2696\uFE0F",               label:"Haki"}
+            {pid:1, icon:"\uD83D\uDC89",               label:"COVID"},
+            {pid:2, icon:"\uD83C\uDF09",               label:"Daraja"},
+            {pid:3, icon:"\uD83D\uDE82",               label:"SGR"},
+            {pid:4, icon:"\uD83D\uDC69\u200D\uD83C\uDFEB", label:"Elimu"},
+            {pid:5, icon:"\uD83C\uDF10",               label:"Diplomasia"}
         ]
         property var  shuffled:    []
         property var  flipped:     []
@@ -1790,47 +1790,47 @@ Rectangle {
 
                 Repeater {
                     model: [
-                        {yr:"1960", icon:"\uD83C\uDF1F", title:"Kuzaliwa Makunduchi, Zanzibar",
-                         body:"Samia Suluhu Hassan alizaliwa tarehe 27 Januari 1960 Makunduchi, kusini mwa Zanzibar. Alikua katika familia ya kawaida.",
+                        {yr:"1960", icon:"\uD83C\uDF1F", title:"Kuzaliwa Kizimkazi, Zanzibar",
+                         body:"Samia Suluhu Hassan alizaliwa tarehe 27 Januari 1960 huko Kizimkazi, Zanzibar.",
                          hi:"#f5c400"},
-                        {yr:"1980", icon:"\uD83C\uDFEB", title:"Elimu na Kazi ya Awali",
-                         body:"Alihitimu masomo na kuanza kazi ya utumishi wa umma. Alipata mafunzo ya uchumi na usimamizi wa fedha.",
+                        {yr:"1977", icon:"\uD83C\uDFEB", title:"Kumaliza Sekondari",
+                         body:"Alimaliza elimu ya sekondari 1977 na kuanza kazi kama katibu katika Wizara ya Mipango na Maendeleo.",
                          hi:"#00aa00"},
-                        {yr:"2000", icon:"\uD83C\uDFDB\uFE0F", title:"Bunge la Zanzibar",
-                         body:"Alichaguliwa Mbunge wa Zanzibar na kuanza safari yake ya kisiasa ya kitaifa. Alionekana kama kiongozi makini na mwenye busara.",
+                        {yr:"1986", icon:"\uD83C\uDF93", title:"Stashahada Utawala — Mzumbe",
+                         body:"Alihitimu Stashahada ya Juu ya Utawala wa Umma kutoka Chuo cha IDM (sasa Mzumbe University).",
                          hi:"#f5c400"},
-                        {yr:"2010", icon:"\uD83D\uDCB0", title:"Waziri wa Fedha",
-                         body:"Aliteuliwa kuwa Waziri wa Fedha na Uchumi wa Tanzania. Aliimarisha mfumo wa fedha na kupigana dhidi ya ufisadi.",
+                        {yr:"1988", icon:"\uD83C\uDF0D", title:"Meneja WFP Zanzibar",
+                         body:"Aliteuliwa kuwa Meneja Mradi wa WFP (World Food Programme) Zanzibar, kazi aliyoifanya hadi miaka ya 1990.",
                          hi:"#00aa00"},
-                        {yr:"2014", icon:"\uD83C\uDFE6", title:"Waziri wa Nchi",
-                         body:"Alihudumu kama Waziri wa Nchi katika Ofisi ya Rais, akisimamia uratibu wa serikali kwa ufanisi mkubwa.",
+                        {yr:"1994", icon:"\u2708\uFE0F",  title:"Postgrad — Manchester, UK",
+                         body:"Alipata Postgraduate Diploma in Economics kutoka Chuo Kikuu cha Manchester, Uingereza.",
                          hi:"#f5c400"},
-                        {yr:"2015", icon:"\uD83C\uDDFA\uD83C\uDDF3", title:"Makamu wa Rais",
-                         body:"Aliteuliwa kuwa Makamu wa Rais wa Tanzania chini ya Rais John Pombe Magufuli — mwanamke wa kwanza kushika nafasi hiyo.",
+                        {yr:"2000", icon:"\uD83C\uDFDB\uFE0F", title:"Mkurugenzi & Bunge la Zanzibar",
+                         body:"Alikuwa Mkurugenzi wa shirika la NGO Zanzibar. Akachaguliwa kwenye Baraza la Wawakilishi Zanzibar, akiteuliwa Waziri wa Vijana, Wanawake na Watoto.",
                          hi:"#00aa00"},
-                        {yr:"2021", icon:"\uD83C\uDFC6", title:"Rais wa 6 wa Tanzania",
-                         body:"Baada ya kifo cha Rais Magufuli tarehe 17 Machi 2021, aliapishwa kuwa Rais wa 6 — Rais wa kwanza mwanamke Afrika Mashariki.",
+                        {yr:"2005", icon:"\uD83C\uDF3F", title:"Waziri wa Utalii Zanzibar",
+                         body:"Baada ya kuchaguliwa tena, aliteuliwa Waziri wa Utalii na Uwekezaji wa Biashara Zanzibar.",
                          hi:"#f5c400"},
-                        {yr:"2021", icon:"\uD83D\uDC89", title:"Kampeni ya COVID-19",
-                         body:"Alibadilisha msimamo wa serikali kuhusu COVID-19, akapeleka chanjo Tanzania na kuirejesha kwenye jumuiya ya kimataifa ya afya.",
+                        {yr:"2010", icon:"\uD83C\uDDFA\uD83C\uDDF3", title:"Mbunge — Makunduchi",
+                         body:"Alichaguliwa Mbunge wa Bunge la Taifa, kata ya Makunduchi. Rais Kikwete alimteua Waziri wa Nchi — Ofisi ya Makamu wa Rais (Muungano).",
                          hi:"#00aa00"},
-                        {yr:"2022", icon:"\uD83E\uDD1D", title:"Diplomasia ya Kimataifa",
-                         body:"Alijenga mahusiano mapya na mataifa mengi, akisaidia Tanzania kupata uwekezaji na ushirikiano wa kimataifa.",
+                        {yr:"2014", icon:"\uD83D\uDCDC", title:"Makamu Mwenyekiti — Bunge Maalum",
+                         body:"Aliteuliwa Makamu Mwenyekiti wa Bunge Maalum la Katiba — lililoundwa kuandika katiba mpya ya Tanzania.",
                          hi:"#f5c400"},
-                        {yr:"2022", icon:"\uD83D\uDCB8", title:"Mageuzi ya Uchumi",
-                         body:"Alianzisha mageuzi ya uchumi — kupunguza kodi, kuongeza uwekezaji, na kuvutia makampuni ya kimataifa kuja Tanzania.",
+                        {yr:"2015", icon:"\uD83C\uDFC6", title:"Makamu wa Rais wa Kwanza Mwanamke",
+                         body:"Alichaguliwa kuwa Makamu wa Rais pamoja na Rais Magufuli — Makamu wa kwanza mwanamke katika historia ya Tanzania.",
                          hi:"#00aa00"},
-                        {yr:"2023", icon:"\uD83C\uDF31", title:"Mazingira na Tabianchi",
-                         body:"Alipigana kwa nguvu dhidi ya mabadiliko ya tabianchi kwenye majukwaa ya kimataifa, akijitokeza kama kiongozi wa Afrika.",
+                        {yr:"2015", icon:"\uD83C\uDF93", title:"MSc Maendeleo ya Jamii",
+                         body:"Alihitimu MSc in Community Economic Development kupitia ushirikiano wa OUT na SNHU (USA).",
                          hi:"#f5c400"},
-                        {yr:"2024", icon:"\u2696\uFE0F",  title:"Haki za Wanawake",
-                         body:"Aliimarisha haki za wanawake na wasichana — elimu, afya, na fursa za kiuchumi — akifanya Tanzania kuwa mfano wa Afrika.",
+                        {yr:"2021", icon:"\uD83C\uDF89", title:"Rais wa 6 — Historia",
+                         body:"Baada ya kifo cha Rais Magufuli tarehe 17 Machi 2021, aliapishwa tarehe 19 Machi 2021 — Rais wa kwanza mwanamke Tanzania na Afrika Mashariki.",
                          hi:"#00aa00"},
-                        {yr:"2025", icon:"\uD83C\uDFD7", title:"Miundombinu ya Kisasa",
-                         body:"Aliendelea na miradi mikubwa ya miundombinu — SGR, barabara, na umeme — kuwezesha maendeleo ya haraka zaidi.",
+                        {yr:"2025", icon:"\uD83C\uDF09", title:"Daraja la Kigongo-Busisi",
+                         body:"Alifungua daraja refu zaidi Afrika Mashariki linalokata Ziwa Victoria, Juni 2025. Pia alizindua Bandari Kavu ya Kwala na SGR ya umeme.",
                          hi:"#f5c400"},
-                        {yr:"Sasa", icon:"\uD83C\uDF0D", title:"Kuendelea Kuongoza",
-                         body:"Samia anaendelea kuiongoza Tanzania kwa ujasiri, hekima, na upole — akiwa mfano kwa wanawake na vijana wa Tanzania.",
+                        {yr:"2025", icon:"\uD83D\uDDF3\uFE0F",  title:"Muhula wa Pili — Uchaguzi",
+                         body:"Alishinda uchaguzi mkuu wa Oktoba 29, 2025 na asilimia 97.66 ya kura. Aliapishwa Novemba 3, 2025 kwa muhula wake wa pili.",
                          hi:"#00aa00"}
                     ]
 
