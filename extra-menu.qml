@@ -397,7 +397,7 @@ Rectangle{
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.leftMargin: menu.textLeftMargin
                 color: Qt.lighter("gray",1.7)
-                text: "Chenza mchezo wa neno"
+                text: "Cheza mchezo wa neno"
             }
 
             MouseArea{
@@ -430,7 +430,7 @@ Rectangle{
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.leftMargin: menu.textLeftMargin
                 color: Qt.lighter("gray",1.7)
-                text: "Chenza mchezo wa nyoka"
+                text: "Cheza mchezo wa nyoka"
             }
 
             MouseArea{
@@ -463,7 +463,7 @@ Rectangle{
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.leftMargin: menu.textLeftMargin
                 color: Qt.lighter("gray",1.7)
-                text: "Chenza mchezo wa bao"
+                text: "Cheza mchezo wa bao"
             }
 
             MouseArea{
