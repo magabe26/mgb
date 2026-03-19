@@ -1,5 +1,6 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
+import Qt.labs.settings 1.0
 
 Rectangle {
     id: app
@@ -60,6 +61,13 @@ Rectangle {
     readonly property color textDim:   "#8b949e"
     readonly property color hintColor: "#ffa657"
     color: bgDark
+
+    // ── Persistent settings ───────────────────────────────────────────────────
+    Settings {
+        id: gameSettings
+        category: "NenoGame"
+        property string playedWordsJson: "[]"
+    }
 
     // ── Word banks ────────────────────────────────────────────────────────────
     property var bank4: [
@@ -174,7 +182,28 @@ Rectangle {
         {w:"GEGO",sw:"Meno mazito ya nyuma — yanasaga chakula kigumu",en:"Molar"},
         {w:"WAVI",sw:"Wavuvi wanaotumia hiki baharini",en:"Net (fishing)"},
         {w:"PAGO",sw:"Malipo ya fidia — unalipa ukikosea",en:"Payment/Fine"},
-        {w:"KOPO",sw:"Chombo cha chuma kilichofungwa — unakishangilia ukifungua",en:"Tin can"}
+        {w:"KOPO",sw:"Chombo cha chuma kilichofungwa — unakishangilia ukifungua",en:"Tin can"},
+        {w:"JIPU",sw:"Uvimbe wenye siri ndani unauma ukiguswa kidogo tu",en:"Abscess/Boil"},
+        {w:"BOGA",sw:"Mboga ya mviringo unayokata haikuumia wala kulia",en:"Pumpkin/Gourd"},
+        {w:"PORI",sw:"Mahali binadamu hawaiishi wanyama wanamiliki kila kitu",en:"Wilderness"},
+        {w:"TUTA",sw:"Kilima kidogo cha ardhi si mlima wala bonde kabisa",en:"Mound"},
+        {w:"MELE",sw:"Kelele nyingi amani inakimbia bila kuagana",en:"Noise/Uproar"},
+        {w:"GOGO",sw:"Shina la mti lililowekwa chini bado lina nguvu ndani",en:"Log/Trunk"},
+        {w:"LELE",sw:"Wimbo wa kulaza mtoto upole wake ni wa kipekee duniani",en:"Lullaby"},
+        {w:"BUSU",sw:"Onyesho la upendo kwa midomo hakuna bei yake",en:"Kiss"},
+        {w:"LOGO",sw:"Alama inayotambulisha kampuni kidogo lakini inabeba mengi",en:"Logo/Symbol"},
+        {w:"KIMO",sw:"Urefu wa mtu au kitu kipimo cha wima tu",en:"Height/Stature"},
+        {w:"DOLI",sw:"Mfano wa binadamu wa kucheza nawo watoto wanaipenda",en:"Doll"},
+        {w:"KOFI",sw:"Mkono wazi ukigonga kwa nguvu sauti yake inasikika mbali",en:"Slap/Clap"},
+        {w:"BWIA",sw:"Kukaa bila kufanya kazi wakati unaendelea kupita bila kujali",en:"Idling"},
+        {w:"SHAO",sw:"Nusu au upande mmoja wa kitu hukamilishi peke yake",en:"Half/One side"},
+        {w:"NUKA",sw:"Kutoa harufu mbaya au kuchukiza — pua inafungika haraka",en:"To smell bad/stink"},
+        {w:"KADI",sw:"Karatasi ndogo ya utambulisho au ya mchezo wa kawaida",en:"Card/ID card"},
+        {w:"GOLI",sw:"Mpira unaoingia nyavuni — furaha ya wachezaji wote pamoja",en:"Goal in sports"},
+        {w:"HEPA",sw:"Kukimbia hatari haraka akili inafanya kazi kuliko miguu yako",en:"To escape/dodge"},
+        {w:"INUA",sw:"Kuinua kitu juu kwa nguvu au kuinua hali ya mtu dhaifu",en:"To lift up"},
+        {w:"AMKA",sw:"Kuacha usingizi macho yanafunguka duniani tena kila asubuhi yake",en:"To wake up"},
+        {w:"LIPA",sw:"Kutoa pesa kwa bidhaa uliyonunua deni linakwisha baada ya kulipa",en:"To pay"}
     ]
 
     property var bank5: [
@@ -276,7 +305,26 @@ Rectangle {
         {w:"PEKEE",sw:"Hakuna mwingine kama wewe ulimwenguni",en:"Unique/Alone/Only"},
         {w:"ARUSI",sw:"Siku moja tu lakini kumbukumbu inadumu maisha yote",en:"Wedding ceremony"},
         {w:"BIDII",sw:"Unaiweka hata ukijua matokeo hayatakuwa ya haraka",en:"Effort/Diligence"},
-        {w:"TAMAA",sw:"Inakuvuta mbele lakini wakati mwingine inakuangamiza",en:"Desire/Greed"}
+        {w:"TAMAA",sw:"Inakuvuta mbele lakini wakati mwingine inakuangamiza",en:"Desire/Greed"},
+        {w:"FAHMU",sw:"Kuelewa kwa undani si kujua tu bali kushika maana yake",en:"Understanding"},
+        {w:"GANZI",sw:"Hali ya mwili kutohisi moyo pia unaweza kupata hali hii",en:"Numbness"},
+        {w:"HAIBA",sw:"Mvuto wa kipekee unaoanza ukimwona tu bila maneno yoyote",en:"Charm/Charisma"},
+        {w:"HEKMA",sw:"Busara ya hali ya juu ni kipawa cha nadra sana duniani",en:"Wisdom"},
+        {w:"HONGO",sw:"Unatoa pesa kwa siri ili kitu kisiende sawa kwa wote",en:"Bribe"},
+        {w:"JINSI",sw:"Namna au njia ya kufanya kitu kila mtu ana yake mwenyewe",en:"Manner/Way"},
+        {w:"RUNDO",sw:"Vitu vingi vilivyokusanywa kila kimoja kina historia yake",en:"Heap/Pile"},
+        {w:"CHORA",sw:"Kutoa mchoro kwa kalamu au penseli kabla ya rangi",en:"To draw/sketch"},
+        {w:"ANGUA",sw:"Kuangusha kitu chini bila kukusudia wala kupanga",en:"To knock down/topple"},
+        {w:"FUATA",sw:"Kufuata mtu au njia — mara nyingi bila kuulizwa",en:"To follow"},
+        {w:"GEUKA",sw:"Kubadilisha mwelekeo ghafla — mara nyingi kwa mshangao",en:"To turn/change direction"},
+        {w:"CHOKA",sw:"Kupata uchovu baada ya kutoa nguvu zako zote",en:"To get tired/exhausted"},
+        {w:"FANYA",sw:"Kutenda kitendo — kufanya kitu kizuri au kibaya",en:"To do/make/act"},
+        {w:"GONGA",sw:"Kugonga mlango kabla ya kuingia — adabu inasema hivyo",en:"To knock/hit"},
+        {w:"OGOPA",sw:"Kuogopa kitu au mtu hata ukijua labda hakupo kweli kweli",en:"To fear"},
+        {w:"PAMBA",sw:"Mmea mweupe laini unaotumika kutengeneza nguo na vitanda",en:"Cotton"},
+        {w:"UPONA",sw:"Kupona ugonjwa na kurudi nguvu — mwili unashukuri baada ya taabu",en:"Recovery/Healing"},
+        {w:"VUMIA",sw:"Kuvumilia maumivu au hali ngumu bila kulalamika kamwe",en:"To endure/bear pain"},
+        {w:"PAKUA",sw:"Kupakua mzigo kutoka gari — au kupakua faili kwenye simu yako",en:"To unload/download"}
     ]
 
     property var bank6: [
@@ -343,7 +391,23 @@ Rectangle {
         {w:"KIZAZI",sw:"Watu wa umri mmoja — wataandika historia yao wenyewe",en:"Generation"},
         {w:"SAMEHE",sw:"Ni nguvu kubwa — wanyonge hawakuweza kamwe",en:"To forgive"},
         {w:"KARAMU",sw:"Chakula cha furaha — tumbo linashangilia",en:"Feast/Banquet"},
-        {w:"KATAZO",sw:"Kinakuzuia kufanya unachopenda — lakini kina sababu",en:"Prohibition/Ban"}
+        {w:"KATAZO",sw:"Kinakuzuia kufanya unachopenda — lakini kina sababu",en:"Prohibition/Ban"},
+        {w:"SUBIRA",sw:"Silaha ya wenye nguvu wanyonge hukata tamaa mapema sana",en:"Patience"},
+        {w:"BAHATI",sw:"Inakuja bila kukualika na kuondoka bila kusema kwa heri",en:"Luck/Fortune"},
+        {w:"UCHOVU",sw:"Mwili unasema acha hata akili inakubaliana naye leo hii",en:"Fatigue"},
+        {w:"BUSARA",sw:"Hekima ya vitendo inakuja baada ya makosa mengi si vitabuni",en:"Wisdom"},
+        {w:"UELEWA",sw:"Uwezo wa kuelewa kwa undani si kujua tu bali kugusa maana",en:"Comprehension"},
+        {w:"MWANZO",sw:"Hatua ya kwanza ndiyo ngumu zaidi baadaye inakuwa rahisi",en:"Beginning"},
+        {w:"NGUONO",sw:"Nguvu ya ujana inayowaka ghafla na kuzimika haraka sana",en:"Youth energy"},
+        {w:"MWISHO",sw:"Kila kitu kina hii maisha yana hii safari ina hii pia",en:"End/Conclusion"},
+        {w:"AMBAPO",sw:"Mahali ambapo kitu kilikotokea kiashiria muhimu cha lugha",en:"Where/Whereby"},
+        {w:"ANGUKA",sw:"Kushuka chini bila kukusudia — hata watu wakubwa wanaanguka",en:"To fall down"},
+        {w:"CHOMBO",sw:"Kitu cha kufanyia kazi — bila yake kazi inakuwa ngumu",en:"Tool/Vessel/Instrument"},
+        {w:"FANANA",sw:"Kufanana na kitu kingine — lakini si kitu kimoja halisi",en:"To resemble/be similar"},
+        {w:"IMRIKA",sw:"Kujaza kwa nguvu — kufurika hadi kutoka nje ya chombo",en:"To overflow/be full"},
+        {w:"JARIBU",sw:"Kujaribu kitu kipya bila kujua matokeo yake kabla yake",en:"To try/attempt"},
+        {w:"KATIKA",sw:"Ndani ya sehemu fulani — au kwa wakati fulani maalum",en:"In/Within/During"},
+        {w:"LAZIMA",sw:"Hakuna jinsi nyingine — ni wajibu usioepukika kamwe",en:"Must/Necessary/Obligatory"}
     ]
 
     property var bank7: [
@@ -409,7 +473,13 @@ Rectangle {
         {w:"UTABIRI",sw:"Kusema kitakachotokea kabla ya kutokea",en:"Prophecy/Prediction"},
         {w:"DHARURA",sw:"Hali ya hatari inayohitaji hatua za haraka sana",en:"Emergency"},
         {w:"UNAFIKI",sw:"Uso mmoja mbele yako na mwingine nyuma yako",en:"Hypocrisy"},
-        {w:"UFISADI",sw:"Kutumia mamlaka vibaya kwa faida yako bila kujali wengine",en:"Corruption"}
+        {w:"UFISADI",sw:"Kutumia mamlaka vibaya kwa faida yako bila kujali wengine",en:"Corruption"},
+        {w:"MAJONZI",sw:"Huzuni nzito inayobeba mtu chini bila yeye kujua sababu",en:"Grief/Sorrow"},
+        {w:"STAREHE",sw:"Mwili unapumzika lakini akili bado inafanya kazi yake usiku",en:"Comfort/Ease"},
+        {w:"MAARIFA",sw:"Unayoyajua lakini kujua tu hakutoshi bila kutenda kweli",en:"Knowledge"},
+        {w:"NGURUWE",sw:"Mnyama wa shambani mwenye pua ndefu anajua njia ya kuchimba",en:"Pig"},
+        {w:"UTAYARI",sw:"Hali ya kuwa tayari — umejitayarisha kabla ya wakati",en:"Readiness/Preparedness"},
+        {w:"MKAGUZI",sw:"Mtu anayekagua hesabu au kazi kwa makini na usahihi",en:"Auditor/Inspector"}
     ]
 
     // ── Settings ──────────────────────────────────────────────────────────────
@@ -419,6 +489,17 @@ Rectangle {
 
     // ── Game state ────────────────────────────────────────────────────────────
     property var    wordList:     []
+    property var    playedWords:  []  // maneno yaliyochezwa — hayarudi
+
+    // Pakia playedWords kutoka Settings ukianza app
+    Component.onCompleted: {
+        try {
+            var loaded = JSON.parse(gameSettings.playedWordsJson);
+            if(Array.isArray(loaded)){ playedWords = loaded; }
+        } catch(e) {
+            playedWords = [];
+        }
+    }
     property int    wordIndex:    0
     property var    currentEntry: ({w:"",sw:"",en:""})
     property string currentWord:  ""
@@ -471,7 +552,17 @@ Rectangle {
                 if(b[j].w.length===lengthChoices[i]){ all.push(b[j]); }
             }
         }
-        return shuffle(all).slice(0, Math.min(roundCount, all.length));
+        // Toa maneno yaliyochezwa tayari
+        var fresh = all.filter(function(entry){
+            return playedWords.indexOf(entry.w) === -1;
+        });
+        // Kama maneno mapya hayatoshi, futa kumbukumbu na uanze upya
+        if(fresh.length < roundCount){
+            playedWords = [];
+            gameSettings.playedWordsJson = "[]";
+            fresh = all;
+        }
+        return shuffle(fresh).slice(0, Math.min(roundCount, fresh.length));
     }
 
     function makeHidden(word) {
@@ -532,6 +623,12 @@ Rectangle {
 
     function startGame() {
         wordList=buildWordList(); wordIndex=0; score=0;
+        // Hifadhi maneno haya kama yaliyochezwa
+        var played=playedWords.slice();
+        for(var i=0;i<wordList.length;i++){ played.push(wordList[i].w); }
+        playedWords=played;
+        // Hifadhi kwenye Settings — itabaki hata ukifunga app
+        gameSettings.playedWordsJson = JSON.stringify(played);
         screen="playing"; loadWord();
     }
 
@@ -643,65 +740,166 @@ Rectangle {
         anchors.fill: parent
         visible: screen==="setup"
 
+        // Subtle dot grid background
+        Canvas {
+            anchors.fill: parent
+            onPaint: {
+                var ctx = getContext("2d");
+                ctx.clearRect(0, 0, width, height);
+                ctx.fillStyle = "#1a2233";
+                var step = dp(28);
+                for (var x = 0; x < width; x += step) {
+                    for (var y = 0; y < height; y += step) {
+                        ctx.beginPath();
+                        ctx.arc(x, y, dp(1.2), 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+                }
+            }
+        }
+
         Column {
             anchors.centerIn: parent
             width: parent.width * 0.85
-            spacing: dp(22)
+            spacing: dp(20)
 
-            Column {
-                width: parent.width; spacing: dp(4)
-                Text {
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    text:"NENO"; font.pixelSize:dp(48); font.bold:true
-                    font.letterSpacing:dp(12); color:accent
+            // ── Logo block ────────────────────────────────────────────────
+            Item {
+                width: parent.width
+                height: dp(110)
+
+                // Glow behind title
+                Rectangle {
+                    anchors.centerIn: parent
+                    width: dp(180); height: dp(60)
+                    radius: dp(30)
+                    color: accent
+                    opacity: 0.08
                 }
-                Text {
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    text:"Jaza nafasi — Pata pointi"
-                    font.pixelSize:dp(13); color:textDim
+
+                Column {
+                    anchors.centerIn: parent
+                    spacing: dp(6)
+
+                    Text {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        text: "NENO"
+                        font.pixelSize: dp(52); font.bold: true
+                        font.letterSpacing: dp(14)
+                        color: accent
+                    }
+                    // Underline accent bar
+                    Rectangle {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        width: dp(48); height: dp(3); radius: dp(2)
+                        color: accent; opacity: 0.7
+                    }
+                    Text {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        text: "Jaza nafasi — Pata pointi"
+                        font.pixelSize: dp(12)
+                        color: textDim
+                    }
                 }
             }
 
-            Column {
-                width: parent.width; spacing: dp(10)
-                Text { text:"Maneno kwa kila mchezo"; font.pixelSize:dp(13); font.bold:true; color:textDim }
-                Row {
-                    spacing: dp(8)
-                    Repeater {
-                        model: [5,10,15,20]
-                        delegate: Rectangle {
-                            property bool sel: roundCount===modelData
-                            width:dp(62); height:dp(44); radius:dp(8)
-                            color:sel?accent:bgCard
-                            border.color:sel?accent:borderCol; border.width:dp(1.5)
-                            Text { anchors.centerIn:parent; text:modelData; font.pixelSize:dp(18); font.bold:true; color:sel?bgDark:textMain }
-                            MouseArea { anchors.fill:parent; onClicked:{ roundCount=modelData; } }
+            // ── Maneno card ───────────────────────────────────────────────
+            Rectangle {
+                width: parent.width
+                height: dp(90)
+                radius: dp(14)
+                color: bgCard
+                border.color: borderCol; border.width: dp(1)
+
+                Column {
+                    anchors.fill: parent
+                    anchors.margins: dp(14)
+                    spacing: dp(10)
+
+                    Row {
+                        spacing: dp(6)
+                        Rectangle { width: dp(3); height: dp(14); radius: dp(2); color: accent; anchors.verticalCenter: parent.verticalCenter }
+                        Text { text: "Maneno kwa kila mchezo"; font.pixelSize: dp(12); font.bold: true; color: textDim; anchors.verticalCenter: parent.verticalCenter }
+                    }
+
+                    Row {
+                        spacing: dp(8)
+                        Repeater {
+                            model: [5, 10, 15, 20]
+                            delegate: Rectangle {
+                                property bool sel: roundCount === modelData
+                                width: dp(58); height: dp(38); radius: dp(8)
+                                color: sel ? accent : bgInput
+                                border.color: sel ? accent : borderCol
+                                border.width: sel ? dp(0) : dp(1)
+
+                                Text {
+                                    anchors.centerIn: parent
+                                    text: modelData
+                                    font.pixelSize: dp(17); font.bold: true
+                                    color: sel ? bgDark : textMain
+                                }
+                                MouseArea { anchors.fill: parent; onClicked: { roundCount = modelData; } }
+                            }
                         }
                     }
                 }
             }
 
-
-
+            // ── ANZA button ───────────────────────────────────────────────
             Rectangle {
-                width: parent.width; height:dp(52); radius:dp(12)
+                width: parent.width; height: dp(54); radius: dp(14)
                 color: accent
-                Text { anchors.centerIn:parent; text:"ANZA MCHEZO"; font.pixelSize:dp(16); font.bold:true; font.letterSpacing:dp(3); color:bgDark }
-                MouseArea { anchors.fill:parent; onClicked:{ startGame(); } }
-            }
 
-            // Funga button
-            Rectangle {
-                width: parent.width; height:dp(44); radius:dp(12)
-                color: "transparent"
-                border.color: accentRed; border.width: dp(1.5)
+                // Subtle inner shine
+                Rectangle {
+                    anchors.top: parent.top; anchors.topMargin: dp(1)
+                    anchors.left: parent.left; anchors.leftMargin: dp(20)
+                    anchors.right: parent.right; anchors.rightMargin: dp(20)
+                    height: dp(1); radius: dp(1)
+                    color: "#ffffff"; opacity: 0.25
+                }
+
                 Row {
                     anchors.centerIn: parent
-                    spacing: dp(8)
-                    Text { text:"X"; font.pixelSize:dp(14); font.bold:true; color:accentRed; anchors.verticalCenter:parent.verticalCenter }
-                    Text { text:"FUNGA"; font.pixelSize:dp(14); font.bold:true; font.letterSpacing:dp(2); color:accentRed; anchors.verticalCenter:parent.verticalCenter }
+                    spacing: dp(10)
+                    Text {
+                        text: "▶"
+                        font.pixelSize: dp(14); color: bgDark
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
+                    Text {
+                        text: "ANZA MCHEZO"
+                        font.pixelSize: dp(15); font.bold: true
+                        font.letterSpacing: dp(3); color: bgDark
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
                 }
-                MouseArea { anchors.fill:parent; onClicked:{ app.close(); } }
+                MouseArea {
+                    anchors.fill: parent
+                    onPressed:  { parent.opacity = 0.85; }
+                    onReleased: { parent.opacity = 1.0; }
+                    onClicked:  { startGame(); }
+                }
+            }
+
+            // ── FUNGA button ──────────────────────────────────────────────
+            Rectangle {
+                width: parent.width; height: dp(44); radius: dp(14)
+                color: "transparent"
+                border.color: "#ff4444"; border.width: dp(1)
+
+                Row {
+                    anchors.centerIn: parent; spacing: dp(8)
+                    Text { text: "✕"; font.pixelSize: dp(13); color: "#ff4444"; anchors.verticalCenter: parent.verticalCenter }
+                    Text { text: "FUNGA"; font.pixelSize: dp(13); font.bold: true; font.letterSpacing: dp(2); color: "#ff4444"; anchors.verticalCenter: parent.verticalCenter }
+                }
+                MouseArea {
+                    anchors.fill: parent
+                    onPressed:  { parent.color = "#1a0808"; }
+                    onReleased: { parent.color = "transparent"; }
+                    onClicked:  { app.close(); }
+                }
             }
         }
     }
@@ -907,50 +1105,140 @@ Rectangle {
             visible: false
             z: 10
 
+            // Backdrop blur effect
             Rectangle {
                 anchors.centerIn: parent
-                width: dp(260); height: dp(160); radius: dp(16)
-                color: bgCard; border.color: borderCol; border.width: dp(1)
+                width: dp(280)
+                height: dp(220)
+                radius: dp(20)
+                color: bgDark
+                border.color: accent
+                border.width: dp(1.5)
 
-                Column {
-                    anchors.centerIn: parent
-                    spacing: dp(16)
-                    width: parent.width - dp(40)
+                // Cyan glow top bar
+                Rectangle {
+                    anchors.top: parent.top
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    height: dp(52)
+                    radius: dp(20)
+                    color: accent
 
-                    Text {
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        text: "Acha mchezo?"
-                        font.pixelSize: dp(16); font.bold: true; color: textMain
+                    // Square bottom corners only on top bar
+                    Rectangle {
+                        anchors.bottom: parent.bottom
+                        anchors.left: parent.left
+                        anchors.right: parent.right
+                        height: dp(20)
+                        color: accent
                     }
-                    Text {
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        text: "Pointi zako: " + score
-                        font.pixelSize: dp(13); color: textDim
-                    }
+
                     Row {
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        spacing: dp(12)
+                        anchors.centerIn: parent
+                        spacing: dp(8)
+                        Text {
+                            text: "⚠"
+                            font.pixelSize: dp(18)
+                            color: bgDark
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+                        Text {
+                            text: "Acha Mchezo?"
+                            font.pixelSize: dp(16)
+                            font.bold: true
+                            font.letterSpacing: dp(1)
+                            color: bgDark
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+                    }
+                }
 
-                        // Endelea
-                        Rectangle {
-                            width: dp(100); height: dp(38); radius: dp(8)
-                            color: bgInput; border.color: borderCol; border.width: dp(1)
-                            Text { anchors.centerIn:parent; text:"Endelea"; font.pixelSize:dp(13); font.bold:true; color:textMain }
-                            MouseArea { anchors.fill:parent; onClicked:{ quitConfirm.visible=false; } }
+                // Score row
+                Row {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.top: parent.top
+                    anchors.topMargin: dp(68)
+                    spacing: dp(6)
+
+                    Text {
+                        text: "★"
+                        font.pixelSize: dp(15)
+                        color: accent
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
+                    Text {
+                        text: "Pointi zako sasa:"
+                        font.pixelSize: dp(12)
+                        color: textDim
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
+                    Text {
+                        text: score
+                        font.pixelSize: dp(15)
+                        font.bold: true
+                        color: accent
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
+                }
+
+                // Divider
+                Rectangle {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.top: parent.top
+                    anchors.topMargin: dp(100)
+                    width: parent.width - dp(40)
+                    height: dp(1)
+                    color: borderCol
+                }
+
+                // Buttons row
+                Row {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.top: parent.top
+                    anchors.topMargin: dp(118)
+                    spacing: dp(14)
+
+                    // Endelea button
+                    Rectangle {
+                        width: dp(110); height: dp(42); radius: dp(10)
+                        color: "transparent"
+                        border.color: accent; border.width: dp(1.5)
+
+                        Row {
+                            anchors.centerIn: parent
+                            spacing: dp(5)
+                            Text { text: "▶"; font.pixelSize: dp(11); color: accent; anchors.verticalCenter: parent.verticalCenter }
+                            Text { text: "Endelea"; font.pixelSize: dp(13); font.bold: true; color: accent; anchors.verticalCenter: parent.verticalCenter }
                         }
 
-                        // Acha
-                        Rectangle {
-                            width: dp(100); height: dp(38); radius: dp(8)
-                            color: accentRed
-                            Text { anchors.centerIn:parent; text:"Acha"; font.pixelSize:dp(13); font.bold:true; color:"#ffffff" }
-                            MouseArea {
-                                anchors.fill:parent
-                                onClicked:{
-                                    quitConfirm.visible=false;
-                                    countdownTimer.stop();
-                                    screen="results";
-                                }
+                        MouseArea {
+                            anchors.fill: parent
+                            onPressed:  { parent.color = "#0a3333"; }
+                            onReleased: { parent.color = "transparent"; }
+                            onClicked:  { quitConfirm.visible = false; }
+                        }
+                    }
+
+                    // Acha button
+                    Rectangle {
+                        width: dp(110); height: dp(42); radius: dp(10)
+                        color: accentRed
+
+                        Row {
+                            anchors.centerIn: parent
+                            spacing: dp(5)
+                            Text { text: "X"; font.pixelSize: dp(12); color: "#ffffff"; anchors.verticalCenter: parent.verticalCenter }
+                            Text { text: "Acha"; font.pixelSize: dp(13); font.bold: true; color: "#ffffff"; anchors.verticalCenter: parent.verticalCenter }
+                        }
+
+                        MouseArea {
+                            anchors.fill: parent
+                            onPressed:  { parent.opacity = 0.75; }
+                            onReleased: { parent.opacity = 1.0; }
+                            onClicked: {
+                                quitConfirm.visible = false;
+                                countdownTimer.stop();
+                                screen = "results";
                             }
                         }
                     }
@@ -963,117 +1251,186 @@ Rectangle {
             id: middleArea
             anchors.top:    progressBar.bottom
             anchors.bottom: keyboard.top
-            anchors.left:   parent.left;  anchors.leftMargin:  dp(14)
-            anchors.right:  parent.right; anchors.rightMargin: dp(14)
+            anchors.left:   parent.left;  anchors.leftMargin:  dp(12)
+            anchors.right:  parent.right; anchors.rightMargin: dp(12)
 
-            // Clue card — pinned to top of middle area
+            // ── Clue card ─────────────────────────────────────────────────────
             Rectangle {
                 id: clueCard
-                anchors.top:   parent.top; anchors.topMargin: dp(12)
+                anchors.top:   parent.top; anchors.topMargin: dp(10)
                 anchors.left:  parent.left
                 anchors.right: parent.right
-                height: clueCol.height + dp(20)
-                radius: dp(10); color: bgCard
+                height: clueCol.height + dp(24)
+                radius: dp(14)
+                color: bgCard
                 border.color: borderCol; border.width: dp(1)
+
+                // Left accent bar
+                Rectangle {
+                    anchors.left:   parent.left;  anchors.leftMargin:  dp(0)
+                    anchors.top:    parent.top;   anchors.topMargin:   dp(10)
+                    anchors.bottom: parent.bottom; anchors.bottomMargin: dp(10)
+                    width: dp(3); radius: dp(2)
+                    color: accent; opacity: 0.8
+                }
 
                 Column {
                     id: clueCol
-                    anchors.left:   parent.left;  anchors.leftMargin:  dp(14)
-                    anchors.right:  parent.right; anchors.rightMargin: dp(14)
-                    anchors.top:    parent.top;   anchors.topMargin:   dp(10)
-                    spacing: dp(6)
-                    Row {
-                        spacing: dp(6)
-                        Text { text:"🔵"; font.pixelSize:dp(13) }
-                        Text {
-                            width: clueCol.width - dp(28)
-                            text: screen==="playing" ? currentEntry.sw : ""
-                            font.pixelSize:dp(14); color:textMain
-                            wrapMode: Text.WordWrap
-                        }
+                    anchors.left:   parent.left;  anchors.leftMargin:  dp(16)
+                    anchors.right:  parent.right; anchors.rightMargin: dp(12)
+                    anchors.top:    parent.top;   anchors.topMargin:   dp(12)
+                    spacing: dp(7)
+
+                    // Swahili clue
+                    Text {
+                        width: parent.width
+                        text: screen==="playing" ? currentEntry.sw : ""
+                        font.pixelSize: dp(13); color: textMain
+                        wrapMode: Text.WordWrap
+                        lineHeight: 1.3
                     }
-                    Row {
-                        spacing: dp(6)
-                        Text { text:"🟡"; font.pixelSize:dp(13) }
-                        Text {
-                            text: screen==="playing" ? currentEntry.en : ""
-                            font.pixelSize:dp(13); color:accentYlw; font.italic:true
-                        }
+
+                    // Divider
+                    Rectangle {
+                        width: parent.width - dp(4); height: dp(1)
+                        color: borderCol; opacity: 0.6
+                    }
+
+                    // English clue
+                    Text {
+                        text: screen==="playing" ? currentEntry.en : ""
+                        font.pixelSize: dp(12); color: accentYlw
+                        font.italic: true; font.bold: false
                     }
                 }
             }
 
-            // Word tiles — centred vertically in remaining space
+            // ── Word tiles ────────────────────────────────────────────────────
             Row {
                 id: wordRow
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter:   parent.verticalCenter
-                spacing: dp(6)
+                spacing: dp(7)
 
                 Repeater {
                     model: displayModel
-                    delegate: Rectangle {
+                    delegate: Item {
                         property string ch:   model.ch
                         property string kind: model.kind
-                        property color tileBg: {
-                            if(kind==="fixed")  { return bgCard; }
-                            if(kind==="correct"){ return accentGrn; }
-                            if(kind==="wrong")  { return accentRed; }
-                            if(kind==="filled") { return accent; }
-                            return bgInput;
-                        }
-                        property color tileBd: (kind==="blank"||kind==="filled") ? accent : borderCol
-                        property color tileTx: {
-                            if(kind==="correct"||kind==="wrong"){ return "#ffffff"; }
-                            if(kind==="filled"){ return bgDark; }
-                            return textMain;
-                        }
-                        width:dp(46); height:dp(54); radius:dp(8)
-                        color:        tileBg
-                        border.color: tileBd
-                        border.width: dp(2)
-                        Text {
-                            anchors.centerIn:parent; text:ch==="_"?"":ch
-                            font.pixelSize:dp(22); font.bold:true; color:tileTx
-                        }
+                        width:  dp(46); height: dp(56)
+
+                        // Shadow layer
                         Rectangle {
-                            visible: kind==="blank"&&!roundOver
-                            anchors.bottom:parent.bottom; anchors.bottomMargin:dp(6)
-                            anchors.horizontalCenter:parent.horizontalCenter
-                            width:dp(14); height:dp(2); radius:dp(1); color:accent
-                            SequentialAnimation on opacity {
-                                running: kind==="blank"&&!roundOver; loops:Animation.Infinite
-                                NumberAnimation{to:0;duration:500}
-                                NumberAnimation{to:1;duration:500}
+                            anchors.fill: parent
+                            anchors.topMargin: dp(3)
+                            radius: dp(10)
+                            color: "#000000"; opacity: 0.3
+                        }
+
+                        Rectangle {
+                            anchors.fill: parent
+                            anchors.bottomMargin: dp(3)
+                            radius: dp(10)
+
+                            property color tileBg: {
+                                if(kind==="fixed")  { return bgCard; }
+                                if(kind==="correct"){ return accentGrn; }
+                                if(kind==="wrong")  { return accentRed; }
+                                if(kind==="filled") { return accent; }
+                                return bgInput;
+                            }
+                            property color tileBd: {
+                                if(kind==="correct"){ return accentGrn; }
+                                if(kind==="wrong")  { return accentRed; }
+                                if(kind==="blank"||kind==="filled"){ return accent; }
+                                return borderCol;
+                            }
+                            property color tileTx: {
+                                if(kind==="correct"||kind==="wrong"){ return "#ffffff"; }
+                                if(kind==="filled"){ return bgDark; }
+                                return textMain;
+                            }
+
+                            color:        tileBg
+                            border.color: tileBd
+                            border.width: kind==="blank" ? dp(1.5) : dp(2)
+
+                            // Top shine on filled/fixed tiles
+                            Rectangle {
+                                visible: kind==="fixed" || kind==="filled" || kind==="correct"
+                                anchors.top: parent.top; anchors.topMargin: dp(1)
+                                anchors.left: parent.left; anchors.leftMargin: dp(6)
+                                anchors.right: parent.right; anchors.rightMargin: dp(6)
+                                height: dp(1); radius: dp(1)
+                                color: "#ffffff"; opacity: 0.18
+                            }
+
+                            Text {
+                                anchors.centerIn: parent
+                                text: ch==="_" ? "" : ch
+                                font.pixelSize: dp(22); font.bold: true
+                                color: parent.tileTx
+                            }
+
+                            // Blinking cursor on blank tiles
+                            Rectangle {
+                                visible: kind==="blank" && !roundOver
+                                anchors.bottom: parent.bottom; anchors.bottomMargin: dp(5)
+                                anchors.horizontalCenter: parent.horizontalCenter
+                                width: dp(16); height: dp(2); radius: dp(1)
+                                color: accent
+                                SequentialAnimation on opacity {
+                                    running: kind==="blank" && !roundOver
+                                    loops: Animation.Infinite
+                                    NumberAnimation { to:0; duration:500 }
+                                    NumberAnimation { to:1; duration:500 }
+                                }
                             }
                         }
                     }
                 }
             }
 
-            // Result message — just above word tiles
+            // ── Result message ────────────────────────────────────────────────
             Rectangle {
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.bottom: wordRow.top; anchors.bottomMargin: dp(10)
-                visible: resultMsg!==""&&resultTimer.running
-                width: rTxt.width+dp(24); height:dp(30); radius:dp(15)
-                color: resultGood?accentGrn:accentRed
+                visible: resultMsg !== "" && resultTimer.running
+                width: rTxt.width + dp(28); height: dp(32); radius: dp(16)
+                color: resultGood ? accentGrn : accentRed
+
+                // Shine
+                Rectangle {
+                    anchors.top: parent.top; anchors.topMargin: dp(1)
+                    anchors.left: parent.left; anchors.leftMargin: dp(12)
+                    anchors.right: parent.right; anchors.rightMargin: dp(12)
+                    height: dp(1); radius: dp(1); color: "#ffffff"; opacity: 0.3
+                }
                 Text { id:rTxt; anchors.centerIn:parent; text:resultMsg; font.pixelSize:dp(12); font.bold:true; color:"#ffffff" }
             }
 
-            // Hint button — pinned to bottom of middle area
+            // ── Hint button ───────────────────────────────────────────────────
             Rectangle {
-                anchors.bottom: parent.bottom; anchors.bottomMargin: dp(12)
+                anchors.bottom: parent.bottom; anchors.bottomMargin: dp(10)
                 anchors.horizontalCenter: parent.horizontalCenter
-                visible: !roundOver&&!hintUsed
-                width:dp(180); height:dp(40); radius:dp(20)
-                color:"transparent"; border.color:hintColor; border.width:dp(1.5)
+                visible: !roundOver && !hintUsed
+                width: dp(190); height: dp(38); radius: dp(19)
+                color: "transparent"
+                border.color: hintColor; border.width: dp(1.5)
                 Row {
-                    anchors.centerIn:parent; spacing:dp(6)
-                    Text { text:"💡"; font.pixelSize:dp(14) }
-                    Text { text:"Nisaidie (−"+Math.round(100/roundCount)+" pointi)"; font.pixelSize:dp(12); font.bold:true; color:hintColor }
+                    anchors.centerIn: parent; spacing: dp(6)
+                    Text { text:"💡"; font.pixelSize:dp(13) }
+                    Text {
+                        text: "Nisaidie (−"+Math.round(100/roundCount)+" pointi)"
+                        font.pixelSize:dp(12); font.bold:true; color:hintColor
+                    }
                 }
-                MouseArea { anchors.fill:parent; onClicked:{ revealAnswer(true); } }
+                MouseArea {
+                    anchors.fill: parent
+                    onPressed:  { parent.color = "#1a1000"; }
+                    onReleased: { parent.color = "transparent"; }
+                    onClicked:  { revealAnswer(true); }
+                }
             }
         }
     }
@@ -1085,54 +1442,163 @@ Rectangle {
         anchors.fill: parent
         visible: screen==="results"
 
+        // Dot grid background
+        Canvas {
+            anchors.fill: parent
+            onPaint: {
+                var ctx = getContext("2d");
+                ctx.clearRect(0, 0, width, height);
+                ctx.fillStyle = "#1a2233";
+                var step = dp(28);
+                for (var x = 0; x < width; x += step) {
+                    for (var y = 0; y < height; y += step) {
+                        ctx.beginPath();
+                        ctx.arc(x, y, dp(1.2), 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+                }
+            }
+        }
+
         Column {
             anchors.centerIn: parent
-            width: parent.width*0.82
-            spacing: dp(20)
+            width: parent.width * 0.84
+            spacing: dp(16)
 
-            Text {
-                anchors.horizontalCenter: parent.horizontalCenter
-                text:"MCHEZO UMEKWISHA!"
-                font.pixelSize:dp(22); font.bold:true; font.letterSpacing:dp(4); color:accent
+            // ── Header ────────────────────────────────────────────────────
+            Column {
+                width: parent.width
+                spacing: dp(6)
+                Text {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    text: "MCHEZO UMEKWISHA"
+                    font.pixelSize: dp(20); font.bold: true
+                    font.letterSpacing: dp(3); color: textDim
+                }
+                Rectangle {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: dp(40); height: dp(2); radius: dp(1)
+                    color: accent; opacity: 0.6
+                }
             }
 
+            // ── Score card ────────────────────────────────────────────────
             Rectangle {
-                width: parent.width; height:dp(110); radius:dp(16)
-                color:bgCard; border.color:borderCol; border.width:dp(1)
+                width: parent.width; height: dp(130)
+                radius: dp(18)
+                color: bgCard
+                border.color: borderCol; border.width: dp(1)
+
+                // Top accent stripe
+                Rectangle {
+                    anchors.top: parent.top
+                    anchors.left: parent.left; anchors.right: parent.right
+                    height: dp(3); radius: dp(18)
+                    color: accent; opacity: 0.7
+                }
+
+                // Grade emoji — top right
+                Text {
+                    anchors.right: parent.right; anchors.rightMargin: dp(16)
+                    anchors.top:   parent.top;   anchors.topMargin:   dp(14)
+                    text: score>=85 ? "🏆" : score>=65 ? "👏" : score>=40 ? "💪" : "📚"
+                    font.pixelSize: dp(28)
+                }
+
                 Column {
-                    anchors.centerIn:parent; spacing:dp(6)
-                    Text { anchors.horizontalCenter:parent.horizontalCenter; text:"Pointi Zako"; font.pixelSize:dp(13); color:textDim }
+                    anchors.centerIn: parent
+                    spacing: dp(4)
+
+                    Text {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        text: "Pointi Zako"
+                        font.pixelSize: dp(12); color: textDim
+                        font.letterSpacing: dp(1)
+                    }
+
                     Row {
-                        anchors.horizontalCenter:parent.horizontalCenter; spacing:dp(8)
-                        Text { text:"★"; font.pixelSize:dp(32); color:accentYlw }
-                        Text { text:score; font.pixelSize:dp(52); font.bold:true; color:textMain }
-                        Text { text:"/ 100"; font.pixelSize:dp(16); color:textDim; anchors.bottom:parent.bottom; anchors.bottomMargin:dp(10) }
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        spacing: dp(6)
+
+                        Text {
+                            text: "★"
+                            font.pixelSize: dp(28); color: accentYlw
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+                        Text {
+                            text: score
+                            font.pixelSize: dp(58); font.bold: true
+                            color: score>=65 ? accentGrn : score>=40 ? accentYlw : accentRed
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+                        Text {
+                            text: "/ 100"
+                            font.pixelSize: dp(15); color: textDim
+                            anchors.bottom: parent.bottom; anchors.bottomMargin: dp(12)
+                        }
                     }
                 }
             }
 
-            Text {
-                anchors.horizontalCenter: parent.horizontalCenter
-                text: score>=85 ? "🏆 Bora Sana!" : score>=65 ? "👏 Vizuri!" : score>=40 ? "💪 Jaribu Tena!" : "📚 Endelea Kujifunza!"
-                font.pixelSize:dp(18); font.bold:true; color:textMain
+            // ── Grade message ─────────────────────────────────────────────
+            Rectangle {
+                width: parent.width; height: dp(44)
+                radius: dp(10)
+                color: bgInput
+                border.color: borderCol; border.width: dp(1)
+                Text {
+                    anchors.centerIn: parent
+                    text: score>=85 ? "Hongera! Umefanya vizuri sana! 🔥"
+                        : score>=65 ? "Vizuri! Endelea hivyo hivyo!"
+                        : score>=40 ? "Jaribu tena — unaweza zaidi!"
+                        : "Endelea kujifunza — utaboresha!"
+                    font.pixelSize: dp(12); color: textMain
+                    font.italic: true
+                }
             }
 
+            // ── CHEZA TENA ────────────────────────────────────────────────
             Rectangle {
-                width: parent.width; height:dp(52); radius:dp(12); color:accent
-                Text { anchors.centerIn:parent; text:"CHEZA TENA"; font.pixelSize:dp(16); font.bold:true; font.letterSpacing:dp(3); color:bgDark }
-                MouseArea { anchors.fill:parent; onClicked:{ screen="setup"; } }
+                width: parent.width; height: dp(54); radius: dp(14)
+                color: accent
+
+                Rectangle {
+                    anchors.top: parent.top; anchors.topMargin: dp(1)
+                    anchors.left: parent.left; anchors.leftMargin: dp(20)
+                    anchors.right: parent.right; anchors.rightMargin: dp(20)
+                    height: dp(1); radius: dp(1)
+                    color: "#ffffff"; opacity: 0.25
+                }
+
+                Row {
+                    anchors.centerIn: parent; spacing: dp(10)
+                    Text { text:"▶"; font.pixelSize:dp(14); color:bgDark; anchors.verticalCenter:parent.verticalCenter }
+                    Text { text:"CHEZA TENA"; font.pixelSize:dp(15); font.bold:true; font.letterSpacing:dp(3); color:bgDark; anchors.verticalCenter:parent.verticalCenter }
+                }
+                MouseArea {
+                    anchors.fill: parent
+                    onPressed:  { parent.opacity = 0.85; }
+                    onReleased: { parent.opacity = 1.0; }
+                    onClicked:  { startGame(); }
+                }
             }
 
+            // ── FUNGA ─────────────────────────────────────────────────────
             Rectangle {
-                width: parent.width; height:dp(44); radius:dp(12)
+                width: parent.width; height: dp(44); radius: dp(14)
                 color: "transparent"
-                border.color: accentRed; border.width: dp(1.5)
+                border.color: "#ff4444"; border.width: dp(1)
                 Row {
                     anchors.centerIn: parent; spacing: dp(8)
-                    Text { text:"X"; font.pixelSize:dp(14); font.bold:true; color:accentRed; anchors.verticalCenter:parent.verticalCenter }
-                    Text { text:"FUNGA"; font.pixelSize:dp(14); font.bold:true; font.letterSpacing:dp(2); color:accentRed; anchors.verticalCenter:parent.verticalCenter }
+                    Text { text:"✕"; font.pixelSize:dp(13); color:"#ff4444"; anchors.verticalCenter:parent.verticalCenter }
+                    Text { text:"FUNGA"; font.pixelSize:dp(13); font.bold:true; font.letterSpacing:dp(2); color:"#ff4444"; anchors.verticalCenter:parent.verticalCenter }
                 }
-                MouseArea { anchors.fill:parent; onClicked:{ app.close(); } }
+                MouseArea {
+                    anchors.fill: parent
+                    onPressed:  { parent.color = "#1a0808"; }
+                    onReleased: { parent.color = "transparent"; }
+                    onClicked:  { app.close(); }
+                }
             }
         }
     }
