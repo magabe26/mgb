@@ -48,19 +48,60 @@ Rectangle {
     property real sc: sw / 360.0
     function dp(val) { return val * sc; }
 
-    // ── Palette ───────────────────────────────────────────────────────────────
-    readonly property color bgDark:    "#0d1117"
-    readonly property color bgCard:    "#161b22"
-    readonly property color bgInput:   "#1c2128"
-    readonly property color accent:    "#58a6ff"
-    readonly property color accentGrn: "#3fb950"
-    readonly property color accentYlw: "#d29922"
-    readonly property color accentRed: "#f85149"
-    readonly property color borderCol: "#30363d"
-    readonly property color textMain:  "#e6edf3"
-    readonly property color textDim:   "#8b949e"
-    readonly property color hintColor: "#ffa657"
+    // ── Palette — IQTest deep-space cyan theme ───────────────────────────────
+    readonly property color bgDark:    "#020d0d"
+    readonly property color bgCard:    "#071e1e"
+    readonly property color bgInput:   "#061c1c"
+    readonly property color accent:    "#00e5ff"
+    readonly property color accentGrn: "#22c55e"
+    readonly property color accentYlw: "#00e5ff"
+    readonly property color accentRed: "#ef4444"
+    readonly property color borderCol: "#0d3a3a"
+    readonly property color textMain:  "#ffffff"
+    readonly property color textDim:   "#a0d8d8"
+    readonly property color hintColor: "#00b8d4"
+    // IQTest extra
+    readonly property color goldGlow:  "#80f0ff"
+    readonly property color goldDim:   "#005f6b"
+    readonly property color textSec:   "#a0d8d8"
     color: bgDark
+
+    // ── IQTest background: gradient + cyan grid overlay ───────────────────────
+    Rectangle {
+        anchors.fill: parent
+        gradient: Gradient {
+            GradientStop { position: 0.0; color: "#031515" }
+            GradientStop { position: 1.0; color: "#020d0d" }
+        }
+    }
+    Canvas {
+        anchors.fill: parent
+        opacity: 0.06
+        onPaint: {
+            var ctx = getContext("2d");
+            ctx.strokeStyle = "#00e5ff";
+            ctx.lineWidth = 0.5;
+            var step = 40;
+            for (var x = 0; x < width; x += step) {
+                ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, height); ctx.stroke();
+            }
+            for (var y = 0; y < height; y += step) {
+                ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(width, y); ctx.stroke();
+            }
+        }
+    }
+    // Top accent bar — horizontal cyan gradient
+    Rectangle {
+        anchors.top: parent.top
+        width: parent.width; height: dp(3); z: 100
+        gradient: Gradient {
+            orientation: Gradient.Horizontal
+            GradientStop { position: 0.0; color: "transparent" }
+            GradientStop { position: 0.3; color: "#00e5ff" }
+            GradientStop { position: 0.7; color: "#80f0ff" }
+            GradientStop { position: 1.0; color: "transparent" }
+        }
+    }
 
     // ── Persistent settings ───────────────────────────────────────────────────
     Settings {
@@ -740,46 +781,28 @@ Rectangle {
         anchors.fill: parent
         visible: screen==="setup"
 
-        // Subtle dot grid background
-        Canvas {
-            anchors.fill: parent
-            onPaint: {
-                var ctx = getContext("2d");
-                ctx.clearRect(0, 0, width, height);
-                ctx.fillStyle = "#1a2233";
-                var step = dp(28);
-                for (var x = 0; x < width; x += step) {
-                    for (var y = 0; y < height; y += step) {
-                        ctx.beginPath();
-                        ctx.arc(x, y, dp(1.2), 0, Math.PI * 2);
-                        ctx.fill();
-                    }
-                }
-            }
-        }
-
         Column {
             anchors.centerIn: parent
             width: parent.width * 0.85
             spacing: dp(20)
 
-            // ── Logo block ────────────────────────────────────────────────
+            // ── Logo block — design ya zamani, rangi mpya ─────────────────
             Item {
                 width: parent.width
                 height: dp(110)
 
-                // Glow behind title
+                // Glow nyuma ya jina
                 Rectangle {
                     anchors.centerIn: parent
-                    width: dp(180); height: dp(60)
-                    radius: dp(30)
+                    width: dp(200); height: dp(70)
+                    radius: dp(35)
                     color: accent
-                    opacity: 0.08
+                    opacity: 0.07
                 }
 
                 Column {
                     anchors.centerIn: parent
-                    spacing: dp(6)
+                    spacing: dp(8)
 
                     Text {
                         anchors.horizontalCenter: parent.horizontalCenter
@@ -791,35 +814,36 @@ Rectangle {
                     // Underline accent bar
                     Rectangle {
                         anchors.horizontalCenter: parent.horizontalCenter
-                        width: dp(48); height: dp(3); radius: dp(2)
-                        color: accent; opacity: 0.7
+                        width: dp(52); height: dp(2); radius: dp(1)
+                        color: accent; opacity: 0.6
                     }
                     Text {
                         anchors.horizontalCenter: parent.horizontalCenter
                         text: "Jaza nafasi — Pata pointi"
                         font.pixelSize: dp(12)
                         color: textDim
+                        font.letterSpacing: dp(0.5)
                     }
                 }
             }
 
-            // ── Maneno card ───────────────────────────────────────────────
+            // ── Maneno card — IQTest style ────────────────────────────────
             Rectangle {
                 width: parent.width
                 height: dp(90)
                 radius: dp(14)
                 color: bgCard
-                border.color: borderCol; border.width: dp(1)
+                border.color: Qt.rgba(0,0.9,1,0.15); border.width: dp(1)
 
                 Column {
                     anchors.fill: parent
                     anchors.margins: dp(14)
                     spacing: dp(10)
 
-                    Row {
-                        spacing: dp(6)
-                        Rectangle { width: dp(3); height: dp(14); radius: dp(2); color: accent; anchors.verticalCenter: parent.verticalCenter }
-                        Text { text: "Maneno kwa kila mchezo"; font.pixelSize: dp(12); font.bold: true; color: textDim; anchors.verticalCenter: parent.verticalCenter }
+                    Text {
+                        text: "MANENO KWA MCHEZO"
+                        font.pixelSize: dp(10); font.bold: true
+                        font.letterSpacing: dp(2); color: textDim
                     }
 
                     Row {
@@ -828,16 +852,17 @@ Rectangle {
                             model: [5, 10, 15, 20]
                             delegate: Rectangle {
                                 property bool sel: roundCount === modelData
-                                width: dp(58); height: dp(38); radius: dp(8)
-                                color: sel ? accent : bgInput
-                                border.color: sel ? accent : borderCol
-                                border.width: sel ? dp(0) : dp(1)
+                                width: dp(58); height: dp(36); radius: dp(10)
+                                color: sel ? Qt.rgba(0,0.9,1,0.18) : bgInput
+                                border.color: sel ? accent : Qt.rgba(0,0.9,1,0.12)
+                                border.width: sel ? dp(1.5) : dp(1)
+                                Behavior on color { ColorAnimation { duration: 150 } }
 
                                 Text {
                                     anchors.centerIn: parent
                                     text: modelData
                                     font.pixelSize: dp(17); font.bold: true
-                                    color: sel ? bgDark : textMain
+                                    color: sel ? accent : textDim
                                 }
                                 MouseArea { anchors.fill: parent; onClicked: { roundCount = modelData; } }
                             }
@@ -846,39 +871,39 @@ Rectangle {
                 }
             }
 
-            // ── ANZA button ───────────────────────────────────────────────
+            // ── ANZA button — IQTest style ────────────────────────────────
             Rectangle {
                 width: parent.width; height: dp(54); radius: dp(14)
-                color: accent
+                color: Qt.rgba(0,0.9,1,0.12)
+                border.color: accent; border.width: dp(1.5)
 
-                // Subtle inner shine
+                // Glow effect
                 Rectangle {
-                    anchors.top: parent.top; anchors.topMargin: dp(1)
-                    anchors.left: parent.left; anchors.leftMargin: dp(20)
-                    anchors.right: parent.right; anchors.rightMargin: dp(20)
-                    height: dp(1); radius: dp(1)
-                    color: "#ffffff"; opacity: 0.25
+                    anchors.fill: parent
+                    radius: dp(14)
+                    color: "transparent"
+                    border.color: goldGlow; border.width: dp(1)
+                    opacity: 0.2
                 }
 
                 Row {
-                    anchors.centerIn: parent
-                    spacing: dp(10)
+                    anchors.centerIn: parent; spacing: dp(10)
                     Text {
                         text: "▶"
-                        font.pixelSize: dp(14); color: bgDark
+                        font.pixelSize: dp(14); color: accent
                         anchors.verticalCenter: parent.verticalCenter
                     }
                     Text {
                         text: "ANZA MCHEZO"
-                        font.pixelSize: dp(15); font.bold: true
-                        font.letterSpacing: dp(3); color: bgDark
+                        font.pixelSize: dp(14); font.bold: true
+                        font.letterSpacing: dp(3); color: accent
                         anchors.verticalCenter: parent.verticalCenter
                     }
                 }
                 MouseArea {
                     anchors.fill: parent
-                    onPressed:  { parent.opacity = 0.85; }
-                    onReleased: { parent.opacity = 1.0; }
+                    onPressed:  { parent.color = Qt.rgba(0,0.9,1,0.22); }
+                    onReleased: { parent.color = Qt.rgba(0,0.9,1,0.12); }
                     onClicked:  { startGame(); }
                 }
             }
@@ -918,7 +943,7 @@ Rectangle {
             anchors.left:  parent.left
             anchors.right: parent.right
             height: dp(52); color: bgCard
-            Rectangle { anchors.bottom:parent.bottom; width:parent.width; height:dp(1); color:borderCol }
+            Rectangle { anchors.bottom:parent.bottom; width:parent.width; height:dp(1); color: Qt.rgba(0,0.9,1,0.15) }
 
             // Quit button
             Rectangle {
@@ -996,7 +1021,7 @@ Rectangle {
             anchors.top:   topBar.bottom
             anchors.left:  parent.left
             anchors.right: parent.right
-            height: dp(3); color: borderCol
+            height: dp(3); color: Qt.rgba(0,0.9,1,0.08)
             Rectangle {
                 width: wordList.length>0 ? parent.width*(wordIndex/wordList.length) : 0
                 height: parent.height; color: accent
@@ -1023,8 +1048,8 @@ Rectangle {
                     delegate: Rectangle {
                         width: (sw - dp(12) - dp(5)*9) / 10
                         height: dp(46); radius: dp(6)
-                        color: bgCard; border.color: borderCol; border.width: dp(1)
-                        Text { anchors.centerIn:parent; text:modelData; font.pixelSize:dp(14); font.bold:true; color:textMain }
+                        color: bgCard; border.color: Qt.rgba(0,0.9,1,0.1); border.width: dp(1)
+                        Text { anchors.centerIn:parent; text:modelData; font.pixelSize:dp(14); font.bold:true; color:textSec }
                         MouseArea { anchors.fill:parent; onClicked:{ typeLetter(modelData); } onPressed:{ parent.opacity=0.6; } onReleased:{ parent.opacity=1.0; } }
                     }
                 }
@@ -1041,8 +1066,8 @@ Rectangle {
                     delegate: Rectangle {
                         width: (sw - dp(12) - dp(5)*9) / 10
                         height: dp(46); radius: dp(6)
-                        color: bgCard; border.color: borderCol; border.width: dp(1)
-                        Text { anchors.centerIn:parent; text:modelData; font.pixelSize:dp(14); font.bold:true; color:textMain }
+                        color: bgCard; border.color: Qt.rgba(0,0.9,1,0.1); border.width: dp(1)
+                        Text { anchors.centerIn:parent; text:modelData; font.pixelSize:dp(14); font.bold:true; color:textSec }
                         MouseArea { anchors.fill:parent; onClicked:{ typeLetter(modelData); } onPressed:{ parent.opacity=0.6; } onReleased:{ parent.opacity=1.0; } }
                     }
                 }
@@ -1059,7 +1084,7 @@ Rectangle {
                 Rectangle {
                     width: (sw - dp(12) - dp(5)*9) / 10 * 1.55
                     height: dp(46); radius: dp(6)
-                    color: bgCard; border.color: borderCol; border.width: dp(1)
+                    color: bgCard; border.color: Qt.rgba(0,0.9,1,0.1); border.width: dp(1)
                     Text {
                         anchors.centerIn:parent;
                         text: (Qt.platform.os === "android") ? "<" : "⌫"
@@ -1075,8 +1100,8 @@ Rectangle {
                     delegate: Rectangle {
                         width: (sw - dp(12) - dp(5)*9) / 10
                         height: dp(46); radius: dp(6)
-                        color: bgCard; border.color: borderCol; border.width: dp(1)
-                        Text { anchors.centerIn:parent; text:modelData; font.pixelSize:dp(14); font.bold:true; color:textMain }
+                        color: bgCard; border.color: Qt.rgba(0,0.9,1,0.1); border.width: dp(1)
+                        Text { anchors.centerIn:parent; text:modelData; font.pixelSize:dp(14); font.bold:true; color:textSec }
                         MouseArea { anchors.fill:parent; onClicked:{ typeLetter(modelData); } onPressed:{ parent.opacity=0.6; } onReleased:{ parent.opacity=1.0; } }
                     }
                 }
@@ -1085,8 +1110,8 @@ Rectangle {
                 Rectangle {
                     width: (sw - dp(12) - dp(5)*9) / 10 * 1.55
                     height: dp(46); radius: dp(6)
-                    color: accent; border.color: borderCol; border.width: dp(1)
-                    Text { anchors.centerIn:parent; text:"OK"; font.pixelSize:dp(12); font.bold:true; color:bgDark }
+                    color: Qt.rgba(0,0.9,1,0.18); border.color: accent; border.width: dp(1.5)
+                    Text { anchors.centerIn:parent; text:"OK"; font.pixelSize:dp(12); font.bold:true; color:accent }
                     MouseArea {
                         anchors.fill:parent
                         onClicked:{ if(roundOver){ wordIndex++; loadWord(); } }
@@ -1254,7 +1279,7 @@ Rectangle {
             anchors.left:   parent.left;  anchors.leftMargin:  dp(12)
             anchors.right:  parent.right; anchors.rightMargin: dp(12)
 
-            // ── Clue card ─────────────────────────────────────────────────────
+            // ── Clue card — IQTest style ─────────────────────────────────────
             Rectangle {
                 id: clueCard
                 anchors.top:   parent.top; anchors.topMargin: dp(10)
@@ -1263,7 +1288,7 @@ Rectangle {
                 height: clueCol.height + dp(24)
                 radius: dp(14)
                 color: bgCard
-                border.color: borderCol; border.width: dp(1)
+                border.color: Qt.rgba(0,0.9,1,0.18); border.width: dp(1)
 
                 // Left accent bar
                 Rectangle {
@@ -1271,7 +1296,7 @@ Rectangle {
                     anchors.top:    parent.top;   anchors.topMargin:   dp(10)
                     anchors.bottom: parent.bottom; anchors.bottomMargin: dp(10)
                     width: dp(3); radius: dp(2)
-                    color: accent; opacity: 0.8
+                    color: accent; opacity: 0.9
                 }
 
                 Column {
@@ -1285,7 +1310,7 @@ Rectangle {
                     Text {
                         width: parent.width
                         text: screen==="playing" ? currentEntry.sw : ""
-                        font.pixelSize: dp(13); color: textMain
+                        font.pixelSize: dp(13); color: textSec
                         wrapMode: Text.WordWrap
                         lineHeight: 1.3
                     }
@@ -1416,7 +1441,7 @@ Rectangle {
                 visible: !roundOver && !hintUsed
                 width: dp(190); height: dp(38); radius: dp(19)
                 color: "transparent"
-                border.color: hintColor; border.width: dp(1.5)
+                border.color: Qt.rgba(0,0.7,0.8,0.5); border.width: dp(1.5)
                 Row {
                     anchors.centerIn: parent; spacing: dp(6)
                     Text { text:"💡"; font.pixelSize:dp(13) }
@@ -1427,7 +1452,7 @@ Rectangle {
                 }
                 MouseArea {
                     anchors.fill: parent
-                    onPressed:  { parent.color = "#1a1000"; }
+                    onPressed:  { parent.color = Qt.rgba(0,0.7,0.8,0.1); }
                     onReleased: { parent.color = "transparent"; }
                     onClicked:  { revealAnswer(true); }
                 }
@@ -1442,160 +1467,91 @@ Rectangle {
         anchors.fill: parent
         visible: screen==="results"
 
-        // Dot grid background
-        Canvas {
-            anchors.fill: parent
-            onPaint: {
-                var ctx = getContext("2d");
-                ctx.clearRect(0, 0, width, height);
-                ctx.fillStyle = "#1a2233";
-                var step = dp(28);
-                for (var x = 0; x < width; x += step) {
-                    for (var y = 0; y < height; y += step) {
-                        ctx.beginPath();
-                        ctx.arc(x, y, dp(1.2), 0, Math.PI * 2);
-                        ctx.fill();
-                    }
-                }
-            }
-        }
-
         Column {
             anchors.centerIn: parent
-            width: parent.width * 0.84
-            spacing: dp(16)
+            width: parent.width * 0.82
+            spacing: dp(20)
 
             // ── Header ────────────────────────────────────────────────────
-            Column {
-                width: parent.width
-                spacing: dp(6)
-                Text {
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    text: "MCHEZO UMEKWISHA"
-                    font.pixelSize: dp(20); font.bold: true
-                    font.letterSpacing: dp(3); color: textDim
-                }
-                Rectangle {
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    width: dp(40); height: dp(2); radius: dp(1)
-                    color: accent; opacity: 0.6
-                }
+            Text {
+                anchors.horizontalCenter: parent.horizontalCenter
+                text: "MCHEZO UMEKWISHA!"
+                font.pixelSize: dp(22); font.bold: true
+                font.letterSpacing: dp(4); color: accent
             }
 
             // ── Score card ────────────────────────────────────────────────
             Rectangle {
-                width: parent.width; height: dp(130)
-                radius: dp(18)
+                width: parent.width; height: dp(110); radius: dp(16)
                 color: bgCard
-                border.color: borderCol; border.width: dp(1)
-
-                // Top accent stripe
-                Rectangle {
-                    anchors.top: parent.top
-                    anchors.left: parent.left; anchors.right: parent.right
-                    height: dp(3); radius: dp(18)
-                    color: accent; opacity: 0.7
-                }
-
-                // Grade emoji — top right
-                Text {
-                    anchors.right: parent.right; anchors.rightMargin: dp(16)
-                    anchors.top:   parent.top;   anchors.topMargin:   dp(14)
-                    text: score>=85 ? "🏆" : score>=65 ? "👏" : score>=40 ? "💪" : "📚"
-                    font.pixelSize: dp(28)
-                }
+                border.color: Qt.rgba(0,0.9,1,0.18); border.width: dp(1)
 
                 Column {
-                    anchors.centerIn: parent
-                    spacing: dp(4)
-
+                    anchors.centerIn: parent; spacing: dp(6)
                     Text {
                         anchors.horizontalCenter: parent.horizontalCenter
                         text: "Pointi Zako"
-                        font.pixelSize: dp(12); color: textDim
-                        font.letterSpacing: dp(1)
+                        font.pixelSize: dp(13); color: textDim
                     }
-
                     Row {
                         anchors.horizontalCenter: parent.horizontalCenter
-                        spacing: dp(6)
-
+                        spacing: dp(8)
                         Text {
-                            text: "★"
-                            font.pixelSize: dp(28); color: accentYlw
+                            text: "★"; font.pixelSize: dp(32); color: accent
                             anchors.verticalCenter: parent.verticalCenter
                         }
                         Text {
-                            text: score
-                            font.pixelSize: dp(58); font.bold: true
-                            color: score>=65 ? accentGrn : score>=40 ? accentYlw : accentRed
+                            text: score; font.pixelSize: dp(52); font.bold: true
+                            color: textMain
                             anchors.verticalCenter: parent.verticalCenter
                         }
                         Text {
-                            text: "/ 100"
-                            font.pixelSize: dp(15); color: textDim
-                            anchors.bottom: parent.bottom; anchors.bottomMargin: dp(12)
+                            text: "/ 100"; font.pixelSize: dp(16); color: textDim
+                            anchors.bottom: parent.bottom; anchors.bottomMargin: dp(10)
                         }
                     }
                 }
             }
 
-            // ── Grade message ─────────────────────────────────────────────
-            Rectangle {
-                width: parent.width; height: dp(44)
-                radius: dp(10)
-                color: bgInput
-                border.color: borderCol; border.width: dp(1)
-                Text {
-                    anchors.centerIn: parent
-                    text: score>=85 ? "Hongera! Umefanya vizuri sana! 🔥"
-                        : score>=65 ? "Vizuri! Endelea hivyo hivyo!"
-                        : score>=40 ? "Jaribu tena — unaweza zaidi!"
-                        : "Endelea kujifunza — utaboresha!"
-                    font.pixelSize: dp(12); color: textMain
-                    font.italic: true
-                }
+            // ── Grade ─────────────────────────────────────────────────────
+            Text {
+                anchors.horizontalCenter: parent.horizontalCenter
+                text: score>=85 ? "🏆 Bora Sana!" : score>=65 ? "👏 Vizuri!" : score>=40 ? "💪 Jaribu Tena!" : "📚 Endelea Kujifunza!"
+                font.pixelSize: dp(18); font.bold: true; color: textMain
             }
 
             // ── CHEZA TENA ────────────────────────────────────────────────
             Rectangle {
-                width: parent.width; height: dp(54); radius: dp(14)
-                color: accent
-
-                Rectangle {
-                    anchors.top: parent.top; anchors.topMargin: dp(1)
-                    anchors.left: parent.left; anchors.leftMargin: dp(20)
-                    anchors.right: parent.right; anchors.rightMargin: dp(20)
-                    height: dp(1); radius: dp(1)
-                    color: "#ffffff"; opacity: 0.25
-                }
+                width: parent.width; height: dp(52); radius: dp(12)
+                color: Qt.rgba(0,0.9,1,0.12)
+                border.color: accent; border.width: dp(1.5)
 
                 Row {
                     anchors.centerIn: parent; spacing: dp(10)
-                    Text { text:"▶"; font.pixelSize:dp(14); color:bgDark; anchors.verticalCenter:parent.verticalCenter }
-                    Text { text:"CHEZA TENA"; font.pixelSize:dp(15); font.bold:true; font.letterSpacing:dp(3); color:bgDark; anchors.verticalCenter:parent.verticalCenter }
+                    Text { text:"▶"; font.pixelSize:dp(14); color:accent; anchors.verticalCenter:parent.verticalCenter }
+                    Text { text:"CHEZA TENA"; font.pixelSize:dp(16); font.bold:true; font.letterSpacing:dp(3); color:accent; anchors.verticalCenter:parent.verticalCenter }
                 }
                 MouseArea {
                     anchors.fill: parent
-                    onPressed:  { parent.opacity = 0.85; }
-                    onReleased: { parent.opacity = 1.0; }
+                    onPressed:  { parent.color = Qt.rgba(0,0.9,1,0.22); }
+                    onReleased: { parent.color = Qt.rgba(0,0.9,1,0.12); }
                     onClicked:  { startGame(); }
                 }
             }
 
             // ── FUNGA ─────────────────────────────────────────────────────
             Rectangle {
-                width: parent.width; height: dp(44); radius: dp(14)
+                width: parent.width; height: dp(44); radius: dp(12)
                 color: "transparent"
-                border.color: "#ff4444"; border.width: dp(1)
+                border.color: accentRed; border.width: dp(1.5)
                 Row {
                     anchors.centerIn: parent; spacing: dp(8)
-                    Text { text:"X"; font.pixelSize:dp(13); color:"#ff4444"; anchors.verticalCenter:parent.verticalCenter }
-                    Text { text:"FUNGA"; font.pixelSize:dp(13); font.bold:true; font.letterSpacing:dp(2); color:"#ff4444"; anchors.verticalCenter:parent.verticalCenter }
+                    Text { text:"X"; font.pixelSize:dp(14); font.bold:true; color:accentRed; anchors.verticalCenter:parent.verticalCenter }
+                    Text { text:"FUNGA"; font.pixelSize:dp(14); font.bold:true; font.letterSpacing:dp(2); color:accentRed; anchors.verticalCenter:parent.verticalCenter }
                 }
                 MouseArea {
                     anchors.fill: parent
-                    onPressed:  { parent.color = "#1a0808"; }
+                    onPressed:  { parent.color = "#1a0000"; }
                     onReleased: { parent.color = "transparent"; }
                     onClicked:  { app.close(); }
                 }
