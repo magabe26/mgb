@@ -206,7 +206,7 @@ MouseArea{
             }
         }
 
-
+/*
         Rectangle{
             z: root.z + 1
             color: "transparent"
@@ -237,7 +237,7 @@ MouseArea{
                     root.executeCommand("openApp;Nyerere.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Nyerere/;Please wait;dependencies.txt;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Nyerere/images/;2;1;1;600;", []);
                 }
             }
-        }
+        } 
 
 
         Rectangle{
@@ -271,6 +271,7 @@ MouseArea{
                 }
             }
         }
+*/
 
 
         Rectangle{
@@ -404,7 +405,7 @@ Rectangle{
             }
         }
 
-
+/*
 
 Rectangle{
             z: root.z + 1
@@ -438,7 +439,7 @@ Rectangle{
                 }
             }
         } 
-
+*/
 
         AnimatedImage{
             anchors.horizontalCenter: parent.horizontalCenter
