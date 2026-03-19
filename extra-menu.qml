@@ -441,6 +441,45 @@ Rectangle{
         } 
 
 
+
+/*
+
+Rectangle{
+            z: root.z + 1
+            color: "transparent"
+            width: root.width
+            height: icon1.paintedHeight
+
+            Image {
+                id: icon40
+                width: 68
+                height: width
+                anchors.top: parent.top
+                anchors.left: parent.left
+                anchors.leftMargin: menu.imgLeftMargin
+                source: getIconSource("fa::flag","#00e6e6")
+            }
+
+            Text {
+                anchors.left: icon40.right
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.leftMargin: menu.textLeftMargin
+                color: Qt.lighter("gray",1.7)
+                text: "TZ"
+            }
+
+            MouseArea{
+                anchors.fill: parent
+                onClicked: {
+                    root.executeCommand("#hh", []);
+
+                }
+            }
+        } 
+
+*/
+
+
         AnimatedImage{
             anchors.horizontalCenter: parent.horizontalCenter
             width: root.width
