@@ -216,7 +216,7 @@ Pakua aplikesheni zingine hapa
 </APP>
 
 <APP>
-    <A HREF="#openApp;Snake.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/;Tafadhali subiri!;dependencies.txt;#;1;1;1;100;">Chenza mchezo wa nyoka</A>
+    <A HREF="#openApp;Snake.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/;Tafadhali subiri!;dependencies.txt;#;1;1;1;100;">Cheza mchezo wa nyoka</A>
     <COLOR>#168485</COLOR>
     <BG_COLOR>white</BG_COLOR>
     <ICON>fa::gamepad</ICON>
@@ -229,7 +229,7 @@ Pakua aplikesheni zingine hapa
 </APP>
 
 <APP>
-    <A HREF="#openApp;BaoGame.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/;Tafadhali subiri!;dependencies.txt;#;1;1;1;100;">Chenza mchezo wa bao</A>
+    <A HREF="#openApp;BaoGame.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/;Tafadhali subiri!;dependencies.txt;#;1;1;1;100;">Cheza mchezo wa bao</A>
     <COLOR>#3a2008</COLOR>
     <BG_COLOR>white</BG_COLOR>
     <ICON>fa::gamepad</ICON>
