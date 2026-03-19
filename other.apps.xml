@@ -198,6 +198,19 @@ Pakua aplikesheni zingine hapa
       <A HREF="#" />
 </APP>
 
+<APP>
+    <A HREF="#openApp;NenoGame.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/;Tafadhali subiri;dependencies.txt;#;1;1;1;600;">Cheza mchezo wa neno</A>
+    <COLOR>#003333</COLOR>
+    <BG_COLOR>white</BG_COLOR>
+    <ICON>fa::gamepad</ICON>
+    <ICON_COLOR>#02c6db</ICON_COLOR>
+    <BOLD_TEXT>1</BOLD_TEXT>
+</APP>
+
+<APP>
+      <A HREF="#" />
+</APP>
+
 
 <APP>
     <A HREF="#openApp;Snake.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/;Tafadhali subiri!;dependencies.txt;#;1;1;1;100;">Chenza mchezo wa nyoka</A>
@@ -221,18 +234,6 @@ Pakua aplikesheni zingine hapa
     <BOLD_TEXT>1</BOLD_TEXT>
 </APP>
 
-<APP>
-      <A HREF="#" />
-</APP>
-
-<APP>
-    <A HREF="#openApp;NenoGame.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/;Tafadhali subiri;dependencies.txt;#;1;1;1;600;">Cheza mchezo wa neno</A>
-    <COLOR>#003333</COLOR>
-    <BG_COLOR>white</BG_COLOR>
-    <ICON>fa::gamepad</ICON>
-    <ICON_COLOR>#02c6db</ICON_COLOR>
-    <BOLD_TEXT>1</BOLD_TEXT>
-</APP>
 
 <APP>
 <A HREF="#"></A>
