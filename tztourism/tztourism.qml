@@ -174,7 +174,7 @@ Rectangle {
 ListElement {
     name_en: "The Art of Henna (Piko), Zanzibar"; 
     name_sw: "Sanaa ya Piko (Henna), Zanzibar"
-    image_file: "./zanzibar_henna.jpg"
+    image_file: "./zanzibar_henna.png"
     desc_en: "A beautiful Swahili tradition where intricate floral and geometric patterns are painted on hands and feet using natural henna, often for weddings and festivals."
     desc_sw: "Utamaduni maridadi wa Kiswahili ambapo michoro ya maua na nakshi huchorwa mikononi na miguuni kwa kutumia piko asilia, mara nyingi wakati wa harusi na sherehe."
 }
