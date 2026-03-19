@@ -206,7 +206,7 @@ MouseArea{
             }
         }
 
-/*
+
         Rectangle{
             z: root.z + 1
             color: "transparent"
@@ -234,7 +234,7 @@ MouseArea{
             MouseArea{
                 anchors.fill: parent
                 onClicked: {
-                    root.executeCommand("openApp;Nyerere.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Nyerere/;Please wait;dependencies.txt;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Nyerere/images/;2;1;1;600;", []);
+                    root.executeCommand("#openApp;Nyerere.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Nyerere/;Please wait;dependencies.txt;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Nyerere/images/;2;1;1;600;", []);
                 }
             }
         } 
@@ -267,11 +267,11 @@ MouseArea{
             MouseArea{
                 anchors.fill: parent
                 onClicked: {
-                    root.executeCommand("openApp;Samia.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Samia/;Please wait;dependencies.txt;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Samia/images/;2;1;1;600;", []);
+                    root.executeCommand("#openApp;Samia.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Samia/;Please wait;dependencies.txt;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Samia/images/;2;1;1;600;", []);
                 }
             }
         }
-*/
+
 
 
         Rectangle{
@@ -405,7 +405,7 @@ Rectangle{
             }
         }
 
-/*
+
 
 Rectangle{
             z: root.z + 1
@@ -434,12 +434,12 @@ Rectangle{
             MouseArea{
                 anchors.fill: parent
                 onClicked: {
-                    root.executeCommand("openApp;Magufuli.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Magufuli/;Please wait;dependencies.txt;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Magufuli/images/;2;1;1;600;", []);
+                    root.executeCommand("#openApp;Magufuli.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Magufuli/;Please wait;dependencies.txt;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Magufuli/images/;2;1;1;600;", []);
 
                 }
             }
         } 
-*/
+
 
         AnimatedImage{
             anchors.horizontalCenter: parent.horizontalCenter
