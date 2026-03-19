@@ -546,6 +546,8 @@ Rectangle {
     property string currentWord:  ""
     property string hiddenWord:   ""
     property int    score:        0
+    property int    displayScore: 0   // animated count-up on results
+    property bool   clueCardTrigger: false  // toggles to trigger clue animation
 
     // Floating score animation
     property int    lastPtsDelta: 0   // +N or -N to show
@@ -687,6 +689,8 @@ Rectangle {
         timeLeft=10+currentWord.length*3;
         countdownTimer.restart();
         displayModel.rebuild();
+        // Trigger clue card slide-in
+        clueCardTrigger = !clueCardTrigger;
     }
 
     function typeLetter(l) {
@@ -779,7 +783,10 @@ Rectangle {
     // ─────────────────────────────────────────────────────────────────────────
     Item {
         anchors.fill: parent
-        visible: screen==="setup"
+        opacity: screen==="setup" ? 1 : 0
+        visible: opacity > 0
+        enabled: screen==="setup"
+        Behavior on opacity { NumberAnimation { duration: 320; easing.type: Easing.InOutQuad } }
 
         Column {
             anchors.centerIn: parent
@@ -934,7 +941,10 @@ Rectangle {
     // ─────────────────────────────────────────────────────────────────────────
     Item {
         anchors.fill: parent
-        visible: screen==="playing"
+        opacity: screen==="playing" ? 1 : 0
+        visible: opacity > 0
+        enabled: screen==="playing"
+        Behavior on opacity { NumberAnimation { duration: 320; easing.type: Easing.InOutQuad } }
 
         // ── 1. TOPBAR — locked to top ─────────────────────────────────────────
         Rectangle {
@@ -945,22 +955,53 @@ Rectangle {
             height: dp(52); color: bgCard
             Rectangle { anchors.bottom:parent.bottom; width:parent.width; height:dp(1); color: Qt.rgba(0,0.9,1,0.15) }
 
-            // Quit button
+            // ── Quit button — pill with icon ─────────────────────────────
             Rectangle {
-                anchors.left:            parent.left; anchors.leftMargin: dp(12)
-                anchors.verticalCenter:  parent.verticalCenter
-                width: dp(32); height: dp(32); radius: dp(16)
-                color: "transparent"
-                border.color: accentRed; border.width: dp(1.5)
-                Text { anchors.centerIn:parent; text:"X"; font.pixelSize:dp(14); font.bold:true; color:accentRed }
+                id: quitBtn
+                anchors.left:           parent.left; anchors.leftMargin: dp(10)
+                anchors.verticalCenter: parent.verticalCenter
+                width: dp(52); height: dp(28); radius: dp(6)
+                color: Qt.rgba(1,0.15,0.15,0.0)
+                border.color: Qt.rgba(1,0.25,0.25,0.35)
+                border.width: dp(1)
+                Behavior on color        { ColorAnimation { duration: 150 } }
+                Behavior on border.color { ColorAnimation { duration: 150 } }
+
+                Row {
+                    anchors.centerIn: parent
+                    spacing: dp(4)
+                    // Left arrow icon ‹‹
+                    Text {
+                        text: "‹"
+                        font.pixelSize: dp(18); font.bold: true
+                        color: Qt.rgba(1,0.35,0.35,0.85)
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
+                    Text {
+                        text: "ACHA"
+                        font.pixelSize: dp(9); font.bold: true
+                        font.letterSpacing: dp(1)
+                        color: Qt.rgba(1,0.35,0.35,0.75)
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
+                }
+
                 MouseArea {
                     anchors.fill: parent
+                    onPressed:  {
+                        quitBtn.color        = Qt.rgba(1,0.15,0.15,0.18);
+                        quitBtn.border.color = Qt.rgba(1,0.3,0.3,0.7);
+                    }
+                    onReleased: {
+                        quitBtn.color        = Qt.rgba(1,0.15,0.15,0.0);
+                        quitBtn.border.color = Qt.rgba(1,0.25,0.25,0.35);
+                    }
                     onClicked: { quitConfirm.visible = true; }
                 }
             }
 
             Text {
-                anchors.left:parent.left; anchors.leftMargin:dp(56)
+                anchors.left:parent.left; anchors.leftMargin:dp(72)
                 anchors.verticalCenter:parent.verticalCenter
                 text:(wordIndex+1)+" / "+wordList.length; font.pixelSize:dp(13); color:textDim
             }
@@ -1003,15 +1044,71 @@ Rectangle {
                     }
                 }
             }
+            // ── Timer — horizontal bar + number ──────────────────────────────
             Item {
-                anchors.right:parent.right; anchors.rightMargin:dp(16)
-                anchors.verticalCenter:parent.verticalCenter
-                width:dp(36); height:dp(36)
+                anchors.right: parent.right; anchors.rightMargin: dp(10)
+                anchors.verticalCenter: parent.verticalCenter
+                width: dp(64); height: dp(34)
+
+                // Background pill
                 Rectangle {
-                    anchors.fill:parent; radius:dp(18); color:"transparent"
-                    border.color:timeLeft>10?accentGrn:accentRed; border.width:dp(2)
+                    anchors.fill: parent
+                    radius: dp(8)
+                    color: bgInput
+                    border.color: timeLeft > 10
+                                  ? Qt.rgba(0,0.9,1,0.2)
+                                  : Qt.rgba(1,0.2,0.2,0.35)
+                    border.width: dp(1)
+                    Behavior on border.color { ColorAnimation { duration: 400 } }
                 }
-                Text { anchors.centerIn:parent; text:timeLeft; font.pixelSize:dp(13); font.bold:true; color:timeLeft>10?accentGrn:accentRed }
+
+                // Drain bar — shrinks left to right as time runs out
+                Rectangle {
+                    anchors.top:    parent.top;    anchors.topMargin:    dp(1)
+                    anchors.bottom: parent.bottom; anchors.bottomMargin: dp(1)
+                    anchors.left:   parent.left;   anchors.leftMargin:   dp(1)
+                    radius: dp(7)
+
+                    // Width proportional to timeLeft
+                    property int maxTime: 10 + currentWord.length * 3
+                    width: Math.max(dp(8),
+                                    (parent.width - dp(2)) * (timeLeft / Math.max(maxTime, 1)))
+                    Behavior on width { NumberAnimation { duration: 900; easing.type: Easing.Linear } }
+
+                    color: timeLeft > 10 ? accent : accentRed
+                    opacity: 0.3
+                    Behavior on color   { ColorAnimation { duration: 400 } }
+                    Behavior on opacity { NumberAnimation { duration: 400 } }
+                }
+
+                // Number
+                Row {
+                    anchors.centerIn: parent
+                    spacing: dp(2)
+
+                    Text {
+                        text: timeLeft
+                        font.pixelSize: dp(14); font.bold: true
+                        color: timeLeft > 10 ? accent : accentRed
+                        anchors.verticalCenter: parent.verticalCenter
+                        Behavior on color { ColorAnimation { duration: 400 } }
+
+                        // Pulse when time is low
+                        SequentialAnimation on scale {
+                            running: timeLeft <= 5 && timeLeft > 0
+                            loops: Animation.Infinite
+                            NumberAnimation { to: 1.25; duration: 300; easing.type: Easing.OutQuad }
+                            NumberAnimation { to: 1.0;  duration: 300; easing.type: Easing.InQuad }
+                        }
+                    }
+                    Text {
+                        text: "s"
+                        font.pixelSize: dp(10)
+                        color: textDim
+                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.bottomMargin: dp(1)
+                    }
+                }
             }
         }
 
@@ -1046,11 +1143,23 @@ Rectangle {
                 Repeater {
                     model: ["Q","W","E","R","T","Y","U","I","O","P"]
                     delegate: Rectangle {
+                        id: k0
                         width: (sw - dp(12) - dp(5)*9) / 10
                         height: dp(46); radius: dp(6)
                         color: bgCard; border.color: Qt.rgba(0,0.9,1,0.1); border.width: dp(1)
+                        transformOrigin: Item.Center
                         Text { anchors.centerIn:parent; text:modelData; font.pixelSize:dp(14); font.bold:true; color:textSec }
-                        MouseArea { anchors.fill:parent; onClicked:{ typeLetter(modelData); } onPressed:{ parent.opacity=0.6; } onReleased:{ parent.opacity=1.0; } }
+                        SequentialAnimation {
+                            id: kp0
+                            NumberAnimation { target:k0; property:"scale"; to:0.80; duration:55; easing.type:Easing.InQuad }
+                            NumberAnimation { target:k0; property:"scale"; to:1.0;  duration:100; easing.type:Easing.OutBack }
+                        }
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked:  { typeLetter(modelData); }
+                            onPressed:  { kp0.restart(); k0.color = Qt.rgba(0,0.9,1,0.2); }
+                            onReleased: { k0.color = bgCard; }
+                        }
                     }
                 }
             }
@@ -1064,11 +1173,23 @@ Rectangle {
                 Repeater {
                     model: ["A","S","D","F","G","H","J","K","L"]
                     delegate: Rectangle {
+                        id: k1
                         width: (sw - dp(12) - dp(5)*9) / 10
                         height: dp(46); radius: dp(6)
                         color: bgCard; border.color: Qt.rgba(0,0.9,1,0.1); border.width: dp(1)
+                        transformOrigin: Item.Center
                         Text { anchors.centerIn:parent; text:modelData; font.pixelSize:dp(14); font.bold:true; color:textSec }
-                        MouseArea { anchors.fill:parent; onClicked:{ typeLetter(modelData); } onPressed:{ parent.opacity=0.6; } onReleased:{ parent.opacity=1.0; } }
+                        SequentialAnimation {
+                            id: kp1
+                            NumberAnimation { target:k1; property:"scale"; to:0.80; duration:55; easing.type:Easing.InQuad }
+                            NumberAnimation { target:k1; property:"scale"; to:1.0;  duration:100; easing.type:Easing.OutBack }
+                        }
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked:  { typeLetter(modelData); }
+                            onPressed:  { kp1.restart(); k1.color = Qt.rgba(0,0.9,1,0.2); }
+                            onReleased: { k1.color = bgCard; }
+                        }
                     }
                 }
             }
@@ -1082,9 +1203,11 @@ Rectangle {
 
                 // ⌫
                 Rectangle {
+                    id: bkspKey
                     width: (sw - dp(12) - dp(5)*9) / 10 * 1.55
                     height: dp(46); radius: dp(6)
                     color: bgCard; border.color: Qt.rgba(0,0.9,1,0.1); border.width: dp(1)
+                    transformOrigin: Item.Center
                     Text {
                         anchors.centerIn:parent;
                         text: (Qt.platform.os === "android") ? "<" : "⌫"
@@ -1092,31 +1215,60 @@ Rectangle {
                         font.bold:true;
                         color:textMain
                     }
-                    MouseArea { anchors.fill:parent; onClicked:{ deleteLetter(); } onPressed:{ parent.opacity=0.6; } onReleased:{ parent.opacity=1.0; } }
+                    SequentialAnimation {
+                        id: bkspPop
+                        NumberAnimation { target:bkspKey; property:"scale"; to:0.82; duration:60; easing.type:Easing.InQuad }
+                        NumberAnimation { target:bkspKey; property:"scale"; to:1.0;  duration:100; easing.type:Easing.OutBack }
+                    }
+                    MouseArea {
+                        anchors.fill:parent
+                        onClicked:{ deleteLetter(); }
+                        onPressed:{ bkspPop.restart(); bkspKey.color = Qt.rgba(1,0.3,0.3,0.2); }
+                        onReleased:{ bkspKey.color = bgCard; }
+                    }
                 }
 
                 Repeater {
                     model: ["Z","X","C","V","B","N","M"]
                     delegate: Rectangle {
+                        id: k2
                         width: (sw - dp(12) - dp(5)*9) / 10
                         height: dp(46); radius: dp(6)
                         color: bgCard; border.color: Qt.rgba(0,0.9,1,0.1); border.width: dp(1)
+                        transformOrigin: Item.Center
                         Text { anchors.centerIn:parent; text:modelData; font.pixelSize:dp(14); font.bold:true; color:textSec }
-                        MouseArea { anchors.fill:parent; onClicked:{ typeLetter(modelData); } onPressed:{ parent.opacity=0.6; } onReleased:{ parent.opacity=1.0; } }
+                        SequentialAnimation {
+                            id: kp2
+                            NumberAnimation { target:k2; property:"scale"; to:0.80; duration:55; easing.type:Easing.InQuad }
+                            NumberAnimation { target:k2; property:"scale"; to:1.0;  duration:100; easing.type:Easing.OutBack }
+                        }
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked:  { typeLetter(modelData); }
+                            onPressed:  { kp2.restart(); k2.color = Qt.rgba(0,0.9,1,0.2); }
+                            onReleased: { k2.color = bgCard; }
+                        }
                     }
                 }
 
                 // OK
                 Rectangle {
+                    id: okKey
                     width: (sw - dp(12) - dp(5)*9) / 10 * 1.55
                     height: dp(46); radius: dp(6)
                     color: Qt.rgba(0,0.9,1,0.18); border.color: accent; border.width: dp(1.5)
+                    transformOrigin: Item.Center
                     Text { anchors.centerIn:parent; text:"OK"; font.pixelSize:dp(12); font.bold:true; color:accent }
+                    SequentialAnimation {
+                        id: okPop
+                        NumberAnimation { target:okKey; property:"scale"; to:0.82; duration:60; easing.type:Easing.InQuad }
+                        NumberAnimation { target:okKey; property:"scale"; to:1.0;  duration:120; easing.type:Easing.OutBack }
+                    }
                     MouseArea {
                         anchors.fill:parent
                         onClicked:{ if(roundOver){ wordIndex++; loadWord(); } }
-                        onPressed:{ parent.opacity=0.6; }
-                        onReleased:{ parent.opacity=1.0; }
+                        onPressed:{ okPop.restart(); okKey.color = Qt.rgba(0,0.9,1,0.3); }
+                        onReleased:{ okKey.color = accent; }
                     }
                 }
             }
@@ -1289,6 +1441,29 @@ Rectangle {
                 radius: dp(14)
                 color: bgCard
                 border.color: Qt.rgba(0,0.9,1,0.18); border.width: dp(1)
+                opacity: 0
+                y: 0
+
+                // Slide-in + fade on each new word via clueCardTrigger
+                Connections {
+                    target: app
+                    function onClueCardTriggerChanged() {
+                        clueCard.opacity = 0;
+                        clueCard.y = -dp(14);
+                        ccFade.restart();
+                        ccSlide.restart();
+                    }
+                }
+                NumberAnimation on opacity {
+                    id: ccFade
+                    from: 0; to: 1; duration: 350
+                    easing.type: Easing.OutCubic; running: false
+                }
+                NumberAnimation on y {
+                    id: ccSlide
+                    from: -dp(14); to: 0; duration: 350
+                    easing.type: Easing.OutCubic; running: false
+                }
 
                 // Left accent bar
                 Rectangle {
@@ -1342,20 +1517,39 @@ Rectangle {
                     delegate: Item {
                         property string ch:   model.ch
                         property string kind: model.kind
-                        width:  dp(46); height: dp(56)
+                        width: dp(46); height: dp(56)
 
-                        // Shadow layer
+                        // Bounce on "filled" — ukiandika herufi
+                        onKindChanged: {
+                            if(kind === "filled") { bounceAnim.restart(); }
+                        }
+                        SequentialAnimation {
+                            id: bounceAnim
+                            NumberAnimation { target:tileInner; property:"scale"; to:1.2; duration:70; easing.type:Easing.OutBack }
+                            NumberAnimation { target:tileInner; property:"scale"; to:1.0; duration:110; easing.type:Easing.InOutQuad }
+                        }
+
+                        // Flip-reveal ukijibu sahihi au vibaya
+                        onChChanged: {
+                            if(kind === "correct" || kind === "wrong") { flipAnim.restart(); }
+                        }
+                        SequentialAnimation {
+                            id: flipAnim
+                            NumberAnimation { target:tileInner; property:"scale"; to:0.0; duration:90; easing.type:Easing.InQuad }
+                            NumberAnimation { target:tileInner; property:"scale"; to:1.0; duration:180; easing.type:Easing.OutBack }
+                        }
+
+                        // Shadow
                         Rectangle {
-                            anchors.fill: parent
-                            anchors.topMargin: dp(3)
-                            radius: dp(10)
-                            color: "#000000"; opacity: 0.3
+                            anchors.fill: parent; anchors.topMargin: dp(3)
+                            radius: dp(10); color: "#000000"; opacity: 0.3
                         }
 
                         Rectangle {
-                            anchors.fill: parent
-                            anchors.bottomMargin: dp(3)
+                            id: tileInner
+                            anchors.fill: parent; anchors.bottomMargin: dp(3)
                             radius: dp(10)
+                            transformOrigin: Item.Center
 
                             property color tileBg: {
                                 if(kind==="fixed")  { return bgCard; }
@@ -1379,8 +1573,9 @@ Rectangle {
                             color:        tileBg
                             border.color: tileBd
                             border.width: kind==="blank" ? dp(1.5) : dp(2)
+                            Behavior on color        { ColorAnimation { duration: 120 } }
+                            Behavior on border.color { ColorAnimation { duration: 120 } }
 
-                            // Top shine on filled/fixed tiles
                             Rectangle {
                                 visible: kind==="fixed" || kind==="filled" || kind==="correct"
                                 anchors.top: parent.top; anchors.topMargin: dp(1)
@@ -1397,7 +1592,6 @@ Rectangle {
                                 color: parent.tileTx
                             }
 
-                            // Blinking cursor on blank tiles
                             Rectangle {
                                 visible: kind==="blank" && !roundOver
                                 anchors.bottom: parent.bottom; anchors.bottomMargin: dp(5)
@@ -1463,9 +1657,27 @@ Rectangle {
     // ─────────────────────────────────────────────────────────────────────────
     // ── RESULTS SCREEN ───────────────────────────────────────────────────────
     // ─────────────────────────────────────────────────────────────────────────
+    NumberAnimation {
+        id: scoreCountUp
+        target: app; property: "displayScore"
+        from: 0; duration: 1200
+        easing.type: Easing.OutCubic
+        running: false
+    }
+
     Item {
         anchors.fill: parent
-        visible: screen==="results"
+        opacity: screen==="results" ? 1 : 0
+        visible: opacity > 0
+        enabled: screen==="results"
+        Behavior on opacity { NumberAnimation { duration: 320; easing.type: Easing.InOutQuad } }
+        onEnabledChanged: {
+            if(enabled){
+                displayScore = 0;
+                scoreCountUp.to = score;
+                scoreCountUp.restart();
+            }
+        }
 
         Column {
             anchors.centerIn: parent
@@ -1518,6 +1730,21 @@ Rectangle {
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: score>=85 ? "🏆 Bora Sana!" : score>=65 ? "👏 Vizuri!" : score>=40 ? "💪 Jaribu Tena!" : "📚 Endelea Kujifunza!"
                 font.pixelSize: dp(18); font.bold: true; color: textMain
+                opacity: 0
+                NumberAnimation on opacity {
+                    id: gradeFadeIn
+                    from: 0; to: 1; duration: 600
+                    easing.type: Easing.OutCubic; running: false
+                }
+                NumberAnimation on font.pixelSize {
+                    id: gradeGrow
+                    from: dp(10); to: dp(18); duration: 600
+                    easing.type: Easing.OutBack; running: false
+                }
+                Timer {
+                    interval: 900; running: screen==="results"
+                    onTriggered: { gradeFadeIn.restart(); gradeGrow.restart(); }
+                }
             }
 
             // ── CHEZA TENA ────────────────────────────────────────────────
