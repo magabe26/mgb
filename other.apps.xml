@@ -13,7 +13,7 @@
      
 
 <APP>
-      <A HREF="openApp;Nyerere.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Nyerere/;Tafadhali subiri;dependencies.txt;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Nyerere/images/;1;1;1;600;
+      <A HREF="#openApp;Nyerere.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Nyerere/;Tafadhali subiri;dependencies.txt;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Nyerere/images/;1;1;1;600;
 ">Baba wa Taifa la Tanzania</A>
       <COLOR>black</COLOR>
       <BG_COLOR>white</BG_COLOR>
@@ -29,7 +29,20 @@
 
 
 <APP>
-    <A HREF="openApp;Magufuli.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Magufuli/;Tafadhali subiri;dependencies.txt;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Magufuli/images/;1;1;1;600;">Dr. John Pombe Magufuli</A>
+    <A HREF="#openApp;Magufuli.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Magufuli/;Tafadhali subiri;dependencies.txt;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Magufuli/images/;1;1;1;600;">Dkt. John Pombe Magufuli</A>
+    <COLOR>black</COLOR>
+    <BG_COLOR>white</BG_COLOR>
+    <ICON>fa::star</ICON>
+    <ICON_COLOR>black</ICON_COLOR>
+    <BOLD_TEXT>1</BOLD_TEXT>
+</APP>
+
+<APP>
+      <A HREF="#" />
+   </APP>
+
+<APP>
+    <A HREF="#openApp;Samia.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Samia/;Tafadhali subiri;dependencies.txt;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Samia/images/;1;1;1;600;">Dkt. Samia Suluhu Hassan</A>
     <COLOR>black</COLOR>
     <BG_COLOR>white</BG_COLOR>
     <ICON>fa::star</ICON>
