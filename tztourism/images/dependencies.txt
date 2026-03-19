@@ -88,3 +88,6 @@ duluti.jpeg,
 eyasi.jpeg,
 ibanda.jpeg,
 rumanyika.jpeg,
+
+zanzibar_henna-3.jpg,
+
