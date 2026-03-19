@@ -451,7 +451,12 @@ Rectangle {
     }
 
     function loadWord() {
-        if(wordIndex>=wordList.length){ screen="results"; countdownTimer.stop(); return; }
+        if(wordIndex>=wordList.length){
+            screen="results";
+            countdownTimer.stop();
+            app.ad();
+            return;
+        }
         currentEntry=wordList[wordIndex];
         currentWord=currentEntry.w;
         hiddenWord=makeHidden(currentWord);
