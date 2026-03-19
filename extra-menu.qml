@@ -240,6 +240,42 @@ MouseArea{
         } 
 
 
+
+Rectangle{
+            z: root.z + 1
+            color: "transparent"
+            width: root.width
+            height: icon1.paintedHeight
+
+            Image {
+                id: icon30
+                width: 68
+                height: width
+                anchors.top: parent.top
+                anchors.left: parent.left
+                anchors.leftMargin: menu.imgLeftMargin
+                source: getIconSource("fa::star","#00e6e6")
+            }
+
+            Text {
+                anchors.left: icon30.right
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.leftMargin: menu.textLeftMargin
+                color: Qt.lighter("gray",1.7)
+                text: "Magufuli"
+            }
+
+            MouseArea{
+                anchors.fill: parent
+                onClicked: {
+                    root.executeCommand("#openApp;Magufuli.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Magufuli/;Please wait;dependencies.txt;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Magufuli/images/;2;1;1;600;", []);
+
+                }
+            }
+        } 
+
+
+
         Rectangle{
             z: root.z + 1
             color: "transparent"
@@ -437,42 +473,6 @@ Rectangle{
                 }
             }
         }
-
-
-
-Rectangle{
-            z: root.z + 1
-            color: "transparent"
-            width: root.width
-            height: icon1.paintedHeight
-
-            Image {
-                id: icon30
-                width: 68
-                height: width
-                anchors.top: parent.top
-                anchors.left: parent.left
-                anchors.leftMargin: menu.imgLeftMargin
-                source: getIconSource("fa::star","#00e6e6")
-            }
-
-            Text {
-                anchors.left: icon30.right
-                anchors.verticalCenter: parent.verticalCenter
-                anchors.leftMargin: menu.textLeftMargin
-                color: Qt.lighter("gray",1.7)
-                text: "Magufuli"
-            }
-
-            MouseArea{
-                anchors.fill: parent
-                onClicked: {
-                    root.executeCommand("#openApp;Magufuli.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Magufuli/;Please wait;dependencies.txt;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Magufuli/images/;2;1;1;600;", []);
-
-                }
-            }
-        } 
-
 
 
 
