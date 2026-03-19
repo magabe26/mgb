@@ -772,7 +772,13 @@ Rectangle {
                     width: (sw - dp(12) - dp(5)*9) / 10 * 1.55
                     height: dp(46); radius: dp(6)
                     color: bgCard; border.color: borderCol; border.width: dp(1)
-                    Text { anchors.centerIn:parent; text:"⌫"; font.pixelSize:dp(14); font.bold:true; color:textMain }
+                    Text {
+                        anchors.centerIn:parent;
+                        text: (Qt.platform.os === "android") ? "<" : "⌫"
+                        font.pixelSize:dp(14);
+                        font.bold:true;
+                        color:textMain
+                    }
                     MouseArea { anchors.fill:parent; onClicked:{ deleteLetter(); } onPressed:{ parent.opacity=0.6; } onReleased:{ parent.opacity=1.0; } }
                 }
 
