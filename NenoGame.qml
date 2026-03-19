@@ -132,7 +132,49 @@ Rectangle {
         {w:"WAZO",sw:"Kitu kinachokuja akilini",en:"Idea"},
         {w:"SIMU",sw:"Kifaa cha kupigia watu mbali",en:"Phone"},
         {w:"SASA",sw:"Wakati huu huu",en:"Now"},
-        {w:"JANA",sw:"Siku iliyopita",en:"Yesterday"}
+        {w:"JANA",sw:"Siku iliyopita",en:"Yesterday"},
+        {w:"HEWA",sw:"Unaipumua kila wakati lakini hauwezi kuiona",en:"Air"},
+        {w:"PIGO",sw:"Moyo wako unafanya hiki kila sekunde bila kukoma",en:"Beat/Strike"},
+        {w:"HOFU",sw:"Hisia inayokufanya ukimbie bila kuulizwa",en:"Fear"},
+        {w:"WIVU",sw:"Unatesa mtu kwa sababu ya mafanikio ya mwingine",en:"Jealousy"},
+        {w:"BURE",sw:"Hakuna bei lakini wakati mwingine haina maana",en:"Free/Worthless"},
+        {w:"HAMU",sw:"Nguvu ya ndani inayokuvuta kuelekea kitu",en:"Eagerness/Longing"},
+        {w:"NDOA",sw:"Mkataba mmoja lakini watu wawili wanausaini",en:"Marriage"},
+        {w:"AIBU",sw:"Uso unabadilika rangi bila hiari yako",en:"Shame"},
+        {w:"NURU",sw:"Giza linakimbia punde tu unapofika",en:"Light"},
+        {w:"SIRI",sw:"Ukijua wewe peke yako — usimwambie hata rafiki yako wa karibu",en:"Secret"},
+        {w:"KERO",sw:"Inakusumbua akilini hata unapolala",en:"Worry/Grievance"},
+        {w:"INDA",sw:"Chuki iliyofichwa moyoni — inakula polepole",en:"Hidden grudge"},
+        {w:"TELE",sw:"Nyingi sana hadi haziwezi kuhesabiwa",en:"Plenty/Abundant"},
+        {w:"KOSA",sw:"Unafanya bila kukusudia lakini inaumiza wengine",en:"Mistake"},
+        {w:"HAJA",sw:"Bila hiki maisha yanakuwa magumu sana",en:"Need/Necessity"},
+        {w:"KAZI",sw:"Unafanya hii kupata chakula na kujikimu",en:"Work/Job"},
+        {w:"BOVU",sw:"Kilikuwa kizuri lakini sasa hakifai tena",en:"Rotten/Spoiled"},
+        {w:"OMBI",sw:"Unasujudu au unapiga magoti ukitoa hili",en:"Prayer/Request"},
+        {w:"RIBA",sw:"Unalipa ziada ya ulichokopa — benki inafurahi",en:"Interest"},
+        {w:"ADHA",sw:"Maumivu makubwa yanayodumu muda mrefu",en:"Suffering/Torment"},
+        {w:"BAKI",sw:"Kilichobaki baada ya kila kitu kingine kutumika",en:"Remainder"},
+        {w:"KOBO",sw:"Sarafu ndogo — hata ukikusanya nyingi zinakuwa kidogo",en:"Small coin"},
+        {w:"POVO",sw:"Hali ya kukosa hata mahitaji ya msingi",en:"Poverty"},
+        {w:"JADI",sw:"Mila inayopita kizazi hadi kizazi bila ya kuandikwa",en:"Tradition/Heritage"},
+        {w:"USIA",sw:"Maneno ya mtu anayefariki — ni muhimu kusikia",en:"Last will"},
+        {w:"ZAKA",sw:"Unailipa kama ibada si kama ushuru",en:"Zakat/Tithe"},
+        {w:"YOWE",sw:"Sauti ya maumivu au mshangao inayotoka bila kukusudia",en:"Cry/Shriek"},
+        {w:"POVU",sw:"Inajaa na kutoweka haraka kama maisha ya starehe",en:"Foam/Froth"},
+        {w:"TAWI",sw:"Inategemea shina lakini inaweza kukua peke yake",en:"Branch"},
+        {w:"JIVU",sw:"Kilichobaki baada ya kitu kuchomwa kabisa",en:"Ash"},
+        {w:"NAZI",sw:"Gumu nje lakini tamu na yenye maji ndani",en:"Coconut"},
+        {w:"LOZI",sw:"Ndogo lakini thamani yake ni kubwa sana",en:"Almond"},
+        {w:"KETE",sw:"Pambo la sikioni — damu ikitoka ulijua ni kubwa",en:"Earring"},
+        {w:"NGAO",sw:"Inakuzuia risasi au mshtuko lakini haikushambulia",en:"Shield"},
+        {w:"ZIZI",sw:"Nyumba ya wanyama — wao hawalali hotelini",en:"Animal pen"},
+        {w:"FUKO",sw:"Anachimba ardhi kutafuta chakula — haoni vizuri mchana",en:"Mole"},
+        {w:"TOTO",sw:"Mdogo kabisa — bado hajui lolote kuhusu dunia",en:"Baby/Infant"},
+        {w:"BOGI",sw:"Sanduku zito la treni linalotumiwa kubeba abiria",en:"Train carriage"},
+        {w:"GEGO",sw:"Meno mazito ya nyuma — yanasaga chakula kigumu",en:"Molar"},
+        {w:"WAVI",sw:"Wavuvi wanaotumia hiki baharini",en:"Net (fishing)"},
+        {w:"PAGO",sw:"Malipo ya fidia — unalipa ukikosea",en:"Payment/Fine"},
+        {w:"KOPO",sw:"Chombo cha chuma kilichofungwa — unakishangilia ukifungua",en:"Tin can"}
     ]
 
     property var bank5: [
@@ -216,7 +258,25 @@ Rectangle {
         {w:"USIKU",sw:"Wakati wa giza",en:"Night"},
         {w:"UHURU",sw:"Hali ya kuwa huru",en:"Freedom"},
         {w:"NYOKA",sw:"Mnyama mrefu asiye na miguu",en:"Snake"},
-        {w:"NYUMA",sw:"Kinyume cha mbele",en:"Behind"}
+        {w:"NYUMA",sw:"Kinyume cha mbele",en:"Behind"},
+        {w:"MWILI",sw:"Nyumba ya roho yako — utaicha siku moja",en:"Body"},
+        {w:"UPOLE",sw:"Nguvu ya aina nyingine — watu wenye nguvu wanaweza",en:"Gentleness"},
+        {w:"MBINU",sw:"Njia ya siri ya kufanikisha lengo bila kupigana",en:"Tactic/Strategy"},
+        {w:"UJUZI",sw:"Uliujenga kwa miaka na makosa mengi si siku moja",en:"Skill/Knowledge"},
+        {w:"BONGO",sw:"Kiongozi wa mwili wote — hata wakati unaolala kinafanya kazi",en:"Brain"},
+        {w:"KISIO",sw:"Unafikiri jibu kabla ya kuthibitisha — wakati mwingine unakosea",en:"Guess/Hunch"},
+        {w:"KINGA",sw:"Inakuzuia maradhi — ngao ya ndani ya mwili wako",en:"Protection/Immunity"},
+        {w:"MAWIO",sw:"Wakati jua linapoanza safari yake asubuhi",en:"Sunrise/Dawn"},
+        {w:"FUNZO",sw:"Kinabaki nawe maisha yote — hata ukisahau mwalimu",en:"Lesson/Teaching"},
+        {w:"NGOZI",sw:"Nguo yako ya asili — hata ukifua haifiki",en:"Skin"},
+        {w:"AJALI",sw:"Hakuna anayepanga — lakini inaweza kubadilisha maisha yote",en:"Accident"},
+        {w:"ADABU",sw:"Haitoi pesa lakini inafungua milango mingi",en:"Good manners/Etiquette"},
+        {w:"FICHA",sw:"Kila mtu ana kitu anachofanya hiki moyoni mwake",en:"To hide/conceal"},
+        {w:"IMARA",sw:"Hata dhoruba kali haiwezi kukiangusha",en:"Strong/Firm/Stable"},
+        {w:"PEKEE",sw:"Hakuna mwingine kama wewe ulimwenguni",en:"Unique/Alone/Only"},
+        {w:"ARUSI",sw:"Siku moja tu lakini kumbukumbu inadumu maisha yote",en:"Wedding ceremony"},
+        {w:"BIDII",sw:"Unaiweka hata ukijua matokeo hayatakuwa ya haraka",en:"Effort/Diligence"},
+        {w:"TAMAA",sw:"Inakuvuta mbele lakini wakati mwingine inakuangamiza",en:"Desire/Greed"}
     ]
 
     property var bank6: [
@@ -267,7 +327,23 @@ Rectangle {
         {w:"KANISA",sw:"Jengo la ibada ya Wakristo",en:"Church"},
         {w:"SAFARI",sw:"Msafara wa kwenda mbali",en:"Journey"},
         {w:"LIKIZO",sw:"Mapumziko ya kazi au shule",en:"Holiday"},
-        {w:"MSAADA",sw:"Kusaidia mtu",en:"Help"}
+        {w:"MSAADA",sw:"Kusaidia mtu",en:"Help"},
+        {w:"KIVULI",sw:"Linakufuata kila mahali lakini halikusumbui kamwe",en:"Shadow"},
+        {w:"KISASI",sw:"Kulipiza — lakini hakuna anayeshinda mwishowe",en:"Revenge"},
+        {w:"FITINA",sw:"Maneno matamu yanayolipuka kama baruti ndani ya jamii",en:"Intrigue/Mischief"},
+        {w:"DHARAU",sw:"Kumwona mtu si kitu — hata yeye ana damu kama wewe",en:"Contempt"},
+        {w:"UJANJA",sw:"Akili ya mwepesi — wakati mwingine inakudanganya wewe mwenyewe",en:"Cleverness/Cunning"},
+        {w:"GHUSHI",sw:"Inajifanya ya kweli lakini ukigusa inaporomoka",en:"Fake/Fraud"},
+        {w:"MAJUTO",sw:"Inakuja baada ya tendo — si kabla — kila wakati",en:"Regret/Remorse"},
+        {w:"HASIRA",sw:"Moto unaowaka haraka — unaweza kuchoma nyumba yako yote",en:"Anger/Rage"},
+        {w:"LAWAMA",sw:"Kidole kinaelekeza nje lakini vidole vingine vitatu vinakuelekea wewe",en:"Blame"},
+        {w:"MSONGO",sw:"Mzigo usioeonekana lakini unalemea kuliko jiwe",en:"Mental stress"},
+        {w:"UPWEKE",sw:"Wakati mwingine ni baraka — wakati mwingine ni adhabu",en:"Solitude/Loneliness"},
+        {w:"MGANGA",sw:"Anajua dawa lakini hata yeye anaumia wakati mwingine",en:"Healer/Doctor/Herbalist"},
+        {w:"KIZAZI",sw:"Watu wa umri mmoja — wataandika historia yao wenyewe",en:"Generation"},
+        {w:"SAMEHE",sw:"Ni nguvu kubwa — wanyonge hawakuweza kamwe",en:"To forgive"},
+        {w:"KARAMU",sw:"Chakula cha furaha — tumbo linashangilia",en:"Feast/Banquet"},
+        {w:"KATAZO",sw:"Kinakuzuia kufanya unachopenda — lakini kina sababu",en:"Prohibition/Ban"}
     ]
 
     property var bank7: [
@@ -324,7 +400,16 @@ Rectangle {
         {w:"KUCHEKA",sw:"Kuonyesha furaha kwa kicheko",en:"To laugh"},
         {w:"UHALISI",sw:"Hali halisi ya mambo",en:"Reality"},
         {w:"MBINGWA",sw:"Mshindi bingwa",en:"Champion"},
-        {w:"SIKUKUU",sw:"Siku maalum ya sherehe ya kitaifa",en:"Public holiday"}
+        {w:"SIKUKUU",sw:"Siku maalum ya sherehe ya kitaifa",en:"Public holiday"},
+        {w:"DHAMIRA",sw:"Inakuchochea hata ndoto zako zinapofikia mbali sana",en:"Determination/Purpose"},
+        {w:"UBUNIFU",sw:"Kuumba kitu kipya kutoka mahali pasipo kitu",en:"Creativity/Innovation"},
+        {w:"USHUJAA",sw:"Kukabiliana na jambo gumu wakati wengine wanakimbia",en:"Bravery/Heroism"},
+        {w:"UNYOOFU",sw:"Kuwa wazi na wa moja kwa moja — bila uso wa pili",en:"Straightforwardness"},
+        {w:"MSAMAHA",sw:"Kuachilia mtu aliyekukosea — ni nguvu kubwa si udhaifu",en:"Forgiveness"},
+        {w:"UTABIRI",sw:"Kusema kitakachotokea kabla ya kutokea",en:"Prophecy/Prediction"},
+        {w:"DHARURA",sw:"Hali ya hatari inayohitaji hatua za haraka sana",en:"Emergency"},
+        {w:"UNAFIKI",sw:"Uso mmoja mbele yako na mwingine nyuma yako",en:"Hypocrisy"},
+        {w:"UFISADI",sw:"Kutumia mamlaka vibaya kwa faida yako bila kujali wengine",en:"Corruption"}
     ]
 
     // ── Settings ──────────────────────────────────────────────────────────────
