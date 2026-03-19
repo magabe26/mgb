@@ -933,6 +933,69 @@ Rectangle {
                     onClicked:  { app.close(); }
                 }
             }
+
+            // ── BY MAGABE LAB ──────────────────────────────────────────────
+            Item {
+                width: parent.width
+                height: dp(36)
+
+                // Subtle divider line
+                Rectangle {
+                    anchors.top: parent.top
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: dp(80); height: dp(1)
+                    gradient: Gradient {
+                        orientation: Gradient.Horizontal
+                        GradientStop { position: 0.0; color: "transparent" }
+                        GradientStop { position: 0.5; color: Qt.rgba(0,0.9,1,0.2) }
+                        GradientStop { position: 1.0; color: "transparent" }
+                    }
+                }
+
+                Row {
+                    anchors.centerIn: parent
+                    spacing: dp(6)
+
+                    // Left dot
+                    Rectangle {
+                        width: dp(3); height: dp(3); radius: dp(2)
+                        color: accent; opacity: 0.5
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
+
+                    /*
+                    Text {
+                        text: "BY"
+                        font.pixelSize: dp(9)
+                        font.letterSpacing: dp(2)
+                        color: Qt.rgba(0,0.9,1,0.3)
+                        anchors.verticalCenter: parent.verticalCenter
+                    } */
+
+                    Text {
+                        text: "MAGABE LAB"
+                        font.pixelSize: dp(10)
+                        font.bold: true
+                        font.letterSpacing: dp(2.5)
+                        color: Qt.rgba(0,0.9,1,0.7)
+                        anchors.verticalCenter: parent.verticalCenter
+
+                        // Gentle glow pulse
+                        SequentialAnimation on opacity {
+                            loops: Animation.Infinite
+                            NumberAnimation { to: 0.5; duration: 2000; easing.type: Easing.InOutSine }
+                            NumberAnimation { to: 1.0; duration: 2000; easing.type: Easing.InOutSine }
+                        }
+                    }
+
+                    // Right dot
+                    Rectangle {
+                        width: dp(3); height: dp(3); radius: dp(2)
+                        color: accent; opacity: 0.5
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
+                }
+            }
         }
     }
 
