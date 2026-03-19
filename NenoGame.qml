@@ -891,7 +891,7 @@ Rectangle {
 
                 Row {
                     anchors.centerIn: parent; spacing: dp(8)
-                    Text { text: "✕"; font.pixelSize: dp(13); color: "#ff4444"; anchors.verticalCenter: parent.verticalCenter }
+                    Text { text: "X"; font.pixelSize: dp(13); color: "#ff4444"; anchors.verticalCenter: parent.verticalCenter }
                     Text { text: "FUNGA"; font.pixelSize: dp(13); font.bold: true; font.letterSpacing: dp(2); color: "#ff4444"; anchors.verticalCenter: parent.verticalCenter }
                 }
                 MouseArea {
@@ -1590,7 +1590,7 @@ Rectangle {
                 border.color: "#ff4444"; border.width: dp(1)
                 Row {
                     anchors.centerIn: parent; spacing: dp(8)
-                    Text { text:"✕"; font.pixelSize:dp(13); color:"#ff4444"; anchors.verticalCenter:parent.verticalCenter }
+                    Text { text:"X"; font.pixelSize:dp(13); color:"#ff4444"; anchors.verticalCenter:parent.verticalCenter }
                     Text { text:"FUNGA"; font.pixelSize:dp(13); font.bold:true; font.letterSpacing:dp(2); color:"#ff4444"; anchors.verticalCenter:parent.verticalCenter }
                 }
                 MouseArea {
