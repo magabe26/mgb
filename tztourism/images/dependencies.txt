@@ -1,4 +1,4 @@
-zanzibar_henna.jpg,
+zanzibar_henna.png,
 arusha_np.jpg,
 mahale.jpg,
 ngorongoro.jpg,
