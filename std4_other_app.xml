@@ -207,7 +207,7 @@ Pakua aplikesheni zingine hapa
     <COLOR>#003333</COLOR>
     <BG_COLOR>white</BG_COLOR>
     <ICON>fa::gamepad</ICON>
-    <ICON_COLOR>#02c6db</ICON_COLOR>
+    <ICON_COLOR>green</ICON_COLOR>
     <BOLD_TEXT>1</BOLD_TEXT>
 </APP>
 
