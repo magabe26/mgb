@@ -15,7 +15,7 @@ Rectangle {
     width: parent.width
     height: parent.height
     visible: true
-    color:  "#0a0f0a"
+    color:  "#020d0d"
 
     function cleanParent(text)
     {
@@ -117,16 +117,17 @@ Rectangle {
     }
 
     // ── Colors ────────────────────────────────────────────
-    readonly property string clrBg:     "#0a0f0a";
-    readonly property string clrGrid:   "#141a14";
-    readonly property string clrBorder: "#00bcd4";
-    readonly property string clrHead:   "#00bcd4";
-    readonly property string clrFood:   "#ff3c3c";
-    readonly property string clrHud:    "#00bcd4";
-    readonly property string clrPause:  "#ffdd00";
-    readonly property string clrOver:   "#ff3c3c";
-    readonly property string clrBtn:    "#1a2e1a";
-    readonly property string clrBtnPrs: "#2a5a2a";
+    // ── IQTest deep-space cyan palette ──────────────────────────────────────
+    readonly property string clrBg:     "#020d0d";
+    readonly property string clrGrid:   "#0d2020";
+    readonly property string clrBorder: "#00e5ff";
+    readonly property string clrHead:   "#00e5ff";
+    readonly property string clrFood:   "#ef4444";
+    readonly property string clrHud:    "#00e5ff";
+    readonly property string clrPause:  "#80f0ff";
+    readonly property string clrOver:   "#ef4444";
+    readonly property string clrBtn:    "#071e1e";
+    readonly property string clrBtnPrs: "#0d3a3a";
 
     // ── Grid layout ───────────────────────────────────────
     readonly property int cols: 20;
@@ -372,6 +373,36 @@ Rectangle {
 
     // ═══════════════════════════════════════════════════════
     //  HUD — Score bar at the top of the screen
+    // ── IQTest background: gradient + cyan grid overlay ─────────────────────
+    Rectangle {
+        anchors.fill: parent
+        gradient: Gradient {
+            GradientStop { position: 0.0; color: "#031515" }
+            GradientStop { position: 1.0; color: "#020d0d" }
+        }
+    }
+    Canvas {
+        anchors.fill: parent; opacity: 0.06; z: 0
+        onPaint: {
+            var ctx = getContext("2d");
+            ctx.strokeStyle = "#00e5ff"; ctx.lineWidth = 0.5;
+            var step = 40;
+            for (var x = 0; x < width;  x += step) { ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,height); ctx.stroke(); }
+            for (var y = 0; y < height; y += step) { ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(width,y);   ctx.stroke(); }
+        }
+    }
+    Rectangle {
+        anchors.top: parent.top; z: 1
+        width: parent.width; height: 3
+        gradient: Gradient {
+            orientation: Gradient.Horizontal
+            GradientStop { position: 0.0; color: "transparent" }
+            GradientStop { position: 0.3; color: "#00e5ff" }
+            GradientStop { position: 0.7; color: "#80f0ff" }
+            GradientStop { position: 1.0; color: "transparent" }
+        }
+    }
+
     // ═══════════════════════════════════════════════════════
     Rectangle {
         id: hud;
@@ -379,7 +410,7 @@ Rectangle {
         y: 0;
         width:  app.width;
         height: app.hudH;
-        color:  "#0d130d";
+        color:  "#071e1e";
 
         // Bottom separator line
         Rectangle {
@@ -397,35 +428,35 @@ Rectangle {
             // Score column
             Column {
                 spacing: dp(2);
-                Text { text: "ALAMA";   color: "#4a6a4a"; font.pixelSize: dp(11); font.family: "sans-serif"; font.letterSpacing: 1; }
+                Text { text: "ALAMA";   color: "#2e7070"; font.pixelSize: dp(11); font.family: "sans-serif"; font.letterSpacing: 1; }
                 Text { text: app.score; color: app.clrHud; font.pixelSize: dp(28); font.bold: true; font.family: "monospace"; }
             }
 
-            Rectangle { width: 1; height: dp(46); color: "#1e2e1e"; }
+            Rectangle { width: 1; height: dp(46); color: "#0d3a3a"; }
 
             // Best / high-score column
             Column {
                 spacing: dp(2);
-                Text { text: "REKODI"; color: "#4a6a4a"; font.pixelSize: dp(11); font.family: "sans-serif"; font.letterSpacing: 1; }
-                Text { text: app.best;  color: "#ffdd55"; font.pixelSize: dp(28); font.bold: true; font.family: "monospace"; }
+                Text { text: "REKODI"; color: "#2e7070"; font.pixelSize: dp(11); font.family: "sans-serif"; font.letterSpacing: 1; }
+                Text { text: app.best;  color: "#80f0ff"; font.pixelSize: dp(28); font.bold: true; font.family: "monospace"; }
             }
 
-            Rectangle { width: 1; height: dp(46); color: "#1e2e1e"; }
+            Rectangle { width: 1; height: dp(46); color: "#0d3a3a"; }
 
             // Level column
             Column {
                 spacing: dp(2);
-                Text { text: "KIWANGO"; color: "#4a6a4a"; font.pixelSize: dp(11); font.family: "sans-serif"; font.letterSpacing: 1; }
+                Text { text: "KIWANGO"; color: "#2e7070"; font.pixelSize: dp(11); font.family: "sans-serif"; font.letterSpacing: 1; }
                 Text {
                     text:  Math.min(Math.floor(app.score / 5) + 1, 10);
-                    color: "#ff9944";
+                    color: "#00b8d4";
                     font.pixelSize: dp(28);
                     font.bold: true;
                     font.family: "monospace";
                 }
             }
 
-            Rectangle { width: 1; height: dp(46); color: "#1e2e1e"; }
+            Rectangle { width: 1; height: dp(46); color: "#0d3a3a"; }
 
             // Pause / resume button
             Rectangle {
@@ -574,9 +605,9 @@ Rectangle {
 
                 // Blinking start button
                 app.roundRect(ctx, W/2 - dp(130), H/2 + dp(38), dp(260), dp(52), dp(10));
-                ctx.fillStyle = splashBlink.on ? app.clrHead : "#004d5a";
+                ctx.fillStyle = splashBlink.on ? app.clrHead : "#061c1c";
                 ctx.fill();
-                ctx.fillStyle = splashBlink.on ? "#002a30" : "#007a8a";
+                ctx.fillStyle = splashBlink.on ? "#020d0d" : "#00b8d4";
                 ctx.font      = "bold " + dp(15) + "px sans-serif";
                 ctx.fillText("ANZA", W / 2, H / 2 + dp(64));
 
@@ -713,11 +744,11 @@ Rectangle {
                 app.roundRect(ctx, restX, btnY, btnW, btnH, dp(12));
                 ctx.fillStyle   = gRestart;
                 ctx.fill();
-                ctx.strokeStyle = "#00bcd4";
+                ctx.strokeStyle = "#00e5ff";
                 ctx.lineWidth   = dp(1.5);
                 app.roundRect(ctx, restX, btnY, btnW, btnH, dp(12));
                 ctx.stroke();
-                ctx.fillStyle = "#002a30";
+                ctx.fillStyle = "#071e1e";
                 ctx.font      = "bold " + dp(17) + "px sans-serif";
                 ctx.fillText("CHEZA TENA", restX + btnW / 2, btnY + btnH / 2);
 
@@ -747,7 +778,7 @@ Rectangle {
                 ctx.stroke();
                 // Shine strip at top edge
                 app.roundRect(ctx, closeX + dp(8), btnY + dp(4), btnW - dp(16), dp(12), dp(5));
-                ctx.fillStyle = "rgba(255,180,180,0.18)";
+                ctx.fillStyle = "rgba(239,68,68,0.15)";
                 ctx.fill();
                 // Label
                 ctx.fillStyle = "#ffffff";
@@ -764,9 +795,9 @@ Rectangle {
         width:  app.gameW;
         height: app.gameH;
         color:  "transparent";
-        border.color: app.clrBorder;
+        border.color: "#00e5ff";
         border.width: 2;
-        opacity: 0.45;
+        opacity: 0.35;
     }
 
     // ═══════════════════════════════════════════════════════
@@ -783,8 +814,8 @@ Rectangle {
         Rectangle {
             anchors.fill: parent;
             gradient: Gradient {
-                GradientStop { position: 0.0; color: "#001a1f"; }
-                GradientStop { position: 1.0; color: "#003040"; }
+                GradientStop { position: 0.0; color: "#031515"; }
+                GradientStop { position: 1.0; color: "#020d0d"; }
             }
         }
 
@@ -795,8 +826,8 @@ Rectangle {
             gradient: Gradient {
                 orientation: Gradient.Horizontal;
                 GradientStop { position: 0.0; color: "transparent"; }
-                GradientStop { position: 0.3; color: "#00bcd4"; }
-                GradientStop { position: 0.7; color: "#00bcd4"; }
+                GradientStop { position: 0.3; color: "#00e5ff"; }
+                GradientStop { position: 0.7; color: "#80f0ff"; }
                 GradientStop { position: 1.0; color: "transparent"; }
             }
             opacity: 0.8;
@@ -819,8 +850,8 @@ Rectangle {
             width:  dpad.btnSize;
             height: dpad.btnSize;
             radius: dpad.btnSize / 2;  // fully circular
-            color:  upArea.pressed ? "#00bcd4" : "#002530";
-            border.color: upArea.pressed ? "#00e5ff" : "#00bcd4";
+            color:  upArea.pressed ? "#00e5ff" : "#071e1e";
+            border.color: upArea.pressed ? "#80f0ff" : "#00e5ff";
             border.width: dp(2);
 
             // Outer glow ring
@@ -830,7 +861,7 @@ Rectangle {
                 height: parent.height + dp(8);
                 radius: (parent.width + dp(8)) / 2;
                 color:  "transparent";
-                border.color: "#00bcd4";
+                border.color: "#00e5ff";
                 border.width: 1;
                 opacity: upArea.pressed ? 0.9 : 0.25;
             }
@@ -858,7 +889,7 @@ Rectangle {
                     c.lineTo(width, height);
                     c.lineTo(0, height);
                     c.closePath();
-                    c.fillStyle = upArea.pressed ? "#001a1f" : "#00bcd4";
+                    c.fillStyle = upArea.pressed ? "#020d0d" : "#00e5ff";
                     c.fill();
                 }
                 Connections { target: upArea; function onPressedChanged() { canvas.requestPaint(); } }
@@ -885,8 +916,8 @@ Rectangle {
             width:  dpad.btnSize;
             height: dpad.btnSize;
             radius: dpad.btnSize / 2;
-            color:  downArea.pressed ? "#00bcd4" : "#002530";
-            border.color: downArea.pressed ? "#00e5ff" : "#00bcd4";
+            color:  downArea.pressed ? "#00e5ff" : "#071e1e";
+            border.color: downArea.pressed ? "#80f0ff" : "#00e5ff";
             border.width: dp(2);
 
             Rectangle {
@@ -895,7 +926,7 @@ Rectangle {
                 height: parent.height + dp(8);
                 radius: (parent.width + dp(8)) / 2;
                 color:  "transparent";
-                border.color: "#00bcd4";
+                border.color: "#00e5ff";
                 border.width: 1;
                 opacity: downArea.pressed ? 0.9 : 0.25;
             }
@@ -922,7 +953,7 @@ Rectangle {
                     c.lineTo(width, 0);
                     c.lineTo(width / 2, height);
                     c.closePath();
-                    c.fillStyle = downArea.pressed ? "#001a1f" : "#00bcd4";
+                    c.fillStyle = downArea.pressed ? "#020d0d" : "#00e5ff";
                     c.fill();
                 }
                 Connections { target: downArea; function onPressedChanged() { canvas.requestPaint(); } }
@@ -949,8 +980,8 @@ Rectangle {
             width:  dpad.btnSize;
             height: dpad.btnSize;
             radius: dpad.btnSize / 2;
-            color:  leftArea.pressed ? "#00bcd4" : "#002530";
-            border.color: leftArea.pressed ? "#00e5ff" : "#00bcd4";
+            color:  leftArea.pressed ? "#00e5ff" : "#071e1e";
+            border.color: leftArea.pressed ? "#80f0ff" : "#00e5ff";
             border.width: dp(2);
 
             Rectangle {
@@ -959,7 +990,7 @@ Rectangle {
                 height: parent.height + dp(8);
                 radius: (parent.width + dp(8)) / 2;
                 color:  "transparent";
-                border.color: "#00bcd4";
+                border.color: "#00e5ff";
                 border.width: 1;
                 opacity: leftArea.pressed ? 0.9 : 0.25;
             }
@@ -986,7 +1017,7 @@ Rectangle {
                     c.lineTo(width, 0);
                     c.lineTo(width, height);
                     c.closePath();
-                    c.fillStyle = leftArea.pressed ? "#001a1f" : "#00bcd4";
+                    c.fillStyle = leftArea.pressed ? "#020d0d" : "#00e5ff";
                     c.fill();
                 }
                 Connections { target: leftArea; function onPressedChanged() { canvas.requestPaint(); } }
@@ -1013,8 +1044,8 @@ Rectangle {
             width:  dpad.btnSize;
             height: dpad.btnSize;
             radius: dpad.btnSize / 2;
-            color:  rightArea.pressed ? "#00bcd4" : "#002530";
-            border.color: rightArea.pressed ? "#00e5ff" : "#00bcd4";
+            color:  rightArea.pressed ? "#00e5ff" : "#071e1e";
+            border.color: rightArea.pressed ? "#80f0ff" : "#00e5ff";
             border.width: dp(2);
 
             Rectangle {
@@ -1023,7 +1054,7 @@ Rectangle {
                 height: parent.height + dp(8);
                 radius: (parent.width + dp(8)) / 2;
                 color:  "transparent";
-                border.color: "#00bcd4";
+                border.color: "#00e5ff";
                 border.width: 1;
                 opacity: rightArea.pressed ? 0.9 : 0.25;
             }
@@ -1050,7 +1081,7 @@ Rectangle {
                     c.lineTo(width, height / 2);
                     c.lineTo(0, height);
                     c.closePath();
-                    c.fillStyle = rightArea.pressed ? "#001a1f" : "#00bcd4";
+                    c.fillStyle = rightArea.pressed ? "#020d0d" : "#00e5ff";
                     c.fill();
                 }
                 Connections { target: rightArea; function onPressedChanged() { canvas.requestPaint(); } }
@@ -1077,7 +1108,7 @@ Rectangle {
             height: dpad.btnSize;
             radius: dpad.btnSize / 2;
             color:  "#001a20";
-            border.color: "#00bcd4";
+            border.color: "#00e5ff";
             border.width: dp(2);
             opacity: 0.85;
 
@@ -1088,7 +1119,7 @@ Rectangle {
                 height: parent.height + dp(8);
                 radius: (parent.width + dp(8)) / 2;
                 color:  "transparent";
-                border.color: "#00bcd4";
+                border.color: "#00e5ff";
                 border.width: 1;
                 opacity: 0.20;
             }
@@ -1096,7 +1127,7 @@ Rectangle {
             Text {
                 anchors.centerIn: parent;
                 text:           "TZ";
-                color:          "#00bcd4";
+                color:          "#00e5ff";
                 font.pixelSize: dp(22);
                 font.bold:      true;
                 opacity:        0.90;
