@@ -4725,7 +4725,7 @@ Rectangle {
                             spacing: 2
                             Text {
                                 anchors.horizontalCenter: parent.horizontalCenter
-                                text: "SAFARI·VISION"
+                                text: "Utalii wa Tanzania"
                                 font.pointSize: Qt.platform.os === "android" ? 11 : 9
                                 font.bold: true
                                 color: "cyan"
@@ -4733,8 +4733,8 @@ Rectangle {
                             }
                             Text {
                                 anchors.horizontalCenter: parent.horizontalCenter
-                                text: "Tanzania Safari Channel"
-                                font.pointSize: Qt.platform.os === "android" ? 8 : 6
+                                text: "Tanzania Tourism"
+                                font.pointSize: Qt.platform.os === "android" ? 10 : 8
                                 color: "#1a6060"
                             }
                         }
@@ -4778,14 +4778,22 @@ Rectangle {
 
             Text { anchors.centerIn: parent; text: "X"; font.pointSize: Qt.platform.os === "android" ? 14 : 11; font.bold: true; color: "#ff8888" }
             MouseArea {
-                id: tvCloseMA; anchors.fill: parent
+                id: tvCloseMA;
+                anchors.fill: parent
+
                 onPressed:  tvCloseBtn.scale = 0.9
+
                 onReleased: {
                     tvCloseBtn.scale = 1.0;
                     safariPlayer.stop();
                     app.safariTvVisible = false;
+
+                    app.selectedLanguage = "sw";
+                    viewComponentLoader.switchTo(languageSelectionComponent, app.width / 2, app.height / 2);
+
                     app.ad();
                 }
+
                 onCanceled: tvCloseBtn.scale = 1.0
             }
         }
