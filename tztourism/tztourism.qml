@@ -4485,7 +4485,7 @@ Rectangle {
                             anchors.fill: parent
                             anchors.margins: parent.border.width
                             source: safariPlayer
-                            fillMode: VideoOutput.PreserveAspectCrop
+                            fillMode: VideoOutput.PreserveAspectFit
                             visible: safariPlayer.playbackState === MediaPlayer.PlayingState
                                      || safariPlayer.playbackState === MediaPlayer.PausedState
                         }
