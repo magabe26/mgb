@@ -171,14 +171,6 @@ Rectangle {
         }
 
 
-ListElement {
-    name_en: "The Art of Henna (Piko), Zanzibar"; 
-    name_sw: "Sanaa ya Piko (Henna), Zanzibar"
-    imageFile: "./zanzibar_henna-3.jpg"
-    desc_en: "A beautiful Swahili tradition where intricate floral and geometric patterns are painted on hands and feet using natural henna, often for weddings and festivals."
-    desc_sw: "Utamaduni maridadi wa Kiswahili ambapo michoro ya maua na nakshi huchorwa mikononi na miguuni kwa kutumia piko asilia, mara nyingi wakati wa harusi na sherehe."
-}
-
         ListElement {
             name_en: "Lake Victoria"; name_sw: "Ziwa Victoria"
             imageFile: "./victoria.jpg"
@@ -186,12 +178,7 @@ ListElement {
             desc_sw: "Furahia Ziwa Victoria, Mwanza: Ziwa kubwa Afrika. Tazama machweo mazuri juu ya Mwamba Bismarck, safari za visiwa, na utamaduni hai. Hazina halisi ya Tanzania!"
         }
 
-        ListElement {
-            name_en: "Rubya Forest, Ukerewe"; name_sw: "Msitu wa Rubya, Ukerewe"
-            imageFile: "./rubya.jpeg"
-            desc_en: "Discover the hidden tranquility of Ukerewe Island. Explore the lush Rubya Forest and enjoy the serene beaches of Africa's largest inland island."
-            desc_sw: "Gundua utulivu wa siri wa Kisiwa cha Ukerewe. Pekua Msitu mnene wa Rubya na ufurahie fukwe tulivu za kisiwa kikubwa zaidi cha ndani nchini Afrika."
-        }
+        
 
         ListElement {
             name_en: "Mount Kilimanjaro"; name_sw: "Mlima Kilimanjaro"
@@ -240,6 +227,13 @@ ListElement {
             imageFile: "./rubondo.jpg"
             desc_en: "An island sanctuary on Lake Victoria, home to elephants, chimpanzees, sitatunga, and a diverse birdlife, ideal for walking safaris."
             desc_sw: "Hifadhi ya kisiwa kwenye Ziwa Victoria, makazi ya tembo, sokwe, sitatunga, na ndege mbalimbali, inayofaa kwa safari za kutembea."
+        }
+
+ListElement {
+            name_en: "Rubya Forest, Ukerewe"; name_sw: "Msitu wa Rubya, Ukerewe"
+            imageFile: "./rubya.jpeg"
+            desc_en: "Discover the hidden tranquility of Ukerewe Island. Explore the lush Rubya Forest and enjoy the serene beaches of Africa's largest inland island."
+            desc_sw: "Gundua utulivu wa siri wa Kisiwa cha Ukerewe. Pekua Msitu mnene wa Rubya na ufurahie fukwe tulivu za kisiwa kikubwa zaidi cha ndani nchini Afrika."
         }
 
         ListElement {
@@ -652,6 +646,15 @@ ListElement {
             desc_en: "More than just a garment, the Kanga is a symbol of Swahili identity. In Zanzibar, these colorful fabrics are famous for their 'Majina' (proverbs) printed at the bottom, used to communicate subtle messages within the community."
             desc_sw: "Zaidi ya vazi, Kanga ni alama ya utambulisho wa Mswahili. Kule Zanzibar, vitambaa hivi vya rangi hupambwa na 'Majina' (methali) chini yake, ambavyo hutumika kufikisha ujumbe mahususi katika jamii."
         }
+
+ListElement {
+    name_en: "The Art of Henna (Piko), Zanzibar"; 
+    name_sw: "Sanaa ya Piko (Henna), Zanzibar"
+    imageFile: "./zanzibar_henna-3.jpg"
+    desc_en: "A beautiful Swahili tradition where intricate floral and geometric patterns are painted on hands and feet using natural henna, often for weddings and festivals."
+    desc_sw: "Utamaduni maridadi wa Kiswahili ambapo michoro ya maua na nakshi huchorwa mikononi na miguuni kwa kutumia piko asilia, mara nyingi wakati wa harusi na sherehe."
+}
+
 
         ListElement {
             name_en: "Maasai & Kanga Fashion, Iringa"; name_sw: "Ushonaji na Ubunifu, Iringa"
