@@ -4469,12 +4469,12 @@ Rectangle {
 
                             onStatusChanged: {
                                 if (status === MediaPlayer.InvalidMedia || status === MediaPlayer.NoMedia) {
-                                    showToastMessage("Stream haipatikani kwa sasa. Jaribu tena.");
+                                    //showToastMessage("Stream haipatikani kwa sasa. Jaribu tena.");
                                 }
                             }
                             onErrorChanged: {
                                 if (error !== MediaPlayer.NoError) {
-                                    showToastMessage("Hitilafu: " + errorString);
+                                    //showToastMessage("Hitilafu: " + errorString);
                                 }
                             }
                         }
