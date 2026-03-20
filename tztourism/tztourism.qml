@@ -4780,7 +4780,12 @@ Rectangle {
             MouseArea {
                 id: tvCloseMA; anchors.fill: parent
                 onPressed:  tvCloseBtn.scale = 0.9
-                onReleased: { tvCloseBtn.scale = 1.0; safariPlayer.stop(); app.safariTvVisible = false; }
+                onReleased: {
+                    tvCloseBtn.scale = 1.0;
+                    safariPlayer.stop();
+                    app.safariTvVisible = false;
+                    app.ad();
+                }
                 onCanceled: tvCloseBtn.scale = 1.0
             }
         }
