@@ -229,7 +229,7 @@ Rectangle {
             desc_sw: "Hifadhi ya kisiwa kwenye Ziwa Victoria, makazi ya tembo, sokwe, sitatunga, na ndege mbalimbali, inayofaa kwa safari za kutembea."
         }
 
-ListElement {
+        ListElement {
             name_en: "Rubya Forest, Ukerewe"; name_sw: "Msitu wa Rubya, Ukerewe"
             imageFile: "./rubya.jpeg"
             desc_en: "Discover the hidden tranquility of Ukerewe Island. Explore the lush Rubya Forest and enjoy the serene beaches of Africa's largest inland island."
@@ -647,13 +647,13 @@ ListElement {
             desc_sw: "Zaidi ya vazi, Kanga ni alama ya utambulisho wa Mswahili. Kule Zanzibar, vitambaa hivi vya rangi hupambwa na 'Majina' (methali) chini yake, ambavyo hutumika kufikisha ujumbe mahususi katika jamii."
         }
 
-ListElement {
-    name_en: "The Art of Henna (Piko), Zanzibar"; 
-    name_sw: "Sanaa ya Piko (Henna), Zanzibar"
-    imageFile: "./zanzibar_henna-3.jpg"
-    desc_en: "A beautiful Swahili tradition where intricate floral and geometric patterns are painted on hands and feet using natural henna, often for weddings and festivals."
-    desc_sw: "Utamaduni maridadi wa Kiswahili ambapo michoro ya maua na nakshi huchorwa mikononi na miguuni kwa kutumia piko asilia, mara nyingi wakati wa harusi na sherehe."
-}
+        ListElement {
+            name_en: "The Art of Henna (Piko), Zanzibar";
+            name_sw: "Sanaa ya Piko (Henna), Zanzibar"
+            imageFile: "./zanzibar_henna-3.jpg"
+            desc_en: "A beautiful Swahili tradition where intricate floral and geometric patterns are painted on hands and feet using natural henna, often for weddings and festivals."
+            desc_sw: "Utamaduni maridadi wa Kiswahili ambapo michoro ya maua na nakshi huchorwa mikononi na miguuni kwa kutumia piko asilia, mara nyingi wakati wa harusi na sherehe."
+        }
 
 
         ListElement {
@@ -2430,6 +2430,61 @@ ListElement {
                         }
                     }
 
+                    // ══ MAGABE LAB BRANDING ════════════════════════════════
+                    Item {
+                        width: app.width
+                        height: Qt.platform.os === "android" ? 40 : 32
+
+                        Rectangle {
+                            anchors.top: parent.top
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            width: 80; height: 1
+                            gradient: Gradient {
+                                GradientStop { position: 0.0; color: "transparent" }
+                                GradientStop { position: 0.5; color: Qt.rgba(0,1,1,0.2) }
+                                GradientStop { position: 1.0; color: "transparent" }
+                            }
+                        }
+
+                        Row {
+                            anchors.centerIn: parent
+                            spacing: 6
+
+                            Rectangle {
+                                width: 3; height: 3; radius: 2
+                                color: "#055152"; opacity: 0.5
+                                anchors.verticalCenter: parent.verticalCenter
+                            }
+                            /*
+                            Text {
+                                text: "BY"
+                                font.pointSize: Qt.platform.os === "android" ? 8 : 6
+                                font.letterSpacing: 2
+                                color: Qt.rgba(0,1,1,0.3)
+                                anchors.verticalCenter: parent.verticalCenter
+                            }
+                            */
+                            Text {
+                                text: "MAGABE LAB"
+                                font.pointSize: Qt.platform.os === "android" ? 9 : 7
+                                font.bold: true
+                                font.letterSpacing: 2.5
+                                color: "#055152"
+                                anchors.verticalCenter: parent.verticalCenter
+                                SequentialAnimation on opacity {
+                                    loops: Animation.Infinite
+                                    NumberAnimation { to: 0.45; duration: 2000; easing.type: Easing.InOutSine }
+                                    NumberAnimation { to: 1.0;  duration: 2000; easing.type: Easing.InOutSine }
+                                }
+                            }
+                            Rectangle {
+                                width: 3; height: 3; radius: 2
+                                color: "#055152"; opacity: 0.5
+                                anchors.verticalCenter: parent.verticalCenter
+                            }
+                        }
+                    }
+
                 } // end Column
             } // end Flickable
         }
@@ -4047,10 +4102,10 @@ ListElement {
                             Text {
                                 anchors.horizontalCenter: parent.horizontalCenter
                                 text: gameOverlay.score >= 100 ? (app.gameLang === "sw" ? "Bora!" : "Perfect!")
-                                    : gameOverlay.score >= 75  ? (app.gameLang === "sw" ? "Safi!" : "Great!")
-                                    : gameOverlay.score >= 50  ? (app.gameLang === "sw" ? "Vizuri" : "Good")
-                                    : gameOverlay.score >= 0   ? (app.gameLang === "sw" ? "Jaribu" : "Try+")
-                                    :                            (app.gameLang === "sw" ? "Rudia" : "Retry")
+                                                               : gameOverlay.score >= 75  ? (app.gameLang === "sw" ? "Safi!" : "Great!")
+                                                                                          : gameOverlay.score >= 50  ? (app.gameLang === "sw" ? "Vizuri" : "Good")
+                                                                                                                     : gameOverlay.score >= 0   ? (app.gameLang === "sw" ? "Jaribu" : "Try+")
+                                                                                                                                                :                            (app.gameLang === "sw" ? "Rudia" : "Retry")
                                 font.pointSize: Qt.platform.os === "android" ? 13 : 10; font.bold: true
                                 color: gameOverlay.score >= 75 ? "#00ff88" : gameOverlay.score >= 50 ? "#f5c400" : gameOverlay.score >= 0 ? "white" : "#ff6666"
                             }
