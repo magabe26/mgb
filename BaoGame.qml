@@ -1226,13 +1226,14 @@ Rectangle {
                 color: iqGold; opacity: 0.5
                 anchors.verticalCenter: parent.verticalCenter
             }
+            /*
             Text {
                 text: "BY"
                 font.pixelSize: Math.max(9, app.fntUI - 4)
                 font.letterSpacing: 2
                 color: Qt.rgba(0,0.9,1,0.3)
                 anchors.verticalCenter: parent.verticalCenter
-            }
+            } */
             Text {
                 text: "MAGABE LAB"
                 font.pixelSize: Math.max(10, app.fntUI - 3)
