@@ -2455,7 +2455,7 @@ Rectangle {
 
             Text {
                 anchors.horizontalCenter: parent.horizontalCenter
-                text: "JIANDAE"
+                text: "JIANDAE..."
                 font.pointSize: 13; font.bold: true
                 font.letterSpacing: Math.round(3*dp); color: textSec
             }
@@ -3837,6 +3837,65 @@ Rectangle {
                         onCanceled: { closeBtn1.scale = 1.0; }
                     }
                     Behavior on scale { NumberAnimation { duration: 100 } }
+                }
+
+                // ── MAGABE LAB branding ───────────────────────────────────
+                Item {
+                    width: parent.width
+                    height: Math.round(40 * dp)
+
+                    Rectangle {
+                        anchors.top: parent.top
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        width: Math.round(80 * dp); height: 1
+                        gradient: Gradient {
+                            orientation: Gradient.Horizontal
+                            GradientStop { position: 0.0; color: "transparent" }
+                            GradientStop { position: 0.5; color: Qt.rgba(0,0.9,1,0.2) }
+                            GradientStop { position: 1.0; color: "transparent" }
+                        }
+                    }
+
+                    Row {
+                        anchors.centerIn: parent
+                        spacing: Math.round(6 * dp)
+
+                        Rectangle {
+                            width: Math.round(3 * dp); height: Math.round(3 * dp)
+                            radius: Math.round(2 * dp)
+                            color: "#00e5ff"; opacity: 0.5
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+
+                        /*
+                        Text {
+                            text: "BY"
+                            font.pointSize: 7
+                            font.letterSpacing: Math.round(2 * dp)
+                            color: Qt.rgba(0,0.9,1,0.3)
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+                        */
+
+                        Text {
+                            text: "MAGABE LAB"
+                            font.pointSize: 8; font.bold: true
+                            font.letterSpacing: Math.round(2.5 * dp)
+                            color: Qt.rgba(0,0.9,1,0.7)
+                            anchors.verticalCenter: parent.verticalCenter
+                            SequentialAnimation on opacity {
+                                loops: Animation.Infinite
+                                NumberAnimation { to: 0.45; duration: 2000; easing.type: Easing.InOutSine }
+                                NumberAnimation { to: 1.0;  duration: 2000; easing.type: Easing.InOutSine }
+                            }
+                        }
+                        Rectangle {
+                            width: Math.round(3 * dp); height: Math.round(3 * dp)
+                            radius: Math.round(2 * dp)
+                            color: "#00e5ff"; opacity: 0.5
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+                    }
                 }
 
                 Item { width: 1; height: Math.round(8 * dp) }
