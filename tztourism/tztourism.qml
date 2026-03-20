@@ -4776,7 +4776,7 @@ Rectangle {
             Behavior on color { ColorAnimation { duration: 100 } }
             Behavior on scale { NumberAnimation { duration: 100 } }
 
-            Text { anchors.centerIn: parent; text: "✕"; font.pointSize: Qt.platform.os === "android" ? 14 : 11; font.bold: true; color: "#ff8888" }
+            Text { anchors.centerIn: parent; text: "X"; font.pointSize: Qt.platform.os === "android" ? 14 : 11; font.bold: true; color: "#ff8888" }
             MouseArea {
                 id: tvCloseMA; anchors.fill: parent
                 onPressed:  tvCloseBtn.scale = 0.9
