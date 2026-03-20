@@ -187,16 +187,16 @@ Rectangle {
             statusMsg = mimi ? "Zamu yako  —  Awamu ya Kupanda"
                              : "Magabe AI inachagua  —  Awamu ya Kupanda";
             subMsg = mimi
-                    ? "Gusa safu yako ya ndani  •  kete " + handOf(human) + " zimebaki"
-                    : "Subiri Magabe AI ipande kete zake...";
+                ? "Gusa safu yako ya ndani  •  kete " + handOf(human) + " zimebaki"
+                : "Subiri Magabe AI ipande kete zake...";
         } else {
             statusMsg = mimi ? "Zamu yako  —  Awamu ya Kupiga"
                              : "Magabe AI inafikiria...";
             subMsg = mimi
-                    ? (lastCapture > 0
-                       ? "Umetwaa kete " + lastCapture + "! Gusa shimo lenye kete 2+"
-                       : "Gusa shimo lolote lenye kete 2 au zaidi")
-                    : levelLabel(aiLevel) + " inacheza...";
+                ? (lastCapture > 0
+                    ? "Umetwaa kete " + lastCapture + "! Gusa shimo lenye kete 2+"
+                    : "Gusa shimo lolote lenye kete 2 au zaidi")
+                : levelLabel(aiLevel) + " inacheza...";
         }
     }
 
@@ -314,7 +314,7 @@ Rectangle {
         return { nb: nb, captures: captures, landIdx: landIdx, steps: steps };
     }
 
-    // ── Wrappers ─────────────────────────────────────────────────────────────
+        // ── Wrappers ─────────────────────────────────────────────────────────────
     function sowSeeds(b, startIdx, player) {
         var r = sowKernel(b, startIdx, player, false);
         if (!r) return null;
@@ -327,7 +327,7 @@ Rectangle {
         return { steps: r.steps, finalBoard: r.nb, captures: r.captures };
     }
 
-    // ── Timer ya kupiga hatua moja kwa wakati ────────────────────────────────
+        // ── Timer ya kupiga hatua moja kwa wakati ────────────────────────────────
     Timer {
         id: sowStepTimer
         interval: 450        // ms kila hatua — polepole kuona mabadiliko
@@ -771,6 +771,22 @@ Rectangle {
                 }
             }
 
+            // ── FUNGA button ──────────────────────────────────────────────
+            Rectangle {
+                width: parent.width; height: app.btnH
+                radius: 14
+                color: lvCloseMA.pressed ? Qt.rgba(1,0.2,0.2,0.12) : "transparent"
+                border.color: iqDanger; border.width: 1
+                Behavior on color { ColorAnimation { duration: 80 } }
+
+                Row {
+                    anchors.centerIn: parent; spacing: 8
+                    Text { text: "X"; font.pixelSize: app.fntUI; color: iqDanger; anchors.verticalCenter: parent.verticalCenter }
+                    Text { text: "FUNGA"; font.pixelSize: app.fntUI; font.bold: true; font.letterSpacing: 2; color: iqDanger; anchors.verticalCenter: parent.verticalCenter }
+                }
+                MouseArea { id: lvCloseMA; anchors.fill: parent; onClicked: app.close(); }
+            }
+
         }
     }
 
@@ -884,8 +900,8 @@ Rectangle {
                             !app.gameOver && !app.aiThinking && !app.sowAnimating &&
                             app.currentPlayer === app.human && isP1 &&
                             (app.plantingPhase
-                             ? isInner && app.handOf(app.human) > 0
-                             : seeds >= 2)
+                                ? isInner && app.handOf(app.human) > 0
+                                : seeds >= 2)
 
                         width: app.holeSize; height: app.holeSize
 
@@ -950,10 +966,10 @@ Rectangle {
                             anchors { fill: parent; margins: -5 }
                             radius: (app.holeSize + 10) / 2
                             color: "transparent"
-                            border.color: app.activeArrow === "✕" ? iqDanger
-                                                                  : app.activeArrow === "★" ? "#FFD700"
-                                                                                            : app.activeArrow === "↻" ? "#FF8C00"
-                                                                                                                      : "#FFFFFF"
+                            border.color: app.activeArrow === "X" ? iqDanger
+                                        : app.activeArrow === "★" ? "#FFD700"
+                                        : app.activeArrow === "↻" ? "#FF8C00"
+                                        : "#FFFFFF"
                             border.width: 3
                             SequentialAnimation on opacity {
                                 running: cell.isActive; loops: Animation.Infinite
@@ -1025,10 +1041,10 @@ Rectangle {
                                     anchors.top: parent.top
                                     anchors.topMargin: 1
                                     text: app.activeArrow
-                                    color: app.activeArrow === "✕" ? "#FF6666"
-                                                                   : app.activeArrow === "★" ? "#FFD700"
-                                                                                             : app.activeArrow === "↻" ? "#FF8C00"
-                                                                                                                       : "#FFFFFF"
+                                    color: app.activeArrow === "X" ? "#FF6666"
+                                         : app.activeArrow === "★" ? "#FFD700"
+                                         : app.activeArrow === "↻" ? "#FF8C00"
+                                         : "#FFFFFF"
                                     font.pixelSize: Math.max(9, app.fntHole * 0.72)
                                     font.bold: true
                                 }
@@ -1210,7 +1226,6 @@ Rectangle {
                 color: iqGold; opacity: 0.5
                 anchors.verticalCenter: parent.verticalCenter
             }
-            /*
             Text {
                 text: "BY"
                 font.pixelSize: Math.max(9, app.fntUI - 4)
@@ -1218,7 +1233,6 @@ Rectangle {
                 color: Qt.rgba(0,0.9,1,0.3)
                 anchors.verticalCenter: parent.verticalCenter
             }
-            */
             Text {
                 text: "MAGABE LAB"
                 font.pixelSize: Math.max(10, app.fntUI - 3)
@@ -1266,10 +1280,10 @@ Rectangle {
                     text: app.winner === app.human ? "🏆" : "MAGABE AI"
                     font.pixelSize: app.winner === app.human ? Math.round(app.holeSize * 0.9) : Math.max(20, app.fntTitle * 0.85)
 
-                    color: app.winner === app.human ? iqGold : iqAccent
+color: app.winner === app.human ? iqGold : iqAccent
                     
                     font.bold: true;
-                    font.letterSpacing: 3
+ font.letterSpacing: 3
 
                 }
 
