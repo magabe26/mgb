@@ -2431,8 +2431,8 @@ Rectangle {
                                         anchors.verticalCenter: parent.verticalCenter
                                         spacing: 2
                                         Text {
-                                            text: "Tazama Inaendelea"
-                                            font.pointSize: Qt.platform.os === "android" ? 13 : 11
+                                            text: "Tazama Tanzania Safari Channel"
+                                            font.pointSize: Qt.platform.os === "android" ? 12 : 10
                                             font.bold: true
                                             color: "cyan"
                                         }
