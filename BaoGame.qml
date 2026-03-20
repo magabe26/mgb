@@ -733,6 +733,66 @@ Rectangle {
                     }
                 }
             }
+
+            // ── MAGABE LAB branding ────────────────────────────────────────
+            Item {
+                width: parent.width
+                height: 40
+
+                // Divider gradient line
+                Rectangle {
+                    anchors.top: parent.top
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: 80; height: 1
+                    gradient: Gradient {
+                        orientation: Gradient.Horizontal
+                        GradientStop { position: 0.0; color: "transparent" }
+                        GradientStop { position: 0.5; color: Qt.rgba(0,0.9,1,0.2) }
+                        GradientStop { position: 1.0; color: "transparent" }
+                    }
+                }
+
+                Row {
+                    anchors.centerIn: parent
+                    spacing: 6
+
+                    Rectangle {
+                        width: 3; height: 3; radius: 2
+                        color: "#00e5ff"; opacity: 0.5
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
+
+                    /*
+                    Text {
+                        text: "BY"
+                        font.pixelSize: Math.max(9, app.fntUI - 4)
+                        font.letterSpacing: 2
+                        color: Qt.rgba(0,0.9,1,0.3)
+                        anchors.verticalCenter: parent.verticalCenter
+                    } */
+
+                    Text {
+                        text: "MAGABE LAB"
+                        font.pixelSize: Math.max(10, app.fntUI - 3)
+                        font.bold: true
+                        font.letterSpacing: 2.5
+                        color: Qt.rgba(0,0.9,1,0.7)
+                        anchors.verticalCenter: parent.verticalCenter
+
+                        SequentialAnimation on opacity {
+                            loops: Animation.Infinite
+                            NumberAnimation { to: 0.45; duration: 2000; easing.type: Easing.InOutSine }
+                            NumberAnimation { to: 1.0;  duration: 2000; easing.type: Easing.InOutSine }
+                        }
+                    }
+
+                    Rectangle {
+                        width: 3; height: 3; radius: 2
+                        color: "#00e5ff"; opacity: 0.5
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
+                }
+            }
         }
     }
 
