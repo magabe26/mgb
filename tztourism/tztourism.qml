@@ -4267,6 +4267,12 @@ Rectangle {
         Behavior on opacity { NumberAnimation { duration: 280 } }
         z: 200
 
+        // ── Prevent clicks to reach the elements below
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {}
+        }
+
         // ── Scanline canvas overlay (retro CRT effect) ─────────────
         Canvas {
             id: scanlineCanvas
