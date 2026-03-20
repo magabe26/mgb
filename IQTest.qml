@@ -2455,7 +2455,7 @@ Rectangle {
 
             Text {
                 anchors.horizontalCenter: parent.horizontalCenter
-                text: "JIANDAE..."
+                text: "JIANDAE"
                 font.pointSize: 13; font.bold: true
                 font.letterSpacing: Math.round(3*dp); color: textSec
             }
