@@ -20,6 +20,21 @@ Rectangle {
     height: parent ? parent.height : 800
     color: "#020d0d"
 
+    // ── IQTest deep-space cyan palette ───────────────────────────────────────
+    readonly property color iqBg0:      "#020d0d"
+    readonly property color iqBg1:      "#031515"
+    readonly property color iqBg2:      "#061c1c"
+    readonly property color iqCard:     "#071e1e"
+    readonly property color iqGold:     "#00e5ff"
+    readonly property color iqGoldDim:  "#005f6b"
+    readonly property color iqGoldGlow: "#80f0ff"
+    readonly property color iqAccent:   "#00b8d4"
+    readonly property color iqDanger:   "#ef4444"
+    readonly property color iqSuccess:  "#22c55e"
+    readonly property color iqTextPri:  "#ffffff"
+    readonly property color iqTextSec:  "#a0d8d8"
+    readonly property color iqTextDim:  "#2e7070"
+
     // ── App wrapper helpers (kwa mazingira ya nje) ────────────────────────────
     function cleanParent(t) {
         return t ? t.replace(/\s*\(.*?\)\s*/g, "").trim() : "";
@@ -141,11 +156,11 @@ Rectangle {
     }
 
     function seedColor(n) {
-        if (n === 0)  return "#1c0e04";
-        if (n <= 3)   return "#7A4A26";
-        if (n <= 7)   return "#B87428";
-        if (n <= 12)  return "#D4921C";
-        return "#F0BC1E";
+        if (n === 0)  return "#041414";
+        if (n <= 3)   return "#005060";
+        if (n <= 7)   return "#007888";
+        if (n <= 12)  return "#00b8d4";
+        return "#00e5ff";
     }
 
     // ── Anzisha ubao ─────────────────────────────────────────────────────────
@@ -172,16 +187,16 @@ Rectangle {
             statusMsg = mimi ? "Zamu yako  —  Awamu ya Kupanda"
                              : "Magabe AI inachagua  —  Awamu ya Kupanda";
             subMsg = mimi
-                ? "Gusa safu yako ya ndani  •  kete " + handOf(human) + " zimebaki"
-                : "Subiri Magabe AI ipande kete zake...";
+                    ? "Gusa safu yako ya ndani  •  kete " + handOf(human) + " zimebaki"
+                    : "Subiri Magabe AI ipande kete zake...";
         } else {
             statusMsg = mimi ? "Zamu yako  —  Awamu ya Kupiga"
                              : "Magabe AI inafikiria...";
             subMsg = mimi
-                ? (lastCapture > 0
-                    ? "Umetwaa kete " + lastCapture + "! Gusa shimo lenye kete 2+"
-                    : "Gusa shimo lolote lenye kete 2 au zaidi")
-                : levelLabel(aiLevel) + " inacheza...";
+                    ? (lastCapture > 0
+                       ? "Umetwaa kete " + lastCapture + "! Gusa shimo lenye kete 2+"
+                       : "Gusa shimo lolote lenye kete 2 au zaidi")
+                    : levelLabel(aiLevel) + " inacheza...";
         }
     }
 
@@ -299,7 +314,7 @@ Rectangle {
         return { nb: nb, captures: captures, landIdx: landIdx, steps: steps };
     }
 
-        // ── Wrappers ─────────────────────────────────────────────────────────────
+    // ── Wrappers ─────────────────────────────────────────────────────────────
     function sowSeeds(b, startIdx, player) {
         var r = sowKernel(b, startIdx, player, false);
         if (!r) return null;
@@ -312,7 +327,7 @@ Rectangle {
         return { steps: r.steps, finalBoard: r.nb, captures: r.captures };
     }
 
-        // ── Timer ya kupiga hatua moja kwa wakati ────────────────────────────────
+    // ── Timer ya kupiga hatua moja kwa wakati ────────────────────────────────
     Timer {
         id: sowStepTimer
         interval: 450        // ms kila hatua — polepole kuona mabadiliko
@@ -599,12 +614,34 @@ Rectangle {
 
     Component.onCompleted: { /* onyesha skrini ya kiwango kwanza */ }
 
-    // ── Mandhari ─────────────────────────────────────────────────────────────
+    // ── Mandhari — IQTest style ──────────────────────────────────────────────
     Rectangle {
         anchors.fill: parent
         gradient: Gradient {
-            GradientStop { position: 0.0; color: "#031010" }
-            GradientStop { position: 1.0; color: "#061a1a" }
+            GradientStop { position: 0.0; color: iqBg1 }
+            GradientStop { position: 1.0; color: iqBg0 }
+        }
+    }
+    Canvas {
+        anchors.fill: parent; opacity: 0.06; z: 0
+        onPaint: {
+            var ctx = getContext("2d");
+            ctx.strokeStyle = "#00e5ff"; ctx.lineWidth = 0.5;
+            var step = 40;
+            for (var x = 0; x < width;  x += step) { ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,height); ctx.stroke(); }
+            for (var y = 0; y < height; y += step) { ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(width,y);   ctx.stroke(); }
+        }
+    }
+    // Top accent bar
+    Rectangle {
+        anchors.top: parent.top; z: 1
+        width: parent.width; height: 3
+        gradient: Gradient {
+            orientation: Gradient.Horizontal
+            GradientStop { position: 0.0; color: "transparent" }
+            GradientStop { position: 0.3; color: iqGold }
+            GradientStop { position: 0.7; color: iqGoldGlow }
+            GradientStop { position: 1.0; color: "transparent" }
         }
     }
 
@@ -635,7 +672,7 @@ Rectangle {
                 Text {
                     anchors.horizontalCenter: parent.horizontalCenter
                     text: "BAO LA WASWAHILI"
-                    color: "#00e5ff"
+                    color: iqGold
                     font.pixelSize: app.fntTitle
                     font.bold: true; font.letterSpacing: 3
                     style: Text.Outline; styleColor: "#003040"
@@ -643,7 +680,7 @@ Rectangle {
                 Text {
                     anchors.horizontalCenter: parent.horizontalCenter
                     text: "Mchezaji dhidi ya Magabe AI"
-                    color: "#007888"
+                    color: iqTextDim
                     font.pixelSize: Math.max(12, app.fntUI - 1)
                     font.letterSpacing: 1
                 }
@@ -652,13 +689,13 @@ Rectangle {
             Rectangle {
                 anchors.horizontalCenter: parent.horizontalCenter
                 width: parent.width * 0.7; height: 1
-                color: "#0a1e1e"
+                color: iqCard
             }
 
             Text {
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: "Chagua Kiwango cha Magabe AI"
-                color: "#00b8cc"
+                color: iqAccent
                 font.pixelSize: app.fntUI; font.bold: true
             }
 
@@ -671,8 +708,8 @@ Rectangle {
                 Rectangle {
                     width: parent.width; height: app.btnH * 1.25
                     radius: 16
-                    color: lvEasyMA.pressed ? "#1a3010" : "#0e2008"
-                    border.color: "#3a8020"; border.width: 2
+                    color: lvEasyMA.pressed ? Qt.rgba(0,0.9,1,0.15) : iqCard
+                    border.color: iqSuccess; border.width: 2
                     Behavior on color { ColorAnimation { duration: 80 } }
                     MouseArea {
                         id: lvEasyMA; anchors.fill: parent
@@ -683,8 +720,8 @@ Rectangle {
                         Text { text: "🌱"; font.pixelSize: app.fntUI + 4; anchors.verticalCenter: parent.verticalCenter }
                         Column {
                             anchors.verticalCenter: parent.verticalCenter; spacing: 1
-                            Text { text: "RAHISI";              color: "#70C040"; font.pixelSize: app.fntUI; font.bold: true; font.letterSpacing: 2 }
-                            Text { text: "AI inacheza bahati nasibu";  color: "#507030"; font.pixelSize: Math.max(10, app.fntUI - 3) }
+                            Text { text: "RAHISI";              color: iqSuccess; font.pixelSize: app.fntUI; font.bold: true; font.letterSpacing: 2 }
+                            Text { text: "AI inacheza bahati nasibu";  color: iqGoldDim; font.pixelSize: Math.max(10, app.fntUI - 3) }
                         }
                     }
                 }
@@ -693,8 +730,8 @@ Rectangle {
                 Rectangle {
                     width: parent.width; height: app.btnH * 1.25
                     radius: 16
-                    color: lvMedMA.pressed ? "#2a1800" : "#1a1000"
-                    border.color: "#007a8a"; border.width: 2
+                    color: lvMedMA.pressed ? Qt.rgba(0,0.9,1,0.15) : iqCard
+                    border.color: iqGold; border.width: 2
                     Behavior on color { ColorAnimation { duration: 80 } }
                     MouseArea {
                         id: lvMedMA; anchors.fill: parent
@@ -705,8 +742,8 @@ Rectangle {
                         Text { text: "🌿"; font.pixelSize: app.fntUI + 4; anchors.verticalCenter: parent.verticalCenter }
                         Column {
                             anchors.verticalCenter: parent.verticalCenter; spacing: 1
-                            Text { text: "WASTANI";                  color: "#00c8d4"; font.pixelSize: app.fntUI; font.bold: true; font.letterSpacing: 2 }
-                            Text { text: "AI hunasa kete ikiweza";  color: "#005a6a"; font.pixelSize: Math.max(10, app.fntUI - 3) }
+                            Text { text: "WASTANI";                  color: iqGold; font.pixelSize: app.fntUI; font.bold: true; font.letterSpacing: 2 }
+                            Text { text: "AI hunasa kete ikiweza";  color: iqGoldDim; font.pixelSize: Math.max(10, app.fntUI - 3) }
                         }
                     }
                 }
@@ -715,8 +752,8 @@ Rectangle {
                 Rectangle {
                     width: parent.width; height: app.btnH * 1.25
                     radius: 16
-                    color: lvHardMA.pressed ? "#300a0a" : "#200606"
-                    border.color: "#C02020"; border.width: 2
+                    color: lvHardMA.pressed ? Qt.rgba(1,0.2,0.2,0.15) : iqCard
+                    border.color: iqDanger; border.width: 2
                     Behavior on color { ColorAnimation { duration: 80 } }
                     MouseArea {
                         id: lvHardMA; anchors.fill: parent
@@ -727,8 +764,8 @@ Rectangle {
                         Text { text: "🔥"; font.pixelSize: app.fntUI + 4; anchors.verticalCenter: parent.verticalCenter }
                         Column {
                             anchors.verticalCenter: parent.verticalCenter; spacing: 1
-                            Text { text: "NGUMU";                       color: "#E04040"; font.pixelSize: app.fntUI; font.bold: true; font.letterSpacing: 2 }
-                            Text { text: "AI hutumia mkakati wa kina";  color: "#804040"; font.pixelSize: Math.max(10, app.fntUI - 3) }
+                            Text { text: "NGUMU";                       color: iqDanger; font.pixelSize: app.fntUI; font.bold: true; font.letterSpacing: 2 }
+                            Text { text: "AI hutumia mkakati wa kina";  color: iqGoldDim; font.pixelSize: Math.max(10, app.fntUI - 3) }
                         }
                     }
                 }
@@ -823,13 +860,13 @@ Rectangle {
                 anchors.verticalCenter: parent.verticalCenter
                 height: Math.max(22, app.fntTitle * 0.72)
                 width: lvBadgeTxt.implicitWidth + 16; radius: height / 2
-                color: app.aiLevel === 0 ? "#0e2008" : (app.aiLevel === 1 ? "#1a1000" : "#200606")
-                border.color: app.aiLevel === 0 ? "#3a8020" : (app.aiLevel === 1 ? "#007a8a" : "#C02020")
+                color: iqCard
+                border.color: app.aiLevel === 0 ? iqSuccess : (app.aiLevel === 1 ? iqGold : iqDanger)
                 border.width: 1
                 Text {
                     id: lvBadgeTxt; anchors.centerIn: parent
                     text: app.aiLevel === 0 ? "🌱 Rahisi" : (app.aiLevel === 1 ? "🌿 Wastani" : "🔥 Ngumu")
-                    color: app.aiLevel === 0 ? "#70C040" : (app.aiLevel === 1 ? "#00c8d4" : "#E04040")
+                    color: app.aiLevel === 0 ? iqSuccess : (app.aiLevel === 1 ? iqGold : iqDanger)
                     font.pixelSize: Math.max(10, app.fntUI - 3); font.bold: true
                 }
                 MouseArea { anchors.fill: parent; onClicked: app.showLevelScreen = true; }
@@ -841,8 +878,8 @@ Rectangle {
             anchors.horizontalCenter: parent.horizontalCenter
             width: Math.min(parent.width, 320); height: app.badgeH
             radius: height / 2
-            color:        app.currentPlayer === app.ai && !app.gameOver ? "#0e1a28" : "#080e14"
-            border.color: app.currentPlayer === app.ai && !app.gameOver ? "#3090E0" : "#0a1e20"
+            color:        app.currentPlayer === app.ai && !app.gameOver ? Qt.rgba(0,0.9,1,0.1) : iqCard
+            border.color: app.currentPlayer === app.ai && !app.gameOver ? iqAccent : iqBg2
             border.width: app.currentPlayer === app.ai ? 2 : 1
             Behavior on color        { ColorAnimation { duration: 220 } }
             Behavior on border.color { ColorAnimation { duration: 220 } }
@@ -850,23 +887,23 @@ Rectangle {
                 anchors.centerIn: parent; spacing: 12
                 Text {
                     text: "🤖  Magabe AI"
-                    color: app.currentPlayer === app.ai ? "#5AB0FF" : "#304060"
+                    color: app.currentPlayer === app.ai ? iqGold : iqGoldDim
                     font.pixelSize: app.fntUI; font.bold: true; font.letterSpacing: 1.5
                     anchors.verticalCenter: parent.verticalCenter
                 }
                 Rectangle {
                     width: 1; height: parent.parent.height * 0.45
-                    color: "#0a1e20"; anchors.verticalCenter: parent.verticalCenter
+                    color: iqCard; anchors.verticalCenter: parent.verticalCenter
                 }
                 Text {
                     text: "✋ " + app.p2Hand
-                    color: "#2a7070"; font.pixelSize: app.fntUI
+                    color: iqTextSec; font.pixelSize: app.fntUI
                     anchors.verticalCenter: parent.verticalCenter
                 }
                 Rectangle {
                     visible: app.aiThinking || (app.currentPlayer === app.ai && !app.gameOver)
                     width: 10; height: 10; radius: 5
-                    color: "#3090E0"; anchors.verticalCenter: parent.verticalCenter
+                    color: iqAccent; anchors.verticalCenter: parent.verticalCenter
                     SequentialAnimation on opacity {
                         running: app.currentPlayer === app.ai && !app.gameOver && !app.showLevelScreen
                         loops: Animation.Infinite
@@ -883,12 +920,12 @@ Rectangle {
             readonly property real bw: app.holeSize * 8 + app.appGap * 9 + 10
             readonly property real bh: app.holeSize * 4 + app.appGap * 5 + 10
             width: bw; height: bh
-            radius: 14; color: "#071e1e"
-            border.color: "#007a8a"; border.width: 3
+            radius: 14; color: iqCard
+            border.color: iqAccent; border.width: 3
             Rectangle {
                 anchors { fill: parent; margins: 3 }
                 radius: 11; color: "transparent"
-                border.color: "#041212"; border.width: 2
+                border.color: iqBg0; border.width: 2
             }
             Grid {
                 anchors.centerIn: parent
@@ -909,8 +946,8 @@ Rectangle {
                             !app.gameOver && !app.aiThinking && !app.sowAnimating &&
                             app.currentPlayer === app.human && isP1 &&
                             (app.plantingPhase
-                                ? isInner && app.handOf(app.human) > 0
-                                : seeds >= 2)
+                             ? isInner && app.handOf(app.human) > 0
+                             : seeds >= 2)
 
                         width: app.holeSize; height: app.holeSize
 
@@ -952,7 +989,7 @@ Rectangle {
                             anchors { fill: parent; margins: -3 }
                             radius: (app.holeSize + 6) / 2
                             color: "transparent"
-                            border.color: "#00ffff"; border.width: 2
+                            border.color: iqGold; border.width: 2
                             SequentialAnimation on opacity {
                                 running: cell.validMove; loops: Animation.Infinite
                                 NumberAnimation { to: 1.0; duration: 550; easing.type: Easing.InOutSine }
@@ -966,7 +1003,7 @@ Rectangle {
                             anchors { fill: parent; margins: -2 }
                             radius: (app.holeSize + 4) / 2
                             color: "transparent"
-                            border.color: Qt.rgba(0, 0.9, 1, 0.25); border.width: 1
+                            border.color: Qt.rgba(0, 0.9, 1, 0.18); border.width: 1
                         }
 
                         // ── Mwanga wa shimo linalopokea kete (active) ───────
@@ -975,10 +1012,10 @@ Rectangle {
                             anchors { fill: parent; margins: -5 }
                             radius: (app.holeSize + 10) / 2
                             color: "transparent"
-                            border.color: app.activeArrow === "✕" ? "#FF4444"
-                                        : app.activeArrow === "★" ? "#FFD700"
-                                        : app.activeArrow === "↻" ? "#FF8C00"
-                                        : "#FFFFFF"
+                            border.color: app.activeArrow === "✕" ? iqDanger
+                                                                  : app.activeArrow === "★" ? "#FFD700"
+                                                                                            : app.activeArrow === "↻" ? "#FF8C00"
+                                                                                                                      : "#FFFFFF"
                             border.width: 3
                             SequentialAnimation on opacity {
                                 running: cell.isActive; loops: Animation.Infinite
@@ -1025,7 +1062,7 @@ Rectangle {
                                     anchors.horizontalCenter: parent.horizontalCenter
                                     anchors.verticalCenter: parent.verticalCenter
                                     text: cell.seeds > 0 ? cell.seeds : ""
-                                    color: cell.seeds > 10 ? "#160800" : "#FFF4E0"
+                                    color: cell.seeds > 10 ? "#001818" : "#e0f8f8"
                                     font.pixelSize: app.fntHole; font.bold: true
                                     opacity: 1.0
                                     y: 0
@@ -1051,9 +1088,9 @@ Rectangle {
                                     anchors.topMargin: 1
                                     text: app.activeArrow
                                     color: app.activeArrow === "✕" ? "#FF6666"
-                                         : app.activeArrow === "★" ? "#FFD700"
-                                         : app.activeArrow === "↻" ? "#FF8C00"
-                                         : "#FFFFFF"
+                                                                   : app.activeArrow === "★" ? "#FFD700"
+                                                                                             : app.activeArrow === "↻" ? "#FF8C00"
+                                                                                                                       : "#FFFFFF"
                                     font.pixelSize: Math.max(9, app.fntHole * 0.72)
                                     font.bold: true
                                 }
@@ -1067,7 +1104,7 @@ Rectangle {
                             width:  Math.max(8, app.holeSize * 0.14)
                             height: Math.max(4, app.holeSize * 0.08)
                             radius: height / 2
-                            color:  cell.isP1 ? "#E05828" : "#2890E0"
+                            color:  cell.isP1 ? iqDanger : iqAccent
                             opacity: 0.85
                         }
 
@@ -1098,8 +1135,8 @@ Rectangle {
             anchors.horizontalCenter: parent.horizontalCenter
             width: Math.min(parent.width, 320); height: app.badgeH
             radius: height / 2
-            color:        app.currentPlayer === app.human && !app.gameOver ? "#2c1600" : "#140a00"
-            border.color: app.currentPlayer === app.human && !app.gameOver ? "#00e5ff" : "#051212"
+            color:        app.currentPlayer === app.human && !app.gameOver ? Qt.rgba(0,0.9,1,0.1) : iqCard
+            border.color: app.currentPlayer === app.human && !app.gameOver ? iqGold : iqBg2
             border.width: app.currentPlayer === app.human ? 2 : 1
             Behavior on color        { ColorAnimation { duration: 220 } }
             Behavior on border.color { ColorAnimation { duration: 220 } }
@@ -1107,17 +1144,17 @@ Rectangle {
                 anchors.centerIn: parent; spacing: 12
                 Text {
                     text: "▼  WEWE"
-                    color: app.currentPlayer === app.human ? "#00e5ff" : "#604020"
+                    color: app.currentPlayer === app.human ? iqGold : iqGoldDim
                     font.pixelSize: app.fntUI; font.bold: true; font.letterSpacing: 1.5
                     anchors.verticalCenter: parent.verticalCenter
                 }
                 Rectangle {
                     width: 1; height: parent.parent.height * 0.45
-                    color: "#071818"; anchors.verticalCenter: parent.verticalCenter
+                    color: iqCard; anchors.verticalCenter: parent.verticalCenter
                 }
                 Text {
                     text: "✋ " + app.p1Hand
-                    color: "#009aaa"; font.pixelSize: app.fntUI
+                    color: iqTextSec; font.pixelSize: app.fntUI
                     anchors.verticalCenter: parent.verticalCenter
                 }
             }
@@ -1127,22 +1164,22 @@ Rectangle {
         Rectangle {
             width: parent.width; height: app.statusH
             radius: 12
-            color:        app.gameOver ? "#2a1400" : "#160b00"
-            border.color: app.gameOver ? "#00e5ff" : "#040f0f"
+            color:        app.gameOver ? Qt.rgba(0,0.9,1,0.08) : iqCard
+            border.color: app.gameOver ? iqGold : iqBg2
             border.width: app.gameOver ? 2 : 1
             Column {
                 anchors.centerIn: parent; spacing: 3; width: parent.width - 20
                 Text {
                     anchors.horizontalCenter: parent.horizontalCenter
                     text: app.statusMsg
-                    color: app.gameOver ? "#00ffff" : (app.currentPlayer === app.ai ? "#5AB0FF" : "#C08040")
+                    color: app.gameOver ? iqGold : (app.currentPlayer === app.ai ? iqAccent : iqGold)
                     font.pixelSize: app.fntUI; font.bold: true
                     wrapMode: Text.WordWrap; horizontalAlignment: Text.AlignHCenter; width: parent.width
                 }
                 Text {
                     anchors.horizontalCenter: parent.horizontalCenter
                     text: app.subMsg
-                    color: "#006070"; font.pixelSize: Math.max(11, app.fntUI - 2)
+                    color: iqTextDim; font.pixelSize: Math.max(11, app.fntUI - 2)
                     wrapMode: Text.WordWrap; horizontalAlignment: Text.AlignHCenter; width: parent.width
                 }
             }
@@ -1155,12 +1192,12 @@ Rectangle {
 
             Rectangle {
                 width: Math.round(app.width * 0.28); height: app.btnH; radius: height / 2
-                color: ngMA.pressed ? "#7a5020" : "#4a2e0c"
-                border.color: "#00e5ff"; border.width: 2
+                color: ngMA.pressed ? Qt.rgba(0,0.9,1,0.2) : iqCard
+                border.color: iqGold; border.width: 2
                 Behavior on color { ColorAnimation { duration: 80 } }
                 Text {
                     anchors.centerIn: parent; text: "🔵  MPYA"
-                    color: "#00e5ff"; font.pixelSize: app.fntUI; font.bold: true; font.letterSpacing: 1
+                    color: iqGold; font.pixelSize: app.fntUI; font.bold: true; font.letterSpacing: 1
                 }
                 MouseArea { id: ngMA; anchors.fill: parent; onClicked: app.showLevelScreen = true; }
             }
@@ -1168,24 +1205,24 @@ Rectangle {
             Rectangle {
                 visible: app.plantingPhase && !app.gameOver && app.currentPlayer === app.human
                 width: Math.round(app.width * 0.32); height: app.btnH; radius: height / 2
-                color: apMA.pressed ? "#3a2808" : "#201408"
-                border.color: "#005060"; border.width: 1
+                color: apMA.pressed ? Qt.rgba(0,0.9,1,0.1) : iqCard
+                border.color: iqGoldDim; border.width: 1
                 Behavior on color { ColorAnimation { duration: 80 } }
                 Text {
                     anchors.centerIn: parent; text: "⚡ HARAKA"
-                    color: "#007888"; font.pixelSize: app.fntUI; font.bold: true; font.letterSpacing: 0.5
+                    color: iqAccent; font.pixelSize: app.fntUI; font.bold: true; font.letterSpacing: 0.5
                 }
                 MouseArea { id: apMA; anchors.fill: parent; onClicked: app.autoPlant(); }
             }
 
             Rectangle {
                 width: Math.round(app.width * 0.28); height: app.btnH; radius: height / 2
-                color: closeMA.pressed ? "#3a0808" : "#200606"
-                border.color: "#C02020"; border.width: 1
+                color: closeMA.pressed ? Qt.rgba(1,0.2,0.2,0.15) : iqCard
+                border.color: iqDanger; border.width: 1
                 Behavior on color { ColorAnimation { duration: 80 } }
                 Text {
                     anchors.centerIn: parent; text: "❌  FUNGA"
-                    color: "#E04040"; font.pixelSize: app.fntUI; font.bold: true; font.letterSpacing: 1
+                    color: iqDanger; font.pixelSize: app.fntUI; font.bold: true; font.letterSpacing: 1
                 }
                 MouseArea { id: closeMA; anchors.fill: parent; onClicked: app.close(); }
             }
@@ -1196,13 +1233,71 @@ Rectangle {
             anchors.horizontalCenter: parent.horizontalCenter
             height: Math.max(28, app.btnH * 0.60)
             width: phaseLbl.implicitWidth + 28; radius: height / 2
-            color:        app.plantingPhase ? "#101c08" : "#10081e"
-            border.color: app.plantingPhase ? "#387016" : "#005080"; border.width: 1
+            color:        app.plantingPhase ? Qt.rgba(0,1,0.5,0.06) : Qt.rgba(0,0.9,1,0.06)
+            border.color: app.plantingPhase ? iqSuccess : iqAccent; border.width: 1
             Text {
                 id: phaseLbl; anchors.centerIn: parent
                 text:  app.plantingPhase ? "🌱  AWAMU YA KUPANDA" : "🌀  AWAMU YA KUPIGA"
-                color: app.plantingPhase ? "#68B030" : "#9858D8"
+                color: app.plantingPhase ? iqSuccess : iqAccent
                 font.pixelSize: Math.max(11, app.fntUI - 2); font.bold: true; font.letterSpacing: 1
+            }
+        }
+
+        // ── MAGABE LAB branding ────────────────────────────────────────────
+        Item {
+            width: parent.width
+            height: Math.max(36, app.btnH * 0.8)
+
+            Rectangle {
+                anchors.top: parent.top
+                anchors.horizontalCenter: parent.horizontalCenter
+                width: 80; height: 1
+                gradient: Gradient {
+                    orientation: Gradient.Horizontal
+                    GradientStop { position: 0.0; color: "transparent" }
+                    GradientStop { position: 0.5; color: Qt.rgba(0,0.9,1,0.2) }
+                    GradientStop { position: 1.0; color: "transparent" }
+                }
+            }
+
+            Row {
+                anchors.centerIn: parent
+                spacing: 6
+
+                Rectangle {
+                    width: 3; height: 3; radius: 2
+                    color: iqGold; opacity: 0.5
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+
+                /*
+                Text {
+                    text: "BY"
+                    font.pixelSize: Math.max(9, app.fntUI - 4)
+                    font.letterSpacing: 2
+                    color: Qt.rgba(0,0.9,1,0.3)
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+                */
+
+                Text {
+                    text: "MAGABE LAB"
+                    font.pixelSize: Math.max(10, app.fntUI - 3)
+                    font.bold: true
+                    font.letterSpacing: 2.5
+                    color: Qt.rgba(0,0.9,1,0.7)
+                    anchors.verticalCenter: parent.verticalCenter
+                    SequentialAnimation on opacity {
+                        loops: Animation.Infinite
+                        NumberAnimation { to: 0.45; duration: 2000; easing.type: Easing.InOutSine }
+                        NumberAnimation { to: 1.0;  duration: 2000; easing.type: Easing.InOutSine }
+                    }
+                }
+                Rectangle {
+                    width: 3; height: 3; radius: 2
+                    color: iqGold; opacity: 0.5
+                    anchors.verticalCenter: parent.verticalCenter
+                }
             }
         }
 
@@ -1214,15 +1309,15 @@ Rectangle {
     Rectangle {
         visible: app.gameOver && !app.showLevelScreen
         anchors.fill: parent
-        color: Qt.rgba(0, 0, 0, 0.80)
+        color: Qt.rgba(0, 0, 0, 0.85)
         MouseArea { anchors.fill: parent }
 
         Rectangle {
             anchors.centerIn: parent
             width:  Math.min(app.width - 48, 360)
             height: winnerCol.implicitHeight + 52
-            radius: 22; color: "#051515"
-            border.color: app.winner === app.human ? "#00e5ff" : "#3090E0"
+            radius: 22; color: iqCard
+            border.color: app.winner === app.human ? iqGold : iqAccent
             border.width: 3
 
             Column {
@@ -1234,18 +1329,16 @@ Rectangle {
                     anchors.horizontalCenter: parent.horizontalCenter
                     text: app.winner === app.human ? "🏆" : "MAGABE AI"
                     font.pixelSize: app.winner === app.human ? Math.round(app.holeSize * 0.9) : Math.max(20, app.fntTitle * 0.85)
-
-color: app.winner === app.human ? "#00ffff" : "#5AB0FF"
-                    
+                    color: app.winner === app.human ? iqGold : iqAccent
                     font.bold: true;
- font.letterSpacing: 3
+                    font.letterSpacing: 3
 
                 }
 
                 Text {
                     anchors.horizontalCenter: parent.horizontalCenter
                     text: app.winner === app.human ? "UMESHINDA!" : "IMESHINDA!"
-                    color: app.winner === app.human ? "#00ffff" : "#5AB0FF"
+                    color: app.winner === app.human ? iqGold : iqAccent
                     font.pixelSize: Math.max(20, app.fntTitle * 0.85)
                     font.bold: true; font.letterSpacing: 3
                 }
@@ -1259,7 +1352,7 @@ color: app.winner === app.human ? "#00ffff" : "#5AB0FF"
                 Text {
                     anchors.horizontalCenter: parent.horizontalCenter
                     text: "Kiwango: " + app.levelLabel(app.aiLevel)
-                    color: app.aiLevel === 0 ? "#70C040" : (app.aiLevel === 1 ? "#00c8d4" : "#E04040")
+                    color: app.aiLevel === 0 ? iqSuccess : (app.aiLevel === 1 ? iqGold : iqDanger)
                     font.pixelSize: Math.max(11, app.fntUI - 2)
                 }
 
@@ -1274,7 +1367,7 @@ color: app.winner === app.human ? "#00ffff" : "#5AB0FF"
                         Behavior on color { ColorAnimation { duration: 80 } }
                         Text {
                             anchors.centerIn: parent; text: "CHEZA TENA"
-                            color: "#00e5ff"; font.pixelSize: app.fntUI; font.bold: true; font.letterSpacing: 1
+                            color: iqGold; font.pixelSize: app.fntUI; font.bold: true; font.letterSpacing: 1
                         }
                         MouseArea { id: ctMA; anchors.fill: parent; onClicked: app.initBoard(); }
                     }
