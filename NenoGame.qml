@@ -1897,7 +1897,92 @@ Rectangle {
                 displayScore = 0;
                 scoreCountUp.to = score;
                 scoreCountUp.restart();
+                // Confetti ukifanya vizuri (score >= 65)
+                if(score >= 65){
+                    confettiCanvas.particles = [];
+                    confettiCanvas.spawnAll();
+                    confettiCanvas.visible = true;
+                    confettiTimer.restart();
+                } else {
+                    confettiCanvas.visible = false;
+                }
             }
+        }
+
+        // ── Confetti canvas ───────────────────────────────────────────────
+        Canvas {
+            id: confettiCanvas
+            anchors.fill: parent
+            z: 10
+            visible: false
+            property var particles: []
+
+            // Rangi 8 za confetti — za sherehe
+            property var colors: [
+                "#00e5ff","#ffffff","#22c55e","#ffd700",
+                "#ff6b6b","#a78bfa","#fb923c","#34d399"
+            ]
+
+            function spawnAll() {
+                particles = [];
+                var count = 120;
+                for(var i = 0; i < count; i++){
+                    particles.push({
+                        x:      Math.random() * width,
+                        y:      -Math.random() * height * 0.5,   // inaanza juu
+                        vx:     (Math.random() - 0.5) * dp(4),
+                        vy:     dp(2) + Math.random() * dp(4),
+                        rot:    Math.random() * 360,
+                        vrot:   (Math.random() - 0.5) * 8,
+                        w:      dp(7) + Math.random() * dp(6),
+                        h:      dp(4) + Math.random() * dp(3),
+                        color:  colors[Math.floor(Math.random() * colors.length)],
+                        alpha:  1.0,
+                        life:   1.0   // 1.0 → 0.0
+                    });
+                }
+                requestPaint();
+            }
+
+            function step() {
+                var alive = false;
+                for(var i = 0; i < particles.length; i++){
+                    var p = particles[i];
+                    p.x   += p.vx;
+                    p.y   += p.vy;
+                    p.vy  += dp(0.12);          // gravity
+                    p.rot += p.vrot;
+                    p.life -= 0.007;
+                    p.alpha = Math.max(0, p.life);
+                    if(p.life > 0) alive = true;
+                }
+                if(!alive){ confettiCanvas.visible = false; confettiTimer.stop(); }
+                requestPaint();
+            }
+
+            onPaint: {
+                var ctx = getContext("2d");
+                ctx.clearRect(0, 0, width, height);
+                for(var i = 0; i < particles.length; i++){
+                    var p = particles[i];
+                    if(p.alpha <= 0) continue;
+                    ctx.save();
+                    ctx.globalAlpha = p.alpha;
+                    ctx.translate(p.x + p.w/2, p.y + p.h/2);
+                    ctx.rotate(p.rot * Math.PI / 180);
+                    ctx.fillStyle = p.color;
+                    ctx.fillRect(-p.w/2, -p.h/2, p.w, p.h);
+                    ctx.restore();
+                }
+            }
+        }
+
+        Timer {
+            id: confettiTimer
+            interval: 16    // ~60fps
+            repeat: true
+            running: false
+            onTriggered: confettiCanvas.step()
         }
 
         Column {
