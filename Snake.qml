@@ -586,11 +586,6 @@ Rectangle {
                 var bY = H / 2 + dp(114);
 
                 ctx.fillStyle = "rgba(0,229,255,0.4)";
-                // Divider line segments
-                ctx.strokeStyle = "rgba(0,229,255,0.15)";
-                ctx.lineWidth = dp(0.8);
-                ctx.beginPath(); ctx.moveTo(W/2 - dp(46), bY); ctx.lineTo(W/2 - dp(14), bY); ctx.stroke();
-                ctx.beginPath(); ctx.moveTo(W/2 + dp(14), bY); ctx.lineTo(W/2 + dp(46), bY); ctx.stroke();
 
                 // "MAGABE LAB" text — cyan glow
                 ctx.save();
