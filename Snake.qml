@@ -504,12 +504,12 @@ Rectangle {
                         var closeX2 = W2 / 2 + btnGap2 / 2;
 
                         if (mouse.x >= restX2  && mouse.x <= restX2  + btnW2 &&
-                            mouse.y >= btnY2    && mouse.y <= btnY2   + btnH2) {
+                                mouse.y >= btnY2    && mouse.y <= btnY2   + btnH2) {
                             app.initGame();
                             return;
                         }
                         if (mouse.x >= closeX2 && mouse.x <= closeX2 + btnW2 &&
-                            mouse.y >= btnY2    && mouse.y <= btnY2   + btnH2) {
+                                mouse.y >= btnY2    && mouse.y <= btnY2   + btnH2) {
                             app.close();
                             return;
                         }
@@ -579,6 +579,28 @@ Rectangle {
                 ctx.fillStyle = splashBlink.on ? "#002a30" : "#007a8a";
                 ctx.font      = "bold " + dp(15) + "px sans-serif";
                 ctx.fillText("ANZA", W / 2, H / 2 + dp(64));
+
+                // ── MAGABE LAB branding ───────────────────────
+                // Divider dots
+
+                var bY = H / 2 + dp(114);
+
+                ctx.fillStyle = "rgba(0,229,255,0.4)";
+                // Divider line segments
+                ctx.strokeStyle = "rgba(0,229,255,0.15)";
+                ctx.lineWidth = dp(0.8);
+                ctx.beginPath(); ctx.moveTo(W/2 - dp(46), bY); ctx.lineTo(W/2 - dp(14), bY); ctx.stroke();
+                ctx.beginPath(); ctx.moveTo(W/2 + dp(14), bY); ctx.lineTo(W/2 + dp(46), bY); ctx.stroke();
+
+                // "MAGABE LAB" text — cyan glow
+                ctx.save();
+                ctx.shadowColor = "rgba(0,229,255,0.6)";
+                ctx.shadowBlur  = dp(8);
+                ctx.fillStyle   = "rgba(0,229,255," + (0.5 + 0.3 * Math.sin(Date.now() / 800)) + ")";
+                ctx.font        = "bold " + dp(10) + "px sans-serif";
+                ctx.fillText("MAGABE LAB", W*0.44 + dp(18), bY + dp(1));
+                ctx.restore();
+
                 return;
             }
 
@@ -707,8 +729,8 @@ Rectangle {
                 // ── Close button (red) ────────────────────
                 // Outer crimson glow halo
                 var haloGrd = ctx.createRadialGradient(
-                    closeX + btnW / 2, btnY + btnH / 2, dp(8),
-                    closeX + btnW / 2, btnY + btnH / 2, btnW * 0.8);
+                            closeX + btnW / 2, btnY + btnH / 2, dp(8),
+                            closeX + btnW / 2, btnY + btnH / 2, btnW * 0.8);
                 haloGrd.addColorStop(0, "rgba(255,0,0,0.20)");
                 haloGrd.addColorStop(1, "transparent");
                 ctx.fillStyle = haloGrd;
