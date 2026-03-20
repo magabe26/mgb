@@ -187,16 +187,16 @@ Rectangle {
             statusMsg = mimi ? "Zamu yako  —  Awamu ya Kupanda"
                              : "Magabe AI inachagua  —  Awamu ya Kupanda";
             subMsg = mimi
-                ? "Gusa safu yako ya ndani  •  kete " + handOf(human) + " zimebaki"
-                : "Subiri Magabe AI ipande kete zake...";
+                    ? "Gusa safu yako ya ndani  •  kete " + handOf(human) + " zimebaki"
+                    : "Subiri Magabe AI ipande kete zake...";
         } else {
             statusMsg = mimi ? "Zamu yako  —  Awamu ya Kupiga"
                              : "Magabe AI inafikiria...";
             subMsg = mimi
-                ? (lastCapture > 0
-                    ? "Umetwaa kete " + lastCapture + "! Gusa shimo lenye kete 2+"
-                    : "Gusa shimo lolote lenye kete 2 au zaidi")
-                : levelLabel(aiLevel) + " inacheza...";
+                    ? (lastCapture > 0
+                       ? "Umetwaa kete " + lastCapture + "! Gusa shimo lenye kete 2+"
+                       : "Gusa shimo lolote lenye kete 2 au zaidi")
+                    : levelLabel(aiLevel) + " inacheza...";
         }
     }
 
@@ -314,7 +314,7 @@ Rectangle {
         return { nb: nb, captures: captures, landIdx: landIdx, steps: steps };
     }
 
-        // ── Wrappers ─────────────────────────────────────────────────────────────
+    // ── Wrappers ─────────────────────────────────────────────────────────────
     function sowSeeds(b, startIdx, player) {
         var r = sowKernel(b, startIdx, player, false);
         if (!r) return null;
@@ -327,7 +327,7 @@ Rectangle {
         return { steps: r.steps, finalBoard: r.nb, captures: r.captures };
     }
 
-        // ── Timer ya kupiga hatua moja kwa wakati ────────────────────────────────
+    // ── Timer ya kupiga hatua moja kwa wakati ────────────────────────────────
     Timer {
         id: sowStepTimer
         interval: 450        // ms kila hatua — polepole kuona mabadiliko
@@ -771,65 +771,6 @@ Rectangle {
                 }
             }
 
-            // ── MAGABE LAB branding ────────────────────────────────────────
-            Item {
-                width: parent.width
-                height: 40
-
-                // Divider gradient line
-                Rectangle {
-                    anchors.top: parent.top
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    width: 80; height: 1
-                    gradient: Gradient {
-                        orientation: Gradient.Horizontal
-                        GradientStop { position: 0.0; color: "transparent" }
-                        GradientStop { position: 0.5; color: Qt.rgba(0,0.9,1,0.2) }
-                        GradientStop { position: 1.0; color: "transparent" }
-                    }
-                }
-
-                Row {
-                    anchors.centerIn: parent
-                    spacing: 6
-
-                    Rectangle {
-                        width: 3; height: 3; radius: 2
-                        color: "#00e5ff"; opacity: 0.5
-                        anchors.verticalCenter: parent.verticalCenter
-                    }
-
-                    /*
-                    Text {
-                        text: "BY"
-                        font.pixelSize: Math.max(9, app.fntUI - 4)
-                        font.letterSpacing: 2
-                        color: Qt.rgba(0,0.9,1,0.3)
-                        anchors.verticalCenter: parent.verticalCenter
-                    } */
-
-                    Text {
-                        text: "MAGABE LAB"
-                        font.pixelSize: Math.max(10, app.fntUI - 3)
-                        font.bold: true
-                        font.letterSpacing: 2.5
-                        color: Qt.rgba(0,0.9,1,0.7)
-                        anchors.verticalCenter: parent.verticalCenter
-
-                        SequentialAnimation on opacity {
-                            loops: Animation.Infinite
-                            NumberAnimation { to: 0.45; duration: 2000; easing.type: Easing.InOutSine }
-                            NumberAnimation { to: 1.0;  duration: 2000; easing.type: Easing.InOutSine }
-                        }
-                    }
-
-                    Rectangle {
-                        width: 3; height: 3; radius: 2
-                        color: "#00e5ff"; opacity: 0.5
-                        anchors.verticalCenter: parent.verticalCenter
-                    }
-                }
-            }
         }
     }
 
@@ -943,8 +884,8 @@ Rectangle {
                             !app.gameOver && !app.aiThinking && !app.sowAnimating &&
                             app.currentPlayer === app.human && isP1 &&
                             (app.plantingPhase
-                                ? isInner && app.handOf(app.human) > 0
-                                : seeds >= 2)
+                             ? isInner && app.handOf(app.human) > 0
+                             : seeds >= 2)
 
                         width: app.holeSize; height: app.holeSize
 
@@ -1010,9 +951,9 @@ Rectangle {
                             radius: (app.holeSize + 10) / 2
                             color: "transparent"
                             border.color: app.activeArrow === "✕" ? iqDanger
-                                        : app.activeArrow === "★" ? "#FFD700"
-                                        : app.activeArrow === "↻" ? "#FF8C00"
-                                        : "#FFFFFF"
+                                                                  : app.activeArrow === "★" ? "#FFD700"
+                                                                                            : app.activeArrow === "↻" ? "#FF8C00"
+                                                                                                                      : "#FFFFFF"
                             border.width: 3
                             SequentialAnimation on opacity {
                                 running: cell.isActive; loops: Animation.Infinite
@@ -1085,9 +1026,9 @@ Rectangle {
                                     anchors.topMargin: 1
                                     text: app.activeArrow
                                     color: app.activeArrow === "✕" ? "#FF6666"
-                                         : app.activeArrow === "★" ? "#FFD700"
-                                         : app.activeArrow === "↻" ? "#FF8C00"
-                                         : "#FFFFFF"
+                                                                   : app.activeArrow === "★" ? "#FFD700"
+                                                                                             : app.activeArrow === "↻" ? "#FF8C00"
+                                                                                                                       : "#FFFFFF"
                                     font.pixelSize: Math.max(9, app.fntHole * 0.72)
                                     font.bold: true
                                 }
@@ -1240,61 +1181,63 @@ Rectangle {
             }
         }
 
-        // ── MAGABE LAB branding ────────────────────────────────────────────
-        Item {
-            width: parent.width
-            height: Math.max(36, app.btnH * 0.8)
+    } // Column ya mchezo
 
-            Rectangle {
-                anchors.top: parent.top
-                anchors.horizontalCenter: parent.horizontalCenter
-                width: 80; height: 1
-                gradient: Gradient {
-                    orientation: Gradient.Horizontal
-                    GradientStop { position: 0.0; color: "transparent" }
-                    GradientStop { position: 0.5; color: Qt.rgba(0,0.9,1,0.2) }
-                    GradientStop { position: 1.0; color: "transparent" }
-                }
-            }
+    // ── MAGABE LAB branding — bottom ─────────────────────────────────────────
+    Item {
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: Math.max(8, app.height * 0.012)
+        anchors.horizontalCenter: parent.horizontalCenter
+        width: parent.width; height: 32
+        visible: !app.gameOver
 
-            Row {
-                anchors.centerIn: parent
-                spacing: 6
-
-                Rectangle {
-                    width: 3; height: 3; radius: 2
-                    color: iqGold; opacity: 0.5
-                    anchors.verticalCenter: parent.verticalCenter
-                }
-                Text {
-                    text: "BY"
-                    font.pixelSize: Math.max(9, app.fntUI - 4)
-                    font.letterSpacing: 2
-                    color: Qt.rgba(0,0.9,1,0.3)
-                    anchors.verticalCenter: parent.verticalCenter
-                }
-                Text {
-                    text: "MAGABE LAB"
-                    font.pixelSize: Math.max(10, app.fntUI - 3)
-                    font.bold: true
-                    font.letterSpacing: 2.5
-                    color: Qt.rgba(0,0.9,1,0.7)
-                    anchors.verticalCenter: parent.verticalCenter
-                    SequentialAnimation on opacity {
-                        loops: Animation.Infinite
-                        NumberAnimation { to: 0.45; duration: 2000; easing.type: Easing.InOutSine }
-                        NumberAnimation { to: 1.0;  duration: 2000; easing.type: Easing.InOutSine }
-                    }
-                }
-                Rectangle {
-                    width: 3; height: 3; radius: 2
-                    color: iqGold; opacity: 0.5
-                    anchors.verticalCenter: parent.verticalCenter
-                }
+        Rectangle {
+            anchors.top: parent.top
+            anchors.horizontalCenter: parent.horizontalCenter
+            width: 80; height: 1
+            gradient: Gradient {
+                orientation: Gradient.Horizontal
+                GradientStop { position: 0.0; color: "transparent" }
+                GradientStop { position: 0.5; color: Qt.rgba(0,0.9,1,0.2) }
+                GradientStop { position: 1.0; color: "transparent" }
             }
         }
-
-    } // Column ya mchezo
+        Row {
+            anchors.centerIn: parent
+            spacing: 6
+            Rectangle {
+                width: 3; height: 3; radius: 2
+                color: iqGold; opacity: 0.5
+                anchors.verticalCenter: parent.verticalCenter
+            }
+            /*
+            Text {
+                text: "BY"
+                font.pixelSize: Math.max(9, app.fntUI - 4)
+                font.letterSpacing: 2
+                color: Qt.rgba(0,0.9,1,0.3)
+                anchors.verticalCenter: parent.verticalCenter
+            }
+            */
+            Text {
+                text: "MAGABE LAB"
+                font.pixelSize: Math.max(10, app.fntUI - 3)
+                font.bold: true; font.letterSpacing: 2.5
+                color: Qt.rgba(0,0.9,1,0.7)
+                anchors.verticalCenter: parent.verticalCenter
+                SequentialAnimation on opacity {
+                    loops: Animation.Infinite
+                    NumberAnimation { to: 0.45; duration: 2000; easing.type: Easing.InOutSine }
+                    NumberAnimation { to: 1.0;  duration: 2000; easing.type: Easing.InOutSine }
+                }
+            }
+            Rectangle {
+                width: 3; height: 3; radius: 2
+                color: iqGold; opacity: 0.5
+                anchors.verticalCenter: parent.verticalCenter
+            }
+        }
+    }
 
     // ════════════════════════════════════════════════════════════════════════
     //  SKRINI YA USHINDI
@@ -1323,10 +1266,10 @@ Rectangle {
                     text: app.winner === app.human ? "🏆" : "MAGABE AI"
                     font.pixelSize: app.winner === app.human ? Math.round(app.holeSize * 0.9) : Math.max(20, app.fntTitle * 0.85)
 
-color: app.winner === app.human ? iqGold : iqAccent
+                    color: app.winner === app.human ? iqGold : iqAccent
                     
                     font.bold: true;
- font.letterSpacing: 3
+                    font.letterSpacing: 3
 
                 }
 
