@@ -4792,6 +4792,8 @@ Rectangle {
                     viewComponentLoader.switchTo(languageSelectionComponent, app.width / 2, app.height / 2);
 
                     app.ad();
+
+                    app.selectedLanguage = "";
                 }
 
                 onCanceled: tvCloseBtn.scale = 1.0
