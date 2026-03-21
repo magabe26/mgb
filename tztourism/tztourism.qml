@@ -4567,6 +4567,19 @@ Rectangle {
                                     font.pointSize: Qt.platform.os === "android" ? 10 : 8
                                     color: "#aaaaaa"; font.italic: true
                                 }
+                                Rectangle {
+                                    anchors.horizontalCenter: parent.horizontalCenter
+                                    width: Qt.platform.os === "android" ? 180 : 140
+                                    height: 2; color: "cyan"; opacity: 0.35
+                                }
+                                Text {
+                                    anchors.horizontalCenter: parent.horizontalCenter
+                                    text: "MagabeLab TV"
+                                    font.pointSize: Qt.platform.os === "android" ? 10 : 8
+                                    color: "#aaaaaa";
+                                    font.italic: true
+                                }
+
                             }
                         }
 
@@ -4796,10 +4809,9 @@ Rectangle {
 
                     app.selectedLanguage = "sw";
                     viewComponentLoader.switchTo(languageSelectionComponent, app.width / 2, app.height / 2);
+                    app.selectedLanguage = "";
 
                     app.ad();
-
-                    app.selectedLanguage = "";
                 }
 
                 onCanceled: tvCloseBtn.scale = 1.0
