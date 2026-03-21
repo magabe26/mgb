@@ -4576,7 +4576,7 @@ Rectangle {
                                     anchors.horizontalCenter: parent.horizontalCenter
                                     text: "MagabeLab TV"
                                     font.pointSize: Qt.platform.os === "android" ? 10 : 8
-                                    color: "#aaaaaa";
+                                    color: "#1a6060";
                                     font.italic: true
                                 }
 
