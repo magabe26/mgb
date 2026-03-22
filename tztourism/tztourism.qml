@@ -5447,78 +5447,6 @@ Rectangle {
             }
         }
 
-        // ── Channel info card ──────────────────────────────────────
-        // Shown for 3 seconds when entering fullscreen
-        Rectangle {
-            id: channelInfoCard
-            anchors.centerIn: parent
-            width: channelInfoCol.implicitWidth + (Qt.platform.os === "android" ? 48 : 36)
-            height: channelInfoCol.implicitHeight + (Qt.platform.os === "android" ? 32 : 24)
-            radius: Qt.platform.os === "android" ? 18 : 14
-            color: Qt.rgba(0, 0.10, 0.09, 0.92)
-            border.color: Qt.rgba(0, 1, 1, 0.6); border.width: 2
-            z: 650
-            visible: safariTvOverlay.tvFullScreen
-            opacity: 0.0
-            Behavior on opacity { NumberAnimation { duration: 350 } }
-
-            function show() {
-                opacity = 1.0;
-                channelHideTimer.restart();
-            }
-            Timer {
-                id: channelHideTimer
-                interval: 3000
-                onTriggered: { channelInfoCard.opacity = 0.0; }
-            }
-
-            Column {
-                id: channelInfoCol
-                anchors.centerIn: parent
-                spacing: Qt.platform.os === "android" ? 6 : 4
-
-                Text {
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    text: "🇹🇿"
-                    font.pointSize: Qt.platform.os === "android" ? 28 : 22
-                }
-                Text {
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    text: "Tanzania Safari Channel"
-                    font.pointSize: Qt.platform.os === "android" ? 18 : 14
-                    font.bold: true; color: "cyan"
-                    font.letterSpacing: 1
-                }
-                Text {
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    text: "DStv 292  ·  Azam TV 401  ·  StarTimes 331"
-                    font.pointSize: Qt.platform.os === "android" ? 10 : 8
-                    color: "#aaaaaa"; font.italic: true
-                }
-                // LIVE dot + text
-                Row {
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    spacing: 6
-                    Rectangle {
-                        width: Qt.platform.os === "android" ? 10 : 8
-                        height: width; radius: width / 2; color: "#ff3333"
-                        anchors.verticalCenter: parent.verticalCenter
-                        SequentialAnimation on opacity {
-                            loops: Animation.Infinite
-                            NumberAnimation { to: 0.3; duration: 600 }
-                            NumberAnimation { to: 1.0; duration: 600 }
-                        }
-                    }
-                    Text {
-                        text: "LIVE"
-                        font.pointSize: Qt.platform.os === "android" ? 11 : 9
-                        font.bold: true; color: "#ff5555"
-                        anchors.verticalCenter: parent.verticalCenter
-                    }
-                }
-            }
-        }
-
         // ── PiP (Picture-in-Picture) floating window ───────────────
         Rectangle {
             id: pipWindow
@@ -6093,6 +6021,72 @@ Rectangle {
                             font.pointSize: Qt.platform.os === "android" ? 9 : 7
                             font.bold: true; color: "cyan"
                             anchors.verticalCenter: parent.verticalCenter
+                        }
+                    }
+                }
+
+                // ── Channel info card (rotates with fsInner) ──────────
+                Rectangle {
+                    id: channelInfoCard
+                    anchors.centerIn: parent
+                    width: channelInfoCol.implicitWidth + (Qt.platform.os === "android" ? 48 : 36)
+                    height: channelInfoCol.implicitHeight + (Qt.platform.os === "android" ? 32 : 24)
+                    radius: Qt.platform.os === "android" ? 18 : 14
+                    color: Qt.rgba(0, 0.10, 0.09, 0.92)
+                    border.color: Qt.rgba(0, 1, 1, 0.6); border.width: 2
+                    z: 20
+                    opacity: 0.0
+                    Behavior on opacity { NumberAnimation { duration: 350 } }
+
+                    function show() {
+                        opacity = 1.0;
+                        channelHideTimer.restart();
+                    }
+                    Timer {
+                        id: channelHideTimer
+                        interval: 3000
+                        onTriggered: { channelInfoCard.opacity = 0.0; }
+                    }
+                    Column {
+                        id: channelInfoCol
+                        anchors.centerIn: parent
+                        spacing: Qt.platform.os === "android" ? 6 : 4
+                        Text {
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            text: "🇹🇿"
+                            font.pointSize: Qt.platform.os === "android" ? 28 : 22
+                        }
+                        Text {
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            text: "Tanzania Safari Channel"
+                            font.pointSize: Qt.platform.os === "android" ? 18 : 14
+                            font.bold: true; color: "cyan"; font.letterSpacing: 1
+                        }
+                        Text {
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            text: "DStv 292  ·  Azam TV 401  ·  StarTimes 331"
+                            font.pointSize: Qt.platform.os === "android" ? 10 : 8
+                            color: "#aaaaaa"; font.italic: true
+                        }
+                        Row {
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            spacing: 6
+                            Rectangle {
+                                width: Qt.platform.os === "android" ? 10 : 8
+                                height: width; radius: width / 2; color: "#ff3333"
+                                anchors.verticalCenter: parent.verticalCenter
+                                SequentialAnimation on opacity {
+                                    loops: Animation.Infinite
+                                    NumberAnimation { to: 0.3; duration: 600 }
+                                    NumberAnimation { to: 1.0; duration: 600 }
+                                }
+                            }
+                            Text {
+                                text: "LIVE"
+                                font.pointSize: Qt.platform.os === "android" ? 11 : 9
+                                font.bold: true; color: "#ff5555"
+                                anchors.verticalCenter: parent.verticalCenter
+                            }
                         }
                     }
                 }
