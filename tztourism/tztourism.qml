@@ -4927,9 +4927,6 @@ Rectangle {
         }
 
         // ── SINGLE VideoOutput — repositions between normal and fullscreen ──
-        // Normal mode : matches tvScreen position/size inside the TV bezel
-        // Fullscreen  : fills safariTvOverlay entirely, z lifted above chrome
-        // One surface, one decode, zero duplication.
         VideoOutput {
             id: videoOut
             source: safariPlayer
@@ -4939,23 +4936,30 @@ Rectangle {
 
             z: safariTvOverlay.tvFullScreen ? 500 : 0
 
-            // Compute tvScreen's position relative to safariTvOverlay
-            property point screenPos: tvScreen.mapToItem(safariTvOverlay, tvScreen.border.width, tvScreen.border.width)
-            property real  screenW:   tvScreen.width  - tvScreen.border.width * 2
-            property real  screenH:   tvScreen.height - tvScreen.border.width * 2
+            // ── Layout constants (must match TV cabinet structure) ──
+            // safariTvOverlay margins → Column margins → tvBody border → Column margins → tvScreen border
+            property real cabMargin:    Qt.platform.os === "android" ? 10 : 8   // safariTvOverlay Column margin
+            property real bodyBorder:   Qt.platform.os === "android" ? 6  : 5   // tvBody border.width
+            property real innerMargin:  Qt.platform.os === "android" ? 14 : 10  // inner Column margin
+            property real screenBorder: Qt.platform.os === "android" ? 5  : 4   // tvScreen border.width
+            property real antennaH:     Qt.platform.os === "android" ? 48 : 38  // antenna bar height
+            property real colSpacing:   Qt.platform.os === "android" ? 10 : 8   // Column spacing
 
-            // When rotated 90/270 in fullscreen swap w/h so video fills landscape
-            property bool isLandscape: safariTvOverlay.tvFullScreen
-                                       && (fsLayer.videoRotation % 180 !== 0)
+            // Normal-mode position: left edge
+            property real normalX: cabMargin + bodyBorder + innerMargin + screenBorder
+            // Normal-mode position: top edge
+            property real normalY: antennaH + bodyBorder + innerMargin + screenBorder
+            // Normal-mode size
+            property real normalW: safariTvOverlay.width  - normalX - cabMargin - bodyBorder - innerMargin - screenBorder
+            property real normalH: tvScreen.height - screenBorder * 2
 
-            x:      safariTvOverlay.tvFullScreen ? (isLandscape ? (safariTvOverlay.width  - safariTvOverlay.height) / 2 : 0)
-                                                 : screenPos.x
-            y:      safariTvOverlay.tvFullScreen ? (isLandscape ? (safariTvOverlay.height - safariTvOverlay.width)  / 2 : 0)
-                                                 : screenPos.y
-            width:  safariTvOverlay.tvFullScreen ? (isLandscape ? safariTvOverlay.height : safariTvOverlay.width)
-                                                 : screenW
-            height: safariTvOverlay.tvFullScreen ? (isLandscape ? safariTvOverlay.width  : safariTvOverlay.height)
-                                                 : screenH
+            // Landscape fullscreen: swap w/h and offset to center
+            property bool isLandscape: safariTvOverlay.tvFullScreen && (fsLayer.videoRotation % 180 !== 0)
+
+            x:      safariTvOverlay.tvFullScreen ? (isLandscape ? (safariTvOverlay.width  - safariTvOverlay.height) / 2 : 0) : normalX
+            y:      safariTvOverlay.tvFullScreen ? (isLandscape ? (safariTvOverlay.height - safariTvOverlay.width)  / 2 : 0) : normalY
+            width:  safariTvOverlay.tvFullScreen ? (isLandscape ? safariTvOverlay.height : safariTvOverlay.width)  : normalW
+            height: safariTvOverlay.tvFullScreen ? (isLandscape ? safariTvOverlay.width  : safariTvOverlay.height) : normalH
 
             Behavior on x      { NumberAnimation { duration: 300; easing.type: Easing.InOutQuad } }
             Behavior on y      { NumberAnimation { duration: 300; easing.type: Easing.InOutQuad } }
