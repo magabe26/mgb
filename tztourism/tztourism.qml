@@ -4669,6 +4669,15 @@ Rectangle {
                                     font.pointSize: Qt.platform.os === "android" ? 10 : 8
                                     color: "#aaaaaa"; font.italic: true
                                 }
+                                Text {
+                                    anchors.horizontalCenter: parent.horizontalCenter
+                                    width: tvScreen.width * 0.78
+                                    wrapMode: Text.WordWrap
+                                    horizontalAlignment: Text.AlignHCenter
+                                    text: "Gonga mara mbili skrini kwenda Fullscreen\nDouble-tap screen to go Fullscreen"
+                                    font.pointSize: Qt.platform.os === "android" ? 9 : 7
+                                    color: "#1a6060"; font.italic: true
+                                }
                                 Rectangle {
                                     anchors.horizontalCenter: parent.horizontalCenter
                                     width: Qt.platform.os === "android" ? 180 : 140
@@ -4927,16 +4936,37 @@ Rectangle {
                      || safariPlayer.playbackState === MediaPlayer.PausedState
             z: safariTvOverlay.tvFullScreen ? 500 : 0
 
-            property real cabMargin:    Qt.platform.os === "android" ? 10 : 8
-            property real bodyBorder:   Qt.platform.os === "android" ? 6  : 5
-            property real innerMargin:  Qt.platform.os === "android" ? 14 : 10
-            property real screenBorder: Qt.platform.os === "android" ? 5  : 4
-            property real antennaH:     Qt.platform.os === "android" ? 48 : 38
+            // Actual position read from tvScreen at runtime via mapToItem
+            property real normalX: 0
+            property real normalY: 0
+            property real normalW: 100
+            property real normalH: 100
 
-            property real normalX: cabMargin + bodyBorder + innerMargin + screenBorder
-            property real normalY: cabMargin + antennaH + bodyBorder + innerMargin + screenBorder
-            property real normalW: safariTvOverlay.width  - normalX * 2
-            property real normalH: tvScreen.height - screenBorder * 2
+            function updateNormalGeometry() {
+                var bw = tvScreen.border.width;
+                var pt = tvScreen.mapToItem(safariTvOverlay, bw, bw);
+                normalX = pt.x;
+                normalY = pt.y;
+                normalW = tvScreen.width  - bw * 2;
+                normalH = tvScreen.height - bw * 2;
+            }
+
+            Component.onCompleted: { Qt.callLater(updateNormalGeometry); }
+
+            Connections {
+                target: tvScreen
+                onWidthChanged:  { videoOut.updateNormalGeometry(); }
+                onHeightChanged: { videoOut.updateNormalGeometry(); }
+            }
+
+            Connections {
+                target: safariTvOverlay
+                onVisibleChanged: {
+                    if (safariTvOverlay.visible) {
+                        Qt.callLater(videoOut.updateNormalGeometry);
+                    }
+                }
+            }
 
             property bool isLandscape: safariTvOverlay.tvFullScreen && (fsLayer.videoRotation % 180 !== 0)
 
