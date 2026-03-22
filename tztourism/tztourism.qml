@@ -4676,8 +4676,7 @@ Rectangle {
                                 height: width
                                 visible: safariPlayer.status === MediaPlayer.Loading
                                          || safariPlayer.status === MediaPlayer.Buffering
-                                         || (((safariPlayer.status === MediaPlayer.Stalled) && (safariPlayer.playbackState === MediaPlayer.PlayingState)))
-
+                                         || safariPlayer.status === MediaPlayer.Stalled
                                 // Outer arc
                                 Canvas {
                                     anchors.fill: parent
