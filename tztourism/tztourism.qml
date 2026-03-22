@@ -4824,18 +4824,44 @@ Rectangle {
                                         id: retryRow
                                         anchors.centerIn: parent
                                         spacing: Qt.platform.os === "android" ? 8 : 6
-                                        Text {
+                                        // Canvas-drawn retry icon
+                                        Item {
                                             id: retryArrow
-                                            text: "↺"
-                                            font.pointSize: Qt.platform.os === "android" ? 16 : 13
-                                            color: "#ffaa00"
+                                            width: Qt.platform.os === "android" ? 22 : 18
+                                            height: width
                                             anchors.verticalCenter: parent.verticalCenter
                                             RotationAnimation on rotation {
                                                 id: retrySpinAnim
                                                 from: 0; to: -360
-                                                duration: 400
+                                                duration: 450
                                                 running: false
                                                 easing.type: Easing.OutCubic
+                                            }
+                                            Canvas {
+                                                anchors.fill: parent
+                                                onPaint: {
+                                                    var ctx = getContext("2d");
+                                                    ctx.clearRect(0, 0, width, height);
+                                                    var cx = width/2; var cy = height/2;
+                                                    var r = width * 0.36;
+                                                    ctx.strokeStyle = "#ffaa00";
+                                                    ctx.lineWidth = width * 0.13;
+                                                    ctx.lineCap = "round";
+                                                    // Arc ~270°
+                                                    ctx.beginPath();
+                                                    ctx.arc(cx, cy, r, -Math.PI * 0.65, Math.PI * 0.85);
+                                                    ctx.stroke();
+                                                    // Arrowhead at end
+                                                    ctx.fillStyle = "#ffaa00";
+                                                    var ax = cx + r * Math.cos(Math.PI * 0.85);
+                                                    var ay = cy + r * Math.sin(Math.PI * 0.85);
+                                                    ctx.beginPath();
+                                                    ctx.moveTo(ax - width*0.12, ay - height*0.04);
+                                                    ctx.lineTo(ax + width*0.06, ay + height*0.15);
+                                                    ctx.lineTo(ax + width*0.13, ay - height*0.12);
+                                                    ctx.closePath(); ctx.fill();
+                                                }
+                                                Component.onCompleted: { requestPaint(); }
                                             }
                                         }
                                         Text {
@@ -5692,6 +5718,55 @@ Rectangle {
             }
         }
 
+        // ── Stalling indicator bar (YouTube-style) ─────────────────
+        // Shown at bottom of video area when buffering mid-play
+        Item {
+            id: stallingBar
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: safariTvOverlay.tvFullScreen ? 0 : (parent.height - videoOut.y - videoOut.height)
+            height: Qt.platform.os === "android" ? 3 : 2
+            z: 502
+            visible: (safariPlayer.status === MediaPlayer.Buffering
+                      || safariPlayer.status === MediaPlayer.Stalled)
+                     && (safariPlayer.playbackState === MediaPlayer.PlayingState
+                         || safariPlayer.playbackState === MediaPlayer.PausedState)
+            opacity: visible ? 1.0 : 0.0
+            Behavior on opacity { NumberAnimation { duration: 300 } }
+
+            // Dark track
+            Rectangle {
+                anchors.fill: parent
+                color: Qt.rgba(0, 0.3, 0.3, 0.5)
+            }
+
+            // Animated cyan shimmer bar
+            Rectangle {
+                id: shimmerBar
+                height: parent.height
+                width: parent.width * 0.35
+                color: "transparent"
+                gradient: Gradient {
+                    GradientStop { position: 0.0; color: "transparent" }
+                    GradientStop { position: 0.4; color: Qt.rgba(0, 1, 1, 0.9) }
+                    GradientStop { position: 0.6; color: Qt.rgba(0, 1, 1, 0.9) }
+                    GradientStop { position: 1.0; color: "transparent" }
+                }
+
+                SequentialAnimation on x {
+                    loops: Animation.Infinite
+                    running: stallingBar.visible
+                    NumberAnimation {
+                        from: -shimmerBar.width
+                        to: stallingBar.width
+                        duration: 1200
+                        easing.type: Easing.InOutSine
+                    }
+                }
+            }
+        }
+
         // ── Black fullscreen background (z:499, below videoOut z:500) ──
         Rectangle {
             anchors.fill: parent
@@ -5859,18 +5934,42 @@ Rectangle {
                                 id: fsRetryRow
                                 anchors.centerIn: parent
                                 spacing: Qt.platform.os === "android" ? 8 : 6
-                                Text {
+                                // Canvas-drawn retry icon
+                                Item {
                                     id: fsRetryArrow
-                                    text: "↺"
-                                    font.pointSize: Qt.platform.os === "android" ? 18 : 14
-                                    color: "#ffaa00"
+                                    width: Qt.platform.os === "android" ? 26 : 20
+                                    height: width
                                     anchors.verticalCenter: parent.verticalCenter
                                     RotationAnimation on rotation {
                                         id: fsRetrySpinAnim
                                         from: 0; to: -360
-                                        duration: 400
+                                        duration: 450
                                         running: false
                                         easing.type: Easing.OutCubic
+                                    }
+                                    Canvas {
+                                        anchors.fill: parent
+                                        onPaint: {
+                                            var ctx = getContext("2d");
+                                            ctx.clearRect(0, 0, width, height);
+                                            var cx = width/2; var cy = height/2;
+                                            var r = width * 0.36;
+                                            ctx.strokeStyle = "#ffaa00";
+                                            ctx.lineWidth = width * 0.13;
+                                            ctx.lineCap = "round";
+                                            ctx.beginPath();
+                                            ctx.arc(cx, cy, r, -Math.PI * 0.65, Math.PI * 0.85);
+                                            ctx.stroke();
+                                            ctx.fillStyle = "#ffaa00";
+                                            var ax = cx + r * Math.cos(Math.PI * 0.85);
+                                            var ay = cy + r * Math.sin(Math.PI * 0.85);
+                                            ctx.beginPath();
+                                            ctx.moveTo(ax - width*0.12, ay - height*0.04);
+                                            ctx.lineTo(ax + width*0.06, ay + height*0.15);
+                                            ctx.lineTo(ax + width*0.13, ay - height*0.12);
+                                            ctx.closePath(); ctx.fill();
+                                        }
+                                        Component.onCompleted: { requestPaint(); }
                                     }
                                 }
                                 Text {
