@@ -4720,6 +4720,15 @@ Rectangle {
                             }
                             Component.onCompleted: { requestPaint(); }
                         }
+
+                        // ── Double-tap to enter fullscreen ─────────────────
+                        MouseArea {
+                            anchors.fill: parent
+                            z: 9
+                            onDoubleClicked: {
+                                safariTvOverlay.tvFullScreen = true;
+                            }
+                        }
                     }
 
                     // ── CONTROLS ROW ───────────────────────────────────────
@@ -4840,33 +4849,6 @@ Rectangle {
                             }
                         }
 
-                        // ── FULLSCREEN ────────────────────────
-                        Rectangle {
-                            id: fsBtn
-                            width: controlsRow.btnSize; height: controlsRow.btnSize; radius: controlsRow.btnSize / 2
-                            color: fsMA.pressed ? "#1a6060" : "#0d3a38"
-                            border.color: "cyan"; border.width: 2
-                            Behavior on color { ColorAnimation { duration: 100 } }
-                            Behavior on scale { NumberAnimation { duration: 100 } }
-
-                            Text {
-                                anchors.centerIn: parent
-                                text: "[ ]"
-                                font.pointSize: Qt.platform.os === "android" ? 11 : 9
-                                font.bold: true
-                                color: "cyan"
-                            }
-                            MouseArea {
-                                id: fsMA; anchors.fill: parent
-                                onPressed:  fsBtn.scale = 0.9
-                                onReleased: {
-                                    fsBtn.scale = 1.0;
-                                    safariTvOverlay.tvFullScreen = !safariTvOverlay.tvFullScreen;
-                                }
-                                onCanceled: fsBtn.scale = 1.0
-                            }
-                        }
-
                     } // end controlsRow
 
                     // ── BOTTOM PANEL: knobs + brand ────────────────────────
@@ -4952,8 +4934,8 @@ Rectangle {
             property real antennaH:     Qt.platform.os === "android" ? 48 : 38
 
             property real normalX: cabMargin + bodyBorder + innerMargin + screenBorder
-            property real normalY: antennaH + bodyBorder + innerMargin + screenBorder
-            property real normalW: safariTvOverlay.width  - normalX - cabMargin - bodyBorder - innerMargin - screenBorder
+            property real normalY: cabMargin + antennaH + bodyBorder + innerMargin + screenBorder
+            property real normalW: safariTvOverlay.width  - normalX * 2
             property real normalH: tvScreen.height - screenBorder * 2
 
             property bool isLandscape: safariTvOverlay.tvFullScreen && (fsLayer.videoRotation % 180 !== 0)
@@ -5017,11 +4999,15 @@ Rectangle {
                     }
                 }
 
-                // ── Tap anywhere to toggle UI ──────────────────────
+                // ── Tap to toggle UI / double-tap to exit fullscreen ──
                 MouseArea {
                     anchors.fill: parent
                     z: 2
-                    onClicked: { fsLayer.fsUiVisible = !fsLayer.fsUiVisible; }
+                    onClicked:       { fsLayer.fsUiVisible = !fsLayer.fsUiVisible; }
+                    onDoubleClicked: {
+                        safariTvOverlay.tvFullScreen = false;
+                        fsLayer.videoRotation = 0;
+                    }
                 }
 
                 // ── Auto-hide timer ────────────────────────────────
@@ -5228,32 +5214,6 @@ Rectangle {
                             }
                         }
 
-                        // EXIT FULLSCREEN
-                        Rectangle {
-                            id: fsExitBtn
-                            width: parent.sz; height: parent.sz; radius: parent.sz / 2
-                            color: fsExitMA.pressed ? "#1a6060" : "#0d3a38"
-                            border.color: "cyan"; border.width: 2
-                            Behavior on color { ColorAnimation { duration: 100 } }
-                            Behavior on scale { NumberAnimation { duration: 100 } }
-                            Text {
-                                anchors.centerIn: parent
-                                text: "[x]"
-                                font.pointSize: Qt.platform.os === "android" ? 11 : 9
-                                font.bold: true
-                                color: "cyan"
-                            }
-                            MouseArea {
-                                id: fsExitMA; anchors.fill: parent
-                                onPressed:  fsExitBtn.scale = 0.9
-                                onReleased: {
-                                    fsExitBtn.scale = 1.0;
-                                    safariTvOverlay.tvFullScreen = false;
-                                    fsLayer.videoRotation = 0;
-                                }
-                                onCanceled: fsExitBtn.scale = 1.0
-                            }
-                        }
                     }
                 }
             } // end fsInner
