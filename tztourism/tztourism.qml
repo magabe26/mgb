@@ -4943,10 +4943,18 @@ Rectangle {
             property real  screenW:   tvScreen.width  - tvScreen.border.width * 2
             property real  screenH:   tvScreen.height - tvScreen.border.width * 2
 
-            x:      safariTvOverlay.tvFullScreen ? 0 : screenPos.x
-            y:      safariTvOverlay.tvFullScreen ? 0 : screenPos.y
-            width:  safariTvOverlay.tvFullScreen ? safariTvOverlay.width  : screenW
-            height: safariTvOverlay.tvFullScreen ? safariTvOverlay.height : screenH
+            // When rotated 90/270 in fullscreen swap w/h so video fills landscape
+            property bool isLandscape: safariTvOverlay.tvFullScreen
+                                       && (fsLayer.videoRotation % 180 !== 0)
+
+            x:      safariTvOverlay.tvFullScreen ? (isLandscape ? (safariTvOverlay.width  - safariTvOverlay.height) / 2 : 0)
+                                                 : screenPos.x
+            y:      safariTvOverlay.tvFullScreen ? (isLandscape ? (safariTvOverlay.height - safariTvOverlay.width)  / 2 : 0)
+                                                 : screenPos.y
+            width:  safariTvOverlay.tvFullScreen ? (isLandscape ? safariTvOverlay.height : safariTvOverlay.width)
+                                                 : screenW
+            height: safariTvOverlay.tvFullScreen ? (isLandscape ? safariTvOverlay.width  : safariTvOverlay.height)
+                                                 : screenH
 
             Behavior on x      { NumberAnimation { duration: 300; easing.type: Easing.InOutQuad } }
             Behavior on y      { NumberAnimation { duration: 300; easing.type: Easing.InOutQuad } }
