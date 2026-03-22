@@ -4276,6 +4276,7 @@ Rectangle {
         property real tvVolume: 1.0
         property bool streamError: false
         property string streamErrorMsg: ""
+        property bool streamConnecting: false
         property real tvBrightness: 1.0   // 1.0 = full, 0.2 = very dim
         property bool pipMode: false       // picture-in-picture
 
@@ -4646,12 +4647,16 @@ Rectangle {
                                 if (error !== MediaPlayer.NoError) {
                                     safariTvOverlay.streamError = true;
                                     safariTvOverlay.streamErrorMsg = "network";
+                                    safariTvOverlay.streamConnecting = false;
                                 }
                             }
                             onPlaybackStateChanged: {
                                 if (playbackState === MediaPlayer.PlayingState) {
                                     safariTvOverlay.streamError = false;
                                     safariTvOverlay.streamErrorMsg = "";
+                                    safariTvOverlay.streamConnecting = false;
+                                } else if (playbackState === MediaPlayer.StoppedState) {
+                                    safariTvOverlay.streamConnecting = false;
                                 }
                             }
                         }
@@ -4807,6 +4812,7 @@ Rectangle {
                                             retrySpinAnim.restart();
                                             safariTvOverlay.streamError = false;
                                             safariTvOverlay.streamErrorMsg = "";
+                                            safariTvOverlay.streamConnecting = true;
                                             safariPlayer.stop();
                                             safariPlayer.play();
                                         }
@@ -4884,16 +4890,14 @@ Rectangle {
                             }
                         }
 
-                        // ── Initial-load buffering spinner (sibling of noSignalScreen) ──
+                        // ── Initial-load buffering spinner ──────────────────
                         Item {
                             id: initialLoadSpinner
                             anchors.centerIn: noSignalScreen
                             width: Qt.platform.os === "android" ? 64 : 50
                             height: width
                             z: 11
-                            visible: safariPlayer.playbackState !== MediaPlayer.PlayingState
-                                     && safariPlayer.playbackState !== MediaPlayer.PausedState
-                                     && !safariTvOverlay.streamError
+                            visible: safariTvOverlay.streamConnecting
                             opacity: visible ? 1.0 : 0.0
                             Behavior on opacity { NumberAnimation { duration: 250 } }
 
@@ -5064,7 +5068,7 @@ Rectangle {
                             MouseArea {
                                 id: stopMA; anchors.fill: parent
                                 onPressed:  stopBtn.scale = 0.9
-                                onReleased: { stopBtn.scale = 1.0; safariPlayer.stop(); }
+                                onReleased: { stopBtn.scale = 1.0; safariTvOverlay.streamConnecting = false; safariPlayer.stop(); }
                                 onCanceled: stopBtn.scale = 1.0
                             }
                         }
@@ -5183,6 +5187,7 @@ Rectangle {
                                         if (safariPlayer.playbackState === MediaPlayer.PlayingState) {
                                             safariPlayer.pause();
                                         } else {
+                                            safariTvOverlay.streamConnecting = true;
                                             safariPlayer.play();
                                         }
                                         playIconCanvas.requestPaint();
@@ -6025,6 +6030,7 @@ Rectangle {
                                     fsRetrySpinAnim.restart();
                                     safariTvOverlay.streamError = false;
                                     safariTvOverlay.streamErrorMsg = "";
+                                    safariTvOverlay.streamConnecting = true;
                                     safariPlayer.stop();
                                     safariPlayer.play();
                                 }
@@ -6336,7 +6342,7 @@ Rectangle {
                             MouseArea {
                                 id: fsStopMA; anchors.fill: parent
                                 onPressed:  fsStopBtn.scale = 0.9
-                                onReleased: { fsStopBtn.scale = 1.0; safariPlayer.stop(); }
+                                onReleased: { fsStopBtn.scale = 1.0; safariTvOverlay.streamConnecting = false; safariPlayer.stop(); }
                                 onCanceled: fsStopBtn.scale = 1.0
                             }
                         }
@@ -6408,6 +6414,7 @@ Rectangle {
                                         if (safariPlayer.playbackState === MediaPlayer.PlayingState) {
                                             safariPlayer.pause();
                                         } else {
+                                            safariTvOverlay.streamConnecting = true;
                                             safariPlayer.play();
                                         }
                                     }
