@@ -5718,17 +5718,44 @@ Rectangle {
             }
         }
 
-        // ── Stalling spinner (shown over video when buffering mid-play) ──
+        // ── Stalling spinner (shown over video when truly stuck) ──
+        // Uses a timer to avoid flashing on brief buffering blips
+        Timer {
+            id: stallDetectTimer
+            interval: 1500
+            onTriggered: { stallingSpinner.reallyStalled = true; }
+        }
+        Connections {
+            target: safariPlayer
+            onStatusChanged: {
+                if (safariPlayer.status === MediaPlayer.Buffering
+                    || safariPlayer.status === MediaPlayer.Stalled) {
+                    if (safariPlayer.playbackState === MediaPlayer.PlayingState
+                        || safariPlayer.playbackState === MediaPlayer.PausedState) {
+                        stallDetectTimer.restart();
+                    }
+                } else {
+                    stallDetectTimer.stop();
+                    stallingSpinner.reallyStalled = false;
+                }
+            }
+            onPlaybackStateChanged: {
+                stallDetectTimer.stop();
+                stallingSpinner.reallyStalled = false;
+            }
+        }
+
         Item {
             id: stallingSpinner
-            anchors.centerIn: parent
+            property bool reallyStalled: false
+
+            // Center on videoOut
+            x: videoOut.x + videoOut.width  / 2 - width  / 2
+            y: videoOut.y + videoOut.height / 2 - height / 2
             width: Qt.platform.os === "android" ? 72 : 56
             height: width
             z: 650
-            visible: (safariPlayer.status === MediaPlayer.Buffering
-                      || safariPlayer.status === MediaPlayer.Stalled)
-                     && (safariPlayer.playbackState === MediaPlayer.PlayingState
-                         || safariPlayer.playbackState === MediaPlayer.PausedState)
+            visible: reallyStalled
             opacity: visible ? 1.0 : 0.0
             Behavior on opacity { NumberAnimation { duration: 300 } }
 
