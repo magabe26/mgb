@@ -4610,8 +4610,7 @@ Rectangle {
                             }
                         }
 
-                        // ── Video output lives in safariTvOverlay directly ─
-                        // (see videoOut below the TV cabinet)
+                        // ── Video rendered by single videoOut in safariTvOverlay ──
 
                         // ── "No signal" shown when not playing ─────────────
                         Rectangle {
@@ -4926,34 +4925,37 @@ Rectangle {
             }
         }
 
-        // ── SINGLE VideoOutput — repositions between normal and fullscreen ──
+        // ── Black fullscreen background (z:499, below videoOut z:500) ──
+        Rectangle {
+            anchors.fill: parent
+            color: "black"
+            visible: safariTvOverlay.tvFullScreen
+            z: 499
+        }
+
+        // ── SINGLE VideoOutput ─────────────────────────────────────
+        // Normal mode : sits inside tvScreen bezel (z:0)
+        // Fullscreen  : fills overlay (z:500), above black bg (z:499)
+        //               but below fsLayer UI (z:600)
         VideoOutput {
             id: videoOut
             source: safariPlayer
             fillMode: VideoOutput.PreserveAspectFit
             visible: safariPlayer.playbackState === MediaPlayer.PlayingState
                      || safariPlayer.playbackState === MediaPlayer.PausedState
-
             z: safariTvOverlay.tvFullScreen ? 500 : 0
 
-            // ── Layout constants (must match TV cabinet structure) ──
-            // safariTvOverlay margins → Column margins → tvBody border → Column margins → tvScreen border
-            property real cabMargin:    Qt.platform.os === "android" ? 10 : 8   // safariTvOverlay Column margin
-            property real bodyBorder:   Qt.platform.os === "android" ? 6  : 5   // tvBody border.width
-            property real innerMargin:  Qt.platform.os === "android" ? 14 : 10  // inner Column margin
-            property real screenBorder: Qt.platform.os === "android" ? 5  : 4   // tvScreen border.width
-            property real antennaH:     Qt.platform.os === "android" ? 48 : 38  // antenna bar height
-            property real colSpacing:   Qt.platform.os === "android" ? 10 : 8   // Column spacing
+            property real cabMargin:    Qt.platform.os === "android" ? 10 : 8
+            property real bodyBorder:   Qt.platform.os === "android" ? 6  : 5
+            property real innerMargin:  Qt.platform.os === "android" ? 14 : 10
+            property real screenBorder: Qt.platform.os === "android" ? 5  : 4
+            property real antennaH:     Qt.platform.os === "android" ? 48 : 38
 
-            // Normal-mode position: left edge
             property real normalX: cabMargin + bodyBorder + innerMargin + screenBorder
-            // Normal-mode position: top edge
             property real normalY: antennaH + bodyBorder + innerMargin + screenBorder
-            // Normal-mode size
             property real normalW: safariTvOverlay.width  - normalX - cabMargin - bodyBorder - innerMargin - screenBorder
             property real normalH: tvScreen.height - screenBorder * 2
 
-            // Landscape fullscreen: swap w/h and offset to center
             property bool isLandscape: safariTvOverlay.tvFullScreen && (fsLayer.videoRotation % 180 !== 0)
 
             x:      safariTvOverlay.tvFullScreen ? (isLandscape ? (safariTvOverlay.width  - safariTvOverlay.height) / 2 : 0) : normalX
@@ -4982,15 +4984,8 @@ Rectangle {
             visible: safariTvOverlay.tvFullScreen
             z: 600
 
-            property int videoRotation: 0   // 0, 90, 180, 270
-            property bool fsUiVisible: true  // controls + badge + close all toggle together
-
-            // ── Black background ───────────────────────────────────
-            Rectangle {
-                anchors.fill: parent
-                color: "black"
-                z: 0
-            }
+            property int videoRotation: 0
+            property bool fsUiVisible: true
 
             Item {
                 id: fsInner
