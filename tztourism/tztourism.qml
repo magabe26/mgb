@@ -4669,77 +4669,6 @@ Rectangle {
                             visible: safariPlayer.playbackState !== MediaPlayer.PlayingState
                                      && safariPlayer.playbackState !== MediaPlayer.PausedState
 
-                            // Buffering spinner — fancy Canvas arcs
-                            Item {
-                                anchors.centerIn: parent
-                                width: Qt.platform.os === "android" ? 64 : 50
-                                height: width
-                                visible: safariPlayer.status === MediaPlayer.Loading
-                                         || safariPlayer.status === MediaPlayer.Buffering
-                                         || safariPlayer.status === MediaPlayer.Stalled
-
-                                // Outer arc
-                                Canvas {
-                                    anchors.fill: parent
-                                    property real angle: 0
-                                    NumberAnimation on angle {
-                                        loops: Animation.Infinite; from: 0; to: Math.PI * 2
-                                        duration: 900; running: parent.visible
-                                    }
-                                    onAngleChanged: { requestPaint(); }
-                                    onPaint: {
-                                        var ctx = getContext("2d");
-                                        ctx.clearRect(0, 0, width, height);
-                                        ctx.strokeStyle = "cyan";
-                                        ctx.lineWidth = width * 0.08;
-                                        ctx.lineCap = "round";
-                                        ctx.globalAlpha = 1.0;
-                                        ctx.beginPath();
-                                        ctx.arc(width/2, height/2, width * 0.44, angle, angle + Math.PI * 1.2);
-                                        ctx.stroke();
-                                    }
-                                    Component.onCompleted: { requestPaint(); }
-                                }
-                                // Middle arc
-                                Canvas {
-                                    anchors.fill: parent
-                                    property real angle: 0
-                                    NumberAnimation on angle {
-                                        loops: Animation.Infinite; from: Math.PI * 2; to: 0
-                                        duration: 700; running: parent.visible
-                                    }
-                                    onAngleChanged: { requestPaint(); }
-                                    onPaint: {
-                                        var ctx = getContext("2d");
-                                        ctx.clearRect(0, 0, width, height);
-                                        ctx.strokeStyle = "#00ffff";
-                                        ctx.lineWidth = width * 0.07;
-                                        ctx.lineCap = "round";
-                                        ctx.globalAlpha = 0.6;
-                                        ctx.beginPath();
-                                        ctx.arc(width/2, height/2, width * 0.31, angle, angle + Math.PI * 0.9);
-                                        ctx.stroke();
-                                    }
-                                    Component.onCompleted: { requestPaint(); }
-                                }
-                                // Inner dot pulse
-                                Rectangle {
-                                    anchors.centerIn: parent
-                                    width: parent.width * 0.18; height: width; radius: width / 2
-                                    color: "cyan"
-                                    SequentialAnimation on opacity {
-                                        loops: Animation.Infinite; running: parent.parent.visible
-                                        NumberAnimation { to: 0.2; duration: 400 }
-                                        NumberAnimation { to: 1.0; duration: 400 }
-                                    }
-                                    SequentialAnimation on scale {
-                                        loops: Animation.Infinite; running: parent.parent.visible
-                                        NumberAnimation { to: 0.6; duration: 400 }
-                                        NumberAnimation { to: 1.0; duration: 400 }
-                                    }
-                                }
-                            }
-
                             // ── ERROR STATE ────────────────────────────────
                             Column {
                                 anchors.centerIn: parent
@@ -4952,6 +4881,82 @@ Rectangle {
                                     font.italic: true
                                 }
 
+                            }
+                        }
+
+                        // ── Initial-load buffering spinner (sibling of noSignalScreen) ──
+                        Item {
+                            id: initialLoadSpinner
+                            anchors.centerIn: parent
+                            width: Qt.platform.os === "android" ? 64 : 50
+                            height: width
+                            z: 11
+                            visible: (safariPlayer.status === MediaPlayer.Loading
+                                      || safariPlayer.status === MediaPlayer.Buffering
+                                      || safariPlayer.status === MediaPlayer.Stalled)
+                                     && safariPlayer.playbackState === MediaPlayer.StoppedState
+                            opacity: visible ? 1.0 : 0.0
+                            Behavior on opacity { NumberAnimation { duration: 250 } }
+
+                            // Outer arc
+                            Canvas {
+                                anchors.fill: parent
+                                property real angle: 0
+                                NumberAnimation on angle {
+                                    loops: Animation.Infinite; from: 0; to: Math.PI * 2
+                                    duration: 900; running: initialLoadSpinner.visible
+                                }
+                                onAngleChanged: { requestPaint(); }
+                                onPaint: {
+                                    var ctx = getContext("2d");
+                                    ctx.clearRect(0, 0, width, height);
+                                    ctx.strokeStyle = "cyan";
+                                    ctx.lineWidth = width * 0.08;
+                                    ctx.lineCap = "round";
+                                    ctx.globalAlpha = 1.0;
+                                    ctx.beginPath();
+                                    ctx.arc(width/2, height/2, width * 0.44, angle, angle + Math.PI * 1.2);
+                                    ctx.stroke();
+                                }
+                                Component.onCompleted: { requestPaint(); }
+                            }
+                            // Middle arc
+                            Canvas {
+                                anchors.fill: parent
+                                property real angle: 0
+                                NumberAnimation on angle {
+                                    loops: Animation.Infinite; from: Math.PI * 2; to: 0
+                                    duration: 700; running: initialLoadSpinner.visible
+                                }
+                                onAngleChanged: { requestPaint(); }
+                                onPaint: {
+                                    var ctx = getContext("2d");
+                                    ctx.clearRect(0, 0, width, height);
+                                    ctx.strokeStyle = "#00ffff";
+                                    ctx.lineWidth = width * 0.07;
+                                    ctx.lineCap = "round";
+                                    ctx.globalAlpha = 0.6;
+                                    ctx.beginPath();
+                                    ctx.arc(width/2, height/2, width * 0.31, angle, angle + Math.PI * 0.9);
+                                    ctx.stroke();
+                                }
+                                Component.onCompleted: { requestPaint(); }
+                            }
+                            // Inner dot pulse
+                            Rectangle {
+                                anchors.centerIn: parent
+                                width: parent.width * 0.18; height: width; radius: width / 2
+                                color: "cyan"
+                                SequentialAnimation on opacity {
+                                    loops: Animation.Infinite; running: initialLoadSpinner.visible
+                                    NumberAnimation { to: 0.2; duration: 400 }
+                                    NumberAnimation { to: 1.0; duration: 400 }
+                                }
+                                SequentialAnimation on scale {
+                                    loops: Animation.Infinite; running: initialLoadSpinner.visible
+                                    NumberAnimation { to: 0.6; duration: 400 }
+                                    NumberAnimation { to: 1.0; duration: 400 }
+                                }
                             }
                         }
 
@@ -5718,44 +5723,17 @@ Rectangle {
             }
         }
 
-        // ── Stalling spinner (shown over video when truly stuck) ──
-        // Uses a timer to avoid flashing on brief buffering blips
-        Timer {
-            id: stallDetectTimer
-            interval: 1500
-            onTriggered: { stallingSpinner.reallyStalled = true; }
-        }
-        Connections {
-            target: safariPlayer
-            onStatusChanged: {
-                if (safariPlayer.status === MediaPlayer.Buffering
-                    || safariPlayer.status === MediaPlayer.Stalled) {
-                    if (safariPlayer.playbackState === MediaPlayer.PlayingState
-                        || safariPlayer.playbackState === MediaPlayer.PausedState) {
-                        stallDetectTimer.restart();
-                    }
-                } else {
-                    stallDetectTimer.stop();
-                    stallingSpinner.reallyStalled = false;
-                }
-            }
-            onPlaybackStateChanged: {
-                stallDetectTimer.stop();
-                stallingSpinner.reallyStalled = false;
-            }
-        }
-
+        // ── Stalling spinner (shown over video when buffering mid-play) ──
         Item {
             id: stallingSpinner
-            property bool reallyStalled: false
-
-            // Center on videoOut
-            x: videoOut.x + videoOut.width  / 2 - width  / 2
-            y: videoOut.y + videoOut.height / 2 - height / 2
+            anchors.centerIn: parent
             width: Qt.platform.os === "android" ? 72 : 56
             height: width
             z: 650
-            visible: reallyStalled
+            visible: (safariPlayer.status === MediaPlayer.Buffering
+                      || safariPlayer.status === MediaPlayer.Stalled)
+                     && (safariPlayer.playbackState === MediaPlayer.PlayingState
+                         || safariPlayer.playbackState === MediaPlayer.PausedState)
             opacity: visible ? 1.0 : 0.0
             Behavior on opacity { NumberAnimation { duration: 300 } }
 
