@@ -4891,10 +4891,9 @@ Rectangle {
                             width: Qt.platform.os === "android" ? 64 : 50
                             height: width
                             z: 11
-                            visible: (safariPlayer.status === MediaPlayer.Loading
-                                      || safariPlayer.status === MediaPlayer.Buffering
-                                      || safariPlayer.status === MediaPlayer.Stalled)
-                                     && safariPlayer.playbackState !== MediaPlayer.PlayingState
+                            visible: safariPlayer.playbackState !== MediaPlayer.PlayingState
+                                     && safariPlayer.playbackState !== MediaPlayer.PausedState
+                                     && !safariTvOverlay.streamError
                             opacity: visible ? 1.0 : 0.0
                             Behavior on opacity { NumberAnimation { duration: 250 } }
 
