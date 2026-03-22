@@ -4276,7 +4276,6 @@ Rectangle {
         property real tvVolume: 1.0
         property bool streamError: false
         property string streamErrorMsg: ""
-        property bool streamConnecting: false
         property real tvBrightness: 1.0   // 1.0 = full, 0.2 = very dim
         property bool pipMode: false       // picture-in-picture
 
@@ -4647,16 +4646,12 @@ Rectangle {
                                 if (error !== MediaPlayer.NoError) {
                                     safariTvOverlay.streamError = true;
                                     safariTvOverlay.streamErrorMsg = "network";
-                                    safariTvOverlay.streamConnecting = false;
                                 }
                             }
                             onPlaybackStateChanged: {
                                 if (playbackState === MediaPlayer.PlayingState) {
                                     safariTvOverlay.streamError = false;
                                     safariTvOverlay.streamErrorMsg = "";
-                                    safariTvOverlay.streamConnecting = false;
-                                } else if (playbackState === MediaPlayer.StoppedState) {
-                                    safariTvOverlay.streamConnecting = false;
                                 }
                             }
                         }
@@ -4673,6 +4668,77 @@ Rectangle {
                             z: 10
                             visible: safariPlayer.playbackState !== MediaPlayer.PlayingState
                                      && safariPlayer.playbackState !== MediaPlayer.PausedState
+
+                            // Buffering spinner — fancy Canvas arcs
+                            Item {
+                                anchors.centerIn: parent
+                                width: Qt.platform.os === "android" ? 64 : 50
+                                height: width
+                                visible: safariPlayer.status === MediaPlayer.Loading
+                                         || safariPlayer.status === MediaPlayer.Buffering
+                                         || safariPlayer.status === MediaPlayer.Stalled
+
+                                // Outer arc
+                                Canvas {
+                                    anchors.fill: parent
+                                    property real angle: 0
+                                    NumberAnimation on angle {
+                                        loops: Animation.Infinite; from: 0; to: Math.PI * 2
+                                        duration: 900; running: parent.visible
+                                    }
+                                    onAngleChanged: { requestPaint(); }
+                                    onPaint: {
+                                        var ctx = getContext("2d");
+                                        ctx.clearRect(0, 0, width, height);
+                                        ctx.strokeStyle = "cyan";
+                                        ctx.lineWidth = width * 0.08;
+                                        ctx.lineCap = "round";
+                                        ctx.globalAlpha = 1.0;
+                                        ctx.beginPath();
+                                        ctx.arc(width/2, height/2, width * 0.44, angle, angle + Math.PI * 1.2);
+                                        ctx.stroke();
+                                    }
+                                    Component.onCompleted: { requestPaint(); }
+                                }
+                                // Middle arc
+                                Canvas {
+                                    anchors.fill: parent
+                                    property real angle: 0
+                                    NumberAnimation on angle {
+                                        loops: Animation.Infinite; from: Math.PI * 2; to: 0
+                                        duration: 700; running: parent.visible
+                                    }
+                                    onAngleChanged: { requestPaint(); }
+                                    onPaint: {
+                                        var ctx = getContext("2d");
+                                        ctx.clearRect(0, 0, width, height);
+                                        ctx.strokeStyle = "#00ffff";
+                                        ctx.lineWidth = width * 0.07;
+                                        ctx.lineCap = "round";
+                                        ctx.globalAlpha = 0.6;
+                                        ctx.beginPath();
+                                        ctx.arc(width/2, height/2, width * 0.31, angle, angle + Math.PI * 0.9);
+                                        ctx.stroke();
+                                    }
+                                    Component.onCompleted: { requestPaint(); }
+                                }
+                                // Inner dot pulse
+                                Rectangle {
+                                    anchors.centerIn: parent
+                                    width: parent.width * 0.18; height: width; radius: width / 2
+                                    color: "cyan"
+                                    SequentialAnimation on opacity {
+                                        loops: Animation.Infinite; running: parent.parent.visible
+                                        NumberAnimation { to: 0.2; duration: 400 }
+                                        NumberAnimation { to: 1.0; duration: 400 }
+                                    }
+                                    SequentialAnimation on scale {
+                                        loops: Animation.Infinite; running: parent.parent.visible
+                                        NumberAnimation { to: 0.6; duration: 400 }
+                                        NumberAnimation { to: 1.0; duration: 400 }
+                                    }
+                                }
+                            }
 
                             // ── ERROR STATE ────────────────────────────────
                             Column {
@@ -4812,7 +4878,6 @@ Rectangle {
                                             retrySpinAnim.restart();
                                             safariTvOverlay.streamError = false;
                                             safariTvOverlay.streamErrorMsg = "";
-                                            safariTvOverlay.streamConnecting = true;
                                             safariPlayer.stop();
                                             safariPlayer.play();
                                         }
@@ -4887,79 +4952,6 @@ Rectangle {
                                     font.italic: true
                                 }
 
-                            }
-                        }
-
-                        // ── Initial-load buffering spinner ──────────────────
-                        Item {
-                            id: initialLoadSpinner
-                            anchors.centerIn: noSignalScreen
-                            width: Qt.platform.os === "android" ? 64 : 50
-                            height: width
-                            z: 11
-                            visible: safariTvOverlay.streamConnecting
-                            opacity: visible ? 1.0 : 0.0
-                            Behavior on opacity { NumberAnimation { duration: 250 } }
-
-                            // Outer arc
-                            Canvas {
-                                anchors.fill: parent
-                                property real angle: 0
-                                NumberAnimation on angle {
-                                    loops: Animation.Infinite; from: 0; to: Math.PI * 2
-                                    duration: 900; running: initialLoadSpinner.visible
-                                }
-                                onAngleChanged: { requestPaint(); }
-                                onPaint: {
-                                    var ctx = getContext("2d");
-                                    ctx.clearRect(0, 0, width, height);
-                                    ctx.strokeStyle = "cyan";
-                                    ctx.lineWidth = width * 0.08;
-                                    ctx.lineCap = "round";
-                                    ctx.globalAlpha = 1.0;
-                                    ctx.beginPath();
-                                    ctx.arc(width/2, height/2, width * 0.44, angle, angle + Math.PI * 1.2);
-                                    ctx.stroke();
-                                }
-                                Component.onCompleted: { requestPaint(); }
-                            }
-                            // Middle arc
-                            Canvas {
-                                anchors.fill: parent
-                                property real angle: 0
-                                NumberAnimation on angle {
-                                    loops: Animation.Infinite; from: Math.PI * 2; to: 0
-                                    duration: 700; running: initialLoadSpinner.visible
-                                }
-                                onAngleChanged: { requestPaint(); }
-                                onPaint: {
-                                    var ctx = getContext("2d");
-                                    ctx.clearRect(0, 0, width, height);
-                                    ctx.strokeStyle = "#00ffff";
-                                    ctx.lineWidth = width * 0.07;
-                                    ctx.lineCap = "round";
-                                    ctx.globalAlpha = 0.6;
-                                    ctx.beginPath();
-                                    ctx.arc(width/2, height/2, width * 0.31, angle, angle + Math.PI * 0.9);
-                                    ctx.stroke();
-                                }
-                                Component.onCompleted: { requestPaint(); }
-                            }
-                            // Inner dot pulse
-                            Rectangle {
-                                anchors.centerIn: parent
-                                width: parent.width * 0.18; height: width; radius: width / 2
-                                color: "cyan"
-                                SequentialAnimation on opacity {
-                                    loops: Animation.Infinite; running: initialLoadSpinner.visible
-                                    NumberAnimation { to: 0.2; duration: 400 }
-                                    NumberAnimation { to: 1.0; duration: 400 }
-                                }
-                                SequentialAnimation on scale {
-                                    loops: Animation.Infinite; running: initialLoadSpinner.visible
-                                    NumberAnimation { to: 0.6; duration: 400 }
-                                    NumberAnimation { to: 1.0; duration: 400 }
-                                }
                             }
                         }
 
@@ -5068,7 +5060,7 @@ Rectangle {
                             MouseArea {
                                 id: stopMA; anchors.fill: parent
                                 onPressed:  stopBtn.scale = 0.9
-                                onReleased: { stopBtn.scale = 1.0; safariTvOverlay.streamConnecting = false; safariPlayer.stop(); }
+                                onReleased: { stopBtn.scale = 1.0; safariPlayer.stop(); }
                                 onCanceled: stopBtn.scale = 1.0
                             }
                         }
@@ -5187,7 +5179,6 @@ Rectangle {
                                         if (safariPlayer.playbackState === MediaPlayer.PlayingState) {
                                             safariPlayer.pause();
                                         } else {
-                                            safariTvOverlay.streamConnecting = true;
                                             safariPlayer.play();
                                         }
                                         playIconCanvas.requestPaint();
@@ -5727,13 +5718,16 @@ Rectangle {
             }
         }
 
-        // ── Stalling spinner (shown over video when buffering mid-play) ──
+        // ── Stalling indicator bar (YouTube-style) ─────────────────
+        // Shown at bottom of video area when buffering mid-play
         Item {
-            id: stallingSpinner
-            anchors.centerIn: parent
-            width: Qt.platform.os === "android" ? 72 : 56
-            height: width
-            z: 650
+            id: stallingBar
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: safariTvOverlay.tvFullScreen ? 0 : (parent.height - videoOut.y - videoOut.height)
+            height: Qt.platform.os === "android" ? 3 : 2
+            z: 502
             visible: (safariPlayer.status === MediaPlayer.Buffering
                       || safariPlayer.status === MediaPlayer.Stalled)
                      && (safariPlayer.playbackState === MediaPlayer.PlayingState
@@ -5741,72 +5735,34 @@ Rectangle {
             opacity: visible ? 1.0 : 0.0
             Behavior on opacity { NumberAnimation { duration: 300 } }
 
-            // Dim background circle
+            // Dark track
             Rectangle {
-                anchors.centerIn: parent
-                width: parent.width; height: width; radius: width / 2
-                color: Qt.rgba(0, 0.06, 0.05, 0.72)
-                border.color: Qt.rgba(0, 1, 1, 0.25); border.width: 1
-            }
-
-            // Outer arc
-            Canvas {
                 anchors.fill: parent
-                property real angle: 0
-                NumberAnimation on angle {
-                    loops: Animation.Infinite; from: 0; to: Math.PI * 2
-                    duration: 850; running: stallingSpinner.visible
-                }
-                onAngleChanged: { requestPaint(); }
-                onPaint: {
-                    var ctx = getContext("2d");
-                    ctx.clearRect(0, 0, width, height);
-                    ctx.strokeStyle = "cyan";
-                    ctx.lineWidth = width * 0.07;
-                    ctx.lineCap = "round";
-                    ctx.beginPath();
-                    ctx.arc(width/2, height/2, width * 0.40, angle, angle + Math.PI * 1.3);
-                    ctx.stroke();
-                }
-                Component.onCompleted: { requestPaint(); }
+                color: Qt.rgba(0, 0.3, 0.3, 0.5)
             }
 
-            // Inner arc (opposite direction)
-            Canvas {
-                anchors.fill: parent
-                property real angle: 0
-                NumberAnimation on angle {
-                    loops: Animation.Infinite; from: Math.PI * 2; to: 0
-                    duration: 650; running: stallingSpinner.visible
-                }
-                onAngleChanged: { requestPaint(); }
-                onPaint: {
-                    var ctx = getContext("2d");
-                    ctx.clearRect(0, 0, width, height);
-                    ctx.strokeStyle = Qt.rgba(0, 1, 1, 0.5);
-                    ctx.lineWidth = width * 0.05;
-                    ctx.lineCap = "round";
-                    ctx.beginPath();
-                    ctx.arc(width/2, height/2, width * 0.27, angle, angle + Math.PI * 0.8);
-                    ctx.stroke();
-                }
-                Component.onCompleted: { requestPaint(); }
-            }
-
-            // Center dot pulse
+            // Animated cyan shimmer bar
             Rectangle {
-                anchors.centerIn: parent
-                width: parent.width * 0.14; height: width; radius: width / 2
-                color: "cyan"
-                SequentialAnimation on opacity {
-                    loops: Animation.Infinite; running: stallingSpinner.visible
-                    NumberAnimation { to: 0.2; duration: 350 }
-                    NumberAnimation { to: 1.0; duration: 350 }
+                id: shimmerBar
+                height: parent.height
+                width: parent.width * 0.35
+                color: "transparent"
+                gradient: Gradient {
+                    GradientStop { position: 0.0; color: "transparent" }
+                    GradientStop { position: 0.4; color: Qt.rgba(0, 1, 1, 0.9) }
+                    GradientStop { position: 0.6; color: Qt.rgba(0, 1, 1, 0.9) }
+                    GradientStop { position: 1.0; color: "transparent" }
                 }
-                SequentialAnimation on scale {
-                    loops: Animation.Infinite; running: stallingSpinner.visible
-                    NumberAnimation { to: 0.5; duration: 350 }
-                    NumberAnimation { to: 1.0; duration: 350 }
+
+                SequentialAnimation on x {
+                    loops: Animation.Infinite
+                    running: stallingBar.visible
+                    NumberAnimation {
+                        from: -shimmerBar.width
+                        to: stallingBar.width
+                        duration: 1200
+                        easing.type: Easing.InOutSine
+                    }
                 }
             }
         }
@@ -6030,7 +5986,6 @@ Rectangle {
                                     fsRetrySpinAnim.restart();
                                     safariTvOverlay.streamError = false;
                                     safariTvOverlay.streamErrorMsg = "";
-                                    safariTvOverlay.streamConnecting = true;
                                     safariPlayer.stop();
                                     safariPlayer.play();
                                 }
@@ -6342,7 +6297,7 @@ Rectangle {
                             MouseArea {
                                 id: fsStopMA; anchors.fill: parent
                                 onPressed:  fsStopBtn.scale = 0.9
-                                onReleased: { fsStopBtn.scale = 1.0; safariTvOverlay.streamConnecting = false; safariPlayer.stop(); }
+                                onReleased: { fsStopBtn.scale = 1.0; safariPlayer.stop(); }
                                 onCanceled: fsStopBtn.scale = 1.0
                             }
                         }
@@ -6414,7 +6369,6 @@ Rectangle {
                                         if (safariPlayer.playbackState === MediaPlayer.PlayingState) {
                                             safariPlayer.pause();
                                         } else {
-                                            safariTvOverlay.streamConnecting = true;
                                             safariPlayer.play();
                                         }
                                     }
