@@ -4629,6 +4629,7 @@ Rectangle {
                             id: safariPlayer
                             source: "https://stream-134630.castr.net/5fe35eae8c53540cab83659a/live_31dabe40323511f08b8efff0016f3b67/index.m3u8"
                             autoPlay: false
+                            property bool pausedByAClick: false
 
                             onStatusChanged: {
                                 if (status === MediaPlayer.InvalidMedia) {
@@ -4652,6 +4653,9 @@ Rectangle {
                                 if (playbackState === MediaPlayer.PlayingState) {
                                     safariTvOverlay.streamError = false;
                                     safariTvOverlay.streamErrorMsg = "";
+                                    safariPlayer.pausedByAClick = false;
+                                } else if(playbackState === MediaPlayer.StoppedState){
+                                    safariPlayer.pausedByAClick = false
                                 }
                             }
                         }
@@ -4677,6 +4681,7 @@ Rectangle {
                                 visible: safariPlayer.status === MediaPlayer.Loading
                                          || safariPlayer.status === MediaPlayer.Buffering
                                          || safariPlayer.status === MediaPlayer.Stalled
+                                         || (safariPlayer.playbackState === MediaPlayer.PausedState && !safariPlayer.pausedByAClick)
                                 // Outer arc
                                 Canvas {
                                     anchors.fill: parent
@@ -5176,6 +5181,7 @@ Rectangle {
                                     onReleased: {
                                         playBtn.scale = 1.0;
                                         if (safariPlayer.playbackState === MediaPlayer.PlayingState) {
+                                            safariPlayer.pausedByAClick = true;
                                             safariPlayer.pause();
                                         } else {
                                             safariPlayer.play();
