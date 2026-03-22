@@ -5718,15 +5718,13 @@ Rectangle {
             }
         }
 
-        // ── Stalling indicator bar (YouTube-style) ─────────────────
-        Rectangle {
-            id: stallingBar
-            anchors.left: parent.left
-            anchors.right: parent.right
-            anchors.bottom: parent.bottom
-            height: Qt.platform.os === "android" ? 4 : 3
+        // ── Stalling spinner (shown over video when buffering mid-play) ──
+        Item {
+            id: stallingSpinner
+            anchors.centerIn: parent
+            width: Qt.platform.os === "android" ? 72 : 56
+            height: width
             z: 650
-            color: Qt.rgba(0, 0.2, 0.2, 0.6)
             visible: (safariPlayer.status === MediaPlayer.Buffering
                       || safariPlayer.status === MediaPlayer.Stalled)
                      && (safariPlayer.playbackState === MediaPlayer.PlayingState
@@ -5734,24 +5732,72 @@ Rectangle {
             opacity: visible ? 1.0 : 0.0
             Behavior on opacity { NumberAnimation { duration: 300 } }
 
-            // Animated cyan shimmer
+            // Dim background circle
             Rectangle {
-                id: shimmerBar
-                height: parent.height
-                width: parent.width * 0.40
+                anchors.centerIn: parent
+                width: parent.width; height: width; radius: width / 2
+                color: Qt.rgba(0, 0.06, 0.05, 0.72)
+                border.color: Qt.rgba(0, 1, 1, 0.25); border.width: 1
+            }
+
+            // Outer arc
+            Canvas {
+                anchors.fill: parent
+                property real angle: 0
+                NumberAnimation on angle {
+                    loops: Animation.Infinite; from: 0; to: Math.PI * 2
+                    duration: 850; running: stallingSpinner.visible
+                }
+                onAngleChanged: { requestPaint(); }
+                onPaint: {
+                    var ctx = getContext("2d");
+                    ctx.clearRect(0, 0, width, height);
+                    ctx.strokeStyle = "cyan";
+                    ctx.lineWidth = width * 0.07;
+                    ctx.lineCap = "round";
+                    ctx.beginPath();
+                    ctx.arc(width/2, height/2, width * 0.40, angle, angle + Math.PI * 1.3);
+                    ctx.stroke();
+                }
+                Component.onCompleted: { requestPaint(); }
+            }
+
+            // Inner arc (opposite direction)
+            Canvas {
+                anchors.fill: parent
+                property real angle: 0
+                NumberAnimation on angle {
+                    loops: Animation.Infinite; from: Math.PI * 2; to: 0
+                    duration: 650; running: stallingSpinner.visible
+                }
+                onAngleChanged: { requestPaint(); }
+                onPaint: {
+                    var ctx = getContext("2d");
+                    ctx.clearRect(0, 0, width, height);
+                    ctx.strokeStyle = Qt.rgba(0, 1, 1, 0.5);
+                    ctx.lineWidth = width * 0.05;
+                    ctx.lineCap = "round";
+                    ctx.beginPath();
+                    ctx.arc(width/2, height/2, width * 0.27, angle, angle + Math.PI * 0.8);
+                    ctx.stroke();
+                }
+                Component.onCompleted: { requestPaint(); }
+            }
+
+            // Center dot pulse
+            Rectangle {
+                anchors.centerIn: parent
+                width: parent.width * 0.14; height: width; radius: width / 2
                 color: "cyan"
-                opacity: 0.9
-                x: -width
-                SequentialAnimation on x {
-                    loops: Animation.Infinite
-                    running: stallingBar.visible
-                    NumberAnimation {
-                        from: -shimmerBar.width
-                        to: stallingBar.width
-                        duration: 1000
-                        easing.type: Easing.InOutSine
-                    }
-                    PauseAnimation { duration: 100 }
+                SequentialAnimation on opacity {
+                    loops: Animation.Infinite; running: stallingSpinner.visible
+                    NumberAnimation { to: 0.2; duration: 350 }
+                    NumberAnimation { to: 1.0; duration: 350 }
+                }
+                SequentialAnimation on scale {
+                    loops: Animation.Infinite; running: stallingSpinner.visible
+                    NumberAnimation { to: 0.5; duration: 350 }
+                    NumberAnimation { to: 1.0; duration: 350 }
                 }
             }
         }
