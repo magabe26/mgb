@@ -5719,15 +5719,14 @@ Rectangle {
         }
 
         // ── Stalling indicator bar (YouTube-style) ─────────────────
-        // Shown at bottom of video area when buffering mid-play
-        Item {
+        Rectangle {
             id: stallingBar
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.bottom: parent.bottom
-            anchors.bottomMargin: safariTvOverlay.tvFullScreen ? 0 : (parent.height - videoOut.y - videoOut.height)
-            height: Qt.platform.os === "android" ? 3 : 2
-            z: 502
+            height: Qt.platform.os === "android" ? 4 : 3
+            z: 650
+            color: Qt.rgba(0, 0.2, 0.2, 0.6)
             visible: (safariPlayer.status === MediaPlayer.Buffering
                       || safariPlayer.status === MediaPlayer.Stalled)
                      && (safariPlayer.playbackState === MediaPlayer.PlayingState
@@ -5735,34 +5734,24 @@ Rectangle {
             opacity: visible ? 1.0 : 0.0
             Behavior on opacity { NumberAnimation { duration: 300 } }
 
-            // Dark track
-            Rectangle {
-                anchors.fill: parent
-                color: Qt.rgba(0, 0.3, 0.3, 0.5)
-            }
-
-            // Animated cyan shimmer bar
+            // Animated cyan shimmer
             Rectangle {
                 id: shimmerBar
                 height: parent.height
-                width: parent.width * 0.35
-                color: "transparent"
-                gradient: Gradient {
-                    GradientStop { position: 0.0; color: "transparent" }
-                    GradientStop { position: 0.4; color: Qt.rgba(0, 1, 1, 0.9) }
-                    GradientStop { position: 0.6; color: Qt.rgba(0, 1, 1, 0.9) }
-                    GradientStop { position: 1.0; color: "transparent" }
-                }
-
+                width: parent.width * 0.40
+                color: "cyan"
+                opacity: 0.9
+                x: -width
                 SequentialAnimation on x {
                     loops: Animation.Infinite
                     running: stallingBar.visible
                     NumberAnimation {
                         from: -shimmerBar.width
                         to: stallingBar.width
-                        duration: 1200
+                        duration: 1000
                         easing.type: Easing.InOutSine
                     }
+                    PauseAnimation { duration: 100 }
                 }
             }
         }
