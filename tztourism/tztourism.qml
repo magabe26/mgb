@@ -4985,6 +4985,13 @@ Rectangle {
             property int videoRotation: 0   // 0, 90, 180, 270
             property bool fsUiVisible: true  // controls + badge + close all toggle together
 
+            // ── Black background ───────────────────────────────────
+            Rectangle {
+                anchors.fill: parent
+                color: "black"
+                z: 0
+            }
+
             Item {
                 id: fsInner
                 anchors.centerIn: parent
