@@ -29,10 +29,6 @@ Rectangle {
         } else if (modeSelectionDialog.visible) {
             modeSelectionDialog.close();
             event.accepted = true;
-        } else if (safariTvOverlay.tvFullScreen) {
-            safariTvOverlay.tvFullScreen = false;
-            fsLayer.videoRotation = 0;
-            event.accepted = true;
         } else if (app.selectedLanguage !== "") {
             app.searchText = "";
             viewComponentLoader.switchTo(languageSelectionComponent, app.width / 2, app.height / 2);
@@ -4272,8 +4268,6 @@ Rectangle {
         Behavior on opacity { NumberAnimation { duration: 280 } }
         z: 200
 
-        property bool tvFullScreen: false
-
         // ── Show screen-on tip once when TV opens ─────────────────
         onVisibleChanged: {
             if (visible && !app.wakeLockTipShown) {
@@ -4440,7 +4434,6 @@ Rectangle {
             anchors.fill: parent
             anchors.margins: Qt.platform.os === "android" ? 10 : 8
             spacing: 0
-            visible: !safariTvOverlay.tvFullScreen
 
             // ── TOP antenna bar ────────────────────────────────────
             Item {
@@ -4607,9 +4600,7 @@ Rectangle {
                             id: videoOut
                             anchors.fill: parent
                             anchors.margins: parent.border.width
-                            source: Qt.binding(function() {
-                                return safariTvOverlay.tvFullScreen ? null : safariPlayer;
-                            })
+                            source: safariPlayer
                             fillMode: VideoOutput.PreserveAspectFit
                             visible: safariPlayer.playbackState === MediaPlayer.PlayingState
                                      || safariPlayer.playbackState === MediaPlayer.PausedState
@@ -4693,7 +4684,7 @@ Rectangle {
                                 }
                                 Text {
                                     anchors.horizontalCenter: parent.horizontalCenter
-                                    text: "MagabeLab TV v3.0"
+                                    text: "MagabeLab TV v2.6"
                                     font.pointSize: Qt.platform.os === "android" ? 10 : 8
                                     color: "#1a6060";
                                     font.italic: true
@@ -4842,35 +4833,7 @@ Rectangle {
                                 onCanceled: volBtn.scale = 1.0
                             }
                         }
-
-                        // ── FULLSCREEN ────────────────────────
-                        Rectangle {
-                            id: fsBtn
-                            width: controlsRow.btnSize; height: controlsRow.btnSize; radius: controlsRow.btnSize / 2
-                            color: fsMA.pressed ? "#1a6060" : "#0d3a38"
-                            border.color: "cyan"; border.width: 2
-                            Behavior on color { ColorAnimation { duration: 100 } }
-                            Behavior on scale { NumberAnimation { duration: 100 } }
-
-                            Text {
-                                anchors.centerIn: parent
-                                text: "[ ]"
-                                font.pointSize: Qt.platform.os === "android" ? 11 : 9
-                                font.bold: true
-                                color: "cyan"
-                            }
-                            MouseArea {
-                                id: fsMA; anchors.fill: parent
-                                onPressed:  fsBtn.scale = 0.9
-                                onReleased: {
-                                    fsBtn.scale = 1.0;
-                                    safariTvOverlay.tvFullScreen = !safariTvOverlay.tvFullScreen;
-                                }
-                                onCanceled: fsBtn.scale = 1.0
-                            }
-                        }
-
-                    } // end controlsRow
+                    }
 
                     // ── BOTTOM PANEL: knobs + brand ────────────────────────
                     Row {
@@ -4928,305 +4891,7 @@ Rectangle {
             }
         }
 
-        // ── FULLSCREEN VIDEO LAYER ─────────────────────────────────
-        // The entire Item (video + controls + badge) rotates as one unit.
-        // fsVideoOut only binds safariPlayer when fullscreen is active so
-        // it never steals the source from the normal-screen videoOut.
-        Item {
-            id: fsLayer
-            anchors.fill: parent
-            visible: safariTvOverlay.tvFullScreen
-            z: 50
-
-            property int videoRotation: 0   // 0, 90, 180, 270
-
-            // ── Inner container — this is what actually rotates ────
-            Item {
-                id: fsInner
-                // When portrait (0°/180°) fill normally.
-                // When landscape (90°/270°) swap w/h so the rotated rect
-                // still covers the whole screen.
-                anchors.centerIn: parent
-                width:  (fsLayer.videoRotation % 180 === 0) ? parent.width  : parent.height
-                height: (fsLayer.videoRotation % 180 === 0) ? parent.height : parent.width
-
-                rotation: fsLayer.videoRotation
-                Behavior on rotation {
-                    RotationAnimation { duration: 300; direction: RotationAnimation.Clockwise }
-                }
-
-
-                // ── Video output (fullscreen) ──────────────────────
-                // Binds safariPlayer only when fullscreen is active,
-                // handing off cleanly from/to the normal videoOut.
-                VideoOutput {
-                    id: fsVideoOut
-                    anchors.fill: parent
-                    source: Qt.binding(function() {
-                        return safariTvOverlay.tvFullScreen ? safariPlayer : null;
-                    })
-                    fillMode: VideoOutput.PreserveAspectFit
-                    visible: safariPlayer.playbackState === MediaPlayer.PlayingState
-                             || safariPlayer.playbackState === MediaPlayer.PausedState
-                }
-
-                // ── "No signal" when not playing ──────────────────
-                Rectangle {
-                    anchors.fill: parent
-                    color: "#001413"
-                    visible: safariPlayer.playbackState !== MediaPlayer.PlayingState
-                             && safariPlayer.playbackState !== MediaPlayer.PausedState
-                    Text {
-                        anchors.centerIn: parent
-                        text: "📡"
-                        font.pointSize: Qt.platform.os === "android" ? 40 : 32
-                        SequentialAnimation on opacity {
-                            loops: Animation.Infinite
-                            NumberAnimation { to: 0.4; duration: 1200 }
-                            NumberAnimation { to: 1.0; duration: 1200 }
-                        }
-                    }
-                }
-
-                // ── LIVE badge (top-left) ──────────────────────────
-                Rectangle {
-                    anchors.top: parent.top
-                    anchors.left: parent.left
-                    anchors.topMargin: Qt.platform.os === "android" ? 14 : 10
-                    anchors.leftMargin: Qt.platform.os === "android" ? 14 : 10
-                    width: fsBadgeRow.implicitWidth + 16
-                    height: Qt.platform.os === "android" ? 28 : 22
-                    radius: 4
-                    color: Qt.rgba(0, 0.08, 0.07, 0.80)
-                    border.color: "#1a6060"; border.width: 1
-                    z: 61
-                    Row {
-                        id: fsBadgeRow
-                        anchors.centerIn: parent
-                        spacing: 6
-                        Rectangle {
-                            width: Qt.platform.os === "android" ? 10 : 8
-                            height: width; radius: width / 2
-                            color: "#ff2222"
-                            anchors.verticalCenter: parent.verticalCenter
-                            SequentialAnimation on opacity {
-                                loops: Animation.Infinite
-                                NumberAnimation { to: 0.2; duration: 600 }
-                                NumberAnimation { to: 1.0; duration: 600 }
-                            }
-                        }
-                        Text {
-                            text: "🇹🇿 LIVE  ·  Tanzania Safari Channel"
-                            font.pointSize: Qt.platform.os === "android" ? 9 : 7
-                            font.bold: true; color: "cyan"
-                            anchors.verticalCenter: parent.verticalCenter
-                        }
-                    }
-                }
-
-                // ── Tap anywhere to toggle controls ───────────────
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: { fsControlsBar.visible = !fsControlsBar.visible; }
-                }
-
-                // ── Close button (fullscreen — rotates with content) ──
-                Rectangle {
-                    id: fsCloseBtn
-                    anchors.top: parent.top
-                    anchors.right: parent.right
-                    anchors.topMargin: Qt.platform.os === "android" ? 14 : 10
-                    anchors.rightMargin: Qt.platform.os === "android" ? 14 : 10
-                    width: Qt.platform.os === "android" ? 42 : 34; height: width; radius: width / 2
-                    color: fsCloseMA.pressed ? "#1a0a0a" : "#0d0505"
-                    border.color: "#cc4444"; border.width: 2
-                    z: 70
-                    Behavior on color { ColorAnimation { duration: 100 } }
-                    Behavior on scale { NumberAnimation { duration: 100 } }
-                    Text {
-                        anchors.centerIn: parent
-                        text: "X"
-                        font.pointSize: Qt.platform.os === "android" ? 14 : 11
-                        font.bold: true; color: "#ff8888"
-                    }
-                    MouseArea {
-                        id: fsCloseMA
-                        anchors.fill: parent
-                        onPressed:  fsCloseBtn.scale = 0.9
-                        onReleased: {
-                            fsCloseBtn.scale = 1.0;
-                            safariTvOverlay.tvFullScreen = false;
-                            fsLayer.videoRotation = 0;
-                            safariPlayer.stop();
-                            app.safariTvVisible = false;
-                            app.selectedLanguage = "sw";
-                            viewComponentLoader.switchTo(languageSelectionComponent, app.width / 2, app.height / 2);
-                            app.selectedLanguage = "";
-                            app.ad();
-                        }
-                        onCanceled: fsCloseBtn.scale = 1.0
-                    }
-                }
-
-                // ── Floating bottom controls bar ───────────────────
-                Rectangle {
-                    id: fsControlsBar
-                    anchors.bottom: parent.bottom
-                    anchors.left: parent.left
-                    anchors.right: parent.right
-                    anchors.bottomMargin: Qt.platform.os === "android" ? 18 : 12
-                    anchors.leftMargin:   Qt.platform.os === "android" ? 14 : 10
-                    anchors.rightMargin:  Qt.platform.os === "android" ? 14 : 10
-                    height: Qt.platform.os === "android" ? 72 : 58
-                    radius: height / 2
-                    color: Qt.rgba(0, 0.08, 0.07, 0.88)
-                    border.color: "#1a6060"; border.width: 2
-                    z: 60
-                    Behavior on opacity { NumberAnimation { duration: 200 } }
-
-                    // Auto-hide after 4 s when playing
-                    Timer {
-                        id: fsAutoHideTimer
-                        interval: 4000
-                        running: safariTvOverlay.tvFullScreen
-                                 && safariPlayer.playbackState === MediaPlayer.PlayingState
-                                 && fsControlsBar.visible
-                        onTriggered: { fsControlsBar.visible = false; }
-                    }
-
-                    Row {
-                        anchors.centerIn: parent
-                        spacing: Qt.platform.os === "android" ? 20 : 15
-                        property int sz: Qt.platform.os === "android" ? 46 : 36
-
-                        // STOP
-                        Rectangle {
-                            id: fsStopBtn
-                            width: parent.sz; height: parent.sz; radius: parent.sz / 2
-                            color: fsStopMA.pressed ? "#1a0a0a" : "#0d0505"
-                            border.color: "#cc4444"; border.width: 2
-                            Behavior on color { ColorAnimation { duration: 100 } }
-                            Behavior on scale { NumberAnimation { duration: 100 } }
-                            Rectangle {
-                                anchors.centerIn: parent
-                                width: parent.width * 0.36; height: width
-                                color: "#cc4444"
-                            }
-                            MouseArea {
-                                id: fsStopMA; anchors.fill: parent
-                                onPressed:  fsStopBtn.scale = 0.9
-                                onReleased: { fsStopBtn.scale = 1.0; safariPlayer.stop(); }
-                                onCanceled: fsStopBtn.scale = 1.0
-                            }
-                        }
-
-                        // PLAY / PAUSE
-                        Rectangle {
-                            id: fsPlayBtn
-                            width: parent.sz * 1.3; height: parent.sz * 1.3; radius: (parent.sz * 1.3) / 2
-                            color: fsPlayMA.pressed ? "#1a6060" : "#0d3a38"
-                            border.color: "cyan"; border.width: 3
-                            Behavior on color { ColorAnimation { duration: 100 } }
-                            Behavior on scale { NumberAnimation { duration: 100 } }
-                            Text {
-                                anchors.centerIn: parent
-                                text: safariPlayer.playbackState === MediaPlayer.PlayingState ? "⏸" : "▶"
-                                font.pointSize: Qt.platform.os === "android" ? 18 : 14
-                                color: "cyan"
-                            }
-                            MouseArea {
-                                id: fsPlayMA; anchors.fill: parent
-                                onPressed:  fsPlayBtn.scale = 0.9
-                                onReleased: {
-                                    fsPlayBtn.scale = 1.0;
-                                    if (safariPlayer.playbackState === MediaPlayer.PlayingState) {
-                                        safariPlayer.pause();
-                                    } else {
-                                        safariPlayer.play();
-                                    }
-                                }
-                                onCanceled: fsPlayBtn.scale = 1.0
-                            }
-                        }
-
-                        // VOLUME
-                        Rectangle {
-                            id: fsVolBtn
-                            width: parent.sz; height: parent.sz; radius: parent.sz / 2
-                            color: fsVolMA.pressed ? "#1a6060" : "#0d3a38"
-                            border.color: "cyan"; border.width: 2
-                            Behavior on color { ColorAnimation { duration: 100 } }
-                            Behavior on scale { NumberAnimation { duration: 100 } }
-                            Text {
-                                anchors.centerIn: parent
-                                text: safariPlayer.muted ? "🔇" : "🔊"
-                                font.pointSize: Qt.platform.os === "android" ? 14 : 11
-                            }
-                            MouseArea {
-                                id: fsVolMA; anchors.fill: parent
-                                onPressed:  fsVolBtn.scale = 0.9
-                                onReleased: { fsVolBtn.scale = 1.0; safariPlayer.muted = !safariPlayer.muted; }
-                                onCanceled: fsVolBtn.scale = 1.0
-                            }
-                        }
-
-                        // ROTATE
-                        Rectangle {
-                            id: fsRotBtn
-                            width: parent.sz; height: parent.sz; radius: parent.sz / 2
-                            color: fsRotMA.pressed ? "#1a6060" : "#0d3a38"
-                            border.color: "cyan"; border.width: 2
-                            Behavior on color { ColorAnimation { duration: 100 } }
-                            Behavior on scale { NumberAnimation { duration: 100 } }
-                            Text {
-                                anchors.centerIn: parent
-                                text: "🔄"
-                                font.pointSize: Qt.platform.os === "android" ? 14 : 11
-                            }
-                            MouseArea {
-                                id: fsRotMA; anchors.fill: parent
-                                onPressed:  fsRotBtn.scale = 0.9
-                                onReleased: {
-                                    fsRotBtn.scale = 1.0;
-                                    fsLayer.videoRotation = (fsLayer.videoRotation + 90) % 360;
-                                }
-                                onCanceled: fsRotBtn.scale = 1.0
-                            }
-                        }
-
-                        // EXIT FULLSCREEN
-                        Rectangle {
-                            id: fsExitBtn
-                            width: parent.sz; height: parent.sz; radius: parent.sz / 2
-                            color: fsExitMA.pressed ? "#1a6060" : "#0d3a38"
-                            border.color: "cyan"; border.width: 2
-                            Behavior on color { ColorAnimation { duration: 100 } }
-                            Behavior on scale { NumberAnimation { duration: 100 } }
-                            Text {
-                                anchors.centerIn: parent
-                                text: "[x]"
-                                font.pointSize: Qt.platform.os === "android" ? 11 : 9
-                                font.bold: true
-                                color: "cyan"
-                            }
-                            MouseArea {
-                                id: fsExitMA; anchors.fill: parent
-                                onPressed:  fsExitBtn.scale = 0.9
-                                onReleased: {
-                                    fsExitBtn.scale = 1.0;
-                                    safariTvOverlay.tvFullScreen = false;
-                                    fsLayer.videoRotation = 0;
-                                }
-                                onCanceled: fsExitBtn.scale = 1.0
-                            }
-                        }
-                    }
-                }
-            } // end fsInner
-        }
-        // ── END FULLSCREEN VIDEO LAYER ─────────────────────────────
-
-        // ── Close button (normal TV mode only) ─────────────────────
+        // ── Close button ───────────────────────────────────────────
         Rectangle {
             id: tvCloseBtn
             anchors.top: parent.top
@@ -5236,25 +4901,29 @@ Rectangle {
             width: Qt.platform.os === "android" ? 42 : 34; height: width; radius: width / 2
             color: tvCloseMA.pressed ? "#1a0a0a" : "#0d0505"
             border.color: "#cc4444"; border.width: 2
-            visible: !safariTvOverlay.tvFullScreen
             z: 20
             Behavior on color { ColorAnimation { duration: 100 } }
             Behavior on scale { NumberAnimation { duration: 100 } }
 
             Text { anchors.centerIn: parent; text: "X"; font.pointSize: Qt.platform.os === "android" ? 14 : 11; font.bold: true; color: "#ff8888" }
             MouseArea {
-                id: tvCloseMA
+                id: tvCloseMA;
                 anchors.fill: parent
+
                 onPressed:  tvCloseBtn.scale = 0.9
+
                 onReleased: {
                     tvCloseBtn.scale = 1.0;
                     safariPlayer.stop();
                     app.safariTvVisible = false;
+
                     app.selectedLanguage = "sw";
                     viewComponentLoader.switchTo(languageSelectionComponent, app.width / 2, app.height / 2);
                     app.selectedLanguage = "";
+
                     app.ad();
                 }
+
                 onCanceled: tvCloseBtn.scale = 1.0
             }
         }
