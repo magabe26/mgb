@@ -17,6 +17,7 @@ Rectangle {
     property string activeFilter: "All"          // category filter — always English key
     property var recentlyViewed: []              // recently viewed indices
     property bool safariTvVisible: false         // retro TV overlay
+    property bool wakeLockTipShown: false        // screen-on tip shown once
 
 
 
@@ -4266,6 +4267,115 @@ Rectangle {
         opacity: app.safariTvVisible ? 1.0 : 0.0
         Behavior on opacity { NumberAnimation { duration: 280 } }
         z: 200
+
+        // ── Show screen-on tip once when TV opens ─────────────────
+        onVisibleChanged: {
+            if (visible && !app.wakeLockTipShown) {
+                wakeLockTipDialog.open();
+                app.wakeLockTipShown = true;
+            }
+        }
+
+        // ── Screen-on tip dialog (shown once) ─────────────────────
+        Rectangle {
+            id: wakeLockTipDialog
+            anchors.centerIn: parent
+            width: Math.min(app.width * 0.85, Qt.platform.os === "android" ? 340 : 280)
+            height: wakeLockTipCol.implicitHeight + (Qt.platform.os === "android" ? 40 : 30)
+            radius: Qt.platform.os === "android" ? 18 : 14
+            color: "#001f1d"
+            border.color: "cyan"
+            border.width: 2
+            visible: false
+            z: 300
+
+            function open()  { wakeLockTipDialog.visible = true; }
+            function close() { wakeLockTipDialog.visible = false; }
+
+            // dim background
+            Rectangle {
+                anchors.fill: parent
+                anchors.margins: -app.width
+                color: Qt.rgba(0, 0, 0, 0.55)
+                z: -1
+                MouseArea { anchors.fill: parent; onClicked: {} }
+            }
+
+            Column {
+                id: wakeLockTipCol
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.top: parent.top
+                anchors.topMargin: Qt.platform.os === "android" ? 20 : 15
+                width: parent.width - (Qt.platform.os === "android" ? 32 : 24)
+                spacing: Qt.platform.os === "android" ? 12 : 9
+
+                Text {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    text: "📺  Kidokezo · Tip"
+                    font.pointSize: Qt.platform.os === "android" ? 14 : 11
+                    font.bold: true
+                    color: "cyan"
+                }
+
+                Text {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: parent.width
+                    wrapMode: Text.WordWrap
+                    horizontalAlignment: Text.AlignHCenter
+                    text: "Ili skrini isizimike wakati wa kutazama, nenda:\nMipangilio → Onyesho → Muda wa Kuzima Skrini\nna uchague Kamwe au muda mrefu zaidi."
+                    font.pointSize: Qt.platform.os === "android" ? 11 : 9
+                    color: "#cceeec"
+                    lineHeight: 1.35
+                }
+
+                Rectangle {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: parent.width * 0.6
+                    height: 1
+                    color: "cyan"
+                    opacity: 0.3
+                }
+
+                Text {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: parent.width
+                    wrapMode: Text.WordWrap
+                    horizontalAlignment: Text.AlignHCenter
+                    text: "To keep the screen on during playback, go to:\nSettings → Display → Screen Timeout\nand set it to Never or the longest duration."
+                    font.pointSize: Qt.platform.os === "android" ? 10 : 8
+                    color: "#7aaaa8"
+                    lineHeight: 1.35
+                }
+
+                Rectangle {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: Qt.platform.os === "android" ? 120 : 96
+                    height: Qt.platform.os === "android" ? 44 : 36
+                    radius: height / 2
+                    color: wakeLockOkMA.pressed ? "#1a6060" : "#0d3a38"
+                    border.color: "cyan"; border.width: 2
+                    Behavior on color { ColorAnimation { duration: 100 } }
+                    Behavior on scale { NumberAnimation { duration: 100 } }
+
+                    Text {
+                        anchors.centerIn: parent
+                        text: "Sawa / OK"
+                        font.pointSize: Qt.platform.os === "android" ? 12 : 10
+                        font.bold: true
+                        color: "cyan"
+                    }
+                    MouseArea {
+                        id: wakeLockOkMA
+                        anchors.fill: parent
+                        onPressed:  parent.scale = 0.93
+                        onReleased: { parent.scale = 1.0; wakeLockTipDialog.close(); }
+                        onCanceled: parent.scale = 1.0
+                    }
+                }
+
+                Item { width: 1; height: Qt.platform.os === "android" ? 4 : 2 }
+            }
+        }
 
         // ── Prevent clicks to reach the elements below
         MouseArea {
