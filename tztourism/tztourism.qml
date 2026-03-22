@@ -4887,14 +4887,14 @@ Rectangle {
                         // ── Initial-load buffering spinner (sibling of noSignalScreen) ──
                         Item {
                             id: initialLoadSpinner
-                            anchors.centerIn: parent
+                            anchors.centerIn: noSignalScreen
                             width: Qt.platform.os === "android" ? 64 : 50
                             height: width
                             z: 11
                             visible: (safariPlayer.status === MediaPlayer.Loading
                                       || safariPlayer.status === MediaPlayer.Buffering
                                       || safariPlayer.status === MediaPlayer.Stalled)
-                                     && safariPlayer.playbackState === MediaPlayer.StoppedState
+                                     && safariPlayer.playbackState !== MediaPlayer.PlayingState
                             opacity: visible ? 1.0 : 0.0
                             Behavior on opacity { NumberAnimation { duration: 250 } }
 
