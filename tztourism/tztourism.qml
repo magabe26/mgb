@@ -5725,8 +5725,7 @@ Rectangle {
             width: Qt.platform.os === "android" ? 72 : 56
             height: width
             z: 502
-            visible: (safariPlayer.status === MediaPlayer.Stalled) ||
-                     ((safariPlayer.bufferProgress < 1.0) && (safariPlayer.playbackState === MediaPlayer.PlayingState))
+            visible: ((safariPlayer.status === MediaPlayer.Stalled) && (safariPlayer.playbackState === MediaPlayer.PlayingState))
             opacity: visible ? 1.0 : 0.0
 
             Behavior on opacity { NumberAnimation { duration: 300 } }
