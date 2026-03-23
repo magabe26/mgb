@@ -1929,6 +1929,259 @@ Rectangle {
                         }
                     }
 
+                    // ══ DID YOU KNOW ═══════════════════════════════════════
+                    Rectangle {
+                        width: app.width
+                        height: dykCol.implicitHeight + (Qt.platform.os === "android" ? 32 : 24)
+                        color: "#0a1a19"
+
+                        property string dykLang: Math.random() < 0.5 ? "sw" : "en"
+
+                        property var facts_sw: [
+                            "Tanzania ina milima mirefu zaidi barani Afrika — Kilimanjaro, mita 5,895.",
+                            "Serengeti ina uhamiaji mkubwa zaidi wa wanyama duniani — nyumbu milioni 1.5.",
+                            "Zanzibar ilikuwa nchi huru hadi 1964 ilipounganishwa na Tanganyika.",
+                            "Tanzania ina hifadhi za taifa 22 zinazofunika zaidi ya asilimia 38 ya nchi.",
+                            "Ziwa Victoria ni ziwa kubwa zaidi barani Afrika.",
+                            "Tanzania ni nchi pekee duniani yenye almasi za Tanzanite — jiwe la thamani la bluu.",
+                            "Ngorongoro ni kaldera kubwa zaidi duniani inayokaliwa na wanyama.",
+                            "Tanzania ina pwani ya kilomita 1,424 ya Bahari Hindi.",
+                            "Dodoma ni mji mkuu wa Tanzania tangu 1974.",
+                            "Swahili ni lugha ya kwanza ya Afrika kusomwa kwa herufi za Kiarabu.",
+                            "Tanzania ina spishi zaidi ya ndege 1,100 — zaidi ya Ulaya yote.",
+                            "Mto Rufiji ni mto mrefu zaidi Tanzania, ukipita katika Selous.",
+                            "Selous Game Reserve ni hifadhi kubwa zaidi Afrika — kilomita 54,600.",
+                            "Tanzania ilikuwa koloni la Ujerumani hadi 1919, kisha Uingereza.",
+                            "Julius Nyerere alikuwa rais wa kwanza wa Tanzania na baba wa taifa.",
+                            "Mikumi National Park ni hifadhi ya karibu zaidi na Dar es Salaam.",
+                            "Tanzania ina makundi ya kikabila zaidi ya 120.",
+                            "Pemba Island inajulikana kwa kilimo bora zaidi cha karafuu duniani.",
+                            "Ziwa Tanganyika ni ziwa refu zaidi duniani — kilomita 673.",
+                            "Tanzania ina volcano inayofanya kazi — Ol Doinyo Lengai huko Arusha.",
+                            "Dar es Salaam ni mji mkubwa zaidi Tanzania na bandari kuu.",
+                            "Tarangire ina idadi kubwa zaidi ya tembo barani Afrika.",
+                            "Mara River inajulikana kwa maporomoko makubwa ya mamba na viboko.",
+                            "Stone Town ya Zanzibar ni Urithi wa Dunia wa UNESCO.",
+                            "Tanzania ilivuka uhuru mwaka 1961 kwa amani bila vita.",
+                            "Kilimanjaro ina maeneo matatu ya hali ya hewa — kitropiki, alpine, na barafu.",
+                            "Mahali Mzuri safari camp ilikuwa moja ya kwanza Afrika.",
+                            "Tanzania ina misitu ya mvua ya Udzungwa yenye spishi adimu.",
+                            "Gombe ni hifadhi ndogo zaidi Tanzania lakini maarufu kwa sokwe.",
+                            "Jane Goodall alifanya utafiti wake wa sokwe Gombe mwaka 1960.",
+                            "Ziwa Manyara linajulikana kwa simba wanaopanda miti.",
+                            "Tanzania ina magofu ya Kilwa — mji wa kale wa biashara wa Swahili.",
+                            "Pwani ya Mafia ina bahari ya kusafisha inayofaa kwa kupiga mbizi.",
+                            "Bagamoyo ulikuwa mji mkuu wa Afrika Mashariki wakati wa ukoloni.",
+                            "Tanzania ina maporomoko ya Kalambo — ya pili kwa urefu Afrika.",
+                            "Ruaha National Park ina idadi kubwa ya simba kuliko mahali popote.",
+                            "Tanzania inachangia zaidi ya asilimia 99 ya Tanzanite duniani.",
+                            "Nyerere alianzisha sera ya Ujamaa na kujitegemea mwaka 1967.",
+                            "Tanzania haina vita ya wenyewe kwa wenyewe tangu uhuru.",
+                            "Ziwa Natron ni ziwa la chumvi linalounda makazi ya flamingo.",
+                            "Tanzania ina spishi zaidi ya mimea 10,000.",
+                            "Mji wa Arusha unaitwa 'Mji wa Kimataifa' kwa mikutano mingi.",
+                            "Kilimanjaro inaweza kupandwa bila vifaa maalum vya milima.",
+                            "Tanzania inauzwa kwa utalii zaidi ya dola bilioni 2 kila mwaka.",
+                            "Vijiji vya Maasai vimehifadhi utamaduni wao kwa miaka mingi.",
+                            "Spishi za samaki zaidi ya 350 zinapatikana katika Ziwa Victoria.",
+                            "Tanzania ina bahari ya Mnazi Bay yenye matumbawe ya ajabu.",
+                            "Kondoa Rock Art ni moja ya michoro ya zamani zaidi duniani.",
+                            "Tanzania inapiganisha haki za mazingira kupitia sheria kali.",
+                            "Mji wa Mwanza unaitwa 'Mji wa Pili' — bandari ya Ziwa Victoria.",
+                            "Hifadhi ya Katavi ni moja ya mbali zaidi na tulivu Tanzania.",
+                            "Tanzania ina maeneo ya UNESCO matano rasmi.",
+                            "Biashara ya dhahabu ni sekta kubwa ya uchumi Tanzania.",
+                            "Spishi za wanyama watambaao zaidi ya 150 zinaishi Tanzania.",
+                            "Tanzania ina barabara kuu ya TANZAM inayounganisha Zambia.",
+                            "Kilwa Kisiwani ilikuwa mji mkubwa wa biashara karne ya 14.",
+                            "Tanzania ina migodi ya dhahabu ya Geita — kubwa zaidi Afrika.",
+                            "Pwani ya Tanzania ina Tembo wa Bahari — dugong adimu.",
+                            "Nyerere alitafsiri Shakespeare kwa Kiswahili.",
+                            "Tanzania ina makaburi ya dinosaur — Tendaguru huko Lindi.",
+                            "Ziwa Eyasi ni makazi ya Hadza — watu wa mwisho wanaokusanya chakula.",
+                            "Tanzania inazalisha kahawa bora — Kilimanjaro na Mbeya.",
+                            "Spishi za vipepeo zaidi ya 800 zinapatikana Tanzania.",
+                            "Tanzania ina msitu wa Mahale — makazi ya sokwe wa kawaida.",
+                            "Mvua ya masika Tanzania huanza Machi hadi Mei.",
+                            "Tanzania inaunganisha nchi 8 za jirani.",
+                            "Tanga ni mji wa pili wa zamani zaidi Tanzania.",
+                            "Tanzania ina mito minne mikubwa — Rufiji, Ruvuma, Pangani, Wami.",
+                            "Nyumbu wanaozaliwa Serengeti ni zaidi ya 8,000 kila siku wakati wa kuzaa.",
+                            "Tanzania inatoa mafunzo ya uhifadhi wa wanyama kwa nchi nyingi.",
+                            "Hifadhi ya Burigi-Chato ni mpya zaidi Tanzania — 2019.",
+                            "Tanzania ina matunda ya baobab yenye vitamini C mara 6 ya machungwa.",
+                            "Pwani ya Ushongo inajulikana kwa ufuo mzuri wa samaki.",
+                            "Tanzania ina makaburi ya Laetoli — nyayo za binadamu wa zamani 3.7M.",
+                            "Kilimanjaro inapoteza theluji yake — imepungua asilimia 85 tangu 1912.",
+                            "Tanzania ina spishi 4 za fisi — wenye madoadoa, wenye mstari, ardhi, na usiku.",
+                            "Bonde la Ufa linapita Tanzania kutoka kaskazini hadi kusini.",
+                            "Tanzania ina siku ya uhuru — Desemba 9, 1961.",
+                            "Ziwa Tanganyika lina kina cha mita 1,470 — pili kwa kina duniani.",
+                            "Tanzania ina Chama cha Mapinduzi — CCM — kilichotawala tangu uhuru.",
+                            "Mji wa Morogoro unajulikana kwa milima ya Uluguru.",
+                            "Tanzania inazalisha chai ya ubora wa juu — Iringa na Mbeya.",
+                            "Spishi za nyoka zaidi ya 130 zinapatikana Tanzania.",
+                            "Tanzania ina Ukanda wa Pwani wenye misitu ya mikoko.",
+                            "Kigoma ni lango la Ziwa Tanganyika na makazi ya sokwe.",
+                            "Tanzania ina Shule ya Msingi ya kwanza Afrika Mashariki — Moshi 1893.",
+                            "Mto Nile unachipua kutoka Ziwa Victoria nchini Tanzania.",
+                            "Tanzania ina uhusiano mzuri na nchi zote jirani bila migogoro.",
+                            "Kilimanjaro National Park ina msitu wa mvua, savanna, na alpine.",
+                            "Tanzania ina spishi za kondoo wa mlimani — klipspringer.",
+                            "Mji wa Lindi una historia ndefu ya biashara ya pembe za ndovu.",
+                            "Tanzania ina makaburi ya Isimila — zana za mawe za miaka 60,000.",
+                            "Ziwa Victoria linazalisha tani 500,000 za samaki kila mwaka.",
+                            "Tanzania inashiriki kwenye East African Community tangu 2000.",
+                            "Wanyama watano wakubwa — simba, tembo, nyati, chui, kifaru — wote wako Tanzania.",
+                            "Tanzania ina barabara ya reli inayounganisha pwani na nchi jirani.",
+                            "Nyumba za Swahili za Stone Town zina milango ya mbao iliyochongwa.",
+                            "Tanzania ina vivutio vya asili na utamaduni ambavyo havipo mahali pengine."
+                        ]
+
+                        property var facts_en: [
+                            "Tanzania has Africa's highest peak — Mount Kilimanjaro at 5,895m.",
+                            "The Serengeti hosts the world's largest animal migration — 1.5 million wildebeest.",
+                            "Zanzibar was an independent state until unifying with Tanganyika in 1964.",
+                            "Tanzania has 22 national parks covering over 38% of its land area.",
+                            "Lake Victoria is the largest lake in Africa.",
+                            "Tanzania is the only source of Tanzanite — a rare blue gemstone.",
+                            "Ngorongoro is the world's largest intact volcanic caldera inhabited by wildlife.",
+                            "Tanzania has 1,424 km of Indian Ocean coastline.",
+                            "Dodoma became Tanzania's official capital city in 1974.",
+                            "Swahili was the first African language written in Arabic script.",
+                            "Tanzania is home to over 1,100 bird species — more than all of Europe.",
+                            "The Rufiji River is Tanzania's longest river, flowing through Selous.",
+                            "Selous Game Reserve is Africa's largest protected area at 54,600 km².",
+                            "Tanzania was a German colony until 1919, then British until independence.",
+                            "Julius Nyerere was Tanzania's founding father and first president.",
+                            "Mikumi National Park is the closest national park to Dar es Salaam.",
+                            "Tanzania is home to over 120 distinct ethnic groups.",
+                            "Pemba Island is considered the world's finest clove-growing region.",
+                            "Lake Tanganyika is the world's longest freshwater lake at 673 km.",
+                            "Tanzania has an active volcano — Ol Doinyo Lengai near Arusha.",
+                            "Dar es Salaam is Tanzania's largest city and main commercial port.",
+                            "Tarangire National Park has the highest elephant density in Africa.",
+                            "The Mara River is famous for its massive crocodile and hippo populations.",
+                            "Stone Town in Zanzibar is a UNESCO World Heritage Site.",
+                            "Tanzania gained independence peacefully in 1961 without armed conflict.",
+                            "Kilimanjaro has three distinct climate zones — tropical, alpine, and arctic.",
+                            "Tanzania produces some of Africa's finest specialty coffee.",
+                            "The Udzungwa Mountains Forest contains rare endemic species found nowhere else.",
+                            "Gombe is Tanzania's smallest national park but famous for chimpanzees.",
+                            "Jane Goodall began her groundbreaking chimpanzee research at Gombe in 1960.",
+                            "Lake Manyara is famous for its tree-climbing lions.",
+                            "Tanzania has the ruins of Kilwa — a major ancient Swahili trading city.",
+                            "Mafia Island's marine park is one of Africa's premier dive destinations.",
+                            "Bagamoyo was the capital of German East Africa during colonial times.",
+                            "Kalambo Falls is Africa's second-highest waterfall, on the Zambia border.",
+                            "Ruaha National Park has the largest lion population of any African park.",
+                            "Tanzania supplies over 99% of the world's Tanzanite gemstone.",
+                            "Nyerere introduced the Ujamaa socialist policy in the Arusha Declaration of 1967.",
+                            "Tanzania has maintained peace and stability since independence in 1961.",
+                            "Lake Natron is a highly alkaline soda lake that forms flamingo breeding habitat.",
+                            "Tanzania is home to over 10,000 plant species.",
+                            "Arusha city is known as the 'Geneva of Africa' for its international conferences.",
+                            "Kilimanjaro can be climbed without technical mountaineering equipment.",
+                            "Tanzania earns over $2 billion annually from tourism.",
+                            "Maasai villages have preserved their traditional culture for centuries.",
+                            "Lake Victoria contains over 350 species of fish, many found nowhere else.",
+                            "Tanzania's Mnazi Bay has some of East Africa's most pristine coral reefs.",
+                            "The Kondoa Rock Art paintings are among the oldest in the world.",
+                            "Tanzania enforces some of Africa's toughest wildlife poaching laws.",
+                            "Mwanza is Tanzania's second city and a major port on Lake Victoria.",
+                            "Katavi National Park is one of Tanzania's most remote and unspoiled parks.",
+                            "Tanzania has five official UNESCO World Heritage Sites.",
+                            "Gold mining is a major sector of Tanzania's economy.",
+                            "Tanzania is home to over 150 species of reptiles.",
+                            "The TANZAM Highway connects Tanzania to landlocked Zambia.",
+                            "Kilwa Kisiwani was one of the wealthiest trading cities in the 14th century.",
+                            "The Geita Gold Mine is one of the largest gold mines in Africa.",
+                            "Tanzania's coastline is home to the rare dugong sea mammal.",
+                            "Nyerere translated Shakespeare's Julius Caesar into Swahili.",
+                            "Tanzania has one of the world's richest dinosaur fossil sites at Tendaguru.",
+                            "Lake Eyasi is home to the Hadza — one of the last hunter-gatherer peoples.",
+                            "Tanzania produces high-quality coffee from Kilimanjaro and Mbeya regions.",
+                            "Over 800 butterfly species have been recorded in Tanzania.",
+                            "Mahale Mountains is home to one of Africa's largest chimpanzee communities.",
+                            "Tanzania's long rains season runs from March to May each year.",
+                            "Tanzania shares borders with eight different countries.",
+                            "Tanga is one of Tanzania's oldest cities with a rich colonial history.",
+                            "Tanzania's four major rivers are Rufiji, Ruvuma, Pangani, and Wami.",
+                            "Over 8,000 wildebeest calves are born daily during the Serengeti calving season.",
+                            "Tanzania provides wildlife conservation training programs for many African nations.",
+                            "Burigi-Chato is Tanzania's newest national park, established in 2019.",
+                            "Baobab fruit has six times more Vitamin C than oranges.",
+                            "Tanzania's Ushongo Beach is renowned for its exceptional sport fishing.",
+                            "The Laetoli footprints in Tanzania are 3.7 million years old — made by early humans.",
+                            "Kilimanjaro has lost 85% of its ice cap since 1912 due to climate change.",
+                            "Tanzania has four species of hyena — spotted, striped, brown, and aardwolf.",
+                            "The Great Rift Valley runs through Tanzania from north to south.",
+                            "Tanzania's independence day is December 9, 1961.",
+                            "Lake Tanganyika reaches a depth of 1,470m — the world's second deepest lake.",
+                            "Tanzania has been governed by the CCM party continuously since independence.",
+                            "Morogoro city is known for the spectacular Uluguru Mountain range.",
+                            "Tanzania produces premium tea in the Iringa and Mbeya highland regions.",
+                            "Over 130 snake species have been recorded in Tanzania.",
+                            "Tanzania's coastline has extensive mangrove forests protecting the shore.",
+                            "Kigoma is the gateway to Lake Tanganyika and nearby chimpanzee habitats.",
+                            "The source of the Nile River flows from Lake Victoria in Tanzania.",
+                            "Tanzania maintains peaceful diplomatic relations with all its neighbors.",
+                            "Kilimanjaro National Park contains rainforest, savanna, alpine, and arctic zones.",
+                            "Klipspringer antelopes are found in Tanzania's rocky highland areas.",
+                            "Lindi town has a long history as an ivory and trade hub.",
+                            "Isimila Stone Age Site near Iringa has tools over 60,000 years old.",
+                            "Lake Victoria produces over 500,000 tonnes of fish annually.",
+                            "Tanzania has been a member of the East African Community since 2000.",
+                            "All of the Big Five — lion, elephant, buffalo, leopard, rhino — live in Tanzania.",
+                            "Tanzania's railway network connects the coast to neighboring landlocked countries.",
+                            "Zanzibar's Stone Town doors are famous for their intricate hand-carved woodwork.",
+                            "Tanzania offers natural and cultural attractions found nowhere else on Earth."
+                        ]
+
+                        property int dykIndex: {
+                            var d = new Date();
+                            return d.getDate() % 100;
+                        }
+
+                        // Left cyan accent bar
+                        Rectangle {
+                            anchors.left: parent.left
+                            anchors.leftMargin: 16
+                            anchors.verticalCenter: parent.verticalCenter
+                            width: 4
+                            height: parent.height - (Qt.platform.os === "android" ? 20 : 14)
+                            radius: 2
+                            color: "#00ccaa"
+                        }
+
+                        Column {
+                            id: dykCol
+                            anchors.left: parent.left
+                            anchors.right: parent.right
+                            anchors.leftMargin: 30
+                            anchors.rightMargin: 16
+                            anchors.verticalCenter: parent.verticalCenter
+                            spacing: Qt.platform.os === "android" ? 5 : 4
+
+                            Text {
+                                text: parent.parent.dykLang === "sw" ? "💡 Je, wajua?" : "💡 Did you know?"
+                                font.pointSize: Qt.platform.os === "android" ? 10 : 8
+                                font.bold: true
+                                color: "#00ccaa"
+                            }
+                            Text {
+                                width: parent.width
+                                text: parent.parent.dykLang === "sw"
+                                      ? parent.parent.facts_sw[parent.parent.dykIndex]
+                                      : parent.parent.facts_en[parent.parent.dykIndex]
+                                font.pointSize: Qt.platform.os === "android" ? 11 : 9
+                                color: "#cccccc"
+                                wrapMode: Text.WordWrap
+                                font.italic: true
+                            }
+                        }
+                    }
+
                     // ══ MAP SECTION ════════════════════════════════════════
                     Rectangle {
                         width: app.width
