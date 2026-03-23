@@ -4622,6 +4622,30 @@ Rectangle {
                                     color: "cyan"
                                     anchors.verticalCenter: parent.verticalCenter
                                 }
+
+                                // ── Stream quality dots ──────────────
+                                Row {
+                                    spacing: Qt.platform.os === "android" ? 3 : 2
+                                    anchors.verticalCenter: parent.verticalCenter
+
+                                    Repeater {
+                                        model: 3
+                                        Rectangle {
+                                            width: Qt.platform.os === "android" ? 5 : 4
+                                            height: width; radius: width / 2
+                                            anchors.verticalCenter: parent.verticalCenter
+                                            color: {
+                                                var q = safariPlayer.streamQuality;
+                                                if (safariPlayer.playbackState !== MediaPlayer.PlayingState)
+                                                    return "#333333";
+                                                if (q === 2) return "#44ff44";       // Good — tutti e tre verdi
+                                                if (q === 1) return index < 2 ? "#ffaa00" : "#333333"; // Fair — due gialli
+                                                return index < 1 ? "#ff4444" : "#333333"; // Poor — uno rosso
+                                            }
+                                            Behavior on color { ColorAnimation { duration: 400 } }
+                                        }
+                                    }
+                                }
                             }
                         }
 
@@ -4630,6 +4654,10 @@ Rectangle {
                             id: safariPlayer
                             source: "https://stream-134630.castr.net/5fe35eae8c53540cab83659a/live_31dabe40323511f08b8efff0016f3b67/index.m3u8"
                             autoPlay: false
+
+                            // 0 = Poor, 1 = Fair, 2 = Good
+                            property int streamQuality: 0
+                            property real _lastBuffer: 0.0
 
                             onStatusChanged: {
                                 if (status === MediaPlayer.InvalidMedia) {
@@ -4653,6 +4681,26 @@ Rectangle {
                                 if (playbackState === MediaPlayer.PlayingState) {
                                     safariTvOverlay.streamError = false;
                                     safariTvOverlay.streamErrorMsg = "";
+                                }
+                            }
+                        }
+
+                        // ── Stream quality timer ───────────────────────────
+                        Timer {
+                            id: qualityTimer
+                            interval: 3000
+                            repeat: true
+                            running: safariPlayer.playbackState === MediaPlayer.PlayingState
+                            onTriggered: {
+                                var buf = safariPlayer.bufferProgress;
+                                var delta = buf - safariPlayer._lastBuffer;
+                                safariPlayer._lastBuffer = buf;
+                                if (buf >= 0.8) {
+                                    safariPlayer.streamQuality = 2;
+                                } else if (buf >= 0.4 || delta > 0.05) {
+                                    safariPlayer.streamQuality = 1;
+                                } else {
+                                    safariPlayer.streamQuality = 0;
                                 }
                             }
                         }
@@ -6008,6 +6056,30 @@ Rectangle {
                             font.bold: true; color: "cyan"
                             anchors.verticalCenter: parent.verticalCenter
                         }
+
+                        // ── Stream quality dots ──────────────
+                        Row {
+                            spacing: Qt.platform.os === "android" ? 3 : 2
+                            anchors.verticalCenter: parent.verticalCenter
+
+                            Repeater {
+                                model: 3
+                                Rectangle {
+                                    width: Qt.platform.os === "android" ? 5 : 4
+                                    height: width; radius: width / 2
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    color: {
+                                        var q = safariPlayer.streamQuality;
+                                        if (safariPlayer.playbackState !== MediaPlayer.PlayingState)
+                                            return "#333333";
+                                        if (q === 2) return "#44ff44";
+                                        if (q === 1) return index < 2 ? "#ffaa00" : "#333333";
+                                        return index < 1 ? "#ff4444" : "#333333";
+                                    }
+                                    Behavior on color { ColorAnimation { duration: 400 } }
+                                }
+                            }
+                        }
                     }
                 }
 
@@ -6250,13 +6322,13 @@ Rectangle {
                                     text: modelData.icon
                                     font.pointSize: Qt.platform.os === "android" ? 18 : 14
                                     anchors.verticalCenter: parent.verticalCenter
-                                    width: Qt.platform.os === "android" ? 36 : 28
+                                    width: Qt.platform.os === "android" ? 34 : 26
                                     horizontalAlignment: Text.AlignHCenter
                                 }
                                 Column {
                                     anchors.verticalCenter: parent.verticalCenter
                                     spacing: 1
-                                    width: gestureHintsCol.width - (Qt.platform.os === "android" ? 50 : 38)
+                                    width: gestureHintsCol.width - (Qt.platform.os === "android" ? 48 : 36)
                                     Text {
                                         text: modelData.sw
                                         font.pointSize: Qt.platform.os === "android" ? 11 : 8
