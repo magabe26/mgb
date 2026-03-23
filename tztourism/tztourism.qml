@@ -2777,6 +2777,13 @@ Rectangle {
                         width: app.width
                         height: Qt.platform.os === "android" ? 40 : 32
 
+                        // Full width background — matches Safari Channel section
+                        Rectangle {
+                            anchors.fill: parent
+                            color: "#001413"
+                        }
+
+                        // Top separator line
                         Rectangle {
                             anchors.top: parent.top
                             anchors.horizontalCenter: parent.horizontalCenter
@@ -2790,38 +2797,31 @@ Rectangle {
 
                         Row {
                             anchors.centerIn: parent
-                            spacing: 6
+                            spacing: Qt.platform.os === "android" ? 8 : 6
 
                             Rectangle {
-                                width: 3; height: 3; radius: 2
-                                color: "#055152"; opacity: 0.5
+                                width: Qt.platform.os === "android" ? 18 : 14
+                                height: 1; radius: 1
+                                color: Qt.rgba(0, 1, 1, 0.25)
                                 anchors.verticalCenter: parent.verticalCenter
                             }
-                            /*
-                            Text {
-                                text: "BY"
-                                font.pointSize: Qt.platform.os === "android" ? 8 : 6
-                                font.letterSpacing: 2
-                                color: Qt.rgba(0,1,1,0.3)
-                                anchors.verticalCenter: parent.verticalCenter
-                            }
-                            */
                             Text {
                                 text: "MAGABE LAB"
-                                font.pointSize: Qt.platform.os === "android" ? 9 : 7
+                                font.pointSize: Qt.platform.os === "android" ? 10 : 8
                                 font.bold: true
-                                font.letterSpacing: 2.5
-                                color: "#055152"
+                                font.letterSpacing: 3
+                                color: Qt.rgba(0, 0.8, 0.7, 0.7)
                                 anchors.verticalCenter: parent.verticalCenter
                                 SequentialAnimation on opacity {
                                     loops: Animation.Infinite
-                                    NumberAnimation { to: 0.45; duration: 2000; easing.type: Easing.InOutSine }
-                                    NumberAnimation { to: 1.0;  duration: 2000; easing.type: Easing.InOutSine }
+                                    NumberAnimation { to: 0.5; duration: 2000; easing.type: Easing.InOutSine }
+                                    NumberAnimation { to: 1.0; duration: 2000; easing.type: Easing.InOutSine }
                                 }
                             }
                             Rectangle {
-                                width: 3; height: 3; radius: 2
-                                color: "#055152"; opacity: 0.5
+                                width: Qt.platform.os === "android" ? 18 : 14
+                                height: 1; radius: 1
+                                color: Qt.rgba(0, 1, 1, 0.25)
                                 anchors.verticalCenter: parent.verticalCenter
                             }
                         }
@@ -5600,47 +5600,25 @@ Rectangle {
                     } // end controlsRow
 
                     // ── BOTTOM PANEL: knobs + brand ────────────────────────
-                    Row {
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        spacing: Qt.platform.os === "android" ? 18 : 14
-                        anchors.topMargin: Qt.platform.os === "android" ? 4 : 2
+                    Item {
+                        width: parent.width
+                        height: Qt.platform.os === "android" ? 72 : 58
 
-                        // Decorative knob 1
+                        // Knob 1 — left
                         Rectangle {
+                            anchors.left: parent.left
+                            anchors.leftMargin: Qt.platform.os === "android" ? 18 : 14
+                            anchors.verticalCenter: parent.verticalCenter
                             width: Qt.platform.os === "android" ? 32 : 25; height: width; radius: width / 2
                             color: "#0a1f1e"; border.color: "#1a6060"; border.width: 2
                             Rectangle { width: 4; height: parent.height * 0.4; radius: 2; color: "cyan"; anchors.centerIn: parent; rotation: 45 }
                         }
 
-                        // Brand name
-                        Column {
+                        // Channel dial — right
+                        Rectangle {
+                            anchors.right: parent.right
+                            anchors.rightMargin: Qt.platform.os === "android" ? 18 : 14
                             anchors.verticalCenter: parent.verticalCenter
-                            spacing: 2
-                            Text {
-                                anchors.horizontalCenter: parent.horizontalCenter
-                                text: "Utalii wa Tanzania"
-                                font.pointSize: Qt.platform.os === "android" ? 11 : 9
-                                font.bold: true
-                                color: "cyan"
-                                font.letterSpacing: 2
-                            }
-                            Text {
-                                anchors.horizontalCenter: parent.horizontalCenter
-                                text: "Tanzania Tourism"
-                                font.pointSize: Qt.platform.os === "android" ? 10 : 8
-                                color: "#1a6060"
-                            }
-                        }
-
-                        // Decorative knob 2
-                        Rectangle {
-                            width: Qt.platform.os === "android" ? 32 : 25; height: width; radius: width / 2
-                            color: "#0a1f1e"; border.color: "#1a6060"; border.width: 2
-                            Rectangle { width: 4; height: parent.height * 0.4; radius: 2; color: "cyan"; anchors.centerIn: parent; rotation: -30 }
-                        }
-
-                        // Channel dial (decorative — spins)
-                        Rectangle {
                             width: Qt.platform.os === "android" ? 38 : 30; height: width; radius: width / 2
                             color: "#001413"; border.color: "cyan"; border.width: 2
                             RotationAnimation on rotation {
@@ -5649,6 +5627,47 @@ Rectangle {
                                 running: app.safariTvVisible
                             }
                             Rectangle { width: 3; height: parent.height * 0.38; radius: 2; color: "cyan"; anchors.horizontalCenter: parent.horizontalCenter; anchors.top: parent.top; anchors.topMargin: 3 }
+                        }
+
+                        // Knob 2 — right of center
+                        Rectangle {
+                            anchors.right: parent.right
+                            anchors.rightMargin: Qt.platform.os === "android" ? 68 : 54
+                            anchors.verticalCenter: parent.verticalCenter
+                            width: Qt.platform.os === "android" ? 32 : 25; height: width; radius: width / 2
+                            color: "#0a1f1e"; border.color: "#1a6060"; border.width: 2
+                            Rectangle { width: 4; height: parent.height * 0.4; radius: 2; color: "cyan"; anchors.centerIn: parent; rotation: -30 }
+                        }
+
+                        // Brand — centred
+                        Rectangle {
+                            anchors.centerIn: parent
+                            width: brandCol.implicitWidth + (Qt.platform.os === "android" ? 28 : 20)
+                            height: brandCol.implicitHeight + (Qt.platform.os === "android" ? 14 : 10)
+                            radius: Qt.platform.os === "android" ? 12 : 9
+                            color: "#001413"
+                            border.color: Qt.rgba(0, 1, 1, 0.3); border.width: 1
+
+                            Column {
+                                id: brandCol
+                                anchors.centerIn: parent
+                                spacing: 2
+
+                                Text {
+                                    anchors.horizontalCenter: parent.horizontalCenter
+                                    text: "Utalii wa Tanzania"
+                                    font.pointSize: Qt.platform.os === "android" ? 11 : 9
+                                    font.bold: true
+                                    color: "cyan"
+                                    font.letterSpacing: 2
+                                }
+                                Text {
+                                    anchors.horizontalCenter: parent.horizontalCenter
+                                    text: "Tanzania Tourism"
+                                    font.pointSize: Qt.platform.os === "android" ? 10 : 8
+                                    color: "#1a6060"
+                                }
+                            }
                         }
                     }
                 }
