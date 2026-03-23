@@ -4946,7 +4946,7 @@ Rectangle {
                                 }
                                 Text {
                                     anchors.horizontalCenter: parent.horizontalCenter
-                                    text: "MagabeLab TV v3.1"
+                                    text: "MagabeLab TV v3.2"
                                     font.pointSize: Qt.platform.os === "android" ? 10 : 8
                                     color: "#1a6060";
                                     font.italic: true
@@ -5370,7 +5370,7 @@ Rectangle {
             id: brightOverlay
             anchors.left: parent.left
             anchors.verticalCenter: parent.verticalCenter
-            anchors.leftMargin: Qt.platform.os === "android" ? 16 : 12
+            anchors.leftMargin: Qt.platform.os === "android" ? 28 : 23
             width: Qt.platform.os === "android" ? 56 : 44
             height: Qt.platform.os === "android" ? 200 : 160
             radius: width / 2
@@ -5561,7 +5561,7 @@ Rectangle {
             id: volOverlay
             anchors.right: parent.right
             anchors.verticalCenter: parent.verticalCenter
-            anchors.rightMargin: Qt.platform.os === "android" ? 16 : 12
+            anchors.rightMargin: Qt.platform.os === "android" ? 28 : 23
             width: Qt.platform.os === "android" ? 56 : 44
             height: Qt.platform.os === "android" ? 200 : 160
             radius: width / 2
@@ -6250,13 +6250,13 @@ Rectangle {
                                     text: modelData.icon
                                     font.pointSize: Qt.platform.os === "android" ? 18 : 14
                                     anchors.verticalCenter: parent.verticalCenter
-                                    width: Qt.platform.os === "android" ? 34 : 26
+                                    width: Qt.platform.os === "android" ? 36 : 28
                                     horizontalAlignment: Text.AlignHCenter
                                 }
                                 Column {
                                     anchors.verticalCenter: parent.verticalCenter
                                     spacing: 1
-                                    width: gestureHintsCol.width - (Qt.platform.os === "android" ? 48 : 36)
+                                    width: gestureHintsCol.width - (Qt.platform.os === "android" ? 50 : 38)
                                     Text {
                                         text: modelData.sw
                                         font.pointSize: Qt.platform.os === "android" ? 11 : 8
