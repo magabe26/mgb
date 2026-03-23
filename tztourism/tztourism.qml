@@ -5435,72 +5435,7 @@ Rectangle {
             }
         }
 
-        // ── Fullscreen brightness indicator (left side) ───────────
-        Rectangle {
-            id: fsBrightOverlay
-            anchors.left: parent.left
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.leftMargin: Qt.platform.os === "android" ? 16 : 12
-            width: Qt.platform.os === "android" ? 56 : 44
-            height: Qt.platform.os === "android" ? 200 : 160
-            radius: width / 2
-            color: Qt.rgba(0, 0.08, 0.07, 0.88)
-            border.color: Qt.rgba(1, 0.93, 0, 0.35); border.width: 1
-            z: 550
-            visible: safariTvOverlay.tvFullScreen
-            opacity: 0.0
-            Behavior on opacity { NumberAnimation { duration: 200 } }
-
-            function show() {
-                opacity = 1.0;
-                fsBrightHideTimer.restart();
-            }
-            Timer {
-                id: fsBrightHideTimer
-                interval: 1800
-                onTriggered: { fsBrightOverlay.opacity = 0.0; }
-            }
-
-            Text {
-                anchors.horizontalCenter: parent.horizontalCenter
-                anchors.top: parent.top
-                anchors.topMargin: Qt.platform.os === "android" ? 12 : 9
-                text: "☀"
-                font.pointSize: Qt.platform.os === "android" ? 14 : 11
-                color: "#ffee00"
-            }
-
-            Rectangle {
-                id: fsBrightTrackBg
-                anchors.horizontalCenter: parent.horizontalCenter
-                anchors.top: parent.top
-                anchors.bottom: parent.bottom
-                anchors.topMargin: Qt.platform.os === "android" ? 46 : 36
-                anchors.bottomMargin: Qt.platform.os === "android" ? 38 : 30
-                width: Qt.platform.os === "android" ? 10 : 8
-                radius: width / 2
-                color: Qt.rgba(0.6, 0.6, 0, 0.3)
-            }
-
-            Rectangle {
-                anchors.horizontalCenter: parent.horizontalCenter
-                anchors.bottom: fsBrightTrackBg.bottom
-                width: fsBrightTrackBg.width
-                height: fsBrightTrackBg.height * safariTvOverlay.tvBrightness
-                radius: width / 2
-                color: "#ffee00"
-                Behavior on height { NumberAnimation { duration: 80 } }
-            }
-
-            Text {
-                anchors.horizontalCenter: parent.horizontalCenter
-                anchors.bottom: parent.bottom
-                anchors.bottomMargin: Qt.platform.os === "android" ? 10 : 8
-                text: Math.round(safariTvOverlay.tvBrightness * 100) + "%"
-                font.pointSize: Qt.platform.os === "android" ? 11 : 9
-                font.bold: true; color: "#ffee00"
-            }
-        }
+        // ── Fullscreen brightness indicator — moved inside fsInner ──
 
         // ── PiP (Picture-in-Picture) floating window ───────────────
         Rectangle {
@@ -5677,73 +5612,7 @@ Rectangle {
             }
         }
 
-        // ── Fullscreen volume overlay ──────────────────────────────
-        Rectangle {
-            id: fsVolOverlay
-            anchors.right: parent.right
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.rightMargin: Qt.platform.os === "android" ? 16 : 12
-            width: Qt.platform.os === "android" ? 56 : 44
-            height: Qt.platform.os === "android" ? 200 : 160
-            radius: width / 2
-            color: Qt.rgba(0, 0.08, 0.07, 0.88)
-            border.color: Qt.rgba(0, 1, 1, 0.35); border.width: 1
-            z: 550
-            visible: safariTvOverlay.tvFullScreen
-            opacity: 0.0
-            Behavior on opacity { NumberAnimation { duration: 200 } }
-
-            function show() {
-                opacity = 1.0;
-                fsHideTimer.restart();
-            }
-
-            Timer {
-                id: fsHideTimer
-                interval: 1800
-                onTriggered: { fsVolOverlay.opacity = 0.0; }
-            }
-
-            Text {
-                anchors.horizontalCenter: parent.horizontalCenter
-                anchors.top: parent.top
-                anchors.topMargin: Qt.platform.os === "android" ? 12 : 9
-                text: "🔊"
-                font.pointSize: Qt.platform.os === "android" ? 14 : 11
-            }
-
-            Rectangle {
-                id: fsVolTrackBg
-                anchors.horizontalCenter: parent.horizontalCenter
-                anchors.top: parent.top
-                anchors.bottom: parent.bottom
-                anchors.topMargin: Qt.platform.os === "android" ? 46 : 36
-                anchors.bottomMargin: Qt.platform.os === "android" ? 38 : 30
-                width: Qt.platform.os === "android" ? 10 : 8
-                radius: width / 2
-                color: Qt.rgba(0, 0.3, 0.3, 0.5)
-            }
-
-            Rectangle {
-                anchors.horizontalCenter: parent.horizontalCenter
-                anchors.bottom: fsVolTrackBg.bottom
-                width: fsVolTrackBg.width
-                height: fsVolTrackBg.height * safariTvOverlay.tvVolume
-                radius: width / 2
-                color: "cyan"
-                Behavior on height { NumberAnimation { duration: 80 } }
-            }
-
-            Text {
-                anchors.horizontalCenter: parent.horizontalCenter
-                anchors.bottom: parent.bottom
-                anchors.bottomMargin: Qt.platform.os === "android" ? 10 : 8
-                text: Math.round(safariTvOverlay.tvVolume * 100) + "%"
-                font.pointSize: Qt.platform.os === "android" ? 11 : 9
-                font.bold: true
-                color: "cyan"
-            }
-        }
+        // ── Fullscreen volume overlay — moved inside fsInner ──────
 
         // ── Black fullscreen background (z:499, below videoOut z:500) ──
         Rectangle {
@@ -6384,6 +6253,132 @@ Rectangle {
                                 NumberAnimation { to: 1.0; duration: 900 }
                             }
                         }
+                    }
+                }
+
+                // ── Fullscreen brightness indicator (left, rotates with fsInner) ──
+                Rectangle {
+                    id: fsBrightOverlay
+                    anchors.left: parent.left
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.leftMargin: Qt.platform.os === "android" ? 16 : 12
+                    width: Qt.platform.os === "android" ? 56 : 44
+                    height: Qt.platform.os === "android" ? 200 : 160
+                    radius: width / 2
+                    color: Qt.rgba(0, 0.08, 0.07, 0.88)
+                    border.color: Qt.rgba(1, 0.93, 0, 0.35); border.width: 1
+                    z: 30
+                    opacity: 0.0
+                    Behavior on opacity { NumberAnimation { duration: 200 } }
+
+                    function show() {
+                        opacity = 1.0;
+                        fsBrightHideTimer.restart();
+                    }
+                    Timer {
+                        id: fsBrightHideTimer
+                        interval: 1800
+                        onTriggered: { fsBrightOverlay.opacity = 0.0; }
+                    }
+
+                    Text {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        anchors.top: parent.top
+                        anchors.topMargin: Qt.platform.os === "android" ? 12 : 9
+                        text: "☀"
+                        font.pointSize: Qt.platform.os === "android" ? 14 : 11
+                        color: "#ffee00"
+                    }
+                    Rectangle {
+                        id: fsBrightTrackBg
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        anchors.top: parent.top
+                        anchors.bottom: parent.bottom
+                        anchors.topMargin: Qt.platform.os === "android" ? 46 : 36
+                        anchors.bottomMargin: Qt.platform.os === "android" ? 38 : 30
+                        width: Qt.platform.os === "android" ? 10 : 8
+                        radius: width / 2
+                        color: Qt.rgba(0.6, 0.6, 0, 0.3)
+                    }
+                    Rectangle {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        anchors.bottom: fsBrightTrackBg.bottom
+                        width: fsBrightTrackBg.width
+                        height: fsBrightTrackBg.height * safariTvOverlay.tvBrightness
+                        radius: width / 2
+                        color: "#ffee00"
+                        Behavior on height { NumberAnimation { duration: 80 } }
+                    }
+                    Text {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        anchors.bottom: parent.bottom
+                        anchors.bottomMargin: Qt.platform.os === "android" ? 10 : 8
+                        text: Math.round(safariTvOverlay.tvBrightness * 100) + "%"
+                        font.pointSize: Qt.platform.os === "android" ? 11 : 9
+                        font.bold: true; color: "#ffee00"
+                    }
+                }
+
+                // ── Fullscreen volume indicator (right, rotates with fsInner) ──
+                Rectangle {
+                    id: fsVolOverlay
+                    anchors.right: parent.right
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.rightMargin: Qt.platform.os === "android" ? 16 : 12
+                    width: Qt.platform.os === "android" ? 56 : 44
+                    height: Qt.platform.os === "android" ? 200 : 160
+                    radius: width / 2
+                    color: Qt.rgba(0, 0.08, 0.07, 0.88)
+                    border.color: Qt.rgba(0, 1, 1, 0.35); border.width: 1
+                    z: 30
+                    opacity: 0.0
+                    Behavior on opacity { NumberAnimation { duration: 200 } }
+
+                    function show() {
+                        opacity = 1.0;
+                        fsHideTimer.restart();
+                    }
+                    Timer {
+                        id: fsHideTimer
+                        interval: 1800
+                        onTriggered: { fsVolOverlay.opacity = 0.0; }
+                    }
+
+                    Text {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        anchors.top: parent.top
+                        anchors.topMargin: Qt.platform.os === "android" ? 12 : 9
+                        text: "🔊"
+                        font.pointSize: Qt.platform.os === "android" ? 14 : 11
+                    }
+                    Rectangle {
+                        id: fsVolTrackBg
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        anchors.top: parent.top
+                        anchors.bottom: parent.bottom
+                        anchors.topMargin: Qt.platform.os === "android" ? 46 : 36
+                        anchors.bottomMargin: Qt.platform.os === "android" ? 38 : 30
+                        width: Qt.platform.os === "android" ? 10 : 8
+                        radius: width / 2
+                        color: Qt.rgba(0, 0.3, 0.3, 0.5)
+                    }
+                    Rectangle {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        anchors.bottom: fsVolTrackBg.bottom
+                        width: fsVolTrackBg.width
+                        height: fsVolTrackBg.height * safariTvOverlay.tvVolume
+                        radius: width / 2
+                        color: "cyan"
+                        Behavior on height { NumberAnimation { duration: 80 } }
+                    }
+                    Text {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        anchors.bottom: parent.bottom
+                        anchors.bottomMargin: Qt.platform.os === "android" ? 10 : 8
+                        text: Math.round(safariTvOverlay.tvVolume * 100) + "%"
+                        font.pointSize: Qt.platform.os === "android" ? 11 : 9
+                        font.bold: true
+                        color: "cyan"
                     }
                 }
 
