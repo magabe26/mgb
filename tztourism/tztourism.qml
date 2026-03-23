@@ -5433,6 +5433,21 @@ Rectangle {
                 font.pointSize: Qt.platform.os === "android" ? 11 : 9
                 font.bold: true; color: "#ffee00"
             }
+
+            // Click anywhere on pill to set brightness
+            MouseArea {
+                anchors.fill: brightTrackBg
+                anchors.margins: -10
+                onPressed: {
+                    var level = 1.0 - (mouseY / brightTrackBg.height);
+                    safariTvOverlay.tvBrightness = Math.max(0.1, Math.min(1.0, level));
+                    brightOverlay.show();
+                }
+                onPositionChanged: {
+                    var level = 1.0 - (mouseY / brightTrackBg.height);
+                    safariTvOverlay.tvBrightness = Math.max(0.1, Math.min(1.0, level));
+                }
+            }
         }
 
         // ── Fullscreen brightness indicator — moved inside fsInner ──
@@ -5610,6 +5625,21 @@ Rectangle {
                 font.bold: true
                 color: "cyan"
             }
+
+            // Click anywhere on pill to set volume
+            MouseArea {
+                anchors.fill: volTrackBg
+                anchors.margins: -10
+                onPressed: {
+                    var level = 1.0 - (mouseY / volTrackBg.height);
+                    safariTvOverlay.tvVolume = Math.max(0.0, Math.min(1.0, level));
+                    volOverlay.show();
+                }
+                onPositionChanged: {
+                    var level = 1.0 - (mouseY / volTrackBg.height);
+                    safariTvOverlay.tvVolume = Math.max(0.0, Math.min(1.0, level));
+                }
+            }
         }
 
         // ── Fullscreen volume overlay — moved inside fsInner ──────
@@ -5715,141 +5745,151 @@ Rectangle {
                     z: 1
                     visible: safariPlayer.playbackState !== MediaPlayer.PlayingState
                              && safariPlayer.playbackState !== MediaPlayer.PausedState
+                }
 
-                    // ERROR STATE
-                    Column {
-                        anchors.centerIn: parent
-                        spacing: Qt.platform.os === "android" ? 14 : 10
-                        visible: safariTvOverlay.streamError
+                // ── ERROR STATE (at fsInner level, z:10) ──────────
+                Column {
+                    anchors.centerIn: parent
+                    anchors.verticalCenterOffset: -(Qt.platform.os === "android" ? 40 : 30)
+                    spacing: Qt.platform.os === "android" ? 14 : 10
+                    z: 10
+                    visible: safariTvOverlay.streamError
+                             && safariPlayer.playbackState !== MediaPlayer.PlayingState
+                             && safariPlayer.playbackState !== MediaPlayer.PausedState
 
-                        Text {
-                            anchors.horizontalCenter: parent.horizontalCenter
-                            text: "⚠"
-                            font.pointSize: Qt.platform.os === "android" ? 42 : 34
-                            color: "#ffaa00"
-                            SequentialAnimation on opacity {
-                                loops: Animation.Infinite
-                                NumberAnimation { to: 0.4; duration: 800 }
-                                NumberAnimation { to: 1.0; duration: 800 }
-                            }
-                        }
-                        Text {
-                            anchors.horizontalCenter: parent.horizontalCenter
-                            width: fsInner.width * 0.75
-                            wrapMode: Text.WordWrap
-                            horizontalAlignment: Text.AlignHCenter
-                            text: safariTvOverlay.streamErrorMsg === "network"
-                                  ? "Hitilafu ya mtandao.\nThibitisha muunganiko wako."
-                                  : "Stream haipatikani kwa sasa."
-                            font.pointSize: Qt.platform.os === "android" ? 13 : 10
-                            font.bold: true; color: "#ffaa00"
-                        }
-                        Text {
-                            anchors.horizontalCenter: parent.horizontalCenter
-                            width: fsInner.width * 0.75
-                            wrapMode: Text.WordWrap
-                            horizontalAlignment: Text.AlignHCenter
-                            text: safariTvOverlay.streamErrorMsg === "network"
-                                  ? "Network error. Check your connection."
-                                  : "Stream unavailable at the moment."
-                            font.pointSize: Qt.platform.os === "android" ? 10 : 8
-                            color: "#cc8800"; font.italic: true
-                        }
-                        // Retry button
-                        Rectangle {
-                            id: fsRetryBtn
-                            anchors.horizontalCenter: parent.horizontalCenter
-                            width: fsRetryRow.implicitWidth + (Qt.platform.os === "android" ? 40 : 30)
-                            height: Qt.platform.os === "android" ? 52 : 40
-                            radius: height / 2
-                            color: fsRetryMA.pressed ? "#3a2200" : "#1a0e00"
-                            border.color: fsRetryMA.pressed ? "#ffcc00" : "#ffaa00"
-                            border.width: fsRetryMA.pressed ? 3 : 2
-                            opacity: fsRetryMA.pressed ? 0.7 : 1.0
-                            Behavior on color        { ColorAnimation  { duration: 80 } }
-                            Behavior on border.color { ColorAnimation  { duration: 80 } }
-                            Behavior on border.width { NumberAnimation { duration: 80 } }
-                            Behavior on opacity      { NumberAnimation { duration: 80 } }
-
-                            Rectangle {
-                                anchors.fill: parent; radius: parent.radius
-                                color: Qt.rgba(1, 0.7, 0, 0.22)
-                                opacity: fsRetryMA.pressed ? 1.0 : 0.0
-                                Behavior on opacity { NumberAnimation { duration: 80 } }
-                            }
-                            Row {
-                                id: fsRetryRow
-                                anchors.centerIn: parent
-                                spacing: Qt.platform.os === "android" ? 8 : 6
-                                // Canvas-drawn retry icon
-                                Item {
-                                    id: fsRetryArrow
-                                    width: Qt.platform.os === "android" ? 26 : 20
-                                    height: width
-                                    anchors.verticalCenter: parent.verticalCenter
-                                    RotationAnimation on rotation {
-                                        id: fsRetrySpinAnim
-                                        from: 0; to: -360
-                                        duration: 450
-                                        running: false
-                                        easing.type: Easing.OutCubic
-                                    }
-                                    Canvas {
-                                        anchors.fill: parent
-                                        onPaint: {
-                                            var ctx = getContext("2d");
-                                            ctx.clearRect(0, 0, width, height);
-                                            var cx = width/2; var cy = height/2;
-                                            var r = width * 0.36;
-                                            ctx.strokeStyle = "#ffaa00";
-                                            ctx.lineWidth = width * 0.13;
-                                            ctx.lineCap = "round";
-                                            ctx.beginPath();
-                                            ctx.arc(cx, cy, r, -Math.PI * 0.65, Math.PI * 0.85);
-                                            ctx.stroke();
-                                            ctx.fillStyle = "#ffaa00";
-                                            var ax = cx + r * Math.cos(Math.PI * 0.85);
-                                            var ay = cy + r * Math.sin(Math.PI * 0.85);
-                                            ctx.beginPath();
-                                            ctx.moveTo(ax - width*0.12, ay - height*0.04);
-                                            ctx.lineTo(ax + width*0.06, ay + height*0.15);
-                                            ctx.lineTo(ax + width*0.13, ay - height*0.12);
-                                            ctx.closePath(); ctx.fill();
-                                        }
-                                        Component.onCompleted: { requestPaint(); }
-                                    }
-                                }
-                                Text {
-                                    text: "Jaribu tena  ·  Retry"
-                                    font.pointSize: Qt.platform.os === "android" ? 14 : 11
-                                    font.bold: true; color: "#ffaa00"
-                                    anchors.verticalCenter: parent.verticalCenter
-                                }
-                            }
-                            MouseArea {
-                                id: fsRetryMA
-                                anchors.fill: parent
-                                onReleased: {
-                                    fsRetrySpinAnim.restart();
-                                    safariTvOverlay.streamError = false;
-                                    safariTvOverlay.streamErrorMsg = "";
-                                    safariPlayer.stop();
-                                    safariPlayer.play();
-                                }
-                            }
-                        }
-                    }
-
-                    // IDLE STATE
                     Text {
-                        anchors.centerIn: parent
-                        text: "📡"
-                        font.pointSize: Qt.platform.os === "android" ? 40 : 32
-                        visible: !safariTvOverlay.streamError
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        text: "⚠"
+                        font.pointSize: Qt.platform.os === "android" ? 42 : 34
+                        color: "#ffaa00"
                         SequentialAnimation on opacity {
                             loops: Animation.Infinite
-                            NumberAnimation { to: 0.4; duration: 1200 }
-                            NumberAnimation { to: 1.0; duration: 1200 }
+                            NumberAnimation { to: 0.4; duration: 800 }
+                            NumberAnimation { to: 1.0; duration: 800 }
+                        }
+                    }
+                    Text {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        width: fsInner.width * 0.75
+                        wrapMode: Text.WordWrap
+                        horizontalAlignment: Text.AlignHCenter
+                        text: safariTvOverlay.streamErrorMsg === "network"
+                              ? "Hitilafu ya mtandao.\nThibitisha muunganiko wako."
+                              : "Stream haipatikani kwa sasa."
+                        font.pointSize: Qt.platform.os === "android" ? 13 : 10
+                        font.bold: true; color: "#ffaa00"
+                    }
+                    Text {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        width: fsInner.width * 0.75
+                        wrapMode: Text.WordWrap
+                        horizontalAlignment: Text.AlignHCenter
+                        text: safariTvOverlay.streamErrorMsg === "network"
+                              ? "Network error. Check your connection."
+                              : "Stream unavailable at the moment."
+                        font.pointSize: Qt.platform.os === "android" ? 10 : 8
+                        color: "#cc8800"; font.italic: true
+                    }
+                }
+
+                // ── IDLE STATE (at fsInner level, z:10) ───────────
+                Text {
+                    anchors.centerIn: parent
+                    text: "📡"
+                    font.pointSize: Qt.platform.os === "android" ? 40 : 32
+                    z: 10
+                    visible: !safariTvOverlay.streamError
+                             && safariPlayer.playbackState !== MediaPlayer.PlayingState
+                             && safariPlayer.playbackState !== MediaPlayer.PausedState
+                    SequentialAnimation on opacity {
+                        loops: Animation.Infinite
+                        NumberAnimation { to: 0.4; duration: 1200 }
+                        NumberAnimation { to: 1.0; duration: 1200 }
+                    }
+                }
+
+                // ── Retry button — at fsInner level, above gesture MouseArea ──
+                Rectangle {
+                    id: fsRetryBtn
+                    anchors.centerIn: parent
+                    anchors.verticalCenterOffset: Qt.platform.os === "android" ? 60 : 46
+                    width: fsRetryRow.implicitWidth + (Qt.platform.os === "android" ? 40 : 30)
+                    height: Qt.platform.os === "android" ? 52 : 40
+                    radius: height / 2
+                    z: 10
+                    visible: safariTvOverlay.streamError
+                             && safariPlayer.playbackState !== MediaPlayer.PlayingState
+                             && safariPlayer.playbackState !== MediaPlayer.PausedState
+                    color: fsRetryMA.pressed ? "#3a2200" : "#1a0e00"
+                    border.color: fsRetryMA.pressed ? "#ffcc00" : "#ffaa00"
+                    border.width: fsRetryMA.pressed ? 3 : 2
+                    opacity: fsRetryMA.pressed ? 0.7 : 1.0
+                    Behavior on color        { ColorAnimation  { duration: 80 } }
+                    Behavior on border.color { ColorAnimation  { duration: 80 } }
+                    Behavior on border.width { NumberAnimation { duration: 80 } }
+                    Behavior on opacity      { NumberAnimation { duration: 80 } }
+                    Rectangle {
+                        anchors.fill: parent; radius: parent.radius
+                        color: Qt.rgba(1, 0.7, 0, 0.22)
+                        opacity: fsRetryMA.pressed ? 1.0 : 0.0
+                        Behavior on opacity { NumberAnimation { duration: 80 } }
+                    }
+                    Row {
+                        id: fsRetryRow
+                        anchors.centerIn: parent
+                        spacing: Qt.platform.os === "android" ? 8 : 6
+                        Item {
+                            id: fsRetryArrow
+                            width: Qt.platform.os === "android" ? 26 : 20
+                            height: width
+                            anchors.verticalCenter: parent.verticalCenter
+                            RotationAnimation on rotation {
+                                id: fsRetrySpinAnim
+                                from: 0; to: -360
+                                duration: 450; running: false
+                                easing.type: Easing.OutCubic
+                            }
+                            Canvas {
+                                anchors.fill: parent
+                                onPaint: {
+                                    var ctx = getContext("2d");
+                                    ctx.clearRect(0, 0, width, height);
+                                    var cx = width/2; var cy = height/2;
+                                    var r = width * 0.36;
+                                    ctx.strokeStyle = "#ffaa00";
+                                    ctx.lineWidth = width * 0.13;
+                                    ctx.lineCap = "round";
+                                    ctx.beginPath();
+                                    ctx.arc(cx, cy, r, -Math.PI * 0.65, Math.PI * 0.85);
+                                    ctx.stroke();
+                                    ctx.fillStyle = "#ffaa00";
+                                    var ax = cx + r * Math.cos(Math.PI * 0.85);
+                                    var ay = cy + r * Math.sin(Math.PI * 0.85);
+                                    ctx.beginPath();
+                                    ctx.moveTo(ax - width*0.12, ay - height*0.04);
+                                    ctx.lineTo(ax + width*0.06, ay + height*0.15);
+                                    ctx.lineTo(ax + width*0.13, ay - height*0.12);
+                                    ctx.closePath(); ctx.fill();
+                                }
+                                Component.onCompleted: { requestPaint(); }
+                            }
+                        }
+                        Text {
+                            text: "Jaribu tena  ·  Retry"
+                            font.pointSize: Qt.platform.os === "android" ? 14 : 11
+                            font.bold: true; color: "#ffaa00"
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+                    }
+                    MouseArea {
+                        id: fsRetryMA
+                        anchors.fill: parent
+                        onReleased: {
+                            fsRetrySpinAnim.restart();
+                            safariTvOverlay.streamError = false;
+                            safariTvOverlay.streamErrorMsg = "";
+                            safariPlayer.stop();
+                            safariPlayer.play();
                         }
                     }
                 }
@@ -6167,6 +6207,7 @@ Rectangle {
                     // Gonga card kuifunga mapema
                     MouseArea {
                         anchors.fill: parent
+                        enabled: gestureHintsCard.opacity > 0
                         onClicked: {
                             gestureHideTimer.stop();
                             gestureHintsCard.opacity = 0.0;
@@ -6317,6 +6358,21 @@ Rectangle {
                         font.pointSize: Qt.platform.os === "android" ? 11 : 9
                         font.bold: true; color: "#ffee00"
                     }
+
+                    // Click/drag to set brightness
+                    MouseArea {
+                        anchors.fill: fsBrightTrackBg
+                        anchors.margins: -10
+                        onPressed: {
+                            var level = 1.0 - (mouseY / fsBrightTrackBg.height);
+                            safariTvOverlay.tvBrightness = Math.max(0.1, Math.min(1.0, level));
+                            fsBrightOverlay.show();
+                        }
+                        onPositionChanged: {
+                            var level = 1.0 - (mouseY / fsBrightTrackBg.height);
+                            safariTvOverlay.tvBrightness = Math.max(0.1, Math.min(1.0, level));
+                        }
+                    }
                 }
 
                 // ── Fullscreen volume indicator (right, rotates with fsInner) ──
@@ -6379,6 +6435,21 @@ Rectangle {
                         font.pointSize: Qt.platform.os === "android" ? 11 : 9
                         font.bold: true
                         color: "cyan"
+                    }
+
+                    // Click/drag to set volume
+                    MouseArea {
+                        anchors.fill: fsVolTrackBg
+                        anchors.margins: -10
+                        onPressed: {
+                            var level = 1.0 - (mouseY / fsVolTrackBg.height);
+                            safariTvOverlay.tvVolume = Math.max(0.0, Math.min(1.0, level));
+                            fsVolOverlay.show();
+                        }
+                        onPositionChanged: {
+                            var level = 1.0 - (mouseY / fsVolTrackBg.height);
+                            safariTvOverlay.tvVolume = Math.max(0.0, Math.min(1.0, level));
+                        }
                     }
                 }
 
