@@ -6286,7 +6286,6 @@ Rectangle {
                         interval: 4800
                         onTriggered: {
                             gestureHintsCard.opacity = 1.0;
-                            gestureHideTimer.restart();
                         }
                     }
 
@@ -6294,6 +6293,15 @@ Rectangle {
                         id: gestureHideTimer
                         interval: 4500
                         onTriggered: { gestureHintsCard.opacity = 0.0; }
+                    }
+
+                    // Gonga card kuifunga mapema
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: {
+                            gestureHideTimer.stop();
+                            gestureHintsCard.opacity = 0.0;
+                        }
                     }
 
                     Column {
@@ -6354,6 +6362,26 @@ Rectangle {
                                         wrapMode: Text.WordWrap
                                     }
                                 }
+                            }
+                        }
+
+                        // Divider
+                        Rectangle {
+                            width: parent.width; height: 1
+                            color: Qt.rgba(0, 1, 1, 0.12)
+                        }
+
+                        // Tap to close hint
+                        Text {
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            text: "Gonga hapa kufunga  ·  Tap to close"
+                            font.pointSize: Qt.platform.os === "android" ? 9 : 7
+                            color: Qt.rgba(0, 1, 1, 0.40)
+                            font.italic: true
+                            SequentialAnimation on opacity {
+                                loops: Animation.Infinite
+                                NumberAnimation { to: 0.4; duration: 900 }
+                                NumberAnimation { to: 1.0; duration: 900 }
                             }
                         }
                     }
