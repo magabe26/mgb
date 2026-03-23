@@ -5325,22 +5325,28 @@ Rectangle {
                     }
 
                     // ── CONTROLS ROW ───────────────────────────────────────
-                    Row {
+                    Item {
                         id: controlsRow
                         anchors.horizontalCenter: parent.horizontalCenter
-                        spacing: Qt.platform.os === "android" ? 12 : 9
+                        width: parent.width
+                        height: Qt.platform.os === "android" ? 72 : 58
                         property int btnSize: Qt.platform.os === "android" ? 48 : 38
+                        property int smallSize: Qt.platform.os === "android" ? 40 : 32
+                        property int playSize: Qt.platform.os === "android" ? 64 : 52
+                        property int sideGap: Qt.platform.os === "android" ? 7 : 5
 
-                        // ── STOP ──────────────────────────────
+                        // ── STOP — left of centre group ────────────
                         Rectangle {
                             id: stopBtn
-                            width: controlsRow.btnSize; height: controlsRow.btnSize; radius: controlsRow.btnSize / 2
+                            anchors.right: parent.horizontalCenter
+                            anchors.rightMargin: (controlsRow.smallSize + controlsRow.playSize / 2) + controlsRow.sideGap * 2 + (Qt.platform.os === "android" ? 10 : 8)
+                            anchors.verticalCenter: parent.verticalCenter
+                            width: controlsRow.btnSize; height: width; radius: width / 2
                             color: stopMA.pressed ? "#1a0a0a" : "#0d0505"
                             border.color: "#cc4444"; border.width: stopMA.pressed ? 3 : 2
                             Behavior on color { ColorAnimation { duration: 100 } }
                             Behavior on border.width { NumberAnimation { duration: 100 } }
                             Behavior on scale { NumberAnimation { duration: 100 } }
-                            // Glow overlay
                             Rectangle {
                                 anchors.fill: parent; radius: parent.radius
                                 color: Qt.rgba(0.8, 0.1, 0.1, 0.25)
@@ -5366,175 +5372,13 @@ Rectangle {
                             }
                         }
 
-                        // ── REWIND ────────────────────────────
-                        Rectangle {
-                            id: rwBtn
-                            width: controlsRow.btnSize; height: controlsRow.btnSize; radius: controlsRow.btnSize / 2
-                            color: rwMA.pressed ? "#1a6060" : "#0d3a38"
-                            border.color: "cyan"; border.width: 2
-                            Behavior on color { ColorAnimation { duration: 100 } }
-                            Behavior on scale { NumberAnimation { duration: 100 } }
-                            Canvas {
-                                anchors.fill: parent
-                                onPaint: {
-                                    var ctx = getContext("2d");
-                                    ctx.clearRect(0, 0, width, height);
-                                    ctx.fillStyle = "cyan";
-                                    var cx = width / 2; var cy = height / 2;
-                                    var tw = width * 0.26; var th = height * 0.44;
-                                    var bw = width * 0.07; var gap = width * 0.04;
-                                    // Exact mirror of forward using canvas flip
-                                    ctx.save();
-                                    ctx.translate(width, 0);
-                                    ctx.scale(-1, 1);
-                                    // left triangle (pointing right in flipped space = left in normal)
-                                    ctx.beginPath();
-                                    ctx.moveTo(cx - tw - gap/2,      cy - th/2);
-                                    ctx.lineTo(cx - gap/2,            cy);
-                                    ctx.lineTo(cx - tw - gap/2,      cy + th/2);
-                                    ctx.closePath(); ctx.fill();
-                                    // right triangle
-                                    ctx.beginPath();
-                                    ctx.moveTo(cx + gap/2,            cy - th/2);
-                                    ctx.lineTo(cx + tw + gap/2,       cy);
-                                    ctx.lineTo(cx + gap/2,            cy + th/2);
-                                    ctx.closePath(); ctx.fill();
-                                    // right bar
-                                    ctx.fillRect(cx + tw + gap/2 + gap, cy - th/2, bw, th);
-                                    ctx.restore();
-                                }
-                                Component.onCompleted: { requestPaint(); }
-                            }
-                            MouseArea {
-                                id: rwMA; anchors.fill: parent
-                                onPressed:  rwBtn.scale = 0.9
-                                onReleased: { rwBtn.scale = 1.0; showToastMessage("Rewind — Live stream haiwezi kurudi nyuma"); }
-                                onCanceled: rwBtn.scale = 1.0
-                            }
-                        }
-
-                        // ── PLAY / PAUSE ──────────────────────
-                        Item {
-                            width: controlsRow.btnSize * 1.35; height: controlsRow.btnSize * 1.35
-                            // Glow rings
-                            Rectangle {
-                                anchors.centerIn: parent
-                                width: parent.width + (Qt.platform.os === "android" ? 16 : 12)
-                                height: width; radius: width / 2
-                                color: "transparent"
-                                border.color: "cyan"; border.width: Qt.platform.os === "android" ? 3 : 2
-                                opacity: playMA.pressed ? 0.7 : 0.0
-                                Behavior on opacity { NumberAnimation { duration: 150 } }
-                            }
-                            Rectangle {
-                                anchors.centerIn: parent
-                                width: parent.width + (Qt.platform.os === "android" ? 30 : 24)
-                                height: width; radius: width / 2
-                                color: "transparent"
-                                border.color: "cyan"; border.width: Qt.platform.os === "android" ? 2 : 1
-                                opacity: playMA.pressed ? 0.25 : 0.0
-                                Behavior on opacity { NumberAnimation { duration: 150 } }
-                            }
-                            Rectangle {
-                                id: playBtn
-                                anchors.centerIn: parent
-                                width: parent.width; height: parent.height
-                                radius: width / 2
-                                color: playMA.pressed ? "#1a6060" : "#0d3a38"
-                                border.color: "cyan"; border.width: 3
-                                Behavior on color { ColorAnimation { duration: 100 } }
-                                Behavior on scale { NumberAnimation { duration: 100 } }
-                                Canvas {
-                                    id: playIconCanvas
-                                    anchors.fill: parent
-                                    onPaint: {
-                                        var ctx = getContext("2d");
-                                        ctx.clearRect(0, 0, width, height);
-                                        ctx.fillStyle = "cyan";
-                                        var cx = width / 2; var cy = height / 2;
-                                        var playing = safariPlayer.playbackState === MediaPlayer.PlayingState;
-                                        if (playing) {
-                                            var bw = width * 0.12; var bh = height * 0.42; var gap = width * 0.10;
-                                            ctx.fillRect(cx - gap/2 - bw, cy - bh/2, bw, bh);
-                                            ctx.fillRect(cx + gap/2,       cy - bh/2, bw, bh);
-                                        } else {
-                                            var tw = width * 0.38; var th = height * 0.44;
-                                            ctx.beginPath();
-                                            ctx.moveTo(cx - tw/2 + width*0.03, cy - th/2);
-                                            ctx.lineTo(cx + tw/2 + width*0.03, cy);
-                                            ctx.lineTo(cx - tw/2 + width*0.03, cy + th/2);
-                                            ctx.closePath(); ctx.fill();
-                                        }
-                                    }
-                                    Component.onCompleted: { requestPaint(); }
-                                    Connections {
-                                        target: safariPlayer
-                                        onPlaybackStateChanged: { playIconCanvas.requestPaint(); }
-                                    }
-                                }
-                                MouseArea {
-                                    id: playMA; anchors.fill: parent
-                                    onPressed:  playBtn.scale = 0.9
-                                    onReleased: {
-                                        playBtn.scale = 1.0;
-                                        if (safariPlayer.playbackState === MediaPlayer.PlayingState) {
-                                            safariPlayer.pause();
-                                        } else {
-                                            safariPlayer.play();
-                                        }
-                                        playIconCanvas.requestPaint();
-                                    }
-                                    onCanceled: playBtn.scale = 1.0
-                                }
-                            }
-                        }
-
-                        // ── FORWARD ───────────────────────────
-                        Rectangle {
-                            id: ffBtn
-                            width: controlsRow.btnSize; height: controlsRow.btnSize; radius: controlsRow.btnSize / 2
-                            color: ffMA.pressed ? "#1a6060" : "#0d3a38"
-                            border.color: "cyan"; border.width: 2
-                            Behavior on color { ColorAnimation { duration: 100 } }
-                            Behavior on scale { NumberAnimation { duration: 100 } }
-                            Canvas {
-                                anchors.fill: parent
-                                onPaint: {
-                                    var ctx = getContext("2d");
-                                    ctx.clearRect(0, 0, width, height);
-                                    ctx.fillStyle = "cyan";
-                                    var cx = width / 2; var cy = height / 2;
-                                    var tw = width * 0.26; var th = height * 0.44;
-                                    var bw = width * 0.07;
-                                    // left triangle (pointing right)
-                                    ctx.beginPath();
-                                    ctx.moveTo(cx - tw - bw * 0.5 - tw * 0.1, cy - th/2);
-                                    ctx.lineTo(cx - bw * 0.5 - tw * 0.1, cy);
-                                    ctx.lineTo(cx - tw - bw * 0.5 - tw * 0.1, cy + th/2);
-                                    ctx.closePath(); ctx.fill();
-                                    // right triangle (pointing right)
-                                    ctx.beginPath();
-                                    ctx.moveTo(cx - bw * 0.5 + tw * 0.1, cy - th/2);
-                                    ctx.lineTo(cx + tw * 0.9 - bw * 0.5, cy);
-                                    ctx.lineTo(cx - bw * 0.5 + tw * 0.1, cy + th/2);
-                                    ctx.closePath(); ctx.fill();
-                                    // right bar
-                                    ctx.fillRect(cx + tw * 0.9 - bw * 0.5 + tw * 0.1, cy - th/2, bw, th);
-                                }
-                                Component.onCompleted: { requestPaint(); }
-                            }
-                            MouseArea {
-                                id: ffMA; anchors.fill: parent
-                                onPressed:  ffBtn.scale = 0.9
-                                onReleased: { ffBtn.scale = 1.0; showToastMessage("Fast-forward — Live stream inaendelea"); }
-                                onCanceled: ffBtn.scale = 1.0
-                            }
-                        }
-
-                        // ── VOLUME ────────────────────────────
+                        // ── VOLUME — right of centre group ─────
                         Rectangle {
                             id: volBtn
-                            width: controlsRow.btnSize; height: controlsRow.btnSize; radius: controlsRow.btnSize / 2
+                            anchors.left: parent.horizontalCenter
+                            anchors.leftMargin: (controlsRow.smallSize + controlsRow.playSize / 2) + controlsRow.sideGap * 2 + (Qt.platform.os === "android" ? 10 : 8)
+                            anchors.verticalCenter: parent.verticalCenter
+                            width: controlsRow.btnSize; height: width; radius: width / 2
                             color: volMA.pressed ? "#1a6060" : "#0d3a38"
                             border.color: "cyan"; border.width: 2
                             Behavior on color { ColorAnimation { duration: 100 } }
@@ -5549,8 +5393,9 @@ Rectangle {
                                     ctx.clearRect(0, 0, width, height);
                                     var cx = width * 0.38; var cy = height / 2;
                                     var bh = height * 0.38; var bw = width * 0.22;
+                                    ctx.save();
+                                    ctx.translate(width/2, cy); ctx.scale(0.75, 0.75); ctx.translate(-width/2, -cy);
                                     ctx.fillStyle = "cyan";
-                                    // speaker body
                                     ctx.beginPath();
                                     ctx.moveTo(cx - bw, cy - bh * 0.5);
                                     ctx.lineTo(cx, cy - bh * 0.5);
@@ -5582,6 +5427,7 @@ Rectangle {
                                         ctx.lineTo(cx + bw * 1.1, cy + height * 0.22);
                                         ctx.stroke();
                                     }
+                                    ctx.restore();
                                 }
                                 Component.onCompleted: { requestPaint(); }
                             }
@@ -5594,6 +5440,177 @@ Rectangle {
                                     volIconCanvas.requestPaint();
                                 }
                                 onCanceled: volBtn.scale = 1.0
+                            }
+                        }
+
+                        // ── CENTRE GROUP: Rewind + Play + Forward ──
+                        Row {
+                            anchors.centerIn: parent
+                            spacing: Qt.platform.os === "android" ? 10 : 8
+
+                            // REWIND
+                            Rectangle {
+                                id: rwBtn
+                                width: controlsRow.smallSize; height: width; radius: width / 2
+                                anchors.verticalCenter: parent.verticalCenter
+                                color: rwMA.pressed ? "#1a6060" : "#0d3a38"
+                                border.color: "cyan"; border.width: 2
+                                Behavior on color { ColorAnimation { duration: 100 } }
+                                Behavior on scale { NumberAnimation { duration: 100 } }
+                                Canvas {
+                                    anchors.fill: parent
+                                    onPaint: {
+                                        var ctx = getContext("2d");
+                                        ctx.clearRect(0, 0, width, height);
+                                        ctx.fillStyle = "cyan";
+                                        var cx = width / 2; var cy = height / 2;
+                                        ctx.save();
+                                        ctx.translate(cx, cy); ctx.scale(0.75, 0.75); ctx.translate(-cx, -cy);
+                                        var tw = width * 0.26; var th = height * 0.44;
+                                        var bw = width * 0.07; var gap = width * 0.04;
+                                        ctx.save();
+                                        ctx.translate(width, 0);
+                                        ctx.scale(-1, 1);
+                                        ctx.beginPath();
+                                        ctx.moveTo(cx - tw - gap/2, cy - th/2);
+                                        ctx.lineTo(cx - gap/2, cy);
+                                        ctx.lineTo(cx - tw - gap/2, cy + th/2);
+                                        ctx.closePath(); ctx.fill();
+                                        ctx.beginPath();
+                                        ctx.moveTo(cx + gap/2, cy - th/2);
+                                        ctx.lineTo(cx + tw + gap/2, cy);
+                                        ctx.lineTo(cx + gap/2, cy + th/2);
+                                        ctx.closePath(); ctx.fill();
+                                        ctx.fillRect(cx + tw + gap/2 + gap, cy - th/2, bw, th);
+                                        ctx.restore();
+                                        ctx.restore();
+                                    }
+                                    Component.onCompleted: { requestPaint(); }
+                                }
+                                MouseArea {
+                                    id: rwMA; anchors.fill: parent
+                                    onPressed:  rwBtn.scale = 0.9
+                                    onReleased: { rwBtn.scale = 1.0; showToastMessage("Rewind — Live stream haiwezi kurudi nyuma"); }
+                                    onCanceled: rwBtn.scale = 1.0
+                                }
+                            }
+
+                            // PLAY / PAUSE — kubwa
+                            Item {
+                                width: controlsRow.playSize; height: width
+                                anchors.verticalCenter: parent.verticalCenter
+                                Rectangle {
+                                    anchors.centerIn: parent
+                                    width: parent.width + (Qt.platform.os === "android" ? 16 : 12)
+                                    height: width; radius: width / 2
+                                    color: "transparent"
+                                    border.color: "cyan"; border.width: Qt.platform.os === "android" ? 3 : 2
+                                    opacity: playMA.pressed ? 0.7 : 0.0
+                                    Behavior on opacity { NumberAnimation { duration: 150 } }
+                                }
+                                Rectangle {
+                                    anchors.centerIn: parent
+                                    width: parent.width + (Qt.platform.os === "android" ? 30 : 24)
+                                    height: width; radius: width / 2
+                                    color: "transparent"
+                                    border.color: "cyan"; border.width: Qt.platform.os === "android" ? 2 : 1
+                                    opacity: playMA.pressed ? 0.25 : 0.0
+                                    Behavior on opacity { NumberAnimation { duration: 150 } }
+                                }
+                                Rectangle {
+                                    id: playBtn
+                                    anchors.centerIn: parent
+                                    width: parent.width; height: width; radius: width / 2
+                                    color: playMA.pressed ? "#1a6060" : "#0d3a38"
+                                    border.color: "cyan"; border.width: 3
+                                    Behavior on color { ColorAnimation { duration: 100 } }
+                                    Behavior on scale { NumberAnimation { duration: 100 } }
+                                    Canvas {
+                                        id: playIconCanvas
+                                        anchors.fill: parent
+                                        onPaint: {
+                                            var ctx = getContext("2d");
+                                            ctx.clearRect(0, 0, width, height);
+                                            ctx.fillStyle = "cyan";
+                                            var cx = width / 2; var cy = height / 2;
+                                            var playing = safariPlayer.playbackState === MediaPlayer.PlayingState;
+                                            if (playing) {
+                                                var bw = width * 0.12; var bh = height * 0.42; var gap = width * 0.10;
+                                                ctx.fillRect(cx - gap/2 - bw, cy - bh/2, bw, bh);
+                                                ctx.fillRect(cx + gap/2, cy - bh/2, bw, bh);
+                                            } else {
+                                                var tw = width * 0.38; var th = height * 0.44;
+                                                ctx.beginPath();
+                                                ctx.moveTo(cx - tw/2 + width*0.03, cy - th/2);
+                                                ctx.lineTo(cx + tw/2 + width*0.03, cy);
+                                                ctx.lineTo(cx - tw/2 + width*0.03, cy + th/2);
+                                                ctx.closePath(); ctx.fill();
+                                            }
+                                        }
+                                        Component.onCompleted: { requestPaint(); }
+                                        Connections {
+                                            target: safariPlayer
+                                            onPlaybackStateChanged: { playIconCanvas.requestPaint(); }
+                                        }
+                                    }
+                                    MouseArea {
+                                        id: playMA; anchors.fill: parent
+                                        onPressed:  playBtn.scale = 0.9
+                                        onReleased: {
+                                            playBtn.scale = 1.0;
+                                            if (safariPlayer.playbackState === MediaPlayer.PlayingState) {
+                                                safariPlayer.pause();
+                                            } else {
+                                                safariPlayer.play();
+                                            }
+                                            playIconCanvas.requestPaint();
+                                        }
+                                        onCanceled: playBtn.scale = 1.0
+                                    }
+                                }
+                            }
+
+                            // FORWARD
+                            Rectangle {
+                                id: ffBtn
+                                width: controlsRow.smallSize; height: width; radius: width / 2
+                                anchors.verticalCenter: parent.verticalCenter
+                                color: ffMA.pressed ? "#1a6060" : "#0d3a38"
+                                border.color: "cyan"; border.width: 2
+                                Behavior on color { ColorAnimation { duration: 100 } }
+                                Behavior on scale { NumberAnimation { duration: 100 } }
+                                Canvas {
+                                    anchors.fill: parent
+                                    onPaint: {
+                                        var ctx = getContext("2d");
+                                        ctx.clearRect(0, 0, width, height);
+                                        ctx.fillStyle = "cyan";
+                                        var cx = width / 2; var cy = height / 2;
+                                        ctx.save();
+                                        ctx.translate(cx, cy); ctx.scale(0.75, 0.75); ctx.translate(-cx, -cy);
+                                        var tw = width * 0.26; var th = height * 0.44;
+                                        var bw = width * 0.07;
+                                        ctx.beginPath();
+                                        ctx.moveTo(cx - tw - bw * 0.5 - tw * 0.1, cy - th/2);
+                                        ctx.lineTo(cx - bw * 0.5 - tw * 0.1, cy);
+                                        ctx.lineTo(cx - tw - bw * 0.5 - tw * 0.1, cy + th/2);
+                                        ctx.closePath(); ctx.fill();
+                                        ctx.beginPath();
+                                        ctx.moveTo(cx - bw * 0.5 + tw * 0.1, cy - th/2);
+                                        ctx.lineTo(cx + tw * 0.9 - bw * 0.5, cy);
+                                        ctx.lineTo(cx - bw * 0.5 + tw * 0.1, cy + th/2);
+                                        ctx.closePath(); ctx.fill();
+                                        ctx.fillRect(cx + tw * 0.9 - bw * 0.5 + tw * 0.1, cy - th/2, bw, th);
+                                        ctx.restore();
+                                    }
+                                    Component.onCompleted: { requestPaint(); }
+                                }
+                                MouseArea {
+                                    id: ffMA; anchors.fill: parent
+                                    onPressed:  ffBtn.scale = 0.9
+                                    onReleased: { ffBtn.scale = 1.0; showToastMessage("Fast-forward — Live stream inaendelea"); }
+                                    onCanceled: ffBtn.scale = 1.0
+                                }
                             }
                         }
 
@@ -6886,6 +6903,7 @@ Rectangle {
                             Rectangle {
                                 id: fsStopBtn
                                 width: parent.sz; height: parent.sz; radius: parent.sz / 2
+                                anchors.verticalCenter: parent.verticalCenter
                                 color: fsStopMA.pressed ? "#1a0a0a" : "#0d0505"
                                 border.color: "#cc4444"; border.width: 2
                                 Behavior on color { ColorAnimation { duration: 100 } }
@@ -6988,6 +7006,7 @@ Rectangle {
                             Rectangle {
                                 id: fsVolBtn
                                 width: parent.sz; height: parent.sz; radius: parent.sz / 2
+                                anchors.verticalCenter: parent.verticalCenter
                                 color: fsVolMA.pressed ? "#1a6060" : "#0d3a38"
                                 border.color: "cyan"; border.width: 2
                                 Behavior on color { ColorAnimation { duration: 100 } }
@@ -7002,6 +7021,8 @@ Rectangle {
                                         ctx.clearRect(0, 0, width, height);
                                         var cx = width * 0.38; var cy = height / 2;
                                         var bh = height * 0.38; var bw = width * 0.22;
+                                        ctx.save();
+                                        ctx.translate(width/2, cy); ctx.scale(0.75, 0.75); ctx.translate(-width/2, -cy);
                                         ctx.fillStyle = "cyan";
                                         ctx.beginPath();
                                         ctx.moveTo(cx - bw, cy - bh * 0.5);
@@ -7034,6 +7055,7 @@ Rectangle {
                                             ctx.lineTo(cx + bw * 1.1, cy + height * 0.22);
                                             ctx.stroke();
                                         }
+                                        ctx.restore();
                                     }
                                     Component.onCompleted: { requestPaint(); }
                                 }
@@ -7067,10 +7089,12 @@ Rectangle {
                                 onPaint: {
                                     var ctx = getContext("2d");
                                     ctx.clearRect(0, 0, width, height);
+                                    var cx = width / 2; var cy = height / 2;
+                                    ctx.save();
+                                    ctx.translate(cx, cy); ctx.scale(0.75, 0.75); ctx.translate(-cx, -cy);
                                     ctx.strokeStyle = "cyan";
                                     ctx.lineWidth = width * 0.10;
                                     ctx.lineCap = "round";
-                                    var cx = width / 2; var cy = height / 2;
                                     var r = width * 0.32;
                                     ctx.beginPath();
                                     ctx.arc(cx, cy, r, -Math.PI * 0.75, Math.PI * 0.75);
@@ -7083,6 +7107,7 @@ Rectangle {
                                     ctx.lineTo(ax + width * 0.05, ay + height * 0.14);
                                     ctx.lineTo(ax + width * 0.12, ay - height * 0.12);
                                     ctx.closePath(); ctx.fill();
+                                    ctx.restore();
                                 }
                                 Component.onCompleted: { requestPaint(); }
                             }
