@@ -4653,9 +4653,9 @@ Rectangle {
                                 if (playbackState === MediaPlayer.PlayingState) {
                                     safariTvOverlay.streamError = false;
                                     safariTvOverlay.streamErrorMsg = "";
+                                }
+                                if (playbackState !== MediaPlayer.PausedState) {
                                     safariPlayer.pausedByAClick = false;
-                                } else if(playbackState === MediaPlayer.StoppedState){
-                                    safariPlayer.pausedByAClick = false
                                 }
                             }
                         }
