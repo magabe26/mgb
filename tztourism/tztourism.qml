@@ -4290,6 +4290,7 @@ Rectangle {
                 fsLayer.videoRotation = Qt.platform.os === "android" ? 90 : 0;
                 fsLayer.fsUiVisible = true;
                 channelInfoCard.show();
+                gestureHintsCard.showIfFirst();
             } else {
                 fsLayer.videoRotation = 0;
             }
@@ -4629,7 +4630,6 @@ Rectangle {
                             id: safariPlayer
                             source: "https://stream-134630.castr.net/5fe35eae8c53540cab83659a/live_31dabe40323511f08b8efff0016f3b67/index.m3u8"
                             autoPlay: false
-                            property bool pausedByAClick: false
 
                             onStatusChanged: {
                                 if (status === MediaPlayer.InvalidMedia) {
@@ -4653,9 +4653,6 @@ Rectangle {
                                 if (playbackState === MediaPlayer.PlayingState) {
                                     safariTvOverlay.streamError = false;
                                     safariTvOverlay.streamErrorMsg = "";
-                                }
-                                if (playbackState !== MediaPlayer.PausedState) {
-                                    safariPlayer.pausedByAClick = false;
                                 }
                             }
                         }
@@ -4681,7 +4678,6 @@ Rectangle {
                                 visible: safariPlayer.status === MediaPlayer.Loading
                                          || safariPlayer.status === MediaPlayer.Buffering
                                          || safariPlayer.status === MediaPlayer.Stalled
-                                         || (safariPlayer.playbackState === MediaPlayer.PausedState && !safariPlayer.pausedByAClick)
                                 // Outer arc
                                 Canvas {
                                     anchors.fill: parent
@@ -5181,7 +5177,6 @@ Rectangle {
                                     onReleased: {
                                         playBtn.scale = 1.0;
                                         if (safariPlayer.playbackState === MediaPlayer.PlayingState) {
-                                            safariPlayer.pausedByAClick = true;
                                             safariPlayer.pause();
                                         } else {
                                             safariPlayer.play();
@@ -6084,63 +6079,234 @@ Rectangle {
                 Rectangle {
                     id: channelInfoCard
                     anchors.centerIn: parent
-                    width: channelInfoCol.implicitWidth + (Qt.platform.os === "android" ? 48 : 36)
-                    height: channelInfoCol.implicitHeight + (Qt.platform.os === "android" ? 32 : 24)
-                    radius: Qt.platform.os === "android" ? 18 : 14
-                    color: Qt.rgba(0, 0.10, 0.09, 0.92)
-                    border.color: Qt.rgba(0, 1, 1, 0.6); border.width: 2
+                    width: channelInfoCol.implicitWidth + (Qt.platform.os === "android" ? 56 : 42)
+                    height: channelInfoCol.implicitHeight + (Qt.platform.os === "android" ? 36 : 28)
+                    radius: Qt.platform.os === "android" ? 22 : 16
+                    color: Qt.rgba(0, 0.08, 0.07, 0.94)
+                    border.color: Qt.rgba(0, 1, 1, 0.55); border.width: 2
                     z: 20
                     opacity: 0.0
                     Behavior on opacity { NumberAnimation { duration: 350 } }
 
+                    // Subtle inner glow line
+                    Rectangle {
+                        anchors.fill: parent; radius: parent.radius
+                        color: "transparent"
+                        border.color: Qt.rgba(0, 1, 1, 0.12); border.width: 6
+                    }
+
                     function show() {
+                        clockTimer.running = true;
+                        channelInfoCard.updateClock();
                         opacity = 1.0;
                         channelHideTimer.restart();
                     }
+
+                    function updateClock() {
+                        var d = new Date();
+                        var h = d.getHours();
+                        var m = d.getMinutes();
+                        var ampm = h >= 12 ? "PM" : "AM";
+                        h = h % 12;
+                        if (h === 0) h = 12;
+                        clockText.text = h + ":" + (m < 10 ? "0" + m : m) + " " + ampm;
+                    }
+
                     Timer {
                         id: channelHideTimer
-                        interval: 3000
-                        onTriggered: { channelInfoCard.opacity = 0.0; }
+                        interval: 4500
+                        onTriggered: {
+                            channelInfoCard.opacity = 0.0;
+                            clockTimer.running = false;
+                        }
                     }
+                    Timer {
+                        id: clockTimer
+                        interval: 1000; repeat: true; running: false
+                        onTriggered: { channelInfoCard.updateClock(); }
+                    }
+
                     Column {
                         id: channelInfoCol
                         anchors.centerIn: parent
-                        spacing: Qt.platform.os === "android" ? 6 : 4
-                        Text {
+                        spacing: Qt.platform.os === "android" ? 7 : 5
+
+                        // Flag + channel name row
+                        Row {
                             anchors.horizontalCenter: parent.horizontalCenter
-                            text: "🇹🇿"
-                            font.pointSize: Qt.platform.os === "android" ? 28 : 22
+                            spacing: Qt.platform.os === "android" ? 10 : 8
+                            Text {
+                                text: "🇹🇿"
+                                font.pointSize: Qt.platform.os === "android" ? 22 : 17
+                                anchors.verticalCenter: parent.verticalCenter
+                            }
+                            Text {
+                                text: "Tanzania Safari Channel"
+                                font.pointSize: Qt.platform.os === "android" ? 17 : 13
+                                font.bold: true; color: "cyan"; font.letterSpacing: 0.8
+                                anchors.verticalCenter: parent.verticalCenter
+                            }
                         }
-                        Text {
+
+                        // Divider
+                        Rectangle {
                             anchors.horizontalCenter: parent.horizontalCenter
-                            text: "Tanzania Safari Channel"
-                            font.pointSize: Qt.platform.os === "android" ? 18 : 14
-                            font.bold: true; color: "cyan"; font.letterSpacing: 1
+                            width: channelInfoCol.implicitWidth * 0.85
+                            height: 1; color: Qt.rgba(0, 1, 1, 0.25)
                         }
+
+                        // LIVE dot + clock row
+                        Row {
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            spacing: Qt.platform.os === "android" ? 16 : 12
+
+                            Row {
+                                spacing: 6
+                                anchors.verticalCenter: parent.verticalCenter
+                                Rectangle {
+                                    width: Qt.platform.os === "android" ? 10 : 8
+                                    height: width; radius: width / 2; color: "#ff3333"
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    SequentialAnimation on opacity {
+                                        loops: Animation.Infinite
+                                        NumberAnimation { to: 0.2; duration: 600 }
+                                        NumberAnimation { to: 1.0; duration: 600 }
+                                    }
+                                }
+                                Text {
+                                    text: "LIVE"
+                                    font.pointSize: Qt.platform.os === "android" ? 11 : 9
+                                    font.bold: true; color: "#ff5555"
+                                    anchors.verticalCenter: parent.verticalCenter
+                                }
+                            }
+
+                            // Vertical separator
+                            Rectangle {
+                                width: 1
+                                height: Qt.platform.os === "android" ? 18 : 14
+                                color: Qt.rgba(0, 1, 1, 0.3)
+                                anchors.verticalCenter: parent.verticalCenter
+                            }
+
+                            // Clock
+                            Text {
+                                id: clockText
+                                text: "0:00 AM"
+                                font.pointSize: Qt.platform.os === "android" ? 11 : 9
+                                font.bold: true; color: "cyan"
+                                anchors.verticalCenter: parent.verticalCenter
+                            }
+                        }
+
+                        // Divider
+                        Rectangle {
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            width: channelInfoCol.implicitWidth * 0.85
+                            height: 1; color: Qt.rgba(0, 1, 1, 0.25)
+                        }
+
+                        // Channel numbers — row 1
                         Text {
                             anchors.horizontalCenter: parent.horizontalCenter
-                            text: "DStv 292  ·  Azam TV 401  ·  StarTimes 331"
+                            text: "DStv 292  ·  Azam TV 401  ·  Zuku 27"
                             font.pointSize: Qt.platform.os === "android" ? 10 : 8
                             color: "#aaaaaa"; font.italic: true
                         }
-                        Row {
+                        // Channel numbers — row 2
+                        Text {
                             anchors.horizontalCenter: parent.horizontalCenter
-                            spacing: 6
-                            Rectangle {
-                                width: Qt.platform.os === "android" ? 10 : 8
-                                height: width; radius: width / 2; color: "#ff3333"
-                                anchors.verticalCenter: parent.verticalCenter
-                                SequentialAnimation on opacity {
-                                    loops: Animation.Infinite
-                                    NumberAnimation { to: 0.3; duration: 600 }
-                                    NumberAnimation { to: 1.0; duration: 600 }
+                            text: "StarTimes 331  ·  Zmux 46  ·  Continental 7"
+                            font.pointSize: Qt.platform.os === "android" ? 10 : 8
+                            color: "#aaaaaa"; font.italic: true
+                        }
+                    }
+                }
+
+                // ── Gesture hints overlay (shown once on fullscreen entry) ──
+                Rectangle {
+                    id: gestureHintsCard
+                    anchors.bottom: parent.bottom
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.bottomMargin: Qt.platform.os === "android" ? 90 : 70
+                    width: gestureHintsCol.implicitWidth + (Qt.platform.os === "android" ? 48 : 36)
+                    height: gestureHintsCol.implicitHeight + (Qt.platform.os === "android" ? 28 : 20)
+                    radius: Qt.platform.os === "android" ? 18 : 14
+                    color: Qt.rgba(0, 0.06, 0.05, 0.88)
+                    border.color: Qt.rgba(0, 1, 1, 0.30); border.width: 1
+                    z: 19
+                    opacity: 0.0
+                    Behavior on opacity { NumberAnimation { duration: 400 } }
+
+                    property bool shownOnce: false
+
+                    function showIfFirst() {
+                        if (!gestureHintsCard.shownOnce) {
+                            gestureHintsCard.shownOnce = true;
+                            gestureHintsCard.opacity = 1.0;
+                            gestureHideTimer.restart();
+                        }
+                    }
+
+                    Timer {
+                        id: gestureHideTimer
+                        interval: 4000
+                        onTriggered: { gestureHintsCard.opacity = 0.0; }
+                    }
+
+                    Column {
+                        id: gestureHintsCol
+                        anchors.centerIn: parent
+                        spacing: Qt.platform.os === "android" ? 6 : 4
+
+                        // Title
+                        Text {
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            text: "Ishara za kugusa  ·  Gestures"
+                            font.pointSize: Qt.platform.os === "android" ? 9 : 7
+                            font.bold: true; color: Qt.rgba(0, 1, 1, 0.7)
+                            font.letterSpacing: 0.5
+                        }
+
+                        // Divider
+                        Rectangle {
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            width: gestureHintsCol.implicitWidth
+                            height: 1; color: Qt.rgba(0, 1, 1, 0.18)
+                        }
+
+                        // Hint rows
+                        Repeater {
+                            model: [
+                                { icon: "👆",   sw: "Gonga moja — ficha/onyesha vidhibiti",  en: "Tap — hide/show controls"       },
+                                { icon: "👆👆", sw: "Gonga mara mbili — toka fullscreen",    en: "Double-tap — exit fullscreen"   },
+                                { icon: "↕",    sw: "Swipe juu/chini — sauti",               en: "Swipe up/down — volume"         },
+                                { icon: "↔",    sw: "Swipe kushoto/kulia — mwangaza",         en: "Swipe left/right — brightness"  }
+                            ]
+                            Row {
+                                anchors.horizontalCenter: parent.horizontalCenter
+                                spacing: Qt.platform.os === "android" ? 10 : 8
+                                Text {
+                                    text: modelData.icon
+                                    font.pointSize: Qt.platform.os === "android" ? 13 : 10
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    width: Qt.platform.os === "android" ? 28 : 22
+                                    horizontalAlignment: Text.AlignHCenter
                                 }
-                            }
-                            Text {
-                                text: "LIVE"
-                                font.pointSize: Qt.platform.os === "android" ? 11 : 9
-                                font.bold: true; color: "#ff5555"
-                                anchors.verticalCenter: parent.verticalCenter
+                                Column {
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    spacing: 0
+                                    Text {
+                                        text: modelData.sw
+                                        font.pointSize: Qt.platform.os === "android" ? 9 : 7
+                                        color: "#cccccc"
+                                    }
+                                    Text {
+                                        text: modelData.en
+                                        font.pointSize: Qt.platform.os === "android" ? 8 : 6
+                                        color: "#777777"; font.italic: true
+                                    }
+                                }
                             }
                         }
                     }
