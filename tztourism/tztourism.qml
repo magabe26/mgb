@@ -3046,7 +3046,7 @@ Rectangle {
                                     Text {
                                         id: liveBadgeTxt
                                         anchors.centerIn: parent
-                                        text: "● LIVE"
+                                        text: langSettings.lang === "sw" ? "● MOJA KWA MOJA" : "● LIVE"
                                         font.pointSize: Qt.platform.os === "android" ? 9 : 7
                                         font.bold: true
                                         color: "white"
@@ -5196,7 +5196,9 @@ Rectangle {
                                     }
                                 }
                                 Text {
-                                    text: "🇹🇿 LIVE  ·  Tanzania Safari Channel"
+                                    text: langSettings.lang === "sw"
+                                          ? "🇹🇿 MOJA KWA MOJA  ·  Tanzania Safari Channel"
+                                          : "🇹🇿 LIVE  ·  Tanzania Safari Channel"
                                     font.pointSize: Qt.platform.os === "android" ? 9 : 7
                                     font.bold: true
                                     color: "cyan"
@@ -6667,7 +6669,9 @@ Rectangle {
                             }
                         }
                         Text {
-                            text: "🇹🇿 LIVE  ·  Tanzania Safari Channel"
+                            text: langSettings.lang === "sw"
+                                  ? "🇹🇿 MOJA KWA MOJA  ·  Tanzania Safari Channel"
+                                  : "🇹🇿 LIVE  ·  Tanzania Safari Channel"
                             font.pointSize: Qt.platform.os === "android" ? 9 : 7
                             font.bold: true; color: "cyan"
                             anchors.verticalCenter: parent.verticalCenter
@@ -6802,7 +6806,7 @@ Rectangle {
                                     }
                                 }
                                 Text {
-                                    text: "LIVE"
+                                    text: langSettings.lang === "sw" ? "MOJA KWA MOJA" : "LIVE"
                                     font.pointSize: Qt.platform.os === "android" ? 11 : 9
                                     font.bold: true; color: "#ff5555"
                                     anchors.verticalCenter: parent.verticalCenter
