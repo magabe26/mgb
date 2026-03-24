@@ -1808,103 +1808,142 @@ Rectangle {
 
                         // ══ Language toggle button ══════════════════════════════════════
                         Item {
+                            id: langToggleRoot
                             z: tzflag.z + 1
-                            width: app.width * 0.4
-                            height: 50
+                            width: Qt.platform.os === "android" ? app.width * 0.44 : app.width * 0.38
+                            height: Qt.platform.os === "android" ? 54 : 46
                             anchors.top: parent.top
                             anchors.right: parent.right
-                            anchors.topMargin: 4
-                            anchors.rightMargin: 2
+                            anchors.topMargin: Qt.platform.os === "android" ? 10 : 8
+                            anchors.rightMargin: Qt.platform.os === "android" ? 10 : 8
 
+                            property bool isSw: langSettings.lang === "sw"
+                            property color activeColor: isSw ? "#1a8a3a" : "#1a4fa8"
+                            property color glowColor:   isSw ? "#6600cc44" : "#660055ff"
+
+                            // Outer glow ring
                             Rectangle {
-                                id: toggleBackground
-                                anchors.fill: parent
+                                anchors.centerIn: parent
+                                width: parent.width + 6
+                                height: parent.height + 6
                                 radius: height / 2
-                                color: langSettings.lang === "en" ? "blue" : "green"
-                                property color txtColor: "white"
+                                color: "transparent"
+                                border.color: langToggleRoot.glowColor
+                                border.width: 3
+                                Behavior on border.color { ColorAnimation { duration: 350 } }
 
-                                // Huongeza mabadiliko ya rangi kwa ulaini
-                                Behavior on color {
-                                    ColorAnimation { duration: 300 }
-                                }
-
-                                // Kivuli (Shadow) kufanya button ionekane ya kisasa
                                 layer.enabled: true
                                 layer.effect: DropShadow {
                                     transparentBorder: true
                                     horizontalOffset: 0
-                                    verticalOffset: 4
-                                    radius: 8
-                                    samples: 17
-                                    color: "#40000000"
+                                    verticalOffset: 0
+                                    radius: 12
+                                    samples: 25
+                                    color: langToggleRoot.glowColor
+                                    Behavior on color { ColorAnimation { duration: 350 } }
+                                }
+                            }
+
+                            // Main pill body
+                            Rectangle {
+                                id: toggleBackground
+                                anchors.fill: parent
+                                radius: height / 2
+                                color: langToggleRoot.activeColor
+                                Behavior on color { ColorAnimation { duration: 300 } }
+
+                                layer.enabled: true
+                                layer.effect: DropShadow {
+                                    transparentBorder: true
+                                    horizontalOffset: 0
+                                    verticalOffset: 3
+                                    radius: 10
+                                    samples: 21
+                                    color: "#55000000"
                                 }
 
-                                // Maandishi ya Pande zote mbili
-                                Row {
-                                    anchors.fill: parent
-                                    z: 1 // Hakikisha yako juu ya background lakini chini ya 'knob'
-
-                                    Text {
-                                        width: parent.width / 2
-                                        height: parent.height
-                                        text: "KISWAHILI"
-                                        color: toggleBackground.txtColor
-                                        font.bold: true
-                                        font.pixelSize: Qt.platform.os === "android" ? 14 : 12
-                                        horizontalAlignment: Text.AlignHCenter
-                                        verticalAlignment: Text.AlignVCenter
-                                        opacity: langSettings.lang === "en" ? 1.0 : 0.6
-                                    }
-
-                                    Text {
-                                        width: parent.width / 2
-                                        height: parent.height
-                                        text: "ENGLISH"
-                                        color: toggleBackground.txtColor
-                                        font.bold: true
-                                        font.pixelSize:  Qt.platform.os === "android" ? 14 : 12
-                                        horizontalAlignment: Text.AlignHCenter
-                                        verticalAlignment: Text.AlignVCenter
-                                        opacity: langSettings.lang === "sw" ? 1.0 : 0.6
-                                    }
+                                // Left label: SW
+                                Text {
+                                    width: parent.width / 2
+                                    height: parent.height
+                                    anchors.left: parent.left
+                                    text: "🇹🇿 SW"
+                                    font.bold: true
+                                    font.pixelSize: Qt.platform.os === "android" ? 13 : 11
+                                    horizontalAlignment: Text.AlignHCenter
+                                    verticalAlignment: Text.AlignVCenter
+                                    color: "white"
+                                    opacity: langToggleRoot.isSw ? 0.35 : 1.0
+                                    Behavior on opacity { NumberAnimation { duration: 200 } }
+                                    z: 1
                                 }
 
-                                // Hii ndiyo swichi inayohama (The Sliding Knob)
+                                // Right label: EN
+                                Text {
+                                    width: parent.width / 2
+                                    height: parent.height
+                                    anchors.right: parent.right
+                                    text: "🇬🇧 EN"
+                                    font.bold: true
+                                    font.pixelSize: Qt.platform.os === "android" ? 13 : 11
+                                    horizontalAlignment: Text.AlignHCenter
+                                    verticalAlignment: Text.AlignVCenter
+                                    color: "white"
+                                    opacity: langToggleRoot.isSw ? 1.0 : 0.35
+                                    Behavior on opacity { NumberAnimation { duration: 200 } }
+                                    z: 1
+                                }
+
+                                // Sliding knob
                                 Rectangle {
                                     id: knob
                                     width: (parent.width / 2) - 6
                                     height: parent.height - 8
-                                    x: langSettings.lang === "en" ? (parent.width / 2) + 3 : 3
+                                    x: langToggleRoot.isSw ? 3 : (parent.width / 2) + 3
                                     y: 4
                                     radius: height / 2
-                                    color: toggleBackground.txtColor
+                                    color: "white"
+                                    opacity: 0.92
+                                    z: 2
 
                                     Behavior on x {
                                         NumberAnimation {
-                                            duration: 250
-                                            easing.type: Easing.OutBack // Inaleta kionjo cha 'bounce' kidogo
+                                            duration: 260
+                                            easing.type: Easing.OutBack
+                                            easing.overshoot: 1.2
                                         }
                                     }
 
-                                    // Kivuli kidogo kwenye knob
                                     layer.enabled: true
                                     layer.effect: DropShadow {
-                                        radius: 4
-                                        color: "#20000000"
+                                        radius: 6
+                                        samples: 13
+                                        color: "#30000000"
+                                    }
+
+                                    // Active language label inside knob
+                                    Text {
+                                        anchors.centerIn: parent
+                                        text: langToggleRoot.isSw ? "SW" : "EN"
+                                        font.bold: true
+                                        font.pixelSize: Qt.platform.os === "android" ? 12 : 10
+                                        color: langToggleRoot.activeColor
+                                        Behavior on color { ColorAnimation { duration: 300 } }
                                     }
                                 }
 
-                                // Eneo la kubonyeza (Interaction)
+                                // Press scale animation
+                                Behavior on scale { NumberAnimation { duration: 100 } }
+
                                 MouseArea {
                                     anchors.fill: parent
-                                    onClicked: {
-                                        if (langSettings.lang === "sw") {
-                                            langSettings.lang = "en"
-                                        } else {
-                                            langSettings.lang = "sw"
-                                        }
+                                    onPressed:  toggleBackground.scale = 0.95
+                                    onReleased: {
+                                        toggleBackground.scale = 1.0;
+                                        langSettings.lang = langToggleRoot.isSw ? "en" : "sw";
                                         langSettings.sync();
                                     }
+                                    onCanceled: toggleBackground.scale = 1.0
                                 }
                             }
                         }
@@ -1940,7 +1979,7 @@ Rectangle {
                             spacing: 6
 
                             Text {
-                                text: langSettings.lang === "en" ? "🌍 Tanzania Tourism" : "🇹🇿 Utalii wa Tanzania"
+                                text: langSettings.lang === "en" ? "🇬🇧 Tanzania Tourism" : "🇹🇿 Utalii wa Tanzania"
                                 font.pointSize: Qt.platform.os === "android" ? 22 : 18
                                 font.bold: true
                                 color: langSettings.lang === "en" ? "blue" : "green"
