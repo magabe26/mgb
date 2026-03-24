@@ -1883,7 +1883,7 @@ Rectangle {
                                     width: parent.width / 2
                                     height: parent.height
                                     anchors.right: parent.right
-                                    text: "🇬🇧 EN"
+                                    text: "🌍 EN"
                                     font.bold: true
                                     font.pixelSize: Qt.platform.os === "android" ? 13 : 11
                                     horizontalAlignment: Text.AlignHCenter
@@ -1979,7 +1979,7 @@ Rectangle {
                             spacing: 6
 
                             Text {
-                                text: langSettings.lang === "en" ? "🇬🇧 Tanzania Tourism" : "🇹🇿 Utalii wa Tanzania"
+                                text: langSettings.lang === "en" ? "🌍 Tanzania Tourism" : "🇹🇿 Utalii wa Tanzania"
                                 font.pointSize: Qt.platform.os === "android" ? 22 : 18
                                 font.bold: true
                                 color: langSettings.lang === "en" ? "blue" : "green"
