@@ -1807,7 +1807,7 @@ Rectangle {
                         Item {
                             z: tzflag.z + 1
                             width: app.width * 0.4
-                            height: 48
+                            height: 50
                             anchors.top: parent.top
                             anchors.right: parent.right
                             anchors.topMargin: 4
@@ -1818,7 +1818,7 @@ Rectangle {
                                 anchors.fill: parent
                                 radius: height / 2
                                 color: pageCol.frontPageLang === "en" ? "blue" : "green"
-                                property color txtColor: "#0a1a19"
+                                property color txtColor: "white"
 
                                 // Huongeza mabadiliko ya rangi kwa ulaini
                                 Behavior on color {
@@ -1846,8 +1846,8 @@ Rectangle {
                                         height: parent.height
                                         text: "KISWAHILI"
                                         color: toggleBackground.txtColor
-                                        font.bold: pageCol.frontPageLang === "en"
-                                        font.pixelSize: Qt.platform.os === "android" ? 12 : 10
+                                        font.bold: true
+                                        font.pixelSize: Qt.platform.os === "android" ? 14 : 12
                                         horizontalAlignment: Text.AlignHCenter
                                         verticalAlignment: Text.AlignVCenter
                                         opacity: pageCol.frontPageLang === "en" ? 1.0 : 0.6
@@ -1858,8 +1858,8 @@ Rectangle {
                                         height: parent.height
                                         text: "ENGLISH"
                                         color: toggleBackground.txtColor
-                                        font.bold: pageCol.frontPageLang === "sw"
-                                        font.pixelSize:  Qt.platform.os === "android" ? 12 : 10
+                                        font.bold: true
+                                        font.pixelSize:  Qt.platform.os === "android" ? 14 : 12
                                         horizontalAlignment: Text.AlignHCenter
                                         verticalAlignment: Text.AlignVCenter
                                         opacity: pageCol.frontPageLang === "sw" ? 1.0 : 0.6
