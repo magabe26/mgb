@@ -23,7 +23,7 @@ Rectangle {
 
     Settings {
         id: langSettings
-        property string lang: ""
+        property string lang: "sw"
     }
 
     // ── Android back button ────────────────────────────────────────────
