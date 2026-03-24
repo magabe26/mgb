@@ -1584,6 +1584,16 @@ Rectangle {
 
     property int adRandomSeed: Math.floor(Math.random() * 9999)
 
+    // ── Ad rotation timer — changes seed every 3 minutes ──────────
+    Timer {
+        interval: 180000
+        repeat: true
+        running: true
+        onTriggered: {
+            app.adRandomSeed = Math.floor(Math.random() * 9999);
+        }
+    }
+
     function pickAd(language) {
         var pool = [];
         for (var i = 0; i < adsPool.length; i++) {
@@ -1785,6 +1795,7 @@ Rectangle {
                     id: pageCol
                     width: app.width
                     spacing: 0
+                    property string frontPageLang: Math.random() < 0.5 ? "sw" : "en"
 
                     // ══ HERO SECTION ══════════════════════════════════════
                     Item {
@@ -1865,7 +1876,9 @@ Rectangle {
                                 }
                                 Text {
                                     anchors.horizontalCenter: parent.horizontalCenter
-                                    text: "Vivutio · Attractions"
+                                    text: pageCol.frontPageLang === "sw"
+                                          ? "Vivutio"
+                                          : "Attractions"
                                     font.pointSize: Qt.platform.os === "android" ? 10 : 8
                                     color: "#aaaaaa"
                                 }
@@ -1890,7 +1903,9 @@ Rectangle {
                                 }
                                 Text {
                                     anchors.horizontalCenter: parent.horizontalCenter
-                                    text: "Parks · Culture · Coast"
+                                    text: pageCol.frontPageLang === "sw"
+                                          ? "Mbuga · Utamaduni · Pwani"
+                                          : "Parks · Culture · Coast"
                                     font.pointSize: Qt.platform.os === "android" ? 10 : 8
                                     color: "#aaaaaa"
                                 }
@@ -1935,7 +1950,7 @@ Rectangle {
                         height: dykCol.implicitHeight + (Qt.platform.os === "android" ? 32 : 24)
                         color: "#0a1a19"
 
-                        property string dykLang: Math.random() < 0.5 ? "sw" : "en"
+                        property string frontPageLang: pageCol.frontPageLang
 
                         property var facts_sw: [
                             "Tanzania ina milima mirefu zaidi barani Afrika — Kilimanjaro, mita 5,895.",
@@ -2164,14 +2179,14 @@ Rectangle {
                             spacing: Qt.platform.os === "android" ? 5 : 4
 
                             Text {
-                                text: parent.parent.dykLang === "sw" ? "💡 Je, wajua?" : "💡 Did you know?"
+                                text: parent.parent.frontPageLang === "sw" ? "💡 Je, wajua?" : "💡 Did you know?"
                                 font.pointSize: Qt.platform.os === "android" ? 10 : 8
                                 font.bold: true
                                 color: "#00ccaa"
                             }
                             Text {
                                 width: parent.width
-                                text: parent.parent.dykLang === "sw"
+                                text: parent.parent.frontPageLang === "sw"
                                       ? parent.parent.facts_sw[parent.parent.dykIndex]
                                       : parent.parent.facts_en[parent.parent.dykIndex]
                                 font.pointSize: Qt.platform.os === "android" ? 11 : 9
@@ -2242,7 +2257,6 @@ Rectangle {
                     // ══ ATTRACTION OF THE DAY ══════════════════════════════
                     Rectangle {
                         id: aotdSection
-                        property string lag:""
                         width: app.width
                         height: aotdInner.height + 24
                         color: "#0a1a19"
@@ -2254,14 +2268,6 @@ Rectangle {
                             return dayOfYear % attractionModel.count;
                         }
                         property var todayAttraction: attractionModel.get(todayIdx)
-
-                        Component.onCompleted: {
-                            if(app.selectedLanguage === ""){
-                                aotdSection.lag = (Math.random() < 0.5) ? "sw" : "en";
-                            } else {
-                                aotdSection.lag = app.selectedLanguage;
-                            }
-                        }
 
                         Column {
                             id: aotdInner
@@ -2283,7 +2289,7 @@ Rectangle {
                                     anchors.verticalCenter: parent.verticalCenter
                                 }
                                 Text {
-                                    text: aotdSection.lag === "sw"
+                                    text: pageCol.frontPageLang === "sw"
                                           ? "Kivutio cha Leo"
                                           : "Attraction of the Day"
                                     font.pointSize: Qt.platform.os === "android" ? 15 : 13
@@ -2348,7 +2354,7 @@ Rectangle {
                                     Text {
                                         width: parent.width
                                         text: aotdSection.todayAttraction
-                                              ? (aotdSection.lag === "sw"
+                                              ? (pageCol.frontPageLang === "sw"
                                                  ? aotdSection.todayAttraction.name_sw
                                                  : aotdSection.todayAttraction.name_en)
                                               : ""
@@ -2361,7 +2367,7 @@ Rectangle {
                                     Text {
                                         width: parent.width
                                         text: aotdSection.todayAttraction
-                                              ? (aotdSection.lag === "sw"
+                                              ? (pageCol.frontPageLang === "sw"
                                                  ? aotdSection.todayAttraction.desc_sw
                                                  : aotdSection.todayAttraction.desc_en)
                                               : ""
@@ -2379,7 +2385,7 @@ Rectangle {
                                         width: aotdBtnTxt.implicitWidth + 24
                                         height: Qt.platform.os === "android" ? 40 : 32
                                         radius: height / 2
-                                        color: aotdSection.lag === "sw" ? "green" : "blue"
+                                        color: pageCol.frontPageLang === "sw" ? "green" : "blue"
                                         property bool pressed: false
                                         scale: pressed ? 0.95 : 1.0
                                         Behavior on scale { NumberAnimation { duration: 100 } }
@@ -2387,7 +2393,7 @@ Rectangle {
                                         Text {
                                             id: aotdBtnTxt
                                             anchors.centerIn: parent
-                                            text: aotdSection.lag === "sw" ? "Chunguza →" : "Explore →"
+                                            text: pageCol.frontPageLang === "sw" ? "Chunguza →" : "Explore →"
                                             font.pointSize: Qt.platform.os === "android" ? 12 : 10
                                             font.bold: true
                                             color: "white"
@@ -2400,7 +2406,7 @@ Rectangle {
                                             onClicked: {
                                                 app.currentAttractionIndex = aotdSection.todayIdx;
                                                 app.appMode = 1;
-                                                aotdSection.lag = aotdSection.lag || "en";
+                                                // lang already set by pageCol
                                             }
                                         }
                                     }
@@ -2417,15 +2423,67 @@ Rectangle {
                                         var a = aotdSection.todayAttraction;
                                         if (a) {
                                             contextMenu.doOpen(
-                                                        aotdSection.lag || "en",
-                                                        aotdSection.lag === "sw" ? a.name_sw : a.name_en,
-                                                        aotdSection.lag === "sw" ? a.desc_sw : a.desc_en,
+                                                        pageCol.frontPageLang,
+                                                        pageCol.frontPageLang === "sw" ? a.name_sw : a.name_en,
+                                                        pageCol.frontPageLang === "sw" ? a.desc_sw : a.desc_en,
                                                         a.imageFile,
                                                         aotdSection.todayIdx
                                                         );
                                         }
                                     }
                                 }
+                            }
+
+                            // ── Countdown row ──────────────────────────────
+                            Row {
+                                anchors.horizontalCenter: parent.horizontalCenter
+                                spacing: 6
+
+                                Text {
+                                    text: "⏱"
+                                    font.pointSize: Qt.platform.os === "android" ? 10 : 8
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    opacity: 0.6
+                                }
+                                Text {
+                                    id: aotdCountdownLabel
+                                    text: pageCol.frontPageLang === "sw"
+                                          ? "Inabadilika baada ya"
+                                          : "Changes in"
+                                    font.pointSize: Qt.platform.os === "android" ? 10 : 8
+                                    color: "#888888"
+                                    font.italic: true
+                                    anchors.verticalCenter: parent.verticalCenter
+                                }
+                                Text {
+                                    id: aotdCountdownText
+                                    text: "00:00:00"
+                                    font.pointSize: Qt.platform.os === "android" ? 10 : 8
+                                    font.bold: true
+                                    color: Qt.rgba(0, 1, 1, 0.7)
+                                    anchors.verticalCenter: parent.verticalCenter
+                                }
+                            }
+
+                            // Countdown timer
+                            Timer {
+                                id: aotdCountdownTimer
+                                interval: 1000
+                                repeat: true
+                                running: true
+                                onTriggered: {
+                                    var now = new Date();
+                                    var midnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 0);
+                                    var secs = Math.floor((midnight - now) / 1000);
+                                    var h = Math.floor(secs / 3600);
+                                    var m = Math.floor((secs % 3600) / 60);
+                                    var s = secs % 60;
+                                    aotdCountdownText.text =
+                                        (h < 10 ? "0" + h : h) + ":" +
+                                        (m < 10 ? "0" + m : m) + ":" +
+                                        (s < 10 ? "0" + s : s);
+                                }
+                                Component.onCompleted: { aotdCountdownTimer.triggered(); }
                             }
                         }
                     }
