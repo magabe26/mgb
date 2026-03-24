@@ -4,6 +4,7 @@ import QtQuick.Layouts 1.3
 import QtQuick.Dialogs 1.2
 import QtMultimedia 5.14
 import QtGraphicalEffects 1.0
+import Qt.labs.settings 1.0
 
 Rectangle {
     id: app
@@ -1796,7 +1797,20 @@ Rectangle {
                     id: pageCol
                     width: app.width
                     spacing: 0
-                    property string frontPageLang: Math.random() < 0.5 ? "sw" : "en"
+                    property string frontPageLang
+
+                    Settings {
+                        id: lagSettings
+                        property string lag: ""
+
+                        Component.onCompleted: {
+                            if(lagSettings.lag !== ""){
+                                pageCol.frontPageLang = lagSettings.value("lag");
+                            } else{
+                                pageCol.frontPageLang = Math.random() < 0.5 ? "sw" : "en";
+                            }
+                        }
+                    }
 
                     // ══ HERO SECTION ══════════════════════════════════════
                     Item {
@@ -1900,6 +1914,9 @@ Rectangle {
                                         } else {
                                             pageCol.frontPageLang = "sw"
                                         }
+
+                                        lagSettings.setValue("lag",pageCol.frontPageLang);
+                                        lagSettings.sync();
                                     }
                                 }
                             }
@@ -2705,7 +2722,11 @@ Rectangle {
                                 MouseArea {
                                     anchors.fill: parent
                                     onPressed:  gameBtn.pressed = true
-                                    onReleased: { gameBtn.pressed = false; gameLangDialog.doOpen(mouse.x + gameBtn.x, mouse.y + gameBtn.y); }
+                                    onReleased: {
+                                        gameLangSwCard.pressed = false;
+                                        app.gameLang = pageCol.frontPageLang;
+                                        app.gameVisible = true;
+                                    }
                                     onCanceled: gameBtn.pressed = false
                                 }
                             }
