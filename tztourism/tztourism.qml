@@ -1969,28 +1969,158 @@ Rectangle {
                         }
 
                         // Hero text
-                        Column {
+                        Item {
+                            id: heroTextArea
                             anchors.bottom: parent.bottom
-                            anchors.bottomMargin: 20
+                            anchors.bottomMargin: Qt.platform.os === "android" ? 18 : 14
                             anchors.left: parent.left
                             anchors.leftMargin: 16
                             anchors.right: parent.right
                             anchors.rightMargin: 16
-                            spacing: 6
+                            height: heroTextCol.implicitHeight + 4
 
-                            Text {
-                                text: langSettings.lang === "en" ? "🌍 Tanzania Tourism" : "🇹🇿 Utalii wa Tanzania"
-                                font.pointSize: Qt.platform.os === "android" ? 22 : 18
-                                font.bold: true
-                                color: langSettings.lang === "en" ? "blue" : "green"
+                            // Soft backdrop blur card behind text
+                            Rectangle {
+                                anchors.fill: parent
+                                anchors.margins: -10
+                                anchors.bottomMargin: -8
+                                anchors.topMargin: -8
+                                radius: 14
+                                color: "#55000000"
+                                border.color: langSettings.lang === "sw" ? "#4400cc44" : "#440055ff"
+                                border.width: 1
+                                Behavior on border.color { ColorAnimation { duration: 350 } }
+
+                                layer.enabled: true
+                                layer.effect: DropShadow {
+                                    transparentBorder: true
+                                    horizontalOffset: 0
+                                    verticalOffset: 2
+                                    radius: 16
+                                    samples: 33
+                                    color: "#66000000"
+                                }
                             }
 
-                            // Cyan underline accent
-                            Rectangle {
-                                width: 60
-                                height: 3
-                                radius: 2
-                                color: langSettings.lang === "en" ? "blue" : "green"
+                            Column {
+                                id: heroTextCol
+                                anchors.left: parent.left
+                                anchors.right: parent.right
+                                anchors.bottom: parent.bottom
+                                spacing: Qt.platform.os === "android" ? 6 : 5
+
+                                // Eyebrow label
+                                Row {
+                                    spacing: 6
+                                    anchors.left: parent.left
+
+                                    Rectangle {
+                                        width: 4
+                                        height: eyebrowText.implicitHeight
+                                        radius: 2
+                                        color: langSettings.lang === "sw" ? "#00e676" : "#448aff"
+                                        anchors.verticalCenter: parent.verticalCenter
+                                        Behavior on color { ColorAnimation { duration: 350 } }
+                                    }
+
+                                    Text {
+                                        id: eyebrowText
+                                        text: langSettings.lang === "sw"
+                                              ? "KARIBU TANZANIA"
+                                              : "DISCOVER TANZANIA"
+                                        font.pixelSize: Qt.platform.os === "android" ? 11 : 9
+                                        font.bold: true
+                                        font.letterSpacing: 2.5
+                                        color: langSettings.lang === "sw" ? "#00e676" : "#448aff"
+                                        Behavior on color { ColorAnimation { duration: 350 } }
+
+                                        layer.enabled: true
+                                        layer.effect: DropShadow {
+                                            transparentBorder: true
+                                            radius: 6
+                                            samples: 13
+                                            color: langSettings.lang === "sw" ? "#8800e676" : "#88448aff"
+                                            Behavior on color { ColorAnimation { duration: 350 } }
+                                        }
+                                    }
+                                }
+
+                                // Main title
+                                Text {
+                                    id: heroTitle
+                                    anchors.left: parent.left
+                                    anchors.right: parent.right
+                                    text: langSettings.lang === "sw"
+                                          ? "Utalii wa Tanzania"
+                                          : "Tanzania Tourism"
+                                    font.pixelSize: Qt.platform.os === "android" ? 32 : 26
+                                    font.bold: true
+                                    font.letterSpacing: -0.5
+                                    color: "white"
+                                    wrapMode: Text.WordWrap
+
+                                    layer.enabled: true
+                                    layer.effect: DropShadow {
+                                        transparentBorder: true
+                                        horizontalOffset: 0
+                                        verticalOffset: 2
+                                        radius: 10
+                                        samples: 21
+                                        color: "#aa000000"
+                                    }
+                                }
+
+                                // Subtitle tagline
+                                Text {
+                                    anchors.left: parent.left
+                                    anchors.right: parent.right
+                                    text: langSettings.lang === "sw"
+                                          ? "Mbuga za wanyama · Fukwe · Milima · Utamaduni"
+                                          : "Wildlife · Beaches · Mountains · Culture"
+                                    font.pixelSize: Qt.platform.os === "android" ? 12 : 10
+                                    color: "#ccffffff"
+                                    wrapMode: Text.WordWrap
+                                    font.letterSpacing: 0.4
+                                }
+
+                                // Animated accent bar
+                                Item {
+                                    width: parent.width
+                                    height: 4
+
+                                    Rectangle {
+                                        id: accentBar
+                                        height: parent.height
+                                        radius: 2
+                                        width: 0
+                                        color: langSettings.lang === "sw" ? "#00e676" : "#448aff"
+                                        Behavior on color { ColorAnimation { duration: 350 } }
+
+                                        layer.enabled: true
+                                        layer.effect: DropShadow {
+                                            transparentBorder: true
+                                            radius: 6
+                                            samples: 13
+                                            color: langSettings.lang === "sw" ? "#aa00e676" : "#aa448aff"
+                                            Behavior on color { ColorAnimation { duration: 350 } }
+                                        }
+                                    }
+
+                                    NumberAnimation on width {
+                                        id: accentBarAnim
+                                        running: false
+                                        target: accentBar
+                                        property: "width"
+                                        from: 0
+                                        to: heroTextArea.width
+                                        duration: 700
+                                        easing.type: Easing.OutCubic
+                                    }
+
+                                    Component.onCompleted: {
+                                        accentBarAnim.running = true;
+                                    }
+                                }
                             }
                         }
                     }
