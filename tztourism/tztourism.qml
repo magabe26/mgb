@@ -3,6 +3,7 @@ import QtQuick.Controls 2.4
 import QtQuick.Layouts 1.3
 import QtQuick.Dialogs 1.2
 import QtMultimedia 5.14
+import QtGraphicalEffects 1.0
 
 Rectangle {
     id: app
@@ -1802,8 +1803,112 @@ Rectangle {
                         width: app.width
                         height: app.height * 0.42
 
+                        // ══ Language toggle button ══════════════════════════════════════
+                        Item {
+                            z: tzflag.z + 1
+                            width: app.width * 0.3
+                            height: 32
+                            anchors.top: parent.top
+                            anchors.right: parent.right
+                            anchors.topMargin: 2
+                            anchors.rightMargin: 2
+
+                            Rectangle {
+                                id: toggleBackground
+                                anchors.fill: parent
+                                radius: height / 2
+                                color: pageCol.frontPageLang === "en" ? "#2196F3" : "#4CAF50" // Blue kwa EN, Green kwa SW
+
+                                // Huongeza mabadiliko ya rangi kwa ulaini
+                                Behavior on color {
+                                    ColorAnimation { duration: 300 }
+                                }
+
+                                // Kivuli (Shadow) kufanya button ionekane ya kisasa
+                                layer.enabled: true
+                                layer.effect: DropShadow {
+                                    transparentBorder: true
+                                    horizontalOffset: 0
+                                    verticalOffset: 4
+                                    radius: 8
+                                    samples: 17
+                                    color: "#40000000"
+                                }
+
+                                // Maandishi ya Pande zote mbili
+                                Row {
+                                    anchors.fill: parent
+                                    z: 1 // Hakikisha yako juu ya background lakini chini ya 'knob'
+
+                                    Text {
+                                        width: parent.width / 2
+                                        height: parent.height
+                                        text: "KISWAHILI"
+                                        color: "#001413"
+                                        font.bold: pageCol.frontPageLang === "en"
+                                        font.pixelSize: Qt.platform.os === "android" ? 10 : 8
+                                        horizontalAlignment: Text.AlignHCenter
+                                        verticalAlignment: Text.AlignVCenter
+                                        opacity: pageCol.frontPageLang === "en" ? 1.0 : 0.6
+                                    }
+
+                                    Text {
+                                        width: parent.width / 2
+                                        height: parent.height
+                                        text: "ENGLISH"
+                                        color: "#001413"
+                                        font.bold: pageCol.frontPageLang === "sw"
+                                        font.pixelSize: Qt.platform.os === "android" ? 10 : 8
+                                        horizontalAlignment: Text.AlignHCenter
+                                        verticalAlignment: Text.AlignVCenter
+                                        opacity: pageCol.frontPageLang === "sw" ? 1.0 : 0.6
+                                    }
+                                }
+
+                                // Hii ndiyo swichi inayohama (The Sliding Knob)
+                                Rectangle {
+                                    id: knob
+                                    width: (parent.width / 2) - 6
+                                    height: parent.height - 8
+                                    x: pageCol.frontPageLang === "en" ? (parent.width / 2) + 3 : 3
+                                    y: 4
+                                    radius: height / 2
+                                    color: "#001413"
+
+                                    Behavior on x {
+                                        NumberAnimation {
+                                            duration: 250
+                                            easing.type: Easing.OutBack // Inaleta kionjo cha 'bounce' kidogo
+                                        }
+                                    }
+
+                                    // Kivuli kidogo kwenye knob
+                                    layer.enabled: true
+                                    layer.effect: DropShadow {
+                                        radius: 4
+                                        color: "#20000000"
+                                    }
+                                }
+
+                                // Eneo la kubonyeza (Interaction)
+                                MouseArea {
+                                    anchors.fill: parent
+                                    onClicked: {
+                                        if (pageCol.frontPageLang === "sw") {
+                                            pageCol.frontPageLang = "en"
+                                        } else {
+                                            pageCol.frontPageLang = "sw"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        // ══ / Language toggle button ══════════════════════════════════════
+
+
                         // Hero background image
                         AnimatedImage {
+                            id:tzflag
                             anchors.fill: parent
                             source: "./tzflag.gif"
                             fillMode: Image.PreserveAspectCrop
@@ -1910,39 +2015,10 @@ Rectangle {
                                     color: "#aaaaaa"
                                 }
                             }
+
                         }
                     }
 
-                    // ══ TAGLINE CARD ═══════════════════════════════════════
-                    Rectangle {
-                        width: app.width
-                        height: taglineText.implicitHeight + 28
-                        color: "#0d1f1e"
-
-                        Rectangle {
-                            anchors.left: parent.left
-                            anchors.leftMargin: 16
-                            anchors.verticalCenter: parent.verticalCenter
-                            width: 4
-                            height: parent.height - 20
-                            radius: 2
-                            color: "cyan"
-                        }
-
-                        Text {
-                            id: taglineText
-                            anchors.verticalCenter: parent.verticalCenter
-                            anchors.left: parent.left
-                            anchors.right: parent.right
-                            anchors.leftMargin: 30
-                            anchors.rightMargin: 16
-                            text: "Kusafiri ni elimu. Tembelea hifadhi za Tanzania, jifunze thamani ya mazingira ya Tanzania, na uwe balozi wa uzuri wa Tanzania.\n\nTravel is a form of learning. Explore Tanzania's national parks, discover the value of our environment, and become an ambassador for the beauty of Tanzania."
-                            font.pointSize: Qt.platform.os === "android" ? 12 : 10
-                            color: "#cccccc"
-                            wrapMode: Text.WordWrap
-                            font.italic: true
-                        }
-                    }
 
                     // ══ DID YOU KNOW ═══════════════════════════════════════
                     Rectangle {
@@ -2182,7 +2258,7 @@ Rectangle {
                                 text: parent.parent.frontPageLang === "sw" ? "💡 Je, wajua?" : "💡 Did you know?"
                                 font.pointSize: Qt.platform.os === "android" ? 10 : 8
                                 font.bold: true
-                                color: "#00ccaa"
+                                color: pageCol.frontPageLang === "sw" ? "green" : "blue"
                             }
                             Text {
                                 width: parent.width
@@ -2208,7 +2284,7 @@ Rectangle {
                             anchors.top: parent.top
                             anchors.topMargin: 10
                             anchors.horizontalCenter: parent.horizontalCenter
-                            text: "Ramani ya Tanzania  ·  Map of Tanzania"
+                            text: pageCol.frontPageLang === "sw" ? "Ramani ya Tanzania" : "Map of Tanzania"
                             font.pointSize: Qt.platform.os === "android" ? 11 : 9
                             color: "cyan"
                             font.bold: true
@@ -2479,9 +2555,9 @@ Rectangle {
                                     var m = Math.floor((secs % 3600) / 60);
                                     var s = secs % 60;
                                     aotdCountdownText.text =
-                                        (h < 10 ? "0" + h : h) + ":" +
-                                        (m < 10 ? "0" + m : m) + ":" +
-                                        (s < 10 ? "0" + s : s);
+                                            (h < 10 ? "0" + h : h) + ":" +
+                                            (m < 10 ? "0" + m : m) + ":" +
+                                            (s < 10 ? "0" + s : s);
                                 }
                                 Component.onCompleted: { aotdCountdownTimer.triggered(); }
                             }
@@ -2500,16 +2576,41 @@ Rectangle {
                             width: app.width
                             spacing: 12
 
-                            Text {
-                                anchors.horizontalCenter: parent.horizontalCenter
-                                text: "Chagua lugha yako · Choose your language"
-                                font.pointSize: Qt.platform.os === "android" ? 12 : 10
-                                color: "#888888"
+                            // ══ TAGLINE CARD ═══════════════════════════════════════
+                            Rectangle {
+                                width: app.width
+                                height: taglineText.implicitHeight + 28
+                                color: "#0d1f1e"
+
+                                Rectangle {
+                                    anchors.left: parent.left
+                                    anchors.leftMargin: 16
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    width: 4
+                                    height: parent.height - 20
+                                    radius: 2
+                                    color: "cyan"
+                                }
+
+                                Text {
+                                    id: taglineText
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    anchors.left: parent.left
+                                    anchors.right: parent.right
+                                    anchors.leftMargin: 30
+                                    anchors.rightMargin: 16
+                                    text: pageCol.frontPageLang === "sw" ? "Kusafiri ni elimu. Tembelea hifadhi za Tanzania, jifunze thamani ya mazingira ya Tanzania, na uwe balozi wa uzuri wa Tanzania." : "Travel is a form of learning. Explore Tanzania's national parks, discover the value of our environment, and become an ambassador for the beauty of Tanzania."
+                                    font.pointSize: Qt.platform.os === "android" ? 12 : 10
+                                    color: "#cccccc"
+                                    wrapMode: Text.WordWrap
+                                    font.italic: true
+                                }
                             }
 
                             // Swahili button
                             Rectangle {
                                 id: swBtn
+                                visible: pageCol.frontPageLang === "sw"
                                 anchors.horizontalCenter: parent.horizontalCenter
                                 width: app.width * 0.82
                                 height: Qt.platform.os === "android" ? 62 : 48
@@ -2543,6 +2644,7 @@ Rectangle {
                             // English button
                             Rectangle {
                                 id: enBtn
+                                visible: pageCol.frontPageLang === "en"
                                 anchors.horizontalCenter: parent.horizontalCenter
                                 width: app.width * 0.82
                                 height: Qt.platform.os === "android" ? 62 : 48
@@ -2597,8 +2699,7 @@ Rectangle {
                                     }
                                     Column {
                                         anchors.verticalCenter: parent.verticalCenter; spacing: 3
-                                        Text { text: "Mchezo wa Utalii"; font.pointSize: Qt.platform.os === "android" ? 13 : 11; font.bold: true; color: "white" }
-                                        Text { text: "Tourism Memory Game"; font.pointSize: Qt.platform.os === "android" ? 11 : 9; color: "#aaaaaa" }
+                                        Text { text:  pageCol.frontPageLang === "sw" ? "Mchezo wa Utalii" : "Tourism Memory Game"; font.pointSize: Qt.platform.os === "android" ? 13 : 11; font.bold: true; color: "white" }
                                     }
                                 }
                                 Text {
@@ -2616,6 +2717,7 @@ Rectangle {
                             }
 
                             // 🎲 Surprise me button
+                            /*
                             Rectangle {
                                 id: randomBtn
                                 anchors.horizontalCenter: parent.horizontalCenter
@@ -2637,7 +2739,7 @@ Rectangle {
                                     spacing: 10
                                     Text { text: "🎲"; font.pointSize: Qt.platform.os === "android" ? 18 : 14 }
                                     Text {
-                                        text: "Nishangaze!  ·  Surprise me!"
+                                        text: pageCol.frontPageLang === "sw" ? "Nishangaze!" : "Surprise me!"
                                         font.pointSize: Qt.platform.os === "android" ? 13 : 11
                                         font.bold: true
                                         color: "cyan"
@@ -2657,7 +2759,7 @@ Rectangle {
                                         modeSelectionDialog.doOpenRandom();
                                     }
                                 }
-                            }
+                            } */
                         }
                     }
 
@@ -2691,8 +2793,9 @@ Rectangle {
                             }
 
                             Text {
+                                id:tscDesc
                                 width: parent.width
-                                text: "Tanzania imebarikiwa kuwa na vivutio vingi vya utalii ambavyo ni vigumu kuvitaja vyote hapa. Ili kuvifahamu na kuvishuhudia kwa undani zaidi, tunakushauri kufuatilia Tanzania Safari Channel inayopatikana kupitia DStv (292), Azam TV (401), Zuku (27), StarTimes Antenna (331), StarTimes Dish (542), Zmux (46) na Continental (7). Huu ni mlango wako wa kidijitali wa kutembelea mbuga za wanyama, fukwe, na urithi wa kitamaduni wa nchi yetu ukiwa nyumbani kwako.\n\nTanzania is home to an overwhelming number of tourist attractions that cannot be fully listed here. For a more immersive experience, we highly recommend watching the Tanzania Safari Channel, available on DStv (292), Azam TV (401), Zuku (27), StarTimes Antenna (331), StarTimes Dish (542), Zmux (46) and Continental (7)."
+                                text: pageCol.frontPageLang === "sw" ? "Tanzania imebarikiwa kuwa na vivutio vingi vya utalii ambavyo ni vigumu kuvitaja vyote hapa. Ili kuvifahamu na kuvishuhudia kwa undani zaidi, tunakushauri kufuatilia Tanzania Safari Channel inayopatikana kupitia DStv (292), Azam TV (401), Zuku (27), StarTimes Antenna (331), StarTimes Dish (542), Zmux (46) na Continental (7). Huu ni mlango wako wa kidijitali wa kutembelea mbuga za wanyama, fukwe, na urithi wa kitamaduni wa nchi yetu ukiwa nyumbani kwako." : "Tanzania is home to an overwhelming number of tourist attractions that cannot be fully listed here. For a more immersive experience, we highly recommend watching the Tanzania Safari Channel, available on DStv (292), Azam TV (401), Zuku (27), StarTimes Antenna (331), StarTimes Dish (542), Zmux (46) and Continental (7)."
                                 font.pointSize: Qt.platform.os === "android" ? 12 : 10
                                 color: "#cccccc"
                                 wrapMode: Text.WordWrap
@@ -2747,15 +2850,10 @@ Rectangle {
                                         anchors.verticalCenter: parent.verticalCenter
                                         spacing: 2
                                         Text {
-                                            text: "Tazama Tanzania Safari Channel"
+                                            text: pageCol.frontPageLang === "sw" ? "Tazama Tanzania Safari Channel" : "Watch Tanzania Safari Channel"
                                             font.pointSize: Qt.platform.os === "android" ? 12 : 10
                                             font.bold: true
                                             color: "cyan"
-                                        }
-                                        Text {
-                                            text: "Watch Tanzania Safari Channel Live"
-                                            font.pointSize: Qt.platform.os === "android" ? 10 : 8
-                                            color: "#aaaaaa"
                                         }
                                     }
                                 }
@@ -2815,7 +2913,7 @@ Rectangle {
 
                             Text {
                                 anchors.centerIn: parent
-                                text: "X  Funga / Close"
+                                text: pageCol.frontPageLang === "sw" ? "X  Funga" : "X  Close"
                                 font.pointSize: Qt.platform.os === "android" ? 12 : 10
                                 font.bold: true
                                 color: "white"
