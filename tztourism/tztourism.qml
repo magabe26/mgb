@@ -1936,17 +1936,10 @@ Rectangle {
                             spacing: 6
 
                             Text {
-                                text: "🌍 Tanzania Tourism"
+                                text: pageCol.frontPageLang === "en" ? "🌍 Tanzania Tourism" : "🇹🇿 Utalii wa Tanzania"
                                 font.pointSize: Qt.platform.os === "android" ? 22 : 18
                                 font.bold: true
-                                color: "white"
-                            }
-
-                            Text {
-                                text: "Utalii wa Tanzania"
-                                font.pointSize: Qt.platform.os === "android" ? 15 : 12
-                                color: "cyan"
-                                font.bold: true
+                                color: Qt.lighter(pageCol.frontPageLang === "en" ? "blue" : "green",1.2)
                             }
 
                             // Cyan underline accent
@@ -1954,7 +1947,7 @@ Rectangle {
                                 width: 60
                                 height: 3
                                 radius: 2
-                                color: "cyan"
+                                color: pageCol.frontPageLang === "en" ? "blue" : "green"
                             }
                         }
                     }
