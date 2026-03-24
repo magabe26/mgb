@@ -1939,7 +1939,7 @@ Rectangle {
                                 text: pageCol.frontPageLang === "en" ? "🌍 Tanzania Tourism" : "🇹🇿 Utalii wa Tanzania"
                                 font.pointSize: Qt.platform.os === "android" ? 22 : 18
                                 font.bold: true
-                                color: Qt.lighter(pageCol.frontPageLang === "en" ? "blue" : "green",1.2)
+                                color: pageCol.frontPageLang === "en" ? "blue" : "green"
                             }
 
                             // Cyan underline accent
