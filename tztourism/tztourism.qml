@@ -4919,7 +4919,7 @@ Rectangle {
 
                 Text {
                     anchors.horizontalCenter: parent.horizontalCenter
-                    text: "📺  Kidokezo · Tip"
+                    text: langSettings.lang === "sw" ? "📺  Kidokezo" : "📺  Tip"
                     font.pointSize: Qt.platform.os === "android" ? 14 : 11
                     font.bold: true
                     color: "cyan"
@@ -4930,18 +4930,11 @@ Rectangle {
                     width: parent.width
                     wrapMode: Text.WordWrap
                     horizontalAlignment: Text.AlignHCenter
+                    visible: langSettings.lang === "sw"
                     text: "Ili skrini isizimike wakati wa kutazama, nenda:\nMipangilio → Onyesho → Muda wa Kuzima Skrini\nna uchague Kamwe au muda mrefu zaidi."
                     font.pointSize: Qt.platform.os === "android" ? 11 : 9
                     color: "#cceeec"
                     lineHeight: 1.35
-                }
-
-                Rectangle {
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    width: parent.width * 0.6
-                    height: 1
-                    color: "cyan"
-                    opacity: 0.3
                 }
 
                 Text {
@@ -4949,9 +4942,10 @@ Rectangle {
                     width: parent.width
                     wrapMode: Text.WordWrap
                     horizontalAlignment: Text.AlignHCenter
+                    visible: langSettings.lang === "en"
                     text: "To keep the screen on during playback, go to:\nSettings → Display → Screen Timeout\nand set it to Never or the longest duration."
-                    font.pointSize: Qt.platform.os === "android" ? 10 : 8
-                    color: "#7aaaa8"
+                    font.pointSize: Qt.platform.os === "android" ? 11 : 9
+                    color: "#cceeec"
                     lineHeight: 1.35
                 }
 
@@ -4967,7 +4961,7 @@ Rectangle {
 
                     Text {
                         anchors.centerIn: parent
-                        text: "Sawa / OK"
+                        text: langSettings.lang === "sw" ? "Sawa" : "OK"
                         font.pointSize: Qt.platform.os === "android" ? 12 : 10
                         font.bold: true
                         color: "cyan"
@@ -5196,9 +5190,7 @@ Rectangle {
                                     }
                                 }
                                 Text {
-                                    text: langSettings.lang === "sw"
-                                          ? "🇹🇿 MOJA KWA MOJA  ·  Tanzania Safari Channel"
-                                          : "🇹🇿 LIVE  ·  Tanzania Safari Channel"
+                                    text: langSettings.lang === "sw" ? "🇹🇿 MOJA KWA MOJA  ·  Tanzania Safari Channel" : "🇹🇿 LIVE  ·  Tanzania Safari Channel"
                                     font.pointSize: Qt.platform.os === "android" ? 9 : 7
                                     font.bold: true
                                     color: "cyan"
@@ -5397,6 +5389,7 @@ Rectangle {
                                     width: tvScreen.width * 0.82
                                     wrapMode: Text.WordWrap
                                     horizontalAlignment: Text.AlignHCenter
+                                    visible: langSettings.lang === "sw"
                                     text: safariTvOverlay.streamErrorMsg === "network"
                                           ? "Hitilafu ya mtandao.\nThibitisha muunganiko wako wa intaneti."
                                           : "Stream haipatikani kwa sasa."
@@ -5411,12 +5404,13 @@ Rectangle {
                                     width: tvScreen.width * 0.82
                                     wrapMode: Text.WordWrap
                                     horizontalAlignment: Text.AlignHCenter
+                                    visible: langSettings.lang === "en"
                                     text: safariTvOverlay.streamErrorMsg === "network"
                                           ? "Network error.\nCheck your internet connection."
                                           : "Stream unavailable at the moment."
-                                    font.pointSize: Qt.platform.os === "android" ? 9 : 7
-                                    color: "#cc8800"
-                                    font.italic: true
+                                    font.pointSize: Qt.platform.os === "android" ? 11 : 9
+                                    font.bold: true
+                                    color: "#ffaa00"
                                 }
 
                                 // Divider
@@ -5495,7 +5489,7 @@ Rectangle {
                                             }
                                         }
                                         Text {
-                                            text: "Jaribu tena  ·  Retry"
+                                            text: langSettings.lang === "sw" ? "Jaribu tena" : "Retry"
                                             font.pointSize: Qt.platform.os === "android" ? 12 : 10
                                             font.bold: true; color: "#ffaa00"
                                             anchors.verticalCenter: parent.verticalCenter
@@ -5542,7 +5536,9 @@ Rectangle {
                                 }
                                 Text {
                                     anchors.horizontalCenter: parent.horizontalCenter
-                                    text: "Bonyeza ▶ kuanza kutazama"
+                                    text: langSettings.lang === "sw"
+                                          ? "Bonyeza ▶ kuanza kutazama"
+                                          : "Press ▶ to start watching"
                                     font.pointSize: Qt.platform.os === "android" ? 10 : 8
                                     color: "#aaaaaa"; font.italic: true
                                 }
@@ -5551,7 +5547,9 @@ Rectangle {
                                     width: tvScreen.width * 0.78
                                     wrapMode: Text.WordWrap
                                     horizontalAlignment: Text.AlignHCenter
-                                    text: "Gonga mara mbili skrini kwenda Fullscreen\nDouble-tap screen to go Fullscreen"
+                                    text: langSettings.lang === "sw"
+                                          ? "Gonga mara mbili skrini kwenda Fullscreen"
+                                          : "Double-tap screen to go Fullscreen"
                                     font.pointSize: Qt.platform.os === "android" ? 9 : 7
                                     color: "#1a6060"; font.italic: true
                                 }
@@ -5937,7 +5935,7 @@ Rectangle {
                                 MouseArea {
                                     id: ffMA; anchors.fill: parent
                                     onPressed:  ffBtn.scale = 0.9
-                                    onReleased: { ffBtn.scale = 1.0; showToastMessage("Fast-forward — Live stream inaendelea"); }
+                                    onReleased: { ffBtn.scale = 1.0; showToastMessage(langSettings.lang === "sw" ? "Haraka mbele — Stream inaendelea moja kwa moja" : "Fast-forward — Live stream only"); }
                                     onCanceled: ffBtn.scale = 1.0
                                 }
                             }
@@ -6001,17 +5999,11 @@ Rectangle {
 
                                 Text {
                                     anchors.horizontalCenter: parent.horizontalCenter
-                                    text: "Utalii wa Tanzania"
+                                    text: langSettings.lang === "sw" ? "Utalii wa Tanzania" : "Tanzania Tourism"
                                     font.pointSize: Qt.platform.os === "android" ? 11 : 9
                                     font.bold: true
                                     color: "cyan"
                                     font.letterSpacing: 2
-                                }
-                                Text {
-                                    anchors.horizontalCenter: parent.horizontalCenter
-                                    text: "Tanzania Tourism"
-                                    font.pointSize: Qt.platform.os === "android" ? 10 : 8
-                                    color: "#1a6060"
                                 }
                             }
                         }
@@ -6439,6 +6431,7 @@ Rectangle {
                         width: fsInner.width * 0.75
                         wrapMode: Text.WordWrap
                         horizontalAlignment: Text.AlignHCenter
+                        visible: langSettings.lang === "sw"
                         text: safariTvOverlay.streamErrorMsg === "network"
                               ? "Hitilafu ya mtandao.\nThibitisha muunganiko wako."
                               : "Stream haipatikani kwa sasa."
@@ -6450,11 +6443,12 @@ Rectangle {
                         width: fsInner.width * 0.75
                         wrapMode: Text.WordWrap
                         horizontalAlignment: Text.AlignHCenter
+                        visible: langSettings.lang === "en"
                         text: safariTvOverlay.streamErrorMsg === "network"
                               ? "Network error. Check your connection."
                               : "Stream unavailable at the moment."
-                        font.pointSize: Qt.platform.os === "android" ? 10 : 8
-                        color: "#cc8800"; font.italic: true
+                        font.pointSize: Qt.platform.os === "android" ? 13 : 10
+                        font.bold: true; color: "#ffaa00"
                     }
                 }
 
@@ -6541,7 +6535,7 @@ Rectangle {
                             }
                         }
                         Text {
-                            text: "Jaribu tena  ·  Retry"
+                            text: langSettings.lang === "sw" ? "Jaribu tena" : "Retry"
                             font.pointSize: Qt.platform.os === "android" ? 14 : 11
                             font.bold: true; color: "#ffaa00"
                             anchors.verticalCenter: parent.verticalCenter
@@ -6669,9 +6663,7 @@ Rectangle {
                             }
                         }
                         Text {
-                            text: langSettings.lang === "sw"
-                                  ? "🇹🇿 MOJA KWA MOJA  ·  Tanzania Safari Channel"
-                                  : "🇹🇿 LIVE  ·  Tanzania Safari Channel"
+                            text: langSettings.lang === "sw" ? "🇹🇿 MOJA KWA MOJA  ·  Tanzania Safari Channel" : "🇹🇿 LIVE  ·  Tanzania Safari Channel"
                             font.pointSize: Qt.platform.os === "android" ? 9 : 7
                             font.bold: true; color: "cyan"
                             anchors.verticalCenter: parent.verticalCenter
@@ -6915,7 +6907,7 @@ Rectangle {
                         // Title
                         Text {
                             anchors.horizontalCenter: parent.horizontalCenter
-                            text: "Ishara za kugusa  ·  Gestures"
+                            text: langSettings.lang === "sw" ? "Ishara za kugusa" : "Gestures"
                             font.pointSize: Qt.platform.os === "android" ? 10 : 8
                             font.bold: true; color: Qt.rgba(0, 1, 1, 0.75)
                             font.letterSpacing: 0.5
@@ -6945,24 +6937,13 @@ Rectangle {
                                     width: Qt.platform.os === "android" ? 34 : 26
                                     horizontalAlignment: Text.AlignHCenter
                                 }
-                                Column {
+                                Text {
                                     anchors.verticalCenter: parent.verticalCenter
-                                    spacing: 1
+                                    text: langSettings.lang === "sw" ? modelData.sw : modelData.en
+                                    font.pointSize: Qt.platform.os === "android" ? 11 : 8
+                                    color: "#dddddd"
                                     width: gestureHintsCol.width - (Qt.platform.os === "android" ? 48 : 36)
-                                    Text {
-                                        text: modelData.sw
-                                        font.pointSize: Qt.platform.os === "android" ? 11 : 8
-                                        color: "#dddddd"
-                                        width: parent.width
-                                        wrapMode: Text.WordWrap
-                                    }
-                                    Text {
-                                        text: modelData.en
-                                        font.pointSize: Qt.platform.os === "android" ? 9 : 7
-                                        color: "#666666"; font.italic: true
-                                        width: parent.width
-                                        wrapMode: Text.WordWrap
-                                    }
+                                    wrapMode: Text.WordWrap
                                 }
                             }
                         }
@@ -6976,7 +6957,7 @@ Rectangle {
                         // Tap to close hint
                         Text {
                             anchors.horizontalCenter: parent.horizontalCenter
-                            text: "Gonga hapa kufunga  ·  Tap to close"
+                            text: langSettings.lang === "sw" ? "Gonga hapa kufunga" : "Tap to close"
                             font.pointSize: Qt.platform.os === "android" ? 9 : 7
                             color: Qt.rgba(0, 1, 1, 0.40)
                             font.italic: true
@@ -7192,7 +7173,7 @@ Rectangle {
                             fsLayer.videoRotation = 0;
                             safariPlayer.stop();
                             app.safariTvVisible = false;
-                            app.selectedLanguage = "sw";
+                            app.selectedLanguage = langSettings.lang;
                             viewComponentLoader.switchTo(languageSelectionComponent, app.width / 2, app.height / 2);
                             app.selectedLanguage = "";
                             app.ad();
