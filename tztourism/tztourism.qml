@@ -4312,6 +4312,7 @@ Rectangle {
                         app.selectedLanguage = app.gameLang; //for ripple color to be correct
                         viewComponentLoader.switchTo(languageSelectionComponent, gameBackBtn.x + gameBackBtn.width / 2, gameHeader.y + gameHeader.height / 2);
                         app.ad();
+                        app.selectedLanguage = "";
                     }
                 }
             }
