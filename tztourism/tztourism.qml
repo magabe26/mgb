@@ -1806,8 +1806,8 @@ Rectangle {
                         // ══ Language toggle button ══════════════════════════════════════
                         Item {
                             z: tzflag.z + 1
-                            width: app.width * 0.45
-                            height: 40
+                            width: app.width * 0.4
+                            height: 48
                             anchors.top: parent.top
                             anchors.right: parent.right
                             anchors.topMargin: 4
