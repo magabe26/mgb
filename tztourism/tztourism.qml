@@ -21,7 +21,10 @@ Rectangle {
     property bool safariTvVisible: false         // retro TV overlay
     property bool wakeLockTipShown: false        // screen-on tip shown once
 
-
+    Settings {
+        id: langSettings
+        property string lang: ""
+    }
 
     // ── Android back button ────────────────────────────────────────────
     Keys.onBackPressed: {
@@ -1797,20 +1800,6 @@ Rectangle {
                     id: pageCol
                     width: app.width
                     spacing: 0
-                    property string frontPageLang
-
-                    Settings {
-                        id: lagSettings
-                        property string lag: ""
-
-                        Component.onCompleted: {
-                            if(lagSettings.lag !== ""){
-                                pageCol.frontPageLang = lagSettings.value("lag");
-                            } else{
-                                pageCol.frontPageLang = Math.random() < 0.5 ? "sw" : "en";
-                            }
-                        }
-                    }
 
                     // ══ HERO SECTION ══════════════════════════════════════
                     Item {
@@ -1831,7 +1820,7 @@ Rectangle {
                                 id: toggleBackground
                                 anchors.fill: parent
                                 radius: height / 2
-                                color: pageCol.frontPageLang === "en" ? "blue" : "green"
+                                color: langSettings.lang === "en" ? "blue" : "green"
                                 property color txtColor: "white"
 
                                 // Huongeza mabadiliko ya rangi kwa ulaini
@@ -1864,7 +1853,7 @@ Rectangle {
                                         font.pixelSize: Qt.platform.os === "android" ? 14 : 12
                                         horizontalAlignment: Text.AlignHCenter
                                         verticalAlignment: Text.AlignVCenter
-                                        opacity: pageCol.frontPageLang === "en" ? 1.0 : 0.6
+                                        opacity: langSettings.lang === "en" ? 1.0 : 0.6
                                     }
 
                                     Text {
@@ -1876,7 +1865,7 @@ Rectangle {
                                         font.pixelSize:  Qt.platform.os === "android" ? 14 : 12
                                         horizontalAlignment: Text.AlignHCenter
                                         verticalAlignment: Text.AlignVCenter
-                                        opacity: pageCol.frontPageLang === "sw" ? 1.0 : 0.6
+                                        opacity: langSettings.lang === "sw" ? 1.0 : 0.6
                                     }
                                 }
 
@@ -1885,7 +1874,7 @@ Rectangle {
                                     id: knob
                                     width: (parent.width / 2) - 6
                                     height: parent.height - 8
-                                    x: pageCol.frontPageLang === "en" ? (parent.width / 2) + 3 : 3
+                                    x: langSettings.lang === "en" ? (parent.width / 2) + 3 : 3
                                     y: 4
                                     radius: height / 2
                                     color: toggleBackground.txtColor
@@ -1909,14 +1898,12 @@ Rectangle {
                                 MouseArea {
                                     anchors.fill: parent
                                     onClicked: {
-                                        if (pageCol.frontPageLang === "sw") {
-                                            pageCol.frontPageLang = "en"
+                                        if (langSettings.lang === "sw") {
+                                            langSettings.lang = "en"
                                         } else {
-                                            pageCol.frontPageLang = "sw"
+                                            langSettings.lang = "sw"
                                         }
-
-                                        lagSettings.setValue("lag",pageCol.frontPageLang);
-                                        lagSettings.sync();
+                                        langSettings.sync();
                                     }
                                 }
                             }
@@ -1953,10 +1940,10 @@ Rectangle {
                             spacing: 6
 
                             Text {
-                                text: pageCol.frontPageLang === "en" ? "🌍 Tanzania Tourism" : "🇹🇿 Utalii wa Tanzania"
+                                text: langSettings.lang === "en" ? "🌍 Tanzania Tourism" : "🇹🇿 Utalii wa Tanzania"
                                 font.pointSize: Qt.platform.os === "android" ? 22 : 18
                                 font.bold: true
-                                color: pageCol.frontPageLang === "en" ? "blue" : "green"
+                                color: langSettings.lang === "en" ? "blue" : "green"
                             }
 
                             // Cyan underline accent
@@ -1964,7 +1951,7 @@ Rectangle {
                                 width: 60
                                 height: 3
                                 radius: 2
-                                color: pageCol.frontPageLang === "en" ? "blue" : "green"
+                                color: langSettings.lang === "en" ? "blue" : "green"
                             }
                         }
                     }
@@ -1992,7 +1979,7 @@ Rectangle {
                                 }
                                 Text {
                                     anchors.horizontalCenter: parent.horizontalCenter
-                                    text: pageCol.frontPageLang === "sw"
+                                    text: langSettings.lang === "sw"
                                           ? "Vivutio"
                                           : "Attractions"
                                     font.pointSize: Qt.platform.os === "android" ? 10 : 8
@@ -2019,7 +2006,7 @@ Rectangle {
                                 }
                                 Text {
                                     anchors.horizontalCenter: parent.horizontalCenter
-                                    text: pageCol.frontPageLang === "sw"
+                                    text: langSettings.lang === "sw"
                                           ? "Mbuga · Utamaduni · Pwani"
                                           : "Parks · Culture · Coast"
                                     font.pointSize: Qt.platform.os === "android" ? 10 : 8
@@ -2036,8 +2023,6 @@ Rectangle {
                         width: app.width
                         height: dykCol.implicitHeight + (Qt.platform.os === "android" ? 32 : 24)
                         color: "#0a1a19"
-
-                        property string frontPageLang: pageCol.frontPageLang
 
                         property var facts_sw: [
                             "Tanzania ina milima mirefu zaidi barani Afrika — Kilimanjaro, mita 5,895.",
@@ -2266,14 +2251,14 @@ Rectangle {
                             spacing: Qt.platform.os === "android" ? 5 : 4
 
                             Text {
-                                text: parent.parent.frontPageLang === "sw" ? "💡 Je, wajua?" : "💡 Did you know?"
+                                text: langSettings.lang === "sw" ? "💡 Je, wajua?" : "💡 Did you know?"
                                 font.pointSize: Qt.platform.os === "android" ? 10 : 8
                                 font.bold: true
-                                color: pageCol.frontPageLang === "sw" ? "green" : "blue"
+                                color: langSettings.lang === "sw" ? "green" : "blue"
                             }
                             Text {
                                 width: parent.width
-                                text: parent.parent.frontPageLang === "sw"
+                                text: langSettings.lang === "sw"
                                       ? parent.parent.facts_sw[parent.parent.dykIndex]
                                       : parent.parent.facts_en[parent.parent.dykIndex]
                                 font.pointSize: Qt.platform.os === "android" ? 11 : 9
@@ -2295,7 +2280,7 @@ Rectangle {
                             anchors.top: parent.top
                             anchors.topMargin: 10
                             anchors.horizontalCenter: parent.horizontalCenter
-                            text: pageCol.frontPageLang === "sw" ? "Ramani ya Tanzania" : "Map of Tanzania"
+                            text: langSettings.lang === "sw" ? "Ramani ya Tanzania" : "Map of Tanzania"
                             font.pointSize: Qt.platform.os === "android" ? 11 : 9
                             color: "cyan"
                             font.bold: true
@@ -2376,7 +2361,7 @@ Rectangle {
                                     anchors.verticalCenter: parent.verticalCenter
                                 }
                                 Text {
-                                    text: pageCol.frontPageLang === "sw"
+                                    text: langSettings.lang === "sw"
                                           ? "Kivutio cha Leo"
                                           : "Attraction of the Day"
                                     font.pointSize: Qt.platform.os === "android" ? 15 : 13
@@ -2441,7 +2426,7 @@ Rectangle {
                                     Text {
                                         width: parent.width
                                         text: aotdSection.todayAttraction
-                                              ? (pageCol.frontPageLang === "sw"
+                                              ? (langSettings.lang === "sw"
                                                  ? aotdSection.todayAttraction.name_sw
                                                  : aotdSection.todayAttraction.name_en)
                                               : ""
@@ -2454,7 +2439,7 @@ Rectangle {
                                     Text {
                                         width: parent.width
                                         text: aotdSection.todayAttraction
-                                              ? (pageCol.frontPageLang === "sw"
+                                              ? (langSettings.lang === "sw"
                                                  ? aotdSection.todayAttraction.desc_sw
                                                  : aotdSection.todayAttraction.desc_en)
                                               : ""
@@ -2472,7 +2457,7 @@ Rectangle {
                                         width: aotdBtnTxt.implicitWidth + 24
                                         height: Qt.platform.os === "android" ? 40 : 32
                                         radius: height / 2
-                                        color: pageCol.frontPageLang === "sw" ? "green" : "blue"
+                                        color: langSettings.lang === "sw" ? "green" : "blue"
                                         property bool pressed: false
                                         scale: pressed ? 0.95 : 1.0
                                         Behavior on scale { NumberAnimation { duration: 100 } }
@@ -2480,7 +2465,7 @@ Rectangle {
                                         Text {
                                             id: aotdBtnTxt
                                             anchors.centerIn: parent
-                                            text: pageCol.frontPageLang === "sw" ? "Chunguza →" : "Explore →"
+                                            text: langSettings.lang === "sw" ? "Chunguza →" : "Explore →"
                                             font.pointSize: Qt.platform.os === "android" ? 12 : 10
                                             font.bold: true
                                             color: "white"
@@ -2510,9 +2495,9 @@ Rectangle {
                                         var a = aotdSection.todayAttraction;
                                         if (a) {
                                             contextMenu.doOpen(
-                                                        pageCol.frontPageLang,
-                                                        pageCol.frontPageLang === "sw" ? a.name_sw : a.name_en,
-                                                        pageCol.frontPageLang === "sw" ? a.desc_sw : a.desc_en,
+                                                        langSettings.lang,
+                                                        langSettings.lang === "sw" ? a.name_sw : a.name_en,
+                                                        langSettings.lang === "sw" ? a.desc_sw : a.desc_en,
                                                         a.imageFile,
                                                         aotdSection.todayIdx
                                                         );
@@ -2534,7 +2519,7 @@ Rectangle {
                                 }
                                 Text {
                                     id: aotdCountdownLabel
-                                    text: pageCol.frontPageLang === "sw"
+                                    text: langSettings.lang === "sw"
                                           ? "Inabadilika baada ya"
                                           : "Changes in"
                                     font.pointSize: Qt.platform.os === "android" ? 10 : 8
@@ -2610,7 +2595,7 @@ Rectangle {
                                     anchors.right: parent.right
                                     anchors.leftMargin: 30
                                     anchors.rightMargin: 16
-                                    text: pageCol.frontPageLang === "sw" ? "Kusafiri ni elimu. Tembelea hifadhi za Tanzania, jifunze thamani ya mazingira ya Tanzania, na uwe balozi wa uzuri wa Tanzania." : "Travel is a form of learning. Explore Tanzania's national parks, discover the value of our environment, and become an ambassador for the beauty of Tanzania."
+                                    text: langSettings.lang === "sw" ? "Kusafiri ni elimu. Tembelea hifadhi za Tanzania, jifunze thamani ya mazingira ya Tanzania, na uwe balozi wa uzuri wa Tanzania." : "Travel is a form of learning. Explore Tanzania's national parks, discover the value of our environment, and become an ambassador for the beauty of Tanzania."
                                     font.pointSize: Qt.platform.os === "android" ? 12 : 10
                                     color: "#cccccc"
                                     wrapMode: Text.WordWrap
@@ -2621,7 +2606,7 @@ Rectangle {
                             // Swahili button
                             Rectangle {
                                 id: swBtn
-                                visible: pageCol.frontPageLang === "sw"
+                                visible: langSettings.lang === "sw"
                                 anchors.horizontalCenter: parent.horizontalCenter
                                 width: app.width * 0.82
                                 height: Qt.platform.os === "android" ? 62 : 48
@@ -2655,7 +2640,7 @@ Rectangle {
                             // English button
                             Rectangle {
                                 id: enBtn
-                                visible: pageCol.frontPageLang === "en"
+                                visible: langSettings.lang === "en"
                                 anchors.horizontalCenter: parent.horizontalCenter
                                 width: app.width * 0.82
                                 height: Qt.platform.os === "android" ? 62 : 48
@@ -2710,7 +2695,7 @@ Rectangle {
                                     }
                                     Column {
                                         anchors.verticalCenter: parent.verticalCenter; spacing: 3
-                                        Text { text:  pageCol.frontPageLang === "sw" ? "Mchezo wa Utalii" : "Tourism Memory Game"; font.pointSize: Qt.platform.os === "android" ? 13 : 11; font.bold: true; color: "white" }
+                                        Text { text:  langSettings.lang === "sw" ? "Mchezo wa Utalii" : "Tourism Memory Game"; font.pointSize: Qt.platform.os === "android" ? 13 : 11; font.bold: true; color: "white" }
                                     }
                                 }
                                 Text {
@@ -2724,7 +2709,7 @@ Rectangle {
                                     onPressed:  gameBtn.pressed = true
                                     onReleased: {
                                         gameLangSwCard.pressed = false;
-                                        app.gameLang = pageCol.frontPageLang;
+                                        app.gameLang = langSettings.lang;
                                         app.gameVisible = true;
                                     }
                                     onCanceled: gameBtn.pressed = false
@@ -2754,7 +2739,7 @@ Rectangle {
                                     spacing: 10
                                     Text { text: "🎲"; font.pointSize: Qt.platform.os === "android" ? 18 : 14 }
                                     Text {
-                                        text: pageCol.frontPageLang === "sw" ? "Nishangaze!" : "Surprise me!"
+                                        text: langSettings.lang === "sw" ? "Nishangaze!" : "Surprise me!"
                                         font.pointSize: Qt.platform.os === "android" ? 13 : 11
                                         font.bold: true
                                         color: "cyan"
@@ -2810,7 +2795,7 @@ Rectangle {
                             Text {
                                 id:tscDesc
                                 width: parent.width
-                                text: pageCol.frontPageLang === "sw" ? "Tanzania imebarikiwa kuwa na vivutio vingi vya utalii ambavyo ni vigumu kuvitaja vyote hapa. Ili kuvifahamu na kuvishuhudia kwa undani zaidi, tunakushauri kufuatilia Tanzania Safari Channel inayopatikana kupitia DStv (292), Azam TV (401), Zuku (27), StarTimes Antenna (331), StarTimes Dish (542), Zmux (46) na Continental (7). Huu ni mlango wako wa kidijitali wa kutembelea mbuga za wanyama, fukwe, na urithi wa kitamaduni wa nchi yetu ukiwa nyumbani kwako." : "Tanzania is home to an overwhelming number of tourist attractions that cannot be fully listed here. For a more immersive experience, we highly recommend watching the Tanzania Safari Channel, available on DStv (292), Azam TV (401), Zuku (27), StarTimes Antenna (331), StarTimes Dish (542), Zmux (46) and Continental (7)."
+                                text: langSettings.lang === "sw" ? "Tanzania imebarikiwa kuwa na vivutio vingi vya utalii ambavyo ni vigumu kuvitaja vyote hapa. Ili kuvifahamu na kuvishuhudia kwa undani zaidi, tunakushauri kufuatilia Tanzania Safari Channel inayopatikana kupitia DStv (292), Azam TV (401), Zuku (27), StarTimes Antenna (331), StarTimes Dish (542), Zmux (46) na Continental (7). Huu ni mlango wako wa kidijitali wa kutembelea mbuga za wanyama, fukwe, na urithi wa kitamaduni wa nchi yetu ukiwa nyumbani kwako." : "Tanzania is home to an overwhelming number of tourist attractions that cannot be fully listed here. For a more immersive experience, we highly recommend watching the Tanzania Safari Channel, available on DStv (292), Azam TV (401), Zuku (27), StarTimes Antenna (331), StarTimes Dish (542), Zmux (46) and Continental (7)."
                                 font.pointSize: Qt.platform.os === "android" ? 12 : 10
                                 color: "#cccccc"
                                 wrapMode: Text.WordWrap
@@ -2865,7 +2850,7 @@ Rectangle {
                                         anchors.verticalCenter: parent.verticalCenter
                                         spacing: 2
                                         Text {
-                                            text: pageCol.frontPageLang === "sw" ? "Tazama Tanzania Safari Channel" : "Watch Tanzania Safari Channel"
+                                            text: langSettings.lang === "sw" ? "Tazama Tanzania Safari Channel" : "Watch Tanzania Safari Channel"
                                             font.pointSize: Qt.platform.os === "android" ? 12 : 10
                                             font.bold: true
                                             color: "cyan"
@@ -2928,7 +2913,7 @@ Rectangle {
 
                             Text {
                                 anchors.centerIn: parent
-                                text: pageCol.frontPageLang === "sw" ? "X  Funga" : "X  Close"
+                                text: langSettings.lang === "sw" ? "X  Funga" : "X  Close"
                                 font.pointSize: Qt.platform.os === "android" ? 12 : 10
                                 font.bold: true
                                 color: "white"
@@ -7346,7 +7331,7 @@ Rectangle {
                     tvCloseBtn.scale = 1.0;
                     safariPlayer.stop();
                     app.safariTvVisible = false;
-                    app.selectedLanguage = "sw";
+                    app.selectedLanguage = langSettings.lang;
                     viewComponentLoader.switchTo(languageSelectionComponent, app.width / 2, app.height / 2);
                     app.selectedLanguage = "";
                     app.ad();
