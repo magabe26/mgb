@@ -1806,18 +1806,19 @@ Rectangle {
                         // ══ Language toggle button ══════════════════════════════════════
                         Item {
                             z: tzflag.z + 1
-                            width: app.width * 0.3
-                            height: 32
+                            width: app.width * 0.45
+                            height: 40
                             anchors.top: parent.top
                             anchors.right: parent.right
-                            anchors.topMargin: 2
+                            anchors.topMargin: 4
                             anchors.rightMargin: 2
 
                             Rectangle {
                                 id: toggleBackground
                                 anchors.fill: parent
                                 radius: height / 2
-                                color: pageCol.frontPageLang === "en" ? "#2196F3" : "#4CAF50" // Blue kwa EN, Green kwa SW
+                                color: pageCol.frontPageLang === "en" ? "blue" : "green"
+                                property color txtColor: "#0a1a19"
 
                                 // Huongeza mabadiliko ya rangi kwa ulaini
                                 Behavior on color {
@@ -1844,9 +1845,9 @@ Rectangle {
                                         width: parent.width / 2
                                         height: parent.height
                                         text: "KISWAHILI"
-                                        color: "#001413"
+                                        color: toggleBackground.txtColor
                                         font.bold: pageCol.frontPageLang === "en"
-                                        font.pixelSize: Qt.platform.os === "android" ? 10 : 8
+                                        font.pixelSize: Qt.platform.os === "android" ? 12 : 10
                                         horizontalAlignment: Text.AlignHCenter
                                         verticalAlignment: Text.AlignVCenter
                                         opacity: pageCol.frontPageLang === "en" ? 1.0 : 0.6
@@ -1856,9 +1857,9 @@ Rectangle {
                                         width: parent.width / 2
                                         height: parent.height
                                         text: "ENGLISH"
-                                        color: "#001413"
+                                        color: toggleBackground.txtColor
                                         font.bold: pageCol.frontPageLang === "sw"
-                                        font.pixelSize: Qt.platform.os === "android" ? 10 : 8
+                                        font.pixelSize:  Qt.platform.os === "android" ? 12 : 10
                                         horizontalAlignment: Text.AlignHCenter
                                         verticalAlignment: Text.AlignVCenter
                                         opacity: pageCol.frontPageLang === "sw" ? 1.0 : 0.6
@@ -1873,7 +1874,7 @@ Rectangle {
                                     x: pageCol.frontPageLang === "en" ? (parent.width / 2) + 3 : 3
                                     y: 4
                                     radius: height / 2
-                                    color: "#001413"
+                                    color: toggleBackground.txtColor
 
                                     Behavior on x {
                                         NumberAnimation {
