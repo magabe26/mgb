@@ -2189,9 +2189,15 @@ Rectangle {
 
                     // ══ DID YOU KNOW ═══════════════════════════════════════
                     Rectangle {
+                        id: dykSection
                         width: app.width
                         height: dykCol.implicitHeight + (Qt.platform.os === "android" ? 32 : 24)
                         color: "#0a1a19"
+
+                        function refreshDailyContent() {
+                            var d = new Date();
+                            dykIndex = d.getDate() % 100;
+                        }
 
                         property var facts_sw: [
                             "Tanzania ina milima mirefu zaidi barani Afrika — Kilimanjaro, mita 5,895.",
@@ -2394,10 +2400,7 @@ Rectangle {
                             "Tanzania offers natural and cultural attractions found nowhere else on Earth."
                         ]
 
-                        property int dykIndex: {
-                            var d = new Date();
-                            return d.getDate() % 100;
-                        }
+                        property int dykIndex: (new Date()).getDate() % 100
 
                         // Left cyan accent bar
                         Rectangle {
@@ -2509,6 +2512,13 @@ Rectangle {
                             return dayOfYear % attractionModel.count;
                         }
                         property var todayAttraction: attractionModel.get(todayIdx)
+
+                        function refreshDailyContent() {
+                            var d = new Date();
+                            var dayOfYear = Math.floor((d - new Date(d.getFullYear(), 0, 0)) / 86400000);
+                            todayIdx = dayOfYear % attractionModel.count;
+                            todayAttraction = attractionModel.get(todayIdx);
+                        }
 
                         Column {
                             id: aotdInner
@@ -2723,6 +2733,12 @@ Rectangle {
                                             (h < 10 ? "0" + h : h) + ":" +
                                             (m < 10 ? "0" + m : m) + ":" +
                                             (s < 10 ? "0" + s : s);
+
+                                    // Saa imefika usiku wa manane — badilisha maudhui bila kufungua app
+                                    if (h === 0 && m === 0 && s === 0) {
+                                        aotdSection.refreshDailyContent();
+                                        dykSection.refreshDailyContent();
+                                    }
                                 }
                                 Component.onCompleted: { aotdCountdownTimer.triggered(); }
                             }
