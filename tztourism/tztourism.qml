@@ -168,6 +168,15 @@ Rectangle {
         id: attractionModel
 
 
+ListElement {
+    name_en: "Bodaboda & Bajaji Transport, Tanzania"
+    name_sw: "Usafiri wa Bodaboda na Bajaji, Tanzania"
+    imageFile: "./bodaboda_bajaji.jpg"
+    desc_en: "The most iconic and efficient way to navigate Tanzanian streets. Experience the city like a local with Bajaji for a breezy ride or Bodaboda to beat the traffic."
+    desc_sw: "Njia maarufu na bora ya kuzunguka mitaa ya Tanzania. Ishi kama mzawa kwa kutumia Bajaji kufurahia upepo mwanana au Bodaboda kuwahi unakokwenda bila kukwama kwenye foleni."
+}
+
+
         ListElement {
             name_en: "Zanzibar (Stone Town & Beaches)"; name_sw: "Zanzibar (Mji Mkongwe na Fukwe)"
             imageFile: "./zanzibar_st2.jpg"
