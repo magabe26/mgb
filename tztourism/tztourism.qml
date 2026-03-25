@@ -2463,19 +2463,176 @@ Rectangle {
                         }
                     }
 
-                    // ══ SPECIAL DATED DID YOU KNOW ════════════════════════
+                    // ══ SPECIAL DATED DID YOU KNOW — multi-date calendar ══
                     Rectangle {
                         id: specialDykSection
                         width: app.width
                         color: "#0d0a00"
-                        visible: {
-                            var d = new Date();
-                            return (d.getMonth() === 2 && d.getDate() === 25); // Machi 25
-                        }
-                        height: visible ? (specialDykInner.implicitHeight + (Qt.platform.os === "android" ? 36 : 28)) : 0
                         clip: true
 
-                        // Gold left accent bar
+                        // ── Calendar of special Tanzania dates ──────────────
+                        // Each entry: { m: month(0-based), d: day, icon, color, accent,
+                        //   label_sw, label_en, title_sw, title_en, body_sw, body_en }
+                        property var calendarEntries: [
+                            {
+                                m: 0, d: 1,
+                                icon: "🎆", color: "#1a3a6a", accent: "#4488ff",
+                                label_sw: "Mwaka Mpya",
+                                label_en: "New Year's Day",
+                                title_sw: "Januari 1 — Mwaka Mpya Tanzania",
+                                title_en: "January 1 — Tanzania New Year",
+                                body_sw: "Tanzania inaadhimisha mwaka mpya kwa shangwe kubwa. Dar es Salaam, Zanzibar na miji mingi hujaa muziki, milio ya fataki, na watu wanaosherehekea pamoja.",
+                                body_en: "Tanzania welcomes the new year with vibrant celebrations. Dar es Salaam, Zanzibar and many cities fill with music, fireworks, and people celebrating together."
+                            },
+                            {
+                                m: 0, d: 12,
+                                icon: "✊", color: "#4a0a0a", accent: "#cc3300",
+                                label_sw: "Siku ya Mapinduzi ya Zanzibar",
+                                label_en: "Zanzibar Revolution Day",
+                                title_sw: "12 Januari 1964 — Mapinduzi ya Zanzibar",
+                                title_en: "January 12, 1964 — Zanzibar Revolution",
+                                body_sw: "Tarehe hii Wazanzibari waliipindua utawala wa Kisultani wa Kiarabu. Seyyid Jamshid bin Abdullah, Sultan wa Zanzibar, alikimbia nchi. Mapinduzi haya yalifungua njia ya muungano wa Zanzibar na Tanganyika kuunda Tanzania.",
+                                body_en: "On this day Zanzibaris overthrew the Arab Sultanate. Sultan Jamshid bin Abdullah fled the island. This revolution opened the path to Zanzibar uniting with Tanganyika to form Tanzania."
+                            },
+                            {
+                                m: 1, d: 5,
+                                icon: "📜", color: "#1a2a0a", accent: "#66aa00",
+                                label_sw: "Tamko la Arusha",
+                                label_en: "Arusha Declaration",
+                                title_sw: "5 Februari 1967 — Tamko la Arusha",
+                                title_en: "February 5, 1967 — The Arusha Declaration",
+                                body_sw: "Mwalimu Julius Nyerere alitangaza Tamko la Arusha — dira ya Ujamaa na Kujitegemea. Sera hii ilisisitiza usawa, elimu kwa wote, na ardhi kuwa mali ya umma. Iliathiri mataifa mengi ya Afrika.",
+                                body_en: "Mwalimu Julius Nyerere announced the Arusha Declaration — the vision of Ujamaa and self-reliance. This policy emphasized equality, universal education, and land as public property. It influenced many African nations."
+                            },
+                            {
+                                m: 2, d: 25,
+                                icon: "🕯️", color: "#1a1400", accent: "#c8a400",
+                                label_sw: "Siku ya Ukumbusho wa Utumwa",
+                                label_en: "Slavery Remembrance Day",
+                                title_sw: "25 Machi — Siku ya Kimataifa ya Ukumbusho wa Waathirika wa Utumwa",
+                                title_en: "March 25 — International Day of Remembrance of Slavery Victims",
+                                body_sw: "Umoja wa Mataifa unaiadhimisha siku hii kukumbuka waathirika wa biashara ya watumwa ya Atlantiki. Zanzibar ilikuwa kituo kikuu cha utumwa Afrika Mashariki — watu 50,000 waliuzwa hapo kila mwaka. Mnamo 1873 soko hilo la mwisho duniani lilifungwa. Magofu ya Bagamoyo na kanisa la Zanzibar lililojengwa juu ya soko la watumwa yanasimulia historia hii nzito.",
+                                body_en: "The UN observes this day to honour victims of the transatlantic slave trade. Zanzibar was East Africa's main slave hub — 50,000 people were sold there annually. In 1873 the world's last slave market was closed. The ruins of Bagamoyo and Zanzibar's cathedral built over the slave market still tell this weighty history."
+                            },
+                            {
+                                m: 3, d: 7,
+                                icon: "🕊️", color: "#1a0a0a", accent: "#aa2200",
+                                label_sw: "Siku ya Karume",
+                                label_en: "Karume Day",
+                                title_sw: "7 Aprili 1972 — Siku ya Karume",
+                                title_en: "April 7, 1972 — Karume Day",
+                                body_sw: "Sheikh Abeid Amani Karume, rais wa kwanza wa Zanzibar na makamu wa kwanza wa Tanzania, aliuawa tarehe hii mwaka 1972. Alikuwa kiongozi mkuu wa mapinduzi ya 1964 na alichangia sana maendeleo ya elimu na afya Zanzibar.",
+                                body_en: "Sheikh Abeid Amani Karume, first president of Zanzibar and first Vice President of Tanzania, was assassinated on this day in 1972. He was the key leader of the 1964 revolution and greatly advanced education and healthcare in Zanzibar."
+                            },
+                            {
+                                m: 3, d: 26,
+                                icon: "🤝", color: "#0a1a0a", accent: "#00aa44",
+                                label_sw: "Siku ya Muungano",
+                                label_en: "Union Day",
+                                title_sw: "26 Aprili 1964 — Muungano wa Tanzania",
+                                title_en: "April 26, 1964 — Tanzania Union Day",
+                                body_sw: "Siku hii Tanganyika na Zanzibar ziliungana kuunda Jamhuri ya Muungano wa Tanzania. Mwalimu Julius Nyerere akawa rais wa kwanza na Abeid Karume makamu wake. Muungano huu unaendelea hadi leo — nguvu ya amani na umoja.",
+                                body_en: "On this day Tanganyika and Zanzibar united to form the United Republic of Tanzania. Mwalimu Julius Nyerere became first president and Abeid Karume his deputy. This union continues today — a beacon of peace and unity."
+                            },
+                            {
+                                m: 4, d: 1,
+                                icon: "⚒️", color: "#0a0a1a", accent: "#4444cc",
+                                label_sw: "Siku ya Wafanyakazi",
+                                label_en: "Workers' Day",
+                                title_sw: "1 Mei — Siku ya Wafanyakazi Duniani",
+                                title_en: "May 1 — International Workers' Day",
+                                body_sw: "Tanzania inaadhimisha siku hii kwa mikutano ya vyama vya wafanyakazi, hotuba za viongozi, na maandamano. Wafanyakazi wa sekta zote — kilimo, ujenzi, elimu, na afya — wanashukurishwa mchango wao wa kujenga taifa.",
+                                body_en: "Tanzania marks this day with trade union rallies, leader speeches, and marches. Workers from all sectors — agriculture, construction, education, and health — are honoured for their contribution to building the nation."
+                            },
+                            {
+                                m: 5, d: 7,
+                                icon: "⛰️", color: "#0a1a1a", accent: "#00ccaa",
+                                label_sw: "Kilimanjaro — Sherehe ya Kwanza Kupanda",
+                                label_en: "Kilimanjaro — First Summit Anniversary",
+                                title_sw: "7 Juni 1889 — Hans Meyer Apanda Kilimanjaro",
+                                title_en: "June 7, 1889 — Hans Meyer Summits Kilimanjaro",
+                                body_sw: "Tarehe hii mwaka 1889, Hans Meyer wa Ujerumani na Ludwig Purtscheller walikuwa wazungu wa kwanza kuwahi kupanda kilele cha Uhuru Peak cha Mlima Kilimanjaro — mita 5,895. Leo wapandaji zaidi ya 50,000 hujaribu kila mwaka.",
+                                body_en: "On this date in 1889, Hans Meyer of Germany and Ludwig Purtscheller became the first Europeans to summit Kilimanjaro's Uhuru Peak at 5,895m. Today over 50,000 climbers attempt the mountain every year."
+                            },
+                            {
+                                m: 6, d: 7,
+                                icon: "🌾", color: "#1a1500", accent: "#bbaa00",
+                                label_sw: "Saba Saba — Siku ya Wakulima",
+                                label_en: "Saba Saba — Peasants' Day",
+                                title_sw: "7 Julai — Saba Saba",
+                                title_en: "July 7 — Saba Saba Day",
+                                body_sw: "Saba Saba (saba-saba = 7-7) inaadhimisha kuanzishwa kwa TANU mwaka 1954 — chama kilichopigana kwa uhuru wa Tanganyika. Leo inajulikana zaidi kama Siku ya Wakulima na Maonesho ya Kimataifa ya Biashara Dar es Salaam.",
+                                body_en: "Saba Saba (seven-seven = 7-7) commemorates the founding of TANU in 1954 — the party that fought for Tanganyika's independence. Today it is better known as Peasants' Day and the Dar es Salaam International Trade Fair."
+                            },
+                            {
+                                m: 7, d: 8,
+                                icon: "🚜", color: "#0a1500", accent: "#55cc00",
+                                label_sw: "Nane Nane — Siku ya Wakulima",
+                                label_en: "Nane Nane — Farmers' Day",
+                                title_sw: "8 Agosti — Nane Nane",
+                                title_en: "August 8 — Nane Nane Farmers' Day",
+                                body_sw: "Nane Nane (8-8) ni siku ya kusherehekea wakulima wa Tanzania. Zaidi ya asilimia 65 ya Watanzania wanategemea kilimo. Maonesho ya kilimo hufanyika kote nchini, yakionyesha mazao, teknolojia za kisasa, na mifugo.",
+                                body_en: "Nane Nane (8-8) celebrates Tanzania's farmers. Over 65% of Tanzanians depend on agriculture. Agricultural shows are held nationwide, showcasing crops, modern technology, and livestock."
+                            },
+                            {
+                                m: 7, d: 25,
+                                icon: "⚔️", color: "#1a0a0a", accent: "#cc6600",
+                                label_sw: "Vita Fupi Zaidi — Anglo-Zanzibar 1896",
+                                label_en: "Shortest War in History — 1896",
+                                title_sw: "27 Agosti 1896 — Vita vya Anglo-Zanzibar",
+                                title_en: "August 27, 1896 — Anglo-Zanzibar War",
+                                body_sw: "Vita vya Anglo-Zanzibar vilidumu dakika 38 tu — vita vifupi zaidi katika historia ya dunia. Meli za Uingereza zilipiga makombora ikulu ya Zanzibar baada ya Sultan mpya Khalid bin Barghash kukataa kushuka madarakani. Sultan alikimbilia ubalozi wa Ujerumani.",
+                                body_en: "The Anglo-Zanzibar War lasted just 38 minutes — the shortest war in recorded history. British warships shelled Zanzibar's palace after new Sultan Khalid bin Barghash refused to stand down. The sultan fled to the German consulate."
+                            },
+                            {
+                                m: 9, d: 14,
+                                icon: "🌟", color: "#1a1200", accent: "#ddaa00",
+                                label_sw: "Siku ya Nyerere",
+                                label_en: "Nyerere Day",
+                                title_sw: "14 Oktoba 1999 — Siku ya Nyerere",
+                                title_en: "October 14, 1999 — Nyerere Day",
+                                body_sw: "Mwalimu Julius Kambarage Nyerere alifariki tarehe hii mwaka 1999 akiwa na umri wa miaka 77. Baba wa Taifa, mwalimu, mwanadiplomasia, na mwandishi — alitafsiri Shakespeare kwa Kiswahili. Amezikwa huko Butiama, mji wake wa asili, na Makumbusho ya Nyerere inabaki kumbukumbu yake.",
+                                body_en: "Mwalimu Julius Kambarage Nyerere passed away on this date in 1999 aged 77. Father of the Nation, teacher, diplomat, and writer — he translated Shakespeare into Swahili. He is buried in Butiama, his home village, and the Nyerere Museum preserves his legacy."
+                            },
+                            {
+                                m: 11, d: 9,
+                                icon: "🇹🇿", color: "#001a00", accent: "#00cc55",
+                                label_sw: "Siku ya Uhuru wa Tanzania",
+                                label_en: "Tanzania Independence Day",
+                                title_sw: "9 Desemba 1961 — Uhuru wa Tanganyika",
+                                title_en: "December 9, 1961 — Tanganyika Independence",
+                                body_sw: "Tarehe hii Tanganyika ilipata uhuru wake kwa amani kutoka kwa Uingereza. Nyerere akawa Waziri Mkuu. Ni mwanzo wa safari ya Tanzania kuwa taifa huru. Siku hii inadhimishwa kila mwaka kwa maandamano, hotuba, na taa ya Uhuru iliyopasuliwa juu ya Kilimanjaro.",
+                                body_en: "On this day Tanganyika peacefully gained independence from Britain. Nyerere became Prime Minister. It marks the beginning of Tanzania's journey as a free nation. The day is marked annually with parades, speeches, and the Uhuru Torch carried to Kilimanjaro's summit."
+                            },
+                            {
+                                m: 11, d: 10,
+                                icon: "🏝️", color: "#001a1a", accent: "#00aacc",
+                                label_sw: "Uhuru wa Zanzibar",
+                                label_en: "Zanzibar Independence",
+                                title_sw: "10 Desemba 1963 — Zanzibar Yapata Uhuru",
+                                title_en: "December 10, 1963 — Zanzibar Gains Independence",
+                                body_sw: "Zanzibar ilipata uhuru wake kutoka kwa Uingereza chini ya miezi miwili kabla ya mapinduzi ya Januari 1964. Sultani Jamshid bin Abdullah alibaki madarakani kwa muda mfupi. Uhuru huu ulianzisha kipande kipya cha historia ya visiwa hivi vya Bahari ya Hindi.",
+                                body_en: "Zanzibar gained independence from Britain less than two months before the January 1964 revolution. Sultan Jamshid bin Abdullah briefly held power. This independence began a new chapter in the history of these Indian Ocean islands."
+                            }
+                        ]
+
+                        // ── Find today's matching entry ─────────────────────
+                        property var todayEntry: {
+                            var d = new Date();
+                            var m = d.getMonth();
+                            var day = d.getDate();
+                            for (var i = 0; i < calendarEntries.length; i++) {
+                                if (calendarEntries[i].m === m && calendarEntries[i].d === day) {
+                                    return calendarEntries[i];
+                                }
+                            }
+                            return null;
+                        }
+
+                        visible: todayEntry !== null
+                        height: visible ? (specialDykInner.implicitHeight + (Qt.platform.os === "android" ? 36 : 28)) : 0
+
+                        // Coloured left accent bar — uses entry's accent colour
                         Rectangle {
                             anchors.left: parent.left
                             anchors.leftMargin: 16
@@ -2483,7 +2640,7 @@ Rectangle {
                             width: 4
                             height: parent.height - (Qt.platform.os === "android" ? 20 : 14)
                             radius: 2
-                            color: "#c8a400"
+                            color: specialDykSection.todayEntry ? specialDykSection.todayEntry.accent : "#c8a400"
                         }
 
                         Column {
@@ -2495,46 +2652,57 @@ Rectangle {
                             anchors.verticalCenter: parent.verticalCenter
                             spacing: Qt.platform.os === "android" ? 6 : 5
 
-                            // Header row: icon + label + date
+                            // Header row: icon + label
                             Row {
                                 width: parent.width
                                 spacing: 6
 
                                 Text {
-                                    text: "🕯️"
+                                    text: specialDykSection.todayEntry ? specialDykSection.todayEntry.icon : "📅"
                                     font.pointSize: Qt.platform.os === "android" ? 13 : 11
                                     anchors.verticalCenter: parent.verticalCenter
                                 }
-
                                 Text {
-                                    text: langSettings.lang === "sw"
-                                          ? "Je, wajua? • Leo, 25 Machi"
-                                          : "Did you know? • Today, 25 March"
+                                    text: {
+                                        if (!specialDykSection.todayEntry) { return ""; }
+                                        var prefix = langSettings.lang === "sw" ? "Je, wajua? • " : "Did you know? • ";
+                                        return prefix + (langSettings.lang === "sw"
+                                            ? specialDykSection.todayEntry.label_sw
+                                            : specialDykSection.todayEntry.label_en);
+                                    }
                                     font.pointSize: Qt.platform.os === "android" ? 10 : 8
                                     font.bold: true
-                                    color: "#c8a400"
+                                    color: specialDykSection.todayEntry ? specialDykSection.todayEntry.accent : "#c8a400"
                                     anchors.verticalCenter: parent.verticalCenter
+                                    wrapMode: Text.WordWrap
+                                    width: parent.width - 30
                                 }
                             }
 
                             // Title
                             Text {
                                 width: parent.width
-                                text: langSettings.lang === "sw"
-                                      ? "Siku ya Kimataifa ya Ukumbusho wa Waathirika wa Utumwa"
-                                      : "International Day of Remembrance of Slavery Victims"
+                                text: {
+                                    if (!specialDykSection.todayEntry) { return ""; }
+                                    return langSettings.lang === "sw"
+                                        ? specialDykSection.todayEntry.title_sw
+                                        : specialDykSection.todayEntry.title_en;
+                                }
                                 font.pointSize: Qt.platform.os === "android" ? 12 : 10
                                 font.bold: true
-                                color: "#f5d76e"
+                                color: "#f0e0b0"
                                 wrapMode: Text.WordWrap
                             }
 
-                            // Fact text
+                            // Body text
                             Text {
                                 width: parent.width
-                                text: langSettings.lang === "sw"
-                                      ? "Tarehe 25 Machi inadhimishwa kila mwaka na Umoja wa Mataifa kukumbuka waathirika wa biashara ya watumwa ya Atlantiki. Bagamoyo na Zanzibar zilikuwa vituo vikuu vya biashara ya watumwa Afrika Mashariki — magofu yao yanasimulia historia hii nzito hadi leo."
-                                      : "March 25 is observed annually by the United Nations to honour victims of the transatlantic slave trade. Bagamoyo and Zanzibar were major East African slave-trade hubs — their ruins still tell this weighty history today."
+                                text: {
+                                    if (!specialDykSection.todayEntry) { return ""; }
+                                    return langSettings.lang === "sw"
+                                        ? specialDykSection.todayEntry.body_sw
+                                        : specialDykSection.todayEntry.body_en;
+                                }
                                 font.pointSize: Qt.platform.os === "android" ? 11 : 9
                                 color: "#cccccc"
                                 wrapMode: Text.WordWrap
