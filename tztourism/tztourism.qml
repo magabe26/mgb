@@ -2422,17 +2422,119 @@ Rectangle {
                             anchors.verticalCenter: parent.verticalCenter
                             spacing: Qt.platform.os === "android" ? 5 : 4
 
-                            Text {
-                                text: langSettings.lang === "sw" ? "💡 Je, wajua?" : "💡 Did you know?"
-                                font.pointSize: Qt.platform.os === "android" ? 10 : 8
-                                font.bold: true
-                                color: langSettings.lang === "sw" ? "green" : "blue"
+                            Row {
+                                spacing: 8
+                                anchors.left: parent.left
+                                anchors.right: parent.right
+
+                                Text {
+                                    text: langSettings.lang === "sw" ? "💡 Je, wajua?" : "💡 Did you know?"
+                                    font.pointSize: Qt.platform.os === "android" ? 10 : 8
+                                    font.bold: true
+                                    color: langSettings.lang === "sw" ? "green" : "blue"
+                                }
+
+                                Text {
+                                    text: {
+                                        var d = new Date();
+                                        var months_sw = ["Jan","Feb","Mac","Apr","Mei","Jun","Jul","Ago","Sep","Okt","Nov","Des"];
+                                        var months_en = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+                                        var months = langSettings.lang === "sw" ? months_sw : months_en;
+                                        return d.getDate() + " " + months[d.getMonth()] + " " + d.getFullYear();
+                                    }
+                                    font.pointSize: Qt.platform.os === "android" ? 9 : 7
+                                    color: "#888888"
+                                    font.italic: true
+                                    anchors.verticalCenter: undefined
+                                    verticalAlignment: Text.AlignVCenter
+                                }
                             }
+
                             Text {
                                 width: parent.width
                                 text: langSettings.lang === "sw"
                                       ? parent.parent.facts_sw[parent.parent.dykIndex]
                                       : parent.parent.facts_en[parent.parent.dykIndex]
+                                font.pointSize: Qt.platform.os === "android" ? 11 : 9
+                                color: "#cccccc"
+                                wrapMode: Text.WordWrap
+                                font.italic: true
+                            }
+                        }
+                    }
+
+                    // ══ SPECIAL DATED DID YOU KNOW ════════════════════════
+                    Rectangle {
+                        id: specialDykSection
+                        width: app.width
+                        color: "#0d0a00"
+                        visible: {
+                            var d = new Date();
+                            return (d.getMonth() === 2 && d.getDate() === 25); // Machi 25
+                        }
+                        height: visible ? (specialDykInner.implicitHeight + (Qt.platform.os === "android" ? 36 : 28)) : 0
+                        clip: true
+
+                        // Gold left accent bar
+                        Rectangle {
+                            anchors.left: parent.left
+                            anchors.leftMargin: 16
+                            anchors.verticalCenter: parent.verticalCenter
+                            width: 4
+                            height: parent.height - (Qt.platform.os === "android" ? 20 : 14)
+                            radius: 2
+                            color: "#c8a400"
+                        }
+
+                        Column {
+                            id: specialDykInner
+                            anchors.left: parent.left
+                            anchors.right: parent.right
+                            anchors.leftMargin: 30
+                            anchors.rightMargin: 16
+                            anchors.verticalCenter: parent.verticalCenter
+                            spacing: Qt.platform.os === "android" ? 6 : 5
+
+                            // Header row: icon + label + date
+                            Row {
+                                width: parent.width
+                                spacing: 6
+
+                                Text {
+                                    text: "🕯️"
+                                    font.pointSize: Qt.platform.os === "android" ? 13 : 11
+                                    anchors.verticalCenter: parent.verticalCenter
+                                }
+
+                                Text {
+                                    text: langSettings.lang === "sw"
+                                          ? "Je, wajua? • Leo, 25 Machi"
+                                          : "Did you know? • Today, 25 March"
+                                    font.pointSize: Qt.platform.os === "android" ? 10 : 8
+                                    font.bold: true
+                                    color: "#c8a400"
+                                    anchors.verticalCenter: parent.verticalCenter
+                                }
+                            }
+
+                            // Title
+                            Text {
+                                width: parent.width
+                                text: langSettings.lang === "sw"
+                                      ? "Siku ya Kimataifa ya Ukumbusho wa Waathirika wa Utumwa"
+                                      : "International Day of Remembrance of Slavery Victims"
+                                font.pointSize: Qt.platform.os === "android" ? 12 : 10
+                                font.bold: true
+                                color: "#f5d76e"
+                                wrapMode: Text.WordWrap
+                            }
+
+                            // Fact text
+                            Text {
+                                width: parent.width
+                                text: langSettings.lang === "sw"
+                                      ? "Tarehe 25 Machi inadhimishwa kila mwaka na Umoja wa Mataifa kukumbuka waathirika wa biashara ya watumwa ya Atlantiki. Bagamoyo na Zanzibar zilikuwa vituo vikuu vya biashara ya watumwa Afrika Mashariki — magofu yao yanasimulia historia hii nzito hadi leo."
+                                      : "March 25 is observed annually by the United Nations to honour victims of the transatlantic slave trade. Bagamoyo and Zanzibar were major East African slave-trade hubs — their ruins still tell this weighty history today."
                                 font.pointSize: Qt.platform.os === "android" ? 11 : 9
                                 color: "#cccccc"
                                 wrapMode: Text.WordWrap
