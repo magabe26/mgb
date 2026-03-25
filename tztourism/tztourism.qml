@@ -2437,8 +2437,8 @@ Rectangle {
                                 Text {
                                     text: {
                                         var d = new Date();
-                                        var months_sw = ["Jan","Feb","Mac","Apr","Mei","Jun","Jul","Ago","Sep","Okt","Nov","Des"];
-                                        var months_en = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+                                        var months_sw = ["Januari","Februari","Machi","Aprili","Mei","Juni","Julai","Agosti","Septemba","Oktoba","Novemba","Desemba"];
+                                        var months_en = ["January","February","March","April","May","June","July","August","September","October","November","December"];
                                         var months = langSettings.lang === "sw" ? months_sw : months_en;
                                         return d.getDate() + " " + months[d.getMonth()] + " " + d.getFullYear();
                                     }
