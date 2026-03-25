@@ -1,4 +1,0 @@
-#openApp;Magufuli.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Magufuli/;Tafadhali subiri;dependencies.txt;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Magufuli/images/;1;1;1;600;
-
-
-#openApp;Magufuli.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Magufuli/;Please wait;dependencies.txt;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Magufuli/images/;2;1;1;600;
