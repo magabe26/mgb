@@ -190,7 +190,7 @@ Rectangle {
             desc_sw: "Furahia Ziwa Victoria, Mwanza: Ziwa kubwa Afrika. Tazama machweo mazuri juu ya Mwamba Bismarck, safari za visiwa, na utamaduni hai. Hazina halisi ya Tanzania!"
         }
 
-        
+
 
         ListElement {
             name_en: "Mount Kilimanjaro"; name_sw: "Mlima Kilimanjaro"
@@ -2667,8 +2667,8 @@ Rectangle {
                                         if (!specialDykSection.todayEntry) { return ""; }
                                         var prefix = langSettings.lang === "sw" ? "Je, wajua? • " : "Did you know? • ";
                                         return prefix + (langSettings.lang === "sw"
-                                            ? specialDykSection.todayEntry.label_sw
-                                            : specialDykSection.todayEntry.label_en);
+                                                         ? specialDykSection.todayEntry.label_sw
+                                                         : specialDykSection.todayEntry.label_en);
                                     }
                                     font.pointSize: Qt.platform.os === "android" ? 10 : 8
                                     font.bold: true
@@ -2685,8 +2685,8 @@ Rectangle {
                                 text: {
                                     if (!specialDykSection.todayEntry) { return ""; }
                                     return langSettings.lang === "sw"
-                                        ? specialDykSection.todayEntry.title_sw
-                                        : specialDykSection.todayEntry.title_en;
+                                            ? specialDykSection.todayEntry.title_sw
+                                            : specialDykSection.todayEntry.title_en;
                                 }
                                 font.pointSize: Qt.platform.os === "android" ? 12 : 10
                                 font.bold: true
@@ -2700,8 +2700,8 @@ Rectangle {
                                 text: {
                                     if (!specialDykSection.todayEntry) { return ""; }
                                     return langSettings.lang === "sw"
-                                        ? specialDykSection.todayEntry.body_sw
-                                        : specialDykSection.todayEntry.body_en;
+                                            ? specialDykSection.todayEntry.body_sw
+                                            : specialDykSection.todayEntry.body_en;
                                 }
                                 font.pointSize: Qt.platform.os === "android" ? 11 : 9
                                 color: "#cccccc"
@@ -3468,7 +3468,7 @@ Rectangle {
                     visible: attractionImageA.status !== Image.Ready
                     Text {
                         anchors.centerIn: parent
-                        text: "Image not found"
+                        text: langSettings.lang === "sw" ? "Picha haipatikani" : "Image not found"
                         color: "white"
                         horizontalAlignment: Text.AlignHCenter
                     }
@@ -3528,7 +3528,7 @@ Rectangle {
                         width: counterText.implicitWidth + 16
                         height: counterText.implicitHeight + 6
                         radius: 4
-                        color: app.selectedLanguage === "sw" ? "#bb006600" : "#bb000088"
+                        color: langSettings.lang === "sw" ? "#bb006600" : "#bb000088"
                         border.color: "cyan"
                         border.width: 1
 
@@ -3569,7 +3569,7 @@ Rectangle {
                 anchors.bottom: navBar.top
                 anchors.left: parent.left
                 height: 3
-                color: app.selectedLanguage === "sw" ? "green" : "blue"
+                color: langSettings.lang === "sw" ? "green" : "blue"
                 width: attractionModel.count > 0
                        ? parent.width * (app.currentAttractionIndex + 1) / attractionModel.count
                        : 0
@@ -3597,7 +3597,7 @@ Rectangle {
                     anchors.right: cardClearBtn.left
                     anchors.leftMargin: 8
                     anchors.rightMargin: 4
-                    placeholderText: app.selectedLanguage === "sw" ? "Tafuta..." : "Search..."
+                    placeholderText: langSettings.lang === "sw" ? "Tafuta..." : "Search..."
                     font.pointSize: Qt.platform.os === "android" ? 12 : 10
                     color: "white"
                     placeholderTextColor: "#888888"
@@ -3664,7 +3664,7 @@ Rectangle {
 
                     Text {
                         anchors.centerIn: parent
-                        text: "‹ Prev"
+                        text: langSettings.lang === "sw" ? "‹ Nyuma" : "‹ Prev"
                         color: "white"
                         font.pointSize: Qt.platform.os === "android" ? 13 : 10
                         font.bold: true
@@ -3685,8 +3685,7 @@ Rectangle {
                     width: Qt.platform.os === "android" ? 90 : 64
                     height: Qt.platform.os === "android" ? 52 : 36
                     radius: height / 2
-                    property color frozenColor: app.selectedLanguage === "sw" ? "#88006600" : "#880000aa"
-                    color: frozenColor
+                    color: langSettings.lang === "sw" ? "#88006600" : "#880000aa"
                     border.color: "cyan"
                     border.width: 1
 
@@ -3707,7 +3706,6 @@ Rectangle {
                         onReleased: homeBtn.pressed = false
                         onCanceled: homeBtn.pressed = false
                         onClicked: {
-                            homeBtn.frozenColor = app.selectedLanguage === "sw" ? "#88006600" : "#880000aa";
                             viewComponentLoader.switchTo(languageSelectionComponent, app.width / 2, app.height / 2);
                             app.selectedLanguage = "";
                         }
@@ -3733,7 +3731,7 @@ Rectangle {
 
                     Text {
                         anchors.centerIn: parent
-                        text: "Next ›"
+                        text: langSettings.lang === "sw" ? "Mbele ›" : "Next ›"
                         color: "white"
                         font.pointSize: Qt.platform.os === "android" ? 13 : 10
                         font.bold: true
@@ -3767,6 +3765,7 @@ Rectangle {
             }
         }
     }
+
 
     // Attraction View Component 2
     Component {
