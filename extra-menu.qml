@@ -228,7 +228,7 @@ MouseArea{
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.leftMargin: menu.textLeftMargin
                 color: Qt.lighter("gray",1.7)
-                text: "Nyerere"
+                text: "Baba wa Taifa la Tanzania"
             }
 
             MouseArea{
@@ -261,7 +261,7 @@ MouseArea{
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.leftMargin: menu.textLeftMargin
                 color: Qt.lighter("gray",1.7)
-                text: "Samia"
+                text: "Mama wa Taifa la Tanzania"
             }
 
             MouseArea{
