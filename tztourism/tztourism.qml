@@ -176,7 +176,7 @@ ListElement {
     desc_sw: "Njia maarufu na bora ya kuzunguka mitaa ya Tanzania. Ishi kama mzawa kwa kutumia Bajaji kufurahia upepo mwanana au Bodaboda kuwahi unakokwenda bila kukwama kwenye foleni."
 }
 
-
+/*
         ListElement {
             name_en: "Zanzibar (Stone Town & Beaches)"; name_sw: "Zanzibar (Mji Mkongwe na Fukwe)"
             imageFile: "./zanzibar_st2.jpg"
@@ -190,7 +190,7 @@ ListElement {
             desc_en: "Dive into the blue waters of Kizimkazi, Zanzibar. Experience the thrill of swimming with wild dolphins in their natural habitat and visit historical mosques."
             desc_sw: "Zama kwenye maji ya bluu ya Kizimkazi, Zanzibar. Shuhudia msisimko wa kuogelea na pomboo katika mazingira yao ya asili na utembelee misikiti ya kihistoria."
         }
-
+*/
 
         ListElement {
             name_en: "Lake Victoria"; name_sw: "Ziwa Victoria"
