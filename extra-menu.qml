@@ -239,7 +239,7 @@ MouseArea{
             }
         } 
 
-
+/*
 
 Rectangle{
             z: root.z + 1
@@ -274,7 +274,7 @@ Rectangle{
             }
         } 
 
-
+*/
 
         Rectangle{
             z: root.z + 1
