@@ -177,6 +177,13 @@ ListElement {
 }
 
 ListElement {
+            name_en: "Mafia Island Marine Park"; name_sw: "Hifadhi ya Bahari ya Kisiwa cha Mafia"
+            imageFile: "./mafia_island.jpg"
+            desc_en: "Pristine coral reefs, a haven for divers and snorkelers, and a seasonal home for whale sharks."
+            desc_sw: "Miamba ya matumbawe safi, kimbilio la wapiga mbizi, na makazi ya msimu ya papa nyangumi."
+        }
+
+ListElement {
             name_en: "Serengeti National Park"; name_sw: "Hifadhi ya Taifa ya Serengeti"
             imageFile: "./serengeti.jpg"
             desc_en: "Vast plains, famous for the annual wildebeest migration, offering unparalleled safari experiences."
@@ -274,12 +281,7 @@ ListElement {
             desc_sw: "Hifadhi kubwa zaidi ya taifa Tanzania, pori la mbali lenye mandhari na wanyamapori wengi."
         }
 
-        ListElement {
-            name_en: "Mafia Island Marine Park"; name_sw: "Hifadhi ya Bahari ya Kisiwa cha Mafia"
-            imageFile: "./mafia_island.jpg"
-            desc_en: "Pristine coral reefs, a haven for divers and snorkelers, and a seasonal home for whale sharks."
-            desc_sw: "Miamba ya matumbawe safi, kimbilio la wapiga mbizi, na makazi ya msimu ya papa nyangumi."
-        }
+        
 
         ListElement {
             name_en: "Katavi National Park"; name_sw: "Hifadhi ya Taifa ya Katavi"
