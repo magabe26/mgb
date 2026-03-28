@@ -198,7 +198,7 @@ Rectangle {
                     text: "📢 Advertise on this App!"
                 }
                 Text {
-                    text: "tztourism.app › advertise"
+                    text: "matokeo.app › advertise"
                     font.pointSize: Qt.platform.os === "android" ? 10 : 8; color: "#006621"
                 }
                 Text {
@@ -312,7 +312,7 @@ Rectangle {
                     text: "📢 Tangaza kwenye Aplikesheni hii!"
                 }
                 Text {
-                    text: "tztourism.app › matangazo"
+                    text: "matokeo.app › matangazo"
                     font.pointSize: Qt.platform.os === "android" ? 10 : 8; color: "#006621"
                 }
                 Text {
