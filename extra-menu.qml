@@ -503,7 +503,7 @@ Rectangle {
 
 
         // ── Tanzania flag animation ───────────────────────────────────────
-        AnimatedImage {
+     /*   AnimatedImage {
             anchors.horizontalCenter: parent.horizontalCenter
             width: root.width
             height: 90
@@ -511,7 +511,7 @@ Rectangle {
             onStatusChanged: {
                 visible = (status !== AnimatedImage.Error);
             }
-        }
+        } */
     }
 
     // Bottom cyan line — always sits just below the Column
