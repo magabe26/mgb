@@ -318,7 +318,7 @@ Rectangle {
                 Text {
                     width: parent.width; wrapMode: Text.WordWrap; color: "#333333"
                     font.pointSize: Qt.platform.os === "android" ? 11 : 9
-                    text: "Fikia maelfu ya watalii kila siku! Tangaza Bidhaa, Hoteli, Hostel, Nyumba ya Kupanga n.k na uonekane na wageni kutoka duniani kote."
+                    text: "Fikia maelfu ya watumiaji kila siku! Tangaza Bidhaa, Shule, Biashara, Hoteli, Hostel, Nyumba ya Kupanga n.k na uonekane na watumiaji kutoka duniani kote."
                 }
                 Rectangle {
                     height: _swPrice.implicitHeight + 8; width: _swPrice.implicitWidth + 16
@@ -429,9 +429,9 @@ Rectangle {
                 Rectangle {
                     id: menuRow
                     width: root.width
-                    height: 34
+                    height: 44
                     color: rowMA.containsPress ? "#003535" : "#004d4d"
-                    readonly property real iconWidth: 26
+                    readonly property real iconWidth: 34
 
                     // Left accent stripe — colour by section
                     Rectangle {
