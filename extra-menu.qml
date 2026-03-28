@@ -15,13 +15,7 @@ Rectangle {
             cmd2: "",
             section: "content"
         },
-        {
-            text: "Elimu",
-            icon: "fa::bello",
-            cmd1: "#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/master/Ads/elimu2.png;#showGoogleAd;0.98;0.8;500",
-            cmd2: "",
-            section: "content"
-        },
+        
         {
             text: "Tujifunze Sayansi",
             icon: "fa::eyedropper",
