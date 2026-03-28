@@ -83,19 +83,6 @@
    </APP>
    
 <APP>
-    <A HREF="#showConsole">Console</A>
-    <COLOR>gray</COLOR>
-    <BG_COLOR>white</BG_COLOR>
-    <ICON>fa::windowmaximize</ICON>
-    <ICON_COLOR>black</ICON_COLOR>
-    <BOLD_TEXT>1</BOLD_TEXT>
-</APP>
-   
-<APP>
-      <A HREF="#" />
-   </APP>
-
-<APP>
       <A HREF="#openurl;https://play.google.com/store/apps/developer?id=Magabe+Lab">
 Pakua aplikesheni zingine hapa
       </A>
@@ -108,34 +95,6 @@ Pakua aplikesheni zingine hapa
    <APP>
       <A HREF="#" />
    </APP>
-
-
-<APP>
-      <A HREF="#nukuu">Nukuu</A>
-      <COLOR>black</COLOR>
-      <BG_COLOR>white</BG_COLOR>
-      <ICON>fa::bullhorn</ICON>
-      <ICON_COLOR>black</ICON_COLOR>
-      <BOLD_TEXT>1</BOLD_TEXT>
-   </APP>
-
-
-<APP>
-      <A HREF="#" />
-</APP>
-
-<APP>
-    <A HREF="#openurl;https://olas.heslb.go.tz/olams/pre-applicant/apply-for-scholarship">Samia scholarship</A>
-    <COLOR>#1fb8ba</COLOR>
-    <BG_COLOR>white</BG_COLOR>
-    <ICON>fa::graduationcap</ICON>
-    <ICON_COLOR>#065961</ICON_COLOR>
-    <BOLD_TEXT>1</BOLD_TEXT>
-</APP>
-
-<APP>
-      <A HREF="#" />
-</APP>
 
 <APP>
     <A HREF="#openApp;IQTest.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/;Tafadhali subiri!;dependencies.txt;#;1;1;1;100;">Pima uwezo wa akili yako sasa</A>
