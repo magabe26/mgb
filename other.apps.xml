@@ -2,39 +2,11 @@
 <APPS>
    
 
-   <APP>
-<A HREF="#"></A>
-      <BG_COLOR>white</BG_COLOR>
-      <ENABLE_IMAGE>1</ENABLE_IMAGE>
-      <IMAGE_URL>https://raw.githubusercontent.com/magabe26/mgb/master/tzflag.gif</IMAGE_URL>
-      <IMAGE_WIDTH_FRACTION>1</IMAGE_WIDTH_FRACTION>
-      <IMAGE_HEIGHT_FRACTION>0.25</IMAGE_HEIGHT_FRACTION>
-   </APP>
-     
-
-<APP>
-      <A HREF="#openApp;Nyerere.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Nyerere/;Tafadhali subiri;dependencies.txt;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Nyerere/images/;1;1;1;600;
-">Baba wa Taifa la Tanzania</A>
-      <COLOR>green</COLOR>
-      <BG_COLOR>white</BG_COLOR>
-      <ICON>fa::star</ICON>
-      <ICON_COLOR>green</ICON_COLOR>
-      <BOLD_TEXT>1</BOLD_TEXT>
-   </APP>
+   
 
 
-<APP>
-      <A HREF="#" />
-   </APP>
 
-<APP>
-    <A HREF="#openApp;Samia.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Samia/;Tafadhali subiri;dependencies.txt;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Samia/images/;1;1;1;600;">Mama wa Taifa la Tanzania </A>
-    <COLOR>blue</COLOR>
-    <BG_COLOR>white</BG_COLOR>
-    <ICON>fa::star</ICON>
-    <ICON_COLOR>blue</ICON_COLOR>
-    <BOLD_TEXT>1</BOLD_TEXT>
-</APP>
+
 
 <APP>
       <A HREF="#" />
@@ -144,32 +116,6 @@ Pakua aplikesheni zingine hapa
       <A HREF="#" />
    </APP>
 
-<APP>
-      <A HREF="#nukuu">Nukuu</A>
-      <COLOR>black</COLOR>
-      <BG_COLOR>white</BG_COLOR>
-      <ICON>fa::bullhorn</ICON>
-      <ICON_COLOR>black</ICON_COLOR>
-      <BOLD_TEXT>1</BOLD_TEXT>
-   </APP>
-
-
-<APP>
-      <A HREF="#" />
-</APP>
-
-<APP>
-    <A HREF="#openurl;https://olas.heslb.go.tz/olams/pre-applicant/apply-for-scholarship">Samia scholarship</A>
-    <COLOR>#1fb8ba</COLOR>
-    <BG_COLOR>white</BG_COLOR>
-    <ICON>fa::graduationcap</ICON>
-    <ICON_COLOR>#065961</ICON_COLOR>
-    <BOLD_TEXT>1</BOLD_TEXT>
-</APP>
-
-<APP>
-      <A HREF="#" />
-</APP>
 
 <APP>
     <A HREF="#openApp;IQTest.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/;Tafadhali subiri!;dependencies.txt;#;1;1;1;100;">Pima uwezo wa akili yako sasa</A>
