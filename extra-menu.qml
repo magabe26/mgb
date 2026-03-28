@@ -505,35 +505,36 @@ Rectangle {
                     height: 1
                     color: "#005a5a"
                 }
-            }
-        }
 
-        // ── Ad banner (after menu items) ──────────────────────────────────
-        Item {
-            width: root.width
-            height: adBannerLoader.visible ? adBannerLoader.height + 16 : 0
+                // ── Ad banner — inserted after the middle item ────────────
+                Item {
+                    width: root.width
+                    height: (index === Math.floor(root.extraMenu.length / 2) - 1 && adBannerLoader.visible)
+                            ? adBannerLoader.height + 16 : 0
+                    visible: height > 0
 
-            Loader {
-                id: adBannerLoader
-                // Pick an ad; use "sw" as default since that matches the menu language
-                property int adIdx: root.pickAd("sw")
-                visible: adIdx >= 0
-                width: root.width - 16
-                height: visible && item ? item.height : 0
-                anchors.top: parent.top
-                anchors.topMargin: 8
-                anchors.horizontalCenter: parent.horizontalCenter
-                sourceComponent: adIdx >= 0 ? root.adsPool[adIdx] : null
+                    Loader {
+                        id: adBannerLoader
+                        property int adIdx: root.pickAd("sw")
+                        visible: adIdx >= 0
+                        width: root.width - 16
+                        height: visible && item ? item.height : 0
+                        x: (parent.width - width) / 2
+                        anchors.top: parent.top
+                        anchors.topMargin: 8
+                        sourceComponent: adIdx >= 0 ? root.adsPool[adIdx] : null
 
-                // Re-pick whenever the seed rotates
-                Connections {
-                    target: root
-                    onAdRandomSeedChanged: {
-                        adBannerLoader.adIdx = root.pickAd("sw");
+                        Connections {
+                            target: root
+                            onAdRandomSeedChanged: {
+                                adBannerLoader.adIdx = root.pickAd("sw");
+                            }
+                        }
                     }
                 }
             }
         }
+
 
         // ── Tanzania flag animation ───────────────────────────────────────
         AnimatedImage {
