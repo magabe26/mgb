@@ -182,14 +182,13 @@ Rectangle {
             desc_sw: "Zama kwenye maji ya bluu ya Kizimkazi, Zanzibar. Shuhudia msisimko wa kuogelea na pomboo katika mazingira yao ya asili na utembelee misikiti ya kihistoria."
         }
 
-ListElement {
-    name_en: "Bodaboda & Bajaji Transport, Tanzania"
-    name_sw: "Usafiri wa Bodaboda na Bajaji, Tanzania"
-    imageFile: "./bodaboda_bajaji.jpg"
-    desc_en: "The most iconic and efficient way to navigate Tanzanian streets. Experience the city like a local with Bajaji for a breezy ride or Bodaboda to beat the traffic."
-    desc_sw: "Njia maarufu na bora ya kuzunguka mitaa ya Tanzania. Ishi kama mzawa kwa kutumia Bajaji kufurahia upepo mwanana au Bodaboda kuwahi unakokwenda bila kukwama kwenye foleni."
-}
-
+        ListElement {
+            name_en: "Bodaboda & Bajaji Transport, Tanzania"
+            name_sw: "Usafiri wa Bodaboda na Bajaji, Tanzania"
+            imageFile: "./bodaboda_bajaji.jpg"
+            desc_en: "The most iconic and efficient way to navigate Tanzanian streets. Experience the city like a local with Bajaji for a breezy ride or Bodaboda to beat the traffic."
+            desc_sw: "Njia maarufu na bora ya kuzunguka mitaa ya Tanzania. Ishi kama mzawa kwa kutumia Bajaji kufurahia upepo mwanana au Bodaboda kuwahi unakokwenda bila kukwama kwenye foleni."
+        }
 
         ListElement {
             name_en: "Lake Victoria"; name_sw: "Ziwa Victoria"
@@ -197,8 +196,6 @@ ListElement {
             desc_en: "Experience Lake Victoria, Mwanza: Africa's largest lake. Enjoy stunning sunsets over Bismarck Rock, island safaris, and vibrant local culture. A true Tanzanian gem!"
             desc_sw: "Furahia Ziwa Victoria, Mwanza: Ziwa kubwa Afrika. Tazama machweo mazuri juu ya Mwamba Bismarck, safari za visiwa, na utamaduni hai. Hazina halisi ya Tanzania!"
         }
-
-
 
         ListElement {
             name_en: "Mount Kilimanjaro"; name_sw: "Mlima Kilimanjaro"
@@ -5523,7 +5520,7 @@ ListElement {
                         // ── MediaPlayer (stream engine) ────────────────────
                         MediaPlayer {
                             id: safariPlayer
-                            source: "https://stream-134630.castr.net/5fe35eae8c53540cab83659a/live_31dabe40323511f08b8efff0016f3b67/index.m3u8"
+                           // source: "https://stream-134630.castr.net/5fe35eae8c53540cab83659a/live_31dabe40323511f08b8efff0016f3b67/index.m3u8"
                             autoPlay: false
 
                             // 0 = Poor, 1 = Fair, 2 = Good
