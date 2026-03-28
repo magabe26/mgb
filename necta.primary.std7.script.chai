@@ -4224,7 +4224,7 @@ def beforeDisplayMenuPage(string xml) {
 
 
 
-output = getMenuHolidayAd(output);
+//output = getMenuHolidayAd(output);
 
  // output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/jaridalaelimu.png", "#mambo", 1, 0.8, "top");
   // output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/natengeneza.gif", "#emailUs", w, 0.3, "middle");
