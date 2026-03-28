@@ -168,28 +168,6 @@ Rectangle {
         id: attractionModel
 
 
-ListElement {
-    name_en: "Bodaboda & Bajaji Transport, Tanzania"
-    name_sw: "Usafiri wa Bodaboda na Bajaji, Tanzania"
-    imageFile: "./bodaboda_bajaji.jpg"
-    desc_en: "The most iconic and efficient way to navigate Tanzanian streets. Experience the city like a local with Bajaji for a breezy ride or Bodaboda to beat the traffic."
-    desc_sw: "Njia maarufu na bora ya kuzunguka mitaa ya Tanzania. Ishi kama mzawa kwa kutumia Bajaji kufurahia upepo mwanana au Bodaboda kuwahi unakokwenda bila kukwama kwenye foleni."
-}
-
-ListElement {
-            name_en: "Mafia Island Marine Park"; name_sw: "Hifadhi ya Bahari ya Kisiwa cha Mafia"
-            imageFile: "./mafia_island.jpg"
-            desc_en: "Pristine coral reefs, a haven for divers and snorkelers, and a seasonal home for whale sharks."
-            desc_sw: "Miamba ya matumbawe safi, kimbilio la wapiga mbizi, na makazi ya msimu ya papa nyangumi."
-        }
-
-ListElement {
-            name_en: "Serengeti National Park"; name_sw: "Hifadhi ya Taifa ya Serengeti"
-            imageFile: "./serengeti.jpg"
-            desc_en: "Vast plains, famous for the annual wildebeest migration, offering unparalleled safari experiences."
-            desc_sw: "Nyanda pana, maarufu kwa uhamaji mkuu wa nyumbu kila mwaka, inayotoa uzoefu wa safari usio na kifani."
-        }
-
         ListElement {
             name_en: "Zanzibar (Stone Town & Beaches)"; name_sw: "Zanzibar (Mji Mkongwe na Fukwe)"
             imageFile: "./zanzibar_st2.jpg"
@@ -197,7 +175,13 @@ ListElement {
             desc_sw: "Mji Mkongwe wa kihistoria, mashamba ya viungo, na fukwe safi hufanya Zanzibar kuwa kitovu cha kipekee cha utamaduni na mapumziko."
         }
 
-        
+        ListElement {
+            name_en: "Kizimkazi Dolphin Safari"; name_sw: "Utalii wa Pomboo Kizimkazi"
+            imageFile: "./kizimkazi-d.jpeg"
+            desc_en: "Dive into the blue waters of Kizimkazi, Zanzibar. Experience the thrill of swimming with wild dolphins in their natural habitat and visit historical mosques."
+            desc_sw: "Zama kwenye maji ya bluu ya Kizimkazi, Zanzibar. Shuhudia msisimko wa kuogelea na pomboo katika mazingira yao ya asili na utembelee misikiti ya kihistoria."
+        }
+
 
         ListElement {
             name_en: "Lake Victoria"; name_sw: "Ziwa Victoria"
@@ -215,14 +199,6 @@ ListElement {
             desc_sw: "Mlima mrefu zaidi Afrika na volkano iliyolala. Changamoto lakini yenye thawabu kwa wapandaji wajasiri."
         }
 
-ListElement {
-            name_en: "Kizimkazi Dolphin Safari"; name_sw: "Utalii wa Pomboo Kizimkazi"
-            imageFile: "./kizimkazi-d.jpeg"
-            desc_en: "Dive into the blue waters of Kizimkazi, Zanzibar. Experience the thrill of swimming with wild dolphins in their natural habitat and visit historical mosques."
-            desc_sw: "Zama kwenye maji ya bluu ya Kizimkazi, Zanzibar. Shuhudia msisimko wa kuogelea na pomboo katika mazingira yao ya asili na utembelee misikiti ya kihistoria."
-        }
-
-
         ListElement {
             name_en: "Mikumi National Park"; name_sw: "Hifadhi ya Taifa ya Mikumi"
             imageFile: "./mikumi.jpg"
@@ -230,7 +206,12 @@ ListElement {
             desc_sw: "Toroka jiji! Ni safari rahisi: dar mpaka moro na kuendelea. Tazama twiga, simba, tembo, punda milia, na nyumbu. Pori linakusubiri!"
         }
 
-        
+        ListElement {
+            name_en: "Serengeti National Park"; name_sw: "Hifadhi ya Taifa ya Serengeti"
+            imageFile: "./serengeti.jpg"
+            desc_en: "Vast plains, famous for the annual wildebeest migration, offering unparalleled safari experiences."
+            desc_sw: "Nyanda pana, maarufu kwa uhamaji mkuu wa nyumbu kila mwaka, inayotoa uzoefu wa safari usio na kifani."
+        }
 
         ListElement {
             name_en: "Ngorongoro Conservation Area"; name_sw: "Mamlaka ya Hifadhi ya Ngorongoro"
@@ -281,7 +262,12 @@ ListElement {
             desc_sw: "Hifadhi kubwa zaidi ya taifa Tanzania, pori la mbali lenye mandhari na wanyamapori wengi."
         }
 
-        
+        ListElement {
+            name_en: "Mafia Island Marine Park"; name_sw: "Hifadhi ya Bahari ya Kisiwa cha Mafia"
+            imageFile: "./mafia_island.jpg"
+            desc_en: "Pristine coral reefs, a haven for divers and snorkelers, and a seasonal home for whale sharks."
+            desc_sw: "Miamba ya matumbawe safi, kimbilio la wapiga mbizi, na makazi ya msimu ya papa nyangumi."
+        }
 
         ListElement {
             name_en: "Katavi National Park"; name_sw: "Hifadhi ya Taifa ya Katavi"
@@ -3233,6 +3219,8 @@ ListElement {
                     }
 
                     // ══ SAFARI CHANNEL INFO ════════════════════════════════
+
+                    /*
                     Rectangle {
                         width: app.width
                         height: safariCol.height + 24
@@ -3363,6 +3351,8 @@ ListElement {
                         }
                     }
 
+
+                    */
                     // ══ FOOTER ═════════════════════════════════════════════
                     Rectangle {
                         width: app.width
