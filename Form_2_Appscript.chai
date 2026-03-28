@@ -337,7 +337,7 @@ def onDownloadFailedMessageDialogClosed(int requestCode, string pressedButton, s
 
 
 
-global SHOW_SPLASH_SCREEN = true;
+global SHOW_SPLASH_SCREEN = false;
 
 def showSplashScreen(os)
 {
@@ -2643,7 +2643,7 @@ initAutoMenuUpdate();
 setupExtraMenu();
     
     setMengineyoBtn(!SHOW_ADS_AFTER_SCHOOL_RESULTS_OPENED &&  hasInternetAccess());
-setUtaliiBtn(true);
+setUtaliiBtn(false);
 
 /*
 downloadComputedMainPages("https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/computed/FTNA/FTNA.txt");
