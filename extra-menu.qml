@@ -7,13 +7,7 @@ Rectangle {
 
     // ── Menu items ────────────────────────────────────────────────────────
     readonly property var extraMenu: [
-        {
-            text: "Nukuu",
-            icon: "fa::book",
-            cmd1: "nukuu",
-            cmd2: "",
-            section: "content"
-        },
+        
         {
             text: "Upakiaji",
             icon: "fa::cog",
