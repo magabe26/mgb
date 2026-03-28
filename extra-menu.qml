@@ -35,14 +35,7 @@ Rectangle {
             cmd2: "#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/master/Ads/sayansi-3.png;#showGoogleAd;0.98;0.5;500",
             section: "content"
         },
-        {
-            text: "Baada ya kufaulu 🎉",
-            icon: "fa::group",
-            cmd1: "#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/master/Ads/dr-samia1.png;#showGoogleAd;0.98;0.5;500",
-            cmd2: "#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/master/Ads/dr-samia2.png;#showGoogleAd;0.98;0.5;500",
-            section: "content"
-        },
-
+        
         {
             text: "Pima uwezo wa akili yako sasa",
             icon: "fa::hourglass",
@@ -69,27 +62,6 @@ Rectangle {
             icon: "fa::gamepad",
             cmd1: "#openApp;BaoGame.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/;Please wait!;dependencies.txt;#;2;1;1;100;",
             cmd2: "",
-            section: "links"
-        },
-        {
-            text: "Baba wa Taifa la Tanzania",
-            icon: "fa::star",
-            cmd1: "#openApp;Nyerere.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Nyerere/;Please wait;dependencies.txt;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Nyerere/images/;2;1;1;600;",
-            cmd2: "#saveAndPlayVideoAd;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Ads/nyerere.mp4;#showGoogleAd;Baba wa Taifa la Tanzania;#004040;nyerere.mp4;",
-            section: "content"
-        },
-        {
-            text: "Mama wa Taifa la Tanzania",
-            icon: "fa::star",
-            cmd1: "#openApp;Samia.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Samia/;Please wait;dependencies.txt;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Samia/images/;2;1;1;600;",
-            cmd2: "#saveAndPlayVideoAd;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Ads/samia.mp4;#;Rais wa Tanzania;#004040;samia.mp4;",
-            section: "content"
-        },
-        {
-            text: "Samia scholarship",
-            icon: "fa::graduationcap",
-            cmd1: "#openurl;https://olas.heslb.go.tz/olams/pre-applicant/apply-for-scholarship",
-            cmd2: "#showGoogleAd",
             section: "links"
         },
 
