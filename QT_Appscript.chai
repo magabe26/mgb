@@ -1858,7 +1858,7 @@ def getFlag(string code) {
       return "🇹🇼";
    }
    if (code.equals("TZ", false)) {
-      return "🇹🇿";
+      return "";
    }
    if (code.equals("UA", false)) {
       return "🇺🇦";
@@ -2846,9 +2846,9 @@ def beforeDisplayMenuPage(string xml) {
    var output = xml;
    var w = 0.85;
 
-output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/Coat_of_arms_of_Tanzania.svg.png", "#showGoogleAd", 1, 0.8, "top");
+//output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/Coat_of_arms_of_Tanzania.svg.png", "#showGoogleAd", 1, 0.8, "top");
 
-output = getMenuHolidayAd(output);
+//output = getMenuHolidayAd(output);
 
 output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/tujifunze-sayansi.png", "#showGoogleAd", 1, 0.8, "bottom");
 
