@@ -45,13 +45,7 @@ Rectangle {
             cmd2: "",
             section: "links"
         },
-        {
-            text: "Cheza mchezo wa bao",
-            icon: "fa::gamepad",
-            cmd1: "#openApp;BaoGame.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/;Please wait!;dependencies.txt;#;2;1;1;100;",
-            cmd2: "",
-            section: "links"
-        },
+        
 
     ]
 
