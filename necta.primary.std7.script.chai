@@ -4656,12 +4656,12 @@ def onFormatCandidateNo(string cNo, bool isListItem)
 
 def getOtherAppsPageRightIcon()
 {
-  return "";
+  return "fa::thumbsoup";
 }
 
 def onOtherAppsPageRightIconClicked()
 {
-   //onUrlVisited("#UtaliiApp");
+  onUrlVisited("#showGoogleAd");
 
 }
 
