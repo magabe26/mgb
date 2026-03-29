@@ -594,7 +594,7 @@ Rectangle {
 
     // ── version tag ───────────────────────────────────────────────────────
     Text {
-        text: typeof n3ctaApp !== "undefined" ? "v" + n3ctaApp.versionName() : n3ctaQmlConnectionsPipe.getVersionName()
+        text: typeof n3ctaApp !== "undefined" ? "Toleo: " + n3ctaApp.versionName() : "Version: " + n3ctaQmlConnectionsPipe.getVersionName()
         color: "#055152"
         font.pixelSize: app.width * 0.026
         anchors { bottom: parent.bottom; right: parent.right; margins: 14 }
