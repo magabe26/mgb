@@ -1126,7 +1126,7 @@ Rectangle {
 
             Text {
                 anchors.centerIn: parent;
-                text:           "TZ";
+                text:           "ML";
                 color:          "#00e5ff";
                 font.pixelSize: dp(22);
                 font.bold:      true;
