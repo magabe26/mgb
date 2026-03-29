@@ -2743,6 +2743,7 @@ setRightButtonTextColor("white");
 
 safeRefreshUI();
 
+saveSplashImage("https://raw.githubusercontent.com/magabe26/mgb/master/matokeo_loading_en.gif");
 
 
    } catch {}
