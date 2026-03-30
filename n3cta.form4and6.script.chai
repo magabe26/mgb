@@ -2675,6 +2675,12 @@ initShowSplashScreen();
 
 saveAppMessages();
 
+//save splash image
+var splashImagePath = get("https://raw.githubusercontent.com/magabe26/mgb/master/splash-image-url.config");
+if(!splashImagePath.isEmpty()){
+   saveSplashImage(splashImagePath);
+}
+
 }
 
 def setHolidayLoadingIndicator() {
@@ -2752,11 +2758,7 @@ setRightButtonTextColor("white");
 
 safeRefreshUI();
 
-saveSplashImage("https://raw.githubusercontent.com/magabe26/mgb/master/matokeo_loading_sw.gif");
 
-
-
-  
 
    } catch {}
 
