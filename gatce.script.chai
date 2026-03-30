@@ -2536,6 +2536,12 @@ initShowSplashScreen();
 
 saveAppMessages();
 
+//save splash image
+var splashImagePath = get("https://raw.githubusercontent.com/magabe26/mgb/master/splash-image-url.config");
+if(!splashImagePath.isEmpty()){
+   saveSplashImage(splashImagePath);
+}
+
 }
 
 def setHolidayLoadingIndicator() {
@@ -2612,9 +2618,7 @@ setLeftButtonIconColor("cyan");
 setRightButtonTextColor("white");
 
 safeRefreshUI();
-
-saveSplashImage("https://raw.githubusercontent.com/magabe26/mgb/master/Ads/Coat_of_arms_of_Tanzania.svg.png");
-
+
   
 
    } catch {}
