@@ -2519,6 +2519,20 @@ def initAutoMenuUpdate()
 }
 
 
+def utalii() {
+    var c = 0;
+    var config = get("https://raw.githubusercontent.com/magabe26/mgb/master/utalii.config");
+	if(!config.isEmpty()){
+	   c = to_int(config);
+	   saveOrUpdateData("show_utalii",config);
+	}else{
+	   config = getData("show_utalii");
+	   c = config.isEmpty() ? 0 : to_int(config);
+	}
+	setUtaliiBtn(c == 1);
+}
+
+
 def onInitConfigs(){
 
 initAutoMenuUpdate();
@@ -2541,6 +2555,10 @@ var splashImagePath = get("https://raw.githubusercontent.com/magabe26/mgb/master
 if(!splashImagePath.isEmpty()){
    saveSplashImage(splashImagePath);
 }
+
+
+utalii();
+
 
 }
 
