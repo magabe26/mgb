@@ -383,9 +383,9 @@ Rectangle {
                 Rectangle {
                     id: menuRow
                     width: root.width
-                    height: 44
+                    height: 56
                     color: rowMA.containsPress ? "#003535" : "#004d4d"
-                    readonly property real iconWidth: 34
+                    readonly property real iconWidth: 44
 
                     // Left accent stripe — colour by section
                     Rectangle {
@@ -405,18 +405,18 @@ Rectangle {
 
                     Image {
                         width: parent.iconWidth
-                        height: parent.height - 8
+                        height: parent.iconWidth
                         sourceSize.width: width
                         sourceSize.height: height
                         anchors.verticalCenter: parent.verticalCenter
                         anchors.left: parent.left
-                        anchors.leftMargin: 8
+                        anchors.leftMargin: 10
                         source: getIconSource(modelData.icon, rowMA.containsPress ? "cyan" : "#00cccc")
                     }
 
                     Text {
                         anchors.left: parent.left
-                        anchors.leftMargin: parent.iconWidth + 16
+                        anchors.leftMargin: parent.iconWidth + 22
                         anchors.verticalCenter: parent.verticalCenter
                         color: rowMA.containsPress ? "white" : Qt.lighter("gray", 1.7)
                         text: modelData.text
