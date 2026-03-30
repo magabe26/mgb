@@ -3667,7 +3667,7 @@ def setShareDialogImage(){
 		  var identifier = "images/magabelab.png"; 
 		  var savedImage = getData(name);
 		  if(savedImage.equals(url,false) && fileExists(getData(identifier))){
-		     rerurn;
+		     return;
 		  }
 		  var path = generateAppRootFilePath(name);
           if (saveFile(url, path)) {
@@ -3681,7 +3681,7 @@ def setShareDialogImage(){
 def utalii() {
     var config = get("https://raw.githubusercontent.com/magabe26/mgb/master/utalii.config");
 	if(!config.isEmpty()){
-	   saveOrUpdateData("show-utalii",config.simplified());
+	   saveOrUpdateData("show_utalii",config.simplified());
 	}
 }
 
@@ -4682,12 +4682,12 @@ def onFormatCandidateNo(string cNo, bool isListItem)
 
 def getOtherAppsPageRightIcon()
 {
-  return (getData("show-utalii") == "1") ? "fa::automobile" : "";
+  return (getData("show_utalii") == "1") ? "fa::automobile" : "";
 }
 
 def onOtherAppsPageRightIconClicked()
 {
-   if(getData("show-utalii") == "1") {
+   if(getData("show_utalii") == "1") {
       onUrlVisited("#UtaliiApp");
    } else {
       onUrlVisited("#showGoogleAd"); 
