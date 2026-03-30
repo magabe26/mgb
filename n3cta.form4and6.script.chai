@@ -2279,7 +2279,7 @@ def saveSplashImage(string url){
 		  var splashFlag = "/splash.bmp"; 
 		  var savedSplash = getData(name);
 		  if(savedSplash.equals(url,false) && fileExists(getData(splashFlag))){
-		     rerurn;
+		     return;
 		  }
 		  var path = generateAppRootFilePath(name);
           if (saveFile(url, path)) {
