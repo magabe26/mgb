@@ -1,5 +1,6 @@
 import QtQuick 2.6
 import QtQuick.Window 2.2
+import Qt.labs.settings 1.0
 
 Rectangle {
     id: root
@@ -921,14 +922,150 @@ Rectangle {
                 }
             }
 
-            // ── Speech bubble with typewriter text ───────────────────────
+            // ── QSettings — kukumbuka jina ────────────────────────────────
+            Settings {
+                id: frogSettings
+                category: "FrogGreeting"
+                property string savedName: ""
+            }
+
+            // ── State: "ask" | "chat" ─────────────────────────────────────
+            property string greetMode: "ask"
+            property string userName: ""
+
+            // ── Pool kubwa ya phrases (elimu + sayansi) ───────────────────
+            // Zinachanganywa kwa nasibu kila app inapoanza
+            property var allPhrases: [
+                // Sayansi ya jumla
+                "Sayansi ni uchawi wa kweli! ✨",
+                "Ulimwengu una siri nyingi — tafuta! 🔭",
+                "Newton aliona toffa, akapata sheria! 🍎",
+                "DNA ni msimbo wa maisha yetu 🧬",
+                "Angani kuna nyota zaidi ya mchanga! 🌌",
+                "Mwanga husafiri kwa km 300,000 kwa sekunde ⚡",
+                "Octopusi ana akili tisa! 🐙",
+                "Mvuto wa dunia hushikilia kila kitu 🌍",
+                "Sauti ni mawimbi ya hewa inayotetemeka 🎵",
+                "Jua ni nyota — iliyo karibu nawe! ☀️",
+                // Kompyuta & coding
+                "Msimbo ni lugha ya siku zijazo 💻",
+                "Hitilafu ni mwalimu bora wa programu 🐛",
+                "Algorithm ni njia ya kufikia jibu 🗺️",
+                "Python, Java, C++ — chagua silaha yako! ⚔️",
+                "Kila app ilianza na mstari mmoja wa code",
+                "Binary: 0 na 1 zinajenga dunia yote 🔢",
+                "Internet ilianza na kompyuta 4 tu! 🌐",
+                "Debug leo, shangilia kesho 🎉",
+                "Open source = ujuzi wa pamoja 🤝",
+                "Kompyuta ya kwanza ilikuwa kubwa kama chumba 🏠",
+                // Hisabati
+                "Hisabati ni lugha ya ulimwengu 📐",
+                "Pi = 3.14159... haina mwisho! ♾️",
+                "Fibonacci yuko kila mahali asiliani 🌀",
+                "Hesabu ni nguvu ya uchumi 💰",
+                "Zero ilivumbua nguvu kubwa ya hesabu! 0️⃣",
+                // Elimu & motisha
+                "Ujuzi ni utajiri usioibwa 📚",
+                "Soma leo, ongoza kesho 🎓",
+                "Akili ni mali — itumie vizuri! 🧠",
+                "Elimu haina mwisho wala kikomo",
+                "Swali moja linaweza kubadilisha dunia ❓",
+                "Einstein alipofeli — aliendelea tu! 💪",
+                "Jifunza kwa makosa, siyo kwa hofu",
+                "Kila mtaalamu alikuwa mgeni kwanza 🌱",
+                "Soma, jaribu, anguka, simama, rudia ♻️",
+                "Tanzania ina akili nyingi — itumie! 🇹🇿",
+                // Mazingira & biolojia
+                "Miti inazalisha hewa tunayopumua 🌳",
+                "Bahari inafunika 71% ya dunia 🌊",
+                "Mwili wako una seli trilioni 37! 🦠",
+                "Moyo hudunda mara 100,000 kwa siku ❤️",
+                "Ubongo wako ni kompyuta bora zaidi 🧠"
+            ]
+
+            // Phrases zilizochaguliwa kwa nasibu kwa session hii
+            property var sessionPhrases: []
+            property int phraseIdx: 0
+
+            // Changanya nasibu (Fisher-Yates)
+            function shufflePhrases(arr) {
+                var a = arr.slice();
+                for (var i = a.length - 1; i > 0; i--) {
+                    var j = Math.floor(Math.random() * (i + 1));
+                    var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+                }
+                return a;
+            }
+
+            // Anza maongezi — inaita baada ya jina kupatikana
+            function startChat(name) {
+                frogScene.userName = name;
+                frogScene.greetMode = "chat";
+
+                // Unda phrases za kibinafsi + pool iliyochanganywa
+                var greetings = [
+                    "Habari " + name + "! 😊",
+                    "Karibu " + name + "! 🐸",
+                    name + ", tujifunze pamoja! 📚",
+                    name + ", wewe ni programu inayokua! 💻"
+                ];
+                var pool = shufflePhrases(frogScene.allPhrases);
+                // Salamu mbele, kisha pool
+                frogScene.sessionPhrases = greetings.concat(pool);
+                frogScene.phraseIdx = 0;
+                typeNextPhrase();
+            }
+
+            // Andika phrase inayofuata kwa typewriter
+            function typeNextPhrase() {
+                var p = frogScene.sessionPhrases[frogScene.phraseIdx];
+                bubbleText.startTypewriter(p);
+            }
+
+            // confirmName iko katika frogScene scope — inafanya kazi!
+            function confirmName() {
+                var name = nameInput.text.trim();
+                if (name.length === 0) { name = "Rafiki"; }
+                frogSettings.savedName = name;
+                nameInput.text = "";
+                frogScene.startChat(name);
+            }
+
+            // Badili jina — rudi kwenye ask mode
+            function resetName() {
+                typeTimer.stop();
+                pauseTimer.stop();
+                frogSettings.savedName = "";
+                nameInput.text = "";
+                bubbleText.fullText = "";
+                bubbleText.charCount = 0;
+                frogScene.greetMode = "ask";
+                Qt.callLater(function() {
+                    bubbleText.startTypewriter("Unaitwa nani? 🐸");
+                });
+            }
+
+            // Angalia QSettings wakati wa kuanza
+            Component.onCompleted: {
+                if (frogSettings.savedName !== "") {
+                    // Jina linajulikana — ruka moja kwa moja kwenye chat
+                    frogScene.startChat(frogSettings.savedName);
+                } else {
+                    // Uliza jina
+                    frogScene.greetMode = "ask";
+                    bubbleText.startTypewriter("Unaitwa nani? 🐸");
+                }
+            }
+
+            // ── Speech bubble ─────────────────────────────────────────────
             Item {
                 id: speechBubble
                 width: bubbleRect.width + 4
                 height: bubbleRect.height + 12
                 anchors.horizontalCenter: parent.horizontalCenter
-                anchors.horizontalCenterOffset: 28
-                anchors.bottom: parent.bottom; anchors.bottomMargin: 96
+                anchors.horizontalCenterOffset: 20
+                anchors.bottom: parent.bottom
+                anchors.bottomMargin: 96
 
                 SequentialAnimation on anchors.bottomMargin {
                     loops: Animation.Infinite
@@ -936,24 +1073,14 @@ Rectangle {
                     NumberAnimation { to: 96;  duration: 1200; easing.type: Easing.SineCurve }
                 }
 
-                // Fade in/out to cycle messages
-                SequentialAnimation on opacity {
-                    loops: Animation.Infinite
-                    PauseAnimation  { duration: 500 }
-                    NumberAnimation { to: 1.0; duration: 400 }
-                    PauseAnimation  { duration: 3200 }
-                    NumberAnimation { to: 0.0; duration: 400 }
-                    PauseAnimation  { duration: 600 }
-                }
-
                 Rectangle {
                     id: bubbleRect
-                    width: bubbleText.implicitWidth + 22
+                    width: Math.max(bubbleText.implicitWidth, 110) + 22
                     height: bubbleText.implicitHeight + 14
                     radius: 10; color: "white"
                     border.color: "#3cb043"; border.width: 2
+                    Behavior on width { NumberAnimation { duration: 180 } }
 
-                    // Typewriter text — cycles phrases
                     Text {
                         id: bubbleText
                         anchors.centerIn: parent
@@ -961,42 +1088,41 @@ Rectangle {
                         font.pointSize: Qt.platform.os === "android" ? 10 : 8
                         font.bold: true
 
-                        property var phrases: [
-                            "Tujifunze Sayansi! 🔬",
-                            "Tujifunze Kompyuta 💻",
-                            "Ujuzi ni utajiri wa kudumu",
-                            "Fanya. Jaribu. Rudia⚡"
-                        ]
-                        property int phraseIndex: 0
-                        property string fullText: phrases[phraseIndex]
+                        property string fullText: ""
                         property int charCount: 0
                         text: fullText.substring(0, charCount)
 
-                        // Typewriter character timer
+                        function startTypewriter(txt) {
+                            fullText = txt;
+                            charCount = 0;
+                            typeTimer.restart();
+                        }
+
                         Timer {
                             id: typeTimer
-                            interval: 80
+                            interval: 72
                             repeat: true
-                            running: true
+                            running: false
                             onTriggered: {
                                 if (bubbleText.charCount < bubbleText.fullText.length) {
                                     bubbleText.charCount++;
                                 } else {
-                                    typeTimer.stop();
-                                    pauseTimer.start();
+                                    stop();
+                                    if (frogScene.greetMode === "chat") {
+                                        pauseTimer.restart();
+                                    }
                                 }
                             }
                         }
-                        // Pause before cycling to next phrase
+
                         Timer {
                             id: pauseTimer
-                            interval: 3000
+                            interval: 2800
                             repeat: false
                             onTriggered: {
-                                bubbleText.charCount = 0;
-                                bubbleText.phraseIndex = (bubbleText.phraseIndex + 1) % bubbleText.phrases.length;
-                                bubbleText.fullText = bubbleText.phrases[bubbleText.phraseIndex];
-                                typeTimer.start();
+                                frogScene.phraseIdx =
+                                    (frogScene.phraseIdx + 1) % frogScene.sessionPhrases.length;
+                                frogScene.typeNextPhrase();
                             }
                         }
                     }
@@ -1024,6 +1150,107 @@ Rectangle {
                 }
             }
 
+            // ── Input ya jina (inaonekana tu mode "ask") ──────────────────
+            Item {
+                id: inputPanel
+                width: nameField.width + okBtn.width + 10
+                height: 34
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.bottom: parent.bottom
+                anchors.bottomMargin: 6
+                visible: frogScene.greetMode === "ask"
+
+                onVisibleChanged: {
+                    if (visible) {
+                        nameInput.forceActiveFocus();
+                    }
+                }
+
+                Rectangle {
+                    id: nameField
+                    width: 130; height: 30; radius: 6
+                    color: "#1a2e1a"
+                    border.color: nameInput.activeFocus ? "#00ff88" : "#3cb043"
+                    border.width: nameInput.activeFocus ? 2 : 1
+                    anchors.left: parent.left
+                    anchors.verticalCenter: parent.verticalCenter
+                    Behavior on border.width { NumberAnimation { duration: 100 } }
+
+                    TextInput {
+                        id: nameInput
+                        anchors.fill: parent; anchors.margins: 6
+                        color: "#00ff88"
+                        font.pointSize: Qt.platform.os === "android" ? 11 : 9
+                        font.bold: true
+                        maximumLength: 18; clip: true
+
+                        Text {
+                            anchors.fill: parent
+                            text: "Jina lako..."
+                            color: "#336633"
+                            font.pointSize: Qt.platform.os === "android" ? 11 : 9
+                            visible: nameInput.text.length === 0 && !nameInput.activeFocus
+                        }
+
+                        Keys.onReturnPressed: { frogScene.confirmName(); }
+                        Keys.onEnterPressed:  { frogScene.confirmName(); }
+                    }
+                }
+
+                Rectangle {
+                    id: okBtn
+                    width: okTxt.implicitWidth + 16; height: 30; radius: 6
+                    color: okMA.pressed ? "#2a8a30" : "#3cb043"
+                    anchors.left: nameField.right; anchors.leftMargin: 8
+                    anchors.verticalCenter: parent.verticalCenter
+                    Behavior on color { ColorAnimation { duration: 100 } }
+
+                    Text {
+                        id: okTxt
+                        anchors.centerIn: parent
+                        text: "Sawa ✓"; color: "white"
+                        font.pointSize: Qt.platform.os === "android" ? 11 : 9
+                        font.bold: true
+                    }
+                    MouseArea {
+                        id: okMA
+                        anchors.fill: parent
+                        onClicked: { frogScene.confirmName(); }
+                    }
+                }
+            }
+
+            // ── Kitufe cha "Badili jina" (chat mode tu) ───────────────────
+            Rectangle {
+                id: changeNameBtn
+                visible: frogScene.greetMode === "chat"
+                width: changeTxt.implicitWidth + 16
+                height: 22
+                radius: 11
+                color: changeMA.pressed ? "#1a4a1a" : "#0d2e0d"
+                border.color: "#3cb043"
+                border.width: 1
+                anchors.right: parent.right
+                anchors.rightMargin: 10
+                anchors.bottom: parent.bottom
+                anchors.bottomMargin: 6
+                Behavior on color { ColorAnimation { duration: 100 } }
+
+                Text {
+                    id: changeTxt
+                    anchors.centerIn: parent
+                    text: "✏️ " + frogScene.userName
+                    color: "#00cc66"
+                    font.pointSize: Qt.platform.os === "android" ? 8 : 7
+                    font.bold: true
+                }
+                MouseArea {
+                    id: changeMA
+                    anchors.fill: parent
+                    onClicked: { frogScene.resetName(); }
+                }
+            }
+
             // Fireflies
             Repeater {
                 model: 6
@@ -1040,7 +1267,6 @@ Rectangle {
                         PauseAnimation  { duration: 300 }
                         NumberAnimation { to: 0.0; duration: 600 }
                     }
-                    // Fireflies drift slightly
                     SequentialAnimation on x {
                         loops: Animation.Infinite
                         NumberAnimation { to: (index * 57 + 30) % (frogScene.width - 40) + 18; duration: 2000; easing.type: Easing.SineCurve }
