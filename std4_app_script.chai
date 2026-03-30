@@ -5168,7 +5168,7 @@ def onFormatCandidateNo(string cNo, bool isListItem)
 
 def getOtherAppsPageRightIcon()
 {
-  return "fa::thumbsoup";
+  return "";
 }
 
 def onOtherAppsPageRightIconClicked()
