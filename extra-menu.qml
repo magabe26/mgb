@@ -490,16 +490,565 @@ Rectangle {
         }
 
 
-        // ── Tanzania flag animation ───────────────────────────────────────
-     /*   AnimatedImage {
-            anchors.horizontalCenter: parent.horizontalCenter
+        // ── Frog programmer in a pond ────────────────────────────────────
+        Item {
+            id: frogScene
             width: root.width
-            height: 90
-            source: "./tzflag.gif"
-            onStatusChanged: {
-                visible = (status !== AnimatedImage.Error);
+            height: 180
+            clip: true
+
+            // ── Sky color shift (dusk → night → dawn loop) ────────────────
+            Rectangle {
+                id: skyBg
+                anchors.fill: parent
+                radius: 10
+                color: "#0a1a0a"
+                SequentialAnimation on color {
+                    loops: Animation.Infinite
+                    ColorAnimation { to: "#0a0a2a"; duration: 4000 }
+                    ColorAnimation { to: "#1a0a2a"; duration: 4000 }
+                    ColorAnimation { to: "#2a1a0a"; duration: 4000 }
+                    ColorAnimation { to: "#0a1a0a"; duration: 4000 }
+                }
             }
-        } */
+
+            // Moon
+            Rectangle {
+                width: 18; height: 18; radius: 9
+                x: parent.width - 36; y: 10
+                color: "#fffde7"
+                opacity: 0.85
+                SequentialAnimation on opacity {
+                    loops: Animation.Infinite
+                    NumberAnimation { to: 0.5; duration: 6000 }
+                    NumberAnimation { to: 0.85; duration: 6000 }
+                }
+                // Crescent shadow
+                Rectangle {
+                    width: 14; height: 14; radius: 7
+                    x: 6; y: -2
+                    color: skyBg.color
+                }
+            }
+
+            // Stars
+            Repeater {
+                model: 14
+                Rectangle {
+                    x: (index * 73 + 17) % (frogScene.width - 10)
+                    y: (index * 41 + 5)  % 44
+                    width: 2; height: 2; radius: 1
+                    color: "white"
+                    opacity: 0.0
+                    SequentialAnimation on opacity {
+                        loops: Animation.Infinite
+                        PauseAnimation  { duration: index * 320 }
+                        NumberAnimation { to: 0.9; duration: 600 }
+                        NumberAnimation { to: 0.1; duration: 700 }
+                    }
+                }
+            }
+
+            // Rain drops
+            Repeater {
+                model: 18
+                Rectangle {
+                    id: rainDrop
+                    property real startX: (index * 43 + 7) % (frogScene.width - 4)
+                    x: startX
+                    y: -12
+                    width: 1; height: 8
+                    color: "#88ccff"
+                    opacity: 0.0
+                    radius: 1
+                    SequentialAnimation on y {
+                        loops: Animation.Infinite
+                        PauseAnimation  { duration: index * 190 + 100 }
+                        NumberAnimation { from: -12; to: frogScene.height; duration: 900; easing.type: Easing.Linear }
+                    }
+                    SequentialAnimation on opacity {
+                        loops: Animation.Infinite
+                        PauseAnimation  { duration: index * 190 + 100 }
+                        NumberAnimation { to: 0.55; duration: 100 }
+                        NumberAnimation { to: 0.55; duration: 700 }
+                        NumberAnimation { to: 0.0;  duration: 100 }
+                    }
+                }
+            }
+
+            // ── Pond ──────────────────────────────────────────────────────
+            Rectangle {
+                id: pond
+                x: 8
+                anchors.bottom: parent.bottom
+                width: parent.width - 16
+                height: 90
+                color: "#0d3b2e"
+                radius: 14
+
+                // Water shimmer overlay
+                Rectangle {
+                    anchors.fill: parent; radius: parent.radius
+                    color: "transparent"
+                    Rectangle {
+                        width: parent.width * 0.6
+                        height: 3; radius: 2
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        y: 18
+                        color: "#1a6a50"; opacity: 0.4
+                        SequentialAnimation on width {
+                            loops: Animation.Infinite
+                            NumberAnimation { to: pond.width * 0.3; duration: 1800; easing.type: Easing.SineCurve }
+                            NumberAnimation { to: pond.width * 0.6; duration: 1800; easing.type: Easing.SineCurve }
+                        }
+                    }
+                }
+
+                // Water ripple rings
+                Repeater {
+                    model: 3
+                    Rectangle {
+                        property real baseSize: 28 + index * 20
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.verticalCenterOffset: 18
+                        width: baseSize; height: baseSize * 0.32
+                        radius: width / 2
+                        color: "transparent"
+                        border.color: "#1a7a5a"; border.width: 1
+                        opacity: 0.0
+                        SequentialAnimation on opacity {
+                            loops: Animation.Infinite
+                            PauseAnimation  { duration: index * 700 + 200 }
+                            NumberAnimation { to: 0.7; duration: 400 }
+                            NumberAnimation { to: 0.0; duration: 900 }
+                        }
+                        SequentialAnimation on width {
+                            loops: Animation.Infinite
+                            PauseAnimation  { duration: index * 700 + 200 }
+                            NumberAnimation { to: baseSize * 1.7; duration: 1300 }
+                            NumberAnimation { to: baseSize;       duration: 0    }
+                        }
+                    }
+                }
+
+                // ── Fish swimming ─────────────────────────────────────────
+                Item {
+                    id: fish
+                    width: 28; height: 12
+                    y: 52
+                    x: -30
+
+                    SequentialAnimation on x {
+                        loops: Animation.Infinite
+                        NumberAnimation { from: -30; to: pond.width + 10; duration: 5000; easing.type: Easing.Linear }
+                        PauseAnimation  { duration: 800 }
+                    }
+
+                    // Fish body
+                    Rectangle {
+                        width: 20; height: 10; radius: 6
+                        anchors.right: parent.right; anchors.verticalCenter: parent.verticalCenter
+                        color: "#ff8844"
+                        // Eye
+                        Rectangle {
+                            width: 3; height: 3; radius: 2
+                            anchors.right: parent.right; anchors.rightMargin: 3
+                            anchors.verticalCenter: parent.verticalCenter
+                            anchors.verticalCenterOffset: -1
+                            color: "black"
+                        }
+                    }
+                    // Tail fin
+                    Rectangle {
+                        width: 10; height: 12; radius: 3
+                        anchors.left: parent.left; anchors.verticalCenter: parent.verticalCenter
+                        color: "#ff6622"
+                        rotation: 0
+                        SequentialAnimation on rotation {
+                            loops: Animation.Infinite
+                            NumberAnimation { to:  20; duration: 250 }
+                            NumberAnimation { to: -20; duration: 250 }
+                        }
+                    }
+                }
+            }
+
+            // Lily pad
+            Rectangle {
+                id: lilyPad
+                width: 72; height: 26
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.bottom: parent.bottom
+                anchors.bottomMargin: 32
+                color: "#2d7a2d"; radius: 36
+                Rectangle {
+                    width: 16; height: 16; radius: 8
+                    color: "#0d3b2e"
+                    anchors.right: parent.right; anchors.rightMargin: -4
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+                SequentialAnimation on anchors.bottomMargin {
+                    loops: Animation.Infinite
+                    NumberAnimation { to: 30; duration: 900; easing.type: Easing.SineCurve }
+                    NumberAnimation { to: 32; duration: 900; easing.type: Easing.SineCurve }
+                }
+            }
+
+            // ── Frog ──────────────────────────────────────────────────────
+            Item {
+                id: frog
+                width: 54; height: 62
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.bottom: parent.bottom
+                anchors.bottomMargin: 40
+
+                // Wobble rotation while typing
+                SequentialAnimation on rotation {
+                    loops: Animation.Infinite
+                    NumberAnimation { to:  2; duration: 200 }
+                    NumberAnimation { to: -2; duration: 200 }
+                    NumberAnimation { to:  0; duration: 200 }
+                    PauseAnimation  { duration: 1400 }
+                }
+
+                SequentialAnimation on anchors.bottomMargin {
+                    loops: Animation.Infinite
+                    NumberAnimation { to: 42; duration: 900; easing.type: Easing.SineCurve }
+                    NumberAnimation { to: 40; duration: 900; easing.type: Easing.SineCurve }
+                }
+
+                // Body
+                Rectangle {
+                    id: frogBody
+                    width: 44; height: 34
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.bottom: parent.bottom; anchors.bottomMargin: 10
+                    radius: 18; color: "#3cb043"
+                    border.color: "#2a8a30"; border.width: 1
+
+                    // Belly
+                    Rectangle {
+                        width: 28; height: 20
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        anchors.bottom: parent.bottom; anchors.bottomMargin: 2
+                        radius: 12; color: "#a8e6a0"
+                    }
+
+                    // ── Mouth (opens/closes while speaking) ───────────────
+                    Rectangle {
+                        id: mouthOuter
+                        width: 18; height: 6; radius: 3
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        anchors.bottom: parent.bottom; anchors.bottomMargin: 4
+                        color: "#1a5c1a"
+                        clip: true
+
+                        Rectangle {
+                            id: mouthInner
+                            width: parent.width - 4; height: 4; radius: 2
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            anchors.bottom: parent.bottom; anchors.bottomMargin: 0
+                            color: "#cc2222"
+                            // Tongue tip
+                            Rectangle {
+                                width: 6; height: 3; radius: 2
+                                anchors.horizontalCenter: parent.horizontalCenter
+                                anchors.bottom: parent.bottom
+                                color: "#ff4444"
+                            }
+                        }
+
+                        // Mouth open/close sync with typing
+                        SequentialAnimation on height {
+                            loops: Animation.Infinite
+                            NumberAnimation { to: 10; duration: 150 }
+                            NumberAnimation { to: 3;  duration: 150 }
+                            NumberAnimation { to: 8;  duration: 150 }
+                            NumberAnimation { to: 3;  duration: 150 }
+                            PauseAnimation  { duration: 1800 }
+                        }
+                    }
+                }
+
+                // Left eye
+                Rectangle {
+                    width: 12; height: 12; radius: 6
+                    x: frogBody.x - 2
+                    anchors.bottom: frogBody.top; anchors.bottomMargin: -6
+                    color: "#3cb043"; border.color: "#2a8a30"; border.width: 1
+                    Rectangle {
+                        width: 7; height: 7; radius: 4
+                        anchors.centerIn: parent; color: "black"
+                        Rectangle {
+                            width: 2; height: 2; radius: 1
+                            anchors.top: parent.top; anchors.left: parent.left
+                            anchors.topMargin: 1; anchors.leftMargin: 1
+                            color: "white"
+                        }
+                    }
+                }
+
+                // Right eye — blinks
+                Rectangle {
+                    id: rightEyeBall
+                    width: 12; height: 12; radius: 6
+                    x: frogBody.x + frogBody.width - 10
+                    anchors.bottom: frogBody.top; anchors.bottomMargin: -6
+                    color: "#3cb043"; border.color: "#2a8a30"; border.width: 1
+                    Rectangle {
+                        width: 7; height: 7; radius: 4
+                        anchors.centerIn: parent; color: "black"
+                        Rectangle {
+                            width: 2; height: 2; radius: 1
+                            anchors.top: parent.top; anchors.left: parent.left
+                            anchors.topMargin: 1; anchors.leftMargin: 1
+                            color: "white"
+                        }
+                    }
+                    SequentialAnimation on height {
+                        loops: Animation.Infinite
+                        PauseAnimation  { duration: 3200 }
+                        NumberAnimation { to: 1;  duration: 80 }
+                        NumberAnimation { to: 12; duration: 80 }
+                    }
+                }
+
+                // Left arm
+                Rectangle {
+                    id: leftArm
+                    width: 18; height: 7; radius: 4
+                    color: "#3cb043"
+                    anchors.left: frogBody.left; anchors.leftMargin: -12
+                    anchors.bottom: frogBody.bottom; anchors.bottomMargin: 12
+                    rotation: -30
+                    // Left finger tap
+                    SequentialAnimation on anchors.bottomMargin {
+                        loops: Animation.Infinite
+                        NumberAnimation { to: 14; duration: 160 }
+                        NumberAnimation { to: 12; duration: 160 }
+                        PauseAnimation  { duration: 480 }
+                    }
+                }
+
+                // Right arm
+                Rectangle {
+                    id: rightArm
+                    width: 18; height: 7; radius: 4
+                    color: "#3cb043"
+                    anchors.right: frogBody.right; anchors.rightMargin: -12
+                    anchors.bottom: frogBody.bottom; anchors.bottomMargin: 12
+                    rotation: 30
+                    // Right finger tap (offset timing)
+                    SequentialAnimation on anchors.bottomMargin {
+                        loops: Animation.Infinite
+                        PauseAnimation  { duration: 320 }
+                        NumberAnimation { to: 14; duration: 160 }
+                        NumberAnimation { to: 12; duration: 160 }
+                        PauseAnimation  { duration: 320 }
+                    }
+                }
+            }
+
+            // ── Laptop ────────────────────────────────────────────────────
+            Item {
+                id: laptop
+                width: 52; height: 36
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.bottom: parent.bottom; anchors.bottomMargin: 36
+
+                SequentialAnimation on anchors.bottomMargin {
+                    loops: Animation.Infinite
+                    NumberAnimation { to: 38; duration: 900; easing.type: Easing.SineCurve }
+                    NumberAnimation { to: 36; duration: 900; easing.type: Easing.SineCurve }
+                }
+
+                Rectangle {
+                    id: laptopScreen
+                    width: 46; height: 28
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.top: parent.top
+                    radius: 3; color: "#1a1a2e"
+                    border.color: "#555"; border.width: 1
+
+                    // Cursor blink
+                    Rectangle {
+                        id: cursor
+                        width: 2; height: 8
+                        x: 6; y: 6
+                        color: "#00ff88"
+                        SequentialAnimation on opacity {
+                            loops: Animation.Infinite
+                            NumberAnimation { to: 0.0; duration: 500 }
+                            NumberAnimation { to: 1.0; duration: 500 }
+                        }
+                        // Cursor moves right as frog "types"
+                        SequentialAnimation on x {
+                            loops: Animation.Infinite
+                            NumberAnimation { from: 6; to: 38; duration: 3000; easing.type: Easing.Linear }
+                            NumberAnimation { to: 6; duration: 0 }
+                        }
+                    }
+
+                    // Code lines that grow as typed
+                    Repeater {
+                        model: 3
+                        Rectangle {
+                            x: 6
+                            y: 6 + index * 7
+                            width: 0
+                            height: 2
+                            color: ["#00ff88","#66aaff","#ffaa44"][index]
+                            opacity: 0.85
+                            SequentialAnimation on width {
+                                loops: Animation.Infinite
+                                PauseAnimation  { duration: index * 1000 }
+                                NumberAnimation { from: 0; to: [24, 32, 20][index]; duration: 1200; easing.type: Easing.OutCubic }
+                                PauseAnimation  { duration: 3000 - index * 1000 }
+                                NumberAnimation { to: 0; duration: 0 }
+                            }
+                        }
+                    }
+                }
+
+                // Laptop base
+                Rectangle {
+                    width: 52; height: 5
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.bottom: parent.bottom
+                    radius: 2; color: "#888"
+                    border.color: "#555"; border.width: 1
+                }
+            }
+
+            // ── Speech bubble with typewriter text ───────────────────────
+            Item {
+                id: speechBubble
+                width: bubbleRect.width + 4
+                height: bubbleRect.height + 12
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.horizontalCenterOffset: 28
+                anchors.bottom: parent.bottom; anchors.bottomMargin: 96
+
+                SequentialAnimation on anchors.bottomMargin {
+                    loops: Animation.Infinite
+                    NumberAnimation { to: 100; duration: 1200; easing.type: Easing.SineCurve }
+                    NumberAnimation { to: 96;  duration: 1200; easing.type: Easing.SineCurve }
+                }
+
+                // Fade in/out to cycle messages
+                SequentialAnimation on opacity {
+                    loops: Animation.Infinite
+                    PauseAnimation  { duration: 500 }
+                    NumberAnimation { to: 1.0; duration: 400 }
+                    PauseAnimation  { duration: 3200 }
+                    NumberAnimation { to: 0.0; duration: 400 }
+                    PauseAnimation  { duration: 600 }
+                }
+
+                Rectangle {
+                    id: bubbleRect
+                    width: bubbleText.implicitWidth + 22
+                    height: bubbleText.implicitHeight + 14
+                    radius: 10; color: "white"
+                    border.color: "#3cb043"; border.width: 2
+
+                    // Typewriter text — cycles phrases
+                    Text {
+                        id: bubbleText
+                        anchors.centerIn: parent
+                        color: "#1a1a1a"
+                        font.pointSize: Qt.platform.os === "android" ? 10 : 8
+                        font.bold: true
+
+                        property var phrases: [
+                            "Tujifunze Sayansi! 🔬",
+                            "Tujifunze Kompyuta 💻",
+                            "Ujuzi ni utajiri wa kudumu",
+                            "Fanya. Jaribu. Rudia⚡"
+                        ]
+                        property int phraseIndex: 0
+                        property string fullText: phrases[phraseIndex]
+                        property int charCount: 0
+                        text: fullText.substring(0, charCount)
+
+                        // Typewriter character timer
+                        Timer {
+                            id: typeTimer
+                            interval: 80
+                            repeat: true
+                            running: true
+                            onTriggered: {
+                                if (bubbleText.charCount < bubbleText.fullText.length) {
+                                    bubbleText.charCount++;
+                                } else {
+                                    typeTimer.stop();
+                                    pauseTimer.start();
+                                }
+                            }
+                        }
+                        // Pause before cycling to next phrase
+                        Timer {
+                            id: pauseTimer
+                            interval: 3000
+                            repeat: false
+                            onTriggered: {
+                                bubbleText.charCount = 0;
+                                bubbleText.phraseIndex = (bubbleText.phraseIndex + 1) % bubbleText.phrases.length;
+                                bubbleText.fullText = bubbleText.phrases[bubbleText.phraseIndex];
+                                typeTimer.start();
+                            }
+                        }
+                    }
+                }
+
+                // Bubble tail
+                Canvas {
+                    width: 14; height: 12
+                    anchors.left: bubbleRect.left; anchors.leftMargin: 8
+                    anchors.top: bubbleRect.bottom; anchors.topMargin: -2
+                    onPaint: {
+                        var ctx = getContext("2d");
+                        ctx.clearRect(0, 0, width, height);
+                        ctx.fillStyle   = "white";
+                        ctx.strokeStyle = "#3cb043";
+                        ctx.lineWidth   = 2;
+                        ctx.beginPath();
+                        ctx.moveTo(0, 0);
+                        ctx.lineTo(14, 0);
+                        ctx.lineTo(4, 12);
+                        ctx.closePath();
+                        ctx.fill();
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            // Fireflies
+            Repeater {
+                model: 6
+                Rectangle {
+                    x: (index * 57 + 30) % (frogScene.width - 40) + 10
+                    y: 50 + (index * 23) % 55
+                    width: 3; height: 3; radius: 2
+                    color: "#ccff66"
+                    opacity: 0.0
+                    SequentialAnimation on opacity {
+                        loops: Animation.Infinite
+                        PauseAnimation  { duration: index * 900 + 400 }
+                        NumberAnimation { to: 0.9; duration: 400 }
+                        PauseAnimation  { duration: 300 }
+                        NumberAnimation { to: 0.0; duration: 600 }
+                    }
+                    // Fireflies drift slightly
+                    SequentialAnimation on x {
+                        loops: Animation.Infinite
+                        NumberAnimation { to: (index * 57 + 30) % (frogScene.width - 40) + 18; duration: 2000; easing.type: Easing.SineCurve }
+                        NumberAnimation { to: (index * 57 + 30) % (frogScene.width - 40) + 10; duration: 2000; easing.type: Easing.SineCurve }
+                    }
+                }
+            }
+        }
     }
 
     // Bottom cyan line — always sits just below the Column
