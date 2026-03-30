@@ -383,9 +383,9 @@ Rectangle {
                 Rectangle {
                     id: menuRow
                     width: root.width
-                    height: 56
+                    height: 68
                     color: rowMA.containsPress ? "#003535" : "#004d4d"
-                    readonly property real iconWidth: 44
+                    readonly property real iconWidth: 68
 
                     // Left accent stripe — colour by section
                     Rectangle {
