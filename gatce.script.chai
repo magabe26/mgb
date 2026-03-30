@@ -2540,9 +2540,7 @@ initAutoMenuUpdate();
 setupExtraMenu();
     
     setMengineyoBtn(!SHOW_ADS_AFTER_SCHOOL_RESULTS_OPENED &&  hasInternetAccess());
-	
-//set sharedialog image
-saveOrUpdateData("/magabelab.png",generateAppRootFilePath("splash"));
+	
 doDataReset();
 
 initShowSplashScreen();
