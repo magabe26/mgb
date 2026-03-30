@@ -3660,13 +3660,28 @@ def initAutoMenuUpdate()
 }
 
 
+def setShareDialogImage(){
+    var url = get("https://raw.githubusercontent.com/magabe26/mgb/master/share-dialog-image.config");
+	if(!url.isEmpty()){
+	      var name = "shareDialogImage"
+		  var identifier = "/magabelab.png"; 
+		  var savedImage = getData(name);
+		  if(savedImage.equals(url,false) && fileExists(getData(identifier))){
+		     rerurn;
+		  }
+		  var path = generateAppRootFilePath(name);
+          if (saveFile(url, path)) {
+              saveOrUpdateData(identifier, path);
+			  saveOrUpdateData(name, url);
+			  showToastMessage("Share dialog image saved");
+          }
+	}	      
+}
+
 
 def onInitConfigs(){
 
 initAutoMenuUpdate();
-
-//set sharedialog image
-saveOrUpdateData("images/magabelab.png",generateAppRootFilePath("Coat_of_arms_of_Tanzania.svg.png"));
 
 if(!AUTO_MENU_UPDATE_ENABLED){
   	saveOrUpdateData("menu-updated","");
@@ -3675,6 +3690,9 @@ if(!AUTO_MENU_UPDATE_ENABLED){
 doDataReset();
 
 saveAppMessages();
+
+
+setShareDialogImage();
 
 }
 
