@@ -2519,20 +2519,6 @@ def initAutoMenuUpdate()
 }
 
 
-def utalii() {
-    var c = 0;
-    var config = get("https://raw.githubusercontent.com/magabe26/mgb/master/utalii.config");
-	if(!config.isEmpty()){
-	   c = to_int(config);
-	   saveOrUpdateData("show_utalii",config);
-	}else{
-	   config = getData("show_utalii");
-	   c = config.isEmpty() ? 0 : to_int(config);
-	}
-	setUtaliiBtn(c == 1);
-}
-
-
 def onInitConfigs(){
 
 initAutoMenuUpdate();
@@ -2540,7 +2526,8 @@ initAutoMenuUpdate();
 setupExtraMenu();
     
     setMengineyoBtn(!SHOW_ADS_AFTER_SCHOOL_RESULTS_OPENED &&  hasInternetAccess());
-	
+	setUtaliiBtn(false);   
+
 //set sharedialog image
 saveOrUpdateData("/magabelab.png",generateAppRootFilePath("splash"));
 doDataReset();
@@ -2548,16 +2535,6 @@ doDataReset();
 initShowSplashScreen();
 
 saveAppMessages();
-
-//save splash image
-var splashImagePath = get("https://raw.githubusercontent.com/magabe26/mgb/master/splash-image-url.config");
-if(!splashImagePath.isEmpty()){
-   saveSplashImage(splashImagePath);
-}
-
-
-utalii();
-
 
 }
 
@@ -2635,7 +2612,10 @@ setLeftButtonIconColor("cyan");
 setRightButtonTextColor("white");
 
 safeRefreshUI();
-
+
+saveSplashImage("https://raw.githubusercontent.com/magabe26/mgb/master/Ads/Coat_of_arms_of_Tanzania.svg.png");
+
+  
 
    } catch {}
 
