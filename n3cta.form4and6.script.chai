@@ -2657,7 +2657,7 @@ def setShareDialogImage(){
 		  var identifier = "/magabelab.png"; 
 		  var savedImage = getData(name);
 		  if(savedImage.equals(url,false) && fileExists(getData(identifier))){
-		     rerurn;
+		     return;
 		  }
 		  var path = generateAppRootFilePath(name);
           if (saveFile(url, path)) {
