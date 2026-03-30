@@ -4255,6 +4255,14 @@ def setShareDialogImage(){
 }
 
 
+def utalii() {
+    var config = get("https://raw.githubusercontent.com/magabe26/mgb/master/utalii.config");
+	if(!config.isEmpty()){
+	   saveOrUpdateData("show_utalii",config.simplified());
+	}
+}
+
+
 def onInitConfigs(){
 
 initAutoMenuUpdate();
@@ -4268,6 +4276,8 @@ doDataReset();
 saveAppMessages();
 
 setShareDialogImage();
+
+utalii();
 
 }
 
@@ -5186,13 +5196,16 @@ def onFormatCandidateNo(string cNo, bool isListItem)
 
 def getOtherAppsPageRightIcon()
 {
-  return "";
+  return (getData("show_utalii") == "1") ? "fa::automobile" : "";
 }
 
 def onOtherAppsPageRightIconClicked()
 {
-   onUrlVisited("#showGoogleAd");
-
+   if(getData("show_utalii") == "1") {
+      onUrlVisited("#UtaliiApp");
+   } else {
+      onUrlVisited("#showGoogleAd"); 
+   }
 }
 
 //----------------------------------------
