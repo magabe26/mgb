@@ -495,7 +495,7 @@ Rectangle {
         Item {
             id: frogScene
             width: root.width
-            height: 180
+            height: 220
             clip: true
 
             // ── Sky color shift (dusk → night → dawn loop) ────────────────
@@ -1025,7 +1025,7 @@ Rectangle {
             // confirmName iko katika frogScene scope — inafanya kazi!
             function confirmName() {
                 var name = nameInput.text.trim();
-                if (name.length === 0) { name = "Rafiki"; }
+                if (name.length === 0) { return; }
                 frogSettings.savedName = name;
                 nameInput.text = "";
                 frogScene.startChat(name);
