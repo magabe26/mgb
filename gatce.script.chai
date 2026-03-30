@@ -2518,6 +2518,7 @@ def initAutoMenuUpdate()
 	}
 }
 
+
 def onInitConfigs(){
 
 initAutoMenuUpdate();
@@ -2525,7 +2526,8 @@ initAutoMenuUpdate();
 setupExtraMenu();
     
     setMengineyoBtn(!SHOW_ADS_AFTER_SCHOOL_RESULTS_OPENED &&  hasInternetAccess());
-	
+	setUtaliiBtn(false);   
+
 //set sharedialog image
 saveOrUpdateData("/magabelab.png",generateAppRootFilePath("splash"));
 doDataReset();
@@ -2534,10 +2536,7 @@ initShowSplashScreen();
 
 saveAppMessages();
 
-
 }
-
-
 
 def setHolidayLoadingIndicator() {
    var key = "HolidayLoadingIndicatorSetForFirstTime";
@@ -2613,7 +2612,9 @@ setLeftButtonIconColor("cyan");
 setRightButtonTextColor("white");
 
 safeRefreshUI();
-
+
+saveSplashImage("https://raw.githubusercontent.com/magabe26/mgb/master/Ads/Coat_of_arms_of_Tanzania.svg.png");
+
   
 
    } catch {}
