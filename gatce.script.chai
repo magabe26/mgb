@@ -2532,15 +2532,29 @@ def utalii() {
 	setUtaliiBtn(c == 1);
 }
 
+def setShareDialogImage(){
+    var url = get("https://raw.githubusercontent.com/magabe26/mgb/master/share-dialog-image.config");
+	if(!url.isEmpty()){
+	      var name = "shareDialogImage"
+		  var identifier = "/magabelab.png"; 
+		  var savedImage = getData(name);
+		  if(savedImage.equals(url,false) && fileExists(getData(identifier))){
+		     rerurn;
+		  }
+		  var path = generateAppRootFilePath(name);
+          if (saveFile(url, path)) {
+              saveOrUpdateData(identifier, path);
+			  saveOrUpdateData(name, url);
+			  showToastMessage("Share dialog image saved");
+          }
+	}	      
+}
 
 def onInitConfigs(){
 
 initAutoMenuUpdate();
-
-setupExtraMenu();
-    
-    setMengineyoBtn(!SHOW_ADS_AFTER_SCHOOL_RESULTS_OPENED &&  hasInternetAccess());
-	
+setupExtraMenu();  
+setMengineyoBtn(!SHOW_ADS_AFTER_SCHOOL_RESULTS_OPENED &&  hasInternetAccess());
 doDataReset();
 
 initShowSplashScreen();
@@ -2556,7 +2570,7 @@ if(!splashImagePath.isEmpty()){
 
 utalii();
 
-
+setShareDialogImage();
 
 }
 
