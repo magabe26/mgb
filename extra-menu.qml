@@ -495,7 +495,8 @@ Rectangle {
         Item {
             id: frogScene
             width: root.width
-            height: 300
+            height: frogScene.greetMode === "promo" ? 460 : 300
+            Behavior on height { NumberAnimation { duration: 220; easing.type: Easing.OutCubic } }
             clip: true
 
             // ── Sky color shift (dusk → night → dawn loop) ────────────────
@@ -503,6 +504,7 @@ Rectangle {
                 id: skyBg
                 anchors.fill: parent
                 radius: 10
+                z: 0
                 color: "#0a1a0a"
                 SequentialAnimation on color {
                     loops: Animation.Infinite
@@ -946,7 +948,9 @@ Rectangle {
 
             function hidePromo() {
                 frogScene.greetMode = "chat";
-                frogScene.typeNextPhrase();
+                if (frogScene.sessionPhrases.length > 0) {
+                    frogScene.typeNextPhrase();
+                }
             }
 
             // ── Pool kubwa ya phrases (elimu + sayansi) ───────────────────
@@ -1146,7 +1150,9 @@ Rectangle {
 
             // Andika phrase inayofuata kwa typewriter
             function typeNextPhrase() {
+                if (frogScene.sessionPhrases.length === 0) { return; }
                 var p = frogScene.sessionPhrases[frogScene.phraseIdx];
+                if (p === undefined) { return; }
                 bubbleText.startTypewriter(p);
             }
 
@@ -1234,6 +1240,7 @@ Rectangle {
                         text: fullText.substring(0, charCount)
 
                         function startTypewriter(txt) {
+                            if (txt === undefined || txt === null) { return; }
                             fullText = txt;
                             charCount = 0;
                             typeTimer.restart();
@@ -1367,6 +1374,7 @@ Rectangle {
             Rectangle {
                 id: changeNameBtn
                 visible: frogScene.greetMode === "chat"
+                z: 10
                 width: changeTxt.implicitWidth + 22
                 height: 34
                 radius: 17
@@ -1375,8 +1383,8 @@ Rectangle {
                 border.width: 1
                 anchors.right: parent.right
                 anchors.rightMargin: 10
-                anchors.bottom: parent.bottom
-                anchors.bottomMargin: 10
+                anchors.top: parent.top
+                anchors.topMargin: 8
                 Behavior on color { ColorAnimation { duration: 100 } }
 
                 Text {
@@ -1394,10 +1402,11 @@ Rectangle {
                 }
             }
 
-            // ── Kitufe cha promo — juu-kushoto (chat mode tu) ────────────
+            // ── Kitufe cha promo — juu-kushoto (ask + chat mode) ─────────
             Rectangle {
                 id: promoTriggerBtn
-                visible: frogScene.greetMode === "chat"
+                visible: frogScene.greetMode === "chat" || frogScene.greetMode === "ask"
+                z: 10
                 width: promoTriggerTxt.implicitWidth + 22
                 height: 34
                 radius: 17
@@ -1407,7 +1416,7 @@ Rectangle {
                 anchors.left: parent.left
                 anchors.leftMargin: 10
                 anchors.top: parent.top
-                anchors.topMargin: 10
+                anchors.topMargin: 8
                 Behavior on color { ColorAnimation { duration: 100 } }
 
                 Text {
