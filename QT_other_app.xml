@@ -130,6 +130,16 @@ Download other apps here
    <APP>
       <A HREF="#" />
    </APP>
+
+<APP>
+    <A HREF="#openApp;MagabeLab.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/;Tafadhali subiri;dependency.txt;#;2;1;0.3;">Tujifunze sayansi na teknolojia</A>
+    <COLOR>#1fb8ba</COLOR>
+    <BG_COLOR>white</BG_COLOR>
+    <ICON>fa::laptop</ICON>
+    <ICON_COLOR>green</ICON_COLOR>
+    <BOLD_TEXT>1</BOLD_TEXT>
+</APP>
+
    <APP>
       <A HREF="#" />
    </APP>
