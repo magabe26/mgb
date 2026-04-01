@@ -2877,7 +2877,7 @@ def getFlag(string code) {
       return "🇹🇼";
    }
    if (code.equals("TZ", false)) {
-      return "";
+      return "🇹🇿";
    }
    if (code.equals("UA", false)) {
       return "🇺🇦";
