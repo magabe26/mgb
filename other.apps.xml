@@ -149,8 +149,8 @@ Pakua aplikesheni zingine hapa
 </APP>
 
 <APP>
-    <A HREF="#openApp;MagabeLab.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/;Tafadhali subiri;dependency.txt;#;2;1;0.4;">Tujifunze sayansi na teknolojia</A>
-    <COLOR>#168485</COLOR>
+    <A HREF="#openApp;MagabeLab.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/;Tafadhali subiri;dependency.txt;#;2;1;0.3;">Tujifunze sayansi na teknolojia</A>
+    <COLOR>#1fb8ba</COLOR>
     <BG_COLOR>white</BG_COLOR>
     <ICON>fa::laptop</ICON>
     <ICON_COLOR>green</ICON_COLOR>
