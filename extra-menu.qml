@@ -24,6 +24,15 @@ Rectangle {
             cmd2: "#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/master/Ads/sayansi-3.png;#showGoogleAd;0.98;0.5;500",
             section: "content"
         },
+
+       {
+            text: "Tujifunze sayansi na teknolojia",
+            icon: "fa::laptop",
+            cmd1: "#openApp;MagabeLab.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/;Tafadhali subiri;dependency.txt;#;2;1;0.3;",
+            cmd2: "",
+            section: "content"
+        },
+
         
         {
             text: "Pima uwezo wa akili yako sasa",
