@@ -924,11 +924,12 @@ Rectangle {
                 }
             }
 
-            // ── QSettings — kukumbuka jina ────────────────────────────────
+            // ── QSettings — kukumbuka jina na phrases zilizosomwa ─────────
             Settings {
                 id: frogSettings
                 category: "FrogGreeting"
                 property string savedName: ""
+                property string seenPhrases: ""  // phrases zilizosomwa, separator "||"
             }
 
             // ── State: "ask" | "chat" ─────────────────────────────────────
@@ -1115,11 +1116,50 @@ Rectangle {
                 "Ubongo wako ni kompyuta bora zaidi 🧠"
             ]
 
-            // Phrases zilizochaguliwa kwa nasibu kwa session hii
+            // Phrases za session hii (hazijasomwa bado)
             property var sessionPhrases: []
             property int phraseIdx: 0
 
-            // Changanya nasibu (Fisher-Yates)
+            // ── Seen-set helpers ──────────────────────────────────────────
+
+            // Soma seen set kutoka QSettings → JavaScript Set-like object (plain object)
+            function loadSeenSet() {
+                var raw = frogSettings.seenPhrases;
+                if (raw === "" || raw === undefined) { return {}; }
+                var obj = {};
+                var parts = raw.split("||");
+                for (var i = 0; i < parts.length; i++) {
+                    if (parts[i] !== "") { obj[parts[i]] = true; }
+                }
+                return obj;
+            }
+
+            // Hifadhi seen set kwenye QSettings
+            function saveSeenSet(obj) {
+                var keys = [];
+                for (var k in obj) { if (obj.hasOwnProperty(k)) { keys.push(k); } }
+                frogSettings.seenPhrases = keys.join("||");
+            }
+
+            // Ongeza phrase moja kwenye seen set na hifadhi
+            function markSeen(phrase) {
+                var obj = loadSeenSet();
+                obj[phrase] = true;
+                saveSeenSet(obj);
+            }
+
+            // Chuja phrases ambazo hazijasomwa bado
+            function getUnseen() {
+                var seen = loadSeenSet();
+                var unseen = [];
+                for (var i = 0; i < frogScene.allPhrases.length; i++) {
+                    var p = frogScene.allPhrases[i];
+                    if (!seen[p]) { unseen.push(p); }
+                }
+                return unseen;
+            }
+
+            // Fisher-Yates shuffle
             function shufflePhrases(arr) {
                 var a = arr.slice();
                 for (var i = a.length - 1; i > 0; i--) {
@@ -1129,26 +1169,33 @@ Rectangle {
                 return a;
             }
 
-            // Anza maongezi — inaita baada ya jina kupatikana
+            // Jenga session — greetings + unseen phrases zilizoshufflewa
+            function buildSession(name) {
+                var unseen = getUnseen();
+                if (unseen.length === 0) {
+                    // Bank imeisha — futa seen set, anza upya na zote
+                    frogSettings.seenPhrases = "";
+                    unseen = frogScene.allPhrases.slice();
+                }
+                var greetings = [
+                    "Habari " + name + "! 😊",
+                    "Karibu " + name + "! 🐸",
+                    name + ", tujifunze pamoja! 📚",
+                    name + ", wewe ni programu inayokua! 💻"
+                ];
+                return greetings.concat(shufflePhrases(unseen));
+            }
+
+            // Anza maongezi
             function startChat(name) {
                 frogScene.userName = name;
                 frogScene.greetMode = "chat";
-
-                // Unda phrases za kibinafsi + pool iliyochanganywa
-                var greetings = [
-                            "Habari " + name + "! 😊",
-                            "Karibu " + name + "! 🐸",
-                            name + ", tujifunze pamoja! 📚",
-                            name + ", wewe ni programu inayokua! 💻"
-                        ];
-                var pool = shufflePhrases(frogScene.allPhrases);
-                // Salamu mbele, kisha pool
-                frogScene.sessionPhrases = greetings.concat(pool);
+                frogScene.sessionPhrases = buildSession(name);
                 frogScene.phraseIdx = 0;
                 typeNextPhrase();
             }
 
-            // Andika phrase inayofuata kwa typewriter
+            // Andika phrase — inaita markSeen BAADA ya phrase kukamilika (katika pauseTimer)
             function typeNextPhrase() {
                 if (frogScene.sessionPhrases.length === 0) { return; }
                 var p = frogScene.sessionPhrases[frogScene.phraseIdx];
@@ -1161,6 +1208,7 @@ Rectangle {
                 var name = nameInput.text.trim();
                 if (name.length === 0) { return; }
                 frogSettings.savedName = name;
+                frogSettings.seenPhrases = "";  // anza upya kwa jina jipya
                 nameInput.text = "";
                 nameInput.focus = false;
                 Qt.inputMethod.hide();
@@ -1172,6 +1220,7 @@ Rectangle {
                 typeTimer.stop();
                 pauseTimer.stop();
                 frogSettings.savedName = "";
+                frogSettings.seenPhrases = "";
                 nameInput.text = "";
                 bubbleText.fullText = "";
                 bubbleText.charCount = 0;
@@ -1268,8 +1317,21 @@ Rectangle {
                             interval: 5500
                             repeat: false
                             onTriggered: {
-                                frogScene.phraseIdx =
-                                        (frogScene.phraseIdx + 1) % frogScene.sessionPhrases.length;
+                                // Hifadhi phrase iliyosomwa kikamilifu
+                                var current = frogScene.sessionPhrases[frogScene.phraseIdx];
+                                if (current !== undefined) {
+                                    frogScene.markSeen(current);
+                                }
+
+                                var nextIdx = frogScene.phraseIdx + 1;
+
+                                if (nextIdx >= frogScene.sessionPhrases.length) {
+                                    // Session imeisha — jenga upya na phrases mpya (unseen)
+                                    frogScene.sessionPhrases = frogScene.buildSession(frogScene.userName);
+                                    nextIdx = 0;
+                                }
+
+                                frogScene.phraseIdx = nextIdx;
                                 frogScene.typeNextPhrase();
                             }
                         }
