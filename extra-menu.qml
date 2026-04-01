@@ -495,7 +495,7 @@ Rectangle {
         Item {
             id: frogScene
             width: root.width
-            height: 220
+            height: 300
             clip: true
 
             // ── Sky color shift (dusk → night → dawn loop) ────────────────
@@ -933,9 +933,137 @@ Rectangle {
             property string greetMode: "ask"
             property string userName: ""
 
+            // ── Contacts (badilisha maelezo hapa) ─────────────────────────
+            readonly property string contactWhatsApp: "https://wa.me/255789081122?text=Habari%2C%20nataka%20kujua%20zaidi%20kuhusu%20huduma%20zako"
+            readonly property string contactWebsite:  "https://magabelab-tz.web.app"
+            readonly property string contactEmail:    "mailto:magabelab.tz@gmail.com?subject=Nahitaji%20Huduma%20za%20Tech"
+
+            function showPromo() {
+                typeTimer.stop();
+                pauseTimer.stop();
+                frogScene.greetMode = "promo";
+            }
+
+            function hidePromo() {
+                frogScene.greetMode = "chat";
+                frogScene.typeNextPhrase();
+            }
+
             // ── Pool kubwa ya phrases (elimu + sayansi) ───────────────────
             // Zinachanganywa kwa nasibu kila app inapoanza
             property var allPhrases: [
+                // --- KOMPYUTA, CODING NA AI ---
+                "Coding ni kutatua matatizo kwa herufi! ⌨️",
+                "Usihofu 'Error', hiyo ni fursa ya kujifunza 🐛",
+                "AI haitachukua kazi yako, mtu anayeijua AI ndiye atakayeichukua! 🤖",
+                "Kila programu kubwa ilianza na 'Hello World' 🌍",
+                "Programmer ni mchawi anayetumia 'logic' badala ya fimbo! ✨",
+                "Python siyo nyoka tu, ni lugha ya kutajirika! 🐍",
+                "Data ndiyo dhahabu mpya ya karne hii 💎",
+                "Keyboard yako ni silaha ya ukombozi wa fikra ⚔️",
+                "Algorithm ndiyo ramani ya kuelekea kwenye jibu 🗺️",
+                "Internet ni darasa kubwa zaidi duniani — fungua mlango! 🌐",
+                "Simu yako ina nguvu kuliko kompyuta iliyopeleka watu mwezini! 🚀",
+                "Jifunze kutoa amri kwa kompyuta, siyo kupewa amri na simu 📱",
+                "Kusoma 'Code' za wengine ni kama kusoma kitabu cha siri 📖",
+                "Debugging ni kama kuwa mpelelezi kwenye sinema ya kusisimua 🔍",
+                "Open Source: Ujuzi wa pamoja unajenga dunia bora 🤝",
+                "Usiwe mtumiaji tu wa apps, uwe mtengenezaji! 🛠️",
+                "Cloud Computing: Ofisi yako iko popote ulipo ☁️",
+                "Cyber Security: Linda taarifa zako, linda mustakabali wako 🛡️",
+                "Blockchain siyo Bitcoin tu, ni mfumo wa uaminifu wa kidijitali ⛓️",
+                "Kila 'Click' unayofanya ina hesabu nyuma yake 🖱️",
+
+                // --- HISABATI (Lugha ya Ulimwengu) ---
+                "Hesabu ni muziki wa akili 🎵",
+                "Pi (π) haina mwisho, kama ndoto zako! ♾️",
+                "Maisha ni equation; ukitaka matokeo bora, badili 'Variables' 🧮",
+                "Kujua hesabu ni kuwa na jicho la tatu la kuona dunia 👁️",
+                "Zero (0) ilianzia hapa Afrika — nguvu ya kitu ambacho hakipo! 0️⃣",
+                "Asilimia ni mchezo wa namba, uelewe uwe tajiri 📈",
+                "Fibonacci yuko kwenye ua, konokono, na hata galaxy! 🌀",
+                "Jiometri: Jifunze pembe za dunia ili usichanganywe 📐",
+                "Hisabati ni lugha pekee ambayo haina uongo 💯",
+                "Ukielewa hesabu, umeelewa jinsi ulimwengu unavyopumua 🌍",
+
+                // --- SAYANSI NA TEKNOLOJIA (General Science) ---
+                "Sayansi siyo somo, ni jinsi unavyofikiri 🧠",
+                "Atomu ni ndogo, lakini nguvu yake inatikisa dunia 💥",
+                "Mvuto wa dunia (Gravity) unatuweka sote pamoja 🌏",
+                "Mwanga una kasi, lakini mawazo yako yana kasi zaidi! ⚡",
+                "DNA ni 'Source Code' ya mwili wako 🧬",
+                "Seli trilioni 37 zinafanya kazi ili wewe uweze kucheka leo 😊",
+                "Kila unachokiona kimeundwa na nyota zilizolipuka miaka bilioni iliyopita ✨",
+                "Biolojia ni teknolojia ya asili — isome! 🌿",
+                "Kemia ni mapenzi kati ya elementi mbili 🧪",
+                "Fizikia inakufundisha kwanini ndege inapaa na jiwe linaanguka ✈️",
+
+                // --- MOTISHA NA UJASIRI (Growth Mindset) ---
+                "Tanzania inasubiri 'Silicon Valley' yake — ianzishe wewe! 🇹🇿",
+                "Hakuna akili ndogo, kuna akili ambayo haijachokozwa tu ⚡",
+                "Elimu ni ufunguo, lakini 'Action' ndiyo inayofungua mlango 🔑",
+                "Ujuzi ni mali ambayo mwizi hawezi kuiba 📚",
+                "Kufeli ni sehemu ya 'Beta Testing' ya maisha yako 🛠️",
+                "Usilinganishe 'Step 1' yako na 'Step 100' ya mtu mwingine 🌱",
+                "Mtaalamu yeyote alianza kama mgeni anayeuliza maswali ❓",
+                "Akili yako ni kama misuli; itumie ili ikue 💪",
+                "Soma leo ili uongoze kesho 🎓",
+                "Kutaka kujua (Curiosity) ni chanzo cha uvumbuzi wote 🔭",
+                "Ubunifu hauna kikomo, labda tu kile unachojiwekea akilini 🌈",
+                "Wenye ndoto kubwa hawalali, wanafanya kazi! 🚀",
+                "Mazingira yako yasikuamulie ukubwa wa fikra zako 🏔️",
+                "Jifunze kitu kipya kila siku, hata kama ni kidogo 🤏",
+                "Teknolojia ni daraja la kumtoa kijana wa kijijini na kumpeleka duniani 🌉",
+                "Kuwa 'Problem Solver', siyo 'Problem Complainer' 💡",
+                "Dunia haina upendeleo, inajali nani ana ujuzi zaidi 🌍",
+                "Usiogope kuuliza 'Kwa nini?'; hapo ndipo sayansi huanzia 🧐",
+                "Kila kosa ni 'Log' ya kukuonyesha wapi pa kurekebisha 📝",
+                "Wewe ni mbunifu wa maisha yako mwenyewe 🎨",
+
+                // --- AI NA FUTURE TRENDS ---
+                "AI ni msaidizi wako, mfundishe akusaidie kazi 🤖",
+                "Machine Learning: Mashine zinajifunza, na wewe je? 🧠",
+                "Magari yanayojiendesha yanakuja, yaandae barabara zetu kidijitali 🚗",
+                "Roboti hazitachukua nafasi ya binadamu, zitachukua kazi zenye kuchosha 🦾",
+                "Virtual Reality (VR): Tembelea ulimwengu mwingine ukiwa chumbani kwako 🽽",
+                "3D Printing: Badili mawazo yako kuwa vitu halisi papo hapo 🖨️",
+                "Big Data: Maamuzi bora yanatolewa na namba, siyo hisia 📊",
+                "Internet of Things (IoT): Hebu fikiria jokofu likikuambia maziwa yameisha! 🥛",
+                "SpaceX inaenda Mars, Tanzania iende wapi? Anza kufikiri 🚀",
+                "Teknolojia ya kijani (Green Tech) ndiyo itakayookoa dunia yetu 🌳",
+
+                // --- ZAIDI KWA AJILI YA VIJANA WA TZ (Local Touch) ---
+                "Kijana wa kitanzania: Coding ni ajira bila kusubiri barua! 💼",
+                "Tumia bando lako kupata ujuzi, siyo kupata 'likes' tu 📱",
+                "Mwanza kumenoga kwa mawe, iweke Mwanza kwenye ramani ya tech 💎",
+                "Dar es Salaam ina joto, lakini akili yako iwe na 'Cool' ya AI 🧊",
+                "Kilimo kwanza, teknolojia mbele — tumia Drone shambani! 🚁",
+                "Utalii wetu unaweza kuboreshwa kwa Apps bora zaidi 🦁",
+                "Kiswahili ni lugha yetu, kitafsiri kwenye msimbo wa kompyuta 🇹🇿",
+                "Usiishie kuwa 'Technician', kuwa 'Engineer' wa fikra 🏗️",
+                "Vijana wa Arusha: Chuga ina vipaji, vigeuze kuwa Programu! 🏔️",
+                "Kutoka Mbeya hadi Mtwara, internet ni moja — jifunze! 🌊",
+                "Biashara ya sasa hivi inahitaji 'Website', siyo bango pekee 🏢",
+                "Software Engineering ni biashara isiyohitaji fremu ya duka 🏪",
+                "Unajua kurekebisha simu? Jifunze na kutengeneza mifumo yake 📲",
+                "Dunia ni kijiji, na wewe ni mkazi wa kidijitali 🏠",
+                "Kuwa 'Blogger' ni vizuri, lakini kuwa 'Developer' ni bora zaidi 💻",
+                "Afya ya jamii inaweza kuimarishwa na Data unazokusanya 🏥",
+                "Elimu ya bure iko YouTube, nidhamu ya kuisoma iko kwako 📺",
+                "Usiogope Hesabu, hesabu ndiyo lugha ya mzungu, mwarabu na mwafrika 🤝",
+                "Kompyuta haina ubaguzi; inakupa unachostahili kulingana na juhudi zako ⚖️",
+                "Kazi za kesho hazijavumbuliwa bado — zivumbue wewe! 🧪",
+                "Uvumbuzi ni kuona kile kila mtu anakiona, na kufikiri kile hakuna aliyefikiri 💭",
+                "Mwanasayansi wa kwanza wa Tanzania anaweza kuwa wewe 🥇",
+                "Tanzania ya kidijitali inajengwa na mistari ya code unayoandika leo 🏗️",
+                "Weka 'Comment' kwenye code zako, na weka 'Impact' kwenye jamii yako ✍️",
+                "Sayansi ni urithi wetu sote, siyo wa watu fulani tu 🏛️",
+                "Usiishie kusoma vitabu, anza kuandika historia yako ya tech 🖋️",
+                "Kila mtoto wa kitanzania ana uwezo wa kuwa Elon Musk wa Afrika 🦁",
+                "Ubunifu ni kutumia rasilimali chache kupata matokeo makubwa 💡",
+                "Nguvu ya atomu iko ndani ya elimu unayopata sasa ⚛️",
+                "Maisha ni kama mchezo wa video; pambana uende 'Level' inayofuata! 🎮",
+
                 // Sayansi ya jumla
                 "Sayansi ni uchawi wa kweli! ✨",
                 "Ulimwengu una siri nyingi — tafuta! 🔭",
@@ -1004,11 +1132,11 @@ Rectangle {
 
                 // Unda phrases za kibinafsi + pool iliyochanganywa
                 var greetings = [
-                    "Habari " + name + "! 😊",
-                    "Karibu " + name + "! 🐸",
-                    name + ", tujifunze pamoja! 📚",
-                    name + ", wewe ni programu inayokua! 💻"
-                ];
+                            "Habari " + name + "! 😊",
+                            "Karibu " + name + "! 🐸",
+                            name + ", tujifunze pamoja! 📚",
+                            name + ", wewe ni programu inayokua! 💻"
+                        ];
                 var pool = shufflePhrases(frogScene.allPhrases);
                 // Salamu mbele, kisha pool
                 frogScene.sessionPhrases = greetings.concat(pool);
@@ -1028,6 +1156,8 @@ Rectangle {
                 if (name.length === 0) { return; }
                 frogSettings.savedName = name;
                 nameInput.text = "";
+                nameInput.focus = false;
+                Qt.inputMethod.hide();
                 frogScene.startChat(name);
             }
 
@@ -1060,10 +1190,10 @@ Rectangle {
             // ── Speech bubble ─────────────────────────────────────────────
             Item {
                 id: speechBubble
-                width: bubbleRect.width + 4
+                // Max upana = scene - margins pande zote
+                width: Math.min(bubbleRect.width, frogScene.width - 24)
                 height: bubbleRect.height + 12
                 anchors.horizontalCenter: parent.horizontalCenter
-                anchors.horizontalCenterOffset: 20
                 anchors.bottom: parent.bottom
                 anchors.bottomMargin: 96
 
@@ -1075,18 +1205,29 @@ Rectangle {
 
                 Rectangle {
                     id: bubbleRect
-                    width: Math.max(bubbleText.implicitWidth, 110) + 22
-                    height: bubbleText.implicitHeight + 14
-                    radius: 10; color: "white"
+                    // Upana unazingatia scene — maneno marefu yatafanya wrap
+                    width: Math.min(bubbleText.implicitWidth + 24,
+                                    frogScene.width - 24)
+                    height: bubbleText.implicitHeight + 18
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    radius: 12; color: "white"
                     border.color: "#3cb043"; border.width: 2
-                    Behavior on width { NumberAnimation { duration: 180 } }
+                    Behavior on height { NumberAnimation { duration: 150 } }
+                    Behavior on width  { NumberAnimation { duration: 150 } }
 
                     Text {
                         id: bubbleText
-                        anchors.centerIn: parent
+                        anchors {
+                            left: parent.left;   leftMargin: 12
+                            right: parent.right; rightMargin: 12
+                            top: parent.top;     topMargin: 9
+                            bottom: parent.bottom; bottomMargin: 9
+                        }
                         color: "#1a1a1a"
-                        font.pointSize: Qt.platform.os === "android" ? 10 : 8
+                        font.pointSize: Qt.platform.os === "android" ? 11 : 9
                         font.bold: true
+                        wrapMode: Text.WordWrap
+                        horizontalAlignment: Text.AlignHCenter
 
                         property string fullText: ""
                         property int charCount: 0
@@ -1117,11 +1258,11 @@ Rectangle {
 
                         Timer {
                             id: pauseTimer
-                            interval: 2800
+                            interval: 5500
                             repeat: false
                             onTriggered: {
                                 frogScene.phraseIdx =
-                                    (frogScene.phraseIdx + 1) % frogScene.sessionPhrases.length;
+                                        (frogScene.phraseIdx + 1) % frogScene.sessionPhrases.length;
                                 frogScene.typeNextPhrase();
                             }
                         }
@@ -1153,11 +1294,11 @@ Rectangle {
             // ── Input ya jina (inaonekana tu mode "ask") ──────────────────
             Item {
                 id: inputPanel
-                width: nameField.width + okBtn.width + 10
-                height: 34
+                width: nameField.width + okBtn.width + 14
+                height: 48
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.bottom: parent.bottom
-                anchors.bottomMargin: 6
+                anchors.bottomMargin: 10
                 visible: frogScene.greetMode === "ask"
 
                 onVisibleChanged: {
@@ -1168,7 +1309,7 @@ Rectangle {
 
                 Rectangle {
                     id: nameField
-                    width: 130; height: 30; radius: 6
+                    width: 180; height: 44; radius: 8
                     color: "#1a2e1a"
                     border.color: nameInput.activeFocus ? "#00ff88" : "#3cb043"
                     border.width: nameInput.activeFocus ? 2 : 1
@@ -1178,17 +1319,19 @@ Rectangle {
 
                     TextInput {
                         id: nameInput
-                        anchors.fill: parent; anchors.margins: 6
+                        anchors.fill: parent; anchors.margins: 10
                         color: "#00ff88"
-                        font.pointSize: Qt.platform.os === "android" ? 11 : 9
+                        font.pointSize: Qt.platform.os === "android" ? 15 : 12
                         font.bold: true
                         maximumLength: 18; clip: true
+                        verticalAlignment: TextInput.AlignVCenter
 
                         Text {
                             anchors.fill: parent
                             text: "Jina lako..."
                             color: "#336633"
-                            font.pointSize: Qt.platform.os === "android" ? 11 : 9
+                            font.pointSize: Qt.platform.os === "android" ? 15 : 12
+                            verticalAlignment: Text.AlignVCenter
                             visible: nameInput.text.length === 0 && !nameInput.activeFocus
                         }
 
@@ -1199,9 +1342,9 @@ Rectangle {
 
                 Rectangle {
                     id: okBtn
-                    width: okTxt.implicitWidth + 16; height: 30; radius: 6
+                    width: okTxt.implicitWidth + 22; height: 44; radius: 8
                     color: okMA.pressed ? "#2a8a30" : "#3cb043"
-                    anchors.left: nameField.right; anchors.leftMargin: 8
+                    anchors.left: nameField.right; anchors.leftMargin: 10
                     anchors.verticalCenter: parent.verticalCenter
                     Behavior on color { ColorAnimation { duration: 100 } }
 
@@ -1209,7 +1352,7 @@ Rectangle {
                         id: okTxt
                         anchors.centerIn: parent
                         text: "Sawa ✓"; color: "white"
-                        font.pointSize: Qt.platform.os === "android" ? 11 : 9
+                        font.pointSize: Qt.platform.os === "android" ? 15 : 12
                         font.bold: true
                     }
                     MouseArea {
@@ -1224,16 +1367,16 @@ Rectangle {
             Rectangle {
                 id: changeNameBtn
                 visible: frogScene.greetMode === "chat"
-                width: changeTxt.implicitWidth + 16
-                height: 22
-                radius: 11
+                width: changeTxt.implicitWidth + 22
+                height: 34
+                radius: 17
                 color: changeMA.pressed ? "#1a4a1a" : "#0d2e0d"
                 border.color: "#3cb043"
                 border.width: 1
                 anchors.right: parent.right
                 anchors.rightMargin: 10
                 anchors.bottom: parent.bottom
-                anchors.bottomMargin: 6
+                anchors.bottomMargin: 10
                 Behavior on color { ColorAnimation { duration: 100 } }
 
                 Text {
@@ -1241,13 +1384,231 @@ Rectangle {
                     anchors.centerIn: parent
                     text: "✏️ " + frogScene.userName
                     color: "#00cc66"
-                    font.pointSize: Qt.platform.os === "android" ? 8 : 7
+                    font.pointSize: Qt.platform.os === "android" ? 12 : 10
                     font.bold: true
                 }
                 MouseArea {
                     id: changeMA
                     anchors.fill: parent
                     onClicked: { frogScene.resetName(); }
+                }
+            }
+
+            // ── Kitufe cha promo — juu-kushoto (chat mode tu) ────────────
+            Rectangle {
+                id: promoTriggerBtn
+                visible: frogScene.greetMode === "chat"
+                width: promoTriggerTxt.implicitWidth + 22
+                height: 34
+                radius: 17
+                color: promoTrigMA.pressed ? "#002244" : "#001a33"
+                border.color: "#00aaff"
+                border.width: 1
+                anchors.left: parent.left
+                anchors.leftMargin: 10
+                anchors.top: parent.top
+                anchors.topMargin: 10
+                Behavior on color { ColorAnimation { duration: 100 } }
+
+                Text {
+                    id: promoTriggerTxt
+                    anchors.centerIn: parent
+                    text: "🌐 Huduma zangu"
+                    color: "#00aaff"
+                    font.pointSize: Qt.platform.os === "android" ? 12 : 10
+                    font.bold: true
+                }
+                MouseArea {
+                    id: promoTrigMA
+                    anchors.fill: parent
+                    onClicked: { frogScene.showPromo(); }
+                }
+            }
+
+            // ── Panel ya promo ────────────────────────────────────────────
+            Rectangle {
+                id: promoPanel
+                visible: frogScene.greetMode === "promo"
+                anchors.fill: parent
+                radius: 10
+                color: "#050f1a"
+
+                Column {
+                    anchors.centerIn: parent
+                    spacing: 10
+                    width: parent.width - 32
+
+                    // Kichwa
+                    Text {
+                        width: parent.width
+                        text: "🐸 Je, unahitaji tovuti au aplikesheni?"
+                        color: "#00ff88"
+                        font.pointSize: Qt.platform.os === "android" ? 14 : 11
+                        font.bold: true
+                        horizontalAlignment: Text.AlignHCenter
+                        wrapMode: Text.WordWrap
+                    }
+
+                    // Mstari mdogo wa maelezo
+                    Text {
+                        width: parent.width
+                        text: "Wasiliana nami kupitia:"
+                        color: "#558866"
+                        font.pointSize: Qt.platform.os === "android" ? 10 : 8
+                        horizontalAlignment: Text.AlignHCenter
+                    }
+
+                    // Vitufe vitatu vya contacts
+                    // ── Website ───────────────────────────────────────────
+                    Rectangle {
+                        width: parent.width
+                        height: webRow.implicitHeight + 18
+                        radius: 10
+                        color: webMA.pressed ? "#003322" : "#001a11"
+                        border.color: "#00cc66"; border.width: 2
+                        Behavior on color { ColorAnimation { duration: 100 } }
+
+                        Row {
+                            id: webRow
+                            anchors.centerIn: parent
+                            spacing: 10
+
+                            Text {
+                                text: "🌐"
+                                font.pointSize: Qt.platform.os === "android" ? 20 : 16
+                                anchors.verticalCenter: parent.verticalCenter
+                            }
+                            Column {
+                                anchors.verticalCenter: parent.verticalCenter
+                                spacing: 2
+                                Text {
+                                    text: "Tovuti / Website"
+                                    color: "#00cc66"
+                                    font.pointSize: Qt.platform.os === "android" ? 13 : 10
+                                    font.bold: true
+                                }
+                                Text {
+                                    text: "https://magabelab-tz.web.app"
+                                    color: "#447755"
+                                    font.pointSize: Qt.platform.os === "android" ? 10 : 8
+                                }
+                            }
+                        }
+                        MouseArea {
+                            id: webMA
+                            anchors.fill: parent
+                            onClicked: { Qt.openUrlExternally(frogScene.contactWebsite); }
+                        }
+                    }
+
+                    // ── WhatsApp ──────────────────────────────────────────
+                    Rectangle {
+                        width: parent.width
+                        height: waRow.implicitHeight + 18
+                        radius: 10
+                        color: waMA2.pressed ? "#1a4d2e" : "#0a2e1a"
+                        border.color: "#25D366"; border.width: 2
+                        Behavior on color { ColorAnimation { duration: 100 } }
+
+                        Row {
+                            id: waRow
+                            anchors.centerIn: parent
+                            spacing: 10
+
+                            Text {
+                                text: "💬"
+                                font.pointSize: Qt.platform.os === "android" ? 20 : 16
+                                anchors.verticalCenter: parent.verticalCenter
+                            }
+                            Column {
+                                anchors.verticalCenter: parent.verticalCenter
+                                spacing: 2
+                                Text {
+                                    text: "WhatsApp"
+                                    color: "#25D366"
+                                    font.pointSize: Qt.platform.os === "android" ? 13 : 10
+                                    font.bold: true
+                                }
+                                Text {
+                                    text: "+255 789 081 122"
+                                    color: "#1a7a40"
+                                    font.pointSize: Qt.platform.os === "android" ? 10 : 8
+                                }
+                            }
+                        }
+                        MouseArea {
+                            id: waMA2
+                            anchors.fill: parent
+                            onClicked: { Qt.openUrlExternally(frogScene.contactWhatsApp); }
+                        }
+                    }
+
+                    // ── Email ─────────────────────────────────────────────
+                    Rectangle {
+                        width: parent.width
+                        height: emailRow.implicitHeight + 18
+                        radius: 10
+                        color: emailMA.pressed ? "#1a1a33" : "#0a0a22"
+                        border.color: "#aaaaff"; border.width: 2
+                        Behavior on color { ColorAnimation { duration: 100 } }
+
+                        Row {
+                            id: emailRow
+                            anchors.centerIn: parent
+                            spacing: 10
+
+                            Text {
+                                text: "📧"
+                                font.pointSize: Qt.platform.os === "android" ? 20 : 16
+                                anchors.verticalCenter: parent.verticalCenter
+                            }
+                            Column {
+                                anchors.verticalCenter: parent.verticalCenter
+                                spacing: 2
+                                Text {
+                                    text: "Barua pepe / Email"
+                                    color: "#aaaaff"
+                                    font.pointSize: Qt.platform.os === "android" ? 13 : 10
+                                    font.bold: true
+                                }
+                                Text {
+                                    text: "magabelab.tz@gmail.com"
+                                    color: "#555588"
+                                    font.pointSize: Qt.platform.os === "android" ? 10 : 8
+                                }
+                            }
+                        }
+                        MouseArea {
+                            id: emailMA
+                            anchors.fill: parent
+                            onClicked: { Qt.openUrlExternally(frogScene.contactEmail); }
+                        }
+                    }
+
+                    // ── Kitufe cha kurudi ─────────────────────────────────
+                    Rectangle {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        width: backTxt.implicitWidth + 30
+                        height: 36
+                        radius: 18
+                        color: backMA.pressed ? "#1a1a1a" : "#0d0d0d"
+                        border.color: "#444"; border.width: 1
+                        Behavior on color { ColorAnimation { duration: 100 } }
+
+                        Text {
+                            id: backTxt
+                            anchors.centerIn: parent
+                            text: "← Rudi"
+                            color: "#888888"
+                            font.pointSize: Qt.platform.os === "android" ? 12 : 10
+                            font.bold: true
+                        }
+                        MouseArea {
+                            id: backMA
+                            anchors.fill: parent
+                            onClicked: { frogScene.hidePromo(); }
+                        }
+                    }
                 }
             }
 
