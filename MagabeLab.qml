@@ -10,8 +10,8 @@ import Qt.labs.settings 1.0
 
 Rectangle {
     id: app
-    width:  parent ? parent.width  : 400
-    height: parent ? parent.height : 800
+    width:  parent.width
+    height: parent.height
     color: "#020d0d"
 
 
@@ -106,7 +106,7 @@ Rectangle {
     Item {
         id: frogScene
         width: app.width
-        height: frogScene.greetMode === "promo" ? 460 : 300
+        height: app.height
         Behavior on height { NumberAnimation { duration: 220; easing.type: Easing.OutCubic } }
         clip: true
 
