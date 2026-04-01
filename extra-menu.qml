@@ -71,8 +71,8 @@ Rectangle {
     //   2. Append it to adsPool
     //   3. Append its lang at the same index in adsLang
     // ─────────────────────────────────────────────────────────────────────
-    property var adsPool: [ /* adOwnerEN, adOwnerSW */ ]
-    property var adsLang: [ /* "en",      "sw"     */ ]
+    property var adsPool: [  adOwnerEN, adOwnerSW  ]
+    property var adsLang: [  "en",      "sw"      ]
 
     property int adRandomSeed: Math.floor(Math.random() * 9999)
 
