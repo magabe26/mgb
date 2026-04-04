@@ -1,6 +1,7 @@
 import QtQuick 2.4
 import QtQuick.Controls 2.4
 import QtQuick.Layouts 1.3
+import Qt.labs.settings 1.0
 
 // ── Palette reference (Palette.qml) ───────────────────────────────────────
 // inputTextColor            : #1fb8ba
@@ -23,8 +24,69 @@ Rectangle {
     height: parent.height
     color: "#001413"
 
+    // ── mode: 1 = Ukarabati (maintenance upgrade), 2 = Imesitishwa (suspended) ──
+    property int appMode: 1
+    property bool isFetchingMode: false
+
+    // ── persistent mode cache (QSettings) ────────────────────────────────
+    Settings {
+        id: modeSettings
+        category: "SystemMode"
+        property int cachedMode: 1
+    }
+
+    // ── fetch mode from remote config ─────────────────────────────────────
+    function fetchAppMode() {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/system-mode.config", true);
+        xhr.timeout = 8000;
+
+        app.appMode = modeSettings.cachedMode;
+        app.isFetchingMode = true;
+
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState !== XMLHttpRequest.DONE) return;
+
+            app.isFetchingMode = false;
+
+            if (xhr.status === 200) {
+                var raw = xhr.responseText.trim();
+                var parsed = parseInt(raw, 10);
+                if (parsed === 1 || parsed === 2) {
+                    app.appMode = parsed;
+                    modeSettings.cachedMode = parsed;
+                } else {
+                    app.appMode = modeSettings.cachedMode;
+                }
+            } else {
+                app.appMode = modeSettings.cachedMode;
+            }
+        };
+
+        xhr.ontimeout = function() {
+            app.isFetchingMode = false;
+            app.appMode = modeSettings.cachedMode;
+        };
+
+        xhr.onerror = function() {
+            app.isFetchingMode = false;
+            app.appMode = modeSettings.cachedMode;
+        };
+
+        xhr.send();
+    }
+
+    Component.onCompleted: {
+        fetchAppMode();
+    }
+
     // ── helpers ───────────────────────────────────────────────────────────
     function mainText() {
+        if (appMode === 2) {
+            return typeof n3ctaApp !== "undefined"
+                    ? "Huduma\nImesitishwa Kwa Muda"
+                    : "Service\nTemporarily Suspended";
+        }
         if (typeof n3ctaApp !== "undefined") {
             return "Tunaboresha\nHuduma Yako";
         } else {
@@ -33,11 +95,35 @@ Rectangle {
     }
 
     function subText() {
+        if (appMode === 2) {
+            return typeof n3ctaApp !== "undefined"
+                    ? "Huduma hii imesimamishwa kwa muda.\nTafadhali wasiliana na msaada wetu kwa maelezo zaidi."
+                    : "This service has been temporarily suspended.\nPlease contact our support team for more information.";
+        }
         if (typeof n3ctaApp !== "undefined") {
             return "Mfumo unafanyiwa ukarabati ili kukupa\nhuduma bora zaidi. Utaarifu utakapokuwa tayari.";
         } else {
             return "Our team is working hard to bring you\na better experience. Please check back soon.";
         }
+    }
+
+    function accentColor() {
+        return appMode === 2 ? "#db7a02" : "#02c6db";
+    }
+
+    function accentColorSoft() {
+        return appMode === 2 ? "#ba6a1f" : "#1fb8ba";
+    }
+
+    function accentColorDim() {
+        return appMode === 2 ? "#3a1f00" : "#003333";
+    }
+
+    function badgeText() {
+        if (appMode === 2) {
+            return typeof n3ctaApp !== "undefined" ? "Imesitishwa Kwa Muda" : "Temporarily Suspended";
+        }
+        return typeof n3ctaApp !== "undefined" ? "Ukarabati Unaendelea..." : "Upgrade In Progress";
     }
 
     function executeCommand(url) {
@@ -75,7 +161,7 @@ Rectangle {
             Rectangle {
                 width: 1; height: parent.height
                 x: index * (app.width / 13)
-                color: "#1fb8ba"
+                color: app.appMode === 2 ? "#ba6a1f" : "#1fb8ba"
             }
         }
         Repeater {
@@ -83,7 +169,7 @@ Rectangle {
             Rectangle {
                 height: 1; width: parent.width
                 y: index * (app.height / 21)
-                color: "#1fb8ba"
+                color: app.appMode === 2 ? "#ba6a1f" : "#1fb8ba"
             }
         }
     }
@@ -93,7 +179,7 @@ Rectangle {
         id: scanLine
         width: parent.width
         height: 2
-        color: "#1fb8ba"
+        color: app.appMode === 2 ? "#ba6a1f" : "#1fb8ba"
         opacity: 0
         y: 0
 
@@ -175,7 +261,7 @@ Rectangle {
             Rectangle {
                 width:  index % 3 === 0 ? 4 : (index % 3 === 1 ? 3 : 2)
                 height: width; radius: width / 2
-                color:  index % 2 === 0 ? "#02c6db" : "#1fb8ba"
+                color:  index % 2 === 0 ? (app.appMode === 2 ? "#db7a02" : "#02c6db") : (app.appMode === 2 ? "#ba6a1f" : "#1fb8ba")
                 anchors.centerIn: parent
             }
 
@@ -240,7 +326,7 @@ Rectangle {
                 radius: width / 2
                 anchors.centerIn: parent
                 color: "transparent"
-                border.color: "#02c6db"
+                border.color: app.appMode === 2 ? "#db7a02" : "#02c6db"
                 border.width: 1
                 opacity: 0
 
@@ -275,7 +361,7 @@ Rectangle {
                 radius: width / 2
                 anchors.centerIn: parent
                 color: "transparent"
-                border.color: "#02c6db"
+                border.color: app.appMode === 2 ? "#db7a02" : "#02c6db"
                 border.width: 3
                 opacity: 0.75
                 RotationAnimation on rotation {
@@ -293,7 +379,7 @@ Rectangle {
                 radius: width / 2
                 anchors.centerIn: parent
                 color: "transparent"
-                border.color: "#1fb8ba"
+                border.color: app.appMode === 2 ? "#ba6a1f" : "#1fb8ba"
                 border.width: 2
                 opacity: 0.85
                 RotationAnimation on rotation {
@@ -342,7 +428,7 @@ Rectangle {
             Text {
                 anchors.centerIn: parent
                 text: "ML"
-                color: "#1fb8ba"
+                color: app.appMode === 2 ? "#ba6a1f" : "#1fb8ba"
                 font.pixelSize: core.width * 0.38
                 font.bold: true
                 font.letterSpacing: 1.5
@@ -368,7 +454,7 @@ Rectangle {
                         property real r:   orbitTrack.width / 2
                         width:  index % 2 === 0 ? 6 : 4
                         height: width; radius: width / 2
-                        color:  index % 2 === 0 ? "#02c6db" : "#1fb8ba"
+                        color:  index % 2 === 0 ? (app.appMode === 2 ? "#db7a02" : "#02c6db") : (app.appMode === 2 ? "#ba6a1f" : "#1fb8ba")
                         x: r + r * Math.cos(ang) - width / 2
                         y: r + r * Math.sin(ang) - height / 2
                         opacity: index % 2 === 0 ? 0.90 : 0.55
@@ -381,11 +467,11 @@ Rectangle {
 
         // ── headline with scale breathe ───────────────────────────────────
         Text {
-            text: app.mainText()
+            text: app.appMode === 2 ? (typeof n3ctaApp !== "undefined" ? "Huduma\nImesitishwa Kwa Muda" : "Service\nTemporarily Suspended") : (typeof n3ctaApp !== "undefined" ? "Tunaboresha\nHuduma Yako" : "We're Improving\nYour Experience")
             font.pixelSize: Qt.platform.os === "android" ? app.width * 0.072 : app.width * 0.065
             font.bold: true
             font.letterSpacing: 1.4
-            color: "#1fb8ba"
+            color: app.appMode === 2 ? "#ba6a1f" : "#1fb8ba"
             lineHeight: 1.30
             horizontalAlignment: Text.AlignHCenter
             anchors.horizontalCenter: parent.horizontalCenter
@@ -426,7 +512,7 @@ Rectangle {
             Rectangle {
                 width: parent.width * 0.50; height: parent.height
                 anchors.horizontalCenter: parent.horizontalCenter
-                color: "#02c6db"
+                color: app.appMode === 2 ? "#db7a02" : "#02c6db"
                 // ANIMATION 6: divider flicker
                 SequentialAnimation on opacity {
                     loops: Animation.Infinite
@@ -445,7 +531,7 @@ Rectangle {
 
         // ── subtitle slow fade wave ───────────────────────────────────────
         Text {
-            text: app.subText()
+            text: app.appMode === 2 ? (typeof n3ctaApp !== "undefined" ? "Huduma hii imesimamishwa kwa muda.\nTafadhali wasiliana na msaada wetu kwa maelezo zaidi." : "This service has been temporarily suspended.\nPlease contact our support team for more information.") : (typeof n3ctaApp !== "undefined" ? "Mfumo unafanyiwa ukarabati ili kukupa\nhuduma bora zaidi. Utaarifu utakapokuwa tayari." : "Our team is working hard to bring you\na better experience. Please check back soon.")
             font.pixelSize: Qt.platform.os === "android" ? app.width * 0.038 : app.width * 0.033
             color: "#05c6c8"
             lineHeight: 1.55
@@ -484,8 +570,8 @@ Rectangle {
                 height: parent.height
                 radius: 3
                 gradient: Gradient {
-                    GradientStop { position: 0.0; color: "#003333" }
-                    GradientStop { position: 1.0; color: "#02c6db" }
+                    GradientStop { position: 0.0; color: app.appMode === 2 ? "#3a1f00" : "#003333" }
+                    GradientStop { position: 1.0; color: app.appMode === 2 ? "#db7a02" : "#02c6db" }
                 }
                 SequentialAnimation on width {
                     loops: Animation.Infinite
@@ -500,7 +586,7 @@ Rectangle {
             Rectangle {
                 id: shimmerDot
                 width: 9; height: 9; radius: 4.5
-                color: "#02c6db"
+                color: app.appMode === 2 ? "#db7a02" : "#02c6db"
                 anchors.verticalCenter: parent.verticalCenter
                 x: progressFill.width > 6 ? progressFill.width - 5 : -20
                 SequentialAnimation on opacity {
@@ -527,7 +613,7 @@ Rectangle {
                 height: badgeRect.height
                 radius: height / 2
                 color: "transparent"
-                border.color: "#02c6db"
+                border.color: app.appMode === 2 ? "#db7a02" : "#02c6db"
                 border.width: 1
                 opacity: 0
 
@@ -571,7 +657,7 @@ Rectangle {
 
                     Rectangle {
                         width: 8; height: 8; radius: 4
-                        color: "#1fb8ba"
+                        color: app.appMode === 2 ? "#ba6a1f" : "#1fb8ba"
                         anchors.verticalCenter: parent.verticalCenter
                         SequentialAnimation on opacity {
                             loops: Animation.Infinite
@@ -581,7 +667,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: typeof n3ctaApp !== "undefined" ? "Ukarabati Unaendelea..." : "Upgrade In Progress"
+                        text: app.appMode === 2 ? (typeof n3ctaApp !== "undefined" ? "Imesitishwa Kwa Muda" : "Temporarily Suspended") : (typeof n3ctaApp !== "undefined" ? "Ukarabati Unaendelea..." : "Upgrade In Progress")
                         color: "#05c6c8"
                         font.pixelSize: app.width * 0.030
                         font.letterSpacing: 0.8
@@ -606,6 +692,53 @@ Rectangle {
         onClicked: {
             app.showToast();
             app.executeCommand("#showGoogleAd");
+        }
+    }
+
+    // ── mode-fetch loading overlay ────────────────────────────────────────
+    Rectangle {
+        id: loadingOverlay
+        anchors.fill: parent
+        color: "#001413"
+        opacity: app.isFetchingMode ? 1.0 : 0.0
+        visible: opacity > 0
+
+        Behavior on opacity {
+            NumberAnimation { duration: 340; easing.type: Easing.InOutCubic }
+        }
+
+        // three-dot pulse row
+        Row {
+            anchors.centerIn: parent
+            spacing: app.width * 0.040
+
+            Repeater {
+                model: 3
+                Rectangle {
+                    width: app.width * 0.028
+                    height: width
+                    radius: width / 2
+                    color: "#1fb8ba"
+
+                    SequentialAnimation on opacity {
+                        loops: Animation.Infinite
+                        running: loadingOverlay.visible
+                        PauseAnimation   { duration: index * 220 }
+                        NumberAnimation  { to: 1.0;  duration: 320; easing.type: Easing.OutCubic }
+                        NumberAnimation  { to: 0.15; duration: 320; easing.type: Easing.InCubic }
+                        PauseAnimation   { duration: (2 - index) * 220 }
+                    }
+
+                    SequentialAnimation on scale {
+                        loops: Animation.Infinite
+                        running: loadingOverlay.visible
+                        PauseAnimation  { duration: index * 220 }
+                        NumberAnimation { to: 1.25; duration: 320; easing.type: Easing.OutCubic }
+                        NumberAnimation { to: 0.85; duration: 320; easing.type: Easing.InCubic }
+                        PauseAnimation  { duration: (2 - index) * 220 }
+                    }
+                }
+            }
         }
     }
 }
