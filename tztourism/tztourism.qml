@@ -167,6 +167,12 @@ Rectangle {
     ListModel {
         id: attractionModel
 
+ListElement {
+            name_en: "Mount Kilimanjaro"; name_sw: "Mlima Kilimanjaro"
+            imageFile: "./kilimanjaro.jpg"
+            desc_en: "Africa's highest peak and a dormant volcano. A challenging but rewarding climb for adventurers."
+            desc_sw: "Mlima mrefu zaidi Afrika na volkano iliyolala. Changamoto lakini yenye thawabu kwa wapandaji wajasiri."
+        }
 
         ListElement {
             name_en: "Zanzibar (Stone Town & Beaches)"; name_sw: "Zanzibar (Mji Mkongwe na Fukwe)"
@@ -174,6 +180,14 @@ Rectangle {
             desc_en: "Historic Stone Town, spice farms, and pristine beaches make Zanzibar a unique cultural and relaxation hub."
             desc_sw: "Mji Mkongwe wa kihistoria, mashamba ya viungo, na fukwe safi hufanya Zanzibar kuwa kitovu cha kipekee cha utamaduni na mapumziko."
         }
+
+ListElement {
+            name_en: "Serengeti National Park"; name_sw: "Hifadhi ya Taifa ya Serengeti"
+            imageFile: "./serengeti.jpg"
+            desc_en: "Vast plains, famous for the annual wildebeest migration, offering unparalleled safari experiences."
+            desc_sw: "Nyanda pana, maarufu kwa uhamaji mkuu wa nyumbu kila mwaka, inayotoa uzoefu wa safari usio na kifani."
+        }
+
 
         ListElement {
             name_en: "Kizimkazi Dolphin Safari"; name_sw: "Utalii wa Pomboo Kizimkazi"
@@ -197,12 +211,7 @@ Rectangle {
             desc_sw: "Furahia Ziwa Victoria, Mwanza: Ziwa kubwa Afrika. Tazama machweo mazuri juu ya Mwamba Bismarck, safari za visiwa, na utamaduni hai. Hazina halisi ya Tanzania!"
         }
 
-        ListElement {
-            name_en: "Mount Kilimanjaro"; name_sw: "Mlima Kilimanjaro"
-            imageFile: "./kilimanjaro.jpg"
-            desc_en: "Africa's highest peak and a dormant volcano. A challenging but rewarding climb for adventurers."
-            desc_sw: "Mlima mrefu zaidi Afrika na volkano iliyolala. Changamoto lakini yenye thawabu kwa wapandaji wajasiri."
-        }
+        
 
         ListElement {
             name_en: "Mikumi National Park"; name_sw: "Hifadhi ya Taifa ya Mikumi"
@@ -211,12 +220,7 @@ Rectangle {
             desc_sw: "Toroka jiji! Ni safari rahisi: dar mpaka moro na kuendelea. Tazama twiga, simba, tembo, punda milia, na nyumbu. Pori linakusubiri!"
         }
 
-        ListElement {
-            name_en: "Serengeti National Park"; name_sw: "Hifadhi ya Taifa ya Serengeti"
-            imageFile: "./serengeti.jpg"
-            desc_en: "Vast plains, famous for the annual wildebeest migration, offering unparalleled safari experiences."
-            desc_sw: "Nyanda pana, maarufu kwa uhamaji mkuu wa nyumbu kila mwaka, inayotoa uzoefu wa safari usio na kifani."
-        }
+        
 
         ListElement {
             name_en: "Ngorongoro Conservation Area"; name_sw: "Mamlaka ya Hifadhi ya Ngorongoro"
