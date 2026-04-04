@@ -135,10 +135,17 @@ Rectangle {
     }
 
     function showToast() {
+        var msg = app.appMode === 2
+            ? (typeof n3ctaApp !== "undefined"
+                ? "Huduma imesitishwa kwa muda. Tafadhali wasiliana na msaada wetu."
+                : "Service temporarily suspended. Please contact our support team.")
+            : (typeof n3ctaApp !== "undefined"
+                ? "Tunafanya kazi. Tafadhali subiri kidogo."
+                : "Hang tight — we\'re almost done.");
         if (typeof n3ctaApp !== "undefined") {
-            n3ctaApp.showToastMessage("Tunafanya kazi. Tafadhali subiri kidogo.");
+            n3ctaApp.showToastMessage(msg);
         } else if (typeof loader !== "undefined") {
-            nectaMainResultsPageDownloaderHtmlToXmlConveterAndSaver.showToastMessage("Hang tight — we're almost done.");
+            nectaMainResultsPageDownloaderHtmlToXmlConveterAndSaver.showToastMessage(msg);
         }
     }
 
