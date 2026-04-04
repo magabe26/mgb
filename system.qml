@@ -98,7 +98,7 @@ Rectangle {
         if (appMode === 2) {
             return typeof n3ctaApp !== "undefined"
                     ? "Huduma hii imesimamishwa kwa muda.\nTafadhali wasiliana na msaada wetu kwa maelezo zaidi."
-                    : "This service has been temporarily suspended.\nWe'll notify you once the service is restored.";
+                    : "This service has been temporarily suspended.\nTutakuarifu huduma itakapokuwa tayari.";
         }
         if (typeof n3ctaApp !== "undefined") {
             return "Mfumo unafanyiwa ukarabati ili kukupa\nhuduma bora zaidi. Utaarifu utakapokuwa tayari.";
@@ -138,7 +138,7 @@ Rectangle {
         var msg = app.appMode === 2
             ? (typeof n3ctaApp !== "undefined"
                 ? "Huduma imesitishwa kwa muda. Tafadhali wasiliana na msaada wetu."
-                : "Service temporarily suspended. We'll notify you once the service is restored.")
+                : "Service temporarily suspended. Tutakuarifu huduma itakapokuwa tayari.")
             : (typeof n3ctaApp !== "undefined"
                 ? "Tunafanya kazi. Tafadhali subiri kidogo."
                 : "Hang tight — we\'re almost done.");
@@ -538,7 +538,7 @@ Rectangle {
 
         // ── subtitle slow fade wave ───────────────────────────────────────
         Text {
-            text: app.appMode === 2 ? (typeof n3ctaApp !== "undefined" ? "Huduma hii imesimamishwa kwa muda.\nTafadhali wasiliana na msaada wetu kwa maelezo zaidi." : "This service has been temporarily suspended.\nWe'll notify you once the service is restored.") : (typeof n3ctaApp !== "undefined" ? "Mfumo unafanyiwa ukarabati ili kukupa\nhuduma bora zaidi. Utaarifu utakapokuwa tayari." : "Our team is working hard to bring you\na better experience. Please check back soon.")
+            text: app.appMode === 2 ? (typeof n3ctaApp !== "undefined" ? "Huduma hii imesimamishwa kwa muda.\nTafadhali wasiliana na msaada wetu kwa maelezo zaidi." : "This service has been temporarily suspended.\nTutakuarifu huduma itakapokuwa tayari.") : (typeof n3ctaApp !== "undefined" ? "Mfumo unafanyiwa ukarabati ili kukupa\nhuduma bora zaidi. Utaarifu utakapokuwa tayari." : "Our team is working hard to bring you\na better experience. Please check back soon.")
             font.pixelSize: Qt.platform.os === "android" ? app.width * 0.038 : app.width * 0.033
             color: "#05c6c8"
             lineHeight: 1.55
