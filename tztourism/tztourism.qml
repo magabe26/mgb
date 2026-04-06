@@ -20,6 +20,7 @@ Rectangle {
     property var recentlyViewed: []              // recently viewed indices
     property bool safariTvVisible: false         // retro TV overlay
     property bool wakeLockTipShown: false        // screen-on tip shown once
+    property string safariStreamURL: "https://stream-134630.castr.net/5fe35eae8c53540cab83659a/live_31dabe40323511f08b8efff0016f3b67/index.m3u8"
 
     Settings {
         id: langSettings
@@ -3356,7 +3357,7 @@ Rectangle {
                                     onReleased: {
                                         watchLiveBtn.pressed = false;
                                         app.safariTvVisible = true;
-                                        safariPlayer.source = "https://stream-134630.castr.net/5fe35eae8c53540cab83659a/live_31dabe40323511f08b8efff0016f3b67/index.m3u8";
+                                        safariPlayer.source = app.safariStreamURL;
                                     }
                                     onCanceled: watchLiveBtn.pressed = false
                                 }
@@ -5528,7 +5529,6 @@ Rectangle {
                         // ── MediaPlayer (stream engine) ────────────────────
                         MediaPlayer {
                             id: safariPlayer
-                            // source: "https://stream-134630.castr.net/5fe35eae8c53540cab83659a/live_31dabe40323511f08b8efff0016f3b67/index.m3u8"
                             autoPlay: false
 
                             // 0 = Poor, 1 = Fair, 2 = Good
@@ -5805,6 +5805,8 @@ Rectangle {
                                             safariTvOverlay.streamError = false;
                                             safariTvOverlay.streamErrorMsg = "";
                                             safariPlayer.stop();
+                                            safariPlayer.source = "";
+                                            safariPlayer.source = app.safariStreamURL;
                                             safariPlayer.play();
                                         }
                                     }
@@ -6851,6 +6853,8 @@ Rectangle {
                             safariTvOverlay.streamError = false;
                             safariTvOverlay.streamErrorMsg = "";
                             safariPlayer.stop();
+                            safariPlayer.source = "";
+                            safariPlayer.source = app.safariStreamURL;
                             safariPlayer.play();
                         }
                     }
