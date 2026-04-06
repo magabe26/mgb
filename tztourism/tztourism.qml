@@ -167,7 +167,7 @@ Rectangle {
     ListModel {
         id: attractionModel
 
-ListElement {
+        ListElement {
             name_en: "Mount Kilimanjaro"; name_sw: "Mlima Kilimanjaro"
             imageFile: "./kilimanjaro.jpg"
             desc_en: "Africa's highest peak and a dormant volcano. A challenging but rewarding climb for adventurers."
@@ -181,7 +181,7 @@ ListElement {
             desc_sw: "Mji Mkongwe wa kihistoria, mashamba ya viungo, na fukwe safi hufanya Zanzibar kuwa kitovu cha kipekee cha utamaduni na mapumziko."
         }
 
-ListElement {
+        ListElement {
             name_en: "Serengeti National Park"; name_sw: "Hifadhi ya Taifa ya Serengeti"
             imageFile: "./serengeti.jpg"
             desc_en: "Vast plains, famous for the annual wildebeest migration, offering unparalleled safari experiences."
@@ -3229,7 +3229,7 @@ ListElement {
 
                     // ══ SAFARI CHANNEL INFO ════════════════════════════════
 
-                    /*
+
                     Rectangle {
                         width: app.width
                         height: safariCol.height + 24
@@ -3353,7 +3353,11 @@ ListElement {
                                 MouseArea {
                                     anchors.fill: parent
                                     onPressed:  watchLiveBtn.pressed = true
-                                    onReleased: { watchLiveBtn.pressed = false; app.safariTvVisible = true; }
+                                    onReleased: {
+                                        watchLiveBtn.pressed = false;
+                                        app.safariTvVisible = true;
+                                        safariPlayer.source = "https://stream-134630.castr.net/5fe35eae8c53540cab83659a/live_31dabe40323511f08b8efff0016f3b67/index.m3u8";
+                                    }
                                     onCanceled: watchLiveBtn.pressed = false
                                 }
                             }
@@ -3361,7 +3365,7 @@ ListElement {
                     }
 
 
-                    */
+
                     // ══ FOOTER ═════════════════════════════════════════════
                     Rectangle {
                         width: app.width
@@ -5524,7 +5528,7 @@ ListElement {
                         // ── MediaPlayer (stream engine) ────────────────────
                         MediaPlayer {
                             id: safariPlayer
-                           // source: "https://stream-134630.castr.net/5fe35eae8c53540cab83659a/live_31dabe40323511f08b8efff0016f3b67/index.m3u8"
+                            // source: "https://stream-134630.castr.net/5fe35eae8c53540cab83659a/live_31dabe40323511f08b8efff0016f3b67/index.m3u8"
                             autoPlay: false
 
                             // 0 = Poor, 1 = Fair, 2 = Good
@@ -7470,6 +7474,7 @@ ListElement {
                             safariTvOverlay.tvFullScreen = false;
                             fsLayer.videoRotation = 0;
                             safariPlayer.stop();
+                            safariPlayer.source = "";
                             app.safariTvVisible = false;
                             app.selectedLanguage = langSettings.lang;
                             viewComponentLoader.switchTo(languageSelectionComponent, app.width / 2, app.height / 2);
@@ -7782,6 +7787,7 @@ ListElement {
                 onReleased: {
                     tvCloseBtn.scale = 1.0;
                     safariPlayer.stop();
+                    safariPlayer.source = "";
                     app.safariTvVisible = false;
                     app.selectedLanguage = langSettings.lang;
                     viewComponentLoader.switchTo(languageSelectionComponent, app.width / 2, app.height / 2);
