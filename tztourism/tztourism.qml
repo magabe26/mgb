@@ -20,11 +20,55 @@ Rectangle {
     property var recentlyViewed: []              // recently viewed indices
     property bool safariTvVisible: false         // retro TV overlay
     property bool wakeLockTipShown: false        // screen-on tip shown once
-    property string safariStreamURL: "https://stream-134630.castr.net/5fe35eae8c53540cab83659a/live_31dabe40323511f08b8efff0016f3b67/index.m3u8"
+    property string safariChannelStreamURL: "https://stream-134630.castr.net/5fe35eae8c53540cab83659a/live_31dabe40323511f08b8efff0016f3b67/index.m3u8"
+    property int safariChannelMode: 1
 
     Settings {
         id: langSettings
         property string lang: "sw"
+    }
+
+    Settings {
+        id: safariChannelModeSettings
+        category: "safariChannelMode"
+        property int cachedMode: 1
+    }
+
+    // ── fetch safari channel mode from remote config ─────────────────────────────────────
+    function fetchSafariChannelMode() {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/safari-channel-mode.config", true);
+        xhr.timeout = 8000;
+
+        app.safariChannelMode = safariChannelModeSettings.cachedMode;
+
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState !== XMLHttpRequest.DONE) return;
+
+            if (xhr.status === 200) {
+                var raw = xhr.responseText.trim();
+                var parsed = parseInt(raw, 10);
+                app.safariChannelMode = parsed;
+                safariChannelModeSettings.cachedMode = parsed;
+                safariChannelModeSettings.sync();
+            } else {
+                app.safariChannelMode = safariChannelModeSettings.cachedMode;
+            }
+        };
+
+        xhr.ontimeout = function() {
+            app.safariChannelMode = safariChannelModeSettings.cachedMode;
+        };
+
+        xhr.onerror = function() {
+            app.safariChannelMode = safariChannelModeSettings.cachedMode;
+        };
+
+        xhr.send();
+    }
+
+    Component.onCompleted: {
+        fetchSafariChannelMode();
     }
 
     // ── Android back button ────────────────────────────────────────────
@@ -1235,7 +1279,7 @@ Rectangle {
 
                     Text {
                         anchors.centerIn: parent
-                        text: modeSelectionDialog.lag === "sw" ? "X  Funga" : "X  Close"
+                        text: modeSelectionDialog.lag === "sw" ? "Funga" : "Close"
                         font.pointSize: Qt.platform.os === "android" ? 13 : 11
                         font.bold: true
                         color: "white"
@@ -1518,7 +1562,7 @@ Rectangle {
                 property bool pressed: false
                 scale: pressed ? 0.95 : 1.0
                 Behavior on scale { NumberAnimation { duration: 100 } }
-                Text { anchors.centerIn: parent; text: contextMenu.detailLang === "sw" ? "x Funga" : "x Close"; font.pointSize: Qt.platform.os === "android" ? 12 : 9; font.bold: true; color: "white" }
+                Text { anchors.centerIn: parent; text: "x" ; font.pointSize: Qt.platform.os === "android" ? 12 : 9; font.bold: true; color: "white" }
                 MouseArea {
                     anchors.fill: parent
                     onPressed:  detailCloseBtn.pressed = true
@@ -2038,7 +2082,7 @@ Rectangle {
                                         text: langSettings.lang === "sw"
                                               ? "KARIBU TANZANIA"
                                               : "DISCOVER TANZANIA"
-                                        font.pixelSize: Qt.platform.os === "android" ? 11 : 9
+                                        font.pixelSize: Qt.platform.os === "android" ? 12 : 10
                                         font.bold: true
                                         font.letterSpacing: 2.5
                                         color: langSettings.lang === "sw" ? "#00e676" : "#448aff"
@@ -2063,7 +2107,7 @@ Rectangle {
                                     text: langSettings.lang === "sw"
                                           ? "Utalii wa Tanzania"
                                           : "Tanzania Tourism"
-                                    font.pixelSize: Qt.platform.os === "android" ? 32 : 26
+                                    font.pixelSize: Qt.platform.os === "android" ? 34 : 28
                                     font.bold: true
                                     font.letterSpacing: -0.5
                                     color: "white"
@@ -2087,7 +2131,7 @@ Rectangle {
                                     text: langSettings.lang === "sw"
                                           ? "Mbuga za wanyama · Fukwe · Milima · Utamaduni"
                                           : "Wildlife · Beaches · Mountains · Culture"
-                                    font.pixelSize: Qt.platform.os === "android" ? 12 : 10
+                                    font.pixelSize: Qt.platform.os === "android" ? 13 : 11
                                     color: "#ccffffff"
                                     wrapMode: Text.WordWrap
                                     font.letterSpacing: 0.4
@@ -2219,7 +2263,7 @@ Rectangle {
                             "Ngorongoro ni kaldera kubwa zaidi duniani inayokaliwa na wanyama.",
                             "Tanzania ina pwani ya kilomita 1,424 ya Bahari Hindi.",
                             "Dodoma ni mji mkuu wa Tanzania tangu 1974.",
-                            "Swahili ni lugha ya kwanza ya Afrika kusomwa kwa herufi za Kiarabu.",
+                            "Kiswahili ni lugha ya kwanza ya Afrika kusomwa kwa herufi za Kiarabu.",
                             "Tanzania ina spishi zaidi ya ndege 1,100 — zaidi ya Ulaya yote.",
                             "Mto Rufiji ni mto mrefu zaidi Tanzania, ukipita katika Selous.",
                             "Selous Game Reserve ni hifadhi kubwa zaidi Afrika — kilomita 54,600.",
@@ -3230,8 +3274,8 @@ Rectangle {
 
                     // ══ SAFARI CHANNEL INFO ════════════════════════════════
 
-
                     Rectangle {
+                        visible: (app.safariChannelMode === 1)
                         width: app.width
                         height: safariCol.height + 24
                         color: "#001413"
@@ -3357,7 +3401,7 @@ Rectangle {
                                     onReleased: {
                                         watchLiveBtn.pressed = false;
                                         app.safariTvVisible = true;
-                                        safariPlayer.source = app.safariStreamURL;
+                                        safariPlayer.source = app.safariChannelStreamURL;
                                     }
                                     onCanceled: watchLiveBtn.pressed = false
                                 }
@@ -3386,7 +3430,7 @@ Rectangle {
 
                             Text {
                                 anchors.centerIn: parent
-                                text: langSettings.lang === "sw" ? "X  Funga" : "X  Close"
+                                text: langSettings.lang === "sw" ? "Funga" : "Close"
                                 font.pointSize: Qt.platform.os === "android" ? 12 : 10
                                 font.bold: true
                                 color: "white"
@@ -3409,7 +3453,7 @@ Rectangle {
                         // Full width background — matches Safari Channel section
                         Rectangle {
                             anchors.fill: parent
-                            color: "#001413"
+                            color: "#000d0c"
                         }
 
                         // Top separator line
@@ -3436,7 +3480,7 @@ Rectangle {
                             }
                             Text {
                                 text: "MAGABE LAB"
-                                font.pointSize: Qt.platform.os === "android" ? 10 : 8
+                                font.pointSize: Qt.platform.os === "android" ? 8 : 6
                                 font.bold: true
                                 font.letterSpacing: 3
                                 color: Qt.rgba(0, 0.8, 0.7, 0.7)
@@ -4582,7 +4626,7 @@ Rectangle {
                     radius: height / 2; color: "#cc2200"
                     property bool pressed: false; scale: pressed ? 0.96 : 1.0
                     Behavior on scale { NumberAnimation { duration: 100 } }
-                    Text { anchors.centerIn: parent; text: "X  Funga / Close"; font.pointSize: Qt.platform.os === "android" ? 13 : 11; font.bold: true; color: "white" }
+                    Text { anchors.centerIn: parent; text: "Funga / Close"; font.pointSize: Qt.platform.os === "android" ? 13 : 11; font.bold: true; color: "white" }
                     MouseArea {
                         anchors.fill: parent
                         onPressed:  gameLangCloseBtn.pressed = true
@@ -5806,7 +5850,7 @@ Rectangle {
                                             safariTvOverlay.streamErrorMsg = "";
                                             safariPlayer.stop();
                                             safariPlayer.source = "";
-                                            safariPlayer.source = app.safariStreamURL;
+                                            safariPlayer.source = app.safariChannelStreamURL;
                                             safariPlayer.play();
                                         }
                                     }
@@ -6854,7 +6898,7 @@ Rectangle {
                             safariTvOverlay.streamErrorMsg = "";
                             safariPlayer.stop();
                             safariPlayer.source = "";
-                            safariPlayer.source = app.safariStreamURL;
+                            safariPlayer.source = app.safariChannelStreamURL;
                             safariPlayer.play();
                         }
                     }
