@@ -2171,7 +2171,7 @@ Rectangle {
                                         text: langSettings.lang === "sw"
                                               ? "KARIBU TANZANIA"
                                               : "DISCOVER TANZANIA"
-                                        font.pixelSize: Qt.platform.os === "android" ? 13 : 11
+                                        font.pixelSize: Qt.platform.os === "android" ? 17 : 11
                                         font.bold: true
                                         font.letterSpacing: 2.8
                                         color: "#02c6db"
@@ -2202,7 +2202,7 @@ Rectangle {
                                         text: langSettings.lang === "sw"
                                               ? "Utalii wa Tanzania"
                                               : "Tanzania Tourism"
-                                        font.pixelSize: Qt.platform.os === "android" ? 35 : 29
+                                        font.pixelSize: Qt.platform.os === "android" ? 44 : 29
                                         font.bold: true
                                         font.letterSpacing: -0.5
                                         color: "white"
@@ -2246,7 +2246,7 @@ Rectangle {
                                     text: langSettings.lang === "sw"
                                           ? "Mbuga · Fukwe · Milima · Utamaduni"
                                           : "Wildlife · Beaches · Mountains · Culture"
-                                    font.pixelSize: Qt.platform.os === "android" ? 14 : 12
+                                    font.pixelSize: Qt.platform.os === "android" ? 18 : 12
                                     color: "#b3e0f5f5"
                                     wrapMode: Text.WordWrap
                                     font.letterSpacing: 0.5
@@ -2339,16 +2339,31 @@ Rectangle {
                             anchors.centerIn: parent
                             spacing: 0
 
-                            // Attractions count
+                            // Attractions count — animated roll
                             Column {
                                 width: app.width * 0.5
                                 spacing: 2
                                 Text {
+                                    id: rollingCountText
                                     anchors.horizontalCenter: parent.horizontalCenter
-                                    text: attractionModel.count + "+"
+                                    property int displayCount: 0
+                                    text: displayCount + "+"
                                     font.pointSize: Qt.platform.os === "android" ? 16 : 13
                                     font.bold: true
                                     color: "cyan"
+
+                                    NumberAnimation on displayCount {
+                                        id: countRollAnim
+                                        from: 0
+                                        to: attractionModel.count
+                                        duration: 1400
+                                        easing.type: Easing.OutCubic
+                                        running: false
+                                    }
+                                    Timer {
+                                        interval: 400; repeat: false; running: true
+                                        onTriggered: countRollAnim.running = true;
+                                    }
                                 }
                                 Text {
                                     anchors.horizontalCenter: parent.horizontalCenter
@@ -3012,8 +3027,14 @@ Rectangle {
                                     text: "🌟"
                                     font.pointSize: Qt.platform.os === "android" ? 16 : 13
                                     anchors.verticalCenter: parent.verticalCenter
+                                    SequentialAnimation on opacity {
+                                        loops: Animation.Infinite
+                                        NumberAnimation { to: 0.35; duration: 1000; easing.type: Easing.InOutSine }
+                                        NumberAnimation { to: 1.0;  duration: 1000; easing.type: Easing.InOutSine }
+                                    }
                                 }
                                 Text {
+                                    id: aotdTitleText
                                     text: langSettings.lang === "sw"
                                           ? "Kivutio cha Leo"
                                           : "Attraction of the Day"
@@ -3021,11 +3042,40 @@ Rectangle {
                                     font.bold: true
                                     color: "cyan"
                                     anchors.verticalCenter: parent.verticalCenter
+
+                                    layer.enabled: true
+                                    layer.effect: DropShadow {
+                                        transparentBorder: true
+                                        horizontalOffset: 0; verticalOffset: 0
+                                        radius: aotdGlow.r; samples: 33
+                                        color: "#dd02c6db"
+                                    }
+                                    QtObject {
+                                        id: aotdGlow
+                                        property real r: 4
+                                    }
+                                    SequentialAnimation {
+                                        loops: Animation.Infinite; running: true
+                                        NumberAnimation { target: aotdGlow; property: "r"; to: 18; duration: 1200; easing.type: Easing.InOutSine }
+                                        NumberAnimation { target: aotdGlow; property: "r"; to: 4;  duration: 900;  easing.type: Easing.InOutSine }
+                                        PauseAnimation  { duration: 500 }
+                                        // flicker
+                                        NumberAnimation { target: aotdGlow; property: "r"; to: 2;  duration: 70 }
+                                        NumberAnimation { target: aotdGlow; property: "r"; to: 16; duration: 70 }
+                                        NumberAnimation { target: aotdGlow; property: "r"; to: 4;  duration: 70 }
+                                        PauseAnimation  { duration: 1400 }
+                                    }
                                 }
                                 Text {
                                     text: "🌟"
                                     font.pointSize: Qt.platform.os === "android" ? 16 : 13
                                     anchors.verticalCenter: parent.verticalCenter
+                                    SequentialAnimation on opacity {
+                                        loops: Animation.Infinite
+                                        PauseAnimation { duration: 500 }
+                                        NumberAnimation { to: 0.35; duration: 1000; easing.type: Easing.InOutSine }
+                                        NumberAnimation { to: 1.0;  duration: 1000; easing.type: Easing.InOutSine }
+                                    }
                                 }
                             }
 
