@@ -2023,6 +2023,42 @@ Rectangle {
                             }
                         }
 
+                        // ── FLOATING PARTICLES (nyota za usiku) ──────────
+                        Repeater {
+                            model: 18
+                            delegate: Item {
+                                property real baseX: (index * 137.5 % 1.0) * (app.width - 8)
+                                property real baseY: (index * 97.3  % 1.0) * (app.height * 0.38)
+                                property real sz:    1.5 + (index % 4) * 0.8
+                                property real dur:   2800 + (index * 431 % 2000)
+                                property real dly:   index * 200
+
+                                x: baseX; y: baseY
+                                width: sz; height: sz
+
+                                Rectangle {
+                                    anchors.centerIn: parent
+                                    width: parent.sz; height: parent.sz; radius: parent.sz / 2
+                                    color: index % 3 === 0 ? "#ccfcd116"
+                                         : index % 3 === 1 ? "#9902c6db"
+                                         :                   "#8800e676"
+                                }
+
+                                SequentialAnimation on y {
+                                    loops: Animation.Infinite
+                                    PauseAnimation { duration: dly }
+                                    NumberAnimation { from: baseY; to: baseY - 10; duration: dur; easing.type: Easing.InOutSine }
+                                    NumberAnimation { from: baseY - 10; to: baseY; duration: dur; easing.type: Easing.InOutSine }
+                                }
+                                SequentialAnimation on opacity {
+                                    loops: Animation.Infinite
+                                    PauseAnimation { duration: dly }
+                                    NumberAnimation { from: 0.1; to: 0.9; duration: dur * 0.7; easing.type: Easing.InOutSine }
+                                    NumberAnimation { from: 0.9; to: 0.1; duration: dur * 0.7; easing.type: Easing.InOutSine }
+                                }
+                            }
+                        }
+
                         // Hero text
                         Item {
                             id: heroTextArea
@@ -2373,26 +2409,44 @@ Rectangle {
                                     }
                                 }
 
-                                // Subtitle tagline — staggered fade
+                                // Subtitle tagline — typewriter effect
                                 Text {
                                     id: heroSubtitle
                                     anchors.left: parent.left
                                     anchors.right: parent.right
                                     opacity: 0
-                                    text: langSettings.lang === "sw"
+                                    property string fullText: langSettings.lang === "sw"
                                           ? "Mbuga · Fukwe · Milima · Utamaduni"
                                           : "Wildlife · Beaches · Mountains · Culture"
-                                    font.pixelSize: Qt.platform.os === "android" ? 14 : 12
+                                    text: ""
+                                    font.pixelSize: Qt.platform.os === "android" ? 18 : 13
                                     color: "#b3e0f5f5"
                                     wrapMode: Text.WordWrap
                                     font.letterSpacing: 0.5
 
-                                    // ── 7. SUBTITLE staggered fade-in ────────
+                                    property int twIndex: 0
+
+                                    Timer {
+                                        id: typewriterTimer
+                                        interval: 38
+                                        repeat: true
+                                        running: false
+                                        onTriggered: {
+                                            if (heroSubtitle.twIndex < heroSubtitle.fullText.length) {
+                                                heroSubtitle.text = heroSubtitle.fullText.substring(0, heroSubtitle.twIndex + 1);
+                                                heroSubtitle.twIndex++;
+                                            } else {
+                                                typewriterTimer.stop();
+                                            }
+                                        }
+                                    }
+
+                                    // ── staggered start ───────────────────────
                                     NumberAnimation on opacity {
                                         id: subtitleFadeAnim
                                         running: false
                                         from: 0; to: 1
-                                        duration: 500
+                                        duration: 200
                                         easing.type: Easing.OutQuad
                                     }
                                     Component.onCompleted: {
@@ -2402,7 +2456,12 @@ Rectangle {
                                         id: subtitleDelayTimer
                                         interval: 620
                                         repeat: false
-                                        onTriggered: { subtitleFadeAnim.running = true; }
+                                        onTriggered: {
+                                            subtitleFadeAnim.running = true;
+                                            heroSubtitle.twIndex = 0;
+                                            heroSubtitle.text = "";
+                                            typewriterTimer.start();
+                                        }
                                     }
                                 }
 
@@ -2475,22 +2534,58 @@ Rectangle {
                             anchors.centerIn: parent
                             spacing: 0
 
-                            // Attractions count
+                            // Attractions count — animated roll
                             Column {
                                 width: app.width * 0.5
                                 spacing: 2
-                                Text {
+
+                                Item {
                                     anchors.horizontalCenter: parent.horizontalCenter
-                                    text: attractionModel.count + "+"
-                                    font.pointSize: Qt.platform.os === "android" ? 16 : 13
-                                    font.bold: true
-                                    color: "cyan"
+                                    width: rollingCountText.implicitWidth
+                                    height: rollingCountText.implicitHeight
+                                    clip: true
+
+                                    Text {
+                                        id: rollingCountText
+                                        property int displayCount: 0
+                                        text: displayCount + "+"
+                                        font.pointSize: Qt.platform.os === "android" ? 16 : 13
+                                        font.bold: true
+                                        color: "cyan"
+
+                                        layer.enabled: true
+                                        layer.effect: DropShadow {
+                                            transparentBorder: true
+                                            radius: 6; samples: 13
+                                            color: "#8802c6db"
+                                        }
+                                    }
+
+                                    // Roll from 0 to real count on load
+                                    NumberAnimation {
+                                        id: countRollAnim
+                                        target: rollingCountText
+                                        property: "displayCount"
+                                        from: 0
+                                        to: attractionModel.count
+                                        duration: 1200
+                                        easing.type: Easing.OutCubic
+                                        running: false
+                                    }
+                                    Component.onCompleted: {
+                                        countRollTimer.start();
+                                    }
+                                    Timer {
+                                        id: countRollTimer
+                                        interval: 500
+                                        repeat: false
+                                        onTriggered: { countRollAnim.running = true; }
+                                    }
                                 }
+
                                 Text {
                                     anchors.horizontalCenter: parent.horizontalCenter
-                                    text: langSettings.lang === "sw"
-                                          ? "Vivutio"
-                                          : "Attractions"
+                                    text: langSettings.lang === "sw" ? "Vivutio" : "Attractions"
                                     font.pointSize: Qt.platform.os === "android" ? 10 : 8
                                     color: "#aaaaaa"
                                 }
@@ -2522,7 +2617,6 @@ Rectangle {
                                     color: "#aaaaaa"
                                 }
                             }
-
                         }
                     }
 
@@ -3140,16 +3234,24 @@ Rectangle {
                             anchors.rightMargin: 12
                             spacing: 10
 
-                            // Title row
+                            // Title row — neon sign effect
                             Row {
                                 spacing: 8
                                 anchors.horizontalCenter: parent.horizontalCenter
+
                                 Text {
                                     text: "🌟"
                                     font.pointSize: Qt.platform.os === "android" ? 16 : 13
                                     anchors.verticalCenter: parent.verticalCenter
+                                    SequentialAnimation on opacity {
+                                        loops: Animation.Infinite
+                                        NumberAnimation { to: 0.3; duration: 900; easing.type: Easing.InOutSine }
+                                        NumberAnimation { to: 1.0; duration: 900; easing.type: Easing.InOutSine }
+                                    }
                                 }
+
                                 Text {
+                                    id: aotdTitleText
                                     text: langSettings.lang === "sw"
                                           ? "Kivutio cha Leo"
                                           : "Attraction of the Day"
@@ -3157,11 +3259,44 @@ Rectangle {
                                     font.bold: true
                                     color: "cyan"
                                     anchors.verticalCenter: parent.verticalCenter
+
+                                    layer.enabled: true
+                                    layer.effect: DropShadow {
+                                        transparentBorder: true
+                                        horizontalOffset: 0; verticalOffset: 0
+                                        radius: aotdNeonGlow.glowRadius
+                                        samples: 33
+                                        color: "#dd02c6db"
+                                    }
+
+                                    // neon flicker: radius breathes
+                                    QtObject {
+                                        id: aotdNeonGlow
+                                        property real glowRadius: 6
+                                    }
+                                    SequentialAnimation {
+                                        loops: Animation.Infinite
+                                        running: true
+                                        NumberAnimation { target: aotdNeonGlow; property: "glowRadius"; to: 18; duration: 1100; easing.type: Easing.InOutSine }
+                                        NumberAnimation { target: aotdNeonGlow; property: "glowRadius"; to: 6;  duration: 800;  easing.type: Easing.InOutSine }
+                                        PauseAnimation { duration: 400 }
+                                        NumberAnimation { target: aotdNeonGlow; property: "glowRadius"; to: 3;  duration: 80 }
+                                        NumberAnimation { target: aotdNeonGlow; property: "glowRadius"; to: 14; duration: 80 }
+                                        NumberAnimation { target: aotdNeonGlow; property: "glowRadius"; to: 6;  duration: 80 }
+                                        PauseAnimation { duration: 1200 }
+                                    }
                                 }
+
                                 Text {
                                     text: "🌟"
                                     font.pointSize: Qt.platform.os === "android" ? 16 : 13
                                     anchors.verticalCenter: parent.verticalCenter
+                                    SequentialAnimation on opacity {
+                                        loops: Animation.Infinite
+                                        PauseAnimation { duration: 450 }
+                                        NumberAnimation { to: 0.3; duration: 900; easing.type: Easing.InOutSine }
+                                        NumberAnimation { to: 1.0; duration: 900; easing.type: Easing.InOutSine }
+                                    }
                                 }
                             }
 
@@ -4007,8 +4142,11 @@ Rectangle {
                     border.width: 1
 
                     property bool pressed: false
-                    scale: pressed ? 0.93 : 1.0
-                    Behavior on scale { NumberAnimation { duration: 100 } }
+                    property real bounce: 1.0
+                    scale: bounce
+                    Behavior on bounce {
+                        NumberAnimation { duration: 80; easing.type: Easing.OutQuad }
+                    }
 
                     Text {
                         anchors.centerIn: parent
@@ -4019,10 +4157,21 @@ Rectangle {
                     }
                     MouseArea {
                         anchors.fill: parent
-                        onPressed:  prevBtn.pressed = true
-                        onReleased: prevBtn.pressed = false
-                        onCanceled: prevBtn.pressed = false
-                        onClicked:  navigatePrevious()
+                        onPressed:  { prevBtn.bounce = 0.88; }
+                        onReleased: {
+                            prevBtn.bounce = 1.0;
+                            bounceOverPrev.start();
+                            navigatePrevious();
+                        }
+                        onCanceled: prevBtn.bounce = 1.0
+                        onClicked: {}
+                    }
+                    SequentialAnimation {
+                        id: bounceOverPrev
+                        running: false
+                        NumberAnimation { target: prevBtn; property: "bounce"; to: 1.12; duration: 120; easing.type: Easing.OutCubic }
+                        NumberAnimation { target: prevBtn; property: "bounce"; to: 0.96; duration: 80;  easing.type: Easing.InOutSine }
+                        NumberAnimation { target: prevBtn; property: "bounce"; to: 1.0;  duration: 80;  easing.type: Easing.OutSine }
                     }
                 }
 
@@ -4038,8 +4187,8 @@ Rectangle {
                     border.width: 1
 
                     property bool pressed: false
-                    scale: pressed ? 0.93 : 1.0
-                    Behavior on scale { NumberAnimation { duration: 100 } }
+                    property real bounce: 1.0
+                    scale: bounce
 
                     Text {
                         anchors.centerIn: parent
@@ -4050,13 +4199,21 @@ Rectangle {
                     }
                     MouseArea {
                         anchors.fill: parent
-                        onPressed:  homeBtn.pressed = true
-                        onReleased: homeBtn.pressed = false
-                        onCanceled: homeBtn.pressed = false
-                        onClicked: {
+                        onPressed:  { homeBtn.bounce = 0.88; }
+                        onReleased: {
+                            bounceOverHome.start();
                             viewComponentLoader.switchTo(languageSelectionComponent, app.width / 2, app.height / 2);
                             app.selectedLanguage = "";
                         }
+                        onCanceled: homeBtn.bounce = 1.0
+                        onClicked: {}
+                    }
+                    SequentialAnimation {
+                        id: bounceOverHome
+                        running: false
+                        NumberAnimation { target: homeBtn; property: "bounce"; to: 1.18; duration: 130; easing.type: Easing.OutCubic }
+                        NumberAnimation { target: homeBtn; property: "bounce"; to: 0.94; duration: 80;  easing.type: Easing.InOutSine }
+                        NumberAnimation { target: homeBtn; property: "bounce"; to: 1.0;  duration: 80;  easing.type: Easing.OutSine }
                     }
                 }
 
@@ -4074,8 +4231,8 @@ Rectangle {
                     border.width: 1
 
                     property bool pressed: false
-                    scale: pressed ? 0.93 : 1.0
-                    Behavior on scale { NumberAnimation { duration: 100 } }
+                    property real bounce: 1.0
+                    scale: bounce
 
                     Text {
                         anchors.centerIn: parent
@@ -4086,10 +4243,21 @@ Rectangle {
                     }
                     MouseArea {
                         anchors.fill: parent
-                        onPressed:  nextBtn.pressed = true
-                        onReleased: nextBtn.pressed = false
-                        onCanceled: nextBtn.pressed = false
-                        onClicked:  navigateNext()
+                        onPressed:  { nextBtn.bounce = 0.88; }
+                        onReleased: {
+                            nextBtn.bounce = 1.0;
+                            bounceOverNext.start();
+                            navigateNext();
+                        }
+                        onCanceled: nextBtn.bounce = 1.0
+                        onClicked: {}
+                    }
+                    SequentialAnimation {
+                        id: bounceOverNext
+                        running: false
+                        NumberAnimation { target: nextBtn; property: "bounce"; to: 1.12; duration: 120; easing.type: Easing.OutCubic }
+                        NumberAnimation { target: nextBtn; property: "bounce"; to: 0.96; duration: 80;  easing.type: Easing.InOutSine }
+                        NumberAnimation { target: nextBtn; property: "bounce"; to: 1.0;  duration: 80;  easing.type: Easing.OutSine }
                     }
                 }
             }
@@ -4596,24 +4764,32 @@ Rectangle {
                                 radius: 6
                                 color: "#1a2a2a"
                                 visible: cardImg.status !== Image.Ready
+                                clip: true
 
-                                // Shimmer sweep
+                                // TZ flag shimmer: kijani → njano → nyeusi → njano → bluu
                                 Rectangle {
                                     id: shimmer
                                     anchors.top: parent.top
                                     anchors.bottom: parent.bottom
-                                    width: parent.width * 0.35
+                                    width: parent.width * 0.55
                                     x: -width
+                                    rotation: 15
+                                    transformOrigin: Item.Center
                                     gradient: Gradient {
-                                        GradientStop { position: 0.0; color: "transparent" }
-                                        GradientStop { position: 0.5; color: "#18ffffff" }
-                                        GradientStop { position: 1.0; color: "transparent" }
+                                        GradientStop { position: 0.00; color: "#001d6914" }
+                                        GradientStop { position: 0.10; color: "#551d6914" }
+                                        GradientStop { position: 0.25; color: "#77fcd116" }
+                                        GradientStop { position: 0.40; color: "#99fcd116" }
+                                        GradientStop { position: 0.50; color: "#bb111111" }
+                                        GradientStop { position: 0.60; color: "#99fcd116" }
+                                        GradientStop { position: 0.75; color: "#77fcd116" }
+                                        GradientStop { position: 0.90; color: "#551e5799" }
+                                        GradientStop { position: 1.00; color: "#001e5799" }
                                     }
-
                                     NumberAnimation on x {
                                         from: -shimmer.width
-                                        to: skeleton.width
-                                        duration: 1200
+                                        to: skeleton.width + shimmer.width
+                                        duration: 1400
                                         loops: Animation.Infinite
                                         easing.type: Easing.InOutSine
                                         running: skeleton.visible
@@ -4625,7 +4801,6 @@ Rectangle {
                                     anchors.centerIn: parent
                                     spacing: 8
                                     opacity: 0.3
-
                                     Rectangle { width: 60; height: 60; radius: 30; color: "#44ffffff"; anchors.horizontalCenter: parent.horizontalCenter }
                                     Rectangle { width: 80; height: 8; radius: 4; color: "#44ffffff"; anchors.horizontalCenter: parent.horizontalCenter }
                                     Rectangle { width: 55; height: 6; radius: 3; color: "#44ffffff"; anchors.horizontalCenter: parent.horizontalCenter }
