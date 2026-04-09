@@ -3027,14 +3027,8 @@ Rectangle {
                                     text: "🌟"
                                     font.pointSize: Qt.platform.os === "android" ? 16 : 13
                                     anchors.verticalCenter: parent.verticalCenter
-                                    SequentialAnimation on opacity {
-                                        loops: Animation.Infinite
-                                        NumberAnimation { to: 0.35; duration: 1000; easing.type: Easing.InOutSine }
-                                        NumberAnimation { to: 1.0;  duration: 1000; easing.type: Easing.InOutSine }
-                                    }
                                 }
                                 Text {
-                                    id: aotdTitleText
                                     text: langSettings.lang === "sw"
                                           ? "Kivutio cha Leo"
                                           : "Attraction of the Day"
@@ -3042,40 +3036,11 @@ Rectangle {
                                     font.bold: true
                                     color: "cyan"
                                     anchors.verticalCenter: parent.verticalCenter
-
-                                    layer.enabled: true
-                                    layer.effect: DropShadow {
-                                        transparentBorder: true
-                                        horizontalOffset: 0; verticalOffset: 0
-                                        radius: aotdGlow.r; samples: 33
-                                        color: "#dd02c6db"
-                                    }
-                                    QtObject {
-                                        id: aotdGlow
-                                        property real r: 4
-                                    }
-                                    SequentialAnimation {
-                                        loops: Animation.Infinite; running: true
-                                        NumberAnimation { target: aotdGlow; property: "r"; to: 18; duration: 1200; easing.type: Easing.InOutSine }
-                                        NumberAnimation { target: aotdGlow; property: "r"; to: 4;  duration: 900;  easing.type: Easing.InOutSine }
-                                        PauseAnimation  { duration: 500 }
-                                        // flicker
-                                        NumberAnimation { target: aotdGlow; property: "r"; to: 2;  duration: 70 }
-                                        NumberAnimation { target: aotdGlow; property: "r"; to: 16; duration: 70 }
-                                        NumberAnimation { target: aotdGlow; property: "r"; to: 4;  duration: 70 }
-                                        PauseAnimation  { duration: 1400 }
-                                    }
                                 }
                                 Text {
                                     text: "🌟"
                                     font.pointSize: Qt.platform.os === "android" ? 16 : 13
                                     anchors.verticalCenter: parent.verticalCenter
-                                    SequentialAnimation on opacity {
-                                        loops: Animation.Infinite
-                                        PauseAnimation { duration: 500 }
-                                        NumberAnimation { to: 0.35; duration: 1000; easing.type: Easing.InOutSine }
-                                        NumberAnimation { to: 1.0;  duration: 1000; easing.type: Easing.InOutSine }
-                                    }
                                 }
                             }
 
