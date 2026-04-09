@@ -2307,7 +2307,7 @@ Rectangle {
                                         text: langSettings.lang === "sw"
                                               ? "KARIBU TANZANIA"
                                               : "DISCOVER TANZANIA"
-                                        font.pixelSize: Qt.platform.os === "android" ? 11 : 9
+                                        font.pixelSize: Qt.platform.os === "android" ? 13 : 11
                                         font.bold: true
                                         font.letterSpacing: 2.8
                                         color: "#02c6db"
@@ -2338,7 +2338,7 @@ Rectangle {
                                         text: langSettings.lang === "sw"
                                               ? "Utalii wa Tanzania"
                                               : "Tanzania Tourism"
-                                        font.pixelSize: Qt.platform.os === "android" ? 34 : 28
+                                        font.pixelSize: Qt.platform.os === "android" ? 35 : 29
                                         font.bold: true
                                         font.letterSpacing: -0.5
                                         color: "white"
@@ -2382,7 +2382,7 @@ Rectangle {
                                     text: langSettings.lang === "sw"
                                           ? "Mbuga · Fukwe · Milima · Utamaduni"
                                           : "Wildlife · Beaches · Mountains · Culture"
-                                    font.pixelSize: Qt.platform.os === "android" ? 12 : 10
+                                    font.pixelSize: Qt.platform.os === "android" ? 14 : 12
                                     color: "#b3e0f5f5"
                                     wrapMode: Text.WordWrap
                                     font.letterSpacing: 0.5
