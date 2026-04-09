@@ -2012,47 +2012,186 @@ Rectangle {
                             fillMode: Image.PreserveAspectCrop
                         }
 
-                        // Dark gradient over hero
+                        // Dark gradient over hero — app cyan palette, top-to-bottom
                         Rectangle {
                             anchors.fill: parent
                             gradient: Gradient {
-                                GradientStop { position: 0.0; color: "#88000000" }
-                                GradientStop { position: 0.6; color: "#44000000" }
-                                GradientStop { position: 1.0; color: "#dd001413" }
+                                GradientStop { position: 0.0; color: "#99000000" }
+                                GradientStop { position: 0.45; color: "#33001a19" }
+                                GradientStop { position: 0.75; color: "#aa001a19" }
+                                GradientStop { position: 1.0; color: "#f0001413" }
                             }
                         }
 
                         // Hero text
                         Item {
                             id: heroTextArea
+
+                            // ── entrance state: shifted down + invisible ──────
+                            property real entranceOffset: 40
+                            property real floatOffset: 0
+
                             anchors.bottom: parent.bottom
-                            anchors.bottomMargin: Qt.platform.os === "android" ? 18 : 14
+                            anchors.bottomMargin: (Qt.platform.os === "android" ? 20 : 16)
+                                                  + heroTextArea.entranceOffset
+                                                  + heroTextArea.floatOffset
                             anchors.left: parent.left
                             anchors.leftMargin: 16
                             anchors.right: parent.right
                             anchors.rightMargin: 16
                             height: heroTextCol.implicitHeight + 4
+                            opacity: 0
 
-                            // Soft backdrop blur card behind text
+                            // ── 1. ENTRANCE: slide up + fade in ──────────────
+                            ParallelAnimation {
+                                id: heroEntranceAnim
+                                running: false
+
+                                NumberAnimation {
+                                    target: heroTextArea
+                                    property: "entranceOffset"
+                                    from: 40; to: 0
+                                    duration: 680
+                                    easing.type: Easing.OutCubic
+                                }
+                                NumberAnimation {
+                                    target: heroTextArea
+                                    property: "opacity"
+                                    from: 0; to: 1
+                                    duration: 600
+                                    easing.type: Easing.OutQuad
+                                }
+                            }
+
+                            // ── 2. FLOAT: gentle continuous bob ──────────────
+                            SequentialAnimation {
+                                id: heroFloatAnim
+                                running: false
+                                loops: Animation.Infinite
+
+                                NumberAnimation {
+                                    target: heroTextArea
+                                    property: "floatOffset"
+                                    from: 0; to: -5
+                                    duration: 2200
+                                    easing.type: Easing.InOutSine
+                                }
+                                NumberAnimation {
+                                    target: heroTextArea
+                                    property: "floatOffset"
+                                    from: -5; to: 0
+                                    duration: 2200
+                                    easing.type: Easing.InOutSine
+                                }
+                            }
+
+                            Component.onCompleted: {
+                                heroEntranceAnim.running = true;
+                                // start float after entrance settles
+                                heroFloatStartTimer.start();
+                            }
+
+                            Timer {
+                                id: heroFloatStartTimer
+                                interval: 900
+                                repeat: false
+                                onTriggered: { heroFloatAnim.running = true; }
+                            }
+
+                            // ── Frosted-glass backdrop ────────────────────────
                             Rectangle {
+                                id: heroBackdrop
                                 anchors.fill: parent
-                                anchors.margins: -10
-                                anchors.bottomMargin: -8
-                                anchors.topMargin: -8
-                                radius: 14
-                                color: "#55000000"
-                                border.color: langSettings.lang === "sw" ? "#4400cc44" : "#440055ff"
+                                anchors.leftMargin: -12
+                                anchors.rightMargin: -12
+                                anchors.topMargin: -14
+                                anchors.bottomMargin: -10
+                                radius: 16
+                                color: "#6600100f"
+                                border.color: "#551fb8ba"
                                 border.width: 1
-                                Behavior on border.color { ColorAnimation { duration: 350 } }
+                                clip: true
 
                                 layer.enabled: true
                                 layer.effect: DropShadow {
                                     transparentBorder: true
                                     horizontalOffset: 0
-                                    verticalOffset: 2
-                                    radius: 16
-                                    samples: 33
-                                    color: "#66000000"
+                                    verticalOffset: 3
+                                    radius: 20
+                                    samples: 41
+                                    color: "#88001413"
+                                }
+
+                                // ── 3. SHIMMER sweep across backdrop ─────────
+                                Rectangle {
+                                    id: shimmerBar
+                                    width: parent.width * 0.35
+                                    height: parent.height
+                                    x: -width
+                                    rotation: 12
+                                    transformOrigin: Item.Center
+                                    gradient: Gradient {
+                                        GradientStop { position: 0.0; color: "#00ffffff" }
+                                        GradientStop { position: 0.5; color: "#121fb8ba" }
+                                        GradientStop { position: 1.0; color: "#00ffffff" }
+                                    }
+
+                                    SequentialAnimation on x {
+                                        id: shimmerAnim
+                                        running: false
+                                        loops: Animation.Infinite
+
+                                        PauseAnimation { duration: 3200 }
+                                        NumberAnimation {
+                                            from: -shimmerBar.width
+                                            to: heroBackdrop.width + shimmerBar.width
+                                            duration: 900
+                                            easing.type: Easing.InOutQuad
+                                        }
+                                    }
+
+                                    Component.onCompleted: {
+                                        shimmerStartTimer.start();
+                                    }
+                                    Timer {
+                                        id: shimmerStartTimer
+                                        interval: 1200
+                                        repeat: false
+                                        onTriggered: { shimmerAnim.running = true; }
+                                    }
+                                }
+                            }
+
+                            // ── Cyan left-edge accent stripe (breathing glow) ─
+                            Rectangle {
+                                id: heroStripe
+                                anchors.left: parent.left
+                                anchors.leftMargin: -12
+                                anchors.top: parent.top
+                                anchors.topMargin: -14
+                                anchors.bottom: parent.bottom
+                                anchors.bottomMargin: -10
+                                width: 3
+                                radius: 2
+                                color: "#1fb8ba"
+
+                                layer.enabled: true
+                                layer.effect: DropShadow {
+                                    id: heroStripeGlow
+                                    transparentBorder: true
+                                    horizontalOffset: 2
+                                    verticalOffset: 0
+                                    radius: 8
+                                    samples: 17
+                                    color: "#bb02c6db"
+                                }
+
+                                // ── 4. STRIPE PULSE: glow breathes in/out ────
+                                SequentialAnimation on opacity {
+                                    running: true
+                                    loops: Animation.Infinite
+                                    NumberAnimation { to: 0.45; duration: 1400; easing.type: Easing.InOutSine }
+                                    NumberAnimation { to: 1.0;  duration: 1400; easing.type: Easing.InOutSine }
                                 }
                             }
 
@@ -2067,14 +2206,100 @@ Rectangle {
                                 Row {
                                     spacing: 6
                                     anchors.left: parent.left
+                                    opacity: 0
 
-                                    Rectangle {
-                                        width: 4
-                                        height: eyebrowText.implicitHeight
-                                        radius: 2
-                                        color: langSettings.lang === "sw" ? "#00e676" : "#448aff"
+                                    // ── 5. EYEBROW staggered fade-in ─────────
+                                    NumberAnimation on opacity {
+                                        id: eyebrowFadeAnim
+                                        running: false
+                                        from: 0; to: 1
+                                        duration: 450
+                                        easing.type: Easing.OutQuad
+                                    }
+                                    Component.onCompleted: {
+                                        eyebrowDelayTimer.start();
+                                    }
+                                    Timer {
+                                        id: eyebrowDelayTimer
+                                        interval: 300
+                                        repeat: false
+                                        onTriggered: { eyebrowFadeAnim.running = true; }
+                                    }
+
+                                    // ── Dot with ping ripple ──────────────────
+                                    Item {
+                                        width: 18
+                                        height: 18
                                         anchors.verticalCenter: parent.verticalCenter
-                                        Behavior on color { ColorAnimation { duration: 350 } }
+
+                                        // Ping ring 1
+                                        Rectangle {
+                                            id: pingRing1
+                                            anchors.centerIn: parent
+                                            width: 6; height: 6; radius: 3
+                                            color: "transparent"
+                                            border.color: "#02c6db"
+                                            border.width: 1.5
+                                            opacity: 0
+
+                                            SequentialAnimation {
+                                                running: true
+                                                loops: Animation.Infinite
+                                                PauseAnimation { duration: 1800 }
+                                                ParallelAnimation {
+                                                    NumberAnimation { target: pingRing1; property: "width";   from: 6;  to: 20; duration: 700; easing.type: Easing.OutCubic }
+                                                    NumberAnimation { target: pingRing1; property: "height";  from: 6;  to: 20; duration: 700; easing.type: Easing.OutCubic }
+                                                    NumberAnimation { target: pingRing1; property: "opacity"; from: 0.8; to: 0; duration: 700; easing.type: Easing.OutCubic }
+                                                }
+                                                ScriptAction { script: { pingRing1.width = 6; pingRing1.height = 6; } }
+                                            }
+                                        }
+
+                                        // Ping ring 2 (offset 250ms)
+                                        Rectangle {
+                                            id: pingRing2
+                                            anchors.centerIn: parent
+                                            width: 6; height: 6; radius: 3
+                                            color: "transparent"
+                                            border.color: "#1fb8ba"
+                                            border.width: 1
+                                            opacity: 0
+
+                                            SequentialAnimation {
+                                                running: true
+                                                loops: Animation.Infinite
+                                                PauseAnimation { duration: 2050 }
+                                                ParallelAnimation {
+                                                    NumberAnimation { target: pingRing2; property: "width";   from: 6;  to: 16; duration: 650; easing.type: Easing.OutCubic }
+                                                    NumberAnimation { target: pingRing2; property: "height";  from: 6;  to: 16; duration: 650; easing.type: Easing.OutCubic }
+                                                    NumberAnimation { target: pingRing2; property: "opacity"; from: 0.5; to: 0; duration: 650; easing.type: Easing.OutCubic }
+                                                }
+                                                ScriptAction { script: { pingRing2.width = 6; pingRing2.height = 6; } }
+                                            }
+                                        }
+
+                                        // Solid dot core
+                                        Rectangle {
+                                            anchors.centerIn: parent
+                                            width: 7; height: 7; radius: 3.5
+                                            color: "#02c6db"
+
+                                            layer.enabled: true
+                                            layer.effect: DropShadow {
+                                                transparentBorder: true
+                                                radius: 6
+                                                samples: 13
+                                                color: "#dd02c6db"
+                                            }
+
+                                            // core pulse scale
+                                            SequentialAnimation on scale {
+                                                running: true
+                                                loops: Animation.Infinite
+                                                NumberAnimation { to: 1.25; duration: 900; easing.type: Easing.InOutSine }
+                                                NumberAnimation { to: 1.0;  duration: 900; easing.type: Easing.InOutSine }
+                                            }
+                                        }
                                     }
 
                                     Text {
@@ -2082,84 +2307,130 @@ Rectangle {
                                         text: langSettings.lang === "sw"
                                               ? "KARIBU TANZANIA"
                                               : "DISCOVER TANZANIA"
-                                        font.pixelSize: Qt.platform.os === "android" ? 12 : 10
+                                        font.pixelSize: Qt.platform.os === "android" ? 11 : 9
                                         font.bold: true
-                                        font.letterSpacing: 2.5
-                                        color: langSettings.lang === "sw" ? "#00e676" : "#448aff"
-                                        Behavior on color { ColorAnimation { duration: 350 } }
+                                        font.letterSpacing: 2.8
+                                        color: "#02c6db"
+                                        anchors.verticalCenter: parent.verticalCenter
 
                                         layer.enabled: true
                                         layer.effect: DropShadow {
                                             transparentBorder: true
-                                            radius: 6
-                                            samples: 13
-                                            color: langSettings.lang === "sw" ? "#8800e676" : "#88448aff"
-                                            Behavior on color { ColorAnimation { duration: 350 } }
+                                            radius: 8
+                                            samples: 17
+                                            color: "#9902c6db"
                                         }
                                     }
                                 }
 
-                                // Main title
-                                Text {
-                                    id: heroTitle
-                                    anchors.left: parent.left
-                                    anchors.right: parent.right
-                                    text: langSettings.lang === "sw"
-                                          ? "Utalii wa Tanzania"
-                                          : "Tanzania Tourism"
-                                    font.pixelSize: Qt.platform.os === "android" ? 34 : 28
-                                    font.bold: true
-                                    font.letterSpacing: -0.5
-                                    color: "white"
-                                    wrapMode: Text.WordWrap
+                                // Main title — staggered fade + slide from left
+                                Item {
+                                    width: parent.width
+                                    height: heroTitle.implicitHeight
+                                    clip: true
 
-                                    layer.enabled: true
-                                    layer.effect: DropShadow {
-                                        transparentBorder: true
-                                        horizontalOffset: 0
-                                        verticalOffset: 2
-                                        radius: 10
-                                        samples: 21
-                                        color: "#aa000000"
+                                    Text {
+                                        id: heroTitle
+                                        anchors.right: parent.right
+                                        width: parent.width
+                                        x: -20
+                                        opacity: 0
+                                        text: langSettings.lang === "sw"
+                                              ? "Utalii wa Tanzania"
+                                              : "Tanzania Tourism"
+                                        font.pixelSize: Qt.platform.os === "android" ? 34 : 28
+                                        font.bold: true
+                                        font.letterSpacing: -0.5
+                                        color: "white"
+                                        wrapMode: Text.WordWrap
+
+                                        layer.enabled: true
+                                        layer.effect: DropShadow {
+                                            transparentBorder: true
+                                            horizontalOffset: 0
+                                            verticalOffset: 2
+                                            radius: 12
+                                            samples: 25
+                                            color: "#cc001413"
+                                        }
+
+                                        // ── 6. TITLE staggered slide-in ──────
+                                        ParallelAnimation {
+                                            id: titleSlideAnim
+                                            running: false
+                                            NumberAnimation { target: heroTitle; property: "x";       from: -20; to: 0;  duration: 550; easing.type: Easing.OutCubic }
+                                            NumberAnimation { target: heroTitle; property: "opacity"; from: 0;   to: 1;  duration: 480; easing.type: Easing.OutQuad  }
+                                        }
+                                        Component.onCompleted: {
+                                            titleDelayTimer.start();
+                                        }
+                                        Timer {
+                                            id: titleDelayTimer
+                                            interval: 450
+                                            repeat: false
+                                            onTriggered: { titleSlideAnim.running = true; }
+                                        }
                                     }
                                 }
 
-                                // Subtitle tagline
+                                // Subtitle tagline — staggered fade
                                 Text {
+                                    id: heroSubtitle
                                     anchors.left: parent.left
                                     anchors.right: parent.right
+                                    opacity: 0
                                     text: langSettings.lang === "sw"
-                                          ? "Mbuga za wanyama · Fukwe · Milima · Utamaduni"
+                                          ? "Mbuga · Fukwe · Milima · Utamaduni"
                                           : "Wildlife · Beaches · Mountains · Culture"
-                                    font.pixelSize: Qt.platform.os === "android" ? 13 : 11
-                                    color: "#ccffffff"
+                                    font.pixelSize: Qt.platform.os === "android" ? 12 : 10
+                                    color: "#b3e0f5f5"
                                     wrapMode: Text.WordWrap
-                                    font.letterSpacing: 0.4
+                                    font.letterSpacing: 0.5
+
+                                    // ── 7. SUBTITLE staggered fade-in ────────
+                                    NumberAnimation on opacity {
+                                        id: subtitleFadeAnim
+                                        running: false
+                                        from: 0; to: 1
+                                        duration: 500
+                                        easing.type: Easing.OutQuad
+                                    }
+                                    Component.onCompleted: {
+                                        subtitleDelayTimer.start();
+                                    }
+                                    Timer {
+                                        id: subtitleDelayTimer
+                                        interval: 620
+                                        repeat: false
+                                        onTriggered: { subtitleFadeAnim.running = true; }
+                                    }
                                 }
 
-                                // Animated accent bar
+                                // Animated accent bar — app cyan gradient
                                 Item {
                                     width: parent.width
-                                    height: 4
+                                    height: 3
 
                                     Rectangle {
                                         id: accentBar
                                         height: parent.height
                                         radius: 2
                                         width: 0
-                                        color: langSettings.lang === "sw" ? "#00e676" : "#448aff"
-                                        Behavior on color { ColorAnimation { duration: 350 } }
+                                        gradient: Gradient {
+                                            GradientStop { position: 0.0; color: "#1fb8ba" }
+                                            GradientStop { position: 1.0; color: "#02c6db" }
+                                        }
 
                                         layer.enabled: true
                                         layer.effect: DropShadow {
                                             transparentBorder: true
-                                            radius: 6
-                                            samples: 13
-                                            color: langSettings.lang === "sw" ? "#aa00e676" : "#aa448aff"
-                                            Behavior on color { ColorAnimation { duration: 350 } }
+                                            radius: 7
+                                            samples: 15
+                                            color: "#cc02c6db"
                                         }
                                     }
 
+                                    // ── 8. ACCENT BAR wipe + then pulse opacity
                                     NumberAnimation on width {
                                         id: accentBarAnim
                                         running: false
@@ -2167,12 +2438,27 @@ Rectangle {
                                         property: "width"
                                         from: 0
                                         to: heroTextArea.width
-                                        duration: 700
+                                        duration: 750
                                         easing.type: Easing.OutCubic
+                                    }
+
+                                    SequentialAnimation {
+                                        id: accentBarPulse
+                                        running: false
+                                        loops: Animation.Infinite
+                                        NumberAnimation { target: accentBar; property: "opacity"; to: 0.5; duration: 1600; easing.type: Easing.InOutSine }
+                                        NumberAnimation { target: accentBar; property: "opacity"; to: 1.0; duration: 1600; easing.type: Easing.InOutSine }
                                     }
 
                                     Component.onCompleted: {
                                         accentBarAnim.running = true;
+                                        accentBarPulseTimer.start();
+                                    }
+                                    Timer {
+                                        id: accentBarPulseTimer
+                                        interval: 800
+                                        repeat: false
+                                        onTriggered: { accentBarPulse.running = true; }
                                     }
                                 }
                             }
