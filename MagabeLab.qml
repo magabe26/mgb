@@ -1064,7 +1064,7 @@ Rectangle {
             Text {
                 id: closeTxt
                 anchors.centerIn: parent
-                text: "X Funga"
+                text: "Funga"
                 color: Qt.lighter("red",1.8)
                 font.pointSize: Qt.platform.os === "android" ? 12 : 10
                 font.bold: true
