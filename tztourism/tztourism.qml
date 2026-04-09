@@ -2023,54 +2023,16 @@ Rectangle {
                             }
                         }
 
-                        // ── FLOATING PARTICLES (nyota za usiku) ──────────
-                        Repeater {
-                            model: 18
-                            delegate: Item {
-                                property real baseX: (index * 137.5 % 1.0) * (app.width - 8)
-                                property real baseY: (index * 97.3  % 1.0) * (app.height * 0.38)
-                                property real sz:    1.5 + (index % 4) * 0.8
-                                property real dur:   2800 + (index * 431 % 2000)
-                                property real dly:   index * 200
-
-                                x: baseX; y: baseY
-                                width: sz; height: sz
-
-                                Rectangle {
-                                    anchors.centerIn: parent
-                                    width: parent.sz; height: parent.sz; radius: parent.sz / 2
-                                    color: index % 3 === 0 ? "#ccfcd116"
-                                         : index % 3 === 1 ? "#9902c6db"
-                                         :                   "#8800e676"
-                                }
-
-                                SequentialAnimation on y {
-                                    loops: Animation.Infinite
-                                    PauseAnimation { duration: dly }
-                                    NumberAnimation { from: baseY; to: baseY - 10; duration: dur; easing.type: Easing.InOutSine }
-                                    NumberAnimation { from: baseY - 10; to: baseY; duration: dur; easing.type: Easing.InOutSine }
-                                }
-                                SequentialAnimation on opacity {
-                                    loops: Animation.Infinite
-                                    PauseAnimation { duration: dly }
-                                    NumberAnimation { from: 0.1; to: 0.9; duration: dur * 0.7; easing.type: Easing.InOutSine }
-                                    NumberAnimation { from: 0.9; to: 0.1; duration: dur * 0.7; easing.type: Easing.InOutSine }
-                                }
-                            }
-                        }
-
                         // Hero text
                         Item {
                             id: heroTextArea
 
                             // ── entrance state: shifted down + invisible ──────
                             property real entranceOffset: 40
-                            property real floatOffset: 0
 
                             anchors.bottom: parent.bottom
                             anchors.bottomMargin: (Qt.platform.os === "android" ? 20 : 16)
                                                   + heroTextArea.entranceOffset
-                                                  + heroTextArea.floatOffset
                             anchors.left: parent.left
                             anchors.leftMargin: 16
                             anchors.right: parent.right
@@ -2099,39 +2061,8 @@ Rectangle {
                                 }
                             }
 
-                            // ── 2. FLOAT: gentle continuous bob ──────────────
-                            SequentialAnimation {
-                                id: heroFloatAnim
-                                running: false
-                                loops: Animation.Infinite
-
-                                NumberAnimation {
-                                    target: heroTextArea
-                                    property: "floatOffset"
-                                    from: 0; to: -5
-                                    duration: 2200
-                                    easing.type: Easing.InOutSine
-                                }
-                                NumberAnimation {
-                                    target: heroTextArea
-                                    property: "floatOffset"
-                                    from: -5; to: 0
-                                    duration: 2200
-                                    easing.type: Easing.InOutSine
-                                }
-                            }
-
                             Component.onCompleted: {
                                 heroEntranceAnim.running = true;
-                                // start float after entrance settles
-                                heroFloatStartTimer.start();
-                            }
-
-                            Timer {
-                                id: heroFloatStartTimer
-                                interval: 900
-                                repeat: false
-                                onTriggered: { heroFloatAnim.running = true; }
                             }
 
                             // ── Frosted-glass backdrop ────────────────────────
@@ -2158,47 +2089,9 @@ Rectangle {
                                     color: "#88001413"
                                 }
 
-                                // ── 3. SHIMMER sweep across backdrop ─────────
-                                Rectangle {
-                                    id: shimmerBar
-                                    width: parent.width * 0.35
-                                    height: parent.height
-                                    x: -width
-                                    rotation: 12
-                                    transformOrigin: Item.Center
-                                    gradient: Gradient {
-                                        GradientStop { position: 0.0; color: "#00ffffff" }
-                                        GradientStop { position: 0.5; color: "#121fb8ba" }
-                                        GradientStop { position: 1.0; color: "#00ffffff" }
-                                    }
-
-                                    SequentialAnimation on x {
-                                        id: shimmerAnim
-                                        running: false
-                                        loops: Animation.Infinite
-
-                                        PauseAnimation { duration: 3200 }
-                                        NumberAnimation {
-                                            from: -shimmerBar.width
-                                            to: heroBackdrop.width + shimmerBar.width
-                                            duration: 900
-                                            easing.type: Easing.InOutQuad
-                                        }
-                                    }
-
-                                    Component.onCompleted: {
-                                        shimmerStartTimer.start();
-                                    }
-                                    Timer {
-                                        id: shimmerStartTimer
-                                        interval: 1200
-                                        repeat: false
-                                        onTriggered: { shimmerAnim.running = true; }
-                                    }
-                                }
                             }
 
-                            // ── Cyan left-edge accent stripe (breathing glow) ─
+                            // ── Cyan left-edge accent stripe ──────────────────
                             Rectangle {
                                 id: heroStripe
                                 anchors.left: parent.left
@@ -2220,14 +2113,6 @@ Rectangle {
                                     radius: 8
                                     samples: 17
                                     color: "#bb02c6db"
-                                }
-
-                                // ── 4. STRIPE PULSE: glow breathes in/out ────
-                                SequentialAnimation on opacity {
-                                    running: true
-                                    loops: Animation.Infinite
-                                    NumberAnimation { to: 0.45; duration: 1400; easing.type: Easing.InOutSine }
-                                    NumberAnimation { to: 1.0;  duration: 1400; easing.type: Easing.InOutSine }
                                 }
                             }
 
@@ -2262,78 +2147,21 @@ Rectangle {
                                         onTriggered: { eyebrowFadeAnim.running = true; }
                                     }
 
-                                    // ── Dot with ping ripple ──────────────────
+                                    // ── Simple dot indicator ──────────────────
                                     Item {
-                                        width: 18
-                                        height: 18
+                                        width: 12
+                                        height: 12
                                         anchors.verticalCenter: parent.verticalCenter
 
-                                        // Ping ring 1
-                                        Rectangle {
-                                            id: pingRing1
-                                            anchors.centerIn: parent
-                                            width: 6; height: 6; radius: 3
-                                            color: "transparent"
-                                            border.color: "#02c6db"
-                                            border.width: 1.5
-                                            opacity: 0
-
-                                            SequentialAnimation {
-                                                running: true
-                                                loops: Animation.Infinite
-                                                PauseAnimation { duration: 1800 }
-                                                ParallelAnimation {
-                                                    NumberAnimation { target: pingRing1; property: "width";   from: 6;  to: 20; duration: 700; easing.type: Easing.OutCubic }
-                                                    NumberAnimation { target: pingRing1; property: "height";  from: 6;  to: 20; duration: 700; easing.type: Easing.OutCubic }
-                                                    NumberAnimation { target: pingRing1; property: "opacity"; from: 0.8; to: 0; duration: 700; easing.type: Easing.OutCubic }
-                                                }
-                                                ScriptAction { script: { pingRing1.width = 6; pingRing1.height = 6; } }
-                                            }
-                                        }
-
-                                        // Ping ring 2 (offset 250ms)
-                                        Rectangle {
-                                            id: pingRing2
-                                            anchors.centerIn: parent
-                                            width: 6; height: 6; radius: 3
-                                            color: "transparent"
-                                            border.color: "#1fb8ba"
-                                            border.width: 1
-                                            opacity: 0
-
-                                            SequentialAnimation {
-                                                running: true
-                                                loops: Animation.Infinite
-                                                PauseAnimation { duration: 2050 }
-                                                ParallelAnimation {
-                                                    NumberAnimation { target: pingRing2; property: "width";   from: 6;  to: 16; duration: 650; easing.type: Easing.OutCubic }
-                                                    NumberAnimation { target: pingRing2; property: "height";  from: 6;  to: 16; duration: 650; easing.type: Easing.OutCubic }
-                                                    NumberAnimation { target: pingRing2; property: "opacity"; from: 0.5; to: 0; duration: 650; easing.type: Easing.OutCubic }
-                                                }
-                                                ScriptAction { script: { pingRing2.width = 6; pingRing2.height = 6; } }
-                                            }
-                                        }
-
-                                        // Solid dot core
                                         Rectangle {
                                             anchors.centerIn: parent
                                             width: 7; height: 7; radius: 3.5
                                             color: "#02c6db"
-
                                             layer.enabled: true
                                             layer.effect: DropShadow {
                                                 transparentBorder: true
-                                                radius: 6
-                                                samples: 13
+                                                radius: 5; samples: 11
                                                 color: "#dd02c6db"
-                                            }
-
-                                            // core pulse scale
-                                            SequentialAnimation on scale {
-                                                running: true
-                                                loops: Animation.Infinite
-                                                NumberAnimation { to: 1.25; duration: 900; easing.type: Easing.InOutSine }
-                                                NumberAnimation { to: 1.0;  duration: 900; easing.type: Easing.InOutSine }
                                             }
                                         }
                                     }
@@ -2409,44 +2237,26 @@ Rectangle {
                                     }
                                 }
 
-                                // Subtitle tagline — typewriter effect
+                                // Subtitle tagline — staggered fade
                                 Text {
                                     id: heroSubtitle
                                     anchors.left: parent.left
                                     anchors.right: parent.right
                                     opacity: 0
-                                    property string fullText: langSettings.lang === "sw"
+                                    text: langSettings.lang === "sw"
                                           ? "Mbuga · Fukwe · Milima · Utamaduni"
                                           : "Wildlife · Beaches · Mountains · Culture"
-                                    text: ""
-                                    font.pixelSize: Qt.platform.os === "android" ? 18 : 13
+                                    font.pixelSize: Qt.platform.os === "android" ? 14 : 12
                                     color: "#b3e0f5f5"
                                     wrapMode: Text.WordWrap
                                     font.letterSpacing: 0.5
 
-                                    property int twIndex: 0
-
-                                    Timer {
-                                        id: typewriterTimer
-                                        interval: 38
-                                        repeat: true
-                                        running: false
-                                        onTriggered: {
-                                            if (heroSubtitle.twIndex < heroSubtitle.fullText.length) {
-                                                heroSubtitle.text = heroSubtitle.fullText.substring(0, heroSubtitle.twIndex + 1);
-                                                heroSubtitle.twIndex++;
-                                            } else {
-                                                typewriterTimer.stop();
-                                            }
-                                        }
-                                    }
-
-                                    // ── staggered start ───────────────────────
+                                    // ── 7. SUBTITLE staggered fade-in ────────
                                     NumberAnimation on opacity {
                                         id: subtitleFadeAnim
                                         running: false
                                         from: 0; to: 1
-                                        duration: 200
+                                        duration: 500
                                         easing.type: Easing.OutQuad
                                     }
                                     Component.onCompleted: {
@@ -2456,12 +2266,7 @@ Rectangle {
                                         id: subtitleDelayTimer
                                         interval: 620
                                         repeat: false
-                                        onTriggered: {
-                                            subtitleFadeAnim.running = true;
-                                            heroSubtitle.twIndex = 0;
-                                            heroSubtitle.text = "";
-                                            typewriterTimer.start();
-                                        }
+                                        onTriggered: { subtitleFadeAnim.running = true; }
                                     }
                                 }
 
@@ -2534,58 +2339,22 @@ Rectangle {
                             anchors.centerIn: parent
                             spacing: 0
 
-                            // Attractions count — animated roll
+                            // Attractions count
                             Column {
                                 width: app.width * 0.5
                                 spacing: 2
-
-                                Item {
-                                    anchors.horizontalCenter: parent.horizontalCenter
-                                    width: rollingCountText.implicitWidth
-                                    height: rollingCountText.implicitHeight
-                                    clip: true
-
-                                    Text {
-                                        id: rollingCountText
-                                        property int displayCount: 0
-                                        text: displayCount + "+"
-                                        font.pointSize: Qt.platform.os === "android" ? 16 : 13
-                                        font.bold: true
-                                        color: "cyan"
-
-                                        layer.enabled: true
-                                        layer.effect: DropShadow {
-                                            transparentBorder: true
-                                            radius: 6; samples: 13
-                                            color: "#8802c6db"
-                                        }
-                                    }
-
-                                    // Roll from 0 to real count on load
-                                    NumberAnimation {
-                                        id: countRollAnim
-                                        target: rollingCountText
-                                        property: "displayCount"
-                                        from: 0
-                                        to: attractionModel.count
-                                        duration: 1200
-                                        easing.type: Easing.OutCubic
-                                        running: false
-                                    }
-                                    Component.onCompleted: {
-                                        countRollTimer.start();
-                                    }
-                                    Timer {
-                                        id: countRollTimer
-                                        interval: 500
-                                        repeat: false
-                                        onTriggered: { countRollAnim.running = true; }
-                                    }
-                                }
-
                                 Text {
                                     anchors.horizontalCenter: parent.horizontalCenter
-                                    text: langSettings.lang === "sw" ? "Vivutio" : "Attractions"
+                                    text: attractionModel.count + "+"
+                                    font.pointSize: Qt.platform.os === "android" ? 16 : 13
+                                    font.bold: true
+                                    color: "cyan"
+                                }
+                                Text {
+                                    anchors.horizontalCenter: parent.horizontalCenter
+                                    text: langSettings.lang === "sw"
+                                          ? "Vivutio"
+                                          : "Attractions"
                                     font.pointSize: Qt.platform.os === "android" ? 10 : 8
                                     color: "#aaaaaa"
                                 }
@@ -2617,6 +2386,7 @@ Rectangle {
                                     color: "#aaaaaa"
                                 }
                             }
+
                         }
                     }
 
@@ -3234,24 +3004,16 @@ Rectangle {
                             anchors.rightMargin: 12
                             spacing: 10
 
-                            // Title row — neon sign effect
+                            // Title row
                             Row {
                                 spacing: 8
                                 anchors.horizontalCenter: parent.horizontalCenter
-
                                 Text {
                                     text: "🌟"
                                     font.pointSize: Qt.platform.os === "android" ? 16 : 13
                                     anchors.verticalCenter: parent.verticalCenter
-                                    SequentialAnimation on opacity {
-                                        loops: Animation.Infinite
-                                        NumberAnimation { to: 0.3; duration: 900; easing.type: Easing.InOutSine }
-                                        NumberAnimation { to: 1.0; duration: 900; easing.type: Easing.InOutSine }
-                                    }
                                 }
-
                                 Text {
-                                    id: aotdTitleText
                                     text: langSettings.lang === "sw"
                                           ? "Kivutio cha Leo"
                                           : "Attraction of the Day"
@@ -3259,44 +3021,11 @@ Rectangle {
                                     font.bold: true
                                     color: "cyan"
                                     anchors.verticalCenter: parent.verticalCenter
-
-                                    layer.enabled: true
-                                    layer.effect: DropShadow {
-                                        transparentBorder: true
-                                        horizontalOffset: 0; verticalOffset: 0
-                                        radius: aotdNeonGlow.glowRadius
-                                        samples: 33
-                                        color: "#dd02c6db"
-                                    }
-
-                                    // neon flicker: radius breathes
-                                    QtObject {
-                                        id: aotdNeonGlow
-                                        property real glowRadius: 6
-                                    }
-                                    SequentialAnimation {
-                                        loops: Animation.Infinite
-                                        running: true
-                                        NumberAnimation { target: aotdNeonGlow; property: "glowRadius"; to: 18; duration: 1100; easing.type: Easing.InOutSine }
-                                        NumberAnimation { target: aotdNeonGlow; property: "glowRadius"; to: 6;  duration: 800;  easing.type: Easing.InOutSine }
-                                        PauseAnimation { duration: 400 }
-                                        NumberAnimation { target: aotdNeonGlow; property: "glowRadius"; to: 3;  duration: 80 }
-                                        NumberAnimation { target: aotdNeonGlow; property: "glowRadius"; to: 14; duration: 80 }
-                                        NumberAnimation { target: aotdNeonGlow; property: "glowRadius"; to: 6;  duration: 80 }
-                                        PauseAnimation { duration: 1200 }
-                                    }
                                 }
-
                                 Text {
                                     text: "🌟"
                                     font.pointSize: Qt.platform.os === "android" ? 16 : 13
                                     anchors.verticalCenter: parent.verticalCenter
-                                    SequentialAnimation on opacity {
-                                        loops: Animation.Infinite
-                                        PauseAnimation { duration: 450 }
-                                        NumberAnimation { to: 0.3; duration: 900; easing.type: Easing.InOutSine }
-                                        NumberAnimation { to: 1.0; duration: 900; easing.type: Easing.InOutSine }
-                                    }
                                 }
                             }
 
@@ -4142,11 +3871,8 @@ Rectangle {
                     border.width: 1
 
                     property bool pressed: false
-                    property real bounce: 1.0
-                    scale: bounce
-                    Behavior on bounce {
-                        NumberAnimation { duration: 80; easing.type: Easing.OutQuad }
-                    }
+                    scale: pressed ? 0.93 : 1.0
+                    Behavior on scale { NumberAnimation { duration: 100 } }
 
                     Text {
                         anchors.centerIn: parent
@@ -4157,21 +3883,10 @@ Rectangle {
                     }
                     MouseArea {
                         anchors.fill: parent
-                        onPressed:  { prevBtn.bounce = 0.88; }
-                        onReleased: {
-                            prevBtn.bounce = 1.0;
-                            bounceOverPrev.start();
-                            navigatePrevious();
-                        }
-                        onCanceled: prevBtn.bounce = 1.0
-                        onClicked: {}
-                    }
-                    SequentialAnimation {
-                        id: bounceOverPrev
-                        running: false
-                        NumberAnimation { target: prevBtn; property: "bounce"; to: 1.12; duration: 120; easing.type: Easing.OutCubic }
-                        NumberAnimation { target: prevBtn; property: "bounce"; to: 0.96; duration: 80;  easing.type: Easing.InOutSine }
-                        NumberAnimation { target: prevBtn; property: "bounce"; to: 1.0;  duration: 80;  easing.type: Easing.OutSine }
+                        onPressed:  prevBtn.pressed = true
+                        onReleased: prevBtn.pressed = false
+                        onCanceled: prevBtn.pressed = false
+                        onClicked:  navigatePrevious()
                     }
                 }
 
@@ -4187,8 +3902,8 @@ Rectangle {
                     border.width: 1
 
                     property bool pressed: false
-                    property real bounce: 1.0
-                    scale: bounce
+                    scale: pressed ? 0.93 : 1.0
+                    Behavior on scale { NumberAnimation { duration: 100 } }
 
                     Text {
                         anchors.centerIn: parent
@@ -4199,21 +3914,13 @@ Rectangle {
                     }
                     MouseArea {
                         anchors.fill: parent
-                        onPressed:  { homeBtn.bounce = 0.88; }
-                        onReleased: {
-                            bounceOverHome.start();
+                        onPressed:  homeBtn.pressed = true
+                        onReleased: homeBtn.pressed = false
+                        onCanceled: homeBtn.pressed = false
+                        onClicked: {
                             viewComponentLoader.switchTo(languageSelectionComponent, app.width / 2, app.height / 2);
                             app.selectedLanguage = "";
                         }
-                        onCanceled: homeBtn.bounce = 1.0
-                        onClicked: {}
-                    }
-                    SequentialAnimation {
-                        id: bounceOverHome
-                        running: false
-                        NumberAnimation { target: homeBtn; property: "bounce"; to: 1.18; duration: 130; easing.type: Easing.OutCubic }
-                        NumberAnimation { target: homeBtn; property: "bounce"; to: 0.94; duration: 80;  easing.type: Easing.InOutSine }
-                        NumberAnimation { target: homeBtn; property: "bounce"; to: 1.0;  duration: 80;  easing.type: Easing.OutSine }
                     }
                 }
 
@@ -4231,8 +3938,8 @@ Rectangle {
                     border.width: 1
 
                     property bool pressed: false
-                    property real bounce: 1.0
-                    scale: bounce
+                    scale: pressed ? 0.93 : 1.0
+                    Behavior on scale { NumberAnimation { duration: 100 } }
 
                     Text {
                         anchors.centerIn: parent
@@ -4243,21 +3950,10 @@ Rectangle {
                     }
                     MouseArea {
                         anchors.fill: parent
-                        onPressed:  { nextBtn.bounce = 0.88; }
-                        onReleased: {
-                            nextBtn.bounce = 1.0;
-                            bounceOverNext.start();
-                            navigateNext();
-                        }
-                        onCanceled: nextBtn.bounce = 1.0
-                        onClicked: {}
-                    }
-                    SequentialAnimation {
-                        id: bounceOverNext
-                        running: false
-                        NumberAnimation { target: nextBtn; property: "bounce"; to: 1.12; duration: 120; easing.type: Easing.OutCubic }
-                        NumberAnimation { target: nextBtn; property: "bounce"; to: 0.96; duration: 80;  easing.type: Easing.InOutSine }
-                        NumberAnimation { target: nextBtn; property: "bounce"; to: 1.0;  duration: 80;  easing.type: Easing.OutSine }
+                        onPressed:  nextBtn.pressed = true
+                        onReleased: nextBtn.pressed = false
+                        onCanceled: nextBtn.pressed = false
+                        onClicked:  navigateNext()
                     }
                 }
             }
@@ -4764,32 +4460,24 @@ Rectangle {
                                 radius: 6
                                 color: "#1a2a2a"
                                 visible: cardImg.status !== Image.Ready
-                                clip: true
 
-                                // TZ flag shimmer: kijani → njano → nyeusi → njano → bluu
+                                // Shimmer sweep
                                 Rectangle {
                                     id: shimmer
                                     anchors.top: parent.top
                                     anchors.bottom: parent.bottom
-                                    width: parent.width * 0.55
+                                    width: parent.width * 0.35
                                     x: -width
-                                    rotation: 15
-                                    transformOrigin: Item.Center
                                     gradient: Gradient {
-                                        GradientStop { position: 0.00; color: "#001d6914" }
-                                        GradientStop { position: 0.10; color: "#551d6914" }
-                                        GradientStop { position: 0.25; color: "#77fcd116" }
-                                        GradientStop { position: 0.40; color: "#99fcd116" }
-                                        GradientStop { position: 0.50; color: "#bb111111" }
-                                        GradientStop { position: 0.60; color: "#99fcd116" }
-                                        GradientStop { position: 0.75; color: "#77fcd116" }
-                                        GradientStop { position: 0.90; color: "#551e5799" }
-                                        GradientStop { position: 1.00; color: "#001e5799" }
+                                        GradientStop { position: 0.0; color: "transparent" }
+                                        GradientStop { position: 0.5; color: "#18ffffff" }
+                                        GradientStop { position: 1.0; color: "transparent" }
                                     }
+
                                     NumberAnimation on x {
                                         from: -shimmer.width
-                                        to: skeleton.width + shimmer.width
-                                        duration: 1400
+                                        to: skeleton.width
+                                        duration: 1200
                                         loops: Animation.Infinite
                                         easing.type: Easing.InOutSine
                                         running: skeleton.visible
@@ -4801,6 +4489,7 @@ Rectangle {
                                     anchors.centerIn: parent
                                     spacing: 8
                                     opacity: 0.3
+
                                     Rectangle { width: 60; height: 60; radius: 30; color: "#44ffffff"; anchors.horizontalCenter: parent.horizontalCenter }
                                     Rectangle { width: 80; height: 8; radius: 4; color: "#44ffffff"; anchors.horizontalCenter: parent.horizontalCenter }
                                     Rectangle { width: 55; height: 6; radius: 3; color: "#44ffffff"; anchors.horizontalCenter: parent.horizontalCenter }
