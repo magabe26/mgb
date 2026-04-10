@@ -1923,7 +1923,7 @@ Rectangle {
                                     anchors.left: parent.left
                                     text: "🇹🇿 SW"
                                     font.bold: true
-                                    font.pixelSize: Qt.platform.os === "android" ? 24 : 11
+                                    font.pixelSize: Qt.platform.os === "android" ? 22 : 11
                                     horizontalAlignment: Text.AlignHCenter
                                     verticalAlignment: Text.AlignVCenter
                                     color: "white"
@@ -1939,7 +1939,7 @@ Rectangle {
                                     anchors.right: parent.right
                                     text: "🌍 EN"
                                     font.bold: true
-                                    font.pixelSize: Qt.platform.os === "android" ? 24 : 11
+                                    font.pixelSize: Qt.platform.os === "android" ? 22 : 11
                                     horizontalAlignment: Text.AlignHCenter
                                     verticalAlignment: Text.AlignVCenter
                                     color: "white"
@@ -1980,7 +1980,7 @@ Rectangle {
                                         anchors.centerIn: parent
                                         text: langToggleRoot.isSw ? "SW" : "EN"
                                         font.bold: true
-                                        font.pixelSize: Qt.platform.os === "android" ? 24 : 11
+                                        font.pixelSize: Qt.platform.os === "android" ? 22 : 11
                                         color: langToggleRoot.activeColor
                                         Behavior on color { ColorAnimation { duration: 300 } }
                                     }
