@@ -2030,7 +2030,7 @@ Rectangle {
                             anchors.left: parent.left
                             anchors.right: parent.right
                             anchors.bottomMargin: 0
-                            height: parent.height * 0.72
+                            height: heroTextArea.height
 
                             // ── 1. Big5 photo — kushoto ───────────────────────
                             Item {
@@ -2038,9 +2038,9 @@ Rectangle {
                                 anchors.left: parent.left
                                 anchors.leftMargin: 6
                                 anchors.bottom: parent.bottom
-                                anchors.bottomMargin: 6
+                                anchors.bottomMargin: 16
                                 width: parent.width * 0.24
-                                height: parent.height * 0.88
+                                height: parent.height
                                 opacity: 0
 
                                 NumberAnimation on opacity {
@@ -2048,29 +2048,13 @@ Rectangle {
                                     duration: 700; easing.type: Easing.OutQuad
                                 }
 
-                                // subtle glow behind photo
-                                Rectangle {
-                                    anchors.bottom: parent.bottom
-                                    anchors.horizontalCenter: parent.horizontalCenter
-                                    width: big5Photo.width + 10
-                                    height: big5Photo.height + 10
-                                    radius: 12
-                                    color: "transparent"
-                                    layer.enabled: true
-                                    layer.effect: DropShadow {
-                                        transparentBorder: true
-                                        radius: 20; samples: 41
-                                        color: "#7702c6db"
-                                    }
-                                }
-
                                 Image {
                                     id: big5Photo
                                     source: "./big5.jpg"
-                                    anchors.bottom: parent.bottom
                                     anchors.horizontalCenter: parent.horizontalCenter
+                                    anchors.verticalCenter: parent.verticalCenter
                                     width: parent.width * 0.98
-                                    height: parent.height * 0.92
+                                    height: parent.height * 0.8
                                     fillMode: Image.PreserveAspectFit
                                     smooth: true
 
@@ -2105,83 +2089,13 @@ Rectangle {
                                 }
                             }
 
-                            // ── Cyan growing frame — sibling of raisPhotoCol so it overflows freely ──
-                            Rectangle {
-                                id: cyanFrame
-                                x: big5PhotoCol.x - (Qt.platform.os === "android" ? 5 : 4)
-                                y: big5PhotoCol.y - (Qt.platform.os === "android" ? 5 : 4)
-                                width: 0; height: 0
-                                color: "transparent"
-                                radius: 10
-                                border.color: "#02c6db"
-                                border.width: Qt.platform.os === "android" ? 2 : 1.5
-                                opacity: 0
-
-                                property real targetW: big5PhotoCol.width  + (Qt.platform.os === "android" ? 10 : 8)
-                                property real targetH: big5PhotoCol.height + (Qt.platform.os === "android" ? 10 : 8)
-
-                                ParallelAnimation {
-                                    running: true
-                                    NumberAnimation {
-                                        target: cyanFrame; property: "width"
-                                        from: 0; to: cyanFrame.targetW
-                                        duration: 750; easing.type: Easing.OutCubic
-                                    }
-                                    NumberAnimation {
-                                        target: cyanFrame; property: "height"
-                                        from: 0; to: cyanFrame.targetH
-                                        duration: 750; easing.type: Easing.OutCubic
-                                    }
-                                    NumberAnimation {
-                                        target: cyanFrame; property: "opacity"
-                                        from: 0; to: 1; duration: 300; easing.type: Easing.OutQuad
-                                    }
-                                }
-
-                                SequentialAnimation on opacity {
-                                    id: cyanFramePulse
-                                    loops: Animation.Infinite
-                                    running: false
-                                    NumberAnimation { to: 0.35; duration: 1400; easing.type: Easing.InOutSine }
-                                    NumberAnimation { to: 1.0;  duration: 1400; easing.type: Easing.InOutSine }
-                                }
-
-                                Timer {
-                                    interval: 760; repeat: false; running: true
-                                    onTriggered: { cyanFramePulse.running = true; }
-                                }
-
-                                layer.enabled: true
-                                layer.effect: DropShadow {
-                                    transparentBorder: true
-                                    horizontalOffset: 0; verticalOffset: 0
-                                    radius: Qt.platform.os === "android" ? 14 : 10
-                                    samples: 29; color: "#aa02c6db"
-                                }
-
-                                // Corner accent dots
-                                Repeater {
-                                    model: 4
-                                    delegate: Rectangle {
-                                        property bool isRight:  index === 1 || index === 3
-                                        property bool isBottom: index === 2 || index === 3
-                                        width: Qt.platform.os === "android" ? 5 : 4
-                                        height: width; radius: width / 2
-                                        color: "#02c6db"
-                                        opacity: cyanFrame.opacity
-                                        x: isRight  ? cyanFrame.width  - width  / 2 : -width  / 2
-                                        y: isBottom ? cyanFrame.height - height / 2 : -height / 2
-                                    }
-                                }
-                            }
-
                             // ── 3. Signal stream connector ────────────────────
                             Item {
                                 id: arrowItem
                                 anchors.left: big5PhotoCol.right
                                 anchors.verticalCenter: parent.verticalCenter
                                 width: Qt.platform.os === "android" ? 22 : 16
-                                height: parent.height * 0.55
+                                height:  parent.height * 0.8
                                 opacity: 0
 
                                 NumberAnimation on opacity {
