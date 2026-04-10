@@ -2041,7 +2041,7 @@ Rectangle {
                                 anchors.bottom: parent.bottom
                                 anchors.bottomMargin: 16
                                 width: parent.width * 0.28
-                                height: parent.height
+                                height: parent.height * 1.7
                                 opacity: 0
 
                                 NumberAnimation on opacity {
@@ -2072,7 +2072,7 @@ Rectangle {
                                     anchors.horizontalCenter: parent.horizontalCenter
                                     anchors.verticalCenter: parent.verticalCenter
                                     width: parent.width * 0.92
-                                    height: parent.height * 0.78
+                                    height: parent.height * 0.88
                                     fillMode: Image.PreserveAspectFit
                                     smooth: true
                                     layer.enabled: true
