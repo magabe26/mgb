@@ -2098,7 +2098,7 @@ Rectangle {
                                         id: big5NameText
                                         anchors.centerIn: parent
                                         text: langSettings.lang === "sw" ? "Wakubwa Watano" : "Big Five"
-                                        font.pixelSize: Qt.platform.os === "android" ? 11 : 8
+                                        font.pixelSize: Qt.platform.os === "android" ? 14 : 12
                                         font.bold: true
                                         color: "#02c6db"
                                     }
@@ -2248,8 +2248,8 @@ Rectangle {
                                 anchors.leftMargin: 4
                                 anchors.right: parent.right
                                 anchors.rightMargin: 10
-                                anchors.top: parent.top
-                                anchors.topMargin: big5PhotoCol.height * 0.16
+                                anchors.bottom: parent.bottom
+                                anchors.bottomMargin: 16
                                 height: heroTextCol.implicitHeight + 4
                                 opacity: 0
 
@@ -2401,7 +2401,7 @@ Rectangle {
                                             Text {
                                                 id: eyebrowBadge
                                                 text: langSettings.lang === "sw" ? "KARIBU TANZANIA" : "DISCOVER TANZANIA"
-                                                font.pixelSize: Qt.platform.os === "android" ? 11 : 8
+                                                font.pixelSize: Qt.platform.os === "android" ? 18 : 16
                                                 font.bold: true; font.letterSpacing: 2.0
                                                 color: "#02c6db"
                                                 anchors.verticalCenter: parent.verticalCenter
@@ -2417,7 +2417,7 @@ Rectangle {
                                         text: langSettings.lang === "sw"
                                               ? "Nchi yenye vivutio visivyo na mfano"
                                               : "A land of unmatched wonders"
-                                        font.pixelSize: Qt.platform.os === "android" ? 14 : 10
+                                        font.pixelSize: Qt.platform.os === "android" ? 16 : 12
                                         color: "#8802c6db"
                                         font.italic: true
                                         wrapMode: Text.WordWrap
@@ -2434,7 +2434,7 @@ Rectangle {
                                             id: heroTitle
                                             width: parent.width; x: -20; opacity: 0
                                             text: langSettings.lang === "sw" ? "Utalii wa Tanzania" : "Tanzania Tourism"
-                                            font.pixelSize: Qt.platform.os === "android" ? 28 : 20
+                                            font.pixelSize: Qt.platform.os === "android" ? 30 : 22
                                             font.bold: true; font.letterSpacing: -0.5
                                             color: "white"; wrapMode: Text.WordWrap
                                             layer.enabled: true
@@ -2464,7 +2464,7 @@ Rectangle {
                                         text: langSettings.lang === "sw"
                                               ? "Mbuga · Fukwe · Milima · Utamaduni"
                                               : "Wildlife · Beaches · Mountains · Culture"
-                                        font.pixelSize: Qt.platform.os === "android" ? 12 : 9
+                                        font.pixelSize: Qt.platform.os === "android" ? 15 : 12
                                         color: "#ccdff8f8"; wrapMode: Text.WordWrap; font.letterSpacing: 0.4
                                         NumberAnimation on opacity {
                                             id: subtitleFadeAnim; running: false
