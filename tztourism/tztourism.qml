@@ -2036,7 +2036,6 @@ Rectangle {
                             Item {
                                 id: big5PhotoCol
                                 anchors.left: parent.left
-                                anchors.leftMargin: 6
                                 anchors.bottom: parent.bottom
                                 anchors.bottomMargin: 16
                                 width: parent.width * 0.24
@@ -2331,7 +2330,7 @@ Rectangle {
                                         text: langSettings.lang === "sw"
                                               ? "Nchi yenye vivutio visivyo na mfano"
                                               : "A land of unmatched wonders"
-                                        font.pixelSize: Qt.platform.os === "android" ? 16 : 12
+                                        font.pixelSize: Qt.platform.os === "android" ? 18 : 14
                                         color: "#8802c6db"
                                         font.italic: true
                                         wrapMode: Text.WordWrap
@@ -2378,7 +2377,7 @@ Rectangle {
                                         text: langSettings.lang === "sw"
                                               ? "Mbuga · Fukwe · Milima · Utamaduni"
                                               : "Wildlife · Beaches · Mountains · Culture"
-                                        font.pixelSize: Qt.platform.os === "android" ? 15 : 12
+                                        font.pixelSize: Qt.platform.os === "android" ? 16 : 14
                                         color: "#ccdff8f8"; wrapMode: Text.WordWrap; font.letterSpacing: 0.4
                                         NumberAnimation on opacity {
                                             id: subtitleFadeAnim; running: false
