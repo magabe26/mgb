@@ -2029,7 +2029,9 @@ Rectangle {
                             anchors.bottom: parent.bottom
                             anchors.left: parent.left
                             anchors.right: parent.right
-                            anchors.bottomMargin: 0
+                            anchors.bottomMargin: Qt.platform.os === "android" ? 14 : 10
+                            anchors.leftMargin: Qt.platform.os === "android" ? 10 : 8
+                            anchors.rightMargin: Qt.platform.os === "android" ? 10 : 8
                             height: heroTextArea.height
 
                             // ── 1. Big5 photo — kushoto ───────────────────────
@@ -2038,7 +2040,7 @@ Rectangle {
                                 anchors.left: parent.left
                                 anchors.bottom: parent.bottom
                                 anchors.bottomMargin: 16
-                                width: parent.width * 0.24
+                                width: parent.width * 0.28
                                 height: parent.height
                                 opacity: 0
 
@@ -2047,15 +2049,38 @@ Rectangle {
                                     duration: 700; easing.type: Easing.OutQuad
                                 }
 
+                                // Glowing frame behind the photo
+                                Rectangle {
+                                    anchors.centerIn: big5Photo
+                                    width: big5Photo.width + (Qt.platform.os === "android" ? 6 : 4)
+                                    height: big5Photo.height + (Qt.platform.os === "android" ? 6 : 4)
+                                    radius: Qt.platform.os === "android" ? 12 : 9
+                                    color: "transparent"
+                                    border.color: "#ff02c6db"
+                                    border.width: Qt.platform.os === "android" ? 2 : 1.5
+                                    layer.enabled: true
+                                    layer.effect: DropShadow {
+                                        transparentBorder: true
+                                        horizontalOffset: 0; verticalOffset: 0
+                                        radius: 14; samples: 29; color: "#cc02c6db"
+                                    }
+                                }
+
                                 Image {
                                     id: big5Photo
                                     source: "./big5.jpg"
                                     anchors.horizontalCenter: parent.horizontalCenter
                                     anchors.verticalCenter: parent.verticalCenter
-                                    width: parent.width * 0.98
-                                    height: parent.height * 0.8
+                                    width: parent.width * 0.92
+                                    height: parent.height * 0.78
                                     fillMode: Image.PreserveAspectFit
                                     smooth: true
+                                    layer.enabled: true
+                                    layer.effect: DropShadow {
+                                        transparentBorder: true
+                                        horizontalOffset: 2; verticalOffset: 4
+                                        radius: 10; samples: 21; color: "#88000000"
+                                    }
 
                                     property real yOff: 20
                                     anchors.bottomMargin: -yOff
@@ -2070,19 +2095,26 @@ Rectangle {
                                     anchors.bottom: parent.bottom
                                     anchors.bottomMargin: 4
                                     anchors.horizontalCenter: parent.horizontalCenter
-                                    width: big5NameText.implicitWidth + 14
-                                    height: big5NameText.implicitHeight + 6
-                                    radius: 6
-                                    color: "#cc001413"
-                                    border.color: "#661fb8ba"
+                                    width: big5NameText.implicitWidth + (Qt.platform.os === "android" ? 20 : 16)
+                                    height: big5NameText.implicitHeight + (Qt.platform.os === "android" ? 9 : 7)
+                                    radius: height / 2
+                                    color: "#dd001413"
+                                    border.color: "#aa02c6db"
                                     border.width: 1
+                                    layer.enabled: true
+                                    layer.effect: DropShadow {
+                                        transparentBorder: true
+                                        horizontalOffset: 0; verticalOffset: 2
+                                        radius: 8; samples: 17; color: "#99000000"
+                                    }
 
                                     Text {
                                         id: big5NameText
                                         anchors.centerIn: parent
                                         text: langSettings.lang === "sw" ? "Wakubwa Watano" : "Big Five"
-                                        font.pixelSize: Qt.platform.os === "android" ? 14 : 12
+                                        font.pixelSize: Qt.platform.os === "android" ? 13 : 11
                                         font.bold: true
+                                        font.letterSpacing: 0.5
                                         color: "#02c6db"
                                     }
                                 }
@@ -2198,14 +2230,30 @@ Rectangle {
                                     anchors.topMargin: -14
                                     anchors.bottomMargin: -10
                                     radius: 18
-                                    color: "#99001e1c"
-                                    border.color: "#661fb8ba"
+                                    color: "#bb001e1c"
+                                    border.color: "#441fb8ba"
                                     border.width: 1
                                     layer.enabled: true
                                     layer.effect: DropShadow {
                                         transparentBorder: true
                                         horizontalOffset: 0; verticalOffset: 4
-                                        radius: 20; samples: 41; color: "#aa000e0d"
+                                        radius: 24; samples: 49; color: "#cc000e0d"
+                                    }
+                                }
+
+                                // Top shimmer edge on backdrop
+                                Rectangle {
+                                    anchors.left: heroBackdrop.left
+                                    anchors.right: heroBackdrop.right
+                                    anchors.top: heroBackdrop.top
+                                    height: 1
+                                    radius: 1
+                                    opacity: 0.35
+                                    gradient: Gradient {
+                                        GradientStop { position: 0.0; color: "transparent" }
+                                        GradientStop { position: 0.35; color: "#02c6db" }
+                                        GradientStop { position: 0.65; color: "#1fb8ba" }
+                                        GradientStop { position: 1.0; color: "transparent" }
                                     }
                                 }
 
@@ -2217,18 +2265,19 @@ Rectangle {
                                     anchors.topMargin: -14
                                     anchors.bottom: parent.bottom
                                     anchors.bottomMargin: -10
-                                    width: 4; radius: 2
+                                    width: Qt.platform.os === "android" ? 5 : 4; radius: 3
                                     gradient: Gradient {
                                         GradientStop { position: 0.0; color: "#001fb8ba" }
-                                        GradientStop { position: 0.3; color: "#ff02c6db" }
-                                        GradientStop { position: 0.7; color: "#ff1fb8ba" }
+                                        GradientStop { position: 0.2; color: "#cc02c6db" }
+                                        GradientStop { position: 0.55; color: "#ff02c6db" }
+                                        GradientStop { position: 0.8; color: "#cc1fb8ba" }
                                         GradientStop { position: 1.0; color: "#001fb8ba" }
                                     }
                                     layer.enabled: true
                                     layer.effect: DropShadow {
                                         transparentBorder: true
-                                        horizontalOffset: 3; verticalOffset: 0
-                                        radius: 8; samples: 17; color: "#cc02c6db"
+                                        horizontalOffset: 4; verticalOffset: 0
+                                        radius: 10; samples: 21; color: "#dd02c6db"
                                     }
                                 }
 
@@ -2331,10 +2380,16 @@ Rectangle {
                                               ? "Nchi yenye vivutio visivyo na mfano"
                                               : "A land of unmatched wonders"
                                         font.pixelSize: Qt.platform.os === "android" ? 18 : 14
-                                        color: "#8802c6db"
+                                        color: "#cc44e8f5"
                                         font.italic: true
                                         wrapMode: Text.WordWrap
-                                        font.letterSpacing: 0.3
+                                        font.letterSpacing: 0.4
+                                        layer.enabled: true
+                                        layer.effect: DropShadow {
+                                            transparentBorder: true
+                                            horizontalOffset: 0; verticalOffset: 1
+                                            radius: 5; samples: 11; color: "#8802c6db"
+                                        }
                                     }
 
                                     // Main title
@@ -2347,14 +2402,14 @@ Rectangle {
                                             id: heroTitle
                                             width: parent.width; x: -20; opacity: 0
                                             text: langSettings.lang === "sw" ? "Utalii wa Tanzania" : "Tanzania Tourism"
-                                            font.pixelSize: Qt.platform.os === "android" ? 30 : 22
-                                            font.bold: true; font.letterSpacing: -0.5
-                                            color: "white"; wrapMode: Text.WordWrap
+                                            font.pixelSize: Qt.platform.os === "android" ? 32 : 23
+                                            font.bold: true; font.letterSpacing: -0.3
+                                            color: "#f0ffffff"; wrapMode: Text.WordWrap
                                             layer.enabled: true
                                             layer.effect: DropShadow {
                                                 transparentBorder: true
                                                 horizontalOffset: 0; verticalOffset: 2
-                                                radius: 12; samples: 25; color: "#cc000e0d"
+                                                radius: 16; samples: 33; color: "#dd02c6db"
                                             }
                                             ParallelAnimation {
                                                 id: titleSlideAnim; running: false
@@ -2377,8 +2432,14 @@ Rectangle {
                                         text: langSettings.lang === "sw"
                                               ? "Mbuga · Fukwe · Milima · Utamaduni"
                                               : "Wildlife · Beaches · Mountains · Culture"
-                                        font.pixelSize: Qt.platform.os === "android" ? 16 : 14
-                                        color: "#ccdff8f8"; wrapMode: Text.WordWrap; font.letterSpacing: 0.4
+                                        font.pixelSize: Qt.platform.os === "android" ? 17 : 14
+                                        color: "#e602c6db"; wrapMode: Text.WordWrap; font.letterSpacing: 0.8
+                                        layer.enabled: true
+                                        layer.effect: DropShadow {
+                                            transparentBorder: true
+                                            horizontalOffset: 0; verticalOffset: 1
+                                            radius: 6; samples: 13; color: "#99000000"
+                                        }
                                         NumberAnimation on opacity {
                                             id: subtitleFadeAnim; running: false
                                             from: 0; to: 1; duration: 500; easing.type: Easing.OutQuad
@@ -2393,17 +2454,18 @@ Rectangle {
                                     // Accent bar
                                     Item {
                                         width: parent.width
-                                        height: Qt.platform.os === "android" ? 4 : 3
+                                        height: Qt.platform.os === "android" ? 5 : 4
 
                                         Rectangle {
                                             id: accentBar; height: parent.height; radius: height / 2; width: 0
                                             gradient: Gradient {
                                                 GradientStop { position: 0.0; color: "#1fb8ba" }
-                                                GradientStop { position: 0.6; color: "#02c6db" }
-                                                GradientStop { position: 1.0; color: "#44c6f5" }
+                                                GradientStop { position: 0.4; color: "#02c6db" }
+                                                GradientStop { position: 0.75; color: "#44d9f5" }
+                                                GradientStop { position: 1.0; color: "#8802c6db" }
                                             }
                                             layer.enabled: true
-                                            layer.effect: DropShadow { transparentBorder: true; radius: 7; samples: 15; color: "#bb02c6db" }
+                                            layer.effect: DropShadow { transparentBorder: true; radius: 9; samples: 19; color: "#cc02c6db" }
                                         }
                                         NumberAnimation on width {
                                             id: accentBarAnim; running: false
