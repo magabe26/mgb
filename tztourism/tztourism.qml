@@ -1980,7 +1980,7 @@ Rectangle {
                                         anchors.centerIn: parent
                                         text: langToggleRoot.isSw ? "SW" : "EN"
                                         font.bold: true
-                                        font.pixelSize: Qt.platform.os === "android" ? 12 : 10
+                                        font.pixelSize: Qt.platform.os === "android" ? 24 : 10
                                         color: langToggleRoot.activeColor
                                         Behavior on color { ColorAnimation { duration: 300 } }
                                     }
