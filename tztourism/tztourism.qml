@@ -2023,452 +2023,494 @@ Rectangle {
                             }
                         }
 
-                        // Hero text
+                        // ══ HERO BOTTOM ROW: Big 5| HeroText ════════
                         Item {
-                            id: heroTextArea
-
-                            // ── entrance state: shifted down + invisible ──────
-                            property real entranceOffset: 40
-
+                            id: heroBottomRow
                             anchors.bottom: parent.bottom
-                            anchors.bottomMargin: (Qt.platform.os === "android" ? 20 : 16)
-                                                  + heroTextArea.entranceOffset
                             anchors.left: parent.left
-                            anchors.leftMargin: 16
                             anchors.right: parent.right
-                            anchors.rightMargin: 16
-                            height: heroTextCol.implicitHeight + 4
-                            opacity: 0
+                            anchors.bottomMargin: 0
+                            height: parent.height * 0.72
 
-                            // ── 1. ENTRANCE: slide up + fade in ──────────────
-                            ParallelAnimation {
-                                id: heroEntranceAnim
-                                running: false
+                            // ── 1. Big5 photo — kushoto ───────────────────────
+                            Item {
+                                id: big5PhotoCol
+                                anchors.left: parent.left
+                                anchors.leftMargin: 6
+                                anchors.bottom: parent.bottom
+                                anchors.bottomMargin: 6
+                                width: parent.width * 0.24
+                                height: parent.height * 0.88
+                                opacity: 0
 
-                                NumberAnimation {
-                                    target: heroTextArea
-                                    property: "entranceOffset"
-                                    from: 40; to: 0
-                                    duration: 680
-                                    easing.type: Easing.OutCubic
+                                NumberAnimation on opacity {
+                                    running: true; from: 0; to: 1
+                                    duration: 700; easing.type: Easing.OutQuad
                                 }
-                                NumberAnimation {
-                                    target: heroTextArea
-                                    property: "opacity"
-                                    from: 0; to: 1
-                                    duration: 600
-                                    easing.type: Easing.OutQuad
+
+                                // subtle glow behind photo
+                                Rectangle {
+                                    anchors.bottom: parent.bottom
+                                    anchors.horizontalCenter: parent.horizontalCenter
+                                    width: big5Photo.width + 10
+                                    height: big5Photo.height + 10
+                                    radius: 12
+                                    color: "transparent"
+                                    layer.enabled: true
+                                    layer.effect: DropShadow {
+                                        transparentBorder: true
+                                        radius: 20; samples: 41
+                                        color: "#7702c6db"
+                                    }
+                                }
+
+                                Image {
+                                    id: big5Photo
+                                    source: "./big5.jpg"
+                                    anchors.bottom: parent.bottom
+                                    anchors.horizontalCenter: parent.horizontalCenter
+                                    width: parent.width * 0.98
+                                    height: parent.height * 0.92
+                                    fillMode: Image.PreserveAspectFit
+                                    smooth: true
+
+                                    property real yOff: 20
+                                    anchors.bottomMargin: -yOff
+                                    NumberAnimation on yOff {
+                                        running: true; from: 20; to: 0
+                                        duration: 750; easing.type: Easing.OutCubic
+                                    }
+                                }
+
+                                // name badge
+                                Rectangle {
+                                    anchors.bottom: parent.bottom
+                                    anchors.bottomMargin: 4
+                                    anchors.horizontalCenter: parent.horizontalCenter
+                                    width: big5NameText.implicitWidth + 14
+                                    height: big5NameText.implicitHeight + 6
+                                    radius: 6
+                                    color: "#cc001413"
+                                    border.color: "#661fb8ba"
+                                    border.width: 1
+
+                                    Text {
+                                        id: big5NameText
+                                        anchors.centerIn: parent
+                                        text: langSettings.lang === "sw" ? "Wakubwa Watano" : "Big Five"
+                                        font.pixelSize: Qt.platform.os === "android" ? 11 : 8
+                                        font.bold: true
+                                        color: "#02c6db"
+                                    }
                                 }
                             }
 
-                            Component.onCompleted: {
-                                heroEntranceAnim.running = true;
-                            }
-
-                            // ── Frosted-glass backdrop ────────────────────────
+                            // ── Cyan growing frame — sibling of raisPhotoCol so it overflows freely ──
                             Rectangle {
-                                id: heroBackdrop
-                                anchors.fill: parent
-                                anchors.leftMargin: -12
-                                anchors.rightMargin: -12
-                                anchors.topMargin: -14
-                                anchors.bottomMargin: -10
-                                radius: 16
-                                color: "#6600100f"
-                                border.color: "#551fb8ba"
-                                border.width: 1
-                                clip: true
+                                id: cyanFrame
+                                x: big5PhotoCol.x - (Qt.platform.os === "android" ? 5 : 4)
+                                y: big5PhotoCol.y - (Qt.platform.os === "android" ? 5 : 4)
+                                width: 0; height: 0
+                                color: "transparent"
+                                radius: 10
+                                border.color: "#02c6db"
+                                border.width: Qt.platform.os === "android" ? 2 : 1.5
+                                opacity: 0
+
+                                property real targetW: big5PhotoCol.width  + (Qt.platform.os === "android" ? 10 : 8)
+                                property real targetH: big5PhotoCol.height + (Qt.platform.os === "android" ? 10 : 8)
+
+                                ParallelAnimation {
+                                    running: true
+                                    NumberAnimation {
+                                        target: cyanFrame; property: "width"
+                                        from: 0; to: cyanFrame.targetW
+                                        duration: 750; easing.type: Easing.OutCubic
+                                    }
+                                    NumberAnimation {
+                                        target: cyanFrame; property: "height"
+                                        from: 0; to: cyanFrame.targetH
+                                        duration: 750; easing.type: Easing.OutCubic
+                                    }
+                                    NumberAnimation {
+                                        target: cyanFrame; property: "opacity"
+                                        from: 0; to: 1; duration: 300; easing.type: Easing.OutQuad
+                                    }
+                                }
+
+                                SequentialAnimation on opacity {
+                                    id: cyanFramePulse
+                                    loops: Animation.Infinite
+                                    running: false
+                                    NumberAnimation { to: 0.35; duration: 1400; easing.type: Easing.InOutSine }
+                                    NumberAnimation { to: 1.0;  duration: 1400; easing.type: Easing.InOutSine }
+                                }
+
+                                Timer {
+                                    interval: 760; repeat: false; running: true
+                                    onTriggered: { cyanFramePulse.running = true; }
+                                }
 
                                 layer.enabled: true
                                 layer.effect: DropShadow {
                                     transparentBorder: true
-                                    horizontalOffset: 0
-                                    verticalOffset: 3
-                                    radius: 20
-                                    samples: 41
-                                    color: "#88001413"
+                                    horizontalOffset: 0; verticalOffset: 0
+                                    radius: Qt.platform.os === "android" ? 14 : 10
+                                    samples: 29; color: "#aa02c6db"
                                 }
 
-                            }
-
-                            // ── Cyan left-edge accent stripe ──────────────────
-                            Rectangle {
-                                id: heroStripe
-                                anchors.left: parent.left
-                                anchors.leftMargin: -12
-                                anchors.top: parent.top
-                                anchors.topMargin: -14
-                                anchors.bottom: parent.bottom
-                                anchors.bottomMargin: -10
-                                width: 3
-                                radius: 2
-                                color: "#1fb8ba"
-
-                                layer.enabled: true
-                                layer.effect: DropShadow {
-                                    id: heroStripeGlow
-                                    transparentBorder: true
-                                    horizontalOffset: 2
-                                    verticalOffset: 0
-                                    radius: 8
-                                    samples: 17
-                                    color: "#bb02c6db"
+                                // Corner accent dots
+                                Repeater {
+                                    model: 4
+                                    delegate: Rectangle {
+                                        property bool isRight:  index === 1 || index === 3
+                                        property bool isBottom: index === 2 || index === 3
+                                        width: Qt.platform.os === "android" ? 5 : 4
+                                        height: width; radius: width / 2
+                                        color: "#02c6db"
+                                        opacity: cyanFrame.opacity
+                                        x: isRight  ? cyanFrame.width  - width  / 2 : -width  / 2
+                                        y: isBottom ? cyanFrame.height - height / 2 : -height / 2
+                                    }
                                 }
                             }
 
-                            Column {
-                                id: heroTextCol
-                                anchors.left: parent.left
-                                anchors.right: parent.right
-                                anchors.bottom: parent.bottom
-                                spacing: Qt.platform.os === "android" ? 6 : 5
+                            // ── 3. Signal stream connector ────────────────────
+                            Item {
+                                id: arrowItem
+                                anchors.left: big5PhotoCol.right
+                                anchors.verticalCenter: parent.verticalCenter
+                                width: Qt.platform.os === "android" ? 22 : 16
+                                height: parent.height * 0.55
+                                opacity: 0
 
-                                // Eyebrow label
-                                Row {
-                                    spacing: 6
-                                    anchors.left: parent.left
-                                    opacity: 0
+                                NumberAnimation on opacity {
+                                    running: true; from: 0; to: 1
+                                    duration: 500; easing.type: Easing.OutQuad
+                                }
 
-                                    // ── 5. EYEBROW staggered fade-in ─────────
-                                    NumberAnimation on opacity {
-                                        id: eyebrowFadeAnim
-                                        running: false
-                                        from: 0; to: 1
-                                        duration: 450
-                                        easing.type: Easing.OutQuad
-                                    }
-                                    Component.onCompleted: {
-                                        eyebrowDelayTimer.start();
-                                    }
-                                    Timer {
-                                        id: eyebrowDelayTimer
-                                        interval: 300
-                                        repeat: false
-                                        onTriggered: { eyebrowFadeAnim.running = true; }
-                                    }
+                                // 5 traveling dash particles staggered vertically
+                                Repeater {
+                                    model: 5
+                                    delegate: Item {
+                                        id: dashDelegate
+                                        property int idx: index
+                                        property real sz: Qt.platform.os === "android" ? 3 : 2
+                                        property real dashH: Qt.platform.os === "android" ? 10 : 7
+                                        property real travelW: arrowItem.width - sz
 
-                                    // ── Sunray dot — miale 8 ─────────────────
-                                    Item {
-                                        id: sunrayDot
-                                        width: Qt.platform.os === "android" ? 28 : 20
-                                        height: Qt.platform.os === "android" ? 28 : 20
-                                        anchors.verticalCenter: parent.verticalCenter
+                                        // each particle starts at a different vertical slice
+                                        x: 0
+                                        y: arrowItem.height * (index / 5.0)
+                                        width: arrowItem.width
+                                        height: arrowItem.height / 5.0
 
-                                        // Ray 1
+                                        // Dash rectangle
                                         Rectangle {
-                                            anchors.centerIn: parent
-                                            width: Qt.platform.os === "android" ? 2 : 1.5
-                                            height: Qt.platform.os === "android" ? 7 : 5
-                                            radius: 1
+                                            id: dashRect
+                                            y: (parent.height - dashDelegate.dashH) / 2
+                                            width: dashDelegate.sz
+                                            height: dashDelegate.dashH
+                                            radius: dashDelegate.sz / 2
                                             color: "#02c6db"
-                                            opacity: 0.85
-                                            transformOrigin: Item.Bottom
-                                            rotation: 0
-                                            y: parent.height / 2 - height
-                                            x: parent.width / 2 - width / 2
-                                            SequentialAnimation on opacity {
-                                                loops: Animation.Infinite; running: true
-                                                PauseAnimation { duration: 0 }
-                                                NumberAnimation { to: 0.2; duration: 700; easing.type: Easing.InOutSine }
-                                                NumberAnimation { to: 0.85; duration: 700; easing.type: Easing.InOutSine }
-                                            }
-                                        }
-                                        // Ray 2
-                                        Rectangle {
-                                            anchors.centerIn: parent
-                                            width: Qt.platform.os === "android" ? 2 : 1.5
-                                            height: Qt.platform.os === "android" ? 7 : 5
-                                            radius: 1
-                                            color: "#02c6db"
-                                            opacity: 0.85
-                                            transformOrigin: Item.Center
-                                            rotation: 45
-                                            SequentialAnimation on opacity {
-                                                loops: Animation.Infinite; running: true
-                                                PauseAnimation { duration: 175 }
-                                                NumberAnimation { to: 0.2; duration: 700; easing.type: Easing.InOutSine }
-                                                NumberAnimation { to: 0.85; duration: 700; easing.type: Easing.InOutSine }
-                                            }
-                                        }
-                                        // Ray 3
-                                        Rectangle {
-                                            anchors.centerIn: parent
-                                            width: Qt.platform.os === "android" ? 7 : 5
-                                            height: Qt.platform.os === "android" ? 2 : 1.5
-                                            radius: 1
-                                            color: "#02c6db"
-                                            opacity: 0.85
-                                            SequentialAnimation on opacity {
-                                                loops: Animation.Infinite; running: true
-                                                PauseAnimation { duration: 350 }
-                                                NumberAnimation { to: 0.2; duration: 700; easing.type: Easing.InOutSine }
-                                                NumberAnimation { to: 0.85; duration: 700; easing.type: Easing.InOutSine }
-                                            }
-                                        }
-                                        // Ray 4
-                                        Rectangle {
-                                            anchors.centerIn: parent
-                                            width: Qt.platform.os === "android" ? 2 : 1.5
-                                            height: Qt.platform.os === "android" ? 7 : 5
-                                            radius: 1
-                                            color: "#02c6db"
-                                            opacity: 0.85
-                                            transformOrigin: Item.Center
-                                            rotation: 135
-                                            SequentialAnimation on opacity {
-                                                loops: Animation.Infinite; running: true
-                                                PauseAnimation { duration: 525 }
-                                                NumberAnimation { to: 0.2; duration: 700; easing.type: Easing.InOutSine }
-                                                NumberAnimation { to: 0.85; duration: 700; easing.type: Easing.InOutSine }
-                                            }
-                                        }
-                                        // Ray 5 (diagonal top-right)
-                                        Rectangle {
-                                            anchors.centerIn: parent
-                                            width: Qt.platform.os === "android" ? 2 : 1.5
-                                            height: Qt.platform.os === "android" ? 6 : 4.5
-                                            radius: 1
-                                            color: "#1fb8ba"
-                                            opacity: 0.6
-                                            transformOrigin: Item.Center
-                                            rotation: 22
-                                            SequentialAnimation on opacity {
-                                                loops: Animation.Infinite; running: true
-                                                PauseAnimation { duration: 88 }
-                                                NumberAnimation { to: 0.1; duration: 700; easing.type: Easing.InOutSine }
-                                                NumberAnimation { to: 0.6; duration: 700; easing.type: Easing.InOutSine }
-                                            }
-                                        }
-                                        // Ray 6
-                                        Rectangle {
-                                            anchors.centerIn: parent
-                                            width: Qt.platform.os === "android" ? 2 : 1.5
-                                            height: Qt.platform.os === "android" ? 6 : 4.5
-                                            radius: 1
-                                            color: "#1fb8ba"
-                                            opacity: 0.6
-                                            transformOrigin: Item.Center
-                                            rotation: 67
-                                            SequentialAnimation on opacity {
-                                                loops: Animation.Infinite; running: true
-                                                PauseAnimation { duration: 263 }
-                                                NumberAnimation { to: 0.1; duration: 700; easing.type: Easing.InOutSine }
-                                                NumberAnimation { to: 0.6; duration: 700; easing.type: Easing.InOutSine }
-                                            }
-                                        }
-                                        // Ray 7
-                                        Rectangle {
-                                            anchors.centerIn: parent
-                                            width: Qt.platform.os === "android" ? 2 : 1.5
-                                            height: Qt.platform.os === "android" ? 6 : 4.5
-                                            radius: 1
-                                            color: "#1fb8ba"
-                                            opacity: 0.6
-                                            transformOrigin: Item.Center
-                                            rotation: 112
-                                            SequentialAnimation on opacity {
-                                                loops: Animation.Infinite; running: true
-                                                PauseAnimation { duration: 438 }
-                                                NumberAnimation { to: 0.1; duration: 700; easing.type: Easing.InOutSine }
-                                                NumberAnimation { to: 0.6; duration: 700; easing.type: Easing.InOutSine }
-                                            }
-                                        }
-                                        // Ray 8
-                                        Rectangle {
-                                            anchors.centerIn: parent
-                                            width: Qt.platform.os === "android" ? 2 : 1.5
-                                            height: Qt.platform.os === "android" ? 6 : 4.5
-                                            radius: 1
-                                            color: "#1fb8ba"
-                                            opacity: 0.6
-                                            transformOrigin: Item.Center
-                                            rotation: 157
-                                            SequentialAnimation on opacity {
-                                                loops: Animation.Infinite; running: true
-                                                PauseAnimation { duration: 613 }
-                                                NumberAnimation { to: 0.1; duration: 700; easing.type: Easing.InOutSine }
-                                                NumberAnimation { to: 0.6; duration: 700; easing.type: Easing.InOutSine }
-                                            }
-                                        }
-
-                                        // Solid core
-                                        Rectangle {
-                                            anchors.centerIn: parent
-                                            width: Qt.platform.os === "android" ? 7 : 5
-                                            height: Qt.platform.os === "android" ? 7 : 5
-                                            radius: width / 2
-                                            color: "#02c6db"
+                                            opacity: 0
                                             layer.enabled: true
                                             layer.effect: DropShadow {
                                                 transparentBorder: true
-                                                radius: 6; samples: 13
-                                                color: "#dd02c6db"
+                                                horizontalOffset: 0; verticalOffset: 0
+                                                radius: 8; samples: 17; color: "#cc02c6db"
                                             }
-                                            SequentialAnimation on scale {
-                                                loops: Animation.Infinite; running: true
-                                                NumberAnimation { to: 1.3; duration: 700; easing.type: Easing.InOutSine }
-                                                NumberAnimation { to: 1.0; duration: 700; easing.type: Easing.InOutSine }
+
+                                            SequentialAnimation on x {
+                                                loops: Animation.Infinite
+                                                running: true
+                                                PauseAnimation { duration: dashDelegate.idx * 260 }
+                                                NumberAnimation { to: dashDelegate.travelW; duration: 0 }
+                                                ParallelAnimation {
+                                                    NumberAnimation { target: dashRect; property: "x"; from: 0; to: dashDelegate.travelW; duration: 700; easing.type: Easing.InCubic }
+                                                    SequentialAnimation {
+                                                        NumberAnimation { target: dashRect; property: "opacity"; from: 0; to: 1; duration: 120 }
+                                                        PauseAnimation { duration: 420 }
+                                                        NumberAnimation { target: dashRect; property: "opacity"; from: 1; to: 0; duration: 160 }
+                                                    }
+                                                }
+                                                PauseAnimation { duration: (5 - dashDelegate.idx - 1) * 260 }
                                             }
-                                        }
-                                    }
-
-                                    Text {
-                                        id: eyebrowText
-                                        text: langSettings.lang === "sw"
-                                              ? "KARIBU TANZANIA"
-                                              : "DISCOVER TANZANIA"
-                                        font.pixelSize: Qt.platform.os === "android" ? 17 : 11
-                                        font.bold: true
-                                        font.letterSpacing: 2.8
-                                        color: "#02c6db"
-                                        anchors.verticalCenter: parent.verticalCenter
-
-                                        layer.enabled: true
-                                        layer.effect: DropShadow {
-                                            transparentBorder: true
-                                            radius: 8
-                                            samples: 17
-                                            color: "#9902c6db"
                                         }
                                     }
                                 }
+                            }
 
-                                // Main title — staggered fade + slide from left
-                                Item {
-                                    width: parent.width
-                                    height: heroTitle.implicitHeight
-                                    clip: true
+                            // ── 4. heroTextArea — kulia ───────────────────────
+                            Item {
+                                id: heroTextArea
+                                anchors.left: arrowItem.right
+                                anchors.leftMargin: 4
+                                anchors.right: parent.right
+                                anchors.rightMargin: 10
+                                anchors.top: parent.top
+                                anchors.topMargin: big5PhotoCol.height * 0.16
+                                height: heroTextCol.implicitHeight + 4
+                                opacity: 0
 
-                                    Text {
-                                        id: heroTitle
-                                        anchors.right: parent.right
-                                        width: parent.width
-                                        x: -20
-                                        opacity: 0
-                                        text: langSettings.lang === "sw"
-                                              ? "Utalii wa Tanzania"
-                                              : "Tanzania Tourism"
-                                        font.pixelSize: Qt.platform.os === "android" ? 44 : 29
-                                        font.bold: true
-                                        font.letterSpacing: -0.5
-                                        color: "white"
-                                        wrapMode: Text.WordWrap
+                                // slideOffset: resting y (via anchors.bottom) minus top-of-photo y
+                                // top of photo y = heroBottomRow.height - raisPhotoCol.height - raisPhotoCol.bottomMargin
+                                property real photoTopY: parent.height - big5PhotoCol.height - 6
+                                property real restingY:  parent.height - height - (Qt.platform.os === "android" ? 12 : 8)
+                                property real slideOffset: photoTopY - restingY
 
-                                        layer.enabled: true
-                                        layer.effect: DropShadow {
-                                            transparentBorder: true
-                                            horizontalOffset: 0
-                                            verticalOffset: 2
-                                            radius: 12
-                                            samples: 25
-                                            color: "#cc001413"
-                                        }
+                                transform: Translate { y: heroTextArea.slideOffset }
 
-                                        // ── 6. TITLE staggered slide-in ──────
-                                        ParallelAnimation {
-                                            id: titleSlideAnim
-                                            running: false
-                                            NumberAnimation { target: heroTitle; property: "x";       from: -20; to: 0;  duration: 550; easing.type: Easing.OutCubic }
-                                            NumberAnimation { target: heroTitle; property: "opacity"; from: 0;   to: 1;  duration: 480; easing.type: Easing.OutQuad  }
-                                        }
-                                        Component.onCompleted: {
-                                            titleDelayTimer.start();
-                                        }
-                                        Timer {
-                                            id: titleDelayTimer
-                                            interval: 450
-                                            repeat: false
-                                            onTriggered: { titleSlideAnim.running = true; }
-                                        }
+                                ParallelAnimation {
+                                    id: heroEntranceAnim
+                                    running: false
+                                    NumberAnimation {
+                                        target: heroTextArea; property: "slideOffset"
+                                        from: heroTextArea.slideOffset; to: 0
+                                        duration: 720; easing.type: Easing.OutCubic
+                                    }
+                                    NumberAnimation {
+                                        target: heroTextArea; property: "opacity"
+                                        from: 0; to: 1; duration: 500; easing.type: Easing.OutQuad
+                                    }
+                                }
+                                Component.onCompleted: { heroEntranceAnim.running = true; }
+
+                                // Backdrop
+                                Rectangle {
+                                    id: heroBackdrop
+                                    anchors.fill: parent
+                                    anchors.leftMargin: -10
+                                    anchors.rightMargin: -10
+                                    anchors.topMargin: -14
+                                    anchors.bottomMargin: -10
+                                    radius: 18
+                                    color: "#99001e1c"
+                                    border.color: "#661fb8ba"
+                                    border.width: 1
+                                    layer.enabled: true
+                                    layer.effect: DropShadow {
+                                        transparentBorder: true
+                                        horizontalOffset: 0; verticalOffset: 4
+                                        radius: 20; samples: 41; color: "#aa000e0d"
                                     }
                                 }
 
-                                // Subtitle tagline — staggered fade
-                                Text {
-                                    id: heroSubtitle
+                                // Left accent stripe
+                                Rectangle {
+                                    anchors.left: parent.left
+                                    anchors.leftMargin: -10
+                                    anchors.top: parent.top
+                                    anchors.topMargin: -14
+                                    anchors.bottom: parent.bottom
+                                    anchors.bottomMargin: -10
+                                    width: 4; radius: 2
+                                    gradient: Gradient {
+                                        GradientStop { position: 0.0; color: "#001fb8ba" }
+                                        GradientStop { position: 0.3; color: "#ff02c6db" }
+                                        GradientStop { position: 0.7; color: "#ff1fb8ba" }
+                                        GradientStop { position: 1.0; color: "#001fb8ba" }
+                                    }
+                                    layer.enabled: true
+                                    layer.effect: DropShadow {
+                                        transparentBorder: true
+                                        horizontalOffset: 3; verticalOffset: 0
+                                        radius: 8; samples: 17; color: "#cc02c6db"
+                                    }
+                                }
+
+                                Column {
+                                    id: heroTextCol
                                     anchors.left: parent.left
                                     anchors.right: parent.right
-                                    opacity: 0
-                                    text: langSettings.lang === "sw"
-                                          ? "Mbuga · Fukwe · Milima · Utamaduni"
-                                          : "Wildlife · Beaches · Mountains · Culture"
-                                    font.pixelSize: Qt.platform.os === "android" ? 18 : 12
-                                    color: "#b3e0f5f5"
-                                    wrapMode: Text.WordWrap
-                                    font.letterSpacing: 0.5
+                                    anchors.top: parent.top
+                                    spacing: Qt.platform.os === "android" ? 6 : 5
 
-                                    // ── 7. SUBTITLE staggered fade-in ────────
-                                    NumberAnimation on opacity {
-                                        id: subtitleFadeAnim
-                                        running: false
-                                        from: 0; to: 1
-                                        duration: 500
-                                        easing.type: Easing.OutQuad
-                                    }
-                                    Component.onCompleted: {
-                                        subtitleDelayTimer.start();
-                                    }
-                                    Timer {
-                                        id: subtitleDelayTimer
-                                        interval: 620
-                                        repeat: false
-                                        onTriggered: { subtitleFadeAnim.running = true; }
-                                    }
-                                }
+                                    // Eyebrow pill badge
+                                    Item {
+                                        anchors.left: parent.left
+                                        width: eyebrowRow.implicitWidth + (Qt.platform.os === "android" ? 16 : 12)
+                                        height: eyebrowRow.implicitHeight + (Qt.platform.os === "android" ? 8 : 6)
+                                        opacity: 0
 
-                                // Animated accent bar — app cyan gradient
-                                Item {
-                                    width: parent.width
-                                    height: 3
-
-                                    Rectangle {
-                                        id: accentBar
-                                        height: parent.height
-                                        radius: 2
-                                        width: 0
-                                        gradient: Gradient {
-                                            GradientStop { position: 0.0; color: "#1fb8ba" }
-                                            GradientStop { position: 1.0; color: "#02c6db" }
+                                        NumberAnimation on opacity {
+                                            id: eyebrowFadeAnim; running: false
+                                            from: 0; to: 1; duration: 450; easing.type: Easing.OutQuad
+                                        }
+                                        Component.onCompleted: { eyebrowDelayTimer.start(); }
+                                        Timer {
+                                            id: eyebrowDelayTimer
+                                            interval: 300; repeat: false
+                                            onTriggered: { eyebrowFadeAnim.running = true; }
                                         }
 
-                                        layer.enabled: true
-                                        layer.effect: DropShadow {
-                                            transparentBorder: true
-                                            radius: 7
-                                            samples: 15
-                                            color: "#cc02c6db"
+                                        Rectangle {
+                                            anchors.fill: parent; radius: height / 2
+                                            color: "#2202c6db"; border.color: "#8802c6db"; border.width: 1
+                                        }
+
+                                        Row {
+                                            id: eyebrowRow
+                                            anchors.centerIn: parent
+                                            spacing: Qt.platform.os === "android" ? 6 : 4
+
+                                            // sunray dot
+                                            Item {
+                                                width: Qt.platform.os === "android" ? 18 : 14
+                                                height: Qt.platform.os === "android" ? 18 : 14
+                                                anchors.verticalCenter: parent.verticalCenter
+
+                                                Rectangle {
+                                                    id: pingRing1; anchors.centerIn: parent
+                                                    width: 6; height: 6; radius: 3
+                                                    color: "transparent"; border.color: "#02c6db"; border.width: 1.5; opacity: 0
+                                                    SequentialAnimation {
+                                                        loops: Animation.Infinite; running: true
+                                                        PauseAnimation { duration: 1800 }
+                                                        ParallelAnimation {
+                                                            NumberAnimation { target: pingRing1; property: "width";   from: 6; to: 18; duration: 700; easing.type: Easing.OutCubic }
+                                                            NumberAnimation { target: pingRing1; property: "height";  from: 6; to: 18; duration: 700; easing.type: Easing.OutCubic }
+                                                            NumberAnimation { target: pingRing1; property: "opacity"; from: 0.8; to: 0; duration: 700; easing.type: Easing.OutCubic }
+                                                        }
+                                                        ScriptAction { script: { pingRing1.width = 6; pingRing1.height = 6; } }
+                                                    }
+                                                }
+                                                Rectangle {
+                                                    id: pingRing2; anchors.centerIn: parent
+                                                    width: 6; height: 6; radius: 3
+                                                    color: "transparent"; border.color: "#1fb8ba"; border.width: 1; opacity: 0
+                                                    SequentialAnimation {
+                                                        loops: Animation.Infinite; running: true
+                                                        PauseAnimation { duration: 2100 }
+                                                        ParallelAnimation {
+                                                            NumberAnimation { target: pingRing2; property: "width";   from: 6; to: 14; duration: 650; easing.type: Easing.OutCubic }
+                                                            NumberAnimation { target: pingRing2; property: "height";  from: 6; to: 14; duration: 650; easing.type: Easing.OutCubic }
+                                                            NumberAnimation { target: pingRing2; property: "opacity"; from: 0.5; to: 0; duration: 650; easing.type: Easing.OutCubic }
+                                                        }
+                                                        ScriptAction { script: { pingRing2.width = 6; pingRing2.height = 6; } }
+                                                    }
+                                                }
+                                                Rectangle {
+                                                    anchors.centerIn: parent; width: 6; height: 6; radius: 3
+                                                    color: "#02c6db"
+                                                    layer.enabled: true
+                                                    layer.effect: DropShadow { transparentBorder: true; radius: 5; samples: 11; color: "#dd02c6db" }
+                                                }
+                                            }
+
+                                            Text {
+                                                id: eyebrowBadge
+                                                text: langSettings.lang === "sw" ? "KARIBU TANZANIA" : "DISCOVER TANZANIA"
+                                                font.pixelSize: Qt.platform.os === "android" ? 11 : 8
+                                                font.bold: true; font.letterSpacing: 2.0
+                                                color: "#02c6db"
+                                                anchors.verticalCenter: parent.verticalCenter
+                                            }
                                         }
                                     }
 
-                                    // ── 8. ACCENT BAR wipe + then pulse opacity
-                                    NumberAnimation on width {
-                                        id: accentBarAnim
-                                        running: false
-                                        target: accentBar
-                                        property: "width"
-                                        from: 0
-                                        to: heroTextArea.width
-                                        duration: 750
-                                        easing.type: Easing.OutCubic
+
+                                    // sub-quote — ndani ya heroTextArea
+                                    Text {
+                                        anchors.left: parent.left
+                                        anchors.right: parent.right
+                                        text: langSettings.lang === "sw"
+                                              ? "Nchi yenye vivutio visivyo na mfano"
+                                              : "A land of unmatched wonders"
+                                        font.pixelSize: Qt.platform.os === "android" ? 14 : 10
+                                        color: "#8802c6db"
+                                        font.italic: true
+                                        wrapMode: Text.WordWrap
+                                        font.letterSpacing: 0.3
                                     }
 
-                                    SequentialAnimation {
-                                        id: accentBarPulse
-                                        running: false
-                                        loops: Animation.Infinite
-                                        NumberAnimation { target: accentBar; property: "opacity"; to: 0.5; duration: 1600; easing.type: Easing.InOutSine }
-                                        NumberAnimation { target: accentBar; property: "opacity"; to: 1.0; duration: 1600; easing.type: Easing.InOutSine }
+                                    // Main title
+                                    Item {
+                                        width: parent.width
+                                        height: heroTitle.implicitHeight
+                                        clip: true
+
+                                        Text {
+                                            id: heroTitle
+                                            width: parent.width; x: -20; opacity: 0
+                                            text: langSettings.lang === "sw" ? "Utalii wa Tanzania" : "Tanzania Tourism"
+                                            font.pixelSize: Qt.platform.os === "android" ? 28 : 20
+                                            font.bold: true; font.letterSpacing: -0.5
+                                            color: "white"; wrapMode: Text.WordWrap
+                                            layer.enabled: true
+                                            layer.effect: DropShadow {
+                                                transparentBorder: true
+                                                horizontalOffset: 0; verticalOffset: 2
+                                                radius: 12; samples: 25; color: "#cc000e0d"
+                                            }
+                                            ParallelAnimation {
+                                                id: titleSlideAnim; running: false
+                                                NumberAnimation { target: heroTitle; property: "x";       from: -20; to: 0; duration: 550; easing.type: Easing.OutCubic }
+                                                NumberAnimation { target: heroTitle; property: "opacity"; from: 0;   to: 1; duration: 480; easing.type: Easing.OutQuad }
+                                            }
+                                            Component.onCompleted: { titleDelayTimer.start(); }
+                                            Timer {
+                                                id: titleDelayTimer; interval: 450; repeat: false
+                                                onTriggered: { titleSlideAnim.running = true; }
+                                            }
+                                        }
                                     }
 
-                                    Component.onCompleted: {
-                                        accentBarAnim.running = true;
-                                        accentBarPulseTimer.start();
+                                    // Subtitle
+                                    Text {
+                                        id: heroSubtitle
+                                        anchors.left: parent.left; anchors.right: parent.right
+                                        opacity: 0
+                                        text: langSettings.lang === "sw"
+                                              ? "Mbuga · Fukwe · Milima · Utamaduni"
+                                              : "Wildlife · Beaches · Mountains · Culture"
+                                        font.pixelSize: Qt.platform.os === "android" ? 12 : 9
+                                        color: "#ccdff8f8"; wrapMode: Text.WordWrap; font.letterSpacing: 0.4
+                                        NumberAnimation on opacity {
+                                            id: subtitleFadeAnim; running: false
+                                            from: 0; to: 1; duration: 500; easing.type: Easing.OutQuad
+                                        }
+                                        Component.onCompleted: { subtitleDelayTimer.start(); }
+                                        Timer {
+                                            id: subtitleDelayTimer; interval: 620; repeat: false
+                                            onTriggered: { subtitleFadeAnim.running = true; }
+                                        }
                                     }
-                                    Timer {
-                                        id: accentBarPulseTimer
-                                        interval: 800
-                                        repeat: false
-                                        onTriggered: { accentBarPulse.running = true; }
+
+                                    // Accent bar
+                                    Item {
+                                        width: parent.width
+                                        height: Qt.platform.os === "android" ? 4 : 3
+
+                                        Rectangle {
+                                            id: accentBar; height: parent.height; radius: height / 2; width: 0
+                                            gradient: Gradient {
+                                                GradientStop { position: 0.0; color: "#1fb8ba" }
+                                                GradientStop { position: 0.6; color: "#02c6db" }
+                                                GradientStop { position: 1.0; color: "#44c6f5" }
+                                            }
+                                            layer.enabled: true
+                                            layer.effect: DropShadow { transparentBorder: true; radius: 7; samples: 15; color: "#bb02c6db" }
+                                        }
+                                        NumberAnimation on width {
+                                            id: accentBarAnim; running: false
+                                            target: accentBar; property: "width"
+                                            from: 0; to: heroTextArea.width
+                                            duration: 750; easing.type: Easing.OutCubic
+                                        }
+                                        SequentialAnimation {
+                                            id: accentBarPulse; running: false; loops: Animation.Infinite
+                                            NumberAnimation { target: accentBar; property: "opacity"; to: 0.5; duration: 1600; easing.type: Easing.InOutSine }
+                                            NumberAnimation { target: accentBar; property: "opacity"; to: 1.0; duration: 1600; easing.type: Easing.InOutSine }
+                                        }
+                                        Component.onCompleted: {
+                                            accentBarAnim.running = true;
+                                            accentBarPulseTimer.start();
+                                        }
+                                        Timer {
+                                            id: accentBarPulseTimer; interval: 800; repeat: false
+                                            onTriggered: { accentBarPulse.running = true; }
+                                        }
                                     }
                                 }
                             }
