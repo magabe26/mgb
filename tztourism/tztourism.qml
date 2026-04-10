@@ -2112,7 +2112,7 @@ Rectangle {
                                         id: big5NameText
                                         anchors.centerIn: parent
                                         text: langSettings.lang === "sw" ? "Wakubwa Watano" : "Big Five"
-                                        font.pixelSize: Qt.platform.os === "android" ? 13 : 11
+                                        font.pixelSize: Qt.platform.os === "android" ? 16 : 11
                                         font.bold: true
                                         font.letterSpacing: 0.5
                                         color: "#02c6db"
@@ -2379,7 +2379,7 @@ Rectangle {
                                         text: langSettings.lang === "sw"
                                               ? "Nchi yenye vivutio visivyo na mfano"
                                               : "A land of unmatched wonders"
-                                        font.pixelSize: Qt.platform.os === "android" ? 18 : 14
+                                        font.pixelSize: Qt.platform.os === "android" ? 21 : 14
                                         color: "#cc44e8f5"
                                         font.italic: true
                                         wrapMode: Text.WordWrap
@@ -2432,7 +2432,7 @@ Rectangle {
                                         text: langSettings.lang === "sw"
                                               ? "Mbuga · Fukwe · Milima · Utamaduni"
                                               : "Wildlife · Beaches · Mountains · Culture"
-                                        font.pixelSize: Qt.platform.os === "android" ? 17 : 14
+                                        font.pixelSize: Qt.platform.os === "android" ? 20 : 14
                                         color: "#e602c6db"; wrapMode: Text.WordWrap; font.letterSpacing: 0.8
                                         layer.enabled: true
                                         layer.effect: DropShadow {
