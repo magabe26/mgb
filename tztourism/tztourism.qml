@@ -2147,21 +2147,167 @@ Rectangle {
                                         onTriggered: { eyebrowFadeAnim.running = true; }
                                     }
 
-                                    // ── Simple dot indicator ──────────────────
+                                    // ── Sunray dot — miale 8 ─────────────────
                                     Item {
-                                        width: 12
-                                        height: 12
+                                        id: sunrayDot
+                                        width: Qt.platform.os === "android" ? 28 : 20
+                                        height: Qt.platform.os === "android" ? 28 : 20
                                         anchors.verticalCenter: parent.verticalCenter
 
+                                        // Ray 1
                                         Rectangle {
                                             anchors.centerIn: parent
-                                            width: 7; height: 7; radius: 3.5
+                                            width: Qt.platform.os === "android" ? 2 : 1.5
+                                            height: Qt.platform.os === "android" ? 7 : 5
+                                            radius: 1
+                                            color: "#02c6db"
+                                            opacity: 0.85
+                                            transformOrigin: Item.Bottom
+                                            rotation: 0
+                                            y: parent.height / 2 - height
+                                            x: parent.width / 2 - width / 2
+                                            SequentialAnimation on opacity {
+                                                loops: Animation.Infinite; running: true
+                                                PauseAnimation { duration: 0 }
+                                                NumberAnimation { to: 0.2; duration: 700; easing.type: Easing.InOutSine }
+                                                NumberAnimation { to: 0.85; duration: 700; easing.type: Easing.InOutSine }
+                                            }
+                                        }
+                                        // Ray 2
+                                        Rectangle {
+                                            anchors.centerIn: parent
+                                            width: Qt.platform.os === "android" ? 2 : 1.5
+                                            height: Qt.platform.os === "android" ? 7 : 5
+                                            radius: 1
+                                            color: "#02c6db"
+                                            opacity: 0.85
+                                            transformOrigin: Item.Center
+                                            rotation: 45
+                                            SequentialAnimation on opacity {
+                                                loops: Animation.Infinite; running: true
+                                                PauseAnimation { duration: 175 }
+                                                NumberAnimation { to: 0.2; duration: 700; easing.type: Easing.InOutSine }
+                                                NumberAnimation { to: 0.85; duration: 700; easing.type: Easing.InOutSine }
+                                            }
+                                        }
+                                        // Ray 3
+                                        Rectangle {
+                                            anchors.centerIn: parent
+                                            width: Qt.platform.os === "android" ? 7 : 5
+                                            height: Qt.platform.os === "android" ? 2 : 1.5
+                                            radius: 1
+                                            color: "#02c6db"
+                                            opacity: 0.85
+                                            SequentialAnimation on opacity {
+                                                loops: Animation.Infinite; running: true
+                                                PauseAnimation { duration: 350 }
+                                                NumberAnimation { to: 0.2; duration: 700; easing.type: Easing.InOutSine }
+                                                NumberAnimation { to: 0.85; duration: 700; easing.type: Easing.InOutSine }
+                                            }
+                                        }
+                                        // Ray 4
+                                        Rectangle {
+                                            anchors.centerIn: parent
+                                            width: Qt.platform.os === "android" ? 2 : 1.5
+                                            height: Qt.platform.os === "android" ? 7 : 5
+                                            radius: 1
+                                            color: "#02c6db"
+                                            opacity: 0.85
+                                            transformOrigin: Item.Center
+                                            rotation: 135
+                                            SequentialAnimation on opacity {
+                                                loops: Animation.Infinite; running: true
+                                                PauseAnimation { duration: 525 }
+                                                NumberAnimation { to: 0.2; duration: 700; easing.type: Easing.InOutSine }
+                                                NumberAnimation { to: 0.85; duration: 700; easing.type: Easing.InOutSine }
+                                            }
+                                        }
+                                        // Ray 5 (diagonal top-right)
+                                        Rectangle {
+                                            anchors.centerIn: parent
+                                            width: Qt.platform.os === "android" ? 2 : 1.5
+                                            height: Qt.platform.os === "android" ? 6 : 4.5
+                                            radius: 1
+                                            color: "#1fb8ba"
+                                            opacity: 0.6
+                                            transformOrigin: Item.Center
+                                            rotation: 22
+                                            SequentialAnimation on opacity {
+                                                loops: Animation.Infinite; running: true
+                                                PauseAnimation { duration: 88 }
+                                                NumberAnimation { to: 0.1; duration: 700; easing.type: Easing.InOutSine }
+                                                NumberAnimation { to: 0.6; duration: 700; easing.type: Easing.InOutSine }
+                                            }
+                                        }
+                                        // Ray 6
+                                        Rectangle {
+                                            anchors.centerIn: parent
+                                            width: Qt.platform.os === "android" ? 2 : 1.5
+                                            height: Qt.platform.os === "android" ? 6 : 4.5
+                                            radius: 1
+                                            color: "#1fb8ba"
+                                            opacity: 0.6
+                                            transformOrigin: Item.Center
+                                            rotation: 67
+                                            SequentialAnimation on opacity {
+                                                loops: Animation.Infinite; running: true
+                                                PauseAnimation { duration: 263 }
+                                                NumberAnimation { to: 0.1; duration: 700; easing.type: Easing.InOutSine }
+                                                NumberAnimation { to: 0.6; duration: 700; easing.type: Easing.InOutSine }
+                                            }
+                                        }
+                                        // Ray 7
+                                        Rectangle {
+                                            anchors.centerIn: parent
+                                            width: Qt.platform.os === "android" ? 2 : 1.5
+                                            height: Qt.platform.os === "android" ? 6 : 4.5
+                                            radius: 1
+                                            color: "#1fb8ba"
+                                            opacity: 0.6
+                                            transformOrigin: Item.Center
+                                            rotation: 112
+                                            SequentialAnimation on opacity {
+                                                loops: Animation.Infinite; running: true
+                                                PauseAnimation { duration: 438 }
+                                                NumberAnimation { to: 0.1; duration: 700; easing.type: Easing.InOutSine }
+                                                NumberAnimation { to: 0.6; duration: 700; easing.type: Easing.InOutSine }
+                                            }
+                                        }
+                                        // Ray 8
+                                        Rectangle {
+                                            anchors.centerIn: parent
+                                            width: Qt.platform.os === "android" ? 2 : 1.5
+                                            height: Qt.platform.os === "android" ? 6 : 4.5
+                                            radius: 1
+                                            color: "#1fb8ba"
+                                            opacity: 0.6
+                                            transformOrigin: Item.Center
+                                            rotation: 157
+                                            SequentialAnimation on opacity {
+                                                loops: Animation.Infinite; running: true
+                                                PauseAnimation { duration: 613 }
+                                                NumberAnimation { to: 0.1; duration: 700; easing.type: Easing.InOutSine }
+                                                NumberAnimation { to: 0.6; duration: 700; easing.type: Easing.InOutSine }
+                                            }
+                                        }
+
+                                        // Solid core
+                                        Rectangle {
+                                            anchors.centerIn: parent
+                                            width: Qt.platform.os === "android" ? 7 : 5
+                                            height: Qt.platform.os === "android" ? 7 : 5
+                                            radius: width / 2
                                             color: "#02c6db"
                                             layer.enabled: true
                                             layer.effect: DropShadow {
                                                 transparentBorder: true
-                                                radius: 5; samples: 11
+                                                radius: 6; samples: 13
                                                 color: "#dd02c6db"
+                                            }
+                                            SequentialAnimation on scale {
+                                                loops: Animation.Infinite; running: true
+                                                NumberAnimation { to: 1.3; duration: 700; easing.type: Easing.InOutSine }
+                                                NumberAnimation { to: 1.0; duration: 700; easing.type: Easing.InOutSine }
                                             }
                                         }
                                     }
