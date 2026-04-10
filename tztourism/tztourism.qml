@@ -2388,7 +2388,7 @@ Rectangle {
                                         layer.effect: DropShadow {
                                             transparentBorder: true
                                             horizontalOffset: 0; verticalOffset: 1
-                                            radius: 5; samples: 11; color: "#8802c6db"
+                                            radius: 5; samples: 11; color: langSettings.lang === "sw" ? "green" : "blue"
                                         }
                                     }
 
