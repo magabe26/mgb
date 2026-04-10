@@ -2115,7 +2115,7 @@ Rectangle {
                                         font.pixelSize: Qt.platform.os === "android" ? 16 : 11
                                         font.bold: true
                                         font.letterSpacing: 0.5
-                                        color: "#02c6db"
+                                        color: langSettings.lang === "sw" ? "green" : "blue"
                                     }
                                 }
                             }
@@ -2380,7 +2380,7 @@ Rectangle {
                                               ? "Nchi yenye vivutio visivyo na mfano"
                                               : "A land of unmatched wonders"
                                         font.pixelSize: Qt.platform.os === "android" ? 21 : 14
-                                        color: "#cc44e8f5"
+                                        color: langSettings.lang === "sw" ? "green" : "blue"
                                         font.italic: true
                                         wrapMode: Text.WordWrap
                                         font.letterSpacing: 0.4
