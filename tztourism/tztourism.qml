@@ -2118,6 +2118,107 @@ Rectangle {
                                         color: langSettings.lang === "sw" ? "green" : "blue"
                                     }
                                 }
+
+                                // ── Animated 5 cyan stars ──────────────────────
+                                Item {
+                                    id: big5StarsItem
+                                    anchors.bottom: parent.bottom
+                                    anchors.bottomMargin: Qt.platform.os === "android" ? -18 : -14
+                                    anchors.horizontalCenter: parent.horizontalCenter
+                                    width: parent.width
+                                    height: Qt.platform.os === "android" ? 28 : 22
+
+                                    // pulse scale animator
+                                    property real pulseScale: 1.0
+                                    SequentialAnimation on pulseScale {
+                                        loops: Animation.Infinite
+                                        NumberAnimation { from: 1.0; to: 1.25; duration: 700; easing.type: Easing.InOutSine; }
+                                        NumberAnimation { from: 1.25; to: 1.0; duration: 700; easing.type: Easing.InOutSine; }
+                                    }
+
+                                    // per-star twinkle opacity array driven by a timer
+                                    property var starOpacities: [1.0, 1.0, 1.0, 1.0, 1.0]
+                                    property int twinkleIdx: 0
+
+                                    Timer {
+                                        interval: 280
+                                        running: true
+                                        repeat: true
+                                        onTriggered: {
+                                            var arr = big5StarsItem.starOpacities.slice();
+                                            // restore previous
+                                            for (var i = 0; i < arr.length; i++) arr[i] = 1.0;
+                                            // dim current star
+                                            arr[big5StarsItem.twinkleIdx] = 0.25;
+                                            big5StarsItem.starOpacities = arr;
+                                            big5StarsItem.twinkleIdx = (big5StarsItem.twinkleIdx + 1) % 5;
+                                            big5StarsCanvas.requestPaint();
+                                        }
+                                    }
+
+                                    Canvas {
+                                        id: big5StarsCanvas
+                                        anchors.fill: parent
+                                        onPaint: {
+                                            var ctx = getContext("2d");
+                                            ctx.clearRect(0, 0, width, height);
+
+                                            var n       = 5;
+                                            var starR   = (Qt.platform.os === "android" ? 7 : 5.5) * big5StarsItem.pulseScale;
+                                            var innerR  = starR * 0.42;
+                                            var spacing = (Qt.platform.os === "android" ? 20 : 16) * big5StarsItem.pulseScale;
+                                            var totalW  = (n - 1) * spacing;
+                                            var cx0     = (width - totalW) / 2;
+                                            var cy      = height / 2;
+
+                                            for (var s = 0; s < n; s++) {
+                                                var cx = cx0 + s * spacing;
+                                                var op = big5StarsItem.starOpacities[s];
+
+                                                // glow
+                                                ctx.save();
+                                                ctx.globalAlpha = op * 0.45;
+                                                var grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, starR * 1.6);
+                                                grad.addColorStop(0, "#ff00e5ff");
+                                                grad.addColorStop(1, "transparent");
+                                                ctx.fillStyle = grad;
+                                                ctx.beginPath();
+                                                ctx.arc(cx, cy, starR * 1.6, 0, Math.PI * 2);
+                                                ctx.fill();
+                                                ctx.restore();
+
+                                                // star shape
+                                                ctx.save();
+                                                ctx.globalAlpha = op;
+                                                ctx.fillStyle   = "cyan";
+                                                ctx.shadowColor = "cyan";
+                                                ctx.shadowBlur  = Qt.platform.os === "android" ? 8 : 6;
+                                                ctx.beginPath();
+                                                var pts = 5;
+                                                for (var p = 0; p < pts * 2; p++) {
+                                                    var angle = (p * Math.PI / pts) - Math.PI / 2;
+                                                    var r     = (p % 2 === 0) ? starR : innerR;
+                                                    var px    = cx + r * Math.cos(angle);
+                                                    var py    = cy + r * Math.sin(angle);
+                                                    if (p === 0) ctx.moveTo(px, py);
+                                                    else         ctx.lineTo(px, py);
+                                                }
+                                                ctx.closePath();
+                                                ctx.fill();
+                                                ctx.restore();
+                                            }
+                                        }
+
+                                        // repaint whenever pulse changes
+                                        Connections {
+                                            target: big5StarsItem
+                                            function onPulseScaleChanged() { big5StarsCanvas.requestPaint(); }
+                                        }
+
+                                        Component.onCompleted: { requestPaint(); }
+                                    }
+                                }
+                                // ── end stars ─────────────────────────────────
                             }
 
                             // ── 3. Signal stream connector ────────────────────
