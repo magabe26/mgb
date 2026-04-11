@@ -3874,12 +3874,13 @@ Rectangle {
                         }
                     }
 
-                    // ══ MAGABE LAB BRANDING ════════════════════════════════
+                    // ══ MAGABE LAB BRANDING — MUSIC BEAT LETTERS ══════════
                     Item {
+                        id: mgbBrand
                         width: app.width
-                        height: Qt.platform.os === "android" ? 40 : 32
+                        height: Qt.platform.os === "android" ? 58 : 46
 
-                        // Full width background — matches Safari Channel section
+                        // Background
                         Rectangle {
                             anchors.fill: parent
                             color: "#000d0c"
@@ -3889,39 +3890,370 @@ Rectangle {
                         Rectangle {
                             anchors.top: parent.top
                             anchors.horizontalCenter: parent.horizontalCenter
-                            width: 80; height: 1
+                            width: 100; height: 1
                             gradient: Gradient {
                                 GradientStop { position: 0.0; color: "transparent" }
-                                GradientStop { position: 0.5; color: Qt.rgba(0,1,1,0.2) }
+                                GradientStop { position: 0.5; color: Qt.rgba(0,1,1,0.3) }
                                 GradientStop { position: 1.0; color: "transparent" }
+                            }
+                        }
+
+                        // Beat index — cycles through letters like a music beat
+                        property int beatIdx: 0
+                        property var letters: ["M","A","G","A","B","E"," ","L","A","B"]
+                        // beat amplitudes per letter — simulate drum/bass pattern
+                        property var beatAmp: [1.0, 0.4, 0.7, 0.3, 1.0, 0.5, 0.0, 0.9, 0.4, 1.0]
+                        property int activeLetter: -1
+
+                        // Beat timer — sequential, 90ms per step ≈ lively groove
+                        Timer {
+                            id: beatTimer
+                            interval: 90
+                            repeat: true
+                            running: true
+                            onTriggered: {
+                                mgbBrand.activeLetter = mgbBrand.beatIdx;
+                                mgbBrand.beatIdx = (mgbBrand.beatIdx + 1) % mgbBrand.letters.length;
                             }
                         }
 
                         Row {
                             anchors.centerIn: parent
-                            spacing: Qt.platform.os === "android" ? 8 : 6
+                            spacing: Qt.platform.os === "android" ? 2 : 1
 
+                            // Left accent dash
                             Rectangle {
-                                width: Qt.platform.os === "android" ? 18 : 14
+                                width: Qt.platform.os === "android" ? 14 : 10
                                 height: 1; radius: 1
                                 color: Qt.rgba(0, 1, 1, 0.25)
                                 anchors.verticalCenter: parent.verticalCenter
                             }
-                            Text {
-                                text: "MAGABE LAB"
-                                font.pointSize: Qt.platform.os === "android" ? 8 : 6
-                                font.bold: true
-                                font.letterSpacing: 3
-                                color: Qt.rgba(0, 0.8, 0.7, 0.7)
+
+                            // Letter: M
+                            Item {
+                                id: ltr0
+                                property bool active: mgbBrand.activeLetter === 0
+                                property real amp: mgbBrand.beatAmp[0]
+                                width: ltrTxt0.implicitWidth + (Qt.platform.os === "android" ? 3 : 2)
+                                height: Qt.platform.os === "android" ? 38 : 28
                                 anchors.verticalCenter: parent.verticalCenter
-                                SequentialAnimation on opacity {
-                                    loops: Animation.Infinite
-                                    NumberAnimation { to: 0.5; duration: 2000; easing.type: Easing.InOutSine }
-                                    NumberAnimation { to: 1.0; duration: 2000; easing.type: Easing.InOutSine }
+                                property real lift: active ? -(amp * (Qt.platform.os === "android" ? 9 : 7)) : 0
+                                Behavior on lift { NumberAnimation { duration: 60; easing.type: Easing.OutBack } }
+                                Text {
+                                    id: ltrTxt0
+                                    anchors.centerIn: parent
+                                    anchors.verticalCenterOffset: ltr0.lift
+                                    text: "M"
+                                    font.pointSize: Qt.platform.os === "android" ? 9 : 7
+                                    font.bold: true
+                                    font.letterSpacing: 1
+                                    color: ltr0.active ? Qt.rgba(0, 1, 0.9, 1.0) : Qt.rgba(0, 0.75, 0.65, 0.65)
+                                    Behavior on color { ColorAnimation { duration: 80 } }
+                                    scale: ltr0.active ? (1.0 + ltr0.amp * 0.35) : 1.0
+                                    Behavior on scale { NumberAnimation { duration: 70; easing.type: Easing.OutBack } }
+                                }
+                                // Beat bar below letter
+                                Rectangle {
+                                    anchors.bottom: parent.bottom
+                                    anchors.horizontalCenter: parent.horizontalCenter
+                                    width: parent.width - 2
+                                    height: ltr0.active ? (ltr0.amp * (Qt.platform.os === "android" ? 5 : 4) + 1) : 1
+                                    radius: 1
+                                    color: ltr0.active ? "cyan" : Qt.rgba(0,1,1,0.2)
+                                    Behavior on height { NumberAnimation { duration: 70; easing.type: Easing.OutBack } }
+                                    Behavior on color { ColorAnimation { duration: 80 } }
                                 }
                             }
+
+                            // Letter: A (1)
+                            Item {
+                                id: ltr1
+                                property bool active: mgbBrand.activeLetter === 1
+                                property real amp: mgbBrand.beatAmp[1]
+                                width: ltrTxt1.implicitWidth + (Qt.platform.os === "android" ? 3 : 2)
+                                height: Qt.platform.os === "android" ? 38 : 28
+                                anchors.verticalCenter: parent.verticalCenter
+                                property real lift: active ? -(amp * (Qt.platform.os === "android" ? 9 : 7)) : 0
+                                Behavior on lift { NumberAnimation { duration: 60; easing.type: Easing.OutBack } }
+                                Text {
+                                    id: ltrTxt1
+                                    anchors.centerIn: parent
+                                    anchors.verticalCenterOffset: ltr1.lift
+                                    text: "A"
+                                    font.pointSize: Qt.platform.os === "android" ? 9 : 7
+                                    font.bold: true
+                                    font.letterSpacing: 1
+                                    color: ltr1.active ? Qt.rgba(0, 1, 0.9, 1.0) : Qt.rgba(0, 0.75, 0.65, 0.65)
+                                    Behavior on color { ColorAnimation { duration: 80 } }
+                                    scale: ltr1.active ? (1.0 + ltr1.amp * 0.35) : 1.0
+                                    Behavior on scale { NumberAnimation { duration: 70; easing.type: Easing.OutBack } }
+                                }
+                                Rectangle {
+                                    anchors.bottom: parent.bottom
+                                    anchors.horizontalCenter: parent.horizontalCenter
+                                    width: parent.width - 2
+                                    height: ltr1.active ? (ltr1.amp * (Qt.platform.os === "android" ? 5 : 4) + 1) : 1
+                                    radius: 1
+                                    color: ltr1.active ? "cyan" : Qt.rgba(0,1,1,0.2)
+                                    Behavior on height { NumberAnimation { duration: 70; easing.type: Easing.OutBack } }
+                                    Behavior on color { ColorAnimation { duration: 80 } }
+                                }
+                            }
+
+                            // Letter: G
+                            Item {
+                                id: ltr2
+                                property bool active: mgbBrand.activeLetter === 2
+                                property real amp: mgbBrand.beatAmp[2]
+                                width: ltrTxt2.implicitWidth + (Qt.platform.os === "android" ? 3 : 2)
+                                height: Qt.platform.os === "android" ? 38 : 28
+                                anchors.verticalCenter: parent.verticalCenter
+                                property real lift: active ? -(amp * (Qt.platform.os === "android" ? 9 : 7)) : 0
+                                Behavior on lift { NumberAnimation { duration: 60; easing.type: Easing.OutBack } }
+                                Text {
+                                    id: ltrTxt2
+                                    anchors.centerIn: parent
+                                    anchors.verticalCenterOffset: ltr2.lift
+                                    text: "G"
+                                    font.pointSize: Qt.platform.os === "android" ? 9 : 7
+                                    font.bold: true
+                                    font.letterSpacing: 1
+                                    color: ltr2.active ? Qt.rgba(0, 1, 0.9, 1.0) : Qt.rgba(0, 0.75, 0.65, 0.65)
+                                    Behavior on color { ColorAnimation { duration: 80 } }
+                                    scale: ltr2.active ? (1.0 + ltr2.amp * 0.35) : 1.0
+                                    Behavior on scale { NumberAnimation { duration: 70; easing.type: Easing.OutBack } }
+                                }
+                                Rectangle {
+                                    anchors.bottom: parent.bottom
+                                    anchors.horizontalCenter: parent.horizontalCenter
+                                    width: parent.width - 2
+                                    height: ltr2.active ? (ltr2.amp * (Qt.platform.os === "android" ? 5 : 4) + 1) : 1
+                                    radius: 1
+                                    color: ltr2.active ? "cyan" : Qt.rgba(0,1,1,0.2)
+                                    Behavior on height { NumberAnimation { duration: 70; easing.type: Easing.OutBack } }
+                                    Behavior on color { ColorAnimation { duration: 80 } }
+                                }
+                            }
+
+                            // Letter: A (2)
+                            Item {
+                                id: ltr3
+                                property bool active: mgbBrand.activeLetter === 3
+                                property real amp: mgbBrand.beatAmp[3]
+                                width: ltrTxt3.implicitWidth + (Qt.platform.os === "android" ? 3 : 2)
+                                height: Qt.platform.os === "android" ? 38 : 28
+                                anchors.verticalCenter: parent.verticalCenter
+                                property real lift: active ? -(amp * (Qt.platform.os === "android" ? 9 : 7)) : 0
+                                Behavior on lift { NumberAnimation { duration: 60; easing.type: Easing.OutBack } }
+                                Text {
+                                    id: ltrTxt3
+                                    anchors.centerIn: parent
+                                    anchors.verticalCenterOffset: ltr3.lift
+                                    text: "A"
+                                    font.pointSize: Qt.platform.os === "android" ? 9 : 7
+                                    font.bold: true
+                                    font.letterSpacing: 1
+                                    color: ltr3.active ? Qt.rgba(0, 1, 0.9, 1.0) : Qt.rgba(0, 0.75, 0.65, 0.65)
+                                    Behavior on color { ColorAnimation { duration: 80 } }
+                                    scale: ltr3.active ? (1.0 + ltr3.amp * 0.35) : 1.0
+                                    Behavior on scale { NumberAnimation { duration: 70; easing.type: Easing.OutBack } }
+                                }
+                                Rectangle {
+                                    anchors.bottom: parent.bottom
+                                    anchors.horizontalCenter: parent.horizontalCenter
+                                    width: parent.width - 2
+                                    height: ltr3.active ? (ltr3.amp * (Qt.platform.os === "android" ? 5 : 4) + 1) : 1
+                                    radius: 1
+                                    color: ltr3.active ? "cyan" : Qt.rgba(0,1,1,0.2)
+                                    Behavior on height { NumberAnimation { duration: 70; easing.type: Easing.OutBack } }
+                                    Behavior on color { ColorAnimation { duration: 80 } }
+                                }
+                            }
+
+                            // Letter: B
+                            Item {
+                                id: ltr4
+                                property bool active: mgbBrand.activeLetter === 4
+                                property real amp: mgbBrand.beatAmp[4]
+                                width: ltrTxt4.implicitWidth + (Qt.platform.os === "android" ? 3 : 2)
+                                height: Qt.platform.os === "android" ? 38 : 28
+                                anchors.verticalCenter: parent.verticalCenter
+                                property real lift: active ? -(amp * (Qt.platform.os === "android" ? 9 : 7)) : 0
+                                Behavior on lift { NumberAnimation { duration: 60; easing.type: Easing.OutBack } }
+                                Text {
+                                    id: ltrTxt4
+                                    anchors.centerIn: parent
+                                    anchors.verticalCenterOffset: ltr4.lift
+                                    text: "B"
+                                    font.pointSize: Qt.platform.os === "android" ? 9 : 7
+                                    font.bold: true
+                                    font.letterSpacing: 1
+                                    color: ltr4.active ? Qt.rgba(0, 1, 0.9, 1.0) : Qt.rgba(0, 0.75, 0.65, 0.65)
+                                    Behavior on color { ColorAnimation { duration: 80 } }
+                                    scale: ltr4.active ? (1.0 + ltr4.amp * 0.35) : 1.0
+                                    Behavior on scale { NumberAnimation { duration: 70; easing.type: Easing.OutBack } }
+                                }
+                                Rectangle {
+                                    anchors.bottom: parent.bottom
+                                    anchors.horizontalCenter: parent.horizontalCenter
+                                    width: parent.width - 2
+                                    height: ltr4.active ? (ltr4.amp * (Qt.platform.os === "android" ? 5 : 4) + 1) : 1
+                                    radius: 1
+                                    color: ltr4.active ? "cyan" : Qt.rgba(0,1,1,0.2)
+                                    Behavior on height { NumberAnimation { duration: 70; easing.type: Easing.OutBack } }
+                                    Behavior on color { ColorAnimation { duration: 80 } }
+                                }
+                            }
+
+                            // Letter: E
+                            Item {
+                                id: ltr5
+                                property bool active: mgbBrand.activeLetter === 5
+                                property real amp: mgbBrand.beatAmp[5]
+                                width: ltrTxt5.implicitWidth + (Qt.platform.os === "android" ? 3 : 2)
+                                height: Qt.platform.os === "android" ? 38 : 28
+                                anchors.verticalCenter: parent.verticalCenter
+                                property real lift: active ? -(amp * (Qt.platform.os === "android" ? 9 : 7)) : 0
+                                Behavior on lift { NumberAnimation { duration: 60; easing.type: Easing.OutBack } }
+                                Text {
+                                    id: ltrTxt5
+                                    anchors.centerIn: parent
+                                    anchors.verticalCenterOffset: ltr5.lift
+                                    text: "E"
+                                    font.pointSize: Qt.platform.os === "android" ? 9 : 7
+                                    font.bold: true
+                                    font.letterSpacing: 1
+                                    color: ltr5.active ? Qt.rgba(0, 1, 0.9, 1.0) : Qt.rgba(0, 0.75, 0.65, 0.65)
+                                    Behavior on color { ColorAnimation { duration: 80 } }
+                                    scale: ltr5.active ? (1.0 + ltr5.amp * 0.35) : 1.0
+                                    Behavior on scale { NumberAnimation { duration: 70; easing.type: Easing.OutBack } }
+                                }
+                                Rectangle {
+                                    anchors.bottom: parent.bottom
+                                    anchors.horizontalCenter: parent.horizontalCenter
+                                    width: parent.width - 2
+                                    height: ltr5.active ? (ltr5.amp * (Qt.platform.os === "android" ? 5 : 4) + 1) : 1
+                                    radius: 1
+                                    color: ltr5.active ? "cyan" : Qt.rgba(0,1,1,0.2)
+                                    Behavior on height { NumberAnimation { duration: 70; easing.type: Easing.OutBack } }
+                                    Behavior on color { ColorAnimation { duration: 80 } }
+                                }
+                            }
+
+                            // Spacer between MAGABE and LAB
+                            Item {
+                                width: Qt.platform.os === "android" ? 8 : 6
+                                height: 1
+                            }
+
+                            // Letter: L
+                            Item {
+                                id: ltr7
+                                property bool active: mgbBrand.activeLetter === 7
+                                property real amp: mgbBrand.beatAmp[7]
+                                width: ltrTxt7.implicitWidth + (Qt.platform.os === "android" ? 3 : 2)
+                                height: Qt.platform.os === "android" ? 38 : 28
+                                anchors.verticalCenter: parent.verticalCenter
+                                property real lift: active ? -(amp * (Qt.platform.os === "android" ? 9 : 7)) : 0
+                                Behavior on lift { NumberAnimation { duration: 60; easing.type: Easing.OutBack } }
+                                Text {
+                                    id: ltrTxt7
+                                    anchors.centerIn: parent
+                                    anchors.verticalCenterOffset: ltr7.lift
+                                    text: "L"
+                                    font.pointSize: Qt.platform.os === "android" ? 9 : 7
+                                    font.bold: true
+                                    font.letterSpacing: 1
+                                    color: ltr7.active ? Qt.rgba(0, 1, 0.9, 1.0) : Qt.rgba(0, 0.75, 0.65, 0.65)
+                                    Behavior on color { ColorAnimation { duration: 80 } }
+                                    scale: ltr7.active ? (1.0 + ltr7.amp * 0.35) : 1.0
+                                    Behavior on scale { NumberAnimation { duration: 70; easing.type: Easing.OutBack } }
+                                }
+                                Rectangle {
+                                    anchors.bottom: parent.bottom
+                                    anchors.horizontalCenter: parent.horizontalCenter
+                                    width: parent.width - 2
+                                    height: ltr7.active ? (ltr7.amp * (Qt.platform.os === "android" ? 5 : 4) + 1) : 1
+                                    radius: 1
+                                    color: ltr7.active ? "cyan" : Qt.rgba(0,1,1,0.2)
+                                    Behavior on height { NumberAnimation { duration: 70; easing.type: Easing.OutBack } }
+                                    Behavior on color { ColorAnimation { duration: 80 } }
+                                }
+                            }
+
+                            // Letter: A (3)
+                            Item {
+                                id: ltr8
+                                property bool active: mgbBrand.activeLetter === 8
+                                property real amp: mgbBrand.beatAmp[8]
+                                width: ltrTxt8.implicitWidth + (Qt.platform.os === "android" ? 3 : 2)
+                                height: Qt.platform.os === "android" ? 38 : 28
+                                anchors.verticalCenter: parent.verticalCenter
+                                property real lift: active ? -(amp * (Qt.platform.os === "android" ? 9 : 7)) : 0
+                                Behavior on lift { NumberAnimation { duration: 60; easing.type: Easing.OutBack } }
+                                Text {
+                                    id: ltrTxt8
+                                    anchors.centerIn: parent
+                                    anchors.verticalCenterOffset: ltr8.lift
+                                    text: "A"
+                                    font.pointSize: Qt.platform.os === "android" ? 9 : 7
+                                    font.bold: true
+                                    font.letterSpacing: 1
+                                    color: ltr8.active ? Qt.rgba(0, 1, 0.9, 1.0) : Qt.rgba(0, 0.75, 0.65, 0.65)
+                                    Behavior on color { ColorAnimation { duration: 80 } }
+                                    scale: ltr8.active ? (1.0 + ltr8.amp * 0.35) : 1.0
+                                    Behavior on scale { NumberAnimation { duration: 70; easing.type: Easing.OutBack } }
+                                }
+                                Rectangle {
+                                    anchors.bottom: parent.bottom
+                                    anchors.horizontalCenter: parent.horizontalCenter
+                                    width: parent.width - 2
+                                    height: ltr8.active ? (ltr8.amp * (Qt.platform.os === "android" ? 5 : 4) + 1) : 1
+                                    radius: 1
+                                    color: ltr8.active ? "cyan" : Qt.rgba(0,1,1,0.2)
+                                    Behavior on height { NumberAnimation { duration: 70; easing.type: Easing.OutBack } }
+                                    Behavior on color { ColorAnimation { duration: 80 } }
+                                }
+                            }
+
+                            // Letter: B (2)
+                            Item {
+                                id: ltr9
+                                property bool active: mgbBrand.activeLetter === 9
+                                property real amp: mgbBrand.beatAmp[9]
+                                width: ltrTxt9.implicitWidth + (Qt.platform.os === "android" ? 3 : 2)
+                                height: Qt.platform.os === "android" ? 38 : 28
+                                anchors.verticalCenter: parent.verticalCenter
+                                property real lift: active ? -(amp * (Qt.platform.os === "android" ? 9 : 7)) : 0
+                                Behavior on lift { NumberAnimation { duration: 60; easing.type: Easing.OutBack } }
+                                Text {
+                                    id: ltrTxt9
+                                    anchors.centerIn: parent
+                                    anchors.verticalCenterOffset: ltr9.lift
+                                    text: "B"
+                                    font.pointSize: Qt.platform.os === "android" ? 9 : 7
+                                    font.bold: true
+                                    font.letterSpacing: 1
+                                    color: ltr9.active ? Qt.rgba(0, 1, 0.9, 1.0) : Qt.rgba(0, 0.75, 0.65, 0.65)
+                                    Behavior on color { ColorAnimation { duration: 80 } }
+                                    scale: ltr9.active ? (1.0 + ltr9.amp * 0.35) : 1.0
+                                    Behavior on scale { NumberAnimation { duration: 70; easing.type: Easing.OutBack } }
+                                }
+                                Rectangle {
+                                    anchors.bottom: parent.bottom
+                                    anchors.horizontalCenter: parent.horizontalCenter
+                                    width: parent.width - 2
+                                    height: ltr9.active ? (ltr9.amp * (Qt.platform.os === "android" ? 5 : 4) + 1) : 1
+                                    radius: 1
+                                    color: ltr9.active ? "cyan" : Qt.rgba(0,1,1,0.2)
+                                    Behavior on height { NumberAnimation { duration: 70; easing.type: Easing.OutBack } }
+                                    Behavior on color { ColorAnimation { duration: 80 } }
+                                }
+                            }
+
+                            // Right accent dash
                             Rectangle {
-                                width: Qt.platform.os === "android" ? 18 : 14
+                                width: Qt.platform.os === "android" ? 14 : 10
                                 height: 1; radius: 1
                                 color: Qt.rgba(0, 1, 1, 0.25)
                                 anchors.verticalCenter: parent.verticalCenter
