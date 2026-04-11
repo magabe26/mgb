@@ -2122,8 +2122,8 @@ Rectangle {
                                 // ── Animated 5 cyan stars ──────────────────────
                                 Item {
                                     id: big5StarsItem
-                                    anchors.bottom: parent.bottom
-                                    anchors.bottomMargin: Qt.platform.os === "android" ? -18 : -14
+                                    anchors.top: parent.top
+                                    anchors.topMargin: Qt.platform.os === "android" ? -18 : -14
                                     anchors.horizontalCenter: parent.horizontalCenter
                                     width: parent.width
                                     height: Qt.platform.os === "android" ? 28 : 22
