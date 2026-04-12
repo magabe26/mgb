@@ -2373,64 +2373,93 @@ Rectangle {
                     Behavior on scale { NumberAnimation { duration: 100 } }
                 }
 
-                // ── MAGABE LAB branding ───────────────────────────────────
+                // ── MAGABE LAB branding — music beat ─────────────────────
                 Item {
+                    id: mgbBrand0
                     width: parent.width
-                    height: Math.round(40 * dp)
+                    height: Math.round(54 * dp)
 
-                    // Divider gradient line
+                    property int beatIdx: 0
+                    property var beatAmp: [1.0, 0.4, 0.7, 0.3, 1.0, 0.5, 0.0, 0.9, 0.4, 1.0]
+                    property int activeLetter: -1
+
+                    Timer {
+                        interval: 90; repeat: true; running: true
+                        onTriggered: {
+                            mgbBrand0.activeLetter = mgbBrand0.beatIdx;
+                            mgbBrand0.beatIdx = (mgbBrand0.beatIdx + 1) % 10;
+                        }
+                    }
+
                     Rectangle {
                         anchors.top: parent.top
                         anchors.horizontalCenter: parent.horizontalCenter
-                        width: Math.round(80 * dp); height: 1
+                        width: Math.round(100 * dp); height: 1
                         gradient: Gradient {
                             orientation: Gradient.Horizontal
                             GradientStop { position: 0.0; color: "transparent" }
-                            GradientStop { position: 0.5; color: Qt.rgba(0,0.9,1,0.2) }
+                            GradientStop { position: 0.5; color: Qt.rgba(0,0.9,1,0.3) }
                             GradientStop { position: 1.0; color: "transparent" }
                         }
                     }
 
                     Row {
                         anchors.centerIn: parent
-                        spacing: Math.round(6 * dp)
+                        spacing: Math.round(2 * dp)
 
                         Rectangle {
-                            width: Math.round(3 * dp); height: Math.round(3 * dp)
-                            radius: Math.round(2 * dp)
-                            color: "#00e5ff"; opacity: 0.5
-                            anchors.verticalCenter: parent.verticalCenter
+                            width: Math.round(10 * dp); height: 1; radius: 1
+                            color: Qt.rgba(0,1,1,0.25); anchors.verticalCenter: parent.verticalCenter
                         }
 
-                        /*
-                        Text {
-                            text: "BY"
-                            font.pointSize: 7
-                            font.letterSpacing: Math.round(2 * dp)
-                            color: Qt.rgba(0,0.9,1,0.3)
-                            anchors.verticalCenter: parent.verticalCenter
-                        } */
+                        Repeater {
+                            model: ["M","A","G","A","B","E","·","L","A","B"]
+                            delegate: Item {
+                                id: bLtr
+                                property int idx: index
+                                property bool isSpace: modelData === "·"
+                                property bool active: !isSpace && (mgbBrand0.activeLetter === idx)
+                                property real amp: mgbBrand0.beatAmp[idx]
+                                width: isSpace
+                                       ? Math.round(6 * dp)
+                                       : bTxt.implicitWidth + Math.round(3 * dp)
+                                height: Math.round(38 * dp)
+                                anchors.verticalCenter: parent.verticalCenter
 
-                        Text {
-                            text: "MAGABE LAB"
-                            font.pointSize: 8
-                            font.bold: true
-                            font.letterSpacing: Math.round(2.5 * dp)
-                            color: Qt.rgba(0,0.9,1,0.7)
-                            anchors.verticalCenter: parent.verticalCenter
+                                property real lift: active ? -(amp * Math.round(8 * dp)) : 0
+                                Behavior on lift { NumberAnimation { duration: 60; easing.type: Easing.OutBack } }
 
-                            SequentialAnimation on opacity {
-                                loops: Animation.Infinite
-                                NumberAnimation { to: 0.45; duration: 2000; easing.type: Easing.InOutSine }
-                                NumberAnimation { to: 1.0;  duration: 2000; easing.type: Easing.InOutSine }
+                                Text {
+                                    id: bTxt
+                                    anchors.centerIn: parent
+                                    anchors.verticalCenterOffset: bLtr.lift
+                                    text: modelData
+                                    font.pointSize: 8
+                                    font.bold: true
+                                    visible: !bLtr.isSpace
+                                    color: bLtr.active ? Qt.rgba(0,1,0.9,1.0) : Qt.rgba(0,0.75,0.65,0.65)
+                                    Behavior on color { ColorAnimation { duration: 80 } }
+                                    scale: bLtr.active ? (1.0 + bLtr.amp * 0.35) : 1.0
+                                    Behavior on scale { NumberAnimation { duration: 70; easing.type: Easing.OutBack } }
+                                }
+
+                                Rectangle {
+                                    visible: !bLtr.isSpace
+                                    anchors.bottom: parent.bottom
+                                    anchors.horizontalCenter: parent.horizontalCenter
+                                    width: parent.width - Math.round(2 * dp)
+                                    height: bLtr.active ? (bLtr.amp * Math.round(5 * dp) + 1) : 1
+                                    radius: 1
+                                    color: bLtr.active ? "#00e5ff" : Qt.rgba(0,1,1,0.18)
+                                    Behavior on height { NumberAnimation { duration: 70; easing.type: Easing.OutBack } }
+                                    Behavior on color { ColorAnimation { duration: 80 } }
+                                }
                             }
                         }
 
                         Rectangle {
-                            width: Math.round(3 * dp); height: Math.round(3 * dp)
-                            radius: Math.round(2 * dp)
-                            color: "#00e5ff"; opacity: 0.5
-                            anchors.verticalCenter: parent.verticalCenter
+                            width: Math.round(10 * dp); height: 1; radius: 1
+                            color: Qt.rgba(0,1,1,0.25); anchors.verticalCenter: parent.verticalCenter
                         }
                     }
                 }
@@ -3839,61 +3868,93 @@ Rectangle {
                     Behavior on scale { NumberAnimation { duration: 100 } }
                 }
 
-                // ── MAGABE LAB branding ───────────────────────────────────
+                // ── MAGABE LAB branding — music beat ─────────────────────
                 Item {
+                    id: mgbBrand1
                     width: parent.width
-                    height: Math.round(40 * dp)
+                    height: Math.round(54 * dp)
+
+                    property int beatIdx: 0
+                    property var beatAmp: [1.0, 0.4, 0.7, 0.3, 1.0, 0.5, 0.0, 0.9, 0.4, 1.0]
+                    property int activeLetter: -1
+
+                    Timer {
+                        interval: 90; repeat: true; running: true
+                        onTriggered: {
+                            mgbBrand1.activeLetter = mgbBrand1.beatIdx;
+                            mgbBrand1.beatIdx = (mgbBrand1.beatIdx + 1) % 10;
+                        }
+                    }
 
                     Rectangle {
                         anchors.top: parent.top
                         anchors.horizontalCenter: parent.horizontalCenter
-                        width: Math.round(80 * dp); height: 1
+                        width: Math.round(100 * dp); height: 1
                         gradient: Gradient {
                             orientation: Gradient.Horizontal
                             GradientStop { position: 0.0; color: "transparent" }
-                            GradientStop { position: 0.5; color: Qt.rgba(0,0.9,1,0.2) }
+                            GradientStop { position: 0.5; color: Qt.rgba(0,0.9,1,0.3) }
                             GradientStop { position: 1.0; color: "transparent" }
                         }
                     }
 
                     Row {
                         anchors.centerIn: parent
-                        spacing: Math.round(6 * dp)
+                        spacing: Math.round(2 * dp)
 
                         Rectangle {
-                            width: Math.round(3 * dp); height: Math.round(3 * dp)
-                            radius: Math.round(2 * dp)
-                            color: "#00e5ff"; opacity: 0.5
-                            anchors.verticalCenter: parent.verticalCenter
+                            width: Math.round(10 * dp); height: 1; radius: 1
+                            color: Qt.rgba(0,1,1,0.25); anchors.verticalCenter: parent.verticalCenter
                         }
 
-                        /*
-                        Text {
-                            text: "BY"
-                            font.pointSize: 7
-                            font.letterSpacing: Math.round(2 * dp)
-                            color: Qt.rgba(0,0.9,1,0.3)
-                            anchors.verticalCenter: parent.verticalCenter
-                        }
-                        */
+                        Repeater {
+                            model: ["M","A","G","A","B","E","·","L","A","B"]
+                            delegate: Item {
+                                id: bLtr1
+                                property int idx: index
+                                property bool isSpace: modelData === "·"
+                                property bool active: !isSpace && (mgbBrand1.activeLetter === idx)
+                                property real amp: mgbBrand1.beatAmp[idx]
+                                width: isSpace
+                                       ? Math.round(6 * dp)
+                                       : bTxt1.implicitWidth + Math.round(3 * dp)
+                                height: Math.round(38 * dp)
+                                anchors.verticalCenter: parent.verticalCenter
 
-                        Text {
-                            text: "MAGABE LAB"
-                            font.pointSize: 8; font.bold: true
-                            font.letterSpacing: Math.round(2.5 * dp)
-                            color: Qt.rgba(0,0.9,1,0.7)
-                            anchors.verticalCenter: parent.verticalCenter
-                            SequentialAnimation on opacity {
-                                loops: Animation.Infinite
-                                NumberAnimation { to: 0.45; duration: 2000; easing.type: Easing.InOutSine }
-                                NumberAnimation { to: 1.0;  duration: 2000; easing.type: Easing.InOutSine }
+                                property real lift: active ? -(amp * Math.round(8 * dp)) : 0
+                                Behavior on lift { NumberAnimation { duration: 60; easing.type: Easing.OutBack } }
+
+                                Text {
+                                    id: bTxt1
+                                    anchors.centerIn: parent
+                                    anchors.verticalCenterOffset: bLtr1.lift
+                                    text: modelData
+                                    font.pointSize: 8
+                                    font.bold: true
+                                    visible: !bLtr1.isSpace
+                                    color: bLtr1.active ? Qt.rgba(0,1,0.9,1.0) : Qt.rgba(0,0.75,0.65,0.65)
+                                    Behavior on color { ColorAnimation { duration: 80 } }
+                                    scale: bLtr1.active ? (1.0 + bLtr1.amp * 0.35) : 1.0
+                                    Behavior on scale { NumberAnimation { duration: 70; easing.type: Easing.OutBack } }
+                                }
+
+                                Rectangle {
+                                    visible: !bLtr1.isSpace
+                                    anchors.bottom: parent.bottom
+                                    anchors.horizontalCenter: parent.horizontalCenter
+                                    width: parent.width - Math.round(2 * dp)
+                                    height: bLtr1.active ? (bLtr1.amp * Math.round(5 * dp) + 1) : 1
+                                    radius: 1
+                                    color: bLtr1.active ? "#00e5ff" : Qt.rgba(0,1,1,0.18)
+                                    Behavior on height { NumberAnimation { duration: 70; easing.type: Easing.OutBack } }
+                                    Behavior on color { ColorAnimation { duration: 80 } }
+                                }
                             }
                         }
+
                         Rectangle {
-                            width: Math.round(3 * dp); height: Math.round(3 * dp)
-                            radius: Math.round(2 * dp)
-                            color: "#00e5ff"; opacity: 0.5
-                            anchors.verticalCenter: parent.verticalCenter
+                            width: Math.round(10 * dp); height: 1; radius: 1
+                            color: Qt.rgba(0,1,1,0.25); anchors.verticalCenter: parent.verticalCenter
                         }
                     }
                 }
