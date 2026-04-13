@@ -36,6 +36,48 @@ Rectangle {
         property int cachedMode: 1
     }
 
+    Settings {
+        id: articleCacheSettings
+        category: "articleCache"
+        property string htmlSw: ""
+        property string htmlEn: ""
+    }
+
+    // ── fetch & cache Tanzania article HTML ──────────────────────────────
+    function fetchArticle(lang) {
+        var url = lang === "sw"
+            ? "https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/tztourism/images/tz-sw.html"
+            : "https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/tztourism/images/tz-en.html";
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", url, true);
+        xhr.timeout = 12000;
+
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState !== XMLHttpRequest.DONE) return;
+            if (xhr.status === 200) {
+                var html = xhr.responseText;
+                if (html.trim() !== "") {
+                    if (lang === "sw") {
+                        articleCacheSettings.htmlSw = html;
+                    } else {
+                        articleCacheSettings.htmlEn = html;
+                    }
+                    articleCacheSettings.sync();
+                    // refresh display if this lang is currently showing
+                    if (app.articleViewVisible && app.articleLang === lang) {
+                        articleWebView.showContent(lang);
+                    }
+                }
+            }
+        };
+
+        xhr.ontimeout = function() { /* silently use cache */ };
+        xhr.onerror  = function() { /* silently use cache */ };
+
+        xhr.send();
+    }
+
     // ── fetch safari channel mode from remote config ─────────────────────────────────────
     function fetchSafariChannelMode() {
         var xhr = new XMLHttpRequest();
@@ -71,6 +113,8 @@ Rectangle {
 
     Component.onCompleted: {
         fetchSafariChannelMode();
+        fetchArticle("sw");
+        fetchArticle("en");
     }
 
     function animateBackToFrontPage(){
@@ -8187,44 +8231,41 @@ Rectangle {
                 color: "#e0f7f4"
                 text: ""
 
-                function scrollToTop(){
+                function scrollToTop() {
                     articleScrollTopBtn.sc = 1.0;
                     articleFlickable.contentY = 0;
                 }
 
-                // Load HTML on visibility/lang change
+                // Show content from QSettings cache; trigger background fetch if cache empty
+                function showContent(lang) {
+                    var cached = lang === "sw"
+                        ? articleCacheSettings.htmlSw
+                        : articleCacheSettings.htmlEn;
+
+                    if (cached !== undefined && cached.trim() !== "") {
+                        articleWebView.text = cached;
+                    } else {
+                        // no cache yet — show loading indicator, fetch in background
+                        articleWebView.text = lang === "sw"
+                            ? "<p style='color:#00e5cc;font-family:sans-serif;padding:24px;font-size:15px;'>⏳ Inapakia makala...</p>"
+                            : "<p style='color:#00c8ff;font-family:sans-serif;padding:24px;font-size:15px;'>⏳ Loading article...</p>";
+                        app.fetchArticle(lang);
+                    }
+                }
+
+                // Trigger showContent when overlay opens or lang changes
                 Connections {
                     target: app
                     function onArticleViewVisibleChanged() {
-                        if (app.articleViewVisible) {
-                            articleWebView.loadArticle();
+                        if (app.articleViewVisible && app.articleLang !== "") {
+                            articleWebView.showContent(app.articleLang);
                         }
                     }
                     function onArticleLangChanged() {
                         if (app.articleViewVisible && app.articleLang !== "") {
-                            articleWebView.loadArticle();
+                            articleWebView.showContent(app.articleLang);
                         }
                     }
-                }
-
-                function loadArticle() {
-                    var filePath = app.articleLang === "sw"
-                            ? "./tz-sw.html"
-                            : "./tz-en.html";
-                    var xhr = new XMLHttpRequest();
-                    xhr.open("GET", filePath, true);
-                    xhr.onreadystatechange = function() {
-                        if (xhr.readyState === XMLHttpRequest.DONE) {
-                            if (xhr.status === 200 || xhr.responseText !== "") {
-                                articleWebView.text = xhr.responseText;
-                            } else {
-                                articleWebView.text = app.articleLang === "sw"
-                                        ? "<p style='color:#ff6666;padding:20px;'>Hitilafu: Faili haikupatikana.</p>"
-                                        : "<p style='color:#ff6666;padding:20px;'>Error: File not found.</p>";
-                            }
-                        }
-                    };
-                    xhr.send();
                 }
             }
         }
