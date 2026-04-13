@@ -3404,11 +3404,13 @@ Rectangle {
                                     // scene label
                                     Rectangle {
                                         width: parent.width; height: sceneLabelARow.height + 12
-                                        color: "#001f0f"
+                                        color: "#003333"
+                                        border.color: "cyan"; border.width: 1
                                         Row {
                                             id: sceneLabelARow
                                             anchors.left: parent.left; anchors.leftMargin: 12
                                             anchors.verticalCenter: parent.verticalCenter
+                                            anchors.horizontalCenter: parent.horizontalCenter
                                             spacing: 8
                                             Text { text: "🎬"; font.pointSize: Qt.platform.os === "android" ? 14 : 11; anchors.verticalCenter: parent.verticalCenter }
                                             Text {
@@ -3422,8 +3424,8 @@ Rectangle {
                                     // stage direction
                                     Rectangle {
                                         width: parent.width; height: stageDirA.height + 14
-                                        color: "#081a24"
-                                        border.color: "#1a4488"; border.width: 1
+                                        color: "#003333"
+                                        border.color: "cyan"; border.width: 1
                                         Row {
                                             anchors.left: parent.left; anchors.leftMargin: 8
                                             anchors.top: parent.top; anchors.topMargin: 7
@@ -3434,7 +3436,7 @@ Rectangle {
                                                 id: stageDirA; width: parent.width - 28
                                                 wrapMode: Text.WordWrap; font.italic: true
                                                 font.pointSize: Qt.platform.os === "android" ? 10 : 8
-                                                color: "#88aacc"
+                                                color: "#1fb8ba"
                                                 text: langSettings.lang === "sw"
                                                       ? "Mvua inaanza kunyesha. Twiga anashika bendera ya Tanzania juu ya ngazi, nyani anashika ramani kichwa chini, simba amevaa kofia anasimama juu ya tembo, na vikaragosi wanajificha chini ya hema ndogo iliyofurika maji."
                                                       : "Rain begins. Giraffe holds the Tanzania flag atop a ladder, the monkey holds a map upside down, a lion in a hat stands on the elephant, and the meerkats hide under a tiny flooded tent."
@@ -4220,8 +4222,8 @@ Rectangle {
                                     // scene label
                                     Rectangle {
                                         width: parent.width; height: sceneLabelBRow.height + 12
-                                        color: "#001520"
-                                        border.color: "#0055aa"; border.width: 1
+                                        color: "#003333"
+                                        border.color: "cyan"; border.width: 1
                                         Row {
                                             id: sceneLabelBRow
                                             anchors.left: parent.left; anchors.leftMargin: 12
@@ -4239,8 +4241,8 @@ Rectangle {
                                     // stage direction
                                     Rectangle {
                                         width: parent.width; height: stageDirB.height + 14
-                                        color: "#081a24"
-                                        border.color: "#1a4488"; border.width: 1
+                                        color: "#003333"
+                                        border.color: "cyan"; border.width: 1
                                         Row {
                                             anchors.left: parent.left; anchors.leftMargin: 8
                                             anchors.top: parent.top; anchors.topMargin: 7
@@ -4251,7 +4253,7 @@ Rectangle {
                                                 id: stageDirB; width: parent.width - 28
                                                 wrapMode: Text.WordWrap; font.italic: true
                                                 font.pointSize: Qt.platform.os === "android" ? 10 : 8
-                                                color: "#88aacc"
+                                                color: "#1fb8ba"
                                                 text: langSettings.lang === "sw"
                                                       ? "Mvua imekwisha. Wapigapicha wanafika — watalii na watoto wa shule. Simba analala chini ya hema, tembo anasimama kwa heshima, twiga anajifanya hajui ngazi ilipotoka, na vikaragosi wanakaa juu ya mti wapole."
                                                       : "Rain has stopped. Photographers arrive — tourists and schoolchildren. The lion sleeps under the tent, the elephant stands tall, the giraffe pretends to know nothing about the ladder, and the meerkats sit calmly in the tree."
