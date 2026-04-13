@@ -4237,7 +4237,7 @@ Rectangle {
                                             Text { text: "🎬"; font.pointSize: Qt.platform.os === "android" ? 14 : 11; anchors.verticalCenter: parent.verticalCenter }
                                             Text {
                                                 text: langSettings.lang === "sw" ? "Tukio B — \"Wageni Wanafika!\"" : "Scene B — \"The Visitors Arrive!\""
-                                                font.pointSize: Qt.platform.os === "android" ? 12 : 9; font.bold: true; color: langSettings.lang === "sw" ? "#ff9922" : "#44ccff"
+                                                font.pointSize: Qt.platform.os === "android" ? 12 : 9; font.bold: true; color: langSettings.lang === "sw" ? "green" : "blue"
                                                 anchors.verticalCenter: parent.verticalCenter
                                             }
                                         }
