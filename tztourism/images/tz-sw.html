@@ -1,427 +1,198 @@
 <!DOCTYPE html>
 <html lang="sw">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tanzania — Nchi Yetu Tukufu</title>
-<style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  body {
-    background-color: #001413;
-    color: #e0f7f4;
-    font-family: 'Georgia', serif;
-    font-size: 15px;
-    line-height: 1.85;
-    padding: 0 0 40px 0;
-  }
-
-  /* ── HERO BANNER ── */
-  .hero {
-    background: linear-gradient(160deg, #002a26 0%, #001413 60%, #0a0020 100%);
-    border-bottom: 2px solid #00e5cc;
-    padding: 36px 22px 28px 22px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: "";
-    position: absolute;
-    top: -40px; left: -40px; right: -40px; bottom: -40px;
-    background: radial-gradient(ellipse at 50% 0%, #00e5cc18 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .flag-stripe {
-    display: flex;
-    justify-content: center;
-    gap: 6px;
-    margin-bottom: 16px;
-  }
-  .flag-stripe span {
-    display: inline-block;
-    height: 6px;
-    border-radius: 3px;
-  }
-  .flag-stripe .s1 { width: 40px; background: #1eb53a; }
-  .flag-stripe .s2 { width: 8px;  background: #fcd116; }
-  .flag-stripe .s3 { width: 50px; background: #000000; }
-  .flag-stripe .s4 { width: 8px;  background: #fcd116; }
-  .flag-stripe .s5 { width: 40px; background: #00a3dd; }
-
-  .hero-emoji { font-size: 48px; display: block; margin-bottom: 8px; }
-
-  .hero h1 {
-    font-size: 26px;
-    font-weight: bold;
-    color: #00e5cc;
-    letter-spacing: 1px;
-    text-shadow: 0 0 18px #00e5cc88;
-    margin-bottom: 6px;
-  }
-  .hero .tagline {
-    font-size: 13px;
-    color: #aaddcc;
-    font-style: italic;
-    letter-spacing: 0.5px;
-  }
-
-  /* ── SECTIONS ── */
-  .section {
-    padding: 24px 20px 10px 20px;
-    border-bottom: 1px solid #0a2e2b;
-  }
-  .section:last-child { border-bottom: none; }
-
-  .section-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 14px;
-  }
-  .section-icon {
-    font-size: 26px;
-    line-height: 1;
-  }
-  .section-title {
-    font-size: 17px;
-    font-weight: bold;
-    color: #00e5cc;
-    letter-spacing: 0.5px;
-    border-bottom: 2px solid #1eb53a;
-    padding-bottom: 3px;
-  }
-
-  p {
-    margin-bottom: 12px;
-    color: #c8eee8;
-  }
-
-  /* ── HIGHLIGHTS BOX ── */
-  .highlight-box {
-    background: #0d2a28;
-    border-left: 4px solid #00e5cc;
-    border-radius: 0 8px 8px 0;
-    padding: 12px 14px;
-    margin: 12px 0;
-    color: #aef0e8;
-    font-size: 14px;
-  }
-  .highlight-box strong {
-    color: #00e5cc;
-  }
-
-  /* ── CHIP LIST ── */
-  .chip-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin: 10px 0 14px 0;
-  }
-  .chip {
-    background: #0d2a28;
-    border: 1px solid #00e5cc55;
-    border-radius: 20px;
-    padding: 4px 12px;
-    font-size: 12px;
-    color: #aef0e8;
-  }
-  .chip.green { border-color: #1eb53a88; color: #80f08a; }
-  .chip.gold  { border-color: #fcd11688; color: #ffe57a; }
-
-  /* ── TABLE ── */
-  .info-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 10px 0;
-  }
-  .info-table td {
-    padding: 7px 10px;
-    font-size: 13px;
-    border-bottom: 1px solid #0a2e2b;
-  }
-  .info-table td:first-child {
-    color: #00e5cc;
-    font-weight: bold;
-    width: 38%;
-  }
-  .info-table td:last-child { color: #c8eee8; }
-
-  /* ── PULL QUOTE ── */
-  .quote {
-    text-align: center;
-    font-size: 16px;
-    font-style: italic;
-    color: #00e5cc;
-    padding: 16px 20px;
-    border-top: 1px solid #00e5cc33;
-    border-bottom: 1px solid #00e5cc33;
-    margin: 16px 0;
-    text-shadow: 0 0 10px #00e5cc44;
-  }
-
-  /* ── FOOTER ── */
-  .footer {
-    text-align: center;
-    padding: 20px;
-    font-size: 11px;
-    color: #2a5a54;
-    letter-spacing: 0.5px;
-  }
-</style>
-</head>
-<body>
+<head><meta charset="UTF-8"></head>
+<body style="background-color:#001413;color:#e0f7f4;font-family:sans-serif;font-size:17px;line-height:1.9;margin:0;padding:0 0 40px 0;">
 
 <!-- HERO -->
-<div class="hero">
-  <div class="flag-stripe">
-    <span class="s1"></span>
-    <span class="s2"></span>
-    <span class="s3"></span>
-    <span class="s4"></span>
-    <span class="s5"></span>
-  </div>
-  <span class="hero-emoji">🇹🇿</span>
-  <h1>Tanzania — Nchi Yetu Tukufu</h1>
-  <div class="tagline">Umoja • Uhuru • Maendeleo</div>
+<div style="background-color:#002a26;border-bottom:3px solid #00e5cc;padding:32px 20px 24px 20px;text-align:center;">
+  <div style="font-size:52px;margin-bottom:6px;">🇹🇿</div>
+  <div style="font-size:24px;font-weight:bold;color:#00e5cc;letter-spacing:1px;margin-bottom:6px;">Tanzania — Nchi Yetu Tukufu</div>
+  <div style="font-size:15px;color:#aaddcc;font-style:italic;">Umoja &bull; Uhuru &bull; Maendeleo</div>
 </div>
 
 <!-- UHURU NA HISTORIA -->
-<div class="section">
-  <div class="section-header">
-    <span class="section-icon">⚔️</span>
-    <div class="section-title">Uhuru na Historia</div>
-  </div>
-  <p>
-    Tanzania ilipata uhuru wake tarehe <strong>9 Desemba 1961</strong> kutoka kwa Waingereza, chini ya uongozi wa kiongozi mkuu
-    <strong>Mwalimu Julius Kambarage Nyerere</strong> — baba wa taifa na mtu aliyeathiri zaidi historia ya Afrika Mashariki.
+<div style="padding:22px 18px 12px 18px;border-bottom:1px solid #0a2e2b;">
+  <div style="font-size:20px;font-weight:bold;color:#00e5cc;border-bottom:3px solid #1eb53a;padding-bottom:4px;margin-bottom:14px;">⚔️ Uhuru na Historia</div>
+  <p style="font-size:17px;color:#c8eee8;margin:0 0 12px 0;">
+    Tanzania ilipata uhuru wake tarehe <b>9 Desemba 1961</b> kutoka kwa Waingereza, chini ya uongozi wa
+    <b>Mwalimu Julius Kambarage Nyerere</b> — baba wa taifa na mtu aliyeathiri zaidi historia ya Afrika Mashariki.
     Uhuru haukupatikana kwa silaha, bali kwa hekima, umoja, na mazungumzo ya amani kupitia chama cha TANU.
   </p>
-  <p>
-    Mnamo <strong>26 Aprili 1964</strong>, Tanganyika iliungana na Zanzibar kuunda <em>Jamhuri ya Muungano wa Tanzania</em>.
+  <p style="font-size:17px;color:#c8eee8;margin:0 0 12px 0;">
+    Mnamo <b>26 Aprili 1964</b>, Tanganyika iliungana na Zanzibar kuunda <i>Jamhuri ya Muungano wa Tanzania</i>.
     Muungano huu ni mfano wa ajabu wa amani na upendo wa ndugu kwa Afrika nzima.
   </p>
-  <div class="highlight-box">
-    <strong>Mwalimu Nyerere</strong> alisema: "Binadamu wote ni ndugu zangu, na Tanzania ni nyumba ya kila mmoja wetu."
-    Falsafa yake ya <em>Ujamaa</em> ilijenga taifa lenye mshikamano na heshima ya utu.
+  <div style="background-color:#0d2a28;border-left:4px solid #00e5cc;padding:12px 14px;margin:12px 0;font-size:16px;color:#aef0e8;border-radius:0 8px 8px 0;">
+    <b style="color:#00e5cc;">Mwalimu Nyerere</b> alisema: "Binadamu wote ni ndugu zangu, na Tanzania ni nyumba ya kila mmoja wetu."
+    Falsafa yake ya <i>Ujamaa</i> ilijenga taifa lenye mshikamano na heshima ya utu.
   </div>
-  <div class="quote">"Uhuru ni kazi — si zawadi."<br><small style="color:#aaddcc;font-size:12px;">— Mwalimu J.K. Nyerere</small></div>
+  <div style="text-align:center;font-size:18px;font-style:italic;color:#00e5cc;padding:14px 16px;border-top:1px solid #00e5cc44;border-bottom:1px solid #00e5cc44;margin:14px 0;">
+    "Uhuru ni kazi — si zawadi."<br><span style="font-size:14px;color:#aaddcc;">— Mwalimu J.K. Nyerere</span>
+  </div>
 </div>
 
 <!-- UTAMADUNI -->
-<div class="section">
-  <div class="section-header">
-    <span class="section-icon">🥁</span>
-    <div class="section-title">Utamaduni wa Tanzania</div>
-  </div>
-  <p>
-    Tanzania ni hazina ya utamaduni wa aina nyingi. Lugha ya Kiswahili — mojawapo ya lugha zinazokua haraka duniani — 
+<div style="padding:22px 18px 12px 18px;border-bottom:1px solid #0a2e2b;">
+  <div style="font-size:20px;font-weight:bold;color:#00e5cc;border-bottom:3px solid #1eb53a;padding-bottom:4px;margin-bottom:14px;">🥁 Utamaduni wa Tanzania</div>
+  <p style="font-size:17px;color:#c8eee8;margin:0 0 12px 0;">
+    Tanzania ni hazina ya utamaduni wa aina nyingi. Lugha ya <b>Kiswahili</b> — mojawapo ya lugha zinazokua haraka duniani —
     inatoka hapa na inaunganisha mataifa mengi ya Afrika. Ni lugha ya moyo, ya mashairi, na ya hekima ya mababu.
   </p>
-  <p>
-    Ngoma za Tanzania, kama vile <strong>Ngoma ya Beni, Taarab ya Zanzibar</strong>, na <strong>Chakacha</strong>, 
-    zinasimulia hadithi za vizazi. Mavazi kama <strong>Kanga</strong> na <strong>Kitenge</strong> sio tu nguo — 
-    ni lugha ya pili ambayo inabeba methali, upendo, na ujumbe wa kijamii.
+  <p style="font-size:17px;color:#c8eee8;margin:0 0 12px 0;">
+    Ngoma za Tanzania, kama vile <b>Ngoma ya Beni, Taarab ya Zanzibar</b>, na <b>Chakacha</b>,
+    zinasimulia hadithi za vizazi. Mavazi kama <b>Kanga</b> na <b>Kitenge</b> sio tu nguo —
+    ni lugha ya pili inayobeba methali, upendo, na ujumbe wa kijamii.
   </p>
-  <div class="chip-list">
-    <span class="chip">🎵 Taarab</span>
-    <span class="chip">🥁 Ngoma ya Beni</span>
-    <span class="chip">💃 Chakacha</span>
-    <span class="chip green">🧣 Kanga</span>
-    <span class="chip green">🪡 Kitenge</span>
-    <span class="chip">🎨 Tingatinga Art</span>
-  </div>
-  <p>
-    Sanaa ya <strong>Tingatinga</strong> — iliyozaliwa Dar es Salaam na Edward Tingatinga — inaonyesha ndoto za Afrika
+  <p style="font-size:16px;color:#80f08a;margin:0 0 8px 0;">
+    🎵 Taarab &nbsp;&bull;&nbsp; 🥁 Ngoma ya Beni &nbsp;&bull;&nbsp; 💃 Chakacha &nbsp;&bull;&nbsp;
+    🧣 Kanga &nbsp;&bull;&nbsp; 🪡 Kitenge &nbsp;&bull;&nbsp; 🎨 Tingatinga Art
+  </p>
+  <p style="font-size:17px;color:#c8eee8;margin:0 0 12px 0;">
+    Sanaa ya <b>Tingatinga</b> — iliyozaliwa Dar es Salaam na Edward Tingatinga — inaonyesha ndoto za Afrika
     kwa rangi za kung'aa na michoro ya wanyama wa pori. Leo sanaa hii inasifiwa duniani kote.
   </p>
 </div>
 
 <!-- MAKABILA -->
-<div class="section">
-  <div class="section-header">
-    <span class="section-icon">🤝</span>
-    <div class="section-title">Makabila 120+ — Nguvu Moja</div>
-  </div>
-  <p>
-    Tanzania ina zaidi ya <strong>makabila 120</strong>, kila moja likiwa na lugha yake, desturi zake, na utamaduni wake wa kipekee.
+<div style="padding:22px 18px 12px 18px;border-bottom:1px solid #0a2e2b;">
+  <div style="font-size:20px;font-weight:bold;color:#00e5cc;border-bottom:3px solid #1eb53a;padding-bottom:4px;margin-bottom:14px;">🤝 Makabila 120+ — Nguvu Moja</div>
+  <p style="font-size:17px;color:#c8eee8;margin:0 0 12px 0;">
+    Tanzania ina zaidi ya <b>makabila 120</b>, kila moja likiwa na lugha yake, desturi zake, na utamaduni wake wa kipekee.
     Hii ni utajiri mkubwa — si chanzo cha migogoro, bali nguvu ya umoja kama Nyerere alivyotuonyesha.
   </p>
-  <div class="chip-list">
-    <span class="chip green">Wasukuma</span>
-    <span class="chip green">Wachagga</span>
-    <span class="chip green">Wahaya</span>
-    <span class="chip green">Wanyamwezi</span>
-    <span class="chip green">Wamasai</span>
-    <span class="chip green">Wahehe</span>
-    <span class="chip green">Wamakonde</span>
-    <span class="chip green">Wazaramo</span>
-    <span class="chip green">Waswahili</span>
-    <span class="chip green">Wabena</span>
-    <span class="chip green">Warangi</span>
-    <span class="chip green">Wandamba</span>
-    <span class="chip green">Wairaqw</span>
-    <span class="chip">+mengi zaidi</span>
-  </div>
-  <p>
-    <strong>Wamasai</strong> wanajulikana kwa ujasiri na mavazi yao mekundu, huku <strong>Wamakonde</strong> wakishinda 
-    ulimwenguni kwa sanaa yao ya uchongaji wa ebony. <strong>Wahadzabe</strong> wa Eyasi ni moja ya makabila ya mwisho 
+  <p style="font-size:16px;color:#80f08a;margin:0 0 8px 0;">
+    Wasukuma &bull; Wachagga &bull; Wahaya &bull; Wanyamwezi &bull; Wamasai &bull; Wahehe &bull;
+    Wamakonde &bull; Wazaramo &bull; Waswahili &bull; Wabena &bull; Warangi &bull; Wandamba &bull;
+    Wairaqw &bull; <span style="color:#aef0e8;">...na makabila mengi zaidi</span>
+  </p>
+  <p style="font-size:17px;color:#c8eee8;margin:0 0 12px 0;">
+    <b>Wamasai</b> wanajulikana kwa ujasiri na mavazi yao mekundu, huku <b>Wamakonde</b> wakisifika
+    ulimwenguni kwa sanaa yao ya uchongaji wa ebony. <b>Wahadzabe</b> wa Eyasi ni moja ya makabila ya mwisho
     duniani yanayoishi kama wawindaji wa asili.
   </p>
 </div>
 
 <!-- MIKOA -->
-<div class="section">
-  <div class="section-header">
-    <span class="section-icon">🗺️</span>
-    <div class="section-title">Mikoa 31 — Kila Mmoja na Thamani Yake</div>
-  </div>
-  <p>
-    Tanzania imegawanywa katika <strong>mikoa 31</strong>, kila moja ikiwa na utamaduni, mazao, na maliasili yake.
-    Kutoka pwani ya Tanga hadi Songwe kusini, kutoka Kagera kaskazini-magharibi hadi Lindi mashariki — 
+<div style="padding:22px 18px 12px 18px;border-bottom:1px solid #0a2e2b;">
+  <div style="font-size:20px;font-weight:bold;color:#00e5cc;border-bottom:3px solid #1eb53a;padding-bottom:4px;margin-bottom:14px;">🗺️ Mikoa 31 — Kila Mmoja na Thamani Yake</div>
+  <p style="font-size:17px;color:#c8eee8;margin:0 0 12px 0;">
+    Tanzania imegawanywa katika <b>mikoa 31</b>, kila moja ikiwa na utamaduni, mazao, na maliasili yake.
+    Kutoka pwani ya Tanga hadi Songwe kusini, kutoka Kagera kaskazini-magharibi hadi Lindi mashariki —
     Tanzania ni msururu wa maajabu.
   </p>
-  <table class="info-table">
-    <tr><td>🏔️ Arusha</td><td>Mlima Kilimanjaro, Serengeti, Ngorongoro</td></tr>
-    <tr><td>🌊 Zanzibar</td><td>Fukwe, viungo, Mji Mkongwe</td></tr>
-    <tr><td>🏙️ Dar es Salaam</td><td>Makao makuu ya biashara</td></tr>
-    <tr><td>🐟 Mwanza</td><td>Ziwa Victoria, samaki sangara</td></tr>
-    <tr><td>⛏️ Mwanza / Shinyanga</td><td>Dhahabu, almasi</td></tr>
-    <tr><td>🌿 Kilimanjaro</td><td>Kahawa bora duniani</td></tr>
-    <tr><td>🦛 Katavi</td><td>Wanyamapori wa pori</td></tr>
-    <tr><td>🌋 Rungwe</td><td>Milima, maporomoko ya maji</td></tr>
+  <table style="width:100%;border-collapse:collapse;margin:8px 0;font-size:16px;">
+    <tr><td style="padding:8px 10px;color:#00e5cc;font-weight:bold;width:40%;border-bottom:1px solid #0a2e2b;">🏔️ Arusha</td><td style="padding:8px 10px;color:#c8eee8;border-bottom:1px solid #0a2e2b;">Kilimanjaro, Serengeti, Ngorongoro</td></tr>
+    <tr><td style="padding:8px 10px;color:#00e5cc;font-weight:bold;border-bottom:1px solid #0a2e2b;">🌊 Zanzibar</td><td style="padding:8px 10px;color:#c8eee8;border-bottom:1px solid #0a2e2b;">Fukwe, viungo, Mji Mkongwe</td></tr>
+    <tr><td style="padding:8px 10px;color:#00e5cc;font-weight:bold;border-bottom:1px solid #0a2e2b;">🏙️ Dar es Salaam</td><td style="padding:8px 10px;color:#c8eee8;border-bottom:1px solid #0a2e2b;">Makao makuu ya biashara</td></tr>
+    <tr><td style="padding:8px 10px;color:#00e5cc;font-weight:bold;border-bottom:1px solid #0a2e2b;">🐟 Mwanza</td><td style="padding:8px 10px;color:#c8eee8;border-bottom:1px solid #0a2e2b;">Ziwa Victoria, samaki sangara</td></tr>
+    <tr><td style="padding:8px 10px;color:#00e5cc;font-weight:bold;border-bottom:1px solid #0a2e2b;">⛏️ Shinyanga / Geita</td><td style="padding:8px 10px;color:#c8eee8;border-bottom:1px solid #0a2e2b;">Dhahabu, almasi</td></tr>
+    <tr><td style="padding:8px 10px;color:#00e5cc;font-weight:bold;border-bottom:1px solid #0a2e2b;">🌿 Kilimanjaro</td><td style="padding:8px 10px;color:#c8eee8;border-bottom:1px solid #0a2e2b;">Kahawa bora duniani</td></tr>
+    <tr><td style="padding:8px 10px;color:#00e5cc;font-weight:bold;border-bottom:1px solid #0a2e2b;">🦛 Katavi</td><td style="padding:8px 10px;color:#c8eee8;border-bottom:1px solid #0a2e2b;">Wanyamapori wa pori</td></tr>
+    <tr><td style="padding:8px 10px;color:#00e5cc;font-weight:bold;">🌋 Rungwe</td><td style="padding:8px 10px;color:#c8eee8;">Milima, maporomoko ya maji</td></tr>
   </table>
 </div>
 
 <!-- MAZAO -->
-<div class="section">
-  <div class="section-header">
-    <span class="section-icon">🌾</span>
-    <div class="section-title">Mazao — Kilimo ni Uti wa Mgongo</div>
-  </div>
-  <p>
-    Kilimo ni moyo wa uchumi wa Tanzania. Takriban <strong>asilimia 65</strong> ya Watanzania wanaishi kwa kilimo, 
+<div style="padding:22px 18px 12px 18px;border-bottom:1px solid #0a2e2b;">
+  <div style="font-size:20px;font-weight:bold;color:#00e5cc;border-bottom:3px solid #1eb53a;padding-bottom:4px;margin-bottom:14px;">🌾 Mazao — Kilimo ni Uti wa Mgongo</div>
+  <p style="font-size:17px;color:#c8eee8;margin:0 0 12px 0;">
+    Kilimo ni moyo wa uchumi wa Tanzania. Takriban <b>asilimia 65</b> ya Watanzania wanaishi kwa kilimo,
     wakitunza ardhi yao kwa moyo wote. Tanzania ni miongoni mwa wazalishaji wakuu barani Afrika kwa mazao mengi.
   </p>
-  <div class="chip-list">
-    <span class="chip gold">☕ Kahawa</span>
-    <span class="chip gold">🍵 Chai</span>
-    <span class="chip gold">🌸 Karafuu</span>
-    <span class="chip gold">🥜 Korosho</span>
-    <span class="chip gold">🌻 Alizeti</span>
-    <span class="chip gold">🌽 Mahindi</span>
-    <span class="chip gold">🍚 Mpunga</span>
-    <span class="chip gold">🍌 Ndizi</span>
-    <span class="chip gold">🧅 Vitunguu</span>
-    <span class="chip gold">🫘 Maharagwe</span>
-    <span class="chip">🌿 Chai ya Usambara</span>
-  </div>
-  <p>
-    <strong>Kahawa ya Kilimanjaro</strong> inajulikana duniani kwa ladha yake ya kipekee. <strong>Karafuu za Zanzibar</strong>
-    — zinazoitwa "dhahabu ya visiwa" — zilikuwa chanzo kikuu cha utajiri wa Zanzibar kwa karne nyingi. 
-    <strong>Korosho</strong> za Tanzania ni miongoni mwa bora zaidi duniani.
+  <p style="font-size:16px;color:#ffe57a;margin:0 0 10px 0;">
+    ☕ Kahawa &bull; 🍵 Chai &bull; 🌸 Karafuu &bull; 🥜 Korosho &bull; 🌻 Alizeti &bull;
+    🌽 Mahindi &bull; 🍚 Mpunga &bull; 🍌 Ndizi &bull; 🧅 Vitunguu &bull; 🫘 Maharagwe &bull; 🌿 Chai ya Usambara
+  </p>
+  <p style="font-size:17px;color:#c8eee8;margin:0 0 12px 0;">
+    <b>Kahawa ya Kilimanjaro</b> inajulikana duniani kwa ladha yake ya kipekee. <b>Karafuu za Zanzibar</b>
+    — zinazoitwa "dhahabu ya visiwa" — zilikuwa chanzo kikuu cha utajiri wa Zanzibar kwa karne nyingi.
+    <b>Korosho</b> za Tanzania ni miongoni mwa bora zaidi duniani.
   </p>
 </div>
 
 <!-- MADINI -->
-<div class="section">
-  <div class="section-header">
-    <span class="section-icon">💎</span>
-    <div class="section-title">Madini — Utajiri wa Ardhi Yetu</div>
-  </div>
-  <p>
-    Ardhi ya Tanzania imejaa madini ya thamani kubwa. Tanzania ni moja ya wazalishaji wakuu wa <strong>dhahabu</strong>
-    barani Afrika, huku pia ikiwa nchi pekee duniani inayozalisha kiasi kikubwa cha <strong>Tanzanite</strong> — 
+<div style="padding:22px 18px 12px 18px;border-bottom:1px solid #0a2e2b;">
+  <div style="font-size:20px;font-weight:bold;color:#00e5cc;border-bottom:3px solid #1eb53a;padding-bottom:4px;margin-bottom:14px;">💎 Madini — Utajiri wa Ardhi Yetu</div>
+  <p style="font-size:17px;color:#c8eee8;margin:0 0 12px 0;">
+    Ardhi ya Tanzania imejaa madini ya thamani kubwa. Tanzania ni moja ya wazalishaji wakuu wa <b>dhahabu</b>
+    barani Afrika, huku pia ikiwa nchi pekee duniani inayozalisha <b>Tanzanite</b> —
     jiwe la samawati la uzuri wa pekee linaloonekana tu Mererani, Arusha.
   </p>
-  <table class="info-table">
-    <tr><td>🥇 Dhahabu</td><td>Mwanza, Geita, Shinyanga — miongoni mwa wazalishaji wakubwa Afrika</td></tr>
-    <tr><td>💎 Almasi</td><td>Mwadui, Shinyanga — mgodi wa almasi wa zamani zaidi duniani</td></tr>
-    <tr><td>🔵 Tanzanite</td><td>Mererani, Arusha — inapatikana Tanzania peke yake ulimwenguni</td></tr>
-    <tr><td>⬛ Makaa ya mawe</td><td>Songwe, Ruvuma — akiba kubwa</td></tr>
-    <tr><td>🟤 Chuma</td><td>Liganga, Njombe — mradi wa kimataifa</td></tr>
-    <tr><td>🔋 Grafiti</td><td>Lindi — kwa teknolojia ya betri za kisasa</td></tr>
-    <tr><td>💧 Gesi asili</td><td>Mtwara, Lindi — rasilimali kubwa ya nishati</td></tr>
+  <table style="width:100%;border-collapse:collapse;margin:8px 0;font-size:16px;">
+    <tr><td style="padding:8px 10px;color:#00e5cc;font-weight:bold;width:40%;border-bottom:1px solid #0a2e2b;">🥇 Dhahabu</td><td style="padding:8px 10px;color:#c8eee8;border-bottom:1px solid #0a2e2b;">Mwanza, Geita, Shinyanga</td></tr>
+    <tr><td style="padding:8px 10px;color:#00e5cc;font-weight:bold;border-bottom:1px solid #0a2e2b;">💎 Almasi</td><td style="padding:8px 10px;color:#c8eee8;border-bottom:1px solid #0a2e2b;">Mwadui, Shinyanga</td></tr>
+    <tr><td style="padding:8px 10px;color:#00e5cc;font-weight:bold;border-bottom:1px solid #0a2e2b;">🔵 Tanzanite</td><td style="padding:8px 10px;color:#c8eee8;border-bottom:1px solid #0a2e2b;">Mererani, Arusha — Tanzania peke yake</td></tr>
+    <tr><td style="padding:8px 10px;color:#00e5cc;font-weight:bold;border-bottom:1px solid #0a2e2b;">⬛ Makaa ya mawe</td><td style="padding:8px 10px;color:#c8eee8;border-bottom:1px solid #0a2e2b;">Songwe, Ruvuma</td></tr>
+    <tr><td style="padding:8px 10px;color:#00e5cc;font-weight:bold;border-bottom:1px solid #0a2e2b;">🟤 Chuma</td><td style="padding:8px 10px;color:#c8eee8;border-bottom:1px solid #0a2e2b;">Liganga, Njombe</td></tr>
+    <tr><td style="padding:8px 10px;color:#00e5cc;font-weight:bold;border-bottom:1px solid #0a2e2b;">🔋 Grafiti</td><td style="padding:8px 10px;color:#c8eee8;border-bottom:1px solid #0a2e2b;">Lindi — betri za kisasa</td></tr>
+    <tr><td style="padding:8px 10px;color:#00e5cc;font-weight:bold;">💧 Gesi asili</td><td style="padding:8px 10px;color:#c8eee8;">Mtwara, Lindi</td></tr>
   </table>
-  <div class="highlight-box">
-    <strong>Tanzanite</strong> ni mojawapo ya vito vya thamani zaidi duniani. Inasemekana ni mara <strong>1,000</strong> 
-    adimu kuliko almasi. Inapatikana tu kwenye eneo dogo la kilomita 8 × 2 karibu na Mlima Kilimanjaro.
+  <div style="background-color:#0d2a28;border-left:4px solid #00e5cc;padding:12px 14px;margin:12px 0;font-size:16px;color:#aef0e8;border-radius:0 8px 8px 0;">
+    <b style="color:#00e5cc;">Tanzanite</b> ni mara <b>1,000</b> adimu kuliko almasi.
+    Inapatikana tu kwenye eneo dogo la kilomita 8 × 2 karibu na Mlima Kilimanjaro.
   </div>
 </div>
 
 <!-- UTALII -->
-<div class="section">
-  <div class="section-header">
-    <span class="section-icon">🦁</span>
-    <div class="section-title">Utalii — Pepo la Asili</div>
-  </div>
-  <p>
-    Tanzania ni moja ya vivutio vikuu vya utalii duniani. Kutoka kwenye nyanda za Serengeti zenye uhamaji mkubwa wa nyumbu,
-    hadi fukwe za theluji-nyeupe za Zanzibar, hadi mlima mrefu zaidi Afrika — <strong>Kilimanjaro</strong> — 
+<div style="padding:22px 18px 12px 18px;border-bottom:1px solid #0a2e2b;">
+  <div style="font-size:20px;font-weight:bold;color:#00e5cc;border-bottom:3px solid #1eb53a;padding-bottom:4px;margin-bottom:14px;">🦁 Utalii — Pepo la Asili</div>
+  <p style="font-size:17px;color:#c8eee8;margin:0 0 12px 0;">
+    Tanzania ni moja ya vivutio vikuu vya utalii duniani. Kutoka nyanda za Serengeti zenye uhamaji mkubwa wa nyumbu,
+    hadi fukwe za theluji-nyeupe za Zanzibar, hadi mlima mrefu zaidi Afrika — <b>Kilimanjaro</b> —
     Tanzania ina kila kitu kwa mtalii wa aina yoyote.
   </p>
-  <div class="chip-list">
-    <span class="chip">🦁 Big Five</span>
-    <span class="chip">🏔️ Kilimanjaro</span>
-    <span class="chip">🏝️ Zanzibar</span>
-    <span class="chip green">🌿 Serengeti</span>
-    <span class="chip green">🦏 Ngorongoro</span>
-    <span class="chip">🐬 Kizimkazi</span>
-    <span class="chip">🐘 Tarangire</span>
-    <span class="chip">🦋 Mahale</span>
-  </div>
-  <p>
-    <strong>Serengeti</strong> — maarufu kwa msafara wa nyumbu milioni 1.5 — imetangazwa kuwa mojawapo ya maajabu 
-    ya asili ya ulimwengu. <strong>Ngorongoro</strong> ni "Eden ya Afrika" — eneo ambapo wanyamapori wanaishi 
-    pamoja na binadamu (Wamasai) kwa amani ya kushangaza.
+  <p style="font-size:16px;color:#aef0e8;margin:0 0 10px 0;">
+    🦁 Big Five &bull; 🏔️ Kilimanjaro &bull; 🏝️ Zanzibar &bull; 🌿 Serengeti &bull;
+    🦏 Ngorongoro &bull; 🐬 Kizimkazi &bull; 🐘 Tarangire &bull; 🦋 Mahale
   </p>
-  <div class="quote">"Tanzania si nchi tu — ni hisia. Unaingia ukiwa mgeni, unatoka ukiwa nyumbani."</div>
+  <p style="font-size:17px;color:#c8eee8;margin:0 0 12px 0;">
+    <b>Serengeti</b> — maarufu kwa msafara wa nyumbu milioni 1.5 — imetangazwa kuwa mojawapo ya maajabu ya asili.
+    <b>Ngorongoro</b> ni "Eden ya Afrika" — wanyamapori wanaishi pamoja na Wamasai kwa amani ya kushangaza.
+  </p>
+  <div style="text-align:center;font-size:18px;font-style:italic;color:#00e5cc;padding:14px 16px;border-top:1px solid #00e5cc44;border-bottom:1px solid #00e5cc44;margin:14px 0;">
+    "Tanzania si nchi tu — ni hisia. Unaingia ukiwa mgeni, unatoka ukiwa nyumbani."
+  </div>
 </div>
 
 <!-- UTAWALA -->
-<div class="section">
-  <div class="section-header">
-    <span class="section-icon">🏛️</span>
-    <div class="section-title">Utawala — Demokrasia ya Amani</div>
-  </div>
-  <p>
-    Tanzania ni <strong>jamhuri ya kidemokrasia ya mfumo wa vyama vingi</strong>. Kichwa cha nchi ni 
-    <strong>Rais</strong> anayechaguliwa kwa kura za wananchi kila miaka mitano. Bunge la Tanzania, 
+<div style="padding:22px 18px 12px 18px;border-bottom:1px solid #0a2e2b;">
+  <div style="font-size:20px;font-weight:bold;color:#00e5cc;border-bottom:3px solid #1eb53a;padding-bottom:4px;margin-bottom:14px;">🏛️ Utawala — Demokrasia ya Amani</div>
+  <p style="font-size:17px;color:#c8eee8;margin:0 0 12px 0;">
+    Tanzania ni <b>jamhuri ya kidemokrasia ya mfumo wa vyama vingi</b>. Kichwa cha nchi ni
+    <b>Rais</b> anayechaguliwa kwa kura za wananchi kila miaka mitano. Bunge la Tanzania,
     lenye makao Dodoma — mji mkuu rasmi — ndilo lenye mamlaka ya kutunga sheria.
   </p>
-  <table class="info-table">
-    <tr><td>📍 Mji Mkuu Rasmi</td><td>Dodoma</td></tr>
-    <tr><td>🏙️ Mji Mkuu wa Biashara</td><td>Dar es Salaam</td></tr>
-    <tr><td>🗳️ Mfumo</td><td>Jamhuri — Vyama Vingi</td></tr>
-    <tr><td>📋 Katiba</td><td>1977 (marekebisho mbalimbali)</td></tr>
-    <tr><td>🌍 Umoja wa Kimataifa</td><td>AU, UN, EAC, SADC, Commonwealth</td></tr>
-    <tr><td>💰 Sarafu</td><td>Shilingi ya Tanzania (TZS)</td></tr>
+  <table style="width:100%;border-collapse:collapse;margin:8px 0;font-size:16px;">
+    <tr><td style="padding:8px 10px;color:#00e5cc;font-weight:bold;width:40%;border-bottom:1px solid #0a2e2b;">📍 Mji Mkuu Rasmi</td><td style="padding:8px 10px;color:#c8eee8;border-bottom:1px solid #0a2e2b;">Dodoma</td></tr>
+    <tr><td style="padding:8px 10px;color:#00e5cc;font-weight:bold;border-bottom:1px solid #0a2e2b;">🏙️ Mji wa Biashara</td><td style="padding:8px 10px;color:#c8eee8;border-bottom:1px solid #0a2e2b;">Dar es Salaam</td></tr>
+    <tr><td style="padding:8px 10px;color:#00e5cc;font-weight:bold;border-bottom:1px solid #0a2e2b;">🗳️ Mfumo</td><td style="padding:8px 10px;color:#c8eee8;border-bottom:1px solid #0a2e2b;">Jamhuri — Vyama Vingi</td></tr>
+    <tr><td style="padding:8px 10px;color:#00e5cc;font-weight:bold;border-bottom:1px solid #0a2e2b;">📋 Katiba</td><td style="padding:8px 10px;color:#c8eee8;border-bottom:1px solid #0a2e2b;">1977 (marekebisho mbalimbali)</td></tr>
+    <tr><td style="padding:8px 10px;color:#00e5cc;font-weight:bold;border-bottom:1px solid #0a2e2b;">🌍 Kimataifa</td><td style="padding:8px 10px;color:#c8eee8;border-bottom:1px solid #0a2e2b;">AU, UN, EAC, SADC, Commonwealth</td></tr>
+    <tr><td style="padding:8px 10px;color:#00e5cc;font-weight:bold;">💰 Sarafu</td><td style="padding:8px 10px;color:#c8eee8;">Shilingi ya Tanzania (TZS)</td></tr>
   </table>
-  <p>
-    Tanzania imekuwa mfano wa <strong>utulivu wa kisiasa</strong> kwa Afrika. Tangu uhuru, hakujawahi kuwa na 
+  <p style="font-size:17px;color:#c8eee8;margin:10px 0 0 0;">
+    Tanzania imekuwa mfano wa <b>utulivu wa kisiasa</b> kwa Afrika. Tangu uhuru, hakujawahi kuwa na
     vita vya wenyewe kwa wenyewe — jambo ambalo ni nadra kwa Afrika na linaheshimika duniani kote.
   </p>
 </div>
 
 <!-- JIOGRAFIA -->
-<div class="section">
-  <div class="section-header">
-    <span class="section-icon">🌍</span>
-    <div class="section-title">Jiografia na Takwimu</div>
-  </div>
-  <table class="info-table">
-    <tr><td>📐 Eneo</td><td>945,087 km² (nchi ya 13 kwa ukubwa Afrika)</td></tr>
-    <tr><td>👥 Watu</td><td>Takriban milioni 65 (2024)</td></tr>
-    <tr><td>🗣️ Lugha Rasmi</td><td>Kiswahili na Kiingereza</td></tr>
-    <tr><td>⛰️ Mlima Mrefu</td><td>Kilimanjaro — m 5,895</td></tr>
-    <tr><td>💧 Ziwa Kubwa</td><td>Ziwa Victoria — ziwa kubwa zaidi Afrika</td></tr>
-    <tr><td>🌡️ Hali ya Hewa</td><td>Kitropiki — mvua na ukame</td></tr>
-    <tr><td>🕌 Dini</td><td>Uislamu, Ukristo, Imani za Asili — uaminifu wa pamoja</td></tr>
+<div style="padding:22px 18px 12px 18px;">
+  <div style="font-size:20px;font-weight:bold;color:#00e5cc;border-bottom:3px solid #1eb53a;padding-bottom:4px;margin-bottom:14px;">🌍 Jiografia na Takwimu</div>
+  <table style="width:100%;border-collapse:collapse;margin:8px 0;font-size:16px;">
+    <tr><td style="padding:8px 10px;color:#00e5cc;font-weight:bold;width:40%;border-bottom:1px solid #0a2e2b;">📐 Eneo</td><td style="padding:8px 10px;color:#c8eee8;border-bottom:1px solid #0a2e2b;">945,087 km² (nchi ya 13 Afrika)</td></tr>
+    <tr><td style="padding:8px 10px;color:#00e5cc;font-weight:bold;border-bottom:1px solid #0a2e2b;">👥 Watu</td><td style="padding:8px 10px;color:#c8eee8;border-bottom:1px solid #0a2e2b;">Takriban milioni 65 (2024)</td></tr>
+    <tr><td style="padding:8px 10px;color:#00e5cc;font-weight:bold;border-bottom:1px solid #0a2e2b;">🗣️ Lugha Rasmi</td><td style="padding:8px 10px;color:#c8eee8;border-bottom:1px solid #0a2e2b;">Kiswahili na Kiingereza</td></tr>
+    <tr><td style="padding:8px 10px;color:#00e5cc;font-weight:bold;border-bottom:1px solid #0a2e2b;">⛰️ Mlima Mrefu</td><td style="padding:8px 10px;color:#c8eee8;border-bottom:1px solid #0a2e2b;">Kilimanjaro — m 5,895</td></tr>
+    <tr><td style="padding:8px 10px;color:#00e5cc;font-weight:bold;border-bottom:1px solid #0a2e2b;">💧 Ziwa Kubwa</td><td style="padding:8px 10px;color:#c8eee8;border-bottom:1px solid #0a2e2b;">Ziwa Victoria — kubwa zaidi Afrika</td></tr>
+    <tr><td style="padding:8px 10px;color:#00e5cc;font-weight:bold;border-bottom:1px solid #0a2e2b;">🌡️ Hali ya Hewa</td><td style="padding:8px 10px;color:#c8eee8;border-bottom:1px solid #0a2e2b;">Kitropiki — mvua na ukame</td></tr>
+    <tr><td style="padding:8px 10px;color:#00e5cc;font-weight:bold;">🕌 Dini</td><td style="padding:8px 10px;color:#c8eee8;">Uislamu, Ukristo, Imani za Asili</td></tr>
   </table>
 </div>
 
-<div class="footer">
-  🇹🇿 Tanzania Tourism App &nbsp;|&nbsp; Magabe Lab &nbsp;|&nbsp; Habari za Utalii wa Tanzania
+<!-- FOOTER -->
+<div style="text-align:center;padding:20px;font-size:14px;color:#2a5a54;letter-spacing:0.5px;">
+  Habari za Utalii wa Tanzania
 </div>
 
 </body>
