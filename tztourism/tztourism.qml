@@ -8167,7 +8167,7 @@ Rectangle {
                     anchors.centerIn: parent
                     spacing: 4
                     Text {
-                        text: "←"
+                        text: "<"
                         font.pointSize: Qt.platform.os === "android" ? 16 : 13
                         font.bold: true
                         color: app.articleLang === "sw" ? "#1eb53a" : "#00c8ff"
