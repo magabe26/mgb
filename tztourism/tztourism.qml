@@ -8230,6 +8230,7 @@ Rectangle {
                 wrapMode: Text.WordWrap
                 color: "#e0f7f4"
                 text: ""
+                font.pixelSize: Qt.platform.os === "android" ? 14 : 10
 
                 function scrollToTop() {
                     articleScrollTopBtn.sc = 1.0;
