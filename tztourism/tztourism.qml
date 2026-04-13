@@ -5015,7 +5015,7 @@ Rectangle {
                                                                         Text {
                                                                             id: bb11Col
                                                                             width: bb11ColWrap.width - 20
-                                                                            text: langSettings.lang === "sw" ? "Mimi ni exhibit. Siongei na wageni." : "I am an exhibit. I don't speak to visitors."
+                                                                            text: langSettings.lang === "sw" ? "Mimi ni Kivutio. Siongei na wageni." : "I am an exhibit. I don't speak to visitors."
                                                                             font.pointSize: comicStrip.fsBubbleMsg
                                                                             font.bold: false
                                                                             color: "#111111"; wrapMode: Text.WordWrap
@@ -5116,7 +5116,7 @@ Rectangle {
                                     width: parent.width
                                     horizontalAlignment: Text.AlignHCenter
                                     wrapMode: Text.WordWrap; font.bold: true
-                                    font.pointSize: Qt.platform.os === "android" ? 12 : 9
+                                    font.pointSize: Qt.platform.os === "android" ? 14 : 12
                                     color: langSettings.lang === "sw" ? "#00ff88" : "#44ddff"
                                     text: langSettings.lang === "sw"
                                           ? "🌍 \"Tanzania: Hata wanyama wana drama zao!\" 🦒🐘🦁"
@@ -5140,14 +5140,14 @@ Rectangle {
                                         width: parent.width
                                         horizontalAlignment: Text.AlignHCenter
                                         text: langSettings.lang === "sw" ? "✍️ Imeandikwa na" : "✍️ Written by"
-                                        font.pointSize: Qt.platform.os === "android" ? 14 : 12
+                                        font.pointSize: Qt.platform.os === "android" ? 12 : 10
                                         color: "#556655"
                                     }
                                     Text {
                                         width: parent.width
                                         horizontalAlignment: Text.AlignHCenter
                                         text: "Edwin Magabe Ngosso"
-                                        font.pointSize: Qt.platform.os === "android" ? 16 : 14
+                                        font.pointSize: Qt.platform.os === "android" ? 14 : 12
                                         font.bold: true
                                         color: "#88cc99"
                                     }
@@ -5155,14 +5155,14 @@ Rectangle {
                                         width: parent.width
                                         horizontalAlignment: Text.AlignHCenter
                                         text: langSettings.lang === "sw" ? "🛠️ Imetengenezwa na" : "🛠️ Developed by"
-                                        font.pointSize: Qt.platform.os === "android" ? 14 : 12
+                                        font.pointSize: Qt.platform.os === "android" ? 12 : 10
                                         color: "#556655"
                                     }
                                     Text {
                                         width: parent.width
                                         horizontalAlignment: Text.AlignHCenter
                                         text: "Magabe Lab"
-                                        font.pointSize: Qt.platform.os === "android" ? 16 : 12
+                                        font.pointSize: Qt.platform.os === "android" ? 14 : 12
                                         font.bold: true
                                         color: "#00cc88"
                                     }
