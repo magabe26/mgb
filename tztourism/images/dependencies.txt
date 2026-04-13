@@ -1,3 +1,5 @@
+tz-en.html,
+tz-sw.html,
 EM.jpg,
 big5.jpg,
 arusha_np.jpg,
