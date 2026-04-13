@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tanzania — A Nation of Wonders</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background-color: #001413;
+    color: #e0f7f4;
+    font-family: 'Georgia', serif;
+    font-size: 15px;
+    line-height: 1.85;
+    padding: 0 0 40px 0;
+  }
+
+  /* ── HERO BANNER ── */
+  .hero {
+    background: linear-gradient(160deg, #002a26 0%, #001413 60%, #0a0020 100%);
+    border-bottom: 2px solid #00a3dd;
+    padding: 36px 22px 28px 22px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -40px; left: -40px; right: -40px; bottom: -40px;
+    background: radial-gradient(ellipse at 50% 0%, #00a3dd18 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .flag-stripe {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+  .flag-stripe span {
+    display: inline-block;
+    height: 6px;
+    border-radius: 3px;
+  }
+  .flag-stripe .s1 { width: 40px; background: #1eb53a; }
+  .flag-stripe .s2 { width: 8px;  background: #fcd116; }
+  .flag-stripe .s3 { width: 50px; background: #000000; }
+  .flag-stripe .s4 { width: 8px;  background: #fcd116; }
+  .flag-stripe .s5 { width: 40px; background: #00a3dd; }
+
+  .hero-emoji { font-size: 48px; display: block; margin-bottom: 8px; }
+
+  .hero h1 {
+    font-size: 26px;
+    font-weight: bold;
+    color: #00c8ff;
+    letter-spacing: 1px;
+    text-shadow: 0 0 18px #00c8ff88;
+    margin-bottom: 6px;
+  }
+  .hero .tagline {
+    font-size: 13px;
+    color: #aaddcc;
+    font-style: italic;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── SECTIONS ── */
+  .section {
+    padding: 24px 20px 10px 20px;
+    border-bottom: 1px solid #0a2e2b;
+  }
+  .section:last-child { border-bottom: none; }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .section-icon {
+    font-size: 26px;
+    line-height: 1;
+  }
+  .section-title {
+    font-size: 17px;
+    font-weight: bold;
+    color: #00c8ff;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #00a3dd;
+    padding-bottom: 3px;
+  }
+
+  p {
+    margin-bottom: 12px;
+    color: #c8eee8;
+  }
+
+  /* ── HIGHLIGHTS BOX ── */
+  .highlight-box {
+    background: #0d2a28;
+    border-left: 4px solid #00c8ff;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 14px;
+    margin: 12px 0;
+    color: #aef0e8;
+    font-size: 14px;
+  }
+  .highlight-box strong { color: #00c8ff; }
+
+  /* ── CHIP LIST ── */
+  .chip-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 10px 0 14px 0;
+  }
+  .chip {
+    background: #0d2a28;
+    border: 1px solid #00c8ff55;
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 12px;
+    color: #aef0e8;
+  }
+  .chip.green { border-color: #1eb53a88; color: #80f08a; }
+  .chip.gold  { border-color: #fcd11688; color: #ffe57a; }
+
+  /* ── TABLE ── */
+  .info-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+  }
+  .info-table td {
+    padding: 7px 10px;
+    font-size: 13px;
+    border-bottom: 1px solid #0a2e2b;
+  }
+  .info-table td:first-child {
+    color: #00c8ff;
+    font-weight: bold;
+    width: 38%;
+  }
+  .info-table td:last-child { color: #c8eee8; }
+
+  /* ── PULL QUOTE ── */
+  .quote {
+    text-align: center;
+    font-size: 16px;
+    font-style: italic;
+    color: #00c8ff;
+    padding: 16px 20px;
+    border-top: 1px solid #00c8ff33;
+    border-bottom: 1px solid #00c8ff33;
+    margin: 16px 0;
+    text-shadow: 0 0 10px #00c8ff44;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 11px;
+    color: #2a5a54;
+    letter-spacing: 0.5px;
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="flag-stripe">
+    <span class="s1"></span>
+    <span class="s2"></span>
+    <span class="s3"></span>
+    <span class="s4"></span>
+    <span class="s5"></span>
+  </div>
+  <span class="hero-emoji">🇹🇿</span>
+  <h1>Tanzania — A Nation of Wonders</h1>
+  <div class="tagline">Unity • Freedom • Development</div>
+</div>
+
+<!-- INDEPENDENCE & HISTORY -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">⚔️</span>
+    <div class="section-title">Independence &amp; History</div>
+  </div>
+  <p>
+    Tanzania gained independence on <strong>9 December 1961</strong> from British colonial rule, under the visionary
+    leadership of <strong>Mwalimu Julius Kambarage Nyerere</strong> — the father of the nation and one of the most
+    admired statesmen in African history. Freedom was achieved not through armed conflict, but through wisdom, 
+    unity, and peaceful negotiation via his TANU party.
+  </p>
+  <p>
+    On <strong>26 April 1964</strong>, Tanganyika and Zanzibar united to form the <em>United Republic of Tanzania</em>.
+    This union stands as a remarkable model of African brotherhood and peaceful cooperation, admired across the continent.
+  </p>
+  <div class="highlight-box">
+    <strong>Nyerere's philosophy of Ujamaa</strong> (African socialism) was more than an economic policy — it was 
+    a call for human dignity, communal care, and the belief that no Tanzanian should be left behind.
+  </div>
+  <div class="quote">"Freedom is not a gift — it is something you must earn and then defend every day."<br>
+    <small style="color:#aaddcc;font-size:12px;">— Mwalimu J.K. Nyerere</small></div>
+</div>
+
+<!-- CULTURE -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🥁</span>
+    <div class="section-title">Culture of Tanzania</div>
+  </div>
+  <p>
+    Tanzania is a cultural treasure of extraordinary depth. The <strong>Swahili language</strong> — one of the 
+    fastest-growing languages in the world — was born along these coasts and now serves as a unifying tongue 
+    for much of sub-Saharan Africa. It is a language of poetry, proverbs, and the wisdom of ancestors.
+  </p>
+  <p>
+    Musical traditions like <strong>Taarab of Zanzibar</strong>, <strong>Ngoma ya Beni</strong>, and the 
+    passionate rhythms of <strong>Chakacha</strong> tell the stories of generations. Textiles like the 
+    <strong>Kanga</strong> and <strong>Kitenge</strong> are more than garments — they are wearable poetry, 
+    carrying proverbs and messages within the community.
+  </p>
+  <div class="chip-list">
+    <span class="chip">🎵 Taarab</span>
+    <span class="chip">🥁 Ngoma ya Beni</span>
+    <span class="chip">💃 Chakacha</span>
+    <span class="chip green">🧣 Kanga</span>
+    <span class="chip green">🪡 Kitenge</span>
+    <span class="chip">🎨 Tingatinga Art</span>
+  </div>
+  <p>
+    <strong>Tingatinga art</strong> — born in Dar es Salaam by Edward Tingatinga — captures the dreams of 
+    Africa in vivid, joyful colours and animal imagery. Today it is celebrated in galleries worldwide as a 
+    uniquely Tanzanian contribution to global art.
+  </p>
+</div>
+
+<!-- TRIBES -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🤝</span>
+    <div class="section-title">120+ Ethnic Groups — One Nation</div>
+  </div>
+  <p>
+    Tanzania is home to more than <strong>120 distinct ethnic groups</strong>, each with its own language, 
+    traditions, and unique cultural identity. Rather than a source of division, this diversity is the nation's 
+    greatest strength — a living mosaic of humanity held together by Nyerere's vision of unity.
+  </p>
+  <div class="chip-list">
+    <span class="chip green">Wasukuma</span>
+    <span class="chip green">Wachagga</span>
+    <span class="chip green">Wahaya</span>
+    <span class="chip green">Wanyamwezi</span>
+    <span class="chip green">Maasai</span>
+    <span class="chip green">Wahehe</span>
+    <span class="chip green">Makonde</span>
+    <span class="chip green">Wazaramo</span>
+    <span class="chip green">Waswahili</span>
+    <span class="chip green">Wabena</span>
+    <span class="chip green">Warangi</span>
+    <span class="chip green">Wairaqw</span>
+    <span class="chip green">Hadzabe</span>
+    <span class="chip">+many more</span>
+  </div>
+  <p>
+    The <strong>Maasai</strong> are world-renowned for their warrior culture and striking red shukas. 
+    The <strong>Makonde</strong> are celebrated master wood-carvers in ebony. The <strong>Hadzabe</strong> of 
+    Lake Eyasi remain one of the last true hunter-gatherer peoples on earth — a living window into humanity's past.
+  </p>
+</div>
+
+<!-- REGIONS -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🗺️</span>
+    <div class="section-title">31 Regions — Each a World of Its Own</div>
+  </div>
+  <p>
+    Tanzania is divided into <strong>31 administrative regions</strong>, each with its own character, 
+    natural resources, and cultural flavour. From the spice-scented coast of Tanga to the highlands of 
+    Songwe, from Kagera in the northwest to the deep forests of Lindi in the southeast — the country 
+    is an endless chain of wonders.
+  </p>
+  <table class="info-table">
+    <tr><td>🏔️ Arusha</td><td>Kilimanjaro, Serengeti, Ngorongoro — safari heartland</td></tr>
+    <tr><td>🌊 Zanzibar</td><td>Beaches, spices, Stone Town UNESCO heritage</td></tr>
+    <tr><td>🏙️ Dar es Salaam</td><td>Commercial capital &amp; major port city</td></tr>
+    <tr><td>🐟 Mwanza</td><td>Lake Victoria, Nile perch, Bismarck Rock</td></tr>
+    <tr><td>⛏️ Geita / Shinyanga</td><td>Gold and diamond mining</td></tr>
+    <tr><td>🌿 Kilimanjaro</td><td>World-class Arabica coffee</td></tr>
+    <tr><td>🦛 Katavi</td><td>Remote wilderness &amp; concentrations of game</td></tr>
+    <tr><td>🌋 Rungwe</td><td>Mountains, waterfalls, volcanic landscapes</td></tr>
+  </table>
+</div>
+
+<!-- AGRICULTURE -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🌾</span>
+    <div class="section-title">Agriculture — The Backbone of the Nation</div>
+  </div>
+  <p>
+    Agriculture remains the heartbeat of the Tanzanian economy. Nearly <strong>65% of Tanzanians</strong> 
+    depend on farming for their livelihoods, tending land that produces some of Africa's finest crops. 
+    Tanzania ranks among the continent's leading producers of several key commodities.
+  </p>
+  <div class="chip-list">
+    <span class="chip gold">☕ Coffee</span>
+    <span class="chip gold">🍵 Tea</span>
+    <span class="chip gold">🌸 Cloves</span>
+    <span class="chip gold">🥜 Cashew Nuts</span>
+    <span class="chip gold">🌻 Sunflower</span>
+    <span class="chip gold">🌽 Maize</span>
+    <span class="chip gold">🍚 Rice</span>
+    <span class="chip gold">🍌 Bananas</span>
+    <span class="chip gold">🧅 Onions</span>
+    <span class="chip gold">🫘 Beans</span>
+    <span class="chip">🌿 Usambara Tea</span>
+  </div>
+  <p>
+    <strong>Kilimanjaro Arabica coffee</strong> is celebrated worldwide for its rich, bright flavour profile. 
+    <strong>Zanzibar cloves</strong> — once called the "islands' gold" — dominated global spice markets 
+    for centuries. Tanzania's <strong>cashew nuts</strong> from the southern coast are among the finest on earth.
+  </p>
+</div>
+
+<!-- MINERALS -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">💎</span>
+    <div class="section-title">Minerals — Riches Beneath Our Feet</div>
+  </div>
+  <p>
+    Tanzania sits atop extraordinary mineral wealth. It is one of Africa's top <strong>gold producers</strong>, 
+    and the only country in the world with significant deposits of <strong>Tanzanite</strong> — an ethereal 
+    blue-violet gemstone found exclusively in a tiny area near Kilimanjaro in Mererani, Arusha.
+  </p>
+  <table class="info-table">
+    <tr><td>🥇 Gold</td><td>Mwanza, Geita, Shinyanga — top African producer</td></tr>
+    <tr><td>💎 Diamonds</td><td>Mwadui, Shinyanga — one of the world's oldest diamond mines</td></tr>
+    <tr><td>🔵 Tanzanite</td><td>Mererani, Arusha — found only in Tanzania</td></tr>
+    <tr><td>⬛ Coal</td><td>Songwe, Ruvuma — large reserves</td></tr>
+    <tr><td>🟤 Iron Ore</td><td>Liganga, Njombe — major international project</td></tr>
+    <tr><td>🔋 Graphite</td><td>Lindi — key for modern battery technology</td></tr>
+    <tr><td>💧 Natural Gas</td><td>Mtwara, Lindi — major energy resource</td></tr>
+  </table>
+  <div class="highlight-box">
+    <strong>Tanzanite</strong> is considered up to <strong>1,000 times rarer than diamond</strong>. 
+    The entire world supply comes from a single deposit less than 8km × 2km in size at the foot of 
+    Mount Kilimanjaro. It was discovered only in 1967 and became an overnight sensation in global jewellery markets.
+  </div>
+</div>
+
+<!-- TOURISM -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🦁</span>
+    <div class="section-title">Tourism — Nature's Greatest Stage</div>
+  </div>
+  <p>
+    Tanzania is one of the world's premier travel destinations. From the sweeping plains of the Serengeti — 
+    stage of the greatest wildlife spectacle on earth — to the powder-white beaches of Zanzibar, to the 
+    snow-capped summit of <strong>Kilimanjaro</strong>, Tanzania offers experiences that cannot be found anywhere else.
+  </p>
+  <div class="chip-list">
+    <span class="chip">🦁 The Big Five</span>
+    <span class="chip">🏔️ Kilimanjaro</span>
+    <span class="chip">🏝️ Zanzibar</span>
+    <span class="chip green">🌿 Serengeti</span>
+    <span class="chip green">🦏 Ngorongoro</span>
+    <span class="chip">🐬 Kizimkazi Dolphins</span>
+    <span class="chip">🐘 Tarangire</span>
+    <span class="chip">🦋 Mahale Chimps</span>
+  </div>
+  <p>
+    The <strong>Serengeti</strong> — hosting the annual migration of 1.5 million wildebeest — is declared one 
+    of the natural wonders of the world. <strong>Ngorongoro Crater</strong>, dubbed "Africa's Eden," is a 
+    UNESCO World Heritage Site where extraordinary concentrations of wildlife share the landscape 
+    peacefully with Maasai pastoralists.
+  </p>
+  <div class="quote">"Tanzania is not just a destination — it's a feeling. You arrive as a visitor; you leave as family."</div>
+</div>
+
+<!-- GOVERNANCE -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🏛️</span>
+    <div class="section-title">Governance — Democracy &amp; Stability</div>
+  </div>
+  <p>
+    Tanzania is a <strong>multiparty democratic republic</strong>. The head of state is a <strong>President</strong> 
+    elected by popular vote every five years. The Parliament, seated in Dodoma — the official capital — 
+    holds legislative authority for the nation.
+  </p>
+  <table class="info-table">
+    <tr><td>📍 Official Capital</td><td>Dodoma</td></tr>
+    <tr><td>🏙️ Commercial Hub</td><td>Dar es Salaam</td></tr>
+    <tr><td>🗳️ Political System</td><td>Multiparty Republic</td></tr>
+    <tr><td>📋 Constitution</td><td>1977 (with amendments)</td></tr>
+    <tr><td>🌍 Memberships</td><td>AU, UN, EAC, SADC, Commonwealth</td></tr>
+    <tr><td>💰 Currency</td><td>Tanzanian Shilling (TZS)</td></tr>
+  </table>
+  <p>
+    Tanzania is widely regarded as a model of <strong>political stability in Africa</strong>. Since independence, 
+    the country has never experienced civil war — a remarkable achievement that commands deep respect on the 
+    international stage and provides the foundation for continued development.
+  </p>
+</div>
+
+<!-- GEOGRAPHY -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🌍</span>
+    <div class="section-title">Geography &amp; Key Facts</div>
+  </div>
+  <table class="info-table">
+    <tr><td>📐 Area</td><td>945,087 km² (13th largest in Africa)</td></tr>
+    <tr><td>👥 Population</td><td>Approx. 65 million (2024)</td></tr>
+    <tr><td>🗣️ Official Languages</td><td>Swahili and English</td></tr>
+    <tr><td>⛰️ Highest Peak</td><td>Kilimanjaro — 5,895m above sea level</td></tr>
+    <tr><td>💧 Largest Lake</td><td>Lake Victoria — largest lake in Africa</td></tr>
+    <tr><td>🌡️ Climate</td><td>Tropical — two rainy seasons</td></tr>
+    <tr><td>🕌 Religion</td><td>Islam, Christianity, Traditional Faiths — peaceful coexistence</td></tr>
+  </table>
+</div>
+
+<div class="footer">
+  🇹🇿 Tanzania Tourism App &nbsp;|&nbsp; Magabe Lab &nbsp;|&nbsp; Tanzania Travel &amp; Discovery
+</div>
+
+</body>
+</html>
