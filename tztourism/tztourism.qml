@@ -5134,6 +5134,7 @@ Rectangle {
                                         width: emImg.width + emText.width + emText.anchors.leftMargin
                                         height: emImg.height
                                         color: "transparent"
+                                        anchors.horizontalCenter: parent.horizontalCenter
 
                                         Image {
                                             id:emImg
@@ -5151,15 +5152,12 @@ Rectangle {
                                             anchors.left: emImg.right
                                             anchors.leftMargin: 4
                                             anchors.verticalCenter: parent.verticalCenter
-                                            width: parent.width - (emImg.width + anchors.leftMargin)
                                             text: "Edwin Magabe Ngosso"
                                             font.pointSize: Qt.platform.os === "android" ? 14 : 12
                                             font.bold: true
                                             color: "#88cc99"
                                         }
                                     }
-
-
 
                                 }
                             }
