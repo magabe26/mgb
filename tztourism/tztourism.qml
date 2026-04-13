@@ -3332,7 +3332,7 @@ Rectangle {
                                 Row {
                                     anchors.horizontalCenter: parent.horizontalCenter
                                     spacing: 8
-                                    Text { text: "🦒🐘🦁🦓🐒"; font.pointSize: Qt.platform.os === "android" ? 13 : 10 }
+                                    Text { text: "🦒🐘🦁🦓🐒🦦"; font.pointSize: Qt.platform.os === "android" ? 13 : 10 }
                                     Text {
                                         text: langSettings.lang === "sw" ? "Wanyama wa Tanzania" : "Tanzania Wildlife Comics"
                                         font.pointSize: Qt.platform.os === "android" ? 15 : 12
@@ -3343,7 +3343,7 @@ Rectangle {
                                             NumberAnimation { from: 0.55; to: 1.0; duration: 1400; easing.type: Easing.InOutSine }
                                         }
                                     }
-                                    Text { text: "🦒🐘🦁🦓🐒"; font.pointSize: Qt.platform.os === "android" ? 13 : 10 }
+                                    Text { text: "🦒🐘🦁🦓🐒🦦"; font.pointSize: Qt.platform.os === "android" ? 13 : 10 }
                                 }
 
                                 // scene indicator dots
@@ -4527,7 +4527,7 @@ Rectangle {
                                                                         Text {
                                                                             id: bb3Col
                                                                             width: bb3ColWrap.width - 20
-                                                                            text: langSettings.lang === "sw" ? "Mawingu. Ni hobby yangu." : "Clouds. It's my hobby."
+                                                                            text: langSettings.lang === "sw" ? "Nyota. Ni hobby yangu." : "Stars. It's my hobby."
                                                                             font.pointSize: comicStrip.fsBubbleMsg
                                                                             font.bold: false
                                                                             color: "#111111"; wrapMode: Text.WordWrap
