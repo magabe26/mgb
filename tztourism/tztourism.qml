@@ -3469,19 +3469,13 @@ Rectangle {
                                                     color: "#00100a"
                                                     clip: true
 
-                                                    Flickable {
-                                                        id: dlgFlickA
+                                                    Column {
+                                                        id: dlgListA
                                                         anchors.fill: parent
-                                                        contentHeight: dlgListA.height + 12
-                                                        clip: true
-                                                        interactive: true
-
-                                                        Column {
-                                                            id: dlgListA
-                                                            width: parent.width - 4
-                                                            x: 2
-                                                            spacing: 0
-                                                            Item { width: 1; height: 4 }
+                                                        anchors.leftMargin: 2
+                                                        anchors.rightMargin: 2
+                                                        spacing: 0
+                                                        Item { width: 1; height: 4 }
 
                                                     Item { width: 1; height: 6 }
                                                     Item {
@@ -4199,8 +4193,7 @@ Rectangle {
                                                             }
                                                         }
                                                     }
-                                                            Item { width: 1; height: 8 }
-                                                        }
+                                                        Item { width: 1; height: 8 }
                                                     }
                                                 }
                                     }
@@ -4293,19 +4286,13 @@ Rectangle {
                                                     color: "#00100a"
                                                     clip: true
 
-                                                    Flickable {
-                                                        id: dlgFlickB
+                                                    Column {
+                                                        id: dlgListB
                                                         anchors.fill: parent
-                                                        contentHeight: dlgListB.height + 12
-                                                        clip: true
-                                                        interactive: true
-
-                                                        Column {
-                                                            id: dlgListB
-                                                            width: parent.width - 4
-                                                            x: 2
-                                                            spacing: 0
-                                                            Item { width: 1; height: 4 }
+                                                        anchors.leftMargin: 2
+                                                        anchors.rightMargin: 2
+                                                        spacing: 0
+                                                        Item { width: 1; height: 4 }
 
                                                     Item { width: 1; height: 6 }
                                                     Item {
@@ -5078,8 +5065,7 @@ Rectangle {
                                                             }
                                                         }
                                                     }
-                                                            Item { width: 1; height: 8 }
-                                                        }
+                                                        Item { width: 1; height: 8 }
                                                     }
                                                 }
                                     }
