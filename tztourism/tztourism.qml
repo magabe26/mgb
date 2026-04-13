@@ -3531,7 +3531,7 @@ Rectangle {
                                                                         Text {
                                                                             id: ab0Col
                                                                             width: ab0ColWrap.width - 20
-                                                                            text: langSettings.lang === "sw" ? "Simba! Wewe ni nzito sana! Miguu yangu inaingia ardhini!" : "Simba! You are too heavy! My feet are sinking!"
+                                                                            text: langSettings.lang === "sw" ? "Simba! Wewe ni mzito sana! Miguu yangu inaingia ardhini!" : "Simba! You are too heavy! My feet are sinking!"
                                                                             font.pointSize: comicStrip.fsBubbleMsg
                                                                             font.bold: false
                                                                             color: "#111111"; wrapMode: Text.WordWrap
