@@ -20,6 +20,8 @@ Rectangle {
     property var recentlyViewed: []              // recently viewed indices
     property bool safariTvVisible: false         // retro TV overlay
     property bool wakeLockTipShown: false        // screen-on tip shown once
+    property bool articleViewVisible: false      // Tanzania article overlay
+    property string articleLang: ""             // language for article view
     property string safariChannelStreamURL: "https://stream-134630.castr.net/5fe35eae8c53540cab83659a/live_31dabe40323511f08b8efff0016f3b67/index.m3u8"
     property int safariChannelMode: 1
 
@@ -71,6 +73,13 @@ Rectangle {
         fetchSafariChannelMode();
     }
 
+    function animateBackToFrontPage(){
+        app.selectedLanguage = langSettings.lang;
+        viewComponentLoader.switchTo(languageSelectionComponent, app.width / 2, app.height / 2);
+        app.selectedLanguage = "";
+        app.ad();
+    }
+
     // ── Android back button ────────────────────────────────────────────
     Keys.onBackPressed: {
         if (contextMenu.visible) {
@@ -78,6 +87,10 @@ Rectangle {
             event.accepted = true;
         } else if (modeSelectionDialog.visible) {
             modeSelectionDialog.close();
+            event.accepted = true;
+        } else if (app.articleViewVisible) {
+            app.articleViewVisible = false;
+            app.articleLang = "";
             event.accepted = true;
         } else if (safariTvOverlay.tvFullScreen) {
             safariTvOverlay.tvFullScreen = false;
@@ -3212,6 +3225,164 @@ Rectangle {
                             anchors.top: mapLabel.bottom
                             anchors.topMargin: 6
                             anchors.horizontalCenter: parent.horizontalCenter
+                        }
+                    }
+
+
+
+                    // ══ TANZANIA ARTICLE BUTTON ═══════════════════════════
+                    Rectangle {
+                        id: articleBtnSection
+                        width: app.width
+                        height: articleBtnInner.height + (Qt.platform.os === "android" ? 24 : 18)
+                        color: "#001413"
+
+                        Column {
+                            id: articleBtnInner
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            anchors.verticalCenter: parent.verticalCenter
+                            width: app.width - (Qt.platform.os === "android" ? 32 : 24)
+                            spacing: Qt.platform.os === "android" ? 10 : 8
+
+                            // Section label
+                            Row {
+                                anchors.horizontalCenter: parent.horizontalCenter
+                                spacing: 6
+                                Text {
+                                    text: "📖"
+                                    font.pointSize: Qt.platform.os === "android" ? 13 : 10
+                                    anchors.verticalCenter: parent.verticalCenter
+                                }
+                                Text {
+                                    text: langSettings.lang === "sw"
+                                          ? "Makala ya Tanzania"
+                                          : "Tanzania Article"
+                                    font.pointSize: Qt.platform.os === "android" ? 11 : 9
+                                    font.bold: true
+                                    color: "cyan"
+                                    anchors.verticalCenter: parent.verticalCenter
+                                }
+                            }
+
+                            // Button row: Kiswahili | English
+                            Row {
+                                anchors.horizontalCenter: parent.horizontalCenter
+                                spacing: Qt.platform.os === "android" ? 12 : 10
+
+                                // ── Kiswahili button ──────────────────────────
+                                Rectangle {
+                                    id: artBtnSw
+                                    visible: langSettings.lang === "sw"
+                                    width: (articleBtnInner.width - (Qt.platform.os === "android" ? 12 : 10)) / 2
+                                    height: Qt.platform.os === "android" ? 52 : 42
+                                    radius: 12
+                                    color: artBtnSwMA.pressed ? "#0a3d28" : "#0d2a1e"
+                                    border.color: "#1eb53a"
+                                    border.width: 2
+                                    clip: true
+
+                                    Behavior on color { ColorAnimation { duration: 120 } }
+                                    property real sc: 1.0
+                                    scale: sc
+                                    Behavior on sc { NumberAnimation { duration: 120 } }
+
+                                    // Green glow
+                                    layer.enabled: true
+                                    layer.effect: DropShadow {
+                                        transparentBorder: true
+                                        horizontalOffset: 0; verticalOffset: 2
+                                        radius: 10; samples: 21
+                                        color: "#551eb53a"
+                                    }
+
+                                    Row {
+                                        anchors.centerIn: parent
+                                        spacing: 6
+                                        Text {
+                                            text: "🇹🇿"
+                                            font.pointSize: Qt.platform.os === "android" ? 17 : 13
+                                            anchors.verticalCenter: parent.verticalCenter
+                                        }
+
+                                        Text {
+                                            text: langSettings.lang === "sw" ? "Soma mkala" : "Read article"
+                                            font.bold: true
+                                            font.pointSize: Qt.platform.os === "android" ? 13 : 10
+                                            color: "#1eb53a"
+                                        }
+
+                                    }
+
+                                    MouseArea {
+                                        id: artBtnSwMA
+                                        anchors.fill: parent
+                                        onPressed:  { artBtnSw.sc = 0.95; }
+                                        onReleased: {
+                                            artBtnSw.sc = 1.0;
+                                            app.articleLang = "sw";
+                                            app.articleViewVisible = true;
+                                        }
+                                        onCanceled: { artBtnSw.sc = 1.0; }
+                                    }
+                                }
+
+                                // ── English button ────────────────────────────
+                                Rectangle {
+                                    id: artBtnEn
+                                    visible: langSettings.lang === "en"
+                                    width: (articleBtnInner.width - (Qt.platform.os === "android" ? 12 : 10)) / 2
+                                    height: Qt.platform.os === "android" ? 52 : 42
+                                    radius: 12
+                                    color: artBtnEnMA.pressed ? "#0a2040" : "#0d1e30"
+                                    border.color: "#00a3dd"
+                                    border.width: 2
+                                    clip: true
+
+                                    Behavior on color { ColorAnimation { duration: 120 } }
+                                    property real sc: 1.0
+                                    scale: sc
+                                    Behavior on sc { NumberAnimation { duration: 120 } }
+
+                                    // Blue glow
+                                    layer.enabled: true
+                                    layer.effect: DropShadow {
+                                        transparentBorder: true
+                                        horizontalOffset: 0; verticalOffset: 2
+                                        radius: 10; samples: 21
+                                        color: "#5500a3dd"
+                                    }
+
+                                    Row {
+                                        anchors.centerIn: parent
+                                        spacing: 6
+                                        Text {
+                                            text: "🌍"
+                                            font.pointSize: Qt.platform.os === "android" ? 17 : 13
+                                            anchors.verticalCenter: parent.verticalCenter
+                                        }
+
+                                        Text {
+                                            text: langSettings.lang === "sw" ? "Soma makala" : "Read article"
+                                            font.bold: true
+                                            font.pointSize: Qt.platform.os === "android" ? 13 : 10
+                                            color: "#00c8ff"
+                                        }
+
+                                    }
+
+                                    MouseArea {
+                                        id: artBtnEnMA
+                                        anchors.fill: parent
+                                        onPressed:  { artBtnEn.sc = 0.95; }
+                                        onReleased: {
+                                            artBtnEn.sc = 1.0;
+                                            app.articleLang = "en";
+                                            app.articleViewVisible = true;
+                                        }
+                                        onCanceled: { artBtnEn.sc = 1.0; }
+                                    }
+                                }
+                            }
                         }
                     }
 
@@ -7861,6 +8032,253 @@ Rectangle {
             }
         }
     }
+
+
+    // ════════════════════════════════════════════════════════════════
+    // TANZANIA ARTICLE OVERLAY — bilingual HTML article viewer
+    // ════════════════════════════════════════════════════════════════
+    Rectangle {
+        id: articleOverlay
+        anchors.fill: parent
+        color: "#001413"
+        visible: app.articleViewVisible
+        opacity: app.articleViewVisible ? 1.0 : 0.0
+        Behavior on opacity { NumberAnimation { duration: 250 } }
+        z: 180
+
+        // ── Header bar ─────────────────────────────────────────────
+        Rectangle {
+            id: articleHeader
+            width: parent.width
+            height: Qt.platform.os === "android" ? 54 : 44
+            color: "#001e1b"
+            border.color: app.articleLang === "sw" ? "#1eb53a" : "#00a3dd"
+            border.width: 0
+            z: 10
+
+            // Bottom border line
+            Rectangle {
+                anchors.bottom: parent.bottom
+                width: parent.width
+                height: 2
+                color: app.articleLang === "sw" ? "#1eb53a" : "#00a3dd"
+                Behavior on color { ColorAnimation { duration: 300 } }
+            }
+
+            Row {
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.left: parent.left
+                anchors.leftMargin: Qt.platform.os === "android" ? 12 : 10
+                anchors.right: articleBackBtn.left
+                anchors.rightMargin: 8
+                spacing: 8
+
+                Text {
+                    text: app.articleLang === "sw" ? "🇹🇿" : "🌍"
+                    font.pointSize: Qt.platform.os === "android" ? 20 : 16
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+                Column {
+                    anchors.verticalCenter: parent.verticalCenter
+                    spacing: 1
+                    Text {
+                        text: app.articleLang === "sw"
+                              ? "Tanzania — Nchi Yetu Tukufu"
+                              : "Tanzania — A Nation of Wonders"
+                        font.bold: true
+                        font.pointSize: Qt.platform.os === "android" ? 13 : 10
+                        color: app.articleLang === "sw" ? "#1eb53a" : "#00c8ff"
+                        Behavior on color { ColorAnimation { duration: 300 } }
+                    }
+                    Text {
+                        text: app.articleLang === "sw"
+                              ? "Mkala · Habari za Tanzania"
+                              : "Article · Tanzania Knowledge"
+                        font.pointSize: Qt.platform.os === "android" ? 9 : 7
+                        color: "#666666"
+                    }
+                }
+            }
+
+            // ── Back button ────────────────────────────────────────
+            Rectangle {
+                id: articleBackBtn
+                anchors.right: parent.right
+                anchors.rightMargin: Qt.platform.os === "android" ? 12 : 10
+                anchors.verticalCenter: parent.verticalCenter
+                width: Qt.platform.os === "android" ? 80 : 66
+                height: Qt.platform.os === "android" ? 36 : 30
+                radius: Qt.platform.os === "android" ? 18 : 15
+                color: articleBackMA.pressed
+                       ? (app.articleLang === "sw" ? "#0a3d1e" : "#0a2040")
+                       : (app.articleLang === "sw" ? "#0d2a1e" : "#0d1e30")
+                border.color: app.articleLang === "sw" ? "#1eb53a" : "#00a3dd"
+                border.width: 1.5
+                Behavior on color { ColorAnimation { duration: 120 } }
+                property real sc: 1.0
+                scale: sc
+                Behavior on sc { NumberAnimation { duration: 120 } }
+
+                Row {
+                    anchors.centerIn: parent
+                    spacing: 4
+                    Text {
+                        text: "←"
+                        font.pointSize: Qt.platform.os === "android" ? 16 : 13
+                        font.bold: true
+                        color: app.articleLang === "sw" ? "#1eb53a" : "#00c8ff"
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
+                    Text {
+                        text: app.articleLang === "sw" ? "Rudi" : "Back"
+                        font.pointSize: Qt.platform.os === "android" ? 12 : 9
+                        font.bold: true
+                        color: app.articleLang === "sw" ? "#1eb53a" : "#00c8ff"
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
+                }
+
+                MouseArea {
+                    id: articleBackMA
+                    anchors.fill: parent
+                    onPressed:  { articleBackBtn.sc = 0.92; }
+                    onReleased: {
+                        articleBackBtn.sc = 1.0;
+                        app.articleViewVisible = false;
+                        app.articleLang = "";
+                        articleWebView.scrollToTop();
+                        app.animateBackToFrontPage();
+                    }
+                    onCanceled: { articleBackBtn.sc = 1.0; }
+                }
+            }
+        }
+
+        // ── Article content: scrollable HTML via Text RichText ─────
+        Flickable {
+            id: articleFlickable
+            anchors.top: articleHeader.bottom
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.bottom: parent.bottom
+            contentWidth: width
+            contentHeight: articleWebView.implicitHeight + 8
+            clip: true
+            boundsBehavior: Flickable.StopAtBounds
+
+            // scroll-to-top helper
+            function scrollToTop() {
+                contentY = 0;
+            }
+
+            // Reset scroll when article changes
+            Connections {
+                target: app
+                function onArticleLangChanged() {
+                    articleFlickable.contentY = 0;
+                }
+            }
+
+            Text {
+                id: articleWebView
+                width: articleFlickable.width
+                textFormat: Text.RichText
+                wrapMode: Text.WordWrap
+                color: "#e0f7f4"
+                text: ""
+
+                function scrollToTop(){
+                    articleScrollTopBtn.sc = 1.0;
+                    articleFlickable.contentY = 0;
+                }
+
+                // Load HTML on visibility/lang change
+                Connections {
+                    target: app
+                    function onArticleViewVisibleChanged() {
+                        if (app.articleViewVisible) {
+                            articleWebView.loadArticle();
+                        }
+                    }
+                    function onArticleLangChanged() {
+                        if (app.articleViewVisible && app.articleLang !== "") {
+                            articleWebView.loadArticle();
+                        }
+                    }
+                }
+
+                function loadArticle() {
+                    var filePath = app.articleLang === "sw"
+                            ? "./tz-sw.html"
+                            : "./tz-en.html";
+                    var xhr = new XMLHttpRequest();
+                    xhr.open("GET", filePath, true);
+                    xhr.onreadystatechange = function() {
+                        if (xhr.readyState === XMLHttpRequest.DONE) {
+                            if (xhr.status === 200 || xhr.responseText !== "") {
+                                articleWebView.text = xhr.responseText;
+                            } else {
+                                articleWebView.text = app.articleLang === "sw"
+                                        ? "<p style='color:#ff6666;padding:20px;'>Hitilafu: Faili haikupatikana.</p>"
+                                        : "<p style='color:#ff6666;padding:20px;'>Error: File not found.</p>";
+                            }
+                        }
+                    };
+                    xhr.send();
+                }
+            }
+        }
+
+        // ── Scroll-to-top FAB ──────────────────────────────────────
+        Rectangle {
+            id: articleScrollTopBtn
+            anchors.bottom: parent.bottom
+            anchors.right: parent.right
+            anchors.bottomMargin: Qt.platform.os === "android" ? 20 : 16
+            anchors.rightMargin: Qt.platform.os === "android" ? 16 : 12
+            width: Qt.platform.os === "android" ? 46 : 38
+            height: width; radius: width / 2
+            color: scrollTopMA.pressed
+                   ? (app.articleLang === "sw" ? "#0a3d1e" : "#0a2040")
+                   : (app.articleLang === "sw" ? "#001413" : "#001413")
+            border.color: app.articleLang === "sw" ? "#1eb53a" : "#00a3dd"
+            border.width: 2
+            visible: articleFlickable.contentY > 80
+            opacity: visible ? 1.0 : 0.0
+            Behavior on opacity { NumberAnimation { duration: 200 } }
+
+            layer.enabled: true
+            layer.effect: DropShadow {
+                transparentBorder: true
+                horizontalOffset: 0; verticalOffset: 2
+                radius: 12; samples: 25
+                color: app.articleLang === "sw" ? "#551eb53a" : "#5500a3dd"
+            }
+
+            property real sc: 1.0
+            scale: sc
+            Behavior on sc { NumberAnimation { duration: 120 } }
+
+            Text {
+                anchors.centerIn: parent
+                text: "▲"
+                font.pointSize: Qt.platform.os === "android" ? 14 : 11
+                color: app.articleLang === "sw" ? "#1eb53a" : "#00c8ff"
+            }
+
+            MouseArea {
+                id: scrollTopMA
+                anchors.fill: parent
+                onPressed:  { articleScrollTopBtn.sc = 0.88; }
+                onReleased: {
+                    articleScrollTopBtn.sc = 1.0;
+                    articleFlickable.contentY = 0;
+                }
+                onCanceled: { articleScrollTopBtn.sc = 1.0; }
+            }
+        }
+    }
+    // ════════════════════════════════════════════════════════════════
 
     // ════════════════════════════════════════════════════════════════
     // RETRO 60s TV OVERLAY — Tanzania Safari Channel Live Player
