@@ -5137,21 +5137,6 @@ Rectangle {
                                         font.bold: true
                                         color: "#88cc99"
                                     }
-                                    Text {
-                                        width: parent.width
-                                        horizontalAlignment: Text.AlignHCenter
-                                        text: langSettings.lang === "sw" ? "🛠️ Imetengenezwa na" : "🛠️ Developed by"
-                                        font.pointSize: Qt.platform.os === "android" ? 12 : 10
-                                        color: "#556655"
-                                    }
-                                    Text {
-                                        width: parent.width
-                                        horizontalAlignment: Text.AlignHCenter
-                                        text: "Magabe Lab"
-                                        font.pointSize: Qt.platform.os === "android" ? 14 : 12
-                                        font.bold: true
-                                        color: "#00cc88"
-                                    }
                                 }
                             }
                         }
