@@ -3226,7 +3226,7 @@ Rectangle {
                         // ── state: which scene is showing ──────────────────
                         property int activeScene: 0   // 0 = A, 1 = B
                         property bool autoRunning: false
-                        property int bubbleDelay: 8000  // ms kati ya bubble na nyingine
+                        property int bubbleDelay: 8200  // ms kati ya bubble na nyingine
                         // ── bubble font sizes ──────────────────────
                         property int fsBubbleEmoji:  Qt.platform.os === "android" ? 11 : 9   // emoji ya mnyama
                         property int fsBubbleName:   Qt.platform.os === "android" ? 8  : 6   // jina la mnyama
@@ -4121,7 +4121,7 @@ Rectangle {
                                                                 }
                                                                 Text {
                                                                     width: parent.width
-                                                                    text: langSettings.lang === "sw" ? "😂 (huku akiwa anacheka)" : "😂 (while laughing)"
+                                                                    text: langSettings.lang === "sw" ? "😂 (akiwa anacheka)" : "😂 (while laughing)"
                                                                     font.italic: true
                                                                     font.pointSize: comicStrip.fsBubbleAction
                                                                     color: "#888888"; wrapMode: Text.WordWrap
@@ -4361,7 +4361,7 @@ Rectangle {
                                                                         Text {
                                                                             id: bb0Col
                                                                             width: bb0ColWrap.width - 20
-                                                                            text: langSettings.lang === "sw" ? "OH MY GOD! Tazama simba analala NDANI YA HEMA! Yeye ni mzuri sana!" : "OH MY GOD! Look at the lion sleeping INSIDE A TENT! How adorable!"
+                                                                            text: langSettings.lang === "sw" ? "Jamani! Tazama simba analala NDANI YA HEMA! Yeye ni mzuri sana!" : "OH MY GOD! Look at the lion sleeping INSIDE A TENT! How adorable!"
                                                                             font.pointSize: comicStrip.fsBubbleMsg
                                                                             font.bold: false
                                                                             color: "#111111"; wrapMode: Text.WordWrap
@@ -4423,7 +4423,7 @@ Rectangle {
                                                                         Text {
                                                                             id: bb1Col
                                                                             width: bb1ColWrap.width - 20
-                                                                            text: langSettings.lang === "sw" ? "...adorable. Ndiyo. Hiyo ndiyo neno sahihi." : "...adorable. Yes. That is exactly the right word."
+                                                                            text: langSettings.lang === "sw" ? "...mzuri. Ndiyo. Hiyo ndiyo neno sahihi." : "...adorable. Yes. That is exactly the right word."
                                                                             font.pointSize: comicStrip.fsBubbleMsg
                                                                             font.bold: false
                                                                             color: "#111111"; wrapMode: Text.WordWrap
@@ -4645,9 +4645,9 @@ Rectangle {
                                                                 spacing: 2
                                                                 Row {
                                                                     spacing: 4
-                                                                    Text { text: "🐒"; font.pointSize: comicStrip.fsBubbleEmoji }
+                                                                    Text { text: "🦦"; font.pointSize: comicStrip.fsBubbleEmoji }
                                                                     Text {
-                                                                        text: langSettings.lang === "sw" ? "NYANI" : "MONKEY"
+                                                                        text: langSettings.lang === "sw" ? "KIKARAGOSI" : "MEERKAT"
                                                                         font.bold: true
                                                                         font.pointSize: comicStrip.fsBubbleName
                                                                         color: langSettings.lang === "sw" ? "#cc66ff" : "#8822cc"
@@ -4762,9 +4762,9 @@ Rectangle {
                                                                 spacing: 2
                                                                 Row {
                                                                     spacing: 4
-                                                                    Text { text: "🐒"; font.pointSize: comicStrip.fsBubbleEmoji }
+                                                                    Text { text: "🦦"; font.pointSize: comicStrip.fsBubbleEmoji }
                                                                     Text {
-                                                                        text: langSettings.lang === "sw" ? "NYANI" : "MONKEY"
+                                                                        text: langSettings.lang === "sw" ? "KIKARAGOSI" : "MEERKAT"
                                                                         font.bold: true
                                                                         font.pointSize: comicStrip.fsBubbleName
                                                                         color: langSettings.lang === "sw" ? "#cc66ff" : "#8822cc"
@@ -5140,14 +5140,14 @@ Rectangle {
                                         width: parent.width
                                         horizontalAlignment: Text.AlignHCenter
                                         text: langSettings.lang === "sw" ? "✍️ Imeandikwa na" : "✍️ Written by"
-                                        font.pointSize: Qt.platform.os === "android" ? 9 : 7
+                                        font.pointSize: Qt.platform.os === "android" ? 14 : 12
                                         color: "#556655"
                                     }
                                     Text {
                                         width: parent.width
                                         horizontalAlignment: Text.AlignHCenter
                                         text: "Edwin Magabe Ngosso"
-                                        font.pointSize: Qt.platform.os === "android" ? 11 : 9
+                                        font.pointSize: Qt.platform.os === "android" ? 16 : 14
                                         font.bold: true
                                         color: "#88cc99"
                                     }
@@ -5155,14 +5155,14 @@ Rectangle {
                                         width: parent.width
                                         horizontalAlignment: Text.AlignHCenter
                                         text: langSettings.lang === "sw" ? "🛠️ Imetengenezwa na" : "🛠️ Developed by"
-                                        font.pointSize: Qt.platform.os === "android" ? 9 : 7
+                                        font.pointSize: Qt.platform.os === "android" ? 14 : 12
                                         color: "#556655"
                                     }
                                     Text {
                                         width: parent.width
                                         horizontalAlignment: Text.AlignHCenter
                                         text: "Magabe Lab"
-                                        font.pointSize: Qt.platform.os === "android" ? 11 : 9
+                                        font.pointSize: Qt.platform.os === "android" ? 16 : 12
                                         font.bold: true
                                         color: "#00cc88"
                                     }
