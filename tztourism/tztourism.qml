@@ -3290,8 +3290,8 @@ Rectangle {
                             width: app.width * 0.82
                             height: Qt.platform.os === "android" ? 14 : 11
                             radius: height / 2
-                            color: langSettings.lang === "sw" ? "#001a14" : "#001427"
-                            border.color: langSettings.lang === "sw" ? "#1a6050" : "#1a3060"
+                            color: langSettings.lang === "sw" ? "#001a14" : "#000014"
+                            border.color: langSettings.lang === "sw" ? "#1a6050" : "#0a0a40"
                             border.width: 1
 
                             // rod sheen
@@ -3302,7 +3302,7 @@ Rectangle {
                                 width: parent.width * 0.7
                                 height: 2
                                 radius: 1
-                                color: langSettings.lang === "sw" ? "#00cc99" : "#0099dd"
+                                color: langSettings.lang === "sw" ? "#00cc99" : "blue"
                                 opacity: 0.55
                             }
 
@@ -3311,15 +3311,15 @@ Rectangle {
                                 anchors.left: parent.left; anchors.verticalCenter: parent.verticalCenter
                                 anchors.leftMargin: -3
                                 width: parent.height + 4; height: parent.height + 4; radius: (parent.height + 4) / 2
-                                color: langSettings.lang === "sw" ? "#1a6050" : "#1a3060"
-                                border.color: langSettings.lang === "sw" ? "#00aa77" : "#0077bb"; border.width: 1
+                                color: langSettings.lang === "sw" ? "#1a6050" : "#0a0a40"
+                                border.color: langSettings.lang === "sw" ? "#00aa77" : "blue"; border.width: 1
                             }
                             Rectangle {
                                 anchors.right: parent.right; anchors.verticalCenter: parent.verticalCenter
                                 anchors.rightMargin: -3
                                 width: parent.height + 4; height: parent.height + 4; radius: (parent.height + 4) / 2
-                                color: langSettings.lang === "sw" ? "#1a6050" : "#1a3060"
-                                border.color: langSettings.lang === "sw" ? "#00aa77" : "#0077bb"; border.width: 1
+                                color: langSettings.lang === "sw" ? "#1a6050" : "#0a0a40"
+                                border.color: langSettings.lang === "sw" ? "#00aa77" : "blue"; border.width: 1
                             }
                         }
 
@@ -3331,27 +3331,27 @@ Rectangle {
                             width: app.width * 0.82
                             height: Qt.platform.os === "android" ? 14 : 11
                             radius: height / 2
-                            color: langSettings.lang === "sw" ? "#001a14" : "#001427"
-                            border.color: langSettings.lang === "sw" ? "#1a6050" : "#1a3060"
+                            color: langSettings.lang === "sw" ? "#001a14" : "#000014"
+                            border.color: langSettings.lang === "sw" ? "#1a6050" : "#0a0a40"
                             border.width: 1
 
                             Rectangle {
                                 anchors.top: parent.top; anchors.topMargin: 2
                                 anchors.horizontalCenter: parent.horizontalCenter
                                 width: parent.width * 0.7; height: 2; radius: 1
-                                color: langSettings.lang === "sw" ? "#00cc99" : "#0099dd"; opacity: 0.55
+                                color: langSettings.lang === "sw" ? "#00cc99" : "blue"; opacity: 0.55
                             }
                             Rectangle {
                                 anchors.left: parent.left; anchors.verticalCenter: parent.verticalCenter
                                 anchors.leftMargin: -3
                                 width: parent.height + 4; height: parent.height + 4; radius: (parent.height + 4) / 2
-                                color: langSettings.lang === "sw" ? "#1a6050" : "#1a3060"; border.color: langSettings.lang === "sw" ? "#00aa77" : "#0077bb"; border.width: 1
+                                color: langSettings.lang === "sw" ? "#1a6050" : "#0a0a40"; border.color: langSettings.lang === "sw" ? "#00aa77" : "blue"; border.width: 1
                             }
                             Rectangle {
                                 anchors.right: parent.right; anchors.verticalCenter: parent.verticalCenter
                                 anchors.rightMargin: -3
                                 width: parent.height + 4; height: parent.height + 4; radius: (parent.height + 4) / 2
-                                color: langSettings.lang === "sw" ? "#1a6050" : "#1a3060"; border.color: langSettings.lang === "sw" ? "#00aa77" : "#0077bb"; border.width: 1
+                                color: langSettings.lang === "sw" ? "#1a6050" : "#0a0a40"; border.color: langSettings.lang === "sw" ? "#00aa77" : "blue"; border.width: 1
                             }
                         }
 
@@ -3362,8 +3362,8 @@ Rectangle {
                             anchors.bottom: scrollRodBot.top
                             anchors.horizontalCenter: parent.horizontalCenter
                             width: app.width * 0.82
-                            color: langSettings.lang === "sw" ? "#001a14" : "#001427"
-                            border.color: langSettings.lang === "sw" ? "#0a5040" : "#0a2050"
+                            color: langSettings.lang === "sw" ? "#001a14" : "#000014"
+                            border.color: langSettings.lang === "sw" ? "#0a5040" : "#050530"
                             border.width: 1
 
                             // inner parchment glow
@@ -3371,7 +3371,7 @@ Rectangle {
                                 anchors.fill: parent
                                 anchors.margins: 2
                                 color: "transparent"
-                                border.color: langSettings.lang === "sw" ? "#5000cc99" : "#500099dd"
+                                border.color: langSettings.lang === "sw" ? "#5000cc99" : "#5000003a"
                                 border.width: 1
                             }
 
@@ -3424,13 +3424,13 @@ Rectangle {
                                             cy - tipR * Math.cos(a + 0.18)
                                         );
                                         ctx.closePath();
-                                        ctx.fillStyle = isMain ? (langSettings.lang === "sw" ? "#00ddaa" : "#33aaee") : (langSettings.lang === "sw" ? "#1a6050" : "#1a3060");
+                                        ctx.fillStyle = isMain ? (langSettings.lang === "sw" ? "#00ddaa" : "blue") : (langSettings.lang === "sw" ? "#1a6050" : "#0a0a40");
                                         ctx.fill();
                                     }
                                     ctx.restore();
                                     ctx.beginPath();
                                     ctx.arc(cx, cy, width * 0.1, 0, Math.PI * 2);
-                                    ctx.fillStyle = (langSettings.lang === "sw" ? "#00aa77" : "#0077bb");
+                                    ctx.fillStyle = (langSettings.lang === "sw" ? "#00aa77" : "blue");
                                     ctx.fill();
                                 }
                                 Component.onCompleted: { requestPaint(); }
@@ -3452,7 +3452,7 @@ Rectangle {
                                 onPaint: {
                                     var ctx = getContext("2d");
                                     ctx.clearRect(0, 0, width, height);
-                                    ctx.strokeStyle = (langSettings.lang === "sw" ? "#1a6050" : "#1a3060");
+                                    ctx.strokeStyle = (langSettings.lang === "sw" ? "#1a6050" : "#0a0a40");
                                     ctx.lineWidth = 1.5;
                                     ctx.beginPath();
                                     for (var x = 0; x <= width; x += 2) {
@@ -3473,7 +3473,7 @@ Rectangle {
                                 width: Qt.platform.os === "android" ? 30 : 24
                                 height: width; radius: width / 2
                                 color: "transparent"
-                                border.color: langSettings.lang === "sw" ? "#00aa77" : "#0077bb"; border.width: 2
+                                border.color: langSettings.lang === "sw" ? "#00aa77" : "blue"; border.width: 2
                                 opacity: 0.55
 
                                 property real pulse: 1.0
@@ -3520,7 +3520,7 @@ Rectangle {
 
                                         gradient: Gradient {
                                             GradientStop { position: 0.0; color: "transparent" }
-                                            GradientStop { position: 0.5; color: langSettings.lang === "sw" ? "#3300ffcc" : "#3344ccff" }
+                                            GradientStop { position: 0.5; color: langSettings.lang === "sw" ? "#3300ffcc" : "#330000ff" }
                                             GradientStop { position: 1.0; color: "transparent" }
                                         }
 
@@ -3551,7 +3551,7 @@ Rectangle {
                                               : "* Know More About Tanzania *"
                                         font.pointSize: Qt.platform.os === "android" ? 11 : 9
                                         font.bold: true
-                                        color: langSettings.lang === "sw" ? "#00ffbb" : "#44ccff"
+                                        color: langSettings.lang === "sw" ? "#00ffbb" : "blue"
                                         font.letterSpacing: 0.8
 
                                         property real glow: 0.0
@@ -3571,7 +3571,7 @@ Rectangle {
                                           ? "— Makala kamili · Historia · Utamaduni —"
                                           : "— Full article · History · Culture —"
                                     font.pointSize: Qt.platform.os === "android" ? 8 : 6
-                                    color: langSettings.lang === "sw" ? "#4a9a80" : "#4a7aaa"
+                                    color: langSettings.lang === "sw" ? "#4a9a80" : "blue"
                                     font.italic: true
                                 }
 
@@ -3586,8 +3586,8 @@ Rectangle {
                                     height: Qt.platform.os === "android" ? 44 : 36
                                     radius: Qt.platform.os === "android" ? 8 : 6
                                     clip: true
-                                    color: scrollCtaMA.pressed ? (langSettings.lang === "sw" ? "#001a12" : "#001025") : (langSettings.lang === "sw" ? "#000d09" : "#00060d")
-                                    border.color: langSettings.lang === "sw" ? "#007a55" : "#005a8a"
+                                    color: scrollCtaMA.pressed ? (langSettings.lang === "sw" ? "#001a12" : "#000010") : (langSettings.lang === "sw" ? "#000d09" : "#00000d")
+                                    border.color: langSettings.lang === "sw" ? "#007a55" : "blue"
                                     border.width: Qt.platform.os === "android" ? 2 : 1
 
                                     Behavior on color { ColorAnimation { duration: 100 } }
@@ -3609,14 +3609,14 @@ Rectangle {
                                         anchors.top: parent.top; anchors.left: parent.left
                                         anchors.margins: 3
                                         text: "*"; font.pointSize: Qt.platform.os === "android" ? 7 : 5
-                                        color: langSettings.lang === "sw" ? "#00aa77" : "#0077bb"; opacity: 0.7
+                                        color: langSettings.lang === "sw" ? "#00aa77" : "blue"; opacity: 0.7
                                     }
                                     // corner ornament top-right
                                     Text {
                                         anchors.top: parent.top; anchors.right: parent.right
                                         anchors.margins: 3
                                         text: "*"; font.pointSize: Qt.platform.os === "android" ? 7 : 5
-                                        color: langSettings.lang === "sw" ? "#00aa77" : "#0077bb"; opacity: 0.7
+                                        color: langSettings.lang === "sw" ? "#00aa77" : "blue"; opacity: 0.7
                                     }
 
                                     // gold inner border highlight
@@ -3624,7 +3624,7 @@ Rectangle {
                                         anchors.fill: parent
                                         anchors.margins: 2
                                         color: "transparent"
-                                        border.color: langSettings.lang === "sw" ? "#3000aa77" : "#300077bb"
+                                        border.color: langSettings.lang === "sw" ? "#3000aa77" : "#3000003a"
                                         border.width: 1
                                         radius: parent.radius - 2
                                     }
@@ -3645,7 +3645,7 @@ Rectangle {
                                                   : "Read Article"
                                             font.bold: true
                                             font.pointSize: Qt.platform.os === "android" ? 13 : 10
-                                            color: langSettings.lang === "sw" ? "#00ffbb" : "#44ccff"
+                                            color: langSettings.lang === "sw" ? "#00ffbb" : "blue"
                                             anchors.verticalCenter: parent.verticalCenter
                                         }
 
@@ -3653,7 +3653,7 @@ Rectangle {
                                             id: ctaArrow
                                             text: "▶"
                                             font.pointSize: Qt.platform.os === "android" ? 9 : 7
-                                            color: langSettings.lang === "sw" ? "#00aa77" : "#0077bb"
+                                            color: langSettings.lang === "sw" ? "#00aa77" : "blue"
                                             anchors.verticalCenter: parent.verticalCenter
 
                                             property real arrowX: 0
