@@ -3643,14 +3643,14 @@ Rectangle {
                                     Text {
                                         anchors.top: parent.top; anchors.left: parent.left
                                         anchors.margins: 3
-                                        text: "✦"; font.pointSize: Qt.platform.os === "android" ? 7 : 5
+                                        text: "*"; font.pointSize: Qt.platform.os === "android" ? 7 : 5
                                         color: "#c8901c"; opacity: 0.7
                                     }
                                     // corner ornament top-right
                                     Text {
                                         anchors.top: parent.top; anchors.right: parent.right
                                         anchors.margins: 3
-                                        text: "✦"; font.pointSize: Qt.platform.os === "android" ? 7 : 5
+                                        text: "*"; font.pointSize: Qt.platform.os === "android" ? 7 : 5
                                         color: "#c8901c"; opacity: 0.7
                                     }
 
