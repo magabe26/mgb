@@ -3279,43 +3279,8 @@ Rectangle {
                         id: articleBtnSection
                         width: app.width
                         height: Qt.platform.os === "android" ? 178 : 144
-                        color: langSettings.lang === "sw" ? "#000e0c" : "#000c14"
+                        color: "#001413"
                         clip: true
-
-                        // ── aged parchment background canvas ─────────────
-                        Canvas {
-                            id: scrollBgCanvas
-                            anchors.fill: parent
-                            onPaint: {
-                                var ctx = getContext("2d");
-                                ctx.clearRect(0, 0, width, height);
-
-                                // dark vignette top strip
-                                var topGrad = ctx.createLinearGradient(0, 0, 0, height * 0.18);
-                                topGrad.addColorStop(0, "#cc000000");
-                                topGrad.addColorStop(1, "transparent");
-                                ctx.fillStyle = topGrad;
-                                ctx.fillRect(0, 0, width, height * 0.18);
-
-                                // dark vignette bottom strip
-                                var botGrad = ctx.createLinearGradient(0, height * 0.82, 0, height);
-                                botGrad.addColorStop(0, "transparent");
-                                botGrad.addColorStop(1, "#cc000000");
-                                ctx.fillStyle = botGrad;
-                                ctx.fillRect(0, height * 0.82, width, height * 0.18);
-
-                                // subtle horizontal grain lines
-                                ctx.strokeStyle = (langSettings.lang === "sw" ? "rgba(0,200,150,0.06)" : "rgba(0,100,200,0.06)");
-                                ctx.lineWidth = 1;
-                                for (var y = 0; y < height; y += 4) {
-                                    ctx.beginPath();
-                                    ctx.moveTo(0, y);
-                                    ctx.lineTo(width, y);
-                                    ctx.stroke();
-                                }
-                            }
-                            Component.onCompleted: { requestPaint(); }
-                        }
 
                         // ── scroll rod top ────────────────────────────────
                         Rectangle {
