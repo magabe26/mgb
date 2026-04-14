@@ -3274,161 +3274,455 @@ Rectangle {
 
 
 
-                    // ══ TANZANIA ARTICLE BUTTON ═══════════════════════════
+                    // ══ TANZANIA ARTICLE — PIRATE SCROLL BUTTON ══════════
                     Rectangle {
                         id: articleBtnSection
                         width: app.width
-                        height: articleBtnInner.height + (Qt.platform.os === "android" ? 24 : 18)
-                        color: "#001413"
+                        height: Qt.platform.os === "android" ? 178 : 144
+                        color: "#000e0c"
+                        clip: true
 
-                        Column {
-                            id: articleBtnInner
-                            anchors.horizontalCenter: parent.horizontalCenter
-                            anchors.verticalCenter: parent.verticalCenter
-                            width: app.width - (Qt.platform.os === "android" ? 32 : 24)
-                            spacing: Qt.platform.os === "android" ? 10 : 8
+                        // ── aged parchment background canvas ─────────────
+                        Canvas {
+                            id: scrollBgCanvas
+                            anchors.fill: parent
+                            onPaint: {
+                                var ctx = getContext("2d");
+                                ctx.clearRect(0, 0, width, height);
 
-                            // Section label
-                            Row {
-                                anchors.horizontalCenter: parent.horizontalCenter
-                                spacing: 6
-                                Text {
-                                    text: "📖"
-                                    font.pointSize: Qt.platform.os === "android" ? 13 : 10
-                                    anchors.verticalCenter: parent.verticalCenter
-                                }
-                                Text {
-                                    text: langSettings.lang === "sw"
-                                          ? "Makala ya Tanzania"
-                                          : "Tanzania Article"
-                                    font.pointSize: Qt.platform.os === "android" ? 11 : 9
-                                    font.bold: true
-                                    color: "cyan"
-                                    anchors.verticalCenter: parent.verticalCenter
+                                // dark vignette top strip
+                                var topGrad = ctx.createLinearGradient(0, 0, 0, height * 0.18);
+                                topGrad.addColorStop(0, "#cc000000");
+                                topGrad.addColorStop(1, "transparent");
+                                ctx.fillStyle = topGrad;
+                                ctx.fillRect(0, 0, width, height * 0.18);
+
+                                // dark vignette bottom strip
+                                var botGrad = ctx.createLinearGradient(0, height * 0.82, 0, height);
+                                botGrad.addColorStop(0, "transparent");
+                                botGrad.addColorStop(1, "#cc000000");
+                                ctx.fillStyle = botGrad;
+                                ctx.fillRect(0, height * 0.82, width, height * 0.18);
+
+                                // subtle horizontal grain lines
+                                ctx.strokeStyle = "rgba(180,140,60,0.06)";
+                                ctx.lineWidth = 1;
+                                for (var y = 0; y < height; y += 4) {
+                                    ctx.beginPath();
+                                    ctx.moveTo(0, y);
+                                    ctx.lineTo(width, y);
+                                    ctx.stroke();
                                 }
                             }
+                            Component.onCompleted: { requestPaint(); }
+                        }
 
-                            // Button row: Kiswahili | English
-                            Row {
+                        // ── scroll rod top ────────────────────────────────
+                        Rectangle {
+                            id: scrollRodTop
+                            anchors.top: parent.top
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            width: app.width * 0.82
+                            height: Qt.platform.os === "android" ? 14 : 11
+                            radius: height / 2
+                            color: "#2a1a04"
+                            border.color: "#a07828"
+                            border.width: 1
+
+                            // rod sheen
+                            Rectangle {
+                                anchors.top: parent.top
+                                anchors.topMargin: 2
                                 anchors.horizontalCenter: parent.horizontalCenter
-                                spacing: Qt.platform.os === "android" ? 12 : 10
+                                width: parent.width * 0.7
+                                height: 2
+                                radius: 1
+                                color: "#d4a430"
+                                opacity: 0.55
+                            }
 
-                                // ── Kiswahili button ──────────────────────────
-                                Rectangle {
-                                    id: artBtnSw
-                                    visible: langSettings.lang === "sw"
-                                    width: (articleBtnInner.width - (Qt.platform.os === "android" ? 12 : 10)) / 2
-                                    height: Qt.platform.os === "android" ? 52 : 42
-                                    radius: 12
-                                    color: artBtnSwMA.pressed ? "#0a3d28" : "#0d2a1e"
-                                    border.color: "#1eb53a"
-                                    border.width: 2
-                                    clip: true
-
-                                    Behavior on color { ColorAnimation { duration: 120 } }
-                                    property real sc: 1.0
-                                    scale: sc
-                                    Behavior on sc { NumberAnimation { duration: 120 } }
-
-                                    // Green glow
-                                    layer.enabled: true
-                                    layer.effect: DropShadow {
-                                        transparentBorder: true
-                                        horizontalOffset: 0; verticalOffset: 2
-                                        radius: 10; samples: 21
-                                        color: "#551eb53a"
-                                    }
-
-                                    Row {
-                                        anchors.centerIn: parent
-                                        spacing: 6
-                                        Text {
-                                            text: "🇹🇿"
-                                            font.pointSize: Qt.platform.os === "android" ? 17 : 13
-                                            anchors.verticalCenter: parent.verticalCenter
-                                        }
-
-                                        Text {
-                                            text: langSettings.lang === "sw" ? "Soma mkala" : "Read article"
-                                            font.bold: true
-                                            font.pointSize: Qt.platform.os === "android" ? 13 : 10
-                                            color: "#1eb53a"
-                                        }
-
-                                    }
-
-                                    MouseArea {
-                                        id: artBtnSwMA
-                                        anchors.fill: parent
-                                        onPressed:  { artBtnSw.sc = 0.95; }
-                                        onReleased: {
-                                            artBtnSw.sc = 1.0;
-                                            app.articleLang = "sw";
-                                            app.articleViewVisible = true;
-                                        }
-                                        onCanceled: { artBtnSw.sc = 1.0; }
-                                    }
-                                }
-
-                                // ── English button ────────────────────────────
-                                Rectangle {
-                                    id: artBtnEn
-                                    visible: langSettings.lang === "en"
-                                    width: (articleBtnInner.width - (Qt.platform.os === "android" ? 12 : 10)) / 2
-                                    height: Qt.platform.os === "android" ? 52 : 42
-                                    radius: 12
-                                    color: artBtnEnMA.pressed ? "#0a2040" : "#0d1e30"
-                                    border.color: "#00a3dd"
-                                    border.width: 2
-                                    clip: true
-
-                                    Behavior on color { ColorAnimation { duration: 120 } }
-                                    property real sc: 1.0
-                                    scale: sc
-                                    Behavior on sc { NumberAnimation { duration: 120 } }
-
-                                    // Blue glow
-                                    layer.enabled: true
-                                    layer.effect: DropShadow {
-                                        transparentBorder: true
-                                        horizontalOffset: 0; verticalOffset: 2
-                                        radius: 10; samples: 21
-                                        color: "#5500a3dd"
-                                    }
-
-                                    Row {
-                                        anchors.centerIn: parent
-                                        spacing: 6
-                                        Text {
-                                            text: "🌍"
-                                            font.pointSize: Qt.platform.os === "android" ? 17 : 13
-                                            anchors.verticalCenter: parent.verticalCenter
-                                        }
-
-                                        Text {
-                                            text: langSettings.lang === "sw" ? "Soma makala" : "Read article"
-                                            font.bold: true
-                                            font.pointSize: Qt.platform.os === "android" ? 13 : 10
-                                            color: "#00c8ff"
-                                        }
-
-                                    }
-
-                                    MouseArea {
-                                        id: artBtnEnMA
-                                        anchors.fill: parent
-                                        onPressed:  { artBtnEn.sc = 0.95; }
-                                        onReleased: {
-                                            artBtnEn.sc = 1.0;
-                                            app.articleLang = "en";
-                                            app.articleViewVisible = true;
-                                        }
-                                        onCanceled: { artBtnEn.sc = 1.0; }
-                                    }
-                                }
+                            // end knobs
+                            Rectangle {
+                                anchors.left: parent.left; anchors.verticalCenter: parent.verticalCenter
+                                anchors.leftMargin: -3
+                                width: parent.height + 4; height: parent.height + 4; radius: (parent.height + 4) / 2
+                                color: "#8b6010"
+                                border.color: "#c8901c"; border.width: 1
+                            }
+                            Rectangle {
+                                anchors.right: parent.right; anchors.verticalCenter: parent.verticalCenter
+                                anchors.rightMargin: -3
+                                width: parent.height + 4; height: parent.height + 4; radius: (parent.height + 4) / 2
+                                color: "#8b6010"
+                                border.color: "#c8901c"; border.width: 1
                             }
                         }
-                    }
+
+                        // ── scroll rod bottom ─────────────────────────────
+                        Rectangle {
+                            id: scrollRodBot
+                            anchors.bottom: parent.bottom
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            width: app.width * 0.82
+                            height: Qt.platform.os === "android" ? 14 : 11
+                            radius: height / 2
+                            color: "#2a1a04"
+                            border.color: "#a07828"
+                            border.width: 1
+
+                            Rectangle {
+                                anchors.top: parent.top; anchors.topMargin: 2
+                                anchors.horizontalCenter: parent.horizontalCenter
+                                width: parent.width * 0.7; height: 2; radius: 1
+                                color: "#d4a430"; opacity: 0.55
+                            }
+                            Rectangle {
+                                anchors.left: parent.left; anchors.verticalCenter: parent.verticalCenter
+                                anchors.leftMargin: -3
+                                width: parent.height + 4; height: parent.height + 4; radius: (parent.height + 4) / 2
+                                color: "#8b6010"; border.color: "#c8901c"; border.width: 1
+                            }
+                            Rectangle {
+                                anchors.right: parent.right; anchors.verticalCenter: parent.verticalCenter
+                                anchors.rightMargin: -3
+                                width: parent.height + 4; height: parent.height + 4; radius: (parent.height + 4) / 2
+                                color: "#8b6010"; border.color: "#c8901c"; border.width: 1
+                            }
+                        }
+
+                        // ── parchment body between rods ───────────────────
+                        Rectangle {
+                            id: parchmentBody
+                            anchors.top: scrollRodTop.bottom
+                            anchors.bottom: scrollRodBot.top
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            width: app.width * 0.82
+                            color: "#1c1105"
+                            border.color: "#7a5810"
+                            border.width: 1
+
+                            // inner parchment glow
+                            Rectangle {
+                                anchors.fill: parent
+                                anchors.margins: 2
+                                color: "transparent"
+                                border.color: "#50d4a020"
+                                border.width: 1
+                            }
+
+                            // ── compass rose decoration ───────────────────
+                            Canvas {
+                                id: compassCanvas
+                                width: Qt.platform.os === "android" ? 28 : 22
+                                height: width
+                                anchors.right: parent.right
+                                anchors.bottom: parent.bottom
+                                anchors.margins: 6
+                                opacity: 0.28
+
+                                property real spinAngle: 0
+                                NumberAnimation on spinAngle {
+                                    from: 0; to: 360
+                                    duration: 18000
+                                    loops: Animation.Infinite
+                                    running: true
+                                }
+                                onSpinAngleChanged: { requestPaint(); }
+
+                                onPaint: {
+                                    var ctx = getContext("2d");
+                                    ctx.clearRect(0, 0, width, height);
+                                    var cx = width / 2; var cy = height / 2;
+                                    var r  = width * 0.42;
+                                    ctx.save();
+                                    ctx.translate(cx, cy);
+                                    ctx.rotate(spinAngle * Math.PI / 180);
+                                    ctx.translate(-cx, -cy);
+                                    // 8 points
+                                    var pts = 8;
+                                    for (var i = 0; i < pts; i++) {
+                                        var a = (i / pts) * Math.PI * 2;
+                                        var isMain = (i % 2 === 0);
+                                        var tipR = isMain ? r : r * 0.62;
+                                        ctx.beginPath();
+                                        ctx.moveTo(cx, cy);
+                                        ctx.lineTo(
+                                            cx + tipR * Math.sin(a - 0.18),
+                                            cy - tipR * Math.cos(a - 0.18)
+                                        );
+                                        ctx.lineTo(
+                                            cx + tipR * Math.sin(a),
+                                            cy - tipR * Math.cos(a)
+                                        );
+                                        ctx.lineTo(
+                                            cx + tipR * Math.sin(a + 0.18),
+                                            cy - tipR * Math.cos(a + 0.18)
+                                        );
+                                        ctx.closePath();
+                                        ctx.fillStyle = isMain ? "#e0b840" : "#a07828";
+                                        ctx.fill();
+                                    }
+                                    ctx.restore();
+                                    ctx.beginPath();
+                                    ctx.arc(cx, cy, width * 0.1, 0, Math.PI * 2);
+                                    ctx.fillStyle = "#c8901c";
+                                    ctx.fill();
+                                }
+                                Component.onCompleted: { requestPaint(); }
+                            }
+
+                            // ── wave / rope separator line ────────────────
+                            Canvas {
+                                id: waveSepCanvas
+                                anchors.top: parent.top
+                                anchors.horizontalCenter: parent.horizontalCenter
+                                width: parent.width - 16
+                                height: 10
+                                property real wavePhase: 0
+                                NumberAnimation on wavePhase {
+                                    from: 0; to: Math.PI * 2
+                                    duration: 2400; loops: Animation.Infinite; running: true
+                                }
+                                onWavePhaseChanged: { requestPaint(); }
+                                onPaint: {
+                                    var ctx = getContext("2d");
+                                    ctx.clearRect(0, 0, width, height);
+                                    ctx.strokeStyle = "#8b6010";
+                                    ctx.lineWidth = 1.5;
+                                    ctx.beginPath();
+                                    for (var x = 0; x <= width; x += 2) {
+                                        var y = height / 2 + Math.sin((x / width) * Math.PI * 6 + wavePhase) * 2.5;
+                                        if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+                                    }
+                                    ctx.stroke();
+                                }
+                                Component.onCompleted: { requestPaint(); }
+                            }
+
+                            // ── seal / stamp icon ─────────────────────────
+                            Rectangle {
+                                id: sealCircle
+                                anchors.left: parent.left
+                                anchors.bottom: parent.bottom
+                                anchors.margins: 6
+                                width: Qt.platform.os === "android" ? 30 : 24
+                                height: width; radius: width / 2
+                                color: "transparent"
+                                border.color: "#c8901c"; border.width: 2
+                                opacity: 0.55
+
+                                property real pulse: 1.0
+                                SequentialAnimation on pulse {
+                                    loops: Animation.Infinite; running: true
+                                    NumberAnimation { to: 1.15; duration: 900; easing.type: Easing.SineCurve }
+                                    NumberAnimation { to: 1.0;  duration: 900; easing.type: Easing.SineCurve }
+                                }
+                                scale: pulse
+
+                                Text {
+                                    anchors.centerIn: parent
+                                    text: "🏛️"
+                                    font.pointSize: Qt.platform.os === "android" ? 10 : 8
+                                }
+                            }
+
+                            // ── Main content column ───────────────────────
+                            Column {
+                                id: scrollContentCol
+                                anchors.top: waveSepCanvas.bottom
+                                anchors.bottom: parent.bottom
+                                anchors.left: parent.left
+                                anchors.right: parent.right
+                                anchors.topMargin: 4
+                                anchors.leftMargin: 8
+                                anchors.rightMargin: 8
+                                anchors.bottomMargin: 6
+                                spacing: 0
+
+                                // ── animated title Text with shimmer ─────
+                                Item {
+                                    width: parent.width
+                                    height: Qt.platform.os === "android" ? 38 : 30
+                                    clip: true
+
+                                    // shimmer overlay
+                                    Rectangle {
+                                        id: shimmerRect
+                                        width: parent.width * 0.35
+                                        height: parent.height
+                                        color: "transparent"
+                                        opacity: 0.0
+
+                                        gradient: Gradient {
+                                            GradientStop { position: 0.0; color: "transparent" }
+                                            GradientStop { position: 0.5; color: "#33ffe08a" }
+                                            GradientStop { position: 1.0; color: "transparent" }
+                                        }
+
+                                        SequentialAnimation on x {
+                                            loops: Animation.Infinite; running: true
+                                            NumberAnimation {
+                                                from: -shimmerRect.width
+                                                to: parchmentBody.width
+                                                duration: 2800
+                                                easing.type: Easing.InOutSine
+                                            }
+                                            PauseAnimation { duration: 1800 }
+                                        }
+                                        SequentialAnimation on opacity {
+                                            loops: Animation.Infinite; running: true
+                                            PauseAnimation { duration: 400 }
+                                            NumberAnimation { to: 1.0; duration: 300 }
+                                            NumberAnimation { to: 0.0; duration: 300; easing.type: Easing.OutQuad }
+                                            PauseAnimation { duration: 2600 }
+                                        }
+                                    }
+
+                                    Text {
+                                        id: scrollTitleText
+                                        anchors.centerIn: parent
+                                        text: langSettings.lang === "sw"
+                                              ? "✦  Jifunua Zaidi Kuhusu Tanzania  ✦"
+                                              : "✦  Know More About Tanzania  ✦"
+                                        font.pointSize: Qt.platform.os === "android" ? 11 : 9
+                                        font.bold: true
+                                        color: "#e8c060"
+                                        font.letterSpacing: 0.8
+
+                                        property real glow: 0.0
+                                        SequentialAnimation on glow {
+                                            loops: Animation.Infinite; running: true
+                                            NumberAnimation { to: 1.0; duration: 1200; easing.type: Easing.SineCurve }
+                                            NumberAnimation { to: 0.0; duration: 1200; easing.type: Easing.SineCurve }
+                                        }
+                                        opacity: 0.75 + scrollTitleText.glow * 0.25
+                                    }
+                                }
+
+                                // ── subtitle / flavour text ───────────────
+                                Text {
+                                    anchors.horizontalCenter: parent.horizontalCenter
+                                    text: langSettings.lang === "sw"
+                                          ? "— Makala kamili · Historia · Utamaduni —"
+                                          : "— Full article · History · Culture —"
+                                    font.pointSize: Qt.platform.os === "android" ? 8 : 6
+                                    color: "#907040"
+                                    font.italic: true
+                                }
+
+                                // ── spacer ────────────────────────────────
+                                Item { width: 1; height: Qt.platform.os === "android" ? 6 : 4 }
+
+                                // ── CTA button ────────────────────────────
+                                Rectangle {
+                                    id: scrollCta
+                                    anchors.horizontalCenter: parent.horizontalCenter
+                                    width: Math.min(parent.width - 12, Qt.platform.os === "android" ? 260 : 210)
+                                    height: Qt.platform.os === "android" ? 44 : 36
+                                    radius: Qt.platform.os === "android" ? 8 : 6
+                                    clip: true
+                                    color: scrollCtaMA.pressed ? "#1a0e00" : "#120900"
+                                    border.color: "#b87820"
+                                    border.width: Qt.platform.os === "android" ? 2 : 1
+
+                                    Behavior on color { ColorAnimation { duration: 100 } }
+
+                                    property real sc: 1.0
+                                    scale: sc
+                                    Behavior on sc { NumberAnimation { duration: 110; easing.type: Easing.OutBack } }
+
+                                    // idle breathe
+                                    SequentialAnimation on sc {
+                                        id: ctaBreathe
+                                        loops: Animation.Infinite; running: true
+                                        NumberAnimation { to: 1.03; duration: 900; easing.type: Easing.SineCurve }
+                                        NumberAnimation { to: 1.0;  duration: 900; easing.type: Easing.SineCurve }
+                                    }
+
+                                    // corner ornament top-left
+                                    Text {
+                                        anchors.top: parent.top; anchors.left: parent.left
+                                        anchors.margins: 3
+                                        text: "✦"; font.pointSize: Qt.platform.os === "android" ? 7 : 5
+                                        color: "#c8901c"; opacity: 0.7
+                                    }
+                                    // corner ornament top-right
+                                    Text {
+                                        anchors.top: parent.top; anchors.right: parent.right
+                                        anchors.margins: 3
+                                        text: "✦"; font.pointSize: Qt.platform.os === "android" ? 7 : 5
+                                        color: "#c8901c"; opacity: 0.7
+                                    }
+
+                                    // gold inner border highlight
+                                    Rectangle {
+                                        anchors.fill: parent
+                                        anchors.margins: 2
+                                        color: "transparent"
+                                        border.color: "#30c8901c"
+                                        border.width: 1
+                                        radius: parent.radius - 2
+                                    }
+
+                                    Row {
+                                        anchors.centerIn: parent
+                                        spacing: Qt.platform.os === "android" ? 7 : 5
+
+                                        Text {
+                                            text: "📜"
+                                            font.pointSize: Qt.platform.os === "android" ? 14 : 11
+                                            anchors.verticalCenter: parent.verticalCenter
+                                        }
+
+                                        Text {
+                                            text: langSettings.lang === "sw"
+                                                  ? "Soma Makala"
+                                                  : "Read Article"
+                                            font.bold: true
+                                            font.pointSize: Qt.platform.os === "android" ? 13 : 10
+                                            color: "#e8c060"
+                                            anchors.verticalCenter: parent.verticalCenter
+                                        }
+
+                                        Text {
+                                            id: ctaArrow
+                                            text: "▶"
+                                            font.pointSize: Qt.platform.os === "android" ? 9 : 7
+                                            color: "#c8901c"
+                                            anchors.verticalCenter: parent.verticalCenter
+
+                                            property real arrowX: 0
+                                            SequentialAnimation on arrowX {
+                                                loops: Animation.Infinite; running: true
+                                                NumberAnimation { to: 4;  duration: 500; easing.type: Easing.InOutSine }
+                                                NumberAnimation { to: 0;  duration: 500; easing.type: Easing.InOutSine }
+                                            }
+                                            transform: Translate { x: ctaArrow.arrowX }
+                                        }
+                                    }
+
+                                    MouseArea {
+                                        id: scrollCtaMA
+                                        anchors.fill: parent
+                                        onPressed: {
+                                            ctaBreathe.running = false;
+                                            scrollCta.sc = 0.93;
+                                        }
+                                        onReleased: {
+                                            scrollCta.sc = 1.0;
+                                            ctaBreathe.running = true;
+                                            app.articleLang = langSettings.lang;
+                                            app.articleViewVisible = true;
+                                        }
+                                        onCanceled: {
+                                            scrollCta.sc = 1.0;
+                                            ctaBreathe.running = true;
+                                        }
+                                    }
+                                }
+                            }
+                        } // end parchmentBody
+                    } // end articleBtnSection
 
                     // ══ WANYAMA COMIC STRIP — Scene A & B ════════════════
                     Rectangle {
