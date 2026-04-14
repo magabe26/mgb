@@ -46,8 +46,8 @@ Rectangle {
     // ── fetch & cache Tanzania article HTML ──────────────────────────────
     function fetchArticle(lang) {
         var url = lang === "sw"
-            ? "https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/tztourism/images/tz-sw.html"
-            : "https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/tztourism/images/tz-en.html";
+                ? "https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/tztourism/images/tz-sw.html"
+                : "https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/tztourism/images/tz-en.html";
 
         var xhr = new XMLHttpRequest();
         xhr.open("GET", url, true);
@@ -3272,7 +3272,12 @@ Rectangle {
                         }
                     }
 
-
+                    //Spacing Rect
+                    Rectangle{
+                        color:"#001413"
+                        width: parent.width
+                        height: 16
+                    }
 
                     // ══ TANZANIA ARTICLE — PIRATE SCROLL BUTTON ══════════
                     Rectangle {
@@ -3412,17 +3417,17 @@ Rectangle {
                                         ctx.beginPath();
                                         ctx.moveTo(cx, cy);
                                         ctx.lineTo(
-                                            cx + tipR * Math.sin(a - 0.18),
-                                            cy - tipR * Math.cos(a - 0.18)
-                                        );
+                                                    cx + tipR * Math.sin(a - 0.18),
+                                                    cy - tipR * Math.cos(a - 0.18)
+                                                    );
                                         ctx.lineTo(
-                                            cx + tipR * Math.sin(a),
-                                            cy - tipR * Math.cos(a)
-                                        );
+                                                    cx + tipR * Math.sin(a),
+                                                    cy - tipR * Math.cos(a)
+                                                    );
                                         ctx.lineTo(
-                                            cx + tipR * Math.sin(a + 0.18),
-                                            cy - tipR * Math.cos(a + 0.18)
-                                        );
+                                                    cx + tipR * Math.sin(a + 0.18),
+                                                    cy - tipR * Math.cos(a + 0.18)
+                                                    );
                                         ctx.closePath();
                                         ctx.fillStyle = isMain ? (langSettings.lang === "sw" ? "#00ddaa" : "blue") : (langSettings.lang === "sw" ? "#1a6050" : "#0a0a40");
                                         ctx.fill();
@@ -3688,6 +3693,13 @@ Rectangle {
                             }
                         } // end parchmentBody
                     } // end articleBtnSection
+
+                    //Spacing Rect
+                    Rectangle{
+                        color:"#001413"
+                        width: parent.width
+                        height: 16
+                    }
 
                     // ══ WANYAMA COMIC STRIP — Scene A & B ════════════════
                     Rectangle {
@@ -8499,16 +8511,16 @@ Rectangle {
                 // Show content from QSettings cache; trigger background fetch if cache empty
                 function showContent(lang) {
                     var cached = lang === "sw"
-                        ? articleCacheSettings.htmlSw
-                        : articleCacheSettings.htmlEn;
+                            ? articleCacheSettings.htmlSw
+                            : articleCacheSettings.htmlEn;
 
                     if (cached !== undefined && cached.trim() !== "") {
                         articleWebView.text = cached;
                     } else {
                         // no cache yet — show loading indicator, fetch in background
                         articleWebView.text = lang === "sw"
-                            ? "<p style='color:#00e5cc;font-family:sans-serif;padding:24px;font-size:15px;'>⏳ Inapakia makala...</p>"
-                            : "<p style='color:#00c8ff;font-family:sans-serif;padding:24px;font-size:15px;'>⏳ Loading article...</p>";
+                                ? "<p style='color:#00e5cc;font-family:sans-serif;padding:24px;font-size:15px;'>⏳ Inapakia makala...</p>"
+                                : "<p style='color:#00c8ff;font-family:sans-serif;padding:24px;font-size:15px;'>⏳ Loading article...</p>";
                         app.fetchArticle(lang);
                     }
                 }
