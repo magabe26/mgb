@@ -3582,8 +3582,8 @@ Rectangle {
                                         id: scrollTitleText
                                         anchors.centerIn: parent
                                         text: langSettings.lang === "sw"
-                                              ? "✦  Jifunua Zaidi Kuhusu Tanzania  ✦"
-                                              : "✦  Know More About Tanzania  ✦"
+                                              ? "Jifunze Zaidi Kuhusu Tanzania"
+                                              : "Know More About Tanzania"
                                         font.pointSize: Qt.platform.os === "android" ? 11 : 9
                                         font.bold: true
                                         color: "#e8c060"
