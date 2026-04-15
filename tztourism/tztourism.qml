@@ -8350,598 +8350,246 @@ Rectangle {
 
 
     // ════════════════════════════════════════════════════════════════
-    // TANZANIA ARTICLE OVERLAY — Ancient Scroll Parchment Viewer
-    // ════════════════════════════════════════════════════════════════
-    // SW = greenish parchment (#d8eed4 bg, #1a6b2e ink, #2e7d32 accents)
-    // EN = blueish parchment (#d4e8f0 bg, #1a3a6b ink, #1565c0 accents)
+    // TANZANIA ARTICLE OVERLAY — bilingual HTML article viewer
     // ════════════════════════════════════════════════════════════════
     Rectangle {
         id: articleOverlay
         anchors.fill: parent
-        // Dark aged backdrop behind the scroll
-        color: app.articleLang === "sw" ? "#0a1a0d" : "#0a0f1a"
+        color: "#001413"
         visible: app.articleViewVisible
         opacity: app.articleViewVisible ? 1.0 : 0.0
-        Behavior on opacity { NumberAnimation { duration: 320 } }
-        Behavior on color { ColorAnimation { duration: 400 } }
+        Behavior on opacity { NumberAnimation { duration: 250 } }
         z: 180
 
-        // ── Convenience colour aliases ──────────────────────────────
-        readonly property color inkColor:      articleLang === "sw" ? "#1a5c2a" : "#12326b"
-        readonly property color inkLight:      articleLang === "sw" ? "#2e7d32" : "#1565c0"
-        readonly property color parchmentDark: articleLang === "sw" ? "#b8d9b0" : "#b0cede"
-        readonly property color parchmentMid:  articleLang === "sw" ? "#c8e6c0" : "#bcd6e8"
-        readonly property color parchmentBase: articleLang === "sw" ? "#d9eed2" : "#d2e8f4"
-        readonly property color parchmentHi:   articleLang === "sw" ? "#e8f5e4" : "#e4f0f8"
-        readonly property color rollerColor:   articleLang === "sw" ? "#4a7c3f" : "#2a527a"
-        readonly property color rollerDark:    articleLang === "sw" ? "#2d4f28" : "#183347"
-        readonly property color rollerHi:      articleLang === "sw" ? "#7ab870" : "#6098c0"
-        readonly property string articleLang:  app.articleLang
+        // ── Header bar ─────────────────────────────────────────────
+        Rectangle {
+            id: articleHeader
+            width: parent.width
+            height: Qt.platform.os === "android" ? 54 : 44
+            color: "#001e1b"
+            border.color: app.articleLang === "sw" ? "#1eb53a" : "#00a3dd"
+            border.width: 0
+            z: 10
 
-        // ── SCROLL LAYOUT: roller-top / parchment / roller-bottom ──
-        Column {
-            id: scrollColumn
-            anchors.fill: parent
-            anchors.topMargin:    Qt.platform.os === "android" ? 10 : 8
-            anchors.bottomMargin: Qt.platform.os === "android" ? 10 : 8
-            anchors.leftMargin:   Qt.platform.os === "android" ? 8  : 6
-            anchors.rightMargin:  Qt.platform.os === "android" ? 8  : 6
-            spacing: 0
-
-            // ── TOP ROLLER ─────────────────────────────────────────
-            Canvas {
-                id: topRollerCanvas
+            // Bottom border line
+            Rectangle {
+                anchors.bottom: parent.bottom
                 width: parent.width
-                height: Qt.platform.os === "android" ? 52 : 42
-                Behavior on implicitHeight {}
+                height: 2
+                color: app.articleLang === "sw" ? "#1eb53a" : "#00a3dd"
+                Behavior on color { ColorAnimation { duration: 300 } }
+            }
 
-                readonly property color rollerC: articleOverlay.rollerColor
-                readonly property color rollerD: articleOverlay.rollerDark
-                readonly property color rollerH: articleOverlay.rollerHi
+            Row {
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.left: parent.left
+                anchors.leftMargin: Qt.platform.os === "android" ? 12 : 10
+                anchors.right: articleBackBtn.left
+                anchors.rightMargin: 8
+                spacing: 8
 
-                onRollerCChanged: requestPaint()
-                onPaint: {
-                    var ctx = getContext("2d");
-                    var w = width; var h = height;
-                    ctx.clearRect(0, 0, w, h);
-
-                    var cr = h * 0.46; // corner knob radius
-                    var ry = h / 2;    // rod center-y
-
-                    // ── main rod body ──
-                    var rodGrad = ctx.createLinearGradient(0, ry - h * 0.38, 0, ry + h * 0.38);
-                    rodGrad.addColorStop(0.0,  rollerH);
-                    rodGrad.addColorStop(0.18, rollerC);
-                    rodGrad.addColorStop(0.50, rollerD);
-                    rodGrad.addColorStop(0.82, rollerC);
-                    rodGrad.addColorStop(1.0,  rollerD);
-                    ctx.fillStyle = rodGrad;
-                    ctx.beginPath();
-                    ctx.roundedRect(cr, ry - h * 0.38, w - cr * 2, h * 0.76, 5);
-                    ctx.fill();
-
-                    // ── wood grain lines on rod ──
-                    ctx.globalAlpha = 0.18;
-                    ctx.strokeStyle = rollerD;
-                    ctx.lineWidth = 1;
-                    for (var gi = 0; gi < 6; gi++) {
-                        var gx = cr + (w - cr * 2) * (gi / 6) + 8;
-                        ctx.beginPath();
-                        ctx.moveTo(gx, ry - h * 0.35);
-                        ctx.lineTo(gx + 3, ry + h * 0.35);
-                        ctx.stroke();
-                    }
-                    ctx.globalAlpha = 1.0;
-
-                    // ── left knob ──
-                    var lkg = ctx.createRadialGradient(cr * 0.6, ry - cr * 0.3, cr * 0.05, cr, ry, cr);
-                    lkg.addColorStop(0.0, rollerH);
-                    lkg.addColorStop(0.4, rollerC);
-                    lkg.addColorStop(1.0, rollerD);
-                    ctx.fillStyle = lkg;
-                    ctx.beginPath();
-                    ctx.ellipse(0, ry - cr, cr * 2, cr * 2);
-                    ctx.fill();
-                    // knob ring
-                    ctx.strokeStyle = rollerD;
-                    ctx.lineWidth = 1.5;
-                    ctx.globalAlpha = 0.5;
-                    ctx.beginPath();
-                    ctx.ellipse(cr * 0.25, ry - cr * 0.75, cr * 1.5, cr * 1.5);
-                    ctx.stroke();
-                    ctx.globalAlpha = 1.0;
-
-                    // ── right knob ──
-                    var rkg = ctx.createRadialGradient(w - cr * 1.4, ry - cr * 0.3, cr * 0.05, w - cr, ry, cr);
-                    rkg.addColorStop(0.0, rollerH);
-                    rkg.addColorStop(0.4, rollerC);
-                    rkg.addColorStop(1.0, rollerD);
-                    ctx.fillStyle = rkg;
-                    ctx.beginPath();
-                    ctx.ellipse(w - cr * 2, ry - cr, cr * 2, cr * 2);
-                    ctx.fill();
-                    ctx.strokeStyle = rollerD;
-                    ctx.lineWidth = 1.5;
-                    ctx.globalAlpha = 0.5;
-                    ctx.beginPath();
-                    ctx.ellipse(w - cr * 1.75, ry - cr * 0.75, cr * 1.5, cr * 1.5);
-                    ctx.stroke();
-                    ctx.globalAlpha = 1.0;
-
-                    // ── parchment curling out of bottom of rod ──
-                    var curlGrad = ctx.createLinearGradient(0, ry + h * 0.1, 0, h);
-                    curlGrad.addColorStop(0.0, articleOverlay.parchmentDark);
-                    curlGrad.addColorStop(0.5, articleOverlay.parchmentMid);
-                    curlGrad.addColorStop(1.0, articleOverlay.parchmentBase);
-                    ctx.fillStyle = curlGrad;
-                    ctx.beginPath();
-                    ctx.moveTo(cr, ry + h * 0.12);
-                    ctx.quadraticCurveTo(cr * 0.5, h * 0.85, cr * 1.2, h);
-                    ctx.lineTo(w - cr * 1.2, h);
-                    ctx.quadraticCurveTo(w - cr * 0.5, h * 0.85, w - cr, ry + h * 0.12);
-                    ctx.closePath();
-                    ctx.fill();
+                Text {
+                    text: app.articleLang === "sw" ? "🇹🇿" : "🌍"
+                    font.pointSize: Qt.platform.os === "android" ? 20 : 16
+                    anchors.verticalCenter: parent.verticalCenter
                 }
-            } // topRollerCanvas
+                Column {
+                    anchors.verticalCenter: parent.verticalCenter
+                    spacing: 1
+                    Text {
+                        text: app.articleLang === "sw"
+                              ? "Tanzania — Nchi Yetu Tukufu"
+                              : "Tanzania — A Nation of Wonders"
+                        font.bold: true
+                        font.pointSize: Qt.platform.os === "android" ? 13 : 10
+                        color: app.articleLang === "sw" ? "#1eb53a" : "#00c8ff"
+                        Behavior on color { ColorAnimation { duration: 300 } }
+                    }
+                    Text {
+                        text: app.articleLang === "sw"
+                              ? "Mkala · Habari za Tanzania"
+                              : "Article · Tanzania Knowledge"
+                        font.pointSize: Qt.platform.os === "android" ? 9 : 7
+                        color: "#666666"
+                    }
+                }
+            }
 
-            // ── PARCHMENT BODY ──────────────────────────────────────
-            Item {
-                id: parchmentBody
-                width: parent.width
-                height: scrollColumn.height - topRollerCanvas.height - bottomRollerCanvas.height
+            // ── Back button ────────────────────────────────────────
+            Rectangle {
+                id: articleBackBtn
+                anchors.right: parent.right
+                anchors.rightMargin: Qt.platform.os === "android" ? 12 : 10
+                anchors.verticalCenter: parent.verticalCenter
+                width: Qt.platform.os === "android" ? 80 : 66
+                height: Qt.platform.os === "android" ? 36 : 30
+                radius: Qt.platform.os === "android" ? 18 : 15
+                color: articleBackMA.pressed
+                       ? (app.articleLang === "sw" ? "#0a3d1e" : "#0a2040")
+                       : (app.articleLang === "sw" ? "#0d2a1e" : "#0d1e30")
+                border.color: app.articleLang === "sw" ? "#1eb53a" : "#00a3dd"
+                border.width: 1.5
+                Behavior on color { ColorAnimation { duration: 120 } }
+                property real sc: 1.0
+                scale: sc
+                Behavior on sc { NumberAnimation { duration: 120 } }
 
-                // ── Parchment background canvas (texture + edges) ──
-                Canvas {
-                    id: parchmentBgCanvas
+                Row {
+                    anchors.centerIn: parent
+                    spacing: 4
+                    Text {
+                        text: "<"
+                        font.pointSize: Qt.platform.os === "android" ? 16 : 13
+                        font.bold: true
+                        color: app.articleLang === "sw" ? "#1eb53a" : "#00c8ff"
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
+                    Text {
+                        text: app.articleLang === "sw" ? "Rudi" : "Back"
+                        font.pointSize: Qt.platform.os === "android" ? 12 : 9
+                        font.bold: true
+                        color: app.articleLang === "sw" ? "#1eb53a" : "#00c8ff"
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
+                }
+
+                MouseArea {
+                    id: articleBackMA
                     anchors.fill: parent
-
-                    readonly property color pBase: articleOverlay.parchmentBase
-                    readonly property color pMid:  articleOverlay.parchmentMid
-                    readonly property color pDark: articleOverlay.parchmentDark
-                    readonly property color pHi:   articleOverlay.parchmentHi
-                    readonly property color ink:   articleOverlay.inkColor
-
-                    onPBaseChanged: requestPaint()
-                    onPaint: {
-                        var ctx = getContext("2d");
-                        var w = width; var h = height;
-                        ctx.clearRect(0, 0, w, h);
-
-                        // ── base parchment fill ──
-                        var baseGrad = ctx.createLinearGradient(0, 0, w, 0);
-                        baseGrad.addColorStop(0.00, pDark);
-                        baseGrad.addColorStop(0.06, pMid);
-                        baseGrad.addColorStop(0.15, pBase);
-                        baseGrad.addColorStop(0.50, pHi);
-                        baseGrad.addColorStop(0.85, pBase);
-                        baseGrad.addColorStop(0.94, pMid);
-                        baseGrad.addColorStop(1.00, pDark);
-                        ctx.fillStyle = baseGrad;
-                        ctx.fillRect(0, 0, w, h);
-
-                        // ── aged vertical streaks (parchment fibers) ──
-                        ctx.globalAlpha = 0.07;
-                        ctx.strokeStyle = ink;
-                        ctx.lineWidth = 1;
-                        for (var fi = 0; fi < 18; fi++) {
-                            var fx = w * (fi / 18) + (Math.sin(fi * 1.7) * 12);
-                            ctx.beginPath();
-                            ctx.moveTo(fx, 0);
-                            ctx.bezierCurveTo(
-                                fx + Math.sin(fi * 0.9) * 6, h * 0.3,
-                                fx + Math.cos(fi * 1.3) * 8, h * 0.7,
-                                fx + Math.sin(fi * 0.5) * 4, h
-                            );
-                            ctx.stroke();
-                        }
-                        ctx.globalAlpha = 1.0;
-
-                        // ── faint horizontal aging lines ──
-                        ctx.globalAlpha = 0.05;
-                        ctx.strokeStyle = ink;
-                        ctx.lineWidth = 0.8;
-                        for (var hi2 = 0; hi2 < 24; hi2++) {
-                            var hy = h * (hi2 / 24) + (Math.cos(hi2 * 2.1) * 4);
-                            ctx.beginPath();
-                            ctx.moveTo(0, hy);
-                            ctx.quadraticCurveTo(w * 0.5, hy + Math.sin(hi2) * 3, w, hy);
-                            ctx.stroke();
-                        }
-                        ctx.globalAlpha = 1.0;
-
-                        // ── left shadow edge ──
-                        var leftShadow = ctx.createLinearGradient(0, 0, 28, 0);
-                        leftShadow.addColorStop(0.0, Qt.rgba(0, 0, 0, 0.22));
-                        leftShadow.addColorStop(1.0, Qt.rgba(0, 0, 0, 0.0));
-                        ctx.fillStyle = leftShadow;
-                        ctx.fillRect(0, 0, 28, h);
-
-                        // ── right shadow edge ──
-                        var rightShadow = ctx.createLinearGradient(w - 28, 0, w, 0);
-                        rightShadow.addColorStop(0.0, Qt.rgba(0, 0, 0, 0.0));
-                        rightShadow.addColorStop(1.0, Qt.rgba(0, 0, 0, 0.22));
-                        ctx.fillStyle = rightShadow;
-                        ctx.fillRect(w - 28, 0, 28, h);
-
-                        // ── decorative ink border frame ──
-                        ctx.strokeStyle = ink;
-                        ctx.lineWidth = 1.2;
-                        ctx.globalAlpha = 0.35;
-                        var bm = 10; // border margin
-                        ctx.strokeRect(bm, 2, w - bm * 2, h - 4);
-                        // inner thin line
-                        ctx.lineWidth = 0.6;
-                        ctx.globalAlpha = 0.20;
-                        ctx.strokeRect(bm + 5, 7, w - (bm + 5) * 2, h - 14);
-                        ctx.globalAlpha = 1.0;
-
-                        // ── small corner ornaments ──
-                        ctx.strokeStyle = ink;
-                        ctx.lineWidth = 1.5;
-                        ctx.globalAlpha = 0.45;
-                        var co = 14; // corner ornament size
-                        // top-left
-                        ctx.beginPath(); ctx.moveTo(bm, bm + co); ctx.lineTo(bm, bm); ctx.lineTo(bm + co, bm); ctx.stroke();
-                        // top-right
-                        ctx.beginPath(); ctx.moveTo(w - bm - co, bm); ctx.lineTo(w - bm, bm); ctx.lineTo(w - bm, bm + co); ctx.stroke();
-                        // bottom-left
-                        ctx.beginPath(); ctx.moveTo(bm, h - bm - co); ctx.lineTo(bm, h - bm); ctx.lineTo(bm + co, h - bm); ctx.stroke();
-                        // bottom-right
-                        ctx.beginPath(); ctx.moveTo(w - bm - co, h - bm); ctx.lineTo(w - bm, h - bm); ctx.lineTo(w - bm, h - bm - co); ctx.stroke();
-                        ctx.globalAlpha = 1.0;
+                    onPressed:  { articleBackBtn.sc = 0.92; }
+                    onReleased: {
+                        articleBackBtn.sc = 1.0;
+                        app.articleViewVisible = false;
+                        app.articleLang = "";
+                        articleWebView.scrollToTop();
+                        app.animateBackToFrontPage();
                     }
-                } // parchmentBgCanvas
-
-                // ── Title band (header on parchment) ───────────────
-                Rectangle {
-                    id: scrollTitleBand
-                    anchors.top: parent.top
-                    anchors.topMargin: Qt.platform.os === "android" ? 14 : 10
-                    anchors.left: parent.left
-                    anchors.right: parent.right
-                    anchors.leftMargin:  Qt.platform.os === "android" ? 22 : 16
-                    anchors.rightMargin: Qt.platform.os === "android" ? 22 : 16
-                    height: Qt.platform.os === "android" ? 52 : 42
-                    color: "transparent"
-                    z: 5
-
-                    // Title underline ornament
-                    Canvas {
-                        id: titleOrnamentCanvas
-                        anchors.fill: parent
-                        readonly property color inkC: articleOverlay.inkColor
-                        onInkCChanged: requestPaint()
-                        onPaint: {
-                            var ctx = getContext("2d");
-                            var w = width; var h = height;
-                            ctx.clearRect(0, 0, w, h);
-                            // double underline
-                            ctx.strokeStyle = inkC;
-                            ctx.globalAlpha = 0.55;
-                            ctx.lineWidth = 1.5;
-                            ctx.beginPath();
-                            ctx.moveTo(0, h - 6); ctx.lineTo(w, h - 6); ctx.stroke();
-                            ctx.lineWidth = 0.7;
-                            ctx.globalAlpha = 0.30;
-                            ctx.beginPath();
-                            ctx.moveTo(10, h - 3); ctx.lineTo(w - 10, h - 3); ctx.stroke();
-                            ctx.globalAlpha = 1.0;
-                        }
-                    }
-
-                    Row {
-                        anchors.left: parent.left
-                        anchors.right: scrollBackBtn.left
-                        anchors.rightMargin: 8
-                        anchors.verticalCenter: parent.verticalCenter
-                        spacing: Qt.platform.os === "android" ? 10 : 8
-
-                        Text {
-                            text: articleOverlay.articleLang === "sw" ? "🇹🇿" : "🌍"
-                            font.pointSize: Qt.platform.os === "android" ? 20 : 15
-                            anchors.verticalCenter: parent.verticalCenter
-                        }
-                        Column {
-                            anchors.verticalCenter: parent.verticalCenter
-                            spacing: 2
-                            Text {
-                                text: articleOverlay.articleLang === "sw"
-                                      ? "Tanzania — Nchi Yetu Tukufu"
-                                      : "Tanzania — A Nation of Wonders"
-                                font.bold: true
-                                font.pointSize: Qt.platform.os === "android" ? 13 : 10
-                                font.family: "serif"
-                                color: articleOverlay.inkColor
-                                Behavior on color { ColorAnimation { duration: 350 } }
-                            }
-                            Text {
-                                text: articleOverlay.articleLang === "sw"
-                                      ? "Mkala · Habari za Tanzania"
-                                      : "Article · Tanzania Knowledge"
-                                font.pointSize: Qt.platform.os === "android" ? 9 : 7
-                                font.italic: true
-                                color: articleOverlay.inkLight
-                                opacity: 0.72
-                                Behavior on color { ColorAnimation { duration: 350 } }
-                            }
-                        }
-                    }
-
-                    // ── Back button (ink-styled) ────────────────────
-                    Rectangle {
-                        id: scrollBackBtn
-                        anchors.right: parent.right
-                        anchors.verticalCenter: parent.verticalCenter
-                        width:  Qt.platform.os === "android" ? 76 : 64
-                        height: Qt.platform.os === "android" ? 34 : 28
-                        radius: 4
-                        color: scrollBackMA.pressed
-                               ? Qt.darker(articleOverlay.parchmentDark, 1.15)
-                               : articleOverlay.parchmentMid
-                        border.color: articleOverlay.inkColor
-                        border.width: 1.2
-                        Behavior on color { ColorAnimation { duration: 100 } }
-                        property real sc: 1.0
-                        scale: sc
-                        Behavior on sc { NumberAnimation { duration: 100 } }
-
-                        Row {
-                            anchors.centerIn: parent
-                            spacing: 4
-                            Text {
-                                text: "←"
-                                font.pointSize: Qt.platform.os === "android" ? 14 : 11
-                                color: articleOverlay.inkColor
-                                anchors.verticalCenter: parent.verticalCenter
-                            }
-                            Text {
-                                text: articleOverlay.articleLang === "sw" ? "Rudi" : "Back"
-                                font.pointSize: Qt.platform.os === "android" ? 12 : 9
-                                font.bold: true
-                                font.family: "serif"
-                                color: articleOverlay.inkColor
-                                anchors.verticalCenter: parent.verticalCenter
-                            }
-                        }
-
-                        MouseArea {
-                            id: scrollBackMA
-                            anchors.fill: parent
-                            onPressed:  { scrollBackBtn.sc = 0.92; }
-                            onReleased: {
-                                scrollBackBtn.sc = 1.0;
-                                app.articleViewVisible = false;
-                                app.articleLang = "";
-                                articleWebView.scrollToTop();
-                                app.animateBackToFrontPage();
-                            }
-                            onCanceled: { scrollBackBtn.sc = 1.0; }
-                        }
-                    } // scrollBackBtn
-                } // scrollTitleBand
-
-                // ── Scrollable article text ─────────────────────────
-                Flickable {
-                    id: articleFlickable
-                    anchors.top: scrollTitleBand.bottom
-                    anchors.topMargin: Qt.platform.os === "android" ? 6 : 4
-                    anchors.left: parent.left
-                    anchors.right: parent.right
-                    anchors.bottom: parent.bottom
-                    anchors.leftMargin:  Qt.platform.os === "android" ? 22 : 16
-                    anchors.rightMargin: Qt.platform.os === "android" ? 22 : 16
-                    anchors.bottomMargin: Qt.platform.os === "android" ? 8 : 6
-                    contentWidth: width
-                    contentHeight: articleWebView.implicitHeight + 16
-                    clip: true
-                    boundsBehavior: Flickable.StopAtBounds
-
-                    function scrollToTop() { contentY = 0; }
-
-                    Connections {
-                        target: app
-                        function onArticleLangChanged() { articleFlickable.contentY = 0; }
-                    }
-
-                    // Faint scroll-position indicator on right edge
-                    Rectangle {
-                        id: scrollbar
-                        anchors.right: parent.right
-                        anchors.rightMargin: -14
-                        width: 3
-                        radius: 2
-                        color: articleOverlay.inkLight
-                        opacity: 0.35
-                        height: articleFlickable.height *
-                                (articleFlickable.height / Math.max(articleFlickable.contentHeight, 1))
-                        y: articleFlickable.contentY *
-                           (articleFlickable.height / Math.max(articleFlickable.contentHeight, 1))
-                        visible: articleFlickable.contentHeight > articleFlickable.height
-                    }
-
-                    Text {
-                        id: articleWebView
-                        width: articleFlickable.width
-                        textFormat: Text.RichText
-                        wrapMode: Text.WordWrap
-                        color: articleOverlay.inkColor
-                        text: ""
-                        font.pixelSize: Qt.platform.os === "android" ? 14 : 10
-                        font.family: "serif"
-                        lineHeight: 1.45
-
-                        function scrollToTop() {
-                            articleScrollTopBtn.sc = 1.0;
-                            articleFlickable.contentY = 0;
-                        }
-
-                        function showContent(lang) {
-                            var cached = lang === "sw"
-                                    ? articleCacheSettings.htmlSw
-                                    : articleCacheSettings.htmlEn;
-                            if (cached !== undefined && cached.trim() !== "") {
-                                articleWebView.text = cached;
-                            } else {
-                                articleWebView.text = lang === "sw"
-                                        ? "<p style='font-family:serif;padding:24px;font-size:15px;'>⏳ Inapakia makala...</p>"
-                                        : "<p style='font-family:serif;padding:24px;font-size:15px;'>⏳ Loading article...</p>";
-                                app.fetchArticle(lang);
-                            }
-                        }
-
-                        Connections {
-                            target: app
-                            function onArticleViewVisibleChanged() {
-                                if (app.articleViewVisible && app.articleLang !== "") {
-                                    articleWebView.showContent(app.articleLang);
-                                }
-                            }
-                            function onArticleLangChanged() {
-                                if (app.articleViewVisible && app.articleLang !== "") {
-                                    articleWebView.showContent(app.articleLang);
-                                }
-                            }
-                        }
-                    }
-                } // articleFlickable
-
-                // ── Scroll-to-top FAB (parchment style) ────────────
-                Rectangle {
-                    id: articleScrollTopBtn
-                    anchors.bottom: parent.bottom
-                    anchors.right: parent.right
-                    anchors.bottomMargin: Qt.platform.os === "android" ? 14 : 10
-                    anchors.rightMargin:  Qt.platform.os === "android" ? 10 : 8
-                    width:  Qt.platform.os === "android" ? 42 : 34
-                    height: width; radius: width / 2
-                    color: scrollTopMA2.pressed
-                           ? Qt.darker(articleOverlay.parchmentDark, 1.2)
-                           : articleOverlay.parchmentMid
-                    border.color: articleOverlay.inkColor
-                    border.width: 1.5
-                    visible: articleFlickable.contentY > 80
-                    opacity: visible ? 0.92 : 0.0
-                    Behavior on opacity { NumberAnimation { duration: 200 } }
-                    property real sc: 1.0
-                    scale: sc
-                    Behavior on sc { NumberAnimation { duration: 100 } }
-                    z: 10
-
-                    Text {
-                        anchors.centerIn: parent
-                        text: "▲"
-                        font.pointSize: Qt.platform.os === "android" ? 14 : 11
-                        color: articleOverlay.inkColor
-                    }
-                    MouseArea {
-                        id: scrollTopMA2
-                        anchors.fill: parent
-                        onPressed:  { articleScrollTopBtn.sc = 0.88; }
-                        onReleased: {
-                            articleScrollTopBtn.sc = 1.0;
-                            articleFlickable.contentY = 0;
-                        }
-                        onCanceled: { articleScrollTopBtn.sc = 1.0; }
-                    }
-                } // articleScrollTopBtn
-
-            } // parchmentBody
-
-            // ── BOTTOM ROLLER ───────────────────────────────────────
-            Canvas {
-                id: bottomRollerCanvas
-                width: parent.width
-                height: Qt.platform.os === "android" ? 52 : 42
-
-                readonly property color rollerC: articleOverlay.rollerColor
-                readonly property color rollerD: articleOverlay.rollerDark
-                readonly property color rollerH: articleOverlay.rollerHi
-
-                onRollerCChanged: requestPaint()
-                onPaint: {
-                    var ctx = getContext("2d");
-                    var w = width; var h = height;
-                    ctx.clearRect(0, 0, w, h);
-
-                    var cr = h * 0.46;
-                    var ry = h / 2;
-
-                    // ── parchment curling into top of rod ──
-                    var curlGrad = ctx.createLinearGradient(0, 0, 0, ry - h * 0.1);
-                    curlGrad.addColorStop(0.0, articleOverlay.parchmentBase);
-                    curlGrad.addColorStop(0.5, articleOverlay.parchmentMid);
-                    curlGrad.addColorStop(1.0, articleOverlay.parchmentDark);
-                    ctx.fillStyle = curlGrad;
-                    ctx.beginPath();
-                    ctx.moveTo(cr * 1.2, 0);
-                    ctx.quadraticCurveTo(cr * 0.5, h * 0.15, cr, ry - h * 0.12);
-                    ctx.lineTo(w - cr, ry - h * 0.12);
-                    ctx.quadraticCurveTo(w - cr * 0.5, h * 0.15, w - cr * 1.2, 0);
-                    ctx.closePath();
-                    ctx.fill();
-
-                    // ── main rod body ──
-                    var rodGrad = ctx.createLinearGradient(0, ry - h * 0.38, 0, ry + h * 0.38);
-                    rodGrad.addColorStop(0.0,  rollerH);
-                    rodGrad.addColorStop(0.18, rollerC);
-                    rodGrad.addColorStop(0.50, rollerD);
-                    rodGrad.addColorStop(0.82, rollerC);
-                    rodGrad.addColorStop(1.0,  rollerD);
-                    ctx.fillStyle = rodGrad;
-                    ctx.beginPath();
-                    ctx.roundedRect(cr, ry - h * 0.38, w - cr * 2, h * 0.76, 5);
-                    ctx.fill();
-
-                    // ── wood grain ──
-                    ctx.globalAlpha = 0.18;
-                    ctx.strokeStyle = rollerD;
-                    ctx.lineWidth = 1;
-                    for (var gi = 0; gi < 6; gi++) {
-                        var gx = cr + (w - cr * 2) * (gi / 6) + 8;
-                        ctx.beginPath();
-                        ctx.moveTo(gx, ry - h * 0.35);
-                        ctx.lineTo(gx + 3, ry + h * 0.35);
-                        ctx.stroke();
-                    }
-                    ctx.globalAlpha = 1.0;
-
-                    // ── left knob ──
-                    var lkg = ctx.createRadialGradient(cr * 0.6, ry - cr * 0.3, cr * 0.05, cr, ry, cr);
-                    lkg.addColorStop(0.0, rollerH);
-                    lkg.addColorStop(0.4, rollerC);
-                    lkg.addColorStop(1.0, rollerD);
-                    ctx.fillStyle = lkg;
-                    ctx.beginPath();
-                    ctx.ellipse(0, ry - cr, cr * 2, cr * 2);
-                    ctx.fill();
-                    ctx.strokeStyle = rollerD;
-                    ctx.lineWidth = 1.5;
-                    ctx.globalAlpha = 0.5;
-                    ctx.beginPath();
-                    ctx.ellipse(cr * 0.25, ry - cr * 0.75, cr * 1.5, cr * 1.5);
-                    ctx.stroke();
-                    ctx.globalAlpha = 1.0;
-
-                    // ── right knob ──
-                    var rkg = ctx.createRadialGradient(w - cr * 1.4, ry - cr * 0.3, cr * 0.05, w - cr, ry, cr);
-                    rkg.addColorStop(0.0, rollerH);
-                    rkg.addColorStop(0.4, rollerC);
-                    rkg.addColorStop(1.0, rollerD);
-                    ctx.fillStyle = rkg;
-                    ctx.beginPath();
-                    ctx.ellipse(w - cr * 2, ry - cr, cr * 2, cr * 2);
-                    ctx.fill();
-                    ctx.strokeStyle = rollerD;
-                    ctx.lineWidth = 1.5;
-                    ctx.globalAlpha = 0.5;
-                    ctx.beginPath();
-                    ctx.ellipse(w - cr * 1.75, ry - cr * 0.75, cr * 1.5, cr * 1.5);
-                    ctx.stroke();
-                    ctx.globalAlpha = 1.0;
+                    onCanceled: { articleBackBtn.sc = 1.0; }
                 }
-            } // bottomRollerCanvas
+            }
+        }
 
-        } // scrollColumn
+        // ── Article content: scrollable HTML via Text RichText ─────
+        Flickable {
+            id: articleFlickable
+            anchors.top: articleHeader.bottom
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.bottom: parent.bottom
+            contentWidth: width
+            contentHeight: articleWebView.implicitHeight + 8
+            clip: true
+            boundsBehavior: Flickable.StopAtBounds
+
+            // scroll-to-top helper
+            function scrollToTop() {
+                contentY = 0;
+            }
+
+            // Reset scroll when article changes
+            Connections {
+                target: app
+                function onArticleLangChanged() {
+                    articleFlickable.contentY = 0;
+                }
+            }
+
+            Text {
+                id: articleWebView
+                width: articleFlickable.width
+                textFormat: Text.RichText
+                wrapMode: Text.WordWrap
+                color: "#e0f7f4"
+                text: ""
+                font.pixelSize: Qt.platform.os === "android" ? 14 : 10
+
+                function scrollToTop() {
+                    articleScrollTopBtn.sc = 1.0;
+                    articleFlickable.contentY = 0;
+                }
+
+                // Show content from QSettings cache; trigger background fetch if cache empty
+                function showContent(lang) {
+                    var cached = lang === "sw"
+                            ? articleCacheSettings.htmlSw
+                            : articleCacheSettings.htmlEn;
+
+                    if (cached !== undefined && cached.trim() !== "") {
+                        articleWebView.text = cached;
+                    } else {
+                        // no cache yet — show loading indicator, fetch in background
+                        articleWebView.text = lang === "sw"
+                                ? "<p style='color:#00e5cc;font-family:sans-serif;padding:24px;font-size:15px;'>⏳ Inapakia makala...</p>"
+                                : "<p style='color:#00c8ff;font-family:sans-serif;padding:24px;font-size:15px;'>⏳ Loading article...</p>";
+                        app.fetchArticle(lang);
+                    }
+                }
+
+                // Trigger showContent when overlay opens or lang changes
+                Connections {
+                    target: app
+                    function onArticleViewVisibleChanged() {
+                        if (app.articleViewVisible && app.articleLang !== "") {
+                            articleWebView.showContent(app.articleLang);
+                        }
+                    }
+                    function onArticleLangChanged() {
+                        if (app.articleViewVisible && app.articleLang !== "") {
+                            articleWebView.showContent(app.articleLang);
+                        }
+                    }
+                }
+            }
+        }
+
+        // ── Scroll-to-top FAB ──────────────────────────────────────
+        Rectangle {
+            id: articleScrollTopBtn
+            anchors.bottom: parent.bottom
+            anchors.right: parent.right
+            anchors.bottomMargin: Qt.platform.os === "android" ? 20 : 16
+            anchors.rightMargin: Qt.platform.os === "android" ? 16 : 12
+            width: Qt.platform.os === "android" ? 46 : 38
+            height: width; radius: width / 2
+            color: scrollTopMA.pressed
+                   ? (app.articleLang === "sw" ? "#0a3d1e" : "#0a2040")
+                   : (app.articleLang === "sw" ? "#001413" : "#001413")
+            border.color: app.articleLang === "sw" ? "#1eb53a" : "#00a3dd"
+            border.width: 2
+            visible: articleFlickable.contentY > 80
+            opacity: visible ? 1.0 : 0.0
+            Behavior on opacity { NumberAnimation { duration: 200 } }
+
+            layer.enabled: true
+            layer.effect: DropShadow {
+                transparentBorder: true
+                horizontalOffset: 0; verticalOffset: 2
+                radius: 12; samples: 25
+                color: app.articleLang === "sw" ? "#551eb53a" : "#5500a3dd"
+            }
+
+            property real sc: 1.0
+            scale: sc
+            Behavior on sc { NumberAnimation { duration: 120 } }
+
+            Text {
+                anchors.centerIn: parent
+                text: "▲"
+                font.pointSize: Qt.platform.os === "android" ? 14 : 11
+                color: app.articleLang === "sw" ? "#1eb53a" : "#00c8ff"
+            }
+
+            MouseArea {
+                id: scrollTopMA
+                anchors.fill: parent
+                onPressed:  { articleScrollTopBtn.sc = 0.88; }
+                onReleased: {
+                    articleScrollTopBtn.sc = 1.0;
+                    articleFlickable.contentY = 0;
+                }
+                onCanceled: { articleScrollTopBtn.sc = 1.0; }
+            }
+        }
     }
     // ════════════════════════════════════════════════════════════════
 
