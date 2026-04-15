@@ -283,7 +283,6 @@ ListElement {
             desc_sw: "Toroka jiji! Ni safari rahisi: dar mpaka moro na kuendelea. Tazama twiga, simba, tembo, punda milia, na nyumbu. Pori linakusubiri!"
         }
 
-    
 
         ListElement {
             name_en: "Ngorongoro Conservation Area"; name_sw: "Mamlaka ya Hifadhi ya Ngorongoro"
@@ -292,7 +291,19 @@ ListElement {
             desc_sw: "Makao ya Kreta ya Ngorongoro, kaldera kubwa ya volkano iliyojaa wanyamapori mbalimbali."
         }
 
-        
+        ListElement {
+            name_en: "Kitulo National Park"; name_sw: "Hifadhi ya Taifa ya Kitulo"
+            imageFile: "./kitulo.jpg"
+            desc_en: "Known as the 'Garden of God', this unique montane grassland is famous for its spectacular seasonal wildflower displays."
+            desc_sw: "Inajulikana kama 'Bustani ya Mungu', nyanda hii ya kipekee ya milimani ni maarufu kwa maonyesho yake mazuri ya maua ya porini ya msimu."
+        }
+
+ListElement {
+            name_en: "Serengeti National Park"; name_sw: "Hifadhi ya Taifa ya Serengeti"
+            imageFile: "./serengeti.jpg"
+            desc_en: "Vast plains, famous for the annual wildebeest migration, offering unparalleled safari experiences."
+            desc_sw: "Nyanda pana, maarufu kwa uhamaji mkuu wa nyumbu kila mwaka, inayotoa uzoefu wa safari usio na kifani."
+        }
 
         ListElement {
             name_en: "Zanzibar (Stone Town & Beaches)"; name_sw: "Zanzibar (Mji Mkongwe na Fukwe)"
@@ -300,13 +311,7 @@ ListElement {
             desc_en: "Historic Stone Town, spice farms, and pristine beaches make Zanzibar a unique cultural and relaxation hub."
             desc_sw: "Mji Mkongwe wa kihistoria, mashamba ya viungo, na fukwe safi hufanya Zanzibar kuwa kitovu cha kipekee cha utamaduni na mapumziko."
         }
-
-        ListElement {
-            name_en: "Serengeti National Park"; name_sw: "Hifadhi ya Taifa ya Serengeti"
-            imageFile: "./serengeti.jpg"
-            desc_en: "Vast plains, famous for the annual wildebeest migration, offering unparalleled safari experiences."
-            desc_sw: "Nyanda pana, maarufu kwa uhamaji mkuu wa nyumbu kila mwaka, inayotoa uzoefu wa safari usio na kifani."
-        }
+     
 
 ListElement {
             name_en: "Tarangire National Park"; name_sw: "Hifadhi ya Taifa ya Tarangire"
@@ -414,14 +419,6 @@ ListElement {
             desc_en: "A vast limestone cave system near Tanga, significant culturally and historically, with impressive formations."
             desc_sw: "Mfumo mkubwa wa mapango ya chokaa karibu na Tanga, muhimu kiutamaduni na kihistoria, na maumbo ya kuvutia."
         }
-
-        ListElement {
-            name_en: "Kitulo National Park"; name_sw: "Hifadhi ya Taifa ya Kitulo"
-            imageFile: "./kitulo.jpg"
-            desc_en: "Known as the 'Garden of God', this unique montane grassland is famous for its spectacular seasonal wildflower displays."
-            desc_sw: "Inajulikana kama 'Bustani ya Mungu', nyanda hii ya kipekee ya milimani ni maarufu kwa maonyesho yake mazuri ya maua ya porini ya msimu."
-        }
-
 
 
         ListElement {
