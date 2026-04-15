@@ -3295,8 +3295,8 @@ Rectangle {
                             width: app.width * 0.82
                             height: Qt.platform.os === "android" ? 14 : 11
                             radius: height / 2
-                            color: langSettings.lang === "sw" ? "#001a14" : "#000014"
-                            border.color: langSettings.lang === "sw" ? "#1a6050" : "#0a0a40"
+                            color: langSettings.lang === "sw" ? "#001a14" : "#00141a"
+                            border.color: langSettings.lang === "sw" ? "#1a6050" : "#1a5060"
                             border.width: 1
 
                             // rod sheen
@@ -3316,14 +3316,14 @@ Rectangle {
                                 anchors.left: parent.left; anchors.verticalCenter: parent.verticalCenter
                                 anchors.leftMargin: -3
                                 width: parent.height + 4; height: parent.height + 4; radius: (parent.height + 4) / 2
-                                color: langSettings.lang === "sw" ? "#1a6050" : "#0a0a40"
+                                color: langSettings.lang === "sw" ? "#1a6050" : "#1a5060"
                                 border.color: langSettings.lang === "sw" ? "#00aa77" : "blue"; border.width: 1
                             }
                             Rectangle {
                                 anchors.right: parent.right; anchors.verticalCenter: parent.verticalCenter
                                 anchors.rightMargin: -3
                                 width: parent.height + 4; height: parent.height + 4; radius: (parent.height + 4) / 2
-                                color: langSettings.lang === "sw" ? "#1a6050" : "#0a0a40"
+                                color: langSettings.lang === "sw" ? "#1a6050" : "#1a5060"
                                 border.color: langSettings.lang === "sw" ? "#00aa77" : "blue"; border.width: 1
                             }
                         }
@@ -3336,8 +3336,8 @@ Rectangle {
                             width: app.width * 0.82
                             height: Qt.platform.os === "android" ? 14 : 11
                             radius: height / 2
-                            color: langSettings.lang === "sw" ? "#001a14" : "#000014"
-                            border.color: langSettings.lang === "sw" ? "#1a6050" : "#0a0a40"
+                            color: langSettings.lang === "sw" ? "#001a14" : "#00141a"
+                            border.color: langSettings.lang === "sw" ? "#1a6050" : "#1a5060"
                             border.width: 1
 
                             Rectangle {
@@ -3350,13 +3350,13 @@ Rectangle {
                                 anchors.left: parent.left; anchors.verticalCenter: parent.verticalCenter
                                 anchors.leftMargin: -3
                                 width: parent.height + 4; height: parent.height + 4; radius: (parent.height + 4) / 2
-                                color: langSettings.lang === "sw" ? "#1a6050" : "#0a0a40"; border.color: langSettings.lang === "sw" ? "#00aa77" : "blue"; border.width: 1
+                                color: langSettings.lang === "sw" ? "#1a6050" : "#1a5060"; border.color: langSettings.lang === "sw" ? "#00aa77" : "blue"; border.width: 1
                             }
                             Rectangle {
                                 anchors.right: parent.right; anchors.verticalCenter: parent.verticalCenter
                                 anchors.rightMargin: -3
                                 width: parent.height + 4; height: parent.height + 4; radius: (parent.height + 4) / 2
-                                color: langSettings.lang === "sw" ? "#1a6050" : "#0a0a40"; border.color: langSettings.lang === "sw" ? "#00aa77" : "blue"; border.width: 1
+                                color: langSettings.lang === "sw" ? "#1a6050" : "#1a5060"; border.color: langSettings.lang === "sw" ? "#00aa77" : "blue"; border.width: 1
                             }
                         }
 
@@ -3367,8 +3367,8 @@ Rectangle {
                             anchors.bottom: scrollRodBot.top
                             anchors.horizontalCenter: parent.horizontalCenter
                             width: app.width * 0.82
-                            color: langSettings.lang === "sw" ? "#001a14" : "#000014"
-                            border.color: langSettings.lang === "sw" ? "#0a5040" : "#050530"
+                            color: langSettings.lang === "sw" ? "#001a14" : "#00141a"
+                            border.color: langSettings.lang === "sw" ? "#0a5040" : "#0a4050"
                             border.width: 1
 
                             // inner parchment glow
@@ -3429,7 +3429,7 @@ Rectangle {
                                                     cy - tipR * Math.cos(a + 0.18)
                                                     );
                                         ctx.closePath();
-                                        ctx.fillStyle = isMain ? (langSettings.lang === "sw" ? "#00ddaa" : "blue") : (langSettings.lang === "sw" ? "#1a6050" : "#0a0a40");
+                                        ctx.fillStyle = isMain ? (langSettings.lang === "sw" ? "#00ddaa" : "blue") : (langSettings.lang === "sw" ? "#1a6050" : "#1a5060");
                                         ctx.fill();
                                     }
                                     ctx.restore();
@@ -3457,7 +3457,7 @@ Rectangle {
                                 onPaint: {
                                     var ctx = getContext("2d");
                                     ctx.clearRect(0, 0, width, height);
-                                    ctx.strokeStyle = (langSettings.lang === "sw" ? "#1a6050" : "#0a0a40");
+                                    ctx.strokeStyle = (langSettings.lang === "sw" ? "#1a6050" : "#1a5060");
                                     ctx.lineWidth = 1.5;
                                     ctx.beginPath();
                                     for (var x = 0; x <= width; x += 2) {
@@ -3591,7 +3591,7 @@ Rectangle {
                                     height: Qt.platform.os === "android" ? 44 : 36
                                     radius: Qt.platform.os === "android" ? 8 : 6
                                     clip: true
-                                    color: scrollCtaMA.pressed ? (langSettings.lang === "sw" ? "#001a12" : "#000010") : (langSettings.lang === "sw" ? "#000d09" : "#00000d")
+                                    color: scrollCtaMA.pressed ? (langSettings.lang === "sw" ? "#001a12" : "#00101a") : (langSettings.lang === "sw" ? "#000d09" : "#000d11")
                                     border.color: langSettings.lang === "sw" ? "#007a55" : "blue"
                                     border.width: Qt.platform.os === "android" ? 2 : 1
 
