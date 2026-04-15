@@ -276,6 +276,24 @@ Rectangle {
             desc_sw: "Mlima mrefu zaidi Afrika na volkano iliyolala. Changamoto lakini yenye thawabu kwa wapandaji wajasiri."
         }
 
+ListElement {
+            name_en: "Mikumi National Park"; name_sw: "Hifadhi ya Taifa ya Mikumi"
+            imageFile: "./mikumi.jpg"
+            desc_en: "Escape the city! It's an easy drive: dar mpaka moro and beyond. See giraffes, lions, elephants, zebras, and wildebeest. The wild awaits!"
+            desc_sw: "Toroka jiji! Ni safari rahisi: dar mpaka moro na kuendelea. Tazama twiga, simba, tembo, punda milia, na nyumbu. Pori linakusubiri!"
+        }
+
+    
+
+        ListElement {
+            name_en: "Ngorongoro Conservation Area"; name_sw: "Mamlaka ya Hifadhi ya Ngorongoro"
+            imageFile: "./ngorongoro.jpg"
+            desc_en: "Home to the Ngorongoro Crater, a large volcanic caldera teeming with diverse wildlife."
+            desc_sw: "Makao ya Kreta ya Ngorongoro, kaldera kubwa ya volkano iliyojaa wanyamapori mbalimbali."
+        }
+
+        
+
         ListElement {
             name_en: "Zanzibar (Stone Town & Beaches)"; name_sw: "Zanzibar (Mji Mkongwe na Fukwe)"
             imageFile: "./zanzibar_st2.jpg"
@@ -290,13 +308,13 @@ Rectangle {
             desc_sw: "Nyanda pana, maarufu kwa uhamaji mkuu wa nyumbu kila mwaka, inayotoa uzoefu wa safari usio na kifani."
         }
 
-
-        ListElement {
-            name_en: "Kizimkazi Dolphin Safari"; name_sw: "Utalii wa Pomboo Kizimkazi"
-            imageFile: "./kizimkazi-d.jpeg"
-            desc_en: "Dive into the blue waters of Kizimkazi, Zanzibar. Experience the thrill of swimming with wild dolphins in their natural habitat and visit historical mosques."
-            desc_sw: "Zama kwenye maji ya bluu ya Kizimkazi, Zanzibar. Shuhudia msisimko wa kuogelea na pomboo katika mazingira yao ya asili na utembelee misikiti ya kihistoria."
+ListElement {
+            name_en: "Tarangire National Park"; name_sw: "Hifadhi ya Taifa ya Tarangire"
+            imageFile: "./tarangire.jpg"
+            desc_en: "Known for its large elephant herds, iconic baobab trees, and diverse birdlife."
+            desc_sw: "Inajulikana kwa makundi makubwa ya tembo, miti ya mibuyu ya kipekee, na aina mbalimbali za ndege."
         }
+
 
         ListElement {
             name_en: "Bodaboda & Bajaji Transport, Tanzania"
@@ -313,31 +331,6 @@ Rectangle {
             desc_sw: "Furahia Ziwa Victoria, Mwanza: Ziwa kubwa Afrika. Tazama machweo mazuri juu ya Mwamba Bismarck, safari za visiwa, na utamaduni hai. Hazina halisi ya Tanzania!"
         }
 
-        
-
-        ListElement {
-            name_en: "Mikumi National Park"; name_sw: "Hifadhi ya Taifa ya Mikumi"
-            imageFile: "./mikumi.jpg"
-            desc_en: "Escape the city! It's an easy drive: dar mpaka moro and beyond. See giraffes, lions, elephants, zebras, and wildebeest. The wild awaits!"
-            desc_sw: "Toroka jiji! Ni safari rahisi: dar mpaka moro na kuendelea. Tazama twiga, simba, tembo, punda milia, na nyumbu. Pori linakusubiri!"
-        }
-
-        
-
-        ListElement {
-            name_en: "Ngorongoro Conservation Area"; name_sw: "Mamlaka ya Hifadhi ya Ngorongoro"
-            imageFile: "./ngorongoro.jpg"
-            desc_en: "Home to the Ngorongoro Crater, a large volcanic caldera teeming with diverse wildlife."
-            desc_sw: "Makao ya Kreta ya Ngorongoro, kaldera kubwa ya volkano iliyojaa wanyamapori mbalimbali."
-        }
-
-        ListElement {
-            name_en: "Tarangire National Park"; name_sw: "Hifadhi ya Taifa ya Tarangire"
-            imageFile: "./tarangire.jpg"
-            desc_en: "Known for its large elephant herds, iconic baobab trees, and diverse birdlife."
-            desc_sw: "Inajulikana kwa makundi makubwa ya tembo, miti ya mibuyu ya kipekee, na aina mbalimbali za ndege."
-        }
-
         ListElement {
             name_en: "Lake Manyara National Park"; name_sw: "Hifadhi ya Taifa ya Ziwa Manyara"
             imageFile: "./manyara.jpg"
@@ -352,13 +345,7 @@ Rectangle {
             desc_sw: "Hifadhi ya kisiwa kwenye Ziwa Victoria, makazi ya tembo, sokwe, sitatunga, na ndege mbalimbali, inayofaa kwa safari za kutembea."
         }
 
-        ListElement {
-            name_en: "Rubya Forest, Ukerewe"; name_sw: "Msitu wa Rubya, Ukerewe"
-            imageFile: "./rubya.jpeg"
-            desc_en: "Discover the hidden tranquility of Ukerewe Island. Explore the lush Rubya Forest and enjoy the serene beaches of Africa's largest inland island."
-            desc_sw: "Gundua utulivu wa siri wa Kisiwa cha Ukerewe. Pekua Msitu mnene wa Rubya na ufurahie fukwe tulivu za kisiwa kikubwa zaidi cha ndani nchini Afrika."
-        }
-
+    
         ListElement {
             name_en: "Nyerere National Park"; name_sw: "Hifadhi ya Taifa ya Nyerere"
             imageFile: "./nyerere.jpg"
@@ -373,11 +360,11 @@ Rectangle {
             desc_sw: "Hifadhi kubwa zaidi ya taifa Tanzania, pori la mbali lenye mandhari na wanyamapori wengi."
         }
 
-        ListElement {
-            name_en: "Mafia Island Marine Park"; name_sw: "Hifadhi ya Bahari ya Kisiwa cha Mafia"
-            imageFile: "./mafia_island.jpg"
-            desc_en: "Pristine coral reefs, a haven for divers and snorkelers, and a seasonal home for whale sharks."
-            desc_sw: "Miamba ya matumbawe safi, kimbilio la wapiga mbizi, na makazi ya msimu ya papa nyangumi."
+ListElement {
+            name_en: "Kizimkazi Dolphin Safari"; name_sw: "Utalii wa Pomboo Kizimkazi"
+            imageFile: "./kizimkazi-d.jpeg"
+            desc_en: "Dive into the blue waters of Kizimkazi, Zanzibar. Experience the thrill of swimming with wild dolphins in their natural habitat and visit historical mosques."
+            desc_sw: "Zama kwenye maji ya bluu ya Kizimkazi, Zanzibar. Shuhudia msisimko wa kuogelea na pomboo katika mazingira yao ya asili na utembelee misikiti ya kihistoria."
         }
 
         ListElement {
@@ -387,6 +374,12 @@ Rectangle {
             desc_sw: "Hifadhi ya mbali na pori inayojulikana kwa mikusanyiko mikubwa ya wanyama wakati wa kiangazi."
         }
 
+ListElement {
+            name_en: "Rubya Forest, Ukerewe"; name_sw: "Msitu wa Rubya, Ukerewe"
+            imageFile: "./rubya.jpeg"
+            desc_en: "Discover the hidden tranquility of Ukerewe Island. Explore the lush Rubya Forest and enjoy the serene beaches of Africa's largest inland island."
+            desc_sw: "Gundua utulivu wa siri wa Kisiwa cha Ukerewe. Pekua Msitu mnene wa Rubya na ufurahie fukwe tulivu za kisiwa kikubwa zaidi cha ndani nchini Afrika."
+        }
         ListElement {
             name_en: "Olduvai Gorge"; name_sw: "Bonde la Olduvai"
             imageFile: "./olduvai.jpg"
@@ -406,6 +399,13 @@ Rectangle {
             imageFile: "./saadani.jpg"
             desc_en: "Tanzania's only coastal national park, where the bush meets the beach, offering unique land and boat safaris."
             desc_sw: "Hifadhi ya pekee ya taifa ya pwani Tanzania, ambapo msitu hukutana na fukwe, ikitoa safari za kipekee za ardhini na majini."
+        }
+
+ListElement {
+            name_en: "Mafia Island Marine Park"; name_sw: "Hifadhi ya Bahari ya Kisiwa cha Mafia"
+            imageFile: "./mafia_island.jpg"
+            desc_en: "Pristine coral reefs, a haven for divers and snorkelers, and a seasonal home for whale sharks."
+            desc_sw: "Miamba ya matumbawe safi, kimbilio la wapiga mbizi, na makazi ya msimu ya papa nyangumi."
         }
 
         ListElement {
