@@ -8334,8 +8334,7 @@ ListElement {
                             onReleased: {
                                 winBackBtn.scale = 1.0;
                                 app.gameVisible = false;
-                                app.selectedLanguage = app.gameLang; //for ripple color to be correct
-                                viewComponentLoader.switchTo(languageSelectionComponent, app.width / 2, app.height / 2);
+                                app.animateBackToFrontPage();
                             }
                             onCanceled: winBackBtn.scale = 1.0
                         }
