@@ -2752,7 +2752,7 @@ ListElement {
                             "Tanzania ina volcano inayofanya kazi — Ol Doinyo Lengai huko Arusha.",
                             "Dar es Salaam ni mji mkubwa zaidi Tanzania na bandari kuu.",
                             "Tarangire ina idadi kubwa zaidi ya tembo barani Afrika.",
-                            "Mara River inajulikana kwa maporomoko makubwa ya mamba na viboko.",
+                            "Ziwa Mara linajulikana kwa idadi kubwa ya mamba na viboko.",
                             "Stone Town ya Zanzibar ni Urithi wa Dunia wa UNESCO.",
                             "Tanzania ilivuka uhuru mwaka 1961 kwa amani bila vita.",
                             "Kilimanjaro ina maeneo matatu ya hali ya hewa — kitropiki, alpine, na barafu.",
