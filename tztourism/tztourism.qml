@@ -2747,7 +2747,7 @@ ListElement {
                             "Julius Nyerere alikuwa rais wa kwanza wa Tanzania na baba wa taifa.",
                             "Mikumi National Park ni hifadhi ya karibu zaidi na Dar es Salaam.",
                             "Tanzania ina makundi ya kikabila zaidi ya 120.",
-                            "Pemba Island inajulikana kwa kilimo bora zaidi cha karafuu duniani.",
+                            "Kisiwa cha Pemba kinajulikana kwa kilimo bora zaidi cha karafuu duniani.",
                             "Ziwa Tanganyika ni ziwa refu zaidi duniani — kilomita 673.",
                             "Tanzania ina volcano inayofanya kazi — Ol Doinyo Lengai huko Arusha.",
                             "Dar es Salaam ni mji mkubwa zaidi Tanzania na bandari kuu.",
