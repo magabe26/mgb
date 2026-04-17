@@ -22,6 +22,7 @@ Rectangle {
     property bool wakeLockTipShown: false        // screen-on tip shown once
     property bool articleViewVisible: false      // Tanzania article overlay
     property string articleLang: ""             // language for article view
+    property real articleFontScale: 1.0         // user-adjustable font size (0.7 – 1.6)
     property string safariChannelStreamURL: "https://stream-134630.castr.net/5fe35eae8c53540cab83659a/live_31dabe40323511f08b8efff0016f3b67/index.m3u8"
     property int safariChannelMode: 1
 
@@ -8347,24 +8348,35 @@ ListElement {
 
     // ════════════════════════════════════════════════════════════════
     // TANZANIA ARTICLE OVERLAY — bilingual HTML article viewer
+    // Improvements: slide-in animation, reading progress bar,
+    // font-size controls, swipe-down to close, end-of-article
+    // footer, enhanced back button.
     // ════════════════════════════════════════════════════════════════
     Rectangle {
         id: articleOverlay
-        anchors.fill: parent
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.top: parent.top
+        height: parent.height
         color: "#001413"
-        visible: app.articleViewVisible
+
+        // ── [1] SLIDE-IN ANIMATION ─────────────────────────────────
+        // Slides up from bottom when opened, slides back down when closed.
+        property real slideY: app.articleViewVisible ? 0 : parent.height
+        y: slideY
+        Behavior on slideY { NumberAnimation { duration: 320; easing.type: Easing.OutCubic } }
+
+        visible: slideY < parent.height   // keep visible during slide-out
         opacity: app.articleViewVisible ? 1.0 : 0.0
-        Behavior on opacity { NumberAnimation { duration: 250 } }
+        Behavior on opacity { NumberAnimation { duration: 260 } }
         z: 180
 
         // ── Header bar ─────────────────────────────────────────────
         Rectangle {
             id: articleHeader
             width: parent.width
-            height: Qt.platform.os === "android" ? 54 : 44
+            height: Qt.platform.os === "android" ? 58 : 48
             color: "#001e1b"
-            border.color: app.articleLang === "sw" ? "#1eb53a" : "#00a3dd"
-            border.width: 0
             z: 10
 
             // Bottom border line
@@ -8376,13 +8388,16 @@ ListElement {
                 Behavior on color { ColorAnimation { duration: 300 } }
             }
 
+            // Flag + title column
             Row {
+                id: articleHeaderLeft
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.left: parent.left
                 anchors.leftMargin: Qt.platform.os === "android" ? 12 : 10
-                anchors.right: articleBackBtn.left
-                anchors.rightMargin: 8
+                anchors.right: articleFontRow.left
+                anchors.rightMargin: 6
                 spacing: 8
+                clip: true
 
                 Text {
                     text: app.articleLang === "sw" ? "🇹🇿" : "🌍"
@@ -8397,52 +8412,121 @@ ListElement {
                               ? "Tanzania — Nchi Yetu Tukufu"
                               : "Tanzania — A Nation of Wonders"
                         font.bold: true
-                        font.pointSize: Qt.platform.os === "android" ? 13 : 10
+                        font.pointSize: Qt.platform.os === "android" ? 12 : 9
                         color: app.articleLang === "sw" ? "#1eb53a" : "#00c8ff"
                         Behavior on color { ColorAnimation { duration: 300 } }
+                        elide: Text.ElideRight
                     }
                     Text {
                         text: app.articleLang === "sw"
                               ? "Mkala · Habari za Tanzania"
                               : "Article · Tanzania Knowledge"
-                        font.pointSize: Qt.platform.os === "android" ? 9 : 7
+                        font.pointSize: Qt.platform.os === "android" ? 8 : 6
                         color: "#666666"
                     }
                 }
             }
 
-            // ── Back button ────────────────────────────────────────
+            // ── [2] FONT SIZE CONTROLS A− / A+ ─────────────────────
+            Row {
+                id: articleFontRow
+                anchors.right: articleBackBtn.left
+                anchors.rightMargin: Qt.platform.os === "android" ? 8 : 6
+                anchors.verticalCenter: parent.verticalCenter
+                spacing: Qt.platform.os === "android" ? 5 : 4
+
+                Repeater {
+                    model: ListModel {
+                        ListElement { lbl: "A−"; delta: -0.15 }
+                        ListElement { lbl: "A+"; delta: 0.15 }
+                    }
+                    delegate: Rectangle {
+                        width: Qt.platform.os === "android" ? 38 : 30
+                        height: Qt.platform.os === "android" ? 32 : 26
+                        radius: Qt.platform.os === "android" ? 8 : 6
+                        color: fontBtnMA.pressed ? "#0d3d22" : "#0a2218"
+                        border.color: app.articleLang === "sw" ? "#1eb53a" : "#00a3dd"
+                        border.width: 1.2
+                        Behavior on color { ColorAnimation { duration: 100 } }
+
+                        property real sc: 1.0
+                        scale: sc
+                        Behavior on sc { NumberAnimation { duration: 100 } }
+
+                        Text {
+                            anchors.centerIn: parent
+                            text: lbl
+                            font.pixelSize: Qt.platform.os === "android" ? 12 : 9
+                            font.bold: true
+                            color: app.articleLang === "sw" ? "#1eb53a" : "#00c8ff"
+                        }
+                        MouseArea {
+                            id: fontBtnMA
+                            anchors.fill: parent
+                            onPressed:  { parent.sc = 0.88; }
+                            onReleased: {
+                                parent.sc = 1.0;
+                                var next = app.articleFontScale + delta;
+                                app.articleFontScale = Math.max(0.7, Math.min(1.6, next));
+                            }
+                            onCanceled: { parent.sc = 1.0; }
+                        }
+                    }
+                }
+            }
+
+            // ── [IMPROVED] BACK BUTTON ─────────────────────────────
+            // Larger tap target, chevron icon, gradient-feel border glow,
+            // ripple scale + color press feedback.
             Rectangle {
                 id: articleBackBtn
                 anchors.right: parent.right
                 anchors.rightMargin: Qt.platform.os === "android" ? 12 : 10
                 anchors.verticalCenter: parent.verticalCenter
-                width: Qt.platform.os === "android" ? 80 : 66
-                height: Qt.platform.os === "android" ? 36 : 30
-                radius: Qt.platform.os === "android" ? 18 : 15
+                width: Qt.platform.os === "android" ? 78 : 64
+                height: Qt.platform.os === "android" ? 38 : 32
+                radius: Qt.platform.os === "android" ? 19 : 16
+
+                // Two-tone press feedback
                 color: articleBackMA.pressed
-                       ? (app.articleLang === "sw" ? "#0a3d1e" : "#0a2040")
-                       : (app.articleLang === "sw" ? "#0d2a1e" : "#0d1e30")
-                border.color: app.articleLang === "sw" ? "#1eb53a" : "#00a3dd"
-                border.width: 1.5
-                Behavior on color { ColorAnimation { duration: 120 } }
+                       ? (app.articleLang === "sw" ? "#163d22" : "#0e2248")
+                       : (app.articleLang === "sw" ? "#0a2218" : "#0a1830")
+                Behavior on color { ColorAnimation { duration: 100 } }
+
+                border.color: articleBackMA.pressed
+                              ? (app.articleLang === "sw" ? "#28e84a" : "#33d6ff")
+                              : (app.articleLang === "sw" ? "#1eb53a" : "#00a3dd")
+                border.width: 1.8
+                Behavior on border.color { ColorAnimation { duration: 100 } }
+
+                // Glow effect
+                layer.enabled: true
+                layer.effect: DropShadow {
+                    transparentBorder: true
+                    horizontalOffset: 0; verticalOffset: 0
+                    radius: 10; samples: 21
+                    color: app.articleLang === "sw" ? "#441eb53a" : "#4400a3dd"
+                }
+
                 property real sc: 1.0
                 scale: sc
-                Behavior on sc { NumberAnimation { duration: 120 } }
+                Behavior on sc { NumberAnimation { duration: 110; easing.type: Easing.OutBack } }
 
                 Row {
                     anchors.centerIn: parent
-                    spacing: 4
+                    spacing: Qt.platform.os === "android" ? 5 : 4
+
+                    // Chevron «
                     Text {
-                        text: "<"
-                        font.pointSize: Qt.platform.os === "android" ? 16 : 13
+                        text: "‹"
+                        font.pixelSize: Qt.platform.os === "android" ? 26 : 20
                         font.bold: true
                         color: app.articleLang === "sw" ? "#1eb53a" : "#00c8ff"
                         anchors.verticalCenter: parent.verticalCenter
                     }
                     Text {
                         text: app.articleLang === "sw" ? "Rudi" : "Back"
-                        font.pointSize: Qt.platform.os === "android" ? 12 : 9
+                        font.pixelSize: Qt.platform.os === "android" ? 14 : 11
                         font.bold: true
                         color: app.articleLang === "sw" ? "#1eb53a" : "#00c8ff"
                         anchors.verticalCenter: parent.verticalCenter
@@ -8452,7 +8536,7 @@ ListElement {
                 MouseArea {
                     id: articleBackMA
                     anchors.fill: parent
-                    onPressed:  { articleBackBtn.sc = 0.92; }
+                    onPressed:  { articleBackBtn.sc = 0.90; }
                     onReleased: {
                         articleBackBtn.sc = 1.0;
                         app.articleViewVisible = false;
@@ -8465,15 +8549,52 @@ ListElement {
             }
         }
 
+        // ── [1] READING PROGRESS BAR ───────────────────────────────
+        // Thin bar below header tracking how far the user has scrolled.
+        Rectangle {
+            id: readingProgressBar
+            anchors.top: articleHeader.bottom
+            anchors.left: parent.left
+            height: 3
+            z: 9
+
+            property real progress: articleFlickable.contentHeight > articleFlickable.height
+                ? Math.min(1.0, articleFlickable.contentY /
+                    (articleFlickable.contentHeight - articleFlickable.height))
+                : 0.0
+
+            width: articleOverlay.width * progress
+            Behavior on width { NumberAnimation { duration: 80 } }
+
+            color: app.articleLang === "sw" ? "#1eb53a" : "#00c8ff"
+            Behavior on color { ColorAnimation { duration: 300 } }
+
+            // Glowing right-edge dot
+            Rectangle {
+                anchors.right: parent.right
+                anchors.verticalCenter: parent.verticalCenter
+                width: 7; height: 7; radius: 3.5
+                color: parent.color
+                visible: readingProgressBar.width > 10
+                layer.enabled: true
+                layer.effect: DropShadow {
+                    transparentBorder: true
+                    horizontalOffset: 0; verticalOffset: 0
+                    radius: 6; samples: 13
+                    color: app.articleLang === "sw" ? "#881eb53a" : "#8800c8ff"
+                }
+            }
+        }
+
         // ── Article content: scrollable HTML via Text RichText ─────
         Flickable {
             id: articleFlickable
-            anchors.top: articleHeader.bottom
+            anchors.top: readingProgressBar.bottom
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.bottom: parent.bottom
             contentWidth: width
-            contentHeight: articleWebView.implicitHeight + 8
+            contentHeight: articleWebView.implicitHeight + articleEndFooter.height + 24
             clip: true
             boundsBehavior: Flickable.StopAtBounds
 
@@ -8490,14 +8611,30 @@ ListElement {
                 }
             }
 
+            // ── [3] SWIPE-DOWN TO CLOSE ────────────────────────────
+            // Fast downward flick while at top of content → close overlay.
+            onFlickStarted: {
+                if (verticalVelocity > 900 && contentY <= 0) {
+                    cancelFlick();
+                    app.articleViewVisible = false;
+                    app.articleLang = "";
+                    articleWebView.scrollToTop();
+                    app.animateBackToFrontPage();
+                }
+            }
+
             Text {
                 id: articleWebView
-                width: articleFlickable.width
                 textFormat: Text.RichText
                 wrapMode: Text.WordWrap
                 color: "#e0f7f4"
                 text: ""
-                font.pixelSize: Qt.platform.os === "android" ? 14 : 10
+                // ── [2] FONT SCALE applied here ────────────────────
+                font.pixelSize: (Qt.platform.os === "android" ? 14 : 10) * app.articleFontScale
+                Behavior on font.pixelSize { NumberAnimation { duration: 150 } }
+                x: Qt.platform.os === "android" ? 12 : 8
+                y: Qt.platform.os === "android" ? 10 : 6
+                width: articleFlickable.width - (Qt.platform.os === "android" ? 24 : 16)
 
                 function scrollToTop() {
                     articleScrollTopBtn.sc = 1.0;
@@ -8536,6 +8673,41 @@ ListElement {
                     }
                 }
             }
+
+            // ── [4] END-OF-ARTICLE FOOTER ──────────────────────────
+            // Appears below article content when near the bottom.
+            Item {
+                id: articleEndFooter
+                width: articleFlickable.width
+                height: Qt.platform.os === "android" ? 64 : 52
+                y: articleWebView.implicitHeight + 12
+
+                // Divider line
+                Rectangle {
+                    anchors.top: parent.top
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: parent.width * 0.6
+                    height: 1
+                    color: app.articleLang === "sw" ? "#2a5a38" : "#1a3a55"
+                }
+
+                Text {
+                    anchors.centerIn: parent
+                    text: app.articleLang === "sw"
+                          ? "✦  Mwisho wa mkala  ✦"
+                          : "✦  End of article  ✦"
+                    font.pixelSize: Qt.platform.os === "android" ? 13 : 10
+                    font.italic: true
+                    color: app.articleLang === "sw" ? "#2a6e40" : "#1a5577"
+                    Behavior on color { ColorAnimation { duration: 300 } }
+
+                    opacity: {
+                        var threshold = articleFlickable.contentHeight - articleFlickable.height - 60;
+                        return articleFlickable.contentY >= threshold ? 1.0 : 0.0;
+                    }
+                    Behavior on opacity { NumberAnimation { duration: 350 } }
+                }
+            }
         }
 
         // ── Scroll-to-top FAB ──────────────────────────────────────
@@ -8543,30 +8715,30 @@ ListElement {
             id: articleScrollTopBtn
             anchors.bottom: parent.bottom
             anchors.right: parent.right
-            anchors.bottomMargin: Qt.platform.os === "android" ? 20 : 16
+            anchors.bottomMargin: Qt.platform.os === "android" ? 22 : 18
             anchors.rightMargin: Qt.platform.os === "android" ? 16 : 12
-            width: Qt.platform.os === "android" ? 46 : 38
+            width: Qt.platform.os === "android" ? 48 : 40
             height: width; radius: width / 2
             color: scrollTopMA.pressed
                    ? (app.articleLang === "sw" ? "#0a3d1e" : "#0a2040")
-                   : (app.articleLang === "sw" ? "#001413" : "#001413")
+                   : "#001e1b"
             border.color: app.articleLang === "sw" ? "#1eb53a" : "#00a3dd"
             border.width: 2
-            visible: articleFlickable.contentY > 80
+            visible: articleFlickable.contentY > 100
             opacity: visible ? 1.0 : 0.0
-            Behavior on opacity { NumberAnimation { duration: 200 } }
+            Behavior on opacity { NumberAnimation { duration: 220 } }
 
             layer.enabled: true
             layer.effect: DropShadow {
                 transparentBorder: true
-                horizontalOffset: 0; verticalOffset: 2
-                radius: 12; samples: 25
-                color: app.articleLang === "sw" ? "#551eb53a" : "#5500a3dd"
+                horizontalOffset: 0; verticalOffset: 3
+                radius: 14; samples: 29
+                color: app.articleLang === "sw" ? "#661eb53a" : "#6600a3dd"
             }
 
             property real sc: 1.0
             scale: sc
-            Behavior on sc { NumberAnimation { duration: 120 } }
+            Behavior on sc { NumberAnimation { duration: 120; easing.type: Easing.OutBack } }
 
             Text {
                 anchors.centerIn: parent
@@ -8578,7 +8750,7 @@ ListElement {
             MouseArea {
                 id: scrollTopMA
                 anchors.fill: parent
-                onPressed:  { articleScrollTopBtn.sc = 0.88; }
+                onPressed:  { articleScrollTopBtn.sc = 0.86; }
                 onReleased: {
                     articleScrollTopBtn.sc = 1.0;
                     articleFlickable.contentY = 0;
