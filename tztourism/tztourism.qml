@@ -22,7 +22,7 @@ Rectangle {
     property bool wakeLockTipShown: false        // screen-on tip shown once
     property bool articleViewVisible: false      // Tanzania article overlay
     property string articleLang: ""             // language for article view
-    property real articleFontScale: 1.0         // user-adjustable font size (0.7 – 1.6)
+    property real articleFontScale: articleFontSettings.scale  // persisted via QSettings
     property string safariChannelStreamURL: ""
     property int safariChannelMode: 1
 
@@ -42,6 +42,12 @@ Rectangle {
         category: "articleCache"
         property string htmlSw: ""
         property string htmlEn: ""
+    }
+
+    Settings {
+        id: articleFontSettings
+        category: "articleFont"
+        property real scale: 1.0
     }
 
     // ── fetch & cache Tanzania article HTML ──────────────────────────────
@@ -8419,7 +8425,7 @@ Rectangle {
                     }
                     Text {
                         text: app.articleLang === "sw"
-                              ? "Mkala · Habari za Tanzania"
+                              ? "Makala · Habari za Tanzania"
                               : "Article · Tanzania Knowledge"
                         font.pointSize: Qt.platform.os === "android" ? 9 : 7
                         color: "#666666"
@@ -8468,6 +8474,8 @@ Rectangle {
                                 parent.sc = 1.0;
                                 var next = app.articleFontScale + delta;
                                 app.articleFontScale = Math.max(0.7, Math.min(1.6, next));
+                                articleFontSettings.scale = app.articleFontScale;
+                                articleFontSettings.sync();
                             }
                             onCanceled: { parent.sc = 1.0; }
                         }
@@ -8696,7 +8704,7 @@ Rectangle {
                 Text {
                     anchors.centerIn: parent
                     text: app.articleLang === "sw"
-                          ? "*  Mwisho wa mkala  *"
+                          ? "*  Mwisho wa makala  *"
                           : "*  End of article  *"
                     font.pixelSize: Qt.platform.os === "android" ? 14 : 12
                     font.italic: true
