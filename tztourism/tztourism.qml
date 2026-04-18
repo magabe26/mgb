@@ -6111,7 +6111,7 @@ Rectangle {
                     // ══ SAFARI CHANNEL INFO ════════════════════════════════
 
                     Rectangle {
-                        visible: (app.safariChannelMode === 1)
+                        visible: (app.safariChannelMode === 1) || (app.safariChannelMode === 2)
                         width: app.width
                         height: safariCol.height + 24
                         color: "#001413"
@@ -6151,6 +6151,7 @@ Rectangle {
                             // ── Watch Live button ─────────────────────────────
                             Rectangle {
                                 id: watchLiveBtn
+                                visible: (app.safariChannelMode === 1)
                                 anchors.horizontalCenter: parent.horizontalCenter
                                 width: parent.width
                                 height: Qt.platform.os === "android" ? 66 : 52
