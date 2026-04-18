@@ -277,7 +277,7 @@ Rectangle {
             desc_sw: "Mlima mrefu zaidi Afrika na volkano iliyolala. Changamoto lakini yenye thawabu kwa wapandaji wajasiri."
         }
 
-ListElement {
+        ListElement {
             name_en: "Mikumi National Park"; name_sw: "Hifadhi ya Taifa ya Mikumi"
             imageFile: "./mikumi.jpg"
             desc_en: "Escape the city! It's an easy drive: dar mpaka moro and beyond. See giraffes, lions, elephants, zebras, and wildebeest. The wild awaits!"
@@ -299,7 +299,7 @@ ListElement {
             desc_sw: "Inajulikana kama 'Bustani ya Mungu', nyanda hii ya kipekee ya milimani ni maarufu kwa maonyesho yake mazuri ya maua ya porini ya msimu."
         }
 
-ListElement {
+        ListElement {
             name_en: "Serengeti National Park"; name_sw: "Hifadhi ya Taifa ya Serengeti"
             imageFile: "./serengeti.jpg"
             desc_en: "Vast plains, famous for the annual wildebeest migration, offering unparalleled safari experiences."
@@ -312,9 +312,9 @@ ListElement {
             desc_en: "Historic Stone Town, spice farms, and pristine beaches make Zanzibar a unique cultural and relaxation hub."
             desc_sw: "Mji Mkongwe wa kihistoria, mashamba ya viungo, na fukwe safi hufanya Zanzibar kuwa kitovu cha kipekee cha utamaduni na mapumziko."
         }
-     
 
-ListElement {
+
+        ListElement {
             name_en: "Tarangire National Park"; name_sw: "Hifadhi ya Taifa ya Tarangire"
             imageFile: "./tarangire.jpg"
             desc_en: "Known for its large elephant herds, iconic baobab trees, and diverse birdlife."
@@ -351,7 +351,7 @@ ListElement {
             desc_sw: "Hifadhi ya kisiwa kwenye Ziwa Victoria, makazi ya tembo, sokwe, sitatunga, na ndege mbalimbali, inayofaa kwa safari za kutembea."
         }
 
-    
+
         ListElement {
             name_en: "Nyerere National Park"; name_sw: "Hifadhi ya Taifa ya Nyerere"
             imageFile: "./nyerere.jpg"
@@ -366,7 +366,7 @@ ListElement {
             desc_sw: "Hifadhi kubwa zaidi ya taifa Tanzania, pori la mbali lenye mandhari na wanyamapori wengi."
         }
 
-ListElement {
+        ListElement {
             name_en: "Kizimkazi Dolphin Safari"; name_sw: "Utalii wa Pomboo Kizimkazi"
             imageFile: "./kizimkazi-d.jpeg"
             desc_en: "Dive into the blue waters of Kizimkazi, Zanzibar. Experience the thrill of swimming with wild dolphins in their natural habitat and visit historical mosques."
@@ -380,7 +380,7 @@ ListElement {
             desc_sw: "Hifadhi ya mbali na pori inayojulikana kwa mikusanyiko mikubwa ya wanyama wakati wa kiangazi."
         }
 
-ListElement {
+        ListElement {
             name_en: "Rubya Forest, Ukerewe"; name_sw: "Msitu wa Rubya, Ukerewe"
             imageFile: "./rubya.jpeg"
             desc_en: "Discover the hidden tranquility of Ukerewe Island. Explore the lush Rubya Forest and enjoy the serene beaches of Africa's largest inland island."
@@ -407,7 +407,7 @@ ListElement {
             desc_sw: "Hifadhi ya pekee ya taifa ya pwani Tanzania, ambapo msitu hukutana na fukwe, ikitoa safari za kipekee za ardhini na majini."
         }
 
-ListElement {
+        ListElement {
             name_en: "Mafia Island Marine Park"; name_sw: "Hifadhi ya Bahari ya Kisiwa cha Mafia"
             imageFile: "./mafia_island.jpg"
             desc_en: "Pristine coral reefs, a haven for divers and snorkelers, and a seasonal home for whale sharks."
@@ -8375,7 +8375,7 @@ ListElement {
         Rectangle {
             id: articleHeader
             width: parent.width
-            height: Qt.platform.os === "android" ? 58 : 48
+            height: Qt.platform.os === "android" ? 72 : 52
             color: "#001e1b"
             z: 10
 
@@ -8412,7 +8412,7 @@ ListElement {
                               ? "Tanzania — Nchi Yetu Tukufu"
                               : "Tanzania — A Nation of Wonders"
                         font.bold: true
-                        font.pointSize: Qt.platform.os === "android" ? 12 : 9
+                        font.pointSize: Qt.platform.os === "android" ? 14 : 10
                         color: app.articleLang === "sw" ? "#1eb53a" : "#00c8ff"
                         Behavior on color { ColorAnimation { duration: 300 } }
                         elide: Text.ElideRight
@@ -8421,7 +8421,7 @@ ListElement {
                         text: app.articleLang === "sw"
                               ? "Mkala · Habari za Tanzania"
                               : "Article · Tanzania Knowledge"
-                        font.pointSize: Qt.platform.os === "android" ? 8 : 6
+                        font.pointSize: Qt.platform.os === "android" ? 9 : 7
                         color: "#666666"
                     }
                 }
@@ -8441,12 +8441,12 @@ ListElement {
                         ListElement { lbl: "A+"; delta: 0.15 }
                     }
                     delegate: Rectangle {
-                        width: Qt.platform.os === "android" ? 38 : 30
-                        height: Qt.platform.os === "android" ? 32 : 26
-                        radius: Qt.platform.os === "android" ? 8 : 6
+                        width: Qt.platform.os === "android" ? 52 : 34
+                        height: Qt.platform.os === "android" ? 44 : 28
+                        radius: Qt.platform.os === "android" ? 10 : 7
                         color: fontBtnMA.pressed ? "#0d3d22" : "#0a2218"
                         border.color: app.articleLang === "sw" ? "#1eb53a" : "#00a3dd"
-                        border.width: 1.2
+                        border.width: 1.5
                         Behavior on color { ColorAnimation { duration: 100 } }
 
                         property real sc: 1.0
@@ -8456,7 +8456,7 @@ ListElement {
                         Text {
                             anchors.centerIn: parent
                             text: lbl
-                            font.pixelSize: Qt.platform.os === "android" ? 12 : 9
+                            font.pixelSize: Qt.platform.os === "android" ? 17 : 11
                             font.bold: true
                             color: app.articleLang === "sw" ? "#1eb53a" : "#00c8ff"
                         }
@@ -8483,9 +8483,9 @@ ListElement {
                 anchors.right: parent.right
                 anchors.rightMargin: Qt.platform.os === "android" ? 12 : 10
                 anchors.verticalCenter: parent.verticalCenter
-                width: Qt.platform.os === "android" ? 78 : 64
-                height: Qt.platform.os === "android" ? 38 : 32
-                radius: Qt.platform.os === "android" ? 19 : 16
+                width: Qt.platform.os === "android" ? 100 : 72
+                height: Qt.platform.os === "android" ? 50 : 36
+                radius: Qt.platform.os === "android" ? 25 : 18
 
                 // Two-tone press feedback
                 color: articleBackMA.pressed
@@ -8519,14 +8519,16 @@ ListElement {
                     // Chevron «
                     Text {
                         text: "‹"
-                        font.pixelSize: Qt.platform.os === "android" ? 26 : 20
+                        font.pixelSize: Qt.platform.os === "android" ? 34 : 22
                         font.bold: true
                         color: app.articleLang === "sw" ? "#1eb53a" : "#00c8ff"
                         anchors.verticalCenter: parent.verticalCenter
+                        // nudge vertically for optical alignment
+                        anchors.topMargin: Qt.platform.os === "android" ? -2 : -1
                     }
                     Text {
                         text: app.articleLang === "sw" ? "Rudi" : "Back"
-                        font.pixelSize: Qt.platform.os === "android" ? 14 : 11
+                        font.pixelSize: Qt.platform.os === "android" ? 18 : 12
                         font.bold: true
                         color: app.articleLang === "sw" ? "#1eb53a" : "#00c8ff"
                         anchors.verticalCenter: parent.verticalCenter
@@ -8540,7 +8542,7 @@ ListElement {
                     onReleased: {
                         articleBackBtn.sc = 1.0;
                         app.articleViewVisible = false;
-                        app.articleLang = "";
+                        app.articleLang = langSettings.lang;
                         articleWebView.scrollToTop();
                         app.animateBackToFrontPage();
                     }
@@ -8559,9 +8561,9 @@ ListElement {
             z: 9
 
             property real progress: articleFlickable.contentHeight > articleFlickable.height
-                ? Math.min(1.0, articleFlickable.contentY /
-                    (articleFlickable.contentHeight - articleFlickable.height))
-                : 0.0
+                                    ? Math.min(1.0, articleFlickable.contentY /
+                                               (articleFlickable.contentHeight - articleFlickable.height))
+                                    : 0.0
 
             width: articleOverlay.width * progress
             Behavior on width { NumberAnimation { duration: 80 } }
@@ -8617,7 +8619,7 @@ ListElement {
                 if (verticalVelocity > 900 && contentY <= 0) {
                     cancelFlick();
                     app.articleViewVisible = false;
-                    app.articleLang = "";
+                    app.articleLang = langSettings.lang;
                     articleWebView.scrollToTop();
                     app.animateBackToFrontPage();
                 }
@@ -8694,9 +8696,9 @@ ListElement {
                 Text {
                     anchors.centerIn: parent
                     text: app.articleLang === "sw"
-                          ? "✦  Mwisho wa mkala  ✦"
-                          : "✦  End of article  ✦"
-                    font.pixelSize: Qt.platform.os === "android" ? 13 : 10
+                          ? "*  Mwisho wa mkala  *"
+                          : "*  End of article  *"
+                    font.pixelSize: Qt.platform.os === "android" ? 14 : 12
                     font.italic: true
                     color: app.articleLang === "sw" ? "#2a6e40" : "#1a5577"
                     Behavior on color { ColorAnimation { duration: 300 } }
