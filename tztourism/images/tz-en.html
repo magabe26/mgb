@@ -158,6 +158,38 @@
     text-shadow: 0 0 10px #00c8ff44;
   }
 
+  /* ── TRIBE CARDS ── */
+  .tribe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 10px;
+    margin: 14px 0;
+  }
+  .tribe-card {
+    background: linear-gradient(145deg, #0d2a28, #0a1f1e);
+    border: 1px solid #1eb53a55;
+    border-radius: 12px;
+    padding: 10px 12px;
+    text-align: center;
+    transition: border-color 0.2s;
+  }
+  .tribe-card:hover { border-color: #1eb53aaa; }
+  .tribe-card .t-emoji { font-size: 26px; display: block; margin-bottom: 4px; }
+  .tribe-card .t-name { font-size: 17px; color: #80f08a; font-weight: bold; display: block; }
+  .tribe-card .t-note { font-size: 14px; color: #5ab870; display: block; margin-top: 2px; }
+  .tribe-more {
+    background: #0d2a28;
+    border: 1px dashed #1eb53a55;
+    border-radius: 12px;
+    padding: 10px 12px;
+    text-align: center;
+    color: #5ab870;
+    font-size: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   /* ── FOOTER ── */
   .footer {
     text-align: center;
@@ -252,22 +284,22 @@
     traditions, and unique cultural identity. Rather than a source of division, this diversity is the nation's 
     greatest strength — a living mosaic of humanity held together by Nyerere's vision of unity.
   </p>
-  <div class="chip-list">
-    <span class="chip green">Wasukuma</span>
-	<span class="chip green">Wakerewe</span>
-    <span class="chip green">Wachagga</span>
-    <span class="chip green">Wahaya</span>
-    <span class="chip green">Wanyamwezi</span>
-    <span class="chip green">Maasai</span>
-    <span class="chip green">Wahehe</span>
-    <span class="chip green">Makonde</span>
-    <span class="chip green">Wazaramo</span>
-    <span class="chip green">Waswahili</span>
-    <span class="chip green">Wabena</span>
-    <span class="chip green">Warangi</span>
-    <span class="chip green">Wairaqw</span>
-    <span class="chip green">Hadzabe</span>
-    <span class="chip">+many more</span>
+  <div class="tribe-grid">
+    <div class="tribe-card"><span class="t-emoji">🐄</span><span class="t-name">Wasukuma</span><span class="t-note">Mwanza</span></div>
+    <div class="tribe-card"><span class="t-emoji">🎣</span><span class="t-name">Wakerewe</span><span class="t-note">Victoria</span></div>
+    <div class="tribe-card"><span class="t-emoji">🏔️</span><span class="t-name">Wachagga</span><span class="t-note">Kilimanjaro</span></div>
+    <div class="tribe-card"><span class="t-emoji">🌿</span><span class="t-name">Wahaya</span><span class="t-note">Kagera</span></div>
+    <div class="tribe-card"><span class="t-emoji">🥁</span><span class="t-name">Wanyamwezi</span><span class="t-note">Tabora</span></div>
+    <div class="tribe-card"><span class="t-emoji">🛡️</span><span class="t-name">Maasai</span><span class="t-note">Arusha</span></div>
+    <div class="tribe-card"><span class="t-emoji">⚔️</span><span class="t-name">Wahehe</span><span class="t-note">Iringa</span></div>
+    <div class="tribe-card"><span class="t-emoji">🪵</span><span class="t-name">Makonde</span><span class="t-note">Mtwara</span></div>
+    <div class="tribe-card"><span class="t-emoji">🌊</span><span class="t-name">Wazaramo</span><span class="t-note">Dar es Salaam</span></div>
+    <div class="tribe-card"><span class="t-emoji">🗣️</span><span class="t-name">Waswahili</span><span class="t-note">Coast</span></div>
+    <div class="tribe-card"><span class="t-emoji">🌾</span><span class="t-name">Wabena</span><span class="t-note">Njombe</span></div>
+    <div class="tribe-card"><span class="t-emoji">🌄</span><span class="t-name">Warangi</span><span class="t-note">Kondoa</span></div>
+    <div class="tribe-card"><span class="t-emoji">🏹</span><span class="t-name">Hadzabe</span><span class="t-note">Eyasi</span></div>
+    <div class="tribe-card"><span class="t-emoji">🌱</span><span class="t-name">Wairaqw</span><span class="t-note">Manyara</span></div>
+    <div class="tribe-more">+106 more<br>ethnic groups</div>
   </div>
   <p>
     The <strong>Maasai</strong> are world-renowned for their warrior culture and striking red shukas. 
@@ -329,6 +361,70 @@
     <strong>Zanzibar cloves</strong> — once called the "islands' gold" — dominated global spice markets 
     for centuries. Tanzania's <strong>cashew nuts</strong> from the southern coast are among the finest on earth.
   </p>
+</div>
+
+<!-- FISHING -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🎣</span>
+    <div class="section-title">Fishing — Treasures of the Great Lakes</div>
+  </div>
+  <p>
+    Tanzania is blessed with some of the most productive freshwater fishing grounds on the planet. 
+    The country's great lakes — Victoria, Tanganyika, Malawi, and Rukwa — sustain millions of 
+    families and contribute significantly to national food security and export earnings.
+  </p>
+  <div class="highlight-box">
+    <strong>Lake Victoria</strong> — the largest lake in Africa and the world's largest tropical 
+    freshwater lake — covers <strong>68,800 km²</strong>, of which Tanzania holds the largest share. 
+    It sits at an altitude of <strong>1,134 m</strong> above sea level and is shared with Uganda and Kenya.
+  </div>
+  <p>
+    The jewel of Lake Victoria's fishing industry is the <strong>Nile Perch (Sangara)</strong> — 
+    a massive, powerful fish that can grow up to <strong>2 metres</strong> in length and weigh over 
+    <strong>200 kg</strong>. Introduced in the 1950s, Sangara transformed Victoria into one of the most 
+    commercially significant fisheries on earth. Today it is exported to Europe, Asia, and beyond, 
+    generating hundreds of millions of dollars annually for Tanzania.
+  </p>
+  <table class="info-table">
+    <tr><td>🐟 Sangara (Nile Perch)</td><td>Up to 200 kg — major export fish of Lake Victoria</td></tr>
+    <tr><td>🐟 Dagaa (Omena)</td><td>Tiny silver fish — vital protein source for millions</td></tr>
+    <tr><td>🐟 Sato / Tilapia</td><td>Beloved freshwater fish — widely consumed locally</td></tr>
+    <tr><td>🏞️ Lake Victoria area</td><td>68,800 km² — largest lake in Africa</td></tr>
+    <tr><td>📍 Key Fishing Ports</td><td>Mwanza, Bukoba, Musoma, Ukerewe</td></tr>
+  </table>
+  <div class="highlight-box">
+    <strong>Lake Tanganyika</strong> — the world's <strong>second deepest lake</strong> — plunges to 
+    an extraordinary <strong>1,470 metres</strong> at its deepest point. It stretches <strong>676 km</strong> 
+    in length and holds approximately <strong>18% of the world's available fresh surface water</strong>. 
+    Shared between Tanzania, Burundi, DR Congo, and Zambia, Tanganyika is home to over 
+    <strong>350 species of fish</strong>, the majority found nowhere else on earth — a living museum of evolution.
+  </div>
+  <table class="info-table">
+    <tr><td>📏 Length</td><td>676 km — one of the longest lakes in the world</td></tr>
+    <tr><td>🌊 Max Depth</td><td>1,470 m — world's 2nd deepest lake</td></tr>
+    <tr><td>💧 Volume</td><td>~18,900 km³ — 18% of world's surface fresh water</td></tr>
+    <tr><td>🐠 Fish Species</td><td>350+ species — most endemic (found only here)</td></tr>
+    <tr><td>🐟 Key Fish</td><td>Dagaa, Sangara, Mukeke, Nkupe, Goldie Cichlids</td></tr>
+    <tr><td>📍 Tanzania's Shore</td><td>Kigoma, Mpanda — major lake ports</td></tr>
+  </table>
+  <p>
+    The <strong>Dagaa</strong> (also called Omena or Kapenta) — a tiny silver fish caught in vast 
+    quantities from both Lake Victoria and Lake Tanganyika — is the unsung hero of Tanzanian 
+    nutrition. Sun-dried and sold across East Africa, Dagaa provides affordable protein to tens 
+    of millions of people. It is the people's fish — humble, abundant, and irreplaceable.
+  </p>
+  <div class="chip-list">
+    <span class="chip">🐟 Sangara</span>
+    <span class="chip">🐟 Dagaa</span>
+    <span class="chip green">🐟 Sato / Tilapia</span>
+    <span class="chip green">🐠 Cichlids (Tanganyika)</span>
+    <span class="chip gold">🏞️ Lake Victoria</span>
+    <span class="chip gold">🌊 Lake Tanganyika</span>
+    <span class="chip">🎣 Mwanza Port</span>
+    <span class="chip">🎣 Kigoma Port</span>
+  </div>
+  <div class="quote">"From the deep waters of Tanganyika to the wide shores of Victoria — Tanzania feeds a continent."</div>
 </div>
 
 <!-- MINERALS -->
@@ -430,6 +526,7 @@
     <tr><td>🕌 Religion</td><td>Christianity, Islam, Traditional Faiths — peaceful coexistence</td></tr>
   </table>
 </div>
+
 
 <div class="footer">
   🇹🇿 Tanzania Travel &amp; Discovery

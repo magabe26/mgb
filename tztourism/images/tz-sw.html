@@ -160,6 +160,38 @@
     text-shadow: 0 0 10px #00e5cc44;
   }
 
+  /* ── TRIBE CARDS ── */
+  .tribe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 10px;
+    margin: 14px 0;
+  }
+  .tribe-card {
+    background: linear-gradient(145deg, #0d2a28, #0a1f1e);
+    border: 1px solid #1eb53a55;
+    border-radius: 12px;
+    padding: 10px 12px;
+    text-align: center;
+    transition: border-color 0.2s;
+  }
+  .tribe-card:hover { border-color: #1eb53aaa; }
+  .tribe-card .t-emoji { font-size: 26px; display: block; margin-bottom: 4px; }
+  .tribe-card .t-name { font-size: 17px; color: #80f08a; font-weight: bold; display: block; }
+  .tribe-card .t-note { font-size: 14px; color: #5ab870; display: block; margin-top: 2px; }
+  .tribe-more {
+    background: #0d2a28;
+    border: 1px dashed #1eb53a55;
+    border-radius: 12px;
+    padding: 10px 12px;
+    text-align: center;
+    color: #5ab870;
+    font-size: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   /* ── FOOTER ── */
   .footer {
     text-align: center;
@@ -248,22 +280,23 @@
     Tanzania ina zaidi ya <strong>makabila 120</strong>, kila moja likiwa na lugha yake, desturi zake, na utamaduni wake wa kipekee.
     Hii ni utajiri mkubwa — si chanzo cha migogoro, bali nguvu ya umoja kama Nyerere alivyotuonyesha.
   </p>
-  <div class="chip-list">
-    <span class="chip green">Wasukuma</span>
-	<span class="chip green">Wakerewe</span>
-    <span class="chip green">Wachagga</span>
-    <span class="chip green">Wahaya</span>
-    <span class="chip green">Wanyamwezi</span>
-    <span class="chip green">Wamasai</span>
-    <span class="chip green">Wahehe</span>
-    <span class="chip green">Wamakonde</span>
-    <span class="chip green">Wazaramo</span>
-    <span class="chip green">Waswahili</span>
-    <span class="chip green">Wabena</span>
-    <span class="chip green">Warangi</span>
-    <span class="chip green">Wandamba</span>
-    <span class="chip green">Wairaqw</span>
-    <span class="chip">+mengi zaidi</span>
+  <div class="tribe-grid">
+    <div class="tribe-card"><span class="t-emoji">🐄</span><span class="t-name">Wasukuma</span><span class="t-note">Mwanza</span></div>
+    <div class="tribe-card"><span class="t-emoji">🎣</span><span class="t-name">Wakerewe</span><span class="t-note">Victoria</span></div>
+    <div class="tribe-card"><span class="t-emoji">🏔️</span><span class="t-name">Wachagga</span><span class="t-note">Kilimanjaro</span></div>
+    <div class="tribe-card"><span class="t-emoji">🌿</span><span class="t-name">Wahaya</span><span class="t-note">Kagera</span></div>
+    <div class="tribe-card"><span class="t-emoji">🥁</span><span class="t-name">Wanyamwezi</span><span class="t-note">Tabora</span></div>
+    <div class="tribe-card"><span class="t-emoji">🛡️</span><span class="t-name">Wamasai</span><span class="t-note">Arusha</span></div>
+    <div class="tribe-card"><span class="t-emoji">⚔️</span><span class="t-name">Wahehe</span><span class="t-note">Iringa</span></div>
+    <div class="tribe-card"><span class="t-emoji">🪵</span><span class="t-name">Wamakonde</span><span class="t-note">Mtwara</span></div>
+    <div class="tribe-card"><span class="t-emoji">🌊</span><span class="t-name">Wazaramo</span><span class="t-note">Dar es Salaam</span></div>
+    <div class="tribe-card"><span class="t-emoji">🗣️</span><span class="t-name">Waswahili</span><span class="t-note">Pwani</span></div>
+    <div class="tribe-card"><span class="t-emoji">🌾</span><span class="t-name">Wabena</span><span class="t-note">Njombe</span></div>
+    <div class="tribe-card"><span class="t-emoji">🌄</span><span class="t-name">Warangi</span><span class="t-note">Kondoa</span></div>
+    <div class="tribe-card"><span class="t-emoji">🏹</span><span class="t-name">Wahadzabe</span><span class="t-note">Eyasi</span></div>
+    <div class="tribe-card"><span class="t-emoji">🌱</span><span class="t-name">Wairaqw</span><span class="t-note">Manyara</span></div>
+    <div class="tribe-card"><span class="t-emoji">🌍</span><span class="t-name">Wandamba</span><span class="t-note">Kilombero</span></div>
+    <div class="tribe-more">+105 zaidi<br>ya makabila</div>
   </div>
   <p>
     <strong>Wamasai</strong> wanajulikana kwa ujasiri na mavazi yao mekundu, huku <strong>Wamakonde</strong> wakishinda 
@@ -323,6 +356,70 @@
     — zinazoitwa "dhahabu ya visiwa" — zilikuwa chanzo kikuu cha utajiri wa Zanzibar kwa karne nyingi. 
     <strong>Korosho</strong> za Tanzania ni miongoni mwa bora zaidi duniani.
   </p>
+</div>
+
+<!-- UVUVI -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🎣</span>
+    <div class="section-title">Uvuvi — Hazina za Maziwa Makuu</div>
+  </div>
+  <p>
+    Tanzania imebarikiwa na baadhi ya maeneo bora ya uvuvi wa maji baridi duniani. 
+    Maziwa makubwa ya nchi — Victoria, Tanganyika, Malawi, na Rukwa — yanategemewa na mamilioni 
+    ya familia na yanachangia pakubwa usalama wa chakula na mapato ya nchi.
+  </p>
+  <div class="highlight-box">
+    <strong>Ziwa Victoria</strong> — ziwa kubwa zaidi Afrika na ziwa kubwa zaidi la maji baridi kitropiki 
+    duniani — lina eneo la <strong>km² 68,800</strong>, huku Tanzania ikiwa na sehemu kubwa zaidi. 
+    Liko kwenye urefu wa <strong>m 1,134</strong> juu ya usawa wa bahari na linashirikiwa na Uganda na Kenya.
+  </div>
+  <p>
+    Thamani kuu ya uvuvi wa Ziwa Victoria ni <strong>Sangara (Nile Perch)</strong> — samaki mkubwa 
+    mwenye nguvu anayeweza kukua hadi <strong>m 2</strong> kwa urefu na kufikia uzito wa zaidi ya 
+    <strong>kg 200</strong>. Sangara aliingizwa miaka ya 1950 na alibadilisha Victoria kuwa moja ya 
+    maeneo muhimu ya uvuvi wa kibiashara duniani. Leo anasafirishwa Ulaya, Asia, na maeneo mengine, 
+    ukileta mapato ya mamia ya mamilioni ya dola kila mwaka.
+  </p>
+  <table class="info-table">
+    <tr><td>🐟 Sangara (Nile Perch)</td><td>Hadi kg 200 — samaki mkuu wa kuuza nje, Ziwa Victoria</td></tr>
+    <tr><td>🐟 Dagaa</td><td>Samaki mdogo wa fedha — chanzo muhimu cha protini kwa mamilioni</td></tr>
+    <tr><td>🐟 Sato / Tilapia</td><td>Samaki pendwa wa maji baridi — huliwa sana ndani ya nchi</td></tr>
+    <tr><td>🏞️ Eneo la Ziwa Victoria</td><td>km² 68,800 — ziwa kubwa zaidi Afrika</td></tr>
+    <tr><td>📍 Bandari Kuu za Uvuvi</td><td>Mwanza, Bukoba, Musoma, Ukerewe</td></tr>
+  </table>
+  <div class="highlight-box">
+    <strong>Ziwa Tanganyika</strong> — ziwa la <strong>pili kwa kina duniani</strong> — linashuka hadi 
+    kina cha ajabu cha <strong>m 1,470</strong> sehemu yake ya kina zaidi. Lina <strong>urefu wa km 676</strong> 
+    na linashikilia takriban <strong>asilimia 18 ya maji baridi yaliyopo juu ya uso wa dunia</strong>. 
+    Linashirikiwa na Tanzania, Burundi, DRC, na Zambia. Tanganyika ina zaidi ya <strong>spishi 350 za samaki</strong>, 
+    wengi wao hawaopatikani mahali pengine — makumbusho hai ya mageuzi ya asili.
+  </div>
+  <table class="info-table">
+    <tr><td>📏 Urefu</td><td>km 676 — moja ya maziwa marefu zaidi duniani</td></tr>
+    <tr><td>🌊 Kina cha Juu</td><td>m 1,470 — ziwa la 2 kwa kina duniani</td></tr>
+    <tr><td>💧 Ujazo</td><td>~km³ 18,900 — asilimia 18 ya maji baridi ya uso wa dunia</td></tr>
+    <tr><td>🐠 Spishi za Samaki</td><td>Zaidi ya 350 — nyingi ni za hapa peke yake</td></tr>
+    <tr><td>🐟 Samaki Wakuu</td><td>Dagaa, Sangara, Mukeke, Nkupe, Cichlids za Tanganyika</td></tr>
+    <tr><td>📍 Mwambao wa Tanzania</td><td>Kigoma, Mpanda — bandari kuu za ziwa</td></tr>
+  </table>
+  <p>
+    <strong>Dagaa</strong> — samaki mdogo wa fedha anayovuliwa kwa wingi kutoka Ziwa Victoria na 
+    Ziwa Tanganyika — ni shujaa asiyesifiwa wa lishe ya Tanzania. Hukauswa juani na kuuzwa Afrika 
+    Mashariki yote, Dagaa hutoa protini nafuu kwa makumi ya mamilioni ya watu. Ni samaki wa wananchi 
+    — mdogo, mwingi, na muhimu kupita kiasi.
+  </p>
+  <div class="chip-list">
+    <span class="chip">🐟 Sangara</span>
+    <span class="chip">🐟 Dagaa</span>
+    <span class="chip green">🐟 Sato / Tilapia</span>
+    <span class="chip green">🐠 Cichlids (Tanganyika)</span>
+    <span class="chip gold">🏞️ Ziwa Victoria</span>
+    <span class="chip gold">🌊 Ziwa Tanganyika</span>
+    <span class="chip">🎣 Bandari ya Mwanza</span>
+    <span class="chip">🎣 Bandari ya Kigoma</span>
+  </div>
+  <div class="quote">"Kutoka kina cha Tanganyika hadi pwani za Victoria — Tanzania inalisha bara zima."</div>
 </div>
 
 <!-- MADINI -->
@@ -421,6 +518,7 @@
     <tr><td>🕌 Dini</td><td>Ukristo, Uislamu, Imani za Asili — uaminifu wa pamoja</td></tr>
   </table>
 </div>
+
 
 <div class="footer">
   🇹🇿 Habari za Utalii wa Tanzania
