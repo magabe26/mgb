@@ -3959,731 +3959,754 @@ Rectangle {
                                             color: "#00100a"
                                             clip: true
 
-                                            Column {
+                                            Item {
                                                 id: dlgListA
                                                 anchors.fill: parent
-                                                anchors.leftMargin: 2
-                                                anchors.rightMargin: 2
-                                                spacing: 0
-                                                Item { width: 1; height: 4 }
 
-                                                Item { width: 1; height: 6 }
-                                                Item {
-                                                    id: ab0Root
-                                                    width: parent.width
-                                                    height: ab0ColWrap.height + 2
-                                                    opacity: 0
-                                                    y: 22
-                                                    Connections {
-                                                        target: sceneAPanel
-                                                        function onPlayTickChanged() { ab0Root.opacity = 0; ab0Root.y = 22; ab0T.restart(); }
-                                                    }
-                                                    Timer { id: ab0T; interval: 0 * comicStrip.bubbleDelay + 200; repeat: false
-                                                        onTriggered: { ab0OpA.start(); ab0YA.start(); }
-                                                    }
-                                                    NumberAnimation on opacity { id: ab0OpA; running: false; from: 0; to: 1; duration: 280; easing.type: Easing.OutCubic }
-                                                    NumberAnimation on y      { id: ab0YA;   running: false; from: 22; to: 0;  duration: 320; easing.type: Easing.OutCubic }
+                                                Column {
+                                                    anchors.top: parent.top
+                                                    anchors.left: parent.left
+                                                    anchors.right: parent.right
+                                                    spacing: 4
+
                                                     Item {
-                                                        id: ab0ColWrap
-                                                        anchors.left: parent.left; anchors.leftMargin: 6
-                                                        width: Math.min(parent.width * 0.82, ab0ColInner.implicitWidth + 24)
-                                                        height: ab0ColInner.height + 14
-                                                        Rectangle {
-                                                            anchors.fill: parent
-                                                            radius: 12
-                                                            color: "#fff8ec"
-                                                            border.color: "#00cc77"; border.width: 1.5
+                                                        id: ab0Root
+                                                        width: parent.width
+                                                        z: 1
+                                                        height: opacity > 0 ? ab0ColWrap.height + 2 : 0
+                                                        opacity: 0
+                                                        y: -20
+                                                        Connections {
+                                                            target: sceneAPanel
+                                                            function onPlayTickChanged() { ab0Root.opacity = 0; ab0Root.height = 0; ab0Root.y = -20; ab0T.restart(); }
                                                         }
-                                                        Column {
-                                                            id: ab0ColInner
-                                                            anchors.top: parent.top; anchors.topMargin: 7
-                                                            anchors.left: parent.left; anchors.right: parent.right
-                                                            anchors.leftMargin: 10; anchors.rightMargin: 10
-                                                            spacing: 2
-                                                            Row {
-                                                                spacing: 4
-                                                                Text { text: "🐘"; font.pointSize: comicStrip.fsBubbleEmoji }
+                                                        Timer { id: ab0T; interval: 0 * comicStrip.bubbleDelay + 200; repeat: false
+                                                            onTriggered: { ab0OpA.start(); ab0YA.start(); }
+                                                        }
+                                                        NumberAnimation on opacity { id: ab0OpA; running: false; from: 0; to: 1; duration: 280; easing.type: Easing.OutCubic }
+                                                        NumberAnimation on y      { id: ab0YA;   running: false; from: -20; to: 0;  duration: 320; easing.type: Easing.OutCubic }
+                                                        Item {
+                                                            id: ab0ColWrap
+                                                            anchors.left: parent.left; anchors.leftMargin: 4
+                                                            width: parent.width - 8
+                                                            height: ab0ColInner.height + 14
+                                                            Rectangle {
+                                                                anchors.fill: parent
+                                                                radius: 12
+                                                                color: "#fff8ec"
+                                                                border.color: "#00cc77"; border.width: 1.5
+                                                            }
+                                                            Column {
+                                                                id: ab0ColInner
+                                                                anchors.top: parent.top; anchors.topMargin: 7
+                                                                anchors.left: parent.left; anchors.right: parent.right
+                                                                anchors.leftMargin: 10; anchors.rightMargin: 10
+                                                                spacing: 2
+                                                                Row {
+                                                                    spacing: 4
+                                                                    Text { text: "🐘"; font.pointSize: comicStrip.fsBubbleEmoji }
+                                                                    Text {
+                                                                        text: langSettings.lang === "sw" ? "TEMBO" : "ELEPHANT"
+                                                                        font.bold: true
+                                                                        font.pointSize: comicStrip.fsBubbleName
+                                                                        color: langSettings.lang === "sw" ? "#22ddaa" : "#00aaff"
+                                                                        anchors.verticalCenter: parent.verticalCenter
+                                                                    }
+                                                                }
                                                                 Text {
-                                                                    text: langSettings.lang === "sw" ? "TEMBO" : "ELEPHANT"
-                                                                    font.bold: true
-                                                                    font.pointSize: comicStrip.fsBubbleName
-                                                                    color: langSettings.lang === "sw" ? "#22ddaa" : "#00aaff"
-                                                                    anchors.verticalCenter: parent.verticalCenter
+                                                                    width: parent.width
+                                                                    text: langSettings.lang === "sw" ? "(akitikisa kwa hasira)" : "(shaking furiously)"
+                                                                    font.italic: true
+                                                                    font.pointSize: comicStrip.fsBubbleAction
+                                                                    color: "#888888"; wrapMode: Text.WordWrap
+                                                                }
+                                                                Text {
+                                                                    id: ab0Col
+                                                                    width: ab0ColWrap.width - 20
+                                                                    text: langSettings.lang === "sw" ? "Simba! Wewe ni mzito sana! Miguu yangu inaingia ardhini!" : "Simba! You are too heavy! My feet are sinking!"
+                                                                    font.pointSize: comicStrip.fsBubbleMsg
+                                                                    font.bold: false
+                                                                    color: "#111111"; wrapMode: Text.WordWrap
                                                                 }
                                                             }
-                                                            Text {
-                                                                width: parent.width
-                                                                text: langSettings.lang === "sw" ? "(akitikisa kwa hasira)" : "(shaking furiously)"
-                                                                font.italic: true
-                                                                font.pointSize: comicStrip.fsBubbleAction
-                                                                color: "#888888"; wrapMode: Text.WordWrap
-                                                            }
-                                                            Text {
-                                                                id: ab0Col
-                                                                width: ab0ColWrap.width - 20
-                                                                text: langSettings.lang === "sw" ? "Simba! Wewe ni mzito sana! Miguu yangu inaingia ardhini!" : "Simba! You are too heavy! My feet are sinking!"
-                                                                font.pointSize: comicStrip.fsBubbleMsg
-                                                                font.bold: false
-                                                                color: "#111111"; wrapMode: Text.WordWrap
-                                                            }
                                                         }
                                                     }
-                                                }
-                                                Item { width: 1; height: 6 }
-                                                Item {
-                                                    id: ab1Root
-                                                    width: parent.width
-                                                    height: ab1ColWrap.height + 2
-                                                    opacity: 0
-                                                    y: 22
-                                                    Connections {
-                                                        target: sceneAPanel
-                                                        function onPlayTickChanged() { ab1Root.opacity = 0; ab1Root.y = 22; ab1T.restart(); }
-                                                    }
-                                                    Timer { id: ab1T; interval: 1 * comicStrip.bubbleDelay + 200; repeat: false
-                                                        onTriggered: { ab1OpA.start(); ab1YA.start(); }
-                                                    }
-                                                    NumberAnimation on opacity { id: ab1OpA; running: false; from: 0; to: 1; duration: 280; easing.type: Easing.OutCubic }
-                                                    NumberAnimation on y      { id: ab1YA;   running: false; from: 22; to: 0;  duration: 320; easing.type: Easing.OutCubic }
+
                                                     Item {
-                                                        id: ab1ColWrap
-                                                        anchors.right: parent.right; anchors.rightMargin: 6
-                                                        width: Math.min(parent.width * 0.82, ab1ColInner.implicitWidth + 24)
-                                                        height: ab1ColInner.height + 14
-                                                        Rectangle {
-                                                            anchors.fill: parent
-                                                            radius: 12
-                                                            color: "#fffde8"
-                                                            border.color: "#ffaa00"; border.width: 1.5
+                                                        id: ab2Root
+                                                        width: parent.width
+                                                        z: 3
+                                                        height: opacity > 0 ? ab2ColWrap.height + 2 : 0
+                                                        opacity: 0
+                                                        y: -20
+                                                        Connections {
+                                                            target: sceneAPanel
+                                                            function onPlayTickChanged() { ab2Root.opacity = 0; ab2Root.height = 0; ab2Root.y = -20; ab2T.restart(); }
                                                         }
-                                                        Column {
-                                                            id: ab1ColInner
-                                                            anchors.top: parent.top; anchors.topMargin: 7
-                                                            anchors.left: parent.left; anchors.right: parent.right
-                                                            anchors.leftMargin: 10; anchors.rightMargin: 10
-                                                            spacing: 2
-                                                            Row {
-                                                                spacing: 4
-                                                                Text { text: "🦁"; font.pointSize: comicStrip.fsBubbleEmoji }
+                                                        Timer { id: ab2T; interval: 2 * comicStrip.bubbleDelay + 200; repeat: false
+                                                            onTriggered: { ab0Root.opacity = 0; ab0Root.height = 0; ab2OpA.start(); ab2YA.start(); }
+                                                        }
+                                                        NumberAnimation on opacity { id: ab2OpA; running: false; from: 0; to: 1; duration: 280; easing.type: Easing.OutCubic }
+                                                        NumberAnimation on y      { id: ab2YA;   running: false; from: -20; to: 0;  duration: 320; easing.type: Easing.OutCubic }
+                                                        Item {
+                                                            id: ab2ColWrap
+                                                            anchors.left: parent.left; anchors.leftMargin: 4
+                                                            width: parent.width - 8
+                                                            height: ab2ColInner.height + 14
+                                                            Rectangle {
+                                                                anchors.fill: parent
+                                                                radius: 12
+                                                                color: "#fff8ec"
+                                                                border.color: "#00cc77"; border.width: 1.5
+                                                            }
+                                                            Column {
+                                                                id: ab2ColInner
+                                                                anchors.top: parent.top; anchors.topMargin: 7
+                                                                anchors.left: parent.left; anchors.right: parent.right
+                                                                anchors.leftMargin: 10; anchors.rightMargin: 10
+                                                                spacing: 2
+                                                                Row {
+                                                                    spacing: 4
+                                                                    Text { text: "🐘"; font.pointSize: comicStrip.fsBubbleEmoji }
+                                                                    Text {
+                                                                        text: langSettings.lang === "sw" ? "TEMBO" : "ELEPHANT"
+                                                                        font.bold: true
+                                                                        font.pointSize: comicStrip.fsBubbleName
+                                                                        color: langSettings.lang === "sw" ? "#22ddaa" : "#00aaff"
+                                                                        anchors.verticalCenter: parent.verticalCenter
+                                                                    }
+                                                                }
                                                                 Text {
-                                                                    text: langSettings.lang === "sw" ? "SIMBA" : "LION"
-                                                                    font.bold: true
-                                                                    font.pointSize: comicStrip.fsBubbleName
-                                                                    color: langSettings.lang === "sw" ? "#ffcc00" : "#ff7700"
-                                                                    anchors.verticalCenter: parent.verticalCenter
+                                                                    id: ab2Col
+                                                                    width: ab2ColWrap.width - 20
+                                                                    text: langSettings.lang === "sw" ? "Kamanda wangu mguu! Toka juu yangu au nitakupeleka ziwani!" : "My commander's foot! Get off me or I'm sending you to the lake!"
+                                                                    font.pointSize: comicStrip.fsBubbleMsg
+                                                                    font.bold: false
+                                                                    color: "#111111"; wrapMode: Text.WordWrap
                                                                 }
                                                             }
-                                                            Text {
-                                                                width: parent.width
-                                                                text: langSettings.lang === "sw" ? "(akiangalia ramani kwa kiburi)" : "(studying the map proudly)"
-                                                                font.italic: true
-                                                                font.pointSize: comicStrip.fsBubbleAction
-                                                                color: "#888888"; wrapMode: Text.WordWrap
-                                                            }
-                                                            Text {
-                                                                id: ab1Col
-                                                                width: ab1ColWrap.width - 20
-                                                                text: langSettings.lang === "sw" ? "Kimya, hii ni operesheni nyeti. Mimi ni kamanda. Kamanda hawashuki." : "Silence — sensitive operation. I am the commander. Commanders don't get down."
-                                                                font.pointSize: comicStrip.fsBubbleMsg
-                                                                font.bold: false
-                                                                color: "#111111"; wrapMode: Text.WordWrap
-                                                            }
                                                         }
                                                     }
-                                                }
-                                                Item { width: 1; height: 6 }
-                                                Item {
-                                                    id: ab2Root
-                                                    width: parent.width
-                                                    height: ab2ColWrap.height + 2
-                                                    opacity: 0
-                                                    y: 22
-                                                    Connections {
-                                                        target: sceneAPanel
-                                                        function onPlayTickChanged() { ab2Root.opacity = 0; ab2Root.y = 22; ab2T.restart(); }
-                                                    }
-                                                    Timer { id: ab2T; interval: 2 * comicStrip.bubbleDelay + 200; repeat: false
-                                                        onTriggered: { ab2OpA.start(); ab2YA.start(); }
-                                                    }
-                                                    NumberAnimation on opacity { id: ab2OpA; running: false; from: 0; to: 1; duration: 280; easing.type: Easing.OutCubic }
-                                                    NumberAnimation on y      { id: ab2YA;   running: false; from: 22; to: 0;  duration: 320; easing.type: Easing.OutCubic }
+
                                                     Item {
-                                                        id: ab2ColWrap
-                                                        anchors.left: parent.left; anchors.leftMargin: 6
-                                                        width: Math.min(parent.width * 0.82, ab2ColInner.implicitWidth + 24)
-                                                        height: ab2ColInner.height + 14
-                                                        Rectangle {
-                                                            anchors.fill: parent
-                                                            radius: 12
-                                                            color: "#fff8ec"
-                                                            border.color: "#00cc77"; border.width: 1.5
+                                                        id: ab4Root
+                                                        width: parent.width
+                                                        z: 5
+                                                        height: opacity > 0 ? ab4ColWrap.height + 2 : 0
+                                                        opacity: 0
+                                                        y: -20
+                                                        Connections {
+                                                            target: sceneAPanel
+                                                            function onPlayTickChanged() { ab4Root.opacity = 0; ab4Root.height = 0; ab4Root.y = -20; ab4T.restart(); }
                                                         }
-                                                        Column {
-                                                            id: ab2ColInner
-                                                            anchors.top: parent.top; anchors.topMargin: 7
-                                                            anchors.left: parent.left; anchors.right: parent.right
-                                                            anchors.leftMargin: 10; anchors.rightMargin: 10
-                                                            spacing: 2
-                                                            Row {
-                                                                spacing: 4
-                                                                Text { text: "🐘"; font.pointSize: comicStrip.fsBubbleEmoji }
+                                                        Timer { id: ab4T; interval: 4 * comicStrip.bubbleDelay + 200; repeat: false
+                                                            onTriggered: { ab2Root.opacity = 0; ab2Root.height = 0; ab4OpA.start(); ab4YA.start(); }
+                                                        }
+                                                        NumberAnimation on opacity { id: ab4OpA; running: false; from: 0; to: 1; duration: 280; easing.type: Easing.OutCubic }
+                                                        NumberAnimation on y      { id: ab4YA;   running: false; from: -20; to: 0;  duration: 320; easing.type: Easing.OutCubic }
+                                                        Item {
+                                                            id: ab4ColWrap
+                                                            anchors.left: parent.left; anchors.leftMargin: 4
+                                                            width: parent.width - 8
+                                                            height: ab4ColInner.height + 14
+                                                            Rectangle {
+                                                                anchors.fill: parent
+                                                                radius: 12
+                                                                color: "#f8eeff"
+                                                                border.color: "#aa44cc"; border.width: 1.5
+                                                            }
+                                                            Column {
+                                                                id: ab4ColInner
+                                                                anchors.top: parent.top; anchors.topMargin: 7
+                                                                anchors.left: parent.left; anchors.right: parent.right
+                                                                anchors.leftMargin: 10; anchors.rightMargin: 10
+                                                                spacing: 2
+                                                                Row {
+                                                                    spacing: 4
+                                                                    Text { text: "🐒"; font.pointSize: comicStrip.fsBubbleEmoji }
+                                                                    Text {
+                                                                        text: langSettings.lang === "sw" ? "NYANI" : "MONKEY"
+                                                                        font.bold: true
+                                                                        font.pointSize: comicStrip.fsBubbleName
+                                                                        color: langSettings.lang === "sw" ? "#cc66ff" : "#8822cc"
+                                                                        anchors.verticalCenter: parent.verticalCenter
+                                                                    }
+                                                                }
                                                                 Text {
-                                                                    text: langSettings.lang === "sw" ? "TEMBO" : "ELEPHANT"
-                                                                    font.bold: true
-                                                                    font.pointSize: comicStrip.fsBubbleName
-                                                                    color: langSettings.lang === "sw" ? "#22ddaa" : "#00aaff"
-                                                                    anchors.verticalCenter: parent.verticalCenter
+                                                                    width: parent.width
+                                                                    text: langSettings.lang === "sw" ? "(akiangalia ramani kichwa chini)" : "(reading map upside down)"
+                                                                    font.italic: true
+                                                                    font.pointSize: comicStrip.fsBubbleAction
+                                                                    color: "#888888"; wrapMode: Text.WordWrap
+                                                                }
+                                                                Text {
+                                                                    id: ab4Col
+                                                                    width: ab4ColWrap.width - 20
+                                                                    text: langSettings.lang === "sw" ? "Kaskazini... au... ngoja... labda ramani iko chini chini?" : "North... or... wait... maybe the map is upside down?"
+                                                                    font.pointSize: comicStrip.fsBubbleMsg
+                                                                    font.bold: false
+                                                                    color: "#111111"; wrapMode: Text.WordWrap
                                                                 }
                                                             }
-                                                            Text {
-                                                                id: ab2Col
-                                                                width: ab2ColWrap.width - 20
-                                                                text: langSettings.lang === "sw" ? "Kamanda wangu mguu! Toka juu yangu au nitakupeleka ziwani!" : "My commander's foot! Get off me or I'm sending you to the lake!"
-                                                                font.pointSize: comicStrip.fsBubbleMsg
-                                                                font.bold: false
-                                                                color: "#111111"; wrapMode: Text.WordWrap
-                                                            }
                                                         }
                                                     }
-                                                }
-                                                Item { width: 1; height: 6 }
-                                                Item {
-                                                    id: ab3Root
-                                                    width: parent.width
-                                                    height: ab3ColWrap.height + 2
-                                                    opacity: 0
-                                                    y: 22
-                                                    Connections {
-                                                        target: sceneAPanel
-                                                        function onPlayTickChanged() { ab3Root.opacity = 0; ab3Root.y = 22; ab3T.restart(); }
-                                                    }
-                                                    Timer { id: ab3T; interval: 3 * comicStrip.bubbleDelay + 200; repeat: false
-                                                        onTriggered: { ab3OpA.start(); ab3YA.start(); }
-                                                    }
-                                                    NumberAnimation on opacity { id: ab3OpA; running: false; from: 0; to: 1; duration: 280; easing.type: Easing.OutCubic }
-                                                    NumberAnimation on y      { id: ab3YA;   running: false; from: 22; to: 0;  duration: 320; easing.type: Easing.OutCubic }
+
                                                     Item {
-                                                        id: ab3ColWrap
-                                                        anchors.right: parent.right; anchors.rightMargin: 6
-                                                        width: Math.min(parent.width * 0.82, ab3ColInner.implicitWidth + 24)
-                                                        height: ab3ColInner.height + 14
-                                                        Rectangle {
-                                                            anchors.fill: parent
-                                                            radius: 12
-                                                            color: "#fff4e8"
-                                                            border.color: "#ff6600"; border.width: 1.5
+                                                        id: ab6Root
+                                                        width: parent.width
+                                                        z: 7
+                                                        height: opacity > 0 ? ab6ColWrap.height + 2 : 0
+                                                        opacity: 0
+                                                        y: -20
+                                                        Connections {
+                                                            target: sceneAPanel
+                                                            function onPlayTickChanged() { ab6Root.opacity = 0; ab6Root.height = 0; ab6Root.y = -20; ab6T.restart(); }
                                                         }
-                                                        Column {
-                                                            id: ab3ColInner
-                                                            anchors.top: parent.top; anchors.topMargin: 7
-                                                            anchors.left: parent.left; anchors.right: parent.right
-                                                            anchors.leftMargin: 10; anchors.rightMargin: 10
-                                                            spacing: 2
-                                                            Row {
-                                                                spacing: 4
-                                                                Text { text: "🦒"; font.pointSize: comicStrip.fsBubbleEmoji }
+                                                        Timer { id: ab6T; interval: 6 * comicStrip.bubbleDelay + 200; repeat: false
+                                                            onTriggered: { ab4Root.opacity = 0; ab4Root.height = 0; ab6OpA.start(); ab6YA.start(); }
+                                                        }
+                                                        NumberAnimation on opacity { id: ab6OpA; running: false; from: 0; to: 1; duration: 280; easing.type: Easing.OutCubic }
+                                                        NumberAnimation on y      { id: ab6YA;   running: false; from: -20; to: 0;  duration: 320; easing.type: Easing.OutCubic }
+                                                        Item {
+                                                            id: ab6ColWrap
+                                                            anchors.left: parent.left; anchors.leftMargin: 4
+                                                            width: parent.width - 8
+                                                            height: ab6ColInner.height + 14
+                                                            Rectangle {
+                                                                anchors.fill: parent
+                                                                radius: 12
+                                                                color: "#f8eeff"
+                                                                border.color: "#aa44cc"; border.width: 1.5
+                                                            }
+                                                            Column {
+                                                                id: ab6ColInner
+                                                                anchors.top: parent.top; anchors.topMargin: 7
+                                                                anchors.left: parent.left; anchors.right: parent.right
+                                                                anchors.leftMargin: 10; anchors.rightMargin: 10
+                                                                spacing: 2
+                                                                Row {
+                                                                    spacing: 4
+                                                                    Text { text: "🐒"; font.pointSize: comicStrip.fsBubbleEmoji }
+                                                                    Text {
+                                                                        text: langSettings.lang === "sw" ? "NYANI" : "MONKEY"
+                                                                        font.bold: true
+                                                                        font.pointSize: comicStrip.fsBubbleName
+                                                                        color: langSettings.lang === "sw" ? "#cc66ff" : "#8822cc"
+                                                                        anchors.verticalCenter: parent.verticalCenter
+                                                                    }
+                                                                }
                                                                 Text {
-                                                                    text: langSettings.lang === "sw" ? "TWIGA" : "GIRAFFE"
-                                                                    font.bold: true
-                                                                    font.pointSize: comicStrip.fsBubbleName
-                                                                    color: langSettings.lang === "sw" ? "#ffaa33" : "#ff4400"
-                                                                    anchors.verticalCenter: parent.verticalCenter
+                                                                    id: ab6Col
+                                                                    width: ab6ColWrap.width - 20
+                                                                    text: langSettings.lang === "sw" ? "Sawa sawa! Kaskazini ni... ule mwelekeo ambapo mvua inakuja!" : "Okay okay! North is... where the rain is coming from!"
+                                                                    font.pointSize: comicStrip.fsBubbleMsg
+                                                                    font.bold: false
+                                                                    color: "#111111"; wrapMode: Text.WordWrap
                                                                 }
                                                             }
-                                                            Text {
-                                                                width: parent.width
-                                                                text: langSettings.lang === "sw" ? "(juu ya ngazi, akitetemeka)" : "(atop the ladder, trembling)"
-                                                                font.italic: true
-                                                                font.pointSize: comicStrip.fsBubbleAction
-                                                                color: "#888888"; wrapMode: Text.WordWrap
-                                                            }
-                                                            Text {
-                                                                id: ab3Col
-                                                                width: ab3ColWrap.width - 20
-                                                                text: langSettings.lang === "sw" ? "N-nyani! Bendera inaenda upande gani?!" : "M-monkey! Which direction does the flag go?!"
-                                                                font.pointSize: comicStrip.fsBubbleMsg
-                                                                font.bold: false
-                                                                color: "#111111"; wrapMode: Text.WordWrap
-                                                            }
                                                         }
                                                     }
-                                                }
-                                                Item { width: 1; height: 6 }
-                                                Item {
-                                                    id: ab4Root
-                                                    width: parent.width
-                                                    height: ab4ColWrap.height + 2
-                                                    opacity: 0
-                                                    y: 22
-                                                    Connections {
-                                                        target: sceneAPanel
-                                                        function onPlayTickChanged() { ab4Root.opacity = 0; ab4Root.y = 22; ab4T.restart(); }
-                                                    }
-                                                    Timer { id: ab4T; interval: 4 * comicStrip.bubbleDelay + 200; repeat: false
-                                                        onTriggered: { ab4OpA.start(); ab4YA.start(); }
-                                                    }
-                                                    NumberAnimation on opacity { id: ab4OpA; running: false; from: 0; to: 1; duration: 280; easing.type: Easing.OutCubic }
-                                                    NumberAnimation on y      { id: ab4YA;   running: false; from: 22; to: 0;  duration: 320; easing.type: Easing.OutCubic }
+
                                                     Item {
-                                                        id: ab4ColWrap
-                                                        anchors.left: parent.left; anchors.leftMargin: 6
-                                                        width: Math.min(parent.width * 0.82, ab4ColInner.implicitWidth + 24)
-                                                        height: ab4ColInner.height + 14
-                                                        Rectangle {
-                                                            anchors.fill: parent
-                                                            radius: 12
-                                                            color: "#f8eeff"
-                                                            border.color: "#aa44cc"; border.width: 1.5
+                                                        id: ab8Root
+                                                        width: parent.width
+                                                        z: 9
+                                                        height: opacity > 0 ? ab8ColWrap.height + 2 : 0
+                                                        opacity: 0
+                                                        y: -20
+                                                        Connections {
+                                                            target: sceneAPanel
+                                                            function onPlayTickChanged() { ab8Root.opacity = 0; ab8Root.height = 0; ab8Root.y = -20; ab8T.restart(); }
                                                         }
-                                                        Column {
-                                                            id: ab4ColInner
-                                                            anchors.top: parent.top; anchors.topMargin: 7
-                                                            anchors.left: parent.left; anchors.right: parent.right
-                                                            anchors.leftMargin: 10; anchors.rightMargin: 10
-                                                            spacing: 2
-                                                            Row {
-                                                                spacing: 4
-                                                                Text { text: "🐒"; font.pointSize: comicStrip.fsBubbleEmoji }
+                                                        Timer { id: ab8T; interval: 8 * comicStrip.bubbleDelay + 200; repeat: false
+                                                            onTriggered: { ab6Root.opacity = 0; ab6Root.height = 0; ab8OpA.start(); ab8YA.start(); }
+                                                        }
+                                                        NumberAnimation on opacity { id: ab8OpA; running: false; from: 0; to: 1; duration: 280; easing.type: Easing.OutCubic }
+                                                        NumberAnimation on y      { id: ab8YA;   running: false; from: -20; to: 0;  duration: 320; easing.type: Easing.OutCubic }
+                                                        Item {
+                                                            id: ab8ColWrap
+                                                            anchors.left: parent.left; anchors.leftMargin: 4
+                                                            width: parent.width - 8
+                                                            height: ab8ColInner.height + 14
+                                                            Rectangle {
+                                                                anchors.fill: parent
+                                                                radius: 12
+                                                                color: "#eafaf5"
+                                                                border.color: "#449988"; border.width: 1.5
+                                                            }
+                                                            Column {
+                                                                id: ab8ColInner
+                                                                anchors.top: parent.top; anchors.topMargin: 7
+                                                                anchors.left: parent.left; anchors.right: parent.right
+                                                                anchors.leftMargin: 10; anchors.rightMargin: 10
+                                                                spacing: 2
+                                                                Row {
+                                                                    spacing: 4
+                                                                    Text { text: "🦓"; font.pointSize: comicStrip.fsBubbleEmoji }
+                                                                    Text {
+                                                                        text: langSettings.lang === "sw" ? "PUNDAMILIA" : "ZEBRA"
+                                                                        font.bold: true
+                                                                        font.pointSize: comicStrip.fsBubbleName
+                                                                        color: langSettings.lang === "sw" ? "#55bbaa" : "#2288aa"
+                                                                        anchors.verticalCenter: parent.verticalCenter
+                                                                    }
+                                                                }
                                                                 Text {
-                                                                    text: langSettings.lang === "sw" ? "NYANI" : "MONKEY"
-                                                                    font.bold: true
-                                                                    font.pointSize: comicStrip.fsBubbleName
-                                                                    color: langSettings.lang === "sw" ? "#cc66ff" : "#8822cc"
-                                                                    anchors.verticalCenter: parent.verticalCenter
+                                                                    width: parent.width
+                                                                    text: langSettings.lang === "sw" ? "(akisimama pembeni, utulivu kabisa)" : "(standing aside, completely calm)"
+                                                                    font.italic: true
+                                                                    font.pointSize: comicStrip.fsBubbleAction
+                                                                    color: "#888888"; wrapMode: Text.WordWrap
+                                                                }
+                                                                Text {
+                                                                    id: ab8Col
+                                                                    width: ab8ColWrap.width - 20
+                                                                    text: langSettings.lang === "sw" ? "Mimi niliwaambia tu... weka bendera kwenye nguzo. Rahisi. Lakini hapana... lazima iwe adventure." : "I told them... put the flag on a pole. Simple. But no... it has to be an adventure."
+                                                                    font.pointSize: comicStrip.fsBubbleMsg
+                                                                    font.bold: false
+                                                                    color: "#111111"; wrapMode: Text.WordWrap
                                                                 }
                                                             }
-                                                            Text {
-                                                                width: parent.width
-                                                                text: langSettings.lang === "sw" ? "(akiangalia ramani kichwa chini)" : "(reading map upside down)"
-                                                                font.italic: true
-                                                                font.pointSize: comicStrip.fsBubbleAction
-                                                                color: "#888888"; wrapMode: Text.WordWrap
-                                                            }
-                                                            Text {
-                                                                id: ab4Col
-                                                                width: ab4ColWrap.width - 20
-                                                                text: langSettings.lang === "sw" ? "Kaskazini... au... ngoja... labda ramani iko chini chini?" : "North... or... wait... maybe the map is upside down?"
-                                                                font.pointSize: comicStrip.fsBubbleMsg
-                                                                font.bold: false
-                                                                color: "#111111"; wrapMode: Text.WordWrap
-                                                            }
                                                         }
                                                     }
-                                                }
-                                                Item { width: 1; height: 6 }
-                                                Item {
-                                                    id: ab5Root
-                                                    width: parent.width
-                                                    height: ab5ColWrap.height + 2
-                                                    opacity: 0
-                                                    y: 22
-                                                    Connections {
-                                                        target: sceneAPanel
-                                                        function onPlayTickChanged() { ab5Root.opacity = 0; ab5Root.y = 22; ab5T.restart(); }
-                                                    }
-                                                    Timer { id: ab5T; interval: 5 * comicStrip.bubbleDelay + 200; repeat: false
-                                                        onTriggered: { ab5OpA.start(); ab5YA.start(); }
-                                                    }
-                                                    NumberAnimation on opacity { id: ab5OpA; running: false; from: 0; to: 1; duration: 280; easing.type: Easing.OutCubic }
-                                                    NumberAnimation on y      { id: ab5YA;   running: false; from: 22; to: 0;  duration: 320; easing.type: Easing.OutCubic }
+
                                                     Item {
-                                                        id: ab5ColWrap
-                                                        anchors.right: parent.right; anchors.rightMargin: 6
-                                                        width: Math.min(parent.width * 0.82, ab5ColInner.implicitWidth + 24)
-                                                        height: ab5ColInner.height + 14
-                                                        Rectangle {
-                                                            anchors.fill: parent
-                                                            radius: 12
-                                                            color: "#fff4e8"
-                                                            border.color: "#ff6600"; border.width: 1.5
+                                                        id: ab10Root
+                                                        width: parent.width
+                                                        z: 11
+                                                        height: opacity > 0 ? ab10ColWrap.height + 2 : 0
+                                                        opacity: 0
+                                                        y: -20
+                                                        Connections {
+                                                            target: sceneAPanel
+                                                            function onPlayTickChanged() { ab10Root.opacity = 0; ab10Root.height = 0; ab10Root.y = -20; ab10T.restart(); }
                                                         }
-                                                        Column {
-                                                            id: ab5ColInner
-                                                            anchors.top: parent.top; anchors.topMargin: 7
-                                                            anchors.left: parent.left; anchors.right: parent.right
-                                                            anchors.leftMargin: 10; anchors.rightMargin: 10
-                                                            spacing: 2
-                                                            Row {
-                                                                spacing: 4
-                                                                Text { text: "🦒"; font.pointSize: comicStrip.fsBubbleEmoji }
+                                                        Timer { id: ab10T; interval: 10 * comicStrip.bubbleDelay + 200; repeat: false
+                                                            onTriggered: { ab8Root.opacity = 0; ab8Root.height = 0; ab10OpA.start(); ab10YA.start(); }
+                                                        }
+                                                        NumberAnimation on opacity { id: ab10OpA; running: false; from: 0; to: 1; duration: 280; easing.type: Easing.OutCubic }
+                                                        NumberAnimation on y      { id: ab10YA;   running: false; from: -20; to: 0;  duration: 320; easing.type: Easing.OutCubic }
+                                                        Item {
+                                                            id: ab10ColWrap
+                                                            anchors.left: parent.left; anchors.leftMargin: 4
+                                                            width: parent.width - 8
+                                                            height: ab10ColInner.height + 14
+                                                            Rectangle {
+                                                                anchors.fill: parent
+                                                                radius: 12
+                                                                color: "#fffde8"
+                                                                border.color: "#ffaa00"; border.width: 1.5
+                                                            }
+                                                            Column {
+                                                                id: ab10ColInner
+                                                                anchors.top: parent.top; anchors.topMargin: 7
+                                                                anchors.left: parent.left; anchors.right: parent.right
+                                                                anchors.leftMargin: 10; anchors.rightMargin: 10
+                                                                spacing: 2
+                                                                Row {
+                                                                    spacing: 4
+                                                                    Text { text: "🦁"; font.pointSize: comicStrip.fsBubbleEmoji }
+                                                                    Text {
+                                                                        text: langSettings.lang === "sw" ? "SIMBA" : "LION"
+                                                                        font.bold: true
+                                                                        font.pointSize: comicStrip.fsBubbleName
+                                                                        color: langSettings.lang === "sw" ? "#ffcc00" : "#ff7700"
+                                                                        anchors.verticalCenter: parent.verticalCenter
+                                                                    }
+                                                                }
                                                                 Text {
-                                                                    text: langSettings.lang === "sw" ? "TWIGA" : "GIRAFFE"
-                                                                    font.bold: true
-                                                                    font.pointSize: comicStrip.fsBubbleName
-                                                                    color: langSettings.lang === "sw" ? "#ffaa33" : "#ff4400"
-                                                                    anchors.verticalCenter: parent.verticalCenter
+                                                                    width: parent.width
+                                                                    text: langSettings.lang === "sw" ? "😂 (akiwa anacheka)" : "😂 (while laughing)"
+                                                                    font.italic: true
+                                                                    font.pointSize: comicStrip.fsBubbleAction
+                                                                    color: "#888888"; wrapMode: Text.WordWrap
+                                                                }
+                                                                Text {
+                                                                    id: ab10Col
+                                                                    width: ab10ColWrap.width - 20
+                                                                    text: langSettings.lang === "sw" ? "Nyie vikaragosi, acheni kuvuluga  operesheni kwa miziki yenu!" : "You meerkats, stop disrupting the operation with your music!"
+                                                                    font.pointSize: comicStrip.fsBubbleMsg
+                                                                    font.bold: false
+                                                                    color: "#111111"; wrapMode: Text.WordWrap
                                                                 }
                                                             }
-                                                            Text {
-                                                                id: ab5Col
-                                                                width: ab5ColWrap.width - 20
-                                                                text: langSettings.lang === "sw" ? "NYANI!" : "MONKEY!"
-                                                                font.pointSize: comicStrip.fsBubbleMsg
-                                                                font.bold: false
-                                                                color: "#111111"; wrapMode: Text.WordWrap
-                                                            }
                                                         }
                                                     }
+
                                                 }
-                                                Item { width: 1; height: 6 }
-                                                Item {
-                                                    id: ab6Root
-                                                    width: parent.width
-                                                    height: ab6ColWrap.height + 2
-                                                    opacity: 0
-                                                    y: 22
-                                                    Connections {
-                                                        target: sceneAPanel
-                                                        function onPlayTickChanged() { ab6Root.opacity = 0; ab6Root.y = 22; ab6T.restart(); }
-                                                    }
-                                                    Timer { id: ab6T; interval: 6 * comicStrip.bubbleDelay + 200; repeat: false
-                                                        onTriggered: { ab6OpA.start(); ab6YA.start(); }
-                                                    }
-                                                    NumberAnimation on opacity { id: ab6OpA; running: false; from: 0; to: 1; duration: 280; easing.type: Easing.OutCubic }
-                                                    NumberAnimation on y      { id: ab6YA;   running: false; from: 22; to: 0;  duration: 320; easing.type: Easing.OutCubic }
+
+                                                Column {
+                                                    anchors.top: parent.verticalCenter
+                                                    anchors.left: parent.left
+                                                    anchors.right: parent.right
+                                                    spacing: 4
+
                                                     Item {
-                                                        id: ab6ColWrap
-                                                        anchors.left: parent.left; anchors.leftMargin: 6
-                                                        width: Math.min(parent.width * 0.82, ab6ColInner.implicitWidth + 24)
-                                                        height: ab6ColInner.height + 14
-                                                        Rectangle {
-                                                            anchors.fill: parent
-                                                            radius: 12
-                                                            color: "#f8eeff"
-                                                            border.color: "#aa44cc"; border.width: 1.5
+                                                        id: ab1Root
+                                                        width: parent.width
+                                                        z: 13
+                                                        height: opacity > 0 ? ab1ColWrap.height + 2 : 0
+                                                        opacity: 0
+                                                        y: 22
+                                                        Connections {
+                                                            target: sceneAPanel
+                                                            function onPlayTickChanged() { ab1Root.opacity = 0; ab1Root.height = 0; ab1Root.y = 22; ab1T.restart(); }
                                                         }
-                                                        Column {
-                                                            id: ab6ColInner
-                                                            anchors.top: parent.top; anchors.topMargin: 7
-                                                            anchors.left: parent.left; anchors.right: parent.right
-                                                            anchors.leftMargin: 10; anchors.rightMargin: 10
-                                                            spacing: 2
-                                                            Row {
-                                                                spacing: 4
-                                                                Text { text: "🐒"; font.pointSize: comicStrip.fsBubbleEmoji }
+                                                        Timer { id: ab1T; interval: 1 * comicStrip.bubbleDelay + 200; repeat: false
+                                                            onTriggered: { ab1OpA.start(); ab1YA.start(); }
+                                                        }
+                                                        NumberAnimation on opacity { id: ab1OpA; running: false; from: 0; to: 1; duration: 280; easing.type: Easing.OutCubic }
+                                                        NumberAnimation on y      { id: ab1YA;   running: false; from: 22; to: 0;  duration: 320; easing.type: Easing.OutCubic }
+                                                        Item {
+                                                            id: ab1ColWrap
+                                                            anchors.left: parent.left; anchors.leftMargin: 4
+                                                            width: parent.width - 8
+                                                            height: ab1ColInner.height + 14
+                                                            Rectangle {
+                                                                anchors.fill: parent
+                                                                radius: 12
+                                                                color: "#fffde8"
+                                                                border.color: "#ffaa00"; border.width: 1.5
+                                                            }
+                                                            Column {
+                                                                id: ab1ColInner
+                                                                anchors.top: parent.top; anchors.topMargin: 7
+                                                                anchors.left: parent.left; anchors.right: parent.right
+                                                                anchors.leftMargin: 10; anchors.rightMargin: 10
+                                                                spacing: 2
+                                                                Row {
+                                                                    spacing: 4
+                                                                    Text { text: "🦁"; font.pointSize: comicStrip.fsBubbleEmoji }
+                                                                    Text {
+                                                                        text: langSettings.lang === "sw" ? "SIMBA" : "LION"
+                                                                        font.bold: true
+                                                                        font.pointSize: comicStrip.fsBubbleName
+                                                                        color: langSettings.lang === "sw" ? "#ffcc00" : "#ff7700"
+                                                                        anchors.verticalCenter: parent.verticalCenter
+                                                                    }
+                                                                }
                                                                 Text {
-                                                                    text: langSettings.lang === "sw" ? "NYANI" : "MONKEY"
-                                                                    font.bold: true
-                                                                    font.pointSize: comicStrip.fsBubbleName
-                                                                    color: langSettings.lang === "sw" ? "#cc66ff" : "#8822cc"
-                                                                    anchors.verticalCenter: parent.verticalCenter
+                                                                    width: parent.width
+                                                                    text: langSettings.lang === "sw" ? "(akiangalia ramani kwa kiburi)" : "(studying the map proudly)"
+                                                                    font.italic: true
+                                                                    font.pointSize: comicStrip.fsBubbleAction
+                                                                    color: "#888888"; wrapMode: Text.WordWrap
+                                                                }
+                                                                Text {
+                                                                    id: ab1Col
+                                                                    width: ab1ColWrap.width - 20
+                                                                    text: langSettings.lang === "sw" ? "Kimya, hii ni operesheni nyeti. Mimi ni kamanda. Kamanda hawashuki." : "Silence — sensitive operation. I am the commander. Commanders don't get down."
+                                                                    font.pointSize: comicStrip.fsBubbleMsg
+                                                                    font.bold: false
+                                                                    color: "#111111"; wrapMode: Text.WordWrap
                                                                 }
                                                             }
-                                                            Text {
-                                                                id: ab6Col
-                                                                width: ab6ColWrap.width - 20
-                                                                text: langSettings.lang === "sw" ? "Sawa sawa! Kaskazini ni... ule mwelekeo ambapo mvua inakuja!" : "Okay okay! North is... where the rain is coming from!"
-                                                                font.pointSize: comicStrip.fsBubbleMsg
-                                                                font.bold: false
-                                                                color: "#111111"; wrapMode: Text.WordWrap
-                                                            }
                                                         }
                                                     }
-                                                }
-                                                Item { width: 1; height: 6 }
-                                                Item {
-                                                    id: ab7Root
-                                                    width: parent.width
-                                                    height: ab7ColWrap.height + 2
-                                                    opacity: 0
-                                                    y: 22
-                                                    Connections {
-                                                        target: sceneAPanel
-                                                        function onPlayTickChanged() { ab7Root.opacity = 0; ab7Root.y = 22; ab7T.restart(); }
-                                                    }
-                                                    Timer { id: ab7T; interval: 7 * comicStrip.bubbleDelay + 200; repeat: false
-                                                        onTriggered: { ab7OpA.start(); ab7YA.start(); }
-                                                    }
-                                                    NumberAnimation on opacity { id: ab7OpA; running: false; from: 0; to: 1; duration: 280; easing.type: Easing.OutCubic }
-                                                    NumberAnimation on y      { id: ab7YA;   running: false; from: 22; to: 0;  duration: 320; easing.type: Easing.OutCubic }
+
                                                     Item {
-                                                        id: ab7ColWrap
-                                                        anchors.right: parent.right; anchors.rightMargin: 6
-                                                        width: Math.min(parent.width * 0.82, ab7ColInner.implicitWidth + 24)
-                                                        height: ab7ColInner.height + 14
-                                                        Rectangle {
-                                                            anchors.fill: parent
-                                                            radius: 12
-                                                            color: "#fff4e8"
-                                                            border.color: "#ff6600"; border.width: 1.5
+                                                        id: ab3Root
+                                                        width: parent.width
+                                                        z: 15
+                                                        height: opacity > 0 ? ab3ColWrap.height + 2 : 0
+                                                        opacity: 0
+                                                        y: 22
+                                                        Connections {
+                                                            target: sceneAPanel
+                                                            function onPlayTickChanged() { ab3Root.opacity = 0; ab3Root.height = 0; ab3Root.y = 22; ab3T.restart(); }
                                                         }
-                                                        Column {
-                                                            id: ab7ColInner
-                                                            anchors.top: parent.top; anchors.topMargin: 7
-                                                            anchors.left: parent.left; anchors.right: parent.right
-                                                            anchors.leftMargin: 10; anchors.rightMargin: 10
-                                                            spacing: 2
-                                                            Row {
-                                                                spacing: 4
-                                                                Text { text: "🦒"; font.pointSize: comicStrip.fsBubbleEmoji }
+                                                        Timer { id: ab3T; interval: 3 * comicStrip.bubbleDelay + 200; repeat: false
+                                                            onTriggered: { ab1Root.opacity = 0; ab1Root.height = 0; ab3OpA.start(); ab3YA.start(); }
+                                                        }
+                                                        NumberAnimation on opacity { id: ab3OpA; running: false; from: 0; to: 1; duration: 280; easing.type: Easing.OutCubic }
+                                                        NumberAnimation on y      { id: ab3YA;   running: false; from: 22; to: 0;  duration: 320; easing.type: Easing.OutCubic }
+                                                        Item {
+                                                            id: ab3ColWrap
+                                                            anchors.left: parent.left; anchors.leftMargin: 4
+                                                            width: parent.width - 8
+                                                            height: ab3ColInner.height + 14
+                                                            Rectangle {
+                                                                anchors.fill: parent
+                                                                radius: 12
+                                                                color: "#fff4e8"
+                                                                border.color: "#ff6600"; border.width: 1.5
+                                                            }
+                                                            Column {
+                                                                id: ab3ColInner
+                                                                anchors.top: parent.top; anchors.topMargin: 7
+                                                                anchors.left: parent.left; anchors.right: parent.right
+                                                                anchors.leftMargin: 10; anchors.rightMargin: 10
+                                                                spacing: 2
+                                                                Row {
+                                                                    spacing: 4
+                                                                    Text { text: "🦒"; font.pointSize: comicStrip.fsBubbleEmoji }
+                                                                    Text {
+                                                                        text: langSettings.lang === "sw" ? "TWIGA" : "GIRAFFE"
+                                                                        font.bold: true
+                                                                        font.pointSize: comicStrip.fsBubbleName
+                                                                        color: langSettings.lang === "sw" ? "#ffaa33" : "#ff4400"
+                                                                        anchors.verticalCenter: parent.verticalCenter
+                                                                    }
+                                                                }
                                                                 Text {
-                                                                    text: langSettings.lang === "sw" ? "TWIGA" : "GIRAFFE"
-                                                                    font.bold: true
-                                                                    font.pointSize: comicStrip.fsBubbleName
-                                                                    color: langSettings.lang === "sw" ? "#ffaa33" : "#ff4400"
-                                                                    anchors.verticalCenter: parent.verticalCenter
+                                                                    width: parent.width
+                                                                    text: langSettings.lang === "sw" ? "(juu ya ngazi, akitetemeka)" : "(atop the ladder, trembling)"
+                                                                    font.italic: true
+                                                                    font.pointSize: comicStrip.fsBubbleAction
+                                                                    color: "#888888"; wrapMode: Text.WordWrap
+                                                                }
+                                                                Text {
+                                                                    id: ab3Col
+                                                                    width: ab3ColWrap.width - 20
+                                                                    text: langSettings.lang === "sw" ? "N-nyani! Bendera inaenda upande gani?!" : "M-monkey! Which direction does the flag go?!"
+                                                                    font.pointSize: comicStrip.fsBubbleMsg
+                                                                    font.bold: false
+                                                                    color: "#111111"; wrapMode: Text.WordWrap
                                                                 }
                                                             }
-                                                            Text {
-                                                                id: ab7Col
-                                                                width: ab7ColWrap.width - 20
-                                                                text: langSettings.lang === "sw" ? "Mvua inakuja KILA UPANDE!" : "Rain is coming from EVERY DIRECTION!"
-                                                                font.pointSize: comicStrip.fsBubbleMsg
-                                                                font.bold: false
-                                                                color: "#111111"; wrapMode: Text.WordWrap
-                                                            }
                                                         }
                                                     }
-                                                }
-                                                Item { width: 1; height: 6 }
-                                                Item {
-                                                    id: ab8Root
-                                                    width: parent.width
-                                                    height: ab8ColWrap.height + 2
-                                                    opacity: 0
-                                                    y: 22
-                                                    Connections {
-                                                        target: sceneAPanel
-                                                        function onPlayTickChanged() { ab8Root.opacity = 0; ab8Root.y = 22; ab8T.restart(); }
-                                                    }
-                                                    Timer { id: ab8T; interval: 8 * comicStrip.bubbleDelay + 200; repeat: false
-                                                        onTriggered: { ab8OpA.start(); ab8YA.start(); }
-                                                    }
-                                                    NumberAnimation on opacity { id: ab8OpA; running: false; from: 0; to: 1; duration: 280; easing.type: Easing.OutCubic }
-                                                    NumberAnimation on y      { id: ab8YA;   running: false; from: 22; to: 0;  duration: 320; easing.type: Easing.OutCubic }
+
                                                     Item {
-                                                        id: ab8ColWrap
-                                                        anchors.left: parent.left; anchors.leftMargin: 6
-                                                        width: Math.min(parent.width * 0.82, ab8ColInner.implicitWidth + 24)
-                                                        height: ab8ColInner.height + 14
-                                                        Rectangle {
-                                                            anchors.fill: parent
-                                                            radius: 12
-                                                            color: "#eafaf5"
-                                                            border.color: "#449988"; border.width: 1.5
+                                                        id: ab5Root
+                                                        width: parent.width
+                                                        z: 17
+                                                        height: opacity > 0 ? ab5ColWrap.height + 2 : 0
+                                                        opacity: 0
+                                                        y: 22
+                                                        Connections {
+                                                            target: sceneAPanel
+                                                            function onPlayTickChanged() { ab5Root.opacity = 0; ab5Root.height = 0; ab5Root.y = 22; ab5T.restart(); }
                                                         }
-                                                        Column {
-                                                            id: ab8ColInner
-                                                            anchors.top: parent.top; anchors.topMargin: 7
-                                                            anchors.left: parent.left; anchors.right: parent.right
-                                                            anchors.leftMargin: 10; anchors.rightMargin: 10
-                                                            spacing: 2
-                                                            Row {
-                                                                spacing: 4
-                                                                Text { text: "🦓"; font.pointSize: comicStrip.fsBubbleEmoji }
+                                                        Timer { id: ab5T; interval: 5 * comicStrip.bubbleDelay + 200; repeat: false
+                                                            onTriggered: { ab3Root.opacity = 0; ab3Root.height = 0; ab5OpA.start(); ab5YA.start(); }
+                                                        }
+                                                        NumberAnimation on opacity { id: ab5OpA; running: false; from: 0; to: 1; duration: 280; easing.type: Easing.OutCubic }
+                                                        NumberAnimation on y      { id: ab5YA;   running: false; from: 22; to: 0;  duration: 320; easing.type: Easing.OutCubic }
+                                                        Item {
+                                                            id: ab5ColWrap
+                                                            anchors.left: parent.left; anchors.leftMargin: 4
+                                                            width: parent.width - 8
+                                                            height: ab5ColInner.height + 14
+                                                            Rectangle {
+                                                                anchors.fill: parent
+                                                                radius: 12
+                                                                color: "#fff4e8"
+                                                                border.color: "#ff6600"; border.width: 1.5
+                                                            }
+                                                            Column {
+                                                                id: ab5ColInner
+                                                                anchors.top: parent.top; anchors.topMargin: 7
+                                                                anchors.left: parent.left; anchors.right: parent.right
+                                                                anchors.leftMargin: 10; anchors.rightMargin: 10
+                                                                spacing: 2
+                                                                Row {
+                                                                    spacing: 4
+                                                                    Text { text: "🦒"; font.pointSize: comicStrip.fsBubbleEmoji }
+                                                                    Text {
+                                                                        text: langSettings.lang === "sw" ? "TWIGA" : "GIRAFFE"
+                                                                        font.bold: true
+                                                                        font.pointSize: comicStrip.fsBubbleName
+                                                                        color: langSettings.lang === "sw" ? "#ffaa33" : "#ff4400"
+                                                                        anchors.verticalCenter: parent.verticalCenter
+                                                                    }
+                                                                }
                                                                 Text {
-                                                                    text: langSettings.lang === "sw" ? "PUNDAMILIA" : "ZEBRA"
-                                                                    font.bold: true
-                                                                    font.pointSize: comicStrip.fsBubbleName
-                                                                    color: langSettings.lang === "sw" ? "#55bbaa" : "#2288aa"
-                                                                    anchors.verticalCenter: parent.verticalCenter
+                                                                    id: ab5Col
+                                                                    width: ab5ColWrap.width - 20
+                                                                    text: langSettings.lang === "sw" ? "NYANI!" : "MONKEY!"
+                                                                    font.pointSize: comicStrip.fsBubbleMsg
+                                                                    font.bold: false
+                                                                    color: "#111111"; wrapMode: Text.WordWrap
                                                                 }
                                                             }
-                                                            Text {
-                                                                width: parent.width
-                                                                text: langSettings.lang === "sw" ? "(akisimama pembeni, utulivu kabisa)" : "(standing aside, completely calm)"
-                                                                font.italic: true
-                                                                font.pointSize: comicStrip.fsBubbleAction
-                                                                color: "#888888"; wrapMode: Text.WordWrap
-                                                            }
-                                                            Text {
-                                                                id: ab8Col
-                                                                width: ab8ColWrap.width - 20
-                                                                text: langSettings.lang === "sw" ? "Mimi niliwaambia tu... weka bendera kwenye nguzo. Rahisi. Lakini hapana... lazima iwe adventure." : "I told them... put the flag on a pole. Simple. But no... it has to be an adventure."
-                                                                font.pointSize: comicStrip.fsBubbleMsg
-                                                                font.bold: false
-                                                                color: "#111111"; wrapMode: Text.WordWrap
-                                                            }
                                                         }
                                                     }
-                                                }
-                                                Item { width: 1; height: 6 }
-                                                Item {
-                                                    id: ab9Root
-                                                    width: parent.width
-                                                    height: ab9ColWrap.height + 2
-                                                    opacity: 0
-                                                    y: 22
-                                                    Connections {
-                                                        target: sceneAPanel
-                                                        function onPlayTickChanged() { ab9Root.opacity = 0; ab9Root.y = 22; ab9T.restart(); }
-                                                    }
-                                                    Timer { id: ab9T; interval: 9 * comicStrip.bubbleDelay + 200; repeat: false
-                                                        onTriggered: { ab9OpA.start(); ab9YA.start(); }
-                                                    }
-                                                    NumberAnimation on opacity { id: ab9OpA; running: false; from: 0; to: 1; duration: 280; easing.type: Easing.OutCubic }
-                                                    NumberAnimation on y      { id: ab9YA;   running: false; from: 22; to: 0;  duration: 320; easing.type: Easing.OutCubic }
+
                                                     Item {
-                                                        id: ab9ColWrap
-                                                        anchors.right: parent.right; anchors.rightMargin: 6
-                                                        width: Math.min(parent.width * 0.82, ab9ColInner.implicitWidth + 24)
-                                                        height: ab9ColInner.height + 14
-                                                        Rectangle {
-                                                            anchors.fill: parent
-                                                            radius: 12
-                                                            color: "#fff0f0"
-                                                            border.color: "#cc2244"; border.width: 1.5
+                                                        id: ab7Root
+                                                        width: parent.width
+                                                        z: 20
+                                                        height: opacity > 0 ? ab7ColWrap.height + 2 : 0
+                                                        opacity: 0
+                                                        y: 22
+                                                        Connections {
+                                                            target: sceneAPanel
+                                                            function onPlayTickChanged() { ab7Root.opacity = 0; ab7Root.height = 0; ab7Root.y = 22; ab7T.restart(); }
                                                         }
-                                                        Column {
-                                                            id: ab9ColInner
-                                                            anchors.top: parent.top; anchors.topMargin: 7
-                                                            anchors.left: parent.left; anchors.right: parent.right
-                                                            anchors.leftMargin: 10; anchors.rightMargin: 10
-                                                            spacing: 2
-                                                            Row {
-                                                                spacing: 4
-                                                                Text { text: "🦦"; font.pointSize: comicStrip.fsBubbleEmoji }
+                                                        Timer { id: ab7T; interval: 7 * comicStrip.bubbleDelay + 200; repeat: false
+                                                            onTriggered: { ab5Root.opacity = 0; ab5Root.height = 0; ab7OpA.start(); ab7YA.start(); }
+                                                        }
+                                                        NumberAnimation on opacity { id: ab7OpA; running: false; from: 0; to: 1; duration: 280; easing.type: Easing.OutCubic }
+                                                        NumberAnimation on y      { id: ab7YA;   running: false; from: 22; to: 0;  duration: 320; easing.type: Easing.OutCubic }
+                                                        Item {
+                                                            id: ab7ColWrap
+                                                            anchors.left: parent.left; anchors.leftMargin: 4
+                                                            width: parent.width - 8
+                                                            height: ab7ColInner.height + 14
+                                                            Rectangle {
+                                                                anchors.fill: parent
+                                                                radius: 12
+                                                                color: "#fff4e8"
+                                                                border.color: "#ff6600"; border.width: 1.5
+                                                            }
+                                                            Column {
+                                                                id: ab7ColInner
+                                                                anchors.top: parent.top; anchors.topMargin: 7
+                                                                anchors.left: parent.left; anchors.right: parent.right
+                                                                anchors.leftMargin: 10; anchors.rightMargin: 10
+                                                                spacing: 2
+                                                                Row {
+                                                                    spacing: 4
+                                                                    Text { text: "🦒"; font.pointSize: comicStrip.fsBubbleEmoji }
+                                                                    Text {
+                                                                        text: langSettings.lang === "sw" ? "TWIGA" : "GIRAFFE"
+                                                                        font.bold: true
+                                                                        font.pointSize: comicStrip.fsBubbleName
+                                                                        color: langSettings.lang === "sw" ? "#ffaa33" : "#ff4400"
+                                                                        anchors.verticalCenter: parent.verticalCenter
+                                                                    }
+                                                                }
                                                                 Text {
-                                                                    text: langSettings.lang === "sw" ? "VIKARAGOSI" : "MEERKATS"
-                                                                    font.bold: true
-                                                                    font.pointSize: comicStrip.fsBubbleName
-                                                                    color: langSettings.lang === "sw" ? "#ff4466" : "#cc0033"
-                                                                    anchors.verticalCenter: parent.verticalCenter
+                                                                    id: ab7Col
+                                                                    width: ab7ColWrap.width - 20
+                                                                    text: langSettings.lang === "sw" ? "Mvua inakuja KILA UPANDE!" : "Rain is coming from EVERY DIRECTION!"
+                                                                    font.pointSize: comicStrip.fsBubbleMsg
+                                                                    font.bold: false
+                                                                    color: "#111111"; wrapMode: Text.WordWrap
                                                                 }
                                                             }
-                                                            Text {
-                                                                width: parent.width
-                                                                text: langSettings.lang === "sw" ? "(wakiwa wanaimba ndani ya hema)" : "(singing inside the tent)"
-                                                                font.italic: true
-                                                                font.pointSize: comicStrip.fsBubbleAction
-                                                                color: "#888888"; wrapMode: Text.WordWrap
-                                                            }
-                                                            Text {
-                                                                id: ab9Col
-                                                                width: ab9ColWrap.width - 20
-                                                                text: langSettings.lang === "sw" ? "Twiga panda juu ya ngazi, weka bendera , chezea juu kwa juu! 🎵" : "Giraffe, climb up there, plant the flag, and dance on top! 🎵"
-                                                                font.pointSize: comicStrip.fsBubbleMsg
-                                                                font.bold: false
-                                                                color: "#111111"; wrapMode: Text.WordWrap
-                                                            }
                                                         }
                                                     }
-                                                }
-                                                Item { width: 1; height: 6 }
-                                                Item {
-                                                    id: ab10Root
-                                                    width: parent.width
-                                                    height: ab10ColWrap.height + 2
-                                                    opacity: 0
-                                                    y: 22
-                                                    Connections {
-                                                        target: sceneAPanel
-                                                        function onPlayTickChanged() { ab10Root.opacity = 0; ab10Root.y = 22; ab10T.restart(); }
-                                                    }
-                                                    Timer { id: ab10T; interval: 10 * comicStrip.bubbleDelay + 200; repeat: false
-                                                        onTriggered: { ab10OpA.start(); ab10YA.start(); }
-                                                    }
-                                                    NumberAnimation on opacity { id: ab10OpA; running: false; from: 0; to: 1; duration: 280; easing.type: Easing.OutCubic }
-                                                    NumberAnimation on y      { id: ab10YA;   running: false; from: 22; to: 0;  duration: 320; easing.type: Easing.OutCubic }
+
                                                     Item {
-                                                        id: ab10ColWrap
-                                                        anchors.left: parent.left; anchors.leftMargin: 6
-                                                        width: Math.min(parent.width * 0.82, ab10ColInner.implicitWidth + 24)
-                                                        height: ab10ColInner.height + 14
-                                                        Rectangle {
-                                                            anchors.fill: parent
-                                                            radius: 12
-                                                            color: "#fffde8"
-                                                            border.color: "#ffaa00"; border.width: 1.5
+                                                        id: ab9Root
+                                                        width: parent.width
+                                                        z: 22
+                                                        height: opacity > 0 ? ab9ColWrap.height + 2 : 0
+                                                        opacity: 0
+                                                        y: 22
+                                                        Connections {
+                                                            target: sceneAPanel
+                                                            function onPlayTickChanged() { ab9Root.opacity = 0; ab9Root.height = 0; ab9Root.y = 22; ab9T.restart(); }
                                                         }
-                                                        Column {
-                                                            id: ab10ColInner
-                                                            anchors.top: parent.top; anchors.topMargin: 7
-                                                            anchors.left: parent.left; anchors.right: parent.right
-                                                            anchors.leftMargin: 10; anchors.rightMargin: 10
-                                                            spacing: 2
-                                                            Row {
-                                                                spacing: 4
-                                                                Text { text: "🦁"; font.pointSize: comicStrip.fsBubbleEmoji }
+                                                        Timer { id: ab9T; interval: 9 * comicStrip.bubbleDelay + 200; repeat: false
+                                                            onTriggered: { ab7Root.opacity = 0; ab7Root.height = 0; ab9OpA.start(); ab9YA.start(); }
+                                                        }
+                                                        NumberAnimation on opacity { id: ab9OpA; running: false; from: 0; to: 1; duration: 280; easing.type: Easing.OutCubic }
+                                                        NumberAnimation on y      { id: ab9YA;   running: false; from: 22; to: 0;  duration: 320; easing.type: Easing.OutCubic }
+                                                        Item {
+                                                            id: ab9ColWrap
+                                                            anchors.left: parent.left; anchors.leftMargin: 4
+                                                            width: parent.width - 8
+                                                            height: ab9ColInner.height + 14
+                                                            Rectangle {
+                                                                anchors.fill: parent
+                                                                radius: 12
+                                                                color: "#fff0f0"
+                                                                border.color: "#cc2244"; border.width: 1.5
+                                                            }
+                                                            Column {
+                                                                id: ab9ColInner
+                                                                anchors.top: parent.top; anchors.topMargin: 7
+                                                                anchors.left: parent.left; anchors.right: parent.right
+                                                                anchors.leftMargin: 10; anchors.rightMargin: 10
+                                                                spacing: 2
+                                                                Row {
+                                                                    spacing: 4
+                                                                    Text { text: "🦦"; font.pointSize: comicStrip.fsBubbleEmoji }
+                                                                    Text {
+                                                                        text: langSettings.lang === "sw" ? "VIKARAGOSI" : "MEERKATS"
+                                                                        font.bold: true
+                                                                        font.pointSize: comicStrip.fsBubbleName
+                                                                        color: langSettings.lang === "sw" ? "#ff4466" : "#cc0033"
+                                                                        anchors.verticalCenter: parent.verticalCenter
+                                                                    }
+                                                                }
                                                                 Text {
-                                                                    text: langSettings.lang === "sw" ? "SIMBA" : "LION"
-                                                                    font.bold: true
-                                                                    font.pointSize: comicStrip.fsBubbleName
-                                                                    color: langSettings.lang === "sw" ? "#ffcc00" : "#ff7700"
-                                                                    anchors.verticalCenter: parent.verticalCenter
+                                                                    width: parent.width
+                                                                    text: langSettings.lang === "sw" ? "(wakiwa wanaimba ndani ya hema)" : "(singing inside the tent)"
+                                                                    font.italic: true
+                                                                    font.pointSize: comicStrip.fsBubbleAction
+                                                                    color: "#888888"; wrapMode: Text.WordWrap
+                                                                }
+                                                                Text {
+                                                                    id: ab9Col
+                                                                    width: ab9ColWrap.width - 20
+                                                                    text: langSettings.lang === "sw" ? "Twiga panda juu ya ngazi, weka bendera , chezea juu kwa juu! 🎵" : "Giraffe, climb up there, plant the flag, and dance on top! 🎵"
+                                                                    font.pointSize: comicStrip.fsBubbleMsg
+                                                                    font.bold: false
+                                                                    color: "#111111"; wrapMode: Text.WordWrap
                                                                 }
                                                             }
-                                                            Text {
-                                                                width: parent.width
-                                                                text: langSettings.lang === "sw" ? "😂 (akiwa anacheka)" : "😂 (while laughing)"
-                                                                font.italic: true
-                                                                font.pointSize: comicStrip.fsBubbleAction
-                                                                color: "#888888"; wrapMode: Text.WordWrap
-                                                            }
-                                                            Text {
-                                                                id: ab10Col
-                                                                width: ab10ColWrap.width - 20
-                                                                text: langSettings.lang === "sw" ? "Nyie vikaragosi, acheni kuvuluga  operesheni kwa miziki yenu!" : "You meerkats, stop disrupting the operation with your music!"
-                                                                font.pointSize: comicStrip.fsBubbleMsg
-                                                                font.bold: false
-                                                                color: "#111111"; wrapMode: Text.WordWrap
-                                                            }
                                                         }
                                                     }
-                                                }
-                                                Item { width: 1; height: 6 }
-                                                Item {
-                                                    id: ab11Root
-                                                    width: parent.width
-                                                    height: ab11ColWrap.height + 2
-                                                    opacity: 0
-                                                    y: 22
-                                                    Connections {
-                                                        target: sceneAPanel
-                                                        function onPlayTickChanged() { ab11Root.opacity = 0; ab11Root.y = 22; ab11T.restart(); }
-                                                    }
-                                                    Timer { id: ab11T; interval: 11 * comicStrip.bubbleDelay + 200; repeat: false
-                                                        onTriggered: { ab11OpA.start(); ab11YA.start(); }
-                                                    }
-                                                    NumberAnimation on opacity { id: ab11OpA; running: false; from: 0; to: 1; duration: 280; easing.type: Easing.OutCubic }
-                                                    NumberAnimation on y      { id: ab11YA;   running: false; from: 22; to: 0;  duration: 320; easing.type: Easing.OutCubic }
+
                                                     Item {
-                                                        id: ab11ColWrap
-                                                        anchors.right: parent.right; anchors.rightMargin: 6
-                                                        width: Math.min(parent.width * 0.82, ab11ColInner.implicitWidth + 24)
-                                                        height: ab11ColInner.height + 14
-                                                        Rectangle {
-                                                            anchors.fill: parent
-                                                            radius: 12
-                                                            color: "#fff0f0"
-                                                            border.color: "#cc2244"; border.width: 1.5
+                                                        id: ab11Root
+                                                        width: parent.width
+                                                        z: 24
+                                                        height: opacity > 0 ? ab11ColWrap.height + 2 : 0
+                                                        opacity: 0
+                                                        y: 22
+                                                        Connections {
+                                                            target: sceneAPanel
+                                                            function onPlayTickChanged() { ab11Root.opacity = 0; ab11Root.height = 0; ab11Root.y = 22; ab11T.restart(); }
                                                         }
-                                                        Column {
-                                                            id: ab11ColInner
-                                                            anchors.top: parent.top; anchors.topMargin: 7
-                                                            anchors.left: parent.left; anchors.right: parent.right
-                                                            anchors.leftMargin: 10; anchors.rightMargin: 10
-                                                            spacing: 2
-                                                            Row {
-                                                                spacing: 4
-                                                                Text { text: "🦦"; font.pointSize: comicStrip.fsBubbleEmoji }
+                                                        Timer { id: ab11T; interval: 11 * comicStrip.bubbleDelay + 200; repeat: false
+                                                            onTriggered: { ab9Root.opacity = 0; ab9Root.height = 0; ab11OpA.start(); ab11YA.start(); }
+                                                        }
+                                                        NumberAnimation on opacity { id: ab11OpA; running: false; from: 0; to: 1; duration: 280; easing.type: Easing.OutCubic }
+                                                        NumberAnimation on y      { id: ab11YA;   running: false; from: 22; to: 0;  duration: 320; easing.type: Easing.OutCubic }
+                                                        Item {
+                                                            id: ab11ColWrap
+                                                            anchors.left: parent.left; anchors.leftMargin: 4
+                                                            width: parent.width - 8
+                                                            height: ab11ColInner.height + 14
+                                                            Rectangle {
+                                                                anchors.fill: parent
+                                                                radius: 12
+                                                                color: "#fff0f0"
+                                                                border.color: "#cc2244"; border.width: 1.5
+                                                            }
+                                                            Column {
+                                                                id: ab11ColInner
+                                                                anchors.top: parent.top; anchors.topMargin: 7
+                                                                anchors.left: parent.left; anchors.right: parent.right
+                                                                anchors.leftMargin: 10; anchors.rightMargin: 10
+                                                                spacing: 2
+                                                                Row {
+                                                                    spacing: 4
+                                                                    Text { text: "🦦"; font.pointSize: comicStrip.fsBubbleEmoji }
+                                                                    Text {
+                                                                        text: langSettings.lang === "sw" ? "VIKARAGOSI" : "MEERKATS"
+                                                                        font.bold: true
+                                                                        font.pointSize: comicStrip.fsBubbleName
+                                                                        color: langSettings.lang === "sw" ? "#ff4466" : "#cc0033"
+                                                                        anchors.verticalCenter: parent.verticalCenter
+                                                                    }
+                                                                }
                                                                 Text {
-                                                                    text: langSettings.lang === "sw" ? "VIKARAGOSI" : "MEERKATS"
-                                                                    font.bold: true
-                                                                    font.pointSize: comicStrip.fsBubbleName
-                                                                    color: langSettings.lang === "sw" ? "#ff4466" : "#cc0033"
-                                                                    anchors.verticalCenter: parent.verticalCenter
+                                                                    width: parent.width
+                                                                    text: langSettings.lang === "sw" ? "😂 (wakiwa wanacheka)" : "😂 (while laughing)"
+                                                                    font.italic: true
+                                                                    font.pointSize: comicStrip.fsBubbleAction
+                                                                    color: "#888888"; wrapMode: Text.WordWrap
+                                                                }
+                                                                Text {
+                                                                    id: ab11Col
+                                                                    width: ab11ColWrap.width - 20
+                                                                    text: langSettings.lang === "sw" ? "OPERESHENI?! TWIGA, CHEZEA JUU KWA JUU, JUU YA NGAZI!😂 " : "OPERATION?! GIRAFFE, DANCE ON TOP, ON TOP OF THE LADDER!😂"
+                                                                    font.pointSize: comicStrip.fsBubbleMsg
+                                                                    font.bold: false
+                                                                    color: "#111111"; wrapMode: Text.WordWrap
                                                                 }
                                                             }
-                                                            Text {
-                                                                width: parent.width
-                                                                text: langSettings.lang === "sw" ? "😂 (wakiwa wanacheka)" : "😂 (while laughing)"
-                                                                font.italic: true
-                                                                font.pointSize: comicStrip.fsBubbleAction
-                                                                color: "#888888"; wrapMode: Text.WordWrap
-                                                            }
-                                                            Text {
-                                                                id: ab11Col
-                                                                width: ab11ColWrap.width - 20
-                                                                text: langSettings.lang === "sw" ? "OPERESHENI?! TWIGA, CHEZEA JUU KWA JUU, JUU YA NGAZI!😂 " : "OPERATION?! GIRAFFE, DANCE ON TOP, ON TOP OF THE LADDER!😂"
-                                                                font.pointSize: comicStrip.fsBubbleMsg
-                                                                font.bold: false
-                                                                color: "#111111"; wrapMode: Text.WordWrap
-                                                            }
                                                         }
                                                     }
+
                                                 }
-                                                Item { width: 1; height: 8 }
+
                                             }
                                         }
                                     }
@@ -4776,786 +4799,810 @@ Rectangle {
                                             color: "#00100a"
                                             clip: true
 
-                                            Column {
+                                            Item {
                                                 id: dlgListB
                                                 anchors.fill: parent
-                                                anchors.leftMargin: 2
-                                                anchors.rightMargin: 2
-                                                spacing: 0
-                                                Item { width: 1; height: 4 }
 
-                                                Item { width: 1; height: 6 }
-                                                Item {
-                                                    id: bb0Root
-                                                    width: parent.width
-                                                    height: bb0ColWrap.height + 2
-                                                    opacity: 0
-                                                    y: 22
-                                                    Connections {
-                                                        target: sceneBPanel
-                                                        function onPlayTickChanged() { bb0Root.opacity = 0; bb0Root.y = 22; bb0T.restart(); }
-                                                    }
-                                                    Timer { id: bb0T; interval: 0 * comicStrip.bubbleDelay + 200; repeat: false
-                                                        onTriggered: { bb0OpA.start(); bb0YA.start(); }
-                                                    }
-                                                    NumberAnimation on opacity { id: bb0OpA; running: false; from: 0; to: 1; duration: 280; easing.type: Easing.OutCubic }
-                                                    NumberAnimation on y      { id: bb0YA;   running: false; from: 22; to: 0;  duration: 320; easing.type: Easing.OutCubic }
+                                                Column {
+                                                    anchors.top: parent.top
+                                                    anchors.left: parent.left
+                                                    anchors.right: parent.right
+                                                    spacing: 4
+
                                                     Item {
-                                                        id: bb0ColWrap
-                                                        anchors.left: parent.left; anchors.leftMargin: 6
-                                                        width: Math.min(parent.width * 0.82, bb0ColInner.implicitWidth + 24)
-                                                        height: bb0ColInner.height + 14
-                                                        Rectangle {
-                                                            anchors.fill: parent
-                                                            radius: 12
-                                                            color: "#e8f4ff"
-                                                            border.color: "#0077cc"; border.width: 1.5
+                                                        id: bb0Root
+                                                        width: parent.width
+                                                        z: 1
+                                                        height: opacity > 0 ? bb0ColWrap.height + 2 : 0
+                                                        opacity: 0
+                                                        y: -20
+                                                        Connections {
+                                                            target: sceneBPanel
+                                                            function onPlayTickChanged() { bb0Root.opacity = 0; bb0Root.height = 0; bb0Root.y = -20; bb0T.restart(); }
                                                         }
-                                                        Column {
-                                                            id: bb0ColInner
-                                                            anchors.top: parent.top; anchors.topMargin: 7
-                                                            anchors.left: parent.left; anchors.right: parent.right
-                                                            anchors.leftMargin: 10; anchors.rightMargin: 10
-                                                            spacing: 2
-                                                            Row {
-                                                                spacing: 4
-                                                                Text { text: "📷"; font.pointSize: comicStrip.fsBubbleEmoji }
+                                                        Timer { id: bb0T; interval: 0 * comicStrip.bubbleDelay + 200; repeat: false
+                                                            onTriggered: { bb0OpA.start(); bb0YA.start(); }
+                                                        }
+                                                        NumberAnimation on opacity { id: bb0OpA; running: false; from: 0; to: 1; duration: 280; easing.type: Easing.OutCubic }
+                                                        NumberAnimation on y      { id: bb0YA;   running: false; from: -20; to: 0;  duration: 320; easing.type: Easing.OutCubic }
+                                                        Item {
+                                                            id: bb0ColWrap
+                                                            anchors.left: parent.left; anchors.leftMargin: 4
+                                                            width: parent.width - 8
+                                                            height: bb0ColInner.height + 14
+                                                            Rectangle {
+                                                                anchors.fill: parent
+                                                                radius: 12
+                                                                color: "#e8f4ff"
+                                                                border.color: "#0077cc"; border.width: 1.5
+                                                            }
+                                                            Column {
+                                                                id: bb0ColInner
+                                                                anchors.top: parent.top; anchors.topMargin: 7
+                                                                anchors.left: parent.left; anchors.right: parent.right
+                                                                anchors.leftMargin: 10; anchors.rightMargin: 10
+                                                                spacing: 2
+                                                                Row {
+                                                                    spacing: 4
+                                                                    Text { text: "📷"; font.pointSize: comicStrip.fsBubbleEmoji }
+                                                                    Text {
+                                                                        text: langSettings.lang === "sw" ? "MPIGAPICHA #1" : "PHOTOGRAPHER #1"
+                                                                        font.bold: true
+                                                                        font.pointSize: comicStrip.fsBubbleName
+                                                                        color: "#0077cc"
+                                                                        anchors.verticalCenter: parent.verticalCenter
+                                                                    }
+                                                                }
                                                                 Text {
-                                                                    text: langSettings.lang === "sw" ? "MPIGAPICHA #1" : "PHOTOGRAPHER #1"
-                                                                    font.bold: true
-                                                                    font.pointSize: comicStrip.fsBubbleName
-                                                                    color: "#0077cc"
-                                                                    anchors.verticalCenter: parent.verticalCenter
+                                                                    width: parent.width
+                                                                    text: langSettings.lang === "sw" ? "(akipiga picha kwa furaha)" : "(snapping photos excitedly)"
+                                                                    font.italic: true
+                                                                    font.pointSize: comicStrip.fsBubbleAction
+                                                                    color: "#888888"; wrapMode: Text.WordWrap
+                                                                }
+                                                                Text {
+                                                                    id: bb0Col
+                                                                    width: bb0ColWrap.width - 20
+                                                                    text: langSettings.lang === "sw" ? "Jamani! Tazama simba analala NDANI YA HEMA! Yeye ni mzuri sana!" : "OH MY GOD! Look at the lion sleeping INSIDE A TENT! How adorable!"
+                                                                    font.pointSize: comicStrip.fsBubbleMsg
+                                                                    font.bold: false
+                                                                    color: "#111111"; wrapMode: Text.WordWrap
                                                                 }
                                                             }
-                                                            Text {
-                                                                width: parent.width
-                                                                text: langSettings.lang === "sw" ? "(akipiga picha kwa furaha)" : "(snapping photos excitedly)"
-                                                                font.italic: true
-                                                                font.pointSize: comicStrip.fsBubbleAction
-                                                                color: "#888888"; wrapMode: Text.WordWrap
-                                                            }
-                                                            Text {
-                                                                id: bb0Col
-                                                                width: bb0ColWrap.width - 20
-                                                                text: langSettings.lang === "sw" ? "Jamani! Tazama simba analala NDANI YA HEMA! Yeye ni mzuri sana!" : "OH MY GOD! Look at the lion sleeping INSIDE A TENT! How adorable!"
-                                                                font.pointSize: comicStrip.fsBubbleMsg
-                                                                font.bold: false
-                                                                color: "#111111"; wrapMode: Text.WordWrap
-                                                            }
                                                         }
                                                     }
-                                                }
-                                                Item { width: 1; height: 6 }
-                                                Item {
-                                                    id: bb1Root
-                                                    width: parent.width
-                                                    height: bb1ColWrap.height + 2
-                                                    opacity: 0
-                                                    y: 22
-                                                    Connections {
-                                                        target: sceneBPanel
-                                                        function onPlayTickChanged() { bb1Root.opacity = 0; bb1Root.y = 22; bb1T.restart(); }
-                                                    }
-                                                    Timer { id: bb1T; interval: 1 * comicStrip.bubbleDelay + 200; repeat: false
-                                                        onTriggered: { bb1OpA.start(); bb1YA.start(); }
-                                                    }
-                                                    NumberAnimation on opacity { id: bb1OpA; running: false; from: 0; to: 1; duration: 280; easing.type: Easing.OutCubic }
-                                                    NumberAnimation on y      { id: bb1YA;   running: false; from: 22; to: 0;  duration: 320; easing.type: Easing.OutCubic }
+
                                                     Item {
-                                                        id: bb1ColWrap
-                                                        anchors.right: parent.right; anchors.rightMargin: 6
-                                                        width: Math.min(parent.width * 0.82, bb1ColInner.implicitWidth + 24)
-                                                        height: bb1ColInner.height + 14
-                                                        Rectangle {
-                                                            anchors.fill: parent
-                                                            radius: 12
-                                                            color: "#fffde8"
-                                                            border.color: "#ffaa00"; border.width: 1.5
+                                                        id: bb2Root
+                                                        width: parent.width
+                                                        z: 3
+                                                        height: opacity > 0 ? bb2ColWrap.height + 2 : 0
+                                                        opacity: 0
+                                                        y: -20
+                                                        Connections {
+                                                            target: sceneBPanel
+                                                            function onPlayTickChanged() { bb2Root.opacity = 0; bb2Root.height = 0; bb2Root.y = -20; bb2T.restart(); }
                                                         }
-                                                        Column {
-                                                            id: bb1ColInner
-                                                            anchors.top: parent.top; anchors.topMargin: 7
-                                                            anchors.left: parent.left; anchors.right: parent.right
-                                                            anchors.leftMargin: 10; anchors.rightMargin: 10
-                                                            spacing: 2
-                                                            Row {
-                                                                spacing: 4
-                                                                Text { text: "🦁"; font.pointSize: comicStrip.fsBubbleEmoji }
+                                                        Timer { id: bb2T; interval: 2 * comicStrip.bubbleDelay + 200; repeat: false
+                                                            onTriggered: { bb0Root.opacity = 0; bb0Root.height = 0; bb2OpA.start(); bb2YA.start(); }
+                                                        }
+                                                        NumberAnimation on opacity { id: bb2OpA; running: false; from: 0; to: 1; duration: 280; easing.type: Easing.OutCubic }
+                                                        NumberAnimation on y      { id: bb2YA;   running: false; from: -20; to: 0;  duration: 320; easing.type: Easing.OutCubic }
+                                                        Item {
+                                                            id: bb2ColWrap
+                                                            anchors.left: parent.left; anchors.leftMargin: 4
+                                                            width: parent.width - 8
+                                                            height: bb2ColInner.height + 14
+                                                            Rectangle {
+                                                                anchors.fill: parent
+                                                                radius: 12
+                                                                color: "#e8f4ff"
+                                                                border.color: "#0077cc"; border.width: 1.5
+                                                            }
+                                                            Column {
+                                                                id: bb2ColInner
+                                                                anchors.top: parent.top; anchors.topMargin: 7
+                                                                anchors.left: parent.left; anchors.right: parent.right
+                                                                anchors.leftMargin: 10; anchors.rightMargin: 10
+                                                                spacing: 2
+                                                                Row {
+                                                                    spacing: 4
+                                                                    Text { text: "📷"; font.pointSize: comicStrip.fsBubbleEmoji }
+                                                                    Text {
+                                                                        text: langSettings.lang === "sw" ? "MPIGAPICHA #2" : "PHOTOGRAPHER #2"
+                                                                        font.bold: true
+                                                                        font.pointSize: comicStrip.fsBubbleName
+                                                                        color: "#0077cc"
+                                                                        anchors.verticalCenter: parent.verticalCenter
+                                                                    }
+                                                                }
                                                                 Text {
-                                                                    text: langSettings.lang === "sw" ? "SIMBA" : "LION"
-                                                                    font.bold: true
-                                                                    font.pointSize: comicStrip.fsBubbleName
-                                                                    color: langSettings.lang === "sw" ? "#ffcc00" : "#ff7700"
-                                                                    anchors.verticalCenter: parent.verticalCenter
+                                                                    id: bb2Col
+                                                                    width: bb2ColWrap.width - 20
+                                                                    text: langSettings.lang === "sw" ? "Na twiga yule — anaangalia nini?" : "And that giraffe — what is it looking at?"
+                                                                    font.pointSize: comicStrip.fsBubbleMsg
+                                                                    font.bold: false
+                                                                    color: "#111111"; wrapMode: Text.WordWrap
                                                                 }
                                                             }
-                                                            Text {
-                                                                width: parent.width
-                                                                text: langSettings.lang === "sw" ? "(akifungua jicho moja)" : "(opening one eye)"
-                                                                font.italic: true
-                                                                font.pointSize: comicStrip.fsBubbleAction
-                                                                color: "#888888"; wrapMode: Text.WordWrap
-                                                            }
-                                                            Text {
-                                                                id: bb1Col
-                                                                width: bb1ColWrap.width - 20
-                                                                text: langSettings.lang === "sw" ? "...mzuri. Ndiyo. Hiyo ndiyo neno sahihi." : "...adorable. Yes. That is exactly the right word."
-                                                                font.pointSize: comicStrip.fsBubbleMsg
-                                                                font.bold: false
-                                                                color: "#111111"; wrapMode: Text.WordWrap
-                                                            }
                                                         }
                                                     }
-                                                }
-                                                Item { width: 1; height: 6 }
-                                                Item {
-                                                    id: bb2Root
-                                                    width: parent.width
-                                                    height: bb2ColWrap.height + 2
-                                                    opacity: 0
-                                                    y: 22
-                                                    Connections {
-                                                        target: sceneBPanel
-                                                        function onPlayTickChanged() { bb2Root.opacity = 0; bb2Root.y = 22; bb2T.restart(); }
-                                                    }
-                                                    Timer { id: bb2T; interval: 2 * comicStrip.bubbleDelay + 200; repeat: false
-                                                        onTriggered: { bb2OpA.start(); bb2YA.start(); }
-                                                    }
-                                                    NumberAnimation on opacity { id: bb2OpA; running: false; from: 0; to: 1; duration: 280; easing.type: Easing.OutCubic }
-                                                    NumberAnimation on y      { id: bb2YA;   running: false; from: 22; to: 0;  duration: 320; easing.type: Easing.OutCubic }
+
                                                     Item {
-                                                        id: bb2ColWrap
-                                                        anchors.left: parent.left; anchors.leftMargin: 6
-                                                        width: Math.min(parent.width * 0.82, bb2ColInner.implicitWidth + 24)
-                                                        height: bb2ColInner.height + 14
-                                                        Rectangle {
-                                                            anchors.fill: parent
-                                                            radius: 12
-                                                            color: "#e8f4ff"
-                                                            border.color: "#0077cc"; border.width: 1.5
+                                                        id: bb4Root
+                                                        width: parent.width
+                                                        z: 5
+                                                        height: opacity > 0 ? bb4ColWrap.height + 2 : 0
+                                                        opacity: 0
+                                                        y: -20
+                                                        Connections {
+                                                            target: sceneBPanel
+                                                            function onPlayTickChanged() { bb4Root.opacity = 0; bb4Root.height = 0; bb4Root.y = -20; bb4T.restart(); }
                                                         }
-                                                        Column {
-                                                            id: bb2ColInner
-                                                            anchors.top: parent.top; anchors.topMargin: 7
-                                                            anchors.left: parent.left; anchors.right: parent.right
-                                                            anchors.leftMargin: 10; anchors.rightMargin: 10
-                                                            spacing: 2
-                                                            Row {
-                                                                spacing: 4
-                                                                Text { text: "📷"; font.pointSize: comicStrip.fsBubbleEmoji }
+                                                        Timer { id: bb4T; interval: 4 * comicStrip.bubbleDelay + 200; repeat: false
+                                                            onTriggered: { bb2Root.opacity = 0; bb2Root.height = 0; bb4OpA.start(); bb4YA.start(); }
+                                                        }
+                                                        NumberAnimation on opacity { id: bb4OpA; running: false; from: 0; to: 1; duration: 280; easing.type: Easing.OutCubic }
+                                                        NumberAnimation on y      { id: bb4YA;   running: false; from: -20; to: 0;  duration: 320; easing.type: Easing.OutCubic }
+                                                        Item {
+                                                            id: bb4ColWrap
+                                                            anchors.left: parent.left; anchors.leftMargin: 4
+                                                            width: parent.width - 8
+                                                            height: bb4ColInner.height + 14
+                                                            Rectangle {
+                                                                anchors.fill: parent
+                                                                radius: 12
+                                                                color: "#e0f0ff"
+                                                                border.color: "#3399cc"; border.width: 1.5
+                                                            }
+                                                            Column {
+                                                                id: bb4ColInner
+                                                                anchors.top: parent.top; anchors.topMargin: 7
+                                                                anchors.left: parent.left; anchors.right: parent.right
+                                                                anchors.leftMargin: 10; anchors.rightMargin: 10
+                                                                spacing: 2
+                                                                Row {
+                                                                    spacing: 4
+                                                                    Text { text: "👦"; font.pointSize: comicStrip.fsBubbleEmoji }
+                                                                    Text {
+                                                                        text: langSettings.lang === "sw" ? "MTOTO WA SHULE" : "SCHOOLCHILD"
+                                                                        font.bold: true
+                                                                        font.pointSize: comicStrip.fsBubbleName
+                                                                        color: "#3399cc"
+                                                                        anchors.verticalCenter: parent.verticalCenter
+                                                                    }
+                                                                }
                                                                 Text {
-                                                                    text: langSettings.lang === "sw" ? "MPIGAPICHA #2" : "PHOTOGRAPHER #2"
-                                                                    font.bold: true
-                                                                    font.pointSize: comicStrip.fsBubbleName
-                                                                    color: "#0077cc"
-                                                                    anchors.verticalCenter: parent.verticalCenter
+                                                                    width: parent.width
+                                                                    text: langSettings.lang === "sw" ? "(akionyesha nyuma ya mti)" : "(pointing behind the tree)"
+                                                                    font.italic: true
+                                                                    font.pointSize: comicStrip.fsBubbleAction
+                                                                    color: "#888888"; wrapMode: Text.WordWrap
+                                                                }
+                                                                Text {
+                                                                    id: bb4Col
+                                                                    width: bb4ColWrap.width - 20
+                                                                    text: langSettings.lang === "sw" ? "Dada, ile ngazi inatoka wapi?" : "Sister, where did that ladder come from?"
+                                                                    font.pointSize: comicStrip.fsBubbleMsg
+                                                                    font.bold: false
+                                                                    color: "#111111"; wrapMode: Text.WordWrap
                                                                 }
                                                             }
-                                                            Text {
-                                                                id: bb2Col
-                                                                width: bb2ColWrap.width - 20
-                                                                text: langSettings.lang === "sw" ? "Na twiga yule — anaangalia nini?" : "And that giraffe — what is it looking at?"
-                                                                font.pointSize: comicStrip.fsBubbleMsg
-                                                                font.bold: false
-                                                                color: "#111111"; wrapMode: Text.WordWrap
-                                                            }
                                                         }
                                                     }
-                                                }
-                                                Item { width: 1; height: 6 }
-                                                Item {
-                                                    id: bb3Root
-                                                    width: parent.width
-                                                    height: bb3ColWrap.height + 2
-                                                    opacity: 0
-                                                    y: 22
-                                                    Connections {
-                                                        target: sceneBPanel
-                                                        function onPlayTickChanged() { bb3Root.opacity = 0; bb3Root.y = 22; bb3T.restart(); }
-                                                    }
-                                                    Timer { id: bb3T; interval: 3 * comicStrip.bubbleDelay + 200; repeat: false
-                                                        onTriggered: { bb3OpA.start(); bb3YA.start(); }
-                                                    }
-                                                    NumberAnimation on opacity { id: bb3OpA; running: false; from: 0; to: 1; duration: 280; easing.type: Easing.OutCubic }
-                                                    NumberAnimation on y      { id: bb3YA;   running: false; from: 22; to: 0;  duration: 320; easing.type: Easing.OutCubic }
+
                                                     Item {
-                                                        id: bb3ColWrap
-                                                        anchors.right: parent.right; anchors.rightMargin: 6
-                                                        width: Math.min(parent.width * 0.82, bb3ColInner.implicitWidth + 24)
-                                                        height: bb3ColInner.height + 14
-                                                        Rectangle {
-                                                            anchors.fill: parent
-                                                            radius: 12
-                                                            color: "#fff4e8"
-                                                            border.color: "#ff6600"; border.width: 1.5
+                                                        id: bb6Root
+                                                        width: parent.width
+                                                        z: 7
+                                                        height: opacity > 0 ? bb6ColWrap.height + 2 : 0
+                                                        opacity: 0
+                                                        y: -20
+                                                        Connections {
+                                                            target: sceneBPanel
+                                                            function onPlayTickChanged() { bb6Root.opacity = 0; bb6Root.height = 0; bb6Root.y = -20; bb6T.restart(); }
                                                         }
-                                                        Column {
-                                                            id: bb3ColInner
-                                                            anchors.top: parent.top; anchors.topMargin: 7
-                                                            anchors.left: parent.left; anchors.right: parent.right
-                                                            anchors.leftMargin: 10; anchors.rightMargin: 10
-                                                            spacing: 2
-                                                            Row {
-                                                                spacing: 4
-                                                                Text { text: "🦒"; font.pointSize: comicStrip.fsBubbleEmoji }
+                                                        Timer { id: bb6T; interval: 6 * comicStrip.bubbleDelay + 200; repeat: false
+                                                            onTriggered: { bb4Root.opacity = 0; bb4Root.height = 0; bb6OpA.start(); bb6YA.start(); }
+                                                        }
+                                                        NumberAnimation on opacity { id: bb6OpA; running: false; from: 0; to: 1; duration: 280; easing.type: Easing.OutCubic }
+                                                        NumberAnimation on y      { id: bb6YA;   running: false; from: -20; to: 0;  duration: 320; easing.type: Easing.OutCubic }
+                                                        Item {
+                                                            id: bb6ColWrap
+                                                            anchors.left: parent.left; anchors.leftMargin: 4
+                                                            width: parent.width - 8
+                                                            height: bb6ColInner.height + 14
+                                                            Rectangle {
+                                                                anchors.fill: parent
+                                                                radius: 12
+                                                                color: "#e0f0ff"
+                                                                border.color: "#3399cc"; border.width: 1.5
+                                                            }
+                                                            Column {
+                                                                id: bb6ColInner
+                                                                anchors.top: parent.top; anchors.topMargin: 7
+                                                                anchors.left: parent.left; anchors.right: parent.right
+                                                                anchors.leftMargin: 10; anchors.rightMargin: 10
+                                                                spacing: 2
+                                                                Row {
+                                                                    spacing: 4
+                                                                    Text { text: "👦"; font.pointSize: comicStrip.fsBubbleEmoji }
+                                                                    Text {
+                                                                        text: langSettings.lang === "sw" ? "MTOTO WA SHULE" : "SCHOOLCHILD"
+                                                                        font.bold: true
+                                                                        font.pointSize: comicStrip.fsBubbleName
+                                                                        color: "#3399cc"
+                                                                        anchors.verticalCenter: parent.verticalCenter
+                                                                    }
+                                                                }
                                                                 Text {
-                                                                    text: langSettings.lang === "sw" ? "TWIGA" : "GIRAFFE"
-                                                                    font.bold: true
-                                                                    font.pointSize: comicStrip.fsBubbleName
-                                                                    color: langSettings.lang === "sw" ? "#ffaa33" : "#ff4400"
-                                                                    anchors.verticalCenter: parent.verticalCenter
+                                                                    id: bb6Col
+                                                                    width: bb6ColWrap.width - 20
+                                                                    text: langSettings.lang === "sw" ? "Nina miaka saba tu—" : "I'm only seven years old—"
+                                                                    font.pointSize: comicStrip.fsBubbleMsg
+                                                                    font.bold: false
+                                                                    color: "#111111"; wrapMode: Text.WordWrap
                                                                 }
                                                             }
-                                                            Text {
-                                                                width: parent.width
-                                                                text: langSettings.lang === "sw" ? "(akiangalia mbinguni kwa utulivu)" : "(gazing at the sky peacefully)"
-                                                                font.italic: true
-                                                                font.pointSize: comicStrip.fsBubbleAction
-                                                                color: "#888888"; wrapMode: Text.WordWrap
-                                                            }
-                                                            Text {
-                                                                id: bb3Col
-                                                                width: bb3ColWrap.width - 20
-                                                                text: langSettings.lang === "sw" ? "Nyota. Ni hobby yangu." : "Stars. It's my hobby."
-                                                                font.pointSize: comicStrip.fsBubbleMsg
-                                                                font.bold: false
-                                                                color: "#111111"; wrapMode: Text.WordWrap
-                                                            }
                                                         }
                                                     }
-                                                }
-                                                Item { width: 1; height: 6 }
-                                                Item {
-                                                    id: bb4Root
-                                                    width: parent.width
-                                                    height: bb4ColWrap.height + 2
-                                                    opacity: 0
-                                                    y: 22
-                                                    Connections {
-                                                        target: sceneBPanel
-                                                        function onPlayTickChanged() { bb4Root.opacity = 0; bb4Root.y = 22; bb4T.restart(); }
-                                                    }
-                                                    Timer { id: bb4T; interval: 4 * comicStrip.bubbleDelay + 200; repeat: false
-                                                        onTriggered: { bb4OpA.start(); bb4YA.start(); }
-                                                    }
-                                                    NumberAnimation on opacity { id: bb4OpA; running: false; from: 0; to: 1; duration: 280; easing.type: Easing.OutCubic }
-                                                    NumberAnimation on y      { id: bb4YA;   running: false; from: 22; to: 0;  duration: 320; easing.type: Easing.OutCubic }
+
                                                     Item {
-                                                        id: bb4ColWrap
-                                                        anchors.left: parent.left; anchors.leftMargin: 6
-                                                        width: Math.min(parent.width * 0.82, bb4ColInner.implicitWidth + 24)
-                                                        height: bb4ColInner.height + 14
-                                                        Rectangle {
-                                                            anchors.fill: parent
-                                                            radius: 12
-                                                            color: "#e0f0ff"
-                                                            border.color: "#3399cc"; border.width: 1.5
+                                                        id: bb8Root
+                                                        width: parent.width
+                                                        z: 9
+                                                        height: opacity > 0 ? bb8ColWrap.height + 2 : 0
+                                                        opacity: 0
+                                                        y: -20
+                                                        Connections {
+                                                            target: sceneBPanel
+                                                            function onPlayTickChanged() { bb8Root.opacity = 0; bb8Root.height = 0; bb8Root.y = -20; bb8T.restart(); }
                                                         }
-                                                        Column {
-                                                            id: bb4ColInner
-                                                            anchors.top: parent.top; anchors.topMargin: 7
-                                                            anchors.left: parent.left; anchors.right: parent.right
-                                                            anchors.leftMargin: 10; anchors.rightMargin: 10
-                                                            spacing: 2
-                                                            Row {
-                                                                spacing: 4
-                                                                Text { text: "👦"; font.pointSize: comicStrip.fsBubbleEmoji }
+                                                        Timer { id: bb8T; interval: 8 * comicStrip.bubbleDelay + 200; repeat: false
+                                                            onTriggered: { bb6Root.opacity = 0; bb6Root.height = 0; bb8OpA.start(); bb8YA.start(); }
+                                                        }
+                                                        NumberAnimation on opacity { id: bb8OpA; running: false; from: 0; to: 1; duration: 280; easing.type: Easing.OutCubic }
+                                                        NumberAnimation on y      { id: bb8YA;   running: false; from: -20; to: 0;  duration: 320; easing.type: Easing.OutCubic }
+                                                        Item {
+                                                            id: bb8ColWrap
+                                                            anchors.left: parent.left; anchors.leftMargin: 4
+                                                            width: parent.width - 8
+                                                            height: bb8ColInner.height + 14
+                                                            Rectangle {
+                                                                anchors.fill: parent
+                                                                radius: 12
+                                                                color: "#fff8ec"
+                                                                border.color: "#00cc77"; border.width: 1.5
+                                                            }
+                                                            Column {
+                                                                id: bb8ColInner
+                                                                anchors.top: parent.top; anchors.topMargin: 7
+                                                                anchors.left: parent.left; anchors.right: parent.right
+                                                                anchors.leftMargin: 10; anchors.rightMargin: 10
+                                                                spacing: 2
+                                                                Row {
+                                                                    spacing: 4
+                                                                    Text { text: "🐘"; font.pointSize: comicStrip.fsBubbleEmoji }
+                                                                    Text {
+                                                                        text: langSettings.lang === "sw" ? "TEMBO" : "ELEPHANT"
+                                                                        font.bold: true
+                                                                        font.pointSize: comicStrip.fsBubbleName
+                                                                        color: langSettings.lang === "sw" ? "#22ddaa" : "#00aaff"
+                                                                        anchors.verticalCenter: parent.verticalCenter
+                                                                    }
+                                                                }
                                                                 Text {
-                                                                    text: langSettings.lang === "sw" ? "MTOTO WA SHULE" : "SCHOOLCHILD"
-                                                                    font.bold: true
-                                                                    font.pointSize: comicStrip.fsBubbleName
-                                                                    color: "#3399cc"
-                                                                    anchors.verticalCenter: parent.verticalCenter
+                                                                    width: parent.width
+                                                                    text: langSettings.lang === "sw" ? "(kwa upole kwa watalii)" : "(gently addressing the tourists)"
+                                                                    font.italic: true
+                                                                    font.pointSize: comicStrip.fsBubbleAction
+                                                                    color: "#888888"; wrapMode: Text.WordWrap
+                                                                }
+                                                                Text {
+                                                                    id: bb8Col
+                                                                    width: bb8ColWrap.width - 20
+                                                                    text: langSettings.lang === "sw" ? "Karibuni Tanzania. Kila kitu hapa ni... cha kawaida kabisa." : "Welcome to Tanzania. Everything here is... completely normal."
+                                                                    font.pointSize: comicStrip.fsBubbleMsg
+                                                                    font.bold: false
+                                                                    color: "#111111"; wrapMode: Text.WordWrap
                                                                 }
                                                             }
-                                                            Text {
-                                                                width: parent.width
-                                                                text: langSettings.lang === "sw" ? "(akionyesha nyuma ya mti)" : "(pointing behind the tree)"
-                                                                font.italic: true
-                                                                font.pointSize: comicStrip.fsBubbleAction
-                                                                color: "#888888"; wrapMode: Text.WordWrap
-                                                            }
-                                                            Text {
-                                                                id: bb4Col
-                                                                width: bb4ColWrap.width - 20
-                                                                text: langSettings.lang === "sw" ? "Dada, ile ngazi inatoka wapi?" : "Sister, where did that ladder come from?"
-                                                                font.pointSize: comicStrip.fsBubbleMsg
-                                                                font.bold: false
-                                                                color: "#111111"; wrapMode: Text.WordWrap
-                                                            }
                                                         }
                                                     }
-                                                }
-                                                Item { width: 1; height: 6 }
-                                                Item {
-                                                    id: bb5Root
-                                                    width: parent.width
-                                                    height: bb5ColWrap.height + 2
-                                                    opacity: 0
-                                                    y: 22
-                                                    Connections {
-                                                        target: sceneBPanel
-                                                        function onPlayTickChanged() { bb5Root.opacity = 0; bb5Root.y = 22; bb5T.restart(); }
-                                                    }
-                                                    Timer { id: bb5T; interval: 5 * comicStrip.bubbleDelay + 200; repeat: false
-                                                        onTriggered: { bb5OpA.start(); bb5YA.start(); }
-                                                    }
-                                                    NumberAnimation on opacity { id: bb5OpA; running: false; from: 0; to: 1; duration: 280; easing.type: Easing.OutCubic }
-                                                    NumberAnimation on y      { id: bb5YA;   running: false; from: 22; to: 0;  duration: 320; easing.type: Easing.OutCubic }
+
                                                     Item {
-                                                        id: bb5ColWrap
-                                                        anchors.right: parent.right; anchors.rightMargin: 6
-                                                        width: Math.min(parent.width * 0.82, bb5ColInner.implicitWidth + 24)
-                                                        height: bb5ColInner.height + 14
-                                                        Rectangle {
-                                                            anchors.fill: parent
-                                                            radius: 12
-                                                            color: "#f8eeff"
-                                                            border.color: "#aa44cc"; border.width: 1.5
+                                                        id: bb10Root
+                                                        width: parent.width
+                                                        z: 11
+                                                        height: opacity > 0 ? bb10ColWrap.height + 2 : 0
+                                                        opacity: 0
+                                                        y: -20
+                                                        Connections {
+                                                            target: sceneBPanel
+                                                            function onPlayTickChanged() { bb10Root.opacity = 0; bb10Root.height = 0; bb10Root.y = -20; bb10T.restart(); }
                                                         }
-                                                        Column {
-                                                            id: bb5ColInner
-                                                            anchors.top: parent.top; anchors.topMargin: 7
-                                                            anchors.left: parent.left; anchors.right: parent.right
-                                                            anchors.leftMargin: 10; anchors.rightMargin: 10
-                                                            spacing: 2
-                                                            Row {
-                                                                spacing: 4
-                                                                Text { text: "🦦"; font.pointSize: comicStrip.fsBubbleEmoji }
+                                                        Timer { id: bb10T; interval: 10 * comicStrip.bubbleDelay + 200; repeat: false
+                                                            onTriggered: { bb8Root.opacity = 0; bb8Root.height = 0; bb10OpA.start(); bb10YA.start(); }
+                                                        }
+                                                        NumberAnimation on opacity { id: bb10OpA; running: false; from: 0; to: 1; duration: 280; easing.type: Easing.OutCubic }
+                                                        NumberAnimation on y      { id: bb10YA;   running: false; from: -20; to: 0;  duration: 320; easing.type: Easing.OutCubic }
+                                                        Item {
+                                                            id: bb10ColWrap
+                                                            anchors.left: parent.left; anchors.leftMargin: 4
+                                                            width: parent.width - 8
+                                                            height: bb10ColInner.height + 14
+                                                            Rectangle {
+                                                                anchors.fill: parent
+                                                                radius: 12
+                                                                color: "#fff8ec"
+                                                                border.color: "#00cc77"; border.width: 1.5
+                                                            }
+                                                            Column {
+                                                                id: bb10ColInner
+                                                                anchors.top: parent.top; anchors.topMargin: 7
+                                                                anchors.left: parent.left; anchors.right: parent.right
+                                                                anchors.leftMargin: 10; anchors.rightMargin: 10
+                                                                spacing: 2
+                                                                Row {
+                                                                    spacing: 4
+                                                                    Text { text: "🐘"; font.pointSize: comicStrip.fsBubbleEmoji }
+                                                                    Text {
+                                                                        text: langSettings.lang === "sw" ? "TEMBO" : "ELEPHANT"
+                                                                        font.bold: true
+                                                                        font.pointSize: comicStrip.fsBubbleName
+                                                                        color: langSettings.lang === "sw" ? "#22ddaa" : "#00aaff"
+                                                                        anchors.verticalCenter: parent.verticalCenter
+                                                                    }
+                                                                }
                                                                 Text {
-                                                                    text: langSettings.lang === "sw" ? "KIKARAGOSI" : "MEERKAT"
-                                                                    font.bold: true
-                                                                    font.pointSize: comicStrip.fsBubbleName
-                                                                    color: langSettings.lang === "sw" ? "#cc66ff" : "#8822cc"
-                                                                    anchors.verticalCenter: parent.verticalCenter
+                                                                    width: parent.width
+                                                                    text: langSettings.lang === "sw" ? "(kwa lile jicho moja la nyuma, kwa Simba)" : "(one eye back, to Simba)"
+                                                                    font.italic: true
+                                                                    font.pointSize: comicStrip.fsBubbleAction
+                                                                    color: "#888888"; wrapMode: Text.WordWrap
+                                                                }
+                                                                Text {
+                                                                    id: bb10Col
+                                                                    width: bb10ColWrap.width - 20
+                                                                    text: langSettings.lang === "sw" ? "...Simba, amka. Wageni wako." : "...Simba, wake up. You have visitors."
+                                                                    font.pointSize: comicStrip.fsBubbleMsg
+                                                                    font.bold: false
+                                                                    color: "#111111"; wrapMode: Text.WordWrap
                                                                 }
                                                             }
-                                                            Text {
-                                                                width: parent.width
-                                                                text: langSettings.lang === "sw" ? "(haraka sana)" : "(very quickly)"
-                                                                font.italic: true
-                                                                font.pointSize: comicStrip.fsBubbleAction
-                                                                color: "#888888"; wrapMode: Text.WordWrap
-                                                            }
-                                                            Text {
-                                                                id: bb5Col
-                                                                width: bb5ColWrap.width - 20
-                                                                text: langSettings.lang === "sw" ? "Ngazi? Gani ngazi? Mimi naona mti tu. Wewe unaona ngazi? Labda unahitaji miwani." : "Ladder? What ladder? I only see a tree. You see a ladder? Maybe you need glasses."
-                                                                font.pointSize: comicStrip.fsBubbleMsg
-                                                                font.bold: false
-                                                                color: "#111111"; wrapMode: Text.WordWrap
-                                                            }
                                                         }
                                                     }
-                                                }
-                                                Item { width: 1; height: 6 }
-                                                Item {
-                                                    id: bb6Root
-                                                    width: parent.width
-                                                    height: bb6ColWrap.height + 2
-                                                    opacity: 0
-                                                    y: 22
-                                                    Connections {
-                                                        target: sceneBPanel
-                                                        function onPlayTickChanged() { bb6Root.opacity = 0; bb6Root.y = 22; bb6T.restart(); }
-                                                    }
-                                                    Timer { id: bb6T; interval: 6 * comicStrip.bubbleDelay + 200; repeat: false
-                                                        onTriggered: { bb6OpA.start(); bb6YA.start(); }
-                                                    }
-                                                    NumberAnimation on opacity { id: bb6OpA; running: false; from: 0; to: 1; duration: 280; easing.type: Easing.OutCubic }
-                                                    NumberAnimation on y      { id: bb6YA;   running: false; from: 22; to: 0;  duration: 320; easing.type: Easing.OutCubic }
+
                                                     Item {
-                                                        id: bb6ColWrap
-                                                        anchors.left: parent.left; anchors.leftMargin: 6
-                                                        width: Math.min(parent.width * 0.82, bb6ColInner.implicitWidth + 24)
-                                                        height: bb6ColInner.height + 14
-                                                        Rectangle {
-                                                            anchors.fill: parent
-                                                            radius: 12
-                                                            color: "#e0f0ff"
-                                                            border.color: "#3399cc"; border.width: 1.5
+                                                        id: bb12Root
+                                                        width: parent.width
+                                                        z: 13
+                                                        height: opacity > 0 ? bb12ColWrap.height + 2 : 0
+                                                        opacity: 0
+                                                        y: -20
+                                                        Connections {
+                                                            target: sceneBPanel
+                                                            function onPlayTickChanged() { bb12Root.opacity = 0; bb12Root.height = 0; bb12Root.y = -20; bb12T.restart(); }
                                                         }
-                                                        Column {
-                                                            id: bb6ColInner
-                                                            anchors.top: parent.top; anchors.topMargin: 7
-                                                            anchors.left: parent.left; anchors.right: parent.right
-                                                            anchors.leftMargin: 10; anchors.rightMargin: 10
-                                                            spacing: 2
-                                                            Row {
-                                                                spacing: 4
-                                                                Text { text: "👦"; font.pointSize: comicStrip.fsBubbleEmoji }
+                                                        Timer { id: bb12T; interval: 12 * comicStrip.bubbleDelay + 200; repeat: false
+                                                            onTriggered: { bb10Root.opacity = 0; bb10Root.height = 0; bb12OpA.start(); bb12YA.start(); }
+                                                        }
+                                                        NumberAnimation on opacity { id: bb12OpA; running: false; from: 0; to: 1; duration: 280; easing.type: Easing.OutCubic }
+                                                        NumberAnimation on y      { id: bb12YA;   running: false; from: -20; to: 0;  duration: 320; easing.type: Easing.OutCubic }
+                                                        Item {
+                                                            id: bb12ColWrap
+                                                            anchors.left: parent.left; anchors.leftMargin: 4
+                                                            width: parent.width - 8
+                                                            height: bb12ColInner.height + 14
+                                                            Rectangle {
+                                                                anchors.fill: parent
+                                                                radius: 12
+                                                                color: "#fff8ec"
+                                                                border.color: "#00cc77"; border.width: 1.5
+                                                            }
+                                                            Column {
+                                                                id: bb12ColInner
+                                                                anchors.top: parent.top; anchors.topMargin: 7
+                                                                anchors.left: parent.left; anchors.right: parent.right
+                                                                anchors.leftMargin: 10; anchors.rightMargin: 10
+                                                                spacing: 2
+                                                                Row {
+                                                                    spacing: 4
+                                                                    Text { text: "🐘"; font.pointSize: comicStrip.fsBubbleEmoji }
+                                                                    Text {
+                                                                        text: langSettings.lang === "sw" ? "TEMBO" : "ELEPHANT"
+                                                                        font.bold: true
+                                                                        font.pointSize: comicStrip.fsBubbleName
+                                                                        color: langSettings.lang === "sw" ? "#22ddaa" : "#00aaff"
+                                                                        anchors.verticalCenter: parent.verticalCenter
+                                                                    }
+                                                                }
                                                                 Text {
-                                                                    text: langSettings.lang === "sw" ? "MTOTO WA SHULE" : "SCHOOLCHILD"
-                                                                    font.bold: true
-                                                                    font.pointSize: comicStrip.fsBubbleName
-                                                                    color: "#3399cc"
-                                                                    anchors.verticalCenter: parent.verticalCenter
+                                                                    id: bb12Col
+                                                                    width: bb12ColWrap.width - 20
+                                                                    text: langSettings.lang === "sw" ? "😑" : "😑"
+                                                                    font.pointSize: comicStrip.fsBubbleMsg
+                                                                    font.bold: false
+                                                                    color: "#111111"; wrapMode: Text.WordWrap
                                                                 }
                                                             }
-                                                            Text {
-                                                                id: bb6Col
-                                                                width: bb6ColWrap.width - 20
-                                                                text: langSettings.lang === "sw" ? "Nina miaka saba tu—" : "I'm only seven years old—"
-                                                                font.pointSize: comicStrip.fsBubbleMsg
-                                                                font.bold: false
-                                                                color: "#111111"; wrapMode: Text.WordWrap
-                                                            }
                                                         }
                                                     }
+
                                                 }
-                                                Item { width: 1; height: 6 }
-                                                Item {
-                                                    id: bb7Root
-                                                    width: parent.width
-                                                    height: bb7ColWrap.height + 2
-                                                    opacity: 0
-                                                    y: 22
-                                                    Connections {
-                                                        target: sceneBPanel
-                                                        function onPlayTickChanged() { bb7Root.opacity = 0; bb7Root.y = 22; bb7T.restart(); }
-                                                    }
-                                                    Timer { id: bb7T; interval: 7 * comicStrip.bubbleDelay + 200; repeat: false
-                                                        onTriggered: { bb7OpA.start(); bb7YA.start(); }
-                                                    }
-                                                    NumberAnimation on opacity { id: bb7OpA; running: false; from: 0; to: 1; duration: 280; easing.type: Easing.OutCubic }
-                                                    NumberAnimation on y      { id: bb7YA;   running: false; from: 22; to: 0;  duration: 320; easing.type: Easing.OutCubic }
+
+                                                Column {
+                                                    anchors.top: parent.verticalCenter
+                                                    anchors.left: parent.left
+                                                    anchors.right: parent.right
+                                                    spacing: 4
+
                                                     Item {
-                                                        id: bb7ColWrap
-                                                        anchors.right: parent.right; anchors.rightMargin: 6
-                                                        width: Math.min(parent.width * 0.82, bb7ColInner.implicitWidth + 24)
-                                                        height: bb7ColInner.height + 14
-                                                        Rectangle {
-                                                            anchors.fill: parent
-                                                            radius: 12
-                                                            color: "#f8eeff"
-                                                            border.color: "#aa44cc"; border.width: 1.5
+                                                        id: bb1Root
+                                                        width: parent.width
+                                                        z: 15
+                                                        height: opacity > 0 ? bb1ColWrap.height + 2 : 0
+                                                        opacity: 0
+                                                        y: 22
+                                                        Connections {
+                                                            target: sceneBPanel
+                                                            function onPlayTickChanged() { bb1Root.opacity = 0; bb1Root.height = 0; bb1Root.y = 22; bb1T.restart(); }
                                                         }
-                                                        Column {
-                                                            id: bb7ColInner
-                                                            anchors.top: parent.top; anchors.topMargin: 7
-                                                            anchors.left: parent.left; anchors.right: parent.right
-                                                            anchors.leftMargin: 10; anchors.rightMargin: 10
-                                                            spacing: 2
-                                                            Row {
-                                                                spacing: 4
-                                                                Text { text: "🦦"; font.pointSize: comicStrip.fsBubbleEmoji }
+                                                        Timer { id: bb1T; interval: 1 * comicStrip.bubbleDelay + 200; repeat: false
+                                                            onTriggered: { bb1OpA.start(); bb1YA.start(); }
+                                                        }
+                                                        NumberAnimation on opacity { id: bb1OpA; running: false; from: 0; to: 1; duration: 280; easing.type: Easing.OutCubic }
+                                                        NumberAnimation on y      { id: bb1YA;   running: false; from: 22; to: 0;  duration: 320; easing.type: Easing.OutCubic }
+                                                        Item {
+                                                            id: bb1ColWrap
+                                                            anchors.left: parent.left; anchors.leftMargin: 4
+                                                            width: parent.width - 8
+                                                            height: bb1ColInner.height + 14
+                                                            Rectangle {
+                                                                anchors.fill: parent
+                                                                radius: 12
+                                                                color: "#fffde8"
+                                                                border.color: "#ffaa00"; border.width: 1.5
+                                                            }
+                                                            Column {
+                                                                id: bb1ColInner
+                                                                anchors.top: parent.top; anchors.topMargin: 7
+                                                                anchors.left: parent.left; anchors.right: parent.right
+                                                                anchors.leftMargin: 10; anchors.rightMargin: 10
+                                                                spacing: 2
+                                                                Row {
+                                                                    spacing: 4
+                                                                    Text { text: "🦁"; font.pointSize: comicStrip.fsBubbleEmoji }
+                                                                    Text {
+                                                                        text: langSettings.lang === "sw" ? "SIMBA" : "LION"
+                                                                        font.bold: true
+                                                                        font.pointSize: comicStrip.fsBubbleName
+                                                                        color: langSettings.lang === "sw" ? "#ffcc00" : "#ff7700"
+                                                                        anchors.verticalCenter: parent.verticalCenter
+                                                                    }
+                                                                }
                                                                 Text {
-                                                                    text: langSettings.lang === "sw" ? "KIKARAGOSI" : "MEERKAT"
-                                                                    font.bold: true
-                                                                    font.pointSize: comicStrip.fsBubbleName
-                                                                    color: langSettings.lang === "sw" ? "#cc66ff" : "#8822cc"
-                                                                    anchors.verticalCenter: parent.verticalCenter
+                                                                    width: parent.width
+                                                                    text: langSettings.lang === "sw" ? "(akifungua jicho moja)" : "(opening one eye)"
+                                                                    font.italic: true
+                                                                    font.pointSize: comicStrip.fsBubbleAction
+                                                                    color: "#888888"; wrapMode: Text.WordWrap
+                                                                }
+                                                                Text {
+                                                                    id: bb1Col
+                                                                    width: bb1ColWrap.width - 20
+                                                                    text: langSettings.lang === "sw" ? "...mzuri. Ndiyo. Hiyo ndiyo neno sahihi." : "...adorable. Yes. That is exactly the right word."
+                                                                    font.pointSize: comicStrip.fsBubbleMsg
+                                                                    font.bold: false
+                                                                    color: "#111111"; wrapMode: Text.WordWrap
                                                                 }
                                                             }
-                                                            Text {
-                                                                id: bb7Col
-                                                                width: bb7ColWrap.width - 20
-                                                                text: langSettings.lang === "sw" ? "Miwani ndogo basi." : "Small glasses then."
-                                                                font.pointSize: comicStrip.fsBubbleMsg
-                                                                font.bold: false
-                                                                color: "#111111"; wrapMode: Text.WordWrap
-                                                            }
                                                         }
                                                     }
-                                                }
-                                                Item { width: 1; height: 6 }
-                                                Item {
-                                                    id: bb8Root
-                                                    width: parent.width
-                                                    height: bb8ColWrap.height + 2
-                                                    opacity: 0
-                                                    y: 22
-                                                    Connections {
-                                                        target: sceneBPanel
-                                                        function onPlayTickChanged() { bb8Root.opacity = 0; bb8Root.y = 22; bb8T.restart(); }
-                                                    }
-                                                    Timer { id: bb8T; interval: 8 * comicStrip.bubbleDelay + 200; repeat: false
-                                                        onTriggered: { bb8OpA.start(); bb8YA.start(); }
-                                                    }
-                                                    NumberAnimation on opacity { id: bb8OpA; running: false; from: 0; to: 1; duration: 280; easing.type: Easing.OutCubic }
-                                                    NumberAnimation on y      { id: bb8YA;   running: false; from: 22; to: 0;  duration: 320; easing.type: Easing.OutCubic }
+
                                                     Item {
-                                                        id: bb8ColWrap
-                                                        anchors.left: parent.left; anchors.leftMargin: 6
-                                                        width: Math.min(parent.width * 0.82, bb8ColInner.implicitWidth + 24)
-                                                        height: bb8ColInner.height + 14
-                                                        Rectangle {
-                                                            anchors.fill: parent
-                                                            radius: 12
-                                                            color: "#fff8ec"
-                                                            border.color: "#00cc77"; border.width: 1.5
+                                                        id: bb3Root
+                                                        width: parent.width
+                                                        z: 17
+                                                        height: opacity > 0 ? bb3ColWrap.height + 2 : 0
+                                                        opacity: 0
+                                                        y: 22
+                                                        Connections {
+                                                            target: sceneBPanel
+                                                            function onPlayTickChanged() { bb3Root.opacity = 0; bb3Root.height = 0; bb3Root.y = 22; bb3T.restart(); }
                                                         }
-                                                        Column {
-                                                            id: bb8ColInner
-                                                            anchors.top: parent.top; anchors.topMargin: 7
-                                                            anchors.left: parent.left; anchors.right: parent.right
-                                                            anchors.leftMargin: 10; anchors.rightMargin: 10
-                                                            spacing: 2
-                                                            Row {
-                                                                spacing: 4
-                                                                Text { text: "🐘"; font.pointSize: comicStrip.fsBubbleEmoji }
+                                                        Timer { id: bb3T; interval: 3 * comicStrip.bubbleDelay + 200; repeat: false
+                                                            onTriggered: { bb1Root.opacity = 0; bb1Root.height = 0; bb3OpA.start(); bb3YA.start(); }
+                                                        }
+                                                        NumberAnimation on opacity { id: bb3OpA; running: false; from: 0; to: 1; duration: 280; easing.type: Easing.OutCubic }
+                                                        NumberAnimation on y      { id: bb3YA;   running: false; from: 22; to: 0;  duration: 320; easing.type: Easing.OutCubic }
+                                                        Item {
+                                                            id: bb3ColWrap
+                                                            anchors.left: parent.left; anchors.leftMargin: 4
+                                                            width: parent.width - 8
+                                                            height: bb3ColInner.height + 14
+                                                            Rectangle {
+                                                                anchors.fill: parent
+                                                                radius: 12
+                                                                color: "#fff4e8"
+                                                                border.color: "#ff6600"; border.width: 1.5
+                                                            }
+                                                            Column {
+                                                                id: bb3ColInner
+                                                                anchors.top: parent.top; anchors.topMargin: 7
+                                                                anchors.left: parent.left; anchors.right: parent.right
+                                                                anchors.leftMargin: 10; anchors.rightMargin: 10
+                                                                spacing: 2
+                                                                Row {
+                                                                    spacing: 4
+                                                                    Text { text: "🦒"; font.pointSize: comicStrip.fsBubbleEmoji }
+                                                                    Text {
+                                                                        text: langSettings.lang === "sw" ? "TWIGA" : "GIRAFFE"
+                                                                        font.bold: true
+                                                                        font.pointSize: comicStrip.fsBubbleName
+                                                                        color: langSettings.lang === "sw" ? "#ffaa33" : "#ff4400"
+                                                                        anchors.verticalCenter: parent.verticalCenter
+                                                                    }
+                                                                }
                                                                 Text {
-                                                                    text: langSettings.lang === "sw" ? "TEMBO" : "ELEPHANT"
-                                                                    font.bold: true
-                                                                    font.pointSize: comicStrip.fsBubbleName
-                                                                    color: langSettings.lang === "sw" ? "#22ddaa" : "#00aaff"
-                                                                    anchors.verticalCenter: parent.verticalCenter
+                                                                    width: parent.width
+                                                                    text: langSettings.lang === "sw" ? "(akiangalia mbinguni kwa utulivu)" : "(gazing at the sky peacefully)"
+                                                                    font.italic: true
+                                                                    font.pointSize: comicStrip.fsBubbleAction
+                                                                    color: "#888888"; wrapMode: Text.WordWrap
+                                                                }
+                                                                Text {
+                                                                    id: bb3Col
+                                                                    width: bb3ColWrap.width - 20
+                                                                    text: langSettings.lang === "sw" ? "Nyota. Ni hobby yangu." : "Stars. It's my hobby."
+                                                                    font.pointSize: comicStrip.fsBubbleMsg
+                                                                    font.bold: false
+                                                                    color: "#111111"; wrapMode: Text.WordWrap
                                                                 }
                                                             }
-                                                            Text {
-                                                                width: parent.width
-                                                                text: langSettings.lang === "sw" ? "(kwa upole kwa watalii)" : "(gently addressing the tourists)"
-                                                                font.italic: true
-                                                                font.pointSize: comicStrip.fsBubbleAction
-                                                                color: "#888888"; wrapMode: Text.WordWrap
-                                                            }
-                                                            Text {
-                                                                id: bb8Col
-                                                                width: bb8ColWrap.width - 20
-                                                                text: langSettings.lang === "sw" ? "Karibuni Tanzania. Kila kitu hapa ni... cha kawaida kabisa." : "Welcome to Tanzania. Everything here is... completely normal."
-                                                                font.pointSize: comicStrip.fsBubbleMsg
-                                                                font.bold: false
-                                                                color: "#111111"; wrapMode: Text.WordWrap
-                                                            }
                                                         }
                                                     }
-                                                }
-                                                Item { width: 1; height: 6 }
-                                                Item {
-                                                    id: bb9Root
-                                                    width: parent.width
-                                                    height: bb9ColWrap.height + 2
-                                                    opacity: 0
-                                                    y: 22
-                                                    Connections {
-                                                        target: sceneBPanel
-                                                        function onPlayTickChanged() { bb9Root.opacity = 0; bb9Root.y = 22; bb9T.restart(); }
-                                                    }
-                                                    Timer { id: bb9T; interval: 9 * comicStrip.bubbleDelay + 200; repeat: false
-                                                        onTriggered: { bb9OpA.start(); bb9YA.start(); }
-                                                    }
-                                                    NumberAnimation on opacity { id: bb9OpA; running: false; from: 0; to: 1; duration: 280; easing.type: Easing.OutCubic }
-                                                    NumberAnimation on y      { id: bb9YA;   running: false; from: 22; to: 0;  duration: 320; easing.type: Easing.OutCubic }
+
                                                     Item {
-                                                        id: bb9ColWrap
-                                                        anchors.left: parent.left; anchors.leftMargin: 6
-                                                        width: Math.min(parent.width * 0.82, bb9ColInner.implicitWidth + 24)
-                                                        height: bb9ColInner.height + 14
-                                                        Rectangle {
-                                                            anchors.fill: parent
-                                                            radius: 12
-                                                            color: "#e8f4ff"
-                                                            border.color: "#0077cc"; border.width: 1.5
+                                                        id: bb5Root
+                                                        width: parent.width
+                                                        z: 20
+                                                        height: opacity > 0 ? bb5ColWrap.height + 2 : 0
+                                                        opacity: 0
+                                                        y: 22
+                                                        Connections {
+                                                            target: sceneBPanel
+                                                            function onPlayTickChanged() { bb5Root.opacity = 0; bb5Root.height = 0; bb5Root.y = 22; bb5T.restart(); }
                                                         }
-                                                        Column {
-                                                            id: bb9ColInner
-                                                            anchors.top: parent.top; anchors.topMargin: 7
-                                                            anchors.left: parent.left; anchors.right: parent.right
-                                                            anchors.leftMargin: 10; anchors.rightMargin: 10
-                                                            spacing: 2
-                                                            Row {
-                                                                spacing: 4
-                                                                Text { text: "📷"; font.pointSize: comicStrip.fsBubbleEmoji }
+                                                        Timer { id: bb5T; interval: 5 * comicStrip.bubbleDelay + 200; repeat: false
+                                                            onTriggered: { bb3Root.opacity = 0; bb3Root.height = 0; bb5OpA.start(); bb5YA.start(); }
+                                                        }
+                                                        NumberAnimation on opacity { id: bb5OpA; running: false; from: 0; to: 1; duration: 280; easing.type: Easing.OutCubic }
+                                                        NumberAnimation on y      { id: bb5YA;   running: false; from: 22; to: 0;  duration: 320; easing.type: Easing.OutCubic }
+                                                        Item {
+                                                            id: bb5ColWrap
+                                                            anchors.left: parent.left; anchors.leftMargin: 4
+                                                            width: parent.width - 8
+                                                            height: bb5ColInner.height + 14
+                                                            Rectangle {
+                                                                anchors.fill: parent
+                                                                radius: 12
+                                                                color: "#f8eeff"
+                                                                border.color: "#aa44cc"; border.width: 1.5
+                                                            }
+                                                            Column {
+                                                                id: bb5ColInner
+                                                                anchors.top: parent.top; anchors.topMargin: 7
+                                                                anchors.left: parent.left; anchors.right: parent.right
+                                                                anchors.leftMargin: 10; anchors.rightMargin: 10
+                                                                spacing: 2
+                                                                Row {
+                                                                    spacing: 4
+                                                                    Text { text: "🦦"; font.pointSize: comicStrip.fsBubbleEmoji }
+                                                                    Text {
+                                                                        text: langSettings.lang === "sw" ? "KIKARAGOSI" : "MEERKAT"
+                                                                        font.bold: true
+                                                                        font.pointSize: comicStrip.fsBubbleName
+                                                                        color: langSettings.lang === "sw" ? "#cc66ff" : "#8822cc"
+                                                                        anchors.verticalCenter: parent.verticalCenter
+                                                                    }
+                                                                }
                                                                 Text {
-                                                                    text: langSettings.lang === "sw" ? "MPIGAPICHA #3" : "PHOTOGRAPHER #3"
-                                                                    font.bold: true
-                                                                    font.pointSize: comicStrip.fsBubbleName
-                                                                    color: "#0077cc"
-                                                                    anchors.verticalCenter: parent.verticalCenter
+                                                                    width: parent.width
+                                                                    text: langSettings.lang === "sw" ? "(haraka sana)" : "(very quickly)"
+                                                                    font.italic: true
+                                                                    font.pointSize: comicStrip.fsBubbleAction
+                                                                    color: "#888888"; wrapMode: Text.WordWrap
+                                                                }
+                                                                Text {
+                                                                    id: bb5Col
+                                                                    width: bb5ColWrap.width - 20
+                                                                    text: langSettings.lang === "sw" ? "Ngazi? Gani ngazi? Mimi naona mti tu. Wewe unaona ngazi? Labda unahitaji miwani." : "Ladder? What ladder? I only see a tree. You see a ladder? Maybe you need glasses."
+                                                                    font.pointSize: comicStrip.fsBubbleMsg
+                                                                    font.bold: false
+                                                                    color: "#111111"; wrapMode: Text.WordWrap
                                                                 }
                                                             }
-                                                            Text {
-                                                                id: bb9Col
-                                                                width: bb9ColWrap.width - 20
-                                                                text: langSettings.lang === "sw" ? "Hii ni nzuri sana! Naomba picha pamoja!" : "This is so beautiful! Can we take a photo together!"
-                                                                font.pointSize: comicStrip.fsBubbleMsg
-                                                                font.bold: false
-                                                                color: "#111111"; wrapMode: Text.WordWrap
-                                                            }
                                                         }
                                                     }
-                                                }
-                                                Item { width: 1; height: 6 }
-                                                Item {
-                                                    id: bb10Root
-                                                    width: parent.width
-                                                    height: bb10ColWrap.height + 2
-                                                    opacity: 0
-                                                    y: 22
-                                                    Connections {
-                                                        target: sceneBPanel
-                                                        function onPlayTickChanged() { bb10Root.opacity = 0; bb10Root.y = 22; bb10T.restart(); }
-                                                    }
-                                                    Timer { id: bb10T; interval: 10 * comicStrip.bubbleDelay + 200; repeat: false
-                                                        onTriggered: { bb10OpA.start(); bb10YA.start(); }
-                                                    }
-                                                    NumberAnimation on opacity { id: bb10OpA; running: false; from: 0; to: 1; duration: 280; easing.type: Easing.OutCubic }
-                                                    NumberAnimation on y      { id: bb10YA;   running: false; from: 22; to: 0;  duration: 320; easing.type: Easing.OutCubic }
+
                                                     Item {
-                                                        id: bb10ColWrap
-                                                        anchors.right: parent.right; anchors.rightMargin: 6
-                                                        width: Math.min(parent.width * 0.82, bb10ColInner.implicitWidth + 24)
-                                                        height: bb10ColInner.height + 14
-                                                        Rectangle {
-                                                            anchors.fill: parent
-                                                            radius: 12
-                                                            color: "#fff8ec"
-                                                            border.color: "#00cc77"; border.width: 1.5
+                                                        id: bb7Root
+                                                        width: parent.width
+                                                        z: 22
+                                                        height: opacity > 0 ? bb7ColWrap.height + 2 : 0
+                                                        opacity: 0
+                                                        y: 22
+                                                        Connections {
+                                                            target: sceneBPanel
+                                                            function onPlayTickChanged() { bb7Root.opacity = 0; bb7Root.height = 0; bb7Root.y = 22; bb7T.restart(); }
                                                         }
-                                                        Column {
-                                                            id: bb10ColInner
-                                                            anchors.top: parent.top; anchors.topMargin: 7
-                                                            anchors.left: parent.left; anchors.right: parent.right
-                                                            anchors.leftMargin: 10; anchors.rightMargin: 10
-                                                            spacing: 2
-                                                            Row {
-                                                                spacing: 4
-                                                                Text { text: "🐘"; font.pointSize: comicStrip.fsBubbleEmoji }
+                                                        Timer { id: bb7T; interval: 7 * comicStrip.bubbleDelay + 200; repeat: false
+                                                            onTriggered: { bb5Root.opacity = 0; bb5Root.height = 0; bb7OpA.start(); bb7YA.start(); }
+                                                        }
+                                                        NumberAnimation on opacity { id: bb7OpA; running: false; from: 0; to: 1; duration: 280; easing.type: Easing.OutCubic }
+                                                        NumberAnimation on y      { id: bb7YA;   running: false; from: 22; to: 0;  duration: 320; easing.type: Easing.OutCubic }
+                                                        Item {
+                                                            id: bb7ColWrap
+                                                            anchors.left: parent.left; anchors.leftMargin: 4
+                                                            width: parent.width - 8
+                                                            height: bb7ColInner.height + 14
+                                                            Rectangle {
+                                                                anchors.fill: parent
+                                                                radius: 12
+                                                                color: "#f8eeff"
+                                                                border.color: "#aa44cc"; border.width: 1.5
+                                                            }
+                                                            Column {
+                                                                id: bb7ColInner
+                                                                anchors.top: parent.top; anchors.topMargin: 7
+                                                                anchors.left: parent.left; anchors.right: parent.right
+                                                                anchors.leftMargin: 10; anchors.rightMargin: 10
+                                                                spacing: 2
+                                                                Row {
+                                                                    spacing: 4
+                                                                    Text { text: "🦦"; font.pointSize: comicStrip.fsBubbleEmoji }
+                                                                    Text {
+                                                                        text: langSettings.lang === "sw" ? "KIKARAGOSI" : "MEERKAT"
+                                                                        font.bold: true
+                                                                        font.pointSize: comicStrip.fsBubbleName
+                                                                        color: langSettings.lang === "sw" ? "#cc66ff" : "#8822cc"
+                                                                        anchors.verticalCenter: parent.verticalCenter
+                                                                    }
+                                                                }
                                                                 Text {
-                                                                    text: langSettings.lang === "sw" ? "TEMBO" : "ELEPHANT"
-                                                                    font.bold: true
-                                                                    font.pointSize: comicStrip.fsBubbleName
-                                                                    color: langSettings.lang === "sw" ? "#22ddaa" : "#00aaff"
-                                                                    anchors.verticalCenter: parent.verticalCenter
+                                                                    id: bb7Col
+                                                                    width: bb7ColWrap.width - 20
+                                                                    text: langSettings.lang === "sw" ? "Miwani ndogo basi." : "Small glasses then."
+                                                                    font.pointSize: comicStrip.fsBubbleMsg
+                                                                    font.bold: false
+                                                                    color: "#111111"; wrapMode: Text.WordWrap
                                                                 }
                                                             }
-                                                            Text {
-                                                                width: parent.width
-                                                                text: langSettings.lang === "sw" ? "(kwa lile jicho moja la nyuma, kwa Simba)" : "(one eye back, to Simba)"
-                                                                font.italic: true
-                                                                font.pointSize: comicStrip.fsBubbleAction
-                                                                color: "#888888"; wrapMode: Text.WordWrap
-                                                            }
-                                                            Text {
-                                                                id: bb10Col
-                                                                width: bb10ColWrap.width - 20
-                                                                text: langSettings.lang === "sw" ? "...Simba, amka. Wageni wako." : "...Simba, wake up. You have visitors."
-                                                                font.pointSize: comicStrip.fsBubbleMsg
-                                                                font.bold: false
-                                                                color: "#111111"; wrapMode: Text.WordWrap
-                                                            }
                                                         }
                                                     }
-                                                }
-                                                Item { width: 1; height: 6 }
-                                                Item {
-                                                    id: bb11Root
-                                                    width: parent.width
-                                                    height: bb11ColWrap.height + 2
-                                                    opacity: 0
-                                                    y: 22
-                                                    Connections {
-                                                        target: sceneBPanel
-                                                        function onPlayTickChanged() { bb11Root.opacity = 0; bb11Root.y = 22; bb11T.restart(); }
-                                                    }
-                                                    Timer { id: bb11T; interval: 11 * comicStrip.bubbleDelay + 200; repeat: false
-                                                        onTriggered: { bb11OpA.start(); bb11YA.start(); }
-                                                    }
-                                                    NumberAnimation on opacity { id: bb11OpA; running: false; from: 0; to: 1; duration: 280; easing.type: Easing.OutCubic }
-                                                    NumberAnimation on y      { id: bb11YA;   running: false; from: 22; to: 0;  duration: 320; easing.type: Easing.OutCubic }
+
                                                     Item {
-                                                        id: bb11ColWrap
-                                                        anchors.left: parent.left; anchors.leftMargin: 6
-                                                        width: Math.min(parent.width * 0.82, bb11ColInner.implicitWidth + 24)
-                                                        height: bb11ColInner.height + 14
-                                                        Rectangle {
-                                                            anchors.fill: parent
-                                                            radius: 12
-                                                            color: "#fffde8"
-                                                            border.color: "#ffaa00"; border.width: 1.5
+                                                        id: bb9Root
+                                                        width: parent.width
+                                                        z: 24
+                                                        height: opacity > 0 ? bb9ColWrap.height + 2 : 0
+                                                        opacity: 0
+                                                        y: 22
+                                                        Connections {
+                                                            target: sceneBPanel
+                                                            function onPlayTickChanged() { bb9Root.opacity = 0; bb9Root.height = 0; bb9Root.y = 22; bb9T.restart(); }
                                                         }
-                                                        Column {
-                                                            id: bb11ColInner
-                                                            anchors.top: parent.top; anchors.topMargin: 7
-                                                            anchors.left: parent.left; anchors.right: parent.right
-                                                            anchors.leftMargin: 10; anchors.rightMargin: 10
-                                                            spacing: 2
-                                                            Row {
-                                                                spacing: 4
-                                                                Text { text: "🦁"; font.pointSize: comicStrip.fsBubbleEmoji }
+                                                        Timer { id: bb9T; interval: 9 * comicStrip.bubbleDelay + 200; repeat: false
+                                                            onTriggered: { bb7Root.opacity = 0; bb7Root.height = 0; bb9OpA.start(); bb9YA.start(); }
+                                                        }
+                                                        NumberAnimation on opacity { id: bb9OpA; running: false; from: 0; to: 1; duration: 280; easing.type: Easing.OutCubic }
+                                                        NumberAnimation on y      { id: bb9YA;   running: false; from: 22; to: 0;  duration: 320; easing.type: Easing.OutCubic }
+                                                        Item {
+                                                            id: bb9ColWrap
+                                                            anchors.left: parent.left; anchors.leftMargin: 4
+                                                            width: parent.width - 8
+                                                            height: bb9ColInner.height + 14
+                                                            Rectangle {
+                                                                anchors.fill: parent
+                                                                radius: 12
+                                                                color: "#e8f4ff"
+                                                                border.color: "#0077cc"; border.width: 1.5
+                                                            }
+                                                            Column {
+                                                                id: bb9ColInner
+                                                                anchors.top: parent.top; anchors.topMargin: 7
+                                                                anchors.left: parent.left; anchors.right: parent.right
+                                                                anchors.leftMargin: 10; anchors.rightMargin: 10
+                                                                spacing: 2
+                                                                Row {
+                                                                    spacing: 4
+                                                                    Text { text: "📷"; font.pointSize: comicStrip.fsBubbleEmoji }
+                                                                    Text {
+                                                                        text: langSettings.lang === "sw" ? "MPIGAPICHA #3" : "PHOTOGRAPHER #3"
+                                                                        font.bold: true
+                                                                        font.pointSize: comicStrip.fsBubbleName
+                                                                        color: "#0077cc"
+                                                                        anchors.verticalCenter: parent.verticalCenter
+                                                                    }
+                                                                }
                                                                 Text {
-                                                                    text: langSettings.lang === "sw" ? "SIMBA" : "LION"
-                                                                    font.bold: true
-                                                                    font.pointSize: comicStrip.fsBubbleName
-                                                                    color: langSettings.lang === "sw" ? "#ffcc00" : "#ff7700"
-                                                                    anchors.verticalCenter: parent.verticalCenter
+                                                                    id: bb9Col
+                                                                    width: bb9ColWrap.width - 20
+                                                                    text: langSettings.lang === "sw" ? "Hii ni nzuri sana! Naomba picha pamoja!" : "This is so beautiful! Can we take a photo together!"
+                                                                    font.pointSize: comicStrip.fsBubbleMsg
+                                                                    font.bold: false
+                                                                    color: "#111111"; wrapMode: Text.WordWrap
                                                                 }
                                                             }
-                                                            Text {
-                                                                width: parent.width
-                                                                text: langSettings.lang === "sw" ? "(bila kusogea hata kidogo)" : "(without moving at all)"
-                                                                font.italic: true
-                                                                font.pointSize: comicStrip.fsBubbleAction
-                                                                color: "#888888"; wrapMode: Text.WordWrap
-                                                            }
-                                                            Text {
-                                                                id: bb11Col
-                                                                width: bb11ColWrap.width - 20
-                                                                text: langSettings.lang === "sw" ? "Mimi ni Kivutio. Siongei na wageni." : "I am an exhibit. I don't speak to visitors."
-                                                                font.pointSize: comicStrip.fsBubbleMsg
-                                                                font.bold: false
-                                                                color: "#111111"; wrapMode: Text.WordWrap
-                                                            }
                                                         }
                                                     }
-                                                }
-                                                Item { width: 1; height: 6 }
-                                                Item {
-                                                    id: bb12Root
-                                                    width: parent.width
-                                                    height: bb12ColWrap.height + 2
-                                                    opacity: 0
-                                                    y: 22
-                                                    Connections {
-                                                        target: sceneBPanel
-                                                        function onPlayTickChanged() { bb12Root.opacity = 0; bb12Root.y = 22; bb12T.restart(); }
-                                                    }
-                                                    Timer { id: bb12T; interval: 12 * comicStrip.bubbleDelay + 200; repeat: false
-                                                        onTriggered: { bb12OpA.start(); bb12YA.start(); }
-                                                    }
-                                                    NumberAnimation on opacity { id: bb12OpA; running: false; from: 0; to: 1; duration: 280; easing.type: Easing.OutCubic }
-                                                    NumberAnimation on y      { id: bb12YA;   running: false; from: 22; to: 0;  duration: 320; easing.type: Easing.OutCubic }
+
                                                     Item {
-                                                        id: bb12ColWrap
-                                                        anchors.right: parent.right; anchors.rightMargin: 6
-                                                        width: Math.min(parent.width * 0.82, bb12ColInner.implicitWidth + 24)
-                                                        height: bb12ColInner.height + 14
-                                                        Rectangle {
-                                                            anchors.fill: parent
-                                                            radius: 12
-                                                            color: "#fff8ec"
-                                                            border.color: "#00cc77"; border.width: 1.5
+                                                        id: bb11Root
+                                                        width: parent.width
+                                                        z: 26
+                                                        height: opacity > 0 ? bb11ColWrap.height + 2 : 0
+                                                        opacity: 0
+                                                        y: 22
+                                                        Connections {
+                                                            target: sceneBPanel
+                                                            function onPlayTickChanged() { bb11Root.opacity = 0; bb11Root.height = 0; bb11Root.y = 22; bb11T.restart(); }
                                                         }
-                                                        Column {
-                                                            id: bb12ColInner
-                                                            anchors.top: parent.top; anchors.topMargin: 7
-                                                            anchors.left: parent.left; anchors.right: parent.right
-                                                            anchors.leftMargin: 10; anchors.rightMargin: 10
-                                                            spacing: 2
-                                                            Row {
-                                                                spacing: 4
-                                                                Text { text: "🐘"; font.pointSize: comicStrip.fsBubbleEmoji }
+                                                        Timer { id: bb11T; interval: 11 * comicStrip.bubbleDelay + 200; repeat: false
+                                                            onTriggered: { bb9Root.opacity = 0; bb9Root.height = 0; bb11OpA.start(); bb11YA.start(); }
+                                                        }
+                                                        NumberAnimation on opacity { id: bb11OpA; running: false; from: 0; to: 1; duration: 280; easing.type: Easing.OutCubic }
+                                                        NumberAnimation on y      { id: bb11YA;   running: false; from: 22; to: 0;  duration: 320; easing.type: Easing.OutCubic }
+                                                        Item {
+                                                            id: bb11ColWrap
+                                                            anchors.left: parent.left; anchors.leftMargin: 4
+                                                            width: parent.width - 8
+                                                            height: bb11ColInner.height + 14
+                                                            Rectangle {
+                                                                anchors.fill: parent
+                                                                radius: 12
+                                                                color: "#fffde8"
+                                                                border.color: "#ffaa00"; border.width: 1.5
+                                                            }
+                                                            Column {
+                                                                id: bb11ColInner
+                                                                anchors.top: parent.top; anchors.topMargin: 7
+                                                                anchors.left: parent.left; anchors.right: parent.right
+                                                                anchors.leftMargin: 10; anchors.rightMargin: 10
+                                                                spacing: 2
+                                                                Row {
+                                                                    spacing: 4
+                                                                    Text { text: "🦁"; font.pointSize: comicStrip.fsBubbleEmoji }
+                                                                    Text {
+                                                                        text: langSettings.lang === "sw" ? "SIMBA" : "LION"
+                                                                        font.bold: true
+                                                                        font.pointSize: comicStrip.fsBubbleName
+                                                                        color: langSettings.lang === "sw" ? "#ffcc00" : "#ff7700"
+                                                                        anchors.verticalCenter: parent.verticalCenter
+                                                                    }
+                                                                }
                                                                 Text {
-                                                                    text: langSettings.lang === "sw" ? "TEMBO" : "ELEPHANT"
-                                                                    font.bold: true
-                                                                    font.pointSize: comicStrip.fsBubbleName
-                                                                    color: langSettings.lang === "sw" ? "#22ddaa" : "#00aaff"
-                                                                    anchors.verticalCenter: parent.verticalCenter
+                                                                    width: parent.width
+                                                                    text: langSettings.lang === "sw" ? "(bila kusogea hata kidogo)" : "(without moving at all)"
+                                                                    font.italic: true
+                                                                    font.pointSize: comicStrip.fsBubbleAction
+                                                                    color: "#888888"; wrapMode: Text.WordWrap
+                                                                }
+                                                                Text {
+                                                                    id: bb11Col
+                                                                    width: bb11ColWrap.width - 20
+                                                                    text: langSettings.lang === "sw" ? "Mimi ni Kivutio. Siongei na wageni." : "I am an exhibit. I don't speak to visitors."
+                                                                    font.pointSize: comicStrip.fsBubbleMsg
+                                                                    font.bold: false
+                                                                    color: "#111111"; wrapMode: Text.WordWrap
                                                                 }
                                                             }
-                                                            Text {
-                                                                id: bb12Col
-                                                                width: bb12ColWrap.width - 20
-                                                                text: langSettings.lang === "sw" ? "😑" : "😑"
-                                                                font.pointSize: comicStrip.fsBubbleMsg
-                                                                font.bold: false
-                                                                color: "#111111"; wrapMode: Text.WordWrap
-                                                            }
                                                         }
                                                     }
+
                                                 }
-                                                Item { width: 1; height: 8 }
+
                                             }
                                         }
                                     }
