@@ -885,6 +885,7 @@ Rectangle {
     property real lastTapY: 0
     property bool gameVisible: false
     property string gameLang: ""
+    property bool royalTourVisible: false
 
     onSelectedLanguageChanged: {
         if (selectedLanguage !== "") {
@@ -3703,6 +3704,175 @@ Rectangle {
                         height: 16
                     }
 
+                    // ══ ROYAL TOUR YOUTUBE BUTTON ═════════════════════════
+                    Rectangle {
+                        id: royalTourBtnSection
+                        width: app.width
+                        height: Qt.platform.os === "android" ? 88 : 70
+                        color: "#001413"
+
+                        // ── red YouTube glow pulse ────────────────────────
+                        Rectangle {
+                            id: ytGlowRing
+                            anchors.centerIn: parent
+                            width: parent.width * 0.88 + 10
+                            height: Qt.platform.os === "android" ? 74 : 58
+                            radius: height / 2
+                            color: "transparent"
+                            border.color: "#cc0000"
+                            border.width: 2
+                            opacity: 0.0
+                            SequentialAnimation on opacity {
+                                loops: Animation.Infinite; running: true
+                                NumberAnimation { to: 0.45; duration: 1100; easing.type: Easing.InOutSine }
+                                NumberAnimation { to: 0.0;  duration: 1100; easing.type: Easing.InOutSine }
+                            }
+                        }
+
+                        // ── main button pill ──────────────────────────────
+                        Rectangle {
+                            id: royalTourBtn
+                            anchors.centerIn: parent
+                            width: parent.width * 0.88
+                            height: Qt.platform.os === "android" ? 68 : 54
+                            radius: height / 2
+                            color: royalTourMA.pressed ? "#1a0000" : "#0d0000"
+                            border.color: "#cc0000"
+                            border.width: Qt.platform.os === "android" ? 2 : 1.5
+                            clip: true
+
+                            property real sc: 1.0
+                            scale: sc
+                            Behavior on sc { NumberAnimation { duration: 120; easing.type: Easing.OutBack } }
+                            Behavior on color { ColorAnimation { duration: 100 } }
+
+                            // subtle breathe
+                            SequentialAnimation on sc {
+                                loops: Animation.Infinite; running: true
+                                NumberAnimation { to: 1.025; duration: 1000; easing.type: Easing.SineCurve }
+                                NumberAnimation { to: 1.0;   duration: 1000; easing.type: Easing.SineCurve }
+                            }
+
+                            // inner dark glow border
+                            Rectangle {
+                                anchors.fill: parent; anchors.margins: 2
+                                color: "transparent"
+                                border.color: "#33cc0000"; border.width: 2
+                                radius: parent.radius - 2
+                            }
+
+                            Row {
+                                anchors.centerIn: parent
+                                spacing: Qt.platform.os === "android" ? 12 : 9
+
+                                // ── YouTube icon drawn in Canvas ──────────
+                                Canvas {
+                                    id: ytIconCanvas
+                                    width: Qt.platform.os === "android" ? 44 : 34
+                                    height: Qt.platform.os === "android" ? 32 : 24
+                                    anchors.verticalCenter: parent.verticalCenter
+
+                                    onPaint: {
+                                        var ctx = getContext("2d");
+                                        ctx.clearRect(0, 0, width, height);
+                                        var cx = width / 2;
+                                        var cy = height / 2;
+                                        var rw = width * 0.92;
+                                        var rh = height * 0.72;
+                                        var rx = cx - rw / 2;
+                                        var ry = cy - rh / 2;
+                                        var r  = height * 0.22;
+
+                                        // ── rounded rectangle background (YouTube red) ──
+                                        ctx.beginPath();
+                                        ctx.moveTo(rx + r, ry);
+                                        ctx.lineTo(rx + rw - r, ry);
+                                        ctx.quadraticCurveTo(rx + rw, ry, rx + rw, ry + r);
+                                        ctx.lineTo(rx + rw, ry + rh - r);
+                                        ctx.quadraticCurveTo(rx + rw, ry + rh, rx + rw - r, ry + rh);
+                                        ctx.lineTo(rx + r, ry + rh);
+                                        ctx.quadraticCurveTo(rx, ry + rh, rx, ry + rh - r);
+                                        ctx.lineTo(rx, ry + r);
+                                        ctx.quadraticCurveTo(rx, ry, rx + r, ry);
+                                        ctx.closePath();
+                                        ctx.fillStyle = "#FF0000";
+                                        ctx.fill();
+
+                                        // ── white play triangle ───────────
+                                        var tw = rw * 0.32;
+                                        var th = rh * 0.60;
+                                        var tx = cx - tw * 0.38;
+                                        var ty = cy - th / 2;
+                                        ctx.beginPath();
+                                        ctx.moveTo(tx, ty);
+                                        ctx.lineTo(tx + tw, cy);
+                                        ctx.lineTo(tx, ty + th);
+                                        ctx.closePath();
+                                        ctx.fillStyle = "white";
+                                        ctx.fill();
+                                    }
+                                    Component.onCompleted: { requestPaint(); }
+                                }
+
+                                // ── label column ──────────────────────────
+                                Column {
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    spacing: Qt.platform.os === "android" ? 2 : 1
+
+                                    Text {
+                                        text: langSettings.lang === "sw"
+                                              ? "Angalia Tanzania Royal Tour"
+                                              : "Watch Tanzania Royal Tour"
+                                        font.bold: true
+                                        font.pointSize: Qt.platform.os === "android" ? 13 : 10
+                                        color: "white"
+                                    }
+                                    Text {
+                                        text: "YouTube · Tanzania Official"
+                                        font.pointSize: Qt.platform.os === "android" ? 9 : 7
+                                        color: "#cc6666"
+                                        font.italic: true
+                                    }
+                                }
+
+                                // ── animated arrow ────────────────────────
+                                Text {
+                                    id: ytArrow
+                                    text: "▶"
+                                    font.pointSize: Qt.platform.os === "android" ? 12 : 9
+                                    color: "#cc0000"
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    property real arrowX: 0
+                                    SequentialAnimation on arrowX {
+                                        loops: Animation.Infinite; running: true
+                                        NumberAnimation { to: 5;  duration: 480; easing.type: Easing.InOutSine }
+                                        NumberAnimation { to: 0;  duration: 480; easing.type: Easing.InOutSine }
+                                    }
+                                    transform: Translate { x: ytArrow.arrowX }
+                                }
+                            }
+
+                            MouseArea {
+                                id: royalTourMA
+                                anchors.fill: parent
+                                onPressed:  { royalTourBtn.sc = 0.93; }
+                                onReleased: {
+                                    royalTourBtn.sc = 1.0;
+                                    royalTourOverlay.visible = true;
+                                }
+                                onCanceled: { royalTourBtn.sc = 1.0; }
+                            }
+                        }
+                    }
+                    // ══ / ROYAL TOUR YOUTUBE BUTTON ═══════════════════════
+
+                    //Spacing Rect
+                    Rectangle{
+                        color:"#001413"
+                        width: parent.width
+                        height: 16
+                    }
+
                     // ══ WANYAMA COMIC STRIP — Scene A & B ════════════════
                     Rectangle {
                         id: comicStrip
@@ -4253,7 +4423,7 @@ Rectangle {
                                                                 }
                                                                 Text {
                                                                     width: parent.width
-                                                                    text: langSettings.lang === "sw" ? "(akisimama pembeni)" : "(standing aside)"
+                                                                    text: langSettings.lang === "sw" ? "(akisimama pembeni, utulivu kabisa)" : "(standing aside, completely calm)"
                                                                     font.italic: true
                                                                     font.pointSize: comicStrip.fsBubbleAction
                                                                     color: "#888888"; wrapMode: Text.WordWrap
@@ -4261,7 +4431,7 @@ Rectangle {
                                                                 Text {
                                                                     id: ab8Col
                                                                     width: ab8ColWrap.width - 20
-                                                                    text: langSettings.lang === "sw" ? "Weka bendera tu, usitufanye tuko kwenye muvi!" : "Just put the flag up; stop making it a movie!"
+                                                                    text: langSettings.lang === "sw" ? "Mimi niliwaambia tu... weka bendera kwenye nguzo. Rahisi. Lakini hapana... lazima iwe adventure." : "I told them... put the flag on a pole. Simple. But no... it has to be an adventure."
                                                                     font.pointSize: comicStrip.fsBubbleMsg
                                                                     font.bold: false
                                                                     color: "#111111"; wrapMode: Text.WordWrap
@@ -11478,5 +11648,763 @@ Rectangle {
         }
     }
     // ════════════════════════════════════════════════════════════════
+
+    // ════════════════════════════════════════════════════════════════
+    // ══ ROYAL TOUR VIDEO PLAYER OVERLAY (Invidious → MediaPlayer) ═══
+    Item {
+        id: royalTourOverlay
+        anchors.fill: parent
+        visible: app.royalTourVisible
+        z: 350
+
+        // ── State machine ─────────────────────────────────────────────
+        // "idle"      → waiting, user hajaanza kucheza
+        // "fetching"  → inaomba stream URL kutoka Invidious
+        // "playing"   → MediaPlayer inacheza / imepumzika
+        // "error"     → fetch au playback imeshindwa
+        property string rtState: "idle"
+        property string rtError: ""
+
+        // Invidious instances (tunajaribu moja baada ya nyingine)
+        property var invidiousHosts: [
+            "https://invidious.nerdvpn.de",
+            "https://inv.nadeko.net",
+            "https://invidious.privacyredirect.com"
+        ]
+        property int  hostIndex: 0
+        property string videoId: "gjwiVbXTcR8"
+
+        // ── Fetch stream URL from Invidious ───────────────────────────
+        function fetchStreamUrl() {
+            rtState = "fetching";
+            rtError = "";
+            _doFetch(hostIndex);
+        }
+
+        function _doFetch(idx) {
+            if (idx >= invidiousHosts.length) {
+                // Tumeshindwa kwa hosts zote — fallback browser
+                rtState = "error";
+                rtError = "fallback";
+                return;
+            }
+            var url = invidiousHosts[idx] + "/api/v1/videos/" + videoId
+                      + "?fields=adaptiveFormats,formatStreams";
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", url, true);
+            xhr.timeout = 9000;
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState !== XMLHttpRequest.DONE) { return; }
+                if (xhr.status === 200) {
+                    _parseAndPlay(xhr.responseText, idx);
+                } else {
+                    // Jaribu host inayofuata
+                    _doFetch(idx + 1);
+                }
+            };
+            xhr.ontimeout = function() { _doFetch(idx + 1); };
+            xhr.onerror   = function() { _doFetch(idx + 1); };
+            xhr.send();
+        }
+
+        function _parseAndPlay(json, idx) {
+            try {
+                var data = JSON.parse(json);
+
+                // ── Tafuta mp4 yenye ubora wa kati kutoka adaptiveFormats ──
+                // (audio+video streams zipo katika formatStreams)
+                var best = "";
+                var bestH = 0;
+
+                // Kwanza jaribu formatStreams (audio+video combined)
+                var fs = data.formatStreams;
+                if (fs && fs.length > 0) {
+                    for (var i = 0; i < fs.length; i++) {
+                        var f = fs[i];
+                        var h = f.resolution ? parseInt(f.resolution) : 0;
+                        // Chagua 360p au 480p — reliable zaidi kwenye mobile
+                        if (f.url && h >= 240 && h <= 480 && h > bestH) {
+                            best = f.url;
+                            bestH = h;
+                        }
+                    }
+                    // Kama hatujaipata 240-480, chukua yoyote
+                    if (best === "" && fs.length > 0) {
+                        best = fs[fs.length - 1].url;
+                    }
+                }
+
+                if (best !== "") {
+                    rtPlayer.source = best;
+                    rtPlayer.play();
+                    rtState = "playing";
+                } else {
+                    // Jaribu host inayofuata
+                    _doFetch(idx + 1);
+                }
+            } catch (e) {
+                _doFetch(idx + 1);
+            }
+        }
+
+        function closePlayer() {
+            rtPlayer.stop();
+            rtPlayer.source = "";
+            app.royalTourVisible = false;
+            rtState = "idle";
+            rtError = "";
+            hostIndex = 0;
+            app.animateBackToFrontPage();
+        }
+
+        // Reset hali kila wakati overlay inafunguliwa
+        onVisibleChanged: {
+            if (visible) {
+                rtState = "idle";
+                rtError = "";
+                hostIndex = 0;
+                rtPlayer.source = "";
+            } else {
+                rtPlayer.stop();
+                rtPlayer.source = "";
+            }
+        }
+
+        // ── Solid black background ────────────────────────────────────
+        Rectangle {
+            anchors.fill: parent
+            color: "#000000"
+        }
+
+        // ── MediaPlayer + VideoOutput ─────────────────────────────────
+        MediaPlayer {
+            id: rtPlayer
+            autoPlay: false
+
+            onErrorChanged: {
+                if (error !== MediaPlayer.NoError) {
+                    royalTourOverlay.rtState = "error";
+                    royalTourOverlay.rtError = "playback";
+                }
+            }
+            onStatusChanged: {
+                if (status === MediaPlayer.InvalidMedia) {
+                    royalTourOverlay.rtState = "error";
+                    royalTourOverlay.rtError = "playback";
+                }
+            }
+        }
+
+        VideoOutput {
+            id: rtVideoOut
+            anchors.fill: parent
+            source: rtPlayer
+            fillMode: VideoOutput.PreserveAspectFit
+            visible: royalTourOverlay.rtState === "playing"
+        }
+
+        // ════════════════════════════════════════════════════════════════
+        // ── IDLE STATE — Kadi ya kuanza ──────────────────────────────
+        // ════════════════════════════════════════════════════════════════
+        Item {
+            anchors.fill: parent
+            visible: royalTourOverlay.rtState === "idle"
+
+            Rectangle {
+                anchors.centerIn: parent
+                width: app.width * 0.88
+                height: idleCol.implicitHeight + (Qt.platform.os === "android" ? 44 : 34)
+                radius: Qt.platform.os === "android" ? 18 : 14
+                color: "#0d0000"
+                border.color: "#cc0000"; border.width: 2
+
+                Column {
+                    id: idleCol
+                    anchors.centerIn: parent
+                    width: parent.width - (Qt.platform.os === "android" ? 36 : 28)
+                    spacing: Qt.platform.os === "android" ? 16 : 12
+
+                    // YT logo + title
+                    Row {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        spacing: Qt.platform.os === "android" ? 12 : 9
+
+                        Canvas {
+                            width: Qt.platform.os === "android" ? 54 : 42
+                            height: Qt.platform.os === "android" ? 37 : 29
+                            anchors.verticalCenter: parent.verticalCenter
+                            onPaint: {
+                                var ctx = getContext("2d");
+                                ctx.clearRect(0, 0, width, height);
+                                var cx=width/2; var cy=height/2;
+                                var rw=width*0.9; var rh=height*0.72;
+                                var rx=cx-rw/2; var ry=cy-rh/2; var r=height*0.20;
+                                ctx.beginPath();
+                                ctx.moveTo(rx+r,ry); ctx.lineTo(rx+rw-r,ry);
+                                ctx.quadraticCurveTo(rx+rw,ry,rx+rw,ry+r);
+                                ctx.lineTo(rx+rw,ry+rh-r);
+                                ctx.quadraticCurveTo(rx+rw,ry+rh,rx+rw-r,ry+rh);
+                                ctx.lineTo(rx+r,ry+rh);
+                                ctx.quadraticCurveTo(rx,ry+rh,rx,ry+rh-r);
+                                ctx.lineTo(rx,ry+r);
+                                ctx.quadraticCurveTo(rx,ry,rx+r,ry);
+                                ctx.closePath();
+                                ctx.fillStyle="#FF0000"; ctx.fill();
+                                var tw=rw*0.30; var th=rh*0.58;
+                                var tx=cx-tw*0.38; var ty=cy-th/2;
+                                ctx.beginPath();
+                                ctx.moveTo(tx,ty); ctx.lineTo(tx+tw,cy); ctx.lineTo(tx,ty+th);
+                                ctx.closePath();
+                                ctx.fillStyle="white"; ctx.fill();
+                            }
+                            Component.onCompleted: { requestPaint(); }
+                        }
+
+                        Column {
+                            anchors.verticalCenter: parent.verticalCenter
+                            spacing: 2
+                            Text {
+                                text: "Tanzania Royal Tour"
+                                font.bold: true
+                                font.pointSize: Qt.platform.os === "android" ? 16 : 13
+                                color: "white"
+                            }
+                            Text {
+                                text: langSettings.lang === "sw" ? "Video rasmi · HD" : "Official video · HD"
+                                font.pointSize: Qt.platform.os === "android" ? 10 : 8
+                                color: "#cc5555"; font.italic: true
+                            }
+                        }
+                    }
+
+                    // divider
+                    Rectangle {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        width: parent.width * 0.7; height: 1; color: "#33cc0000"
+                    }
+
+                    // maelezo
+                    Text {
+                        width: parent.width
+                        wrapMode: Text.WordWrap
+                        horizontalAlignment: Text.AlignHCenter
+                        font.pointSize: Qt.platform.os === "android" ? 11 : 9
+                        color: "#aaaaaa"
+                        text: langSettings.lang === "sw"
+                              ? "Tazama video hii moja kwa moja ndani ya app — ziara rasmi inayoonyesha vivutio bora vya Tanzania."
+                              : "Watch this video directly inside the app — the official showcase of Tanzania's finest destinations."
+                    }
+
+                    // ── Play button ───────────────────────────────────
+                    Rectangle {
+                        id: rtPlayBtn
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        width: Math.min(parent.width, Qt.platform.os === "android" ? 250 : 195)
+                        height: Qt.platform.os === "android" ? 56 : 44
+                        radius: height / 2
+                        color: rtPlayBtnMA.pressed ? "#991100" : "#cc0000"
+                        border.color: "#ff4444"; border.width: 2
+                        property real sc: 1.0
+                        scale: sc
+                        Behavior on sc    { NumberAnimation { duration: 110; easing.type: Easing.OutBack } }
+                        Behavior on color { ColorAnimation  { duration: 90 } }
+                        SequentialAnimation on sc {
+                            loops: Animation.Infinite; running: rtPlayBtnMA.enabled
+                            NumberAnimation { to: 1.04; duration: 900; easing.type: Easing.SineCurve }
+                            NumberAnimation { to: 1.0;  duration: 900; easing.type: Easing.SineCurve }
+                        }
+
+                        Row {
+                            anchors.centerIn: parent
+                            spacing: Qt.platform.os === "android" ? 10 : 8
+                            Canvas {
+                                width: Qt.platform.os === "android" ? 24 : 18
+                                height: width; anchors.verticalCenter: parent.verticalCenter
+                                onPaint: {
+                                    var ctx = getContext("2d");
+                                    ctx.clearRect(0, 0, width, height);
+                                    var tw=width*0.55; var th=height*0.72;
+                                    ctx.beginPath();
+                                    ctx.moveTo(width*0.22, height/2-th/2);
+                                    ctx.lineTo(width*0.22+tw, height/2);
+                                    ctx.lineTo(width*0.22, height/2+th/2);
+                                    ctx.closePath();
+                                    ctx.fillStyle="white"; ctx.fill();
+                                }
+                                Component.onCompleted: { requestPaint(); }
+                            }
+                            Text {
+                                text: langSettings.lang === "sw" ? "Cheza Video" : "Play Video"
+                                font.bold: true
+                                font.pointSize: Qt.platform.os === "android" ? 15 : 12
+                                color: "white"; anchors.verticalCenter: parent.verticalCenter
+                            }
+                        }
+
+                        MouseArea {
+                            id: rtPlayBtnMA
+                            anchors.fill: parent
+                            onPressed:  { rtPlayBtn.sc = 0.93; }
+                            onReleased: {
+                                rtPlayBtn.sc = 1.0;
+                                royalTourOverlay.fetchStreamUrl();
+                            }
+                            onCanceled: { rtPlayBtn.sc = 1.0; }
+                        }
+                    }
+
+                    // ── Close (idle) ──────────────────────────────────
+                    Rectangle {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        width: Math.min(parent.width * 0.5, Qt.platform.os === "android" ? 170 : 132)
+                        height: Qt.platform.os === "android" ? 46 : 36
+                        radius: height / 2
+                        color: idleCloseMA.pressed ? "#180000" : "#0d0000"
+                        border.color: "#553333"; border.width: 1
+                        Behavior on color { ColorAnimation { duration: 80 } }
+                        Text {
+                            anchors.centerIn: parent
+                            text: langSettings.lang === "sw" ? "Funga" : "Close"
+                            font.pointSize: Qt.platform.os === "android" ? 13 : 10
+                            font.bold: true; color: "#885555"
+                        }
+                        MouseArea {
+                            id: idleCloseMA
+                            anchors.fill: parent
+                            onReleased: { royalTourOverlay.closePlayer(); }
+                        }
+                    }
+
+                    Item { width: 1; height: 2 }
+                }
+            }
+        }
+
+        // ════════════════════════════════════════════════════════════════
+        // ── FETCHING STATE — spinner ─────────────────────────────────
+        // ════════════════════════════════════════════════════════════════
+        Item {
+            anchors.fill: parent
+            visible: royalTourOverlay.rtState === "fetching"
+
+            Column {
+                anchors.centerIn: parent
+                spacing: Qt.platform.os === "android" ? 18 : 14
+
+                // Spinner (arc Canvas)
+                Canvas {
+                    id: rtSpinner
+                    width: Qt.platform.os === "android" ? 62 : 48
+                    height: width
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    property real angle: 0
+                    NumberAnimation on angle {
+                        from: 0; to: Math.PI * 2
+                        duration: 900; loops: Animation.Infinite
+                        running: royalTourOverlay.rtState === "fetching"
+                    }
+                    onAngleChanged: { requestPaint(); }
+                    onPaint: {
+                        var ctx = getContext("2d");
+                        ctx.clearRect(0, 0, width, height);
+                        ctx.strokeStyle = "#FF0000";
+                        ctx.lineWidth = width * 0.09;
+                        ctx.lineCap = "round";
+                        ctx.beginPath();
+                        ctx.arc(width/2, height/2, width*0.42, angle, angle + Math.PI*1.25);
+                        ctx.stroke();
+                        ctx.strokeStyle = "#550000";
+                        ctx.lineWidth = width * 0.06;
+                        ctx.beginPath();
+                        ctx.arc(width/2, height/2, width*0.28, -angle, -angle + Math.PI*0.9);
+                        ctx.stroke();
+                    }
+                    Component.onCompleted: { requestPaint(); }
+                }
+
+                Text {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    text: langSettings.lang === "sw"
+                          ? "Inatafuta stream …"
+                          : "Fetching stream …"
+                    font.pointSize: Qt.platform.os === "android" ? 13 : 10
+                    font.bold: true; color: "#cc4444"
+                }
+
+                // Cancel during fetch
+                Rectangle {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: Qt.platform.os === "android" ? 140 : 110
+                    height: Qt.platform.os === "android" ? 44 : 34
+                    radius: height / 2
+                    color: fetchCancelMA.pressed ? "#1a0000" : "#0d0000"
+                    border.color: "#553333"; border.width: 1
+                    Behavior on color { ColorAnimation { duration: 80 } }
+                    Text {
+                        anchors.centerIn: parent
+                        text: langSettings.lang === "sw" ? "✕  Acha" : "✕  Cancel"
+                        font.pointSize: Qt.platform.os === "android" ? 12 : 9
+                        font.bold: true; color: "#885555"
+                    }
+                    MouseArea {
+                        id: fetchCancelMA
+                        anchors.fill: parent
+                        onReleased: { royalTourOverlay.closePlayer(); }
+                    }
+                }
+            }
+        }
+
+        // ════════════════════════════════════════════════════════════════
+        // ── PLAYING STATE — video + controls ────────────────────────
+        // ════════════════════════════════════════════════════════════════
+        Item {
+            anchors.fill: parent
+            visible: royalTourOverlay.rtState === "playing"
+
+            // ── Buffering spinner over video ──────────────────────────
+            Canvas {
+                id: rtBufSpinner
+                anchors.centerIn: parent
+                width: Qt.platform.os === "android" ? 56 : 44
+                height: width
+                visible: rtPlayer.status === MediaPlayer.Loading
+                         || rtPlayer.status === MediaPlayer.Buffering
+                         || rtPlayer.status === MediaPlayer.Stalled
+                property real angle: 0
+                NumberAnimation on angle {
+                    from: 0; to: Math.PI * 2
+                    duration: 800; loops: Animation.Infinite
+                    running: rtBufSpinner.visible
+                }
+                onAngleChanged: { requestPaint(); }
+                onPaint: {
+                    var ctx = getContext("2d");
+                    ctx.clearRect(0, 0, width, height);
+                    ctx.strokeStyle = "#FF0000";
+                    ctx.lineWidth = width * 0.09;
+                    ctx.lineCap = "round";
+                    ctx.beginPath();
+                    ctx.arc(width/2, height/2, width*0.42, angle, angle + Math.PI*1.2);
+                    ctx.stroke();
+                }
+                Component.onCompleted: { requestPaint(); }
+            }
+
+            // ── Top bar: title + close ────────────────────────────────
+            Rectangle {
+                id: rtTopBar
+                anchors.top: parent.top
+                anchors.left: parent.left
+                anchors.right: parent.right
+                height: Qt.platform.os === "android" ? 52 : 40
+                color: Qt.rgba(0, 0, 0, 0.72)
+
+                // title
+                Text {
+                    anchors.centerIn: parent
+                    text: "🇹🇿  Tanzania Royal Tour"
+                    font.bold: true
+                    font.pointSize: Qt.platform.os === "android" ? 13 : 10
+                    color: "white"
+                }
+
+                // close button — top right
+                Rectangle {
+                    id: rtCloseTopBtn
+                    anchors.right: parent.right
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.rightMargin: Qt.platform.os === "android" ? 12 : 9
+                    width: Qt.platform.os === "android" ? 38 : 30
+                    height: width; radius: width / 2
+                    color: rtCloseTopMA.pressed ? "#220000" : "#110000"
+                    border.color: "#cc3333"; border.width: 2
+                    Behavior on color { ColorAnimation { duration: 80 } }
+                    Canvas {
+                        anchors.fill: parent
+                        onPaint: {
+                            var ctx = getContext("2d");
+                            ctx.clearRect(0, 0, width, height);
+                            ctx.strokeStyle = "#ff5555";
+                            ctx.lineWidth = width * 0.13; ctx.lineCap = "round";
+                            var cx=width/2; var cy=height/2; var d=width*0.26;
+                            ctx.beginPath(); ctx.moveTo(cx-d,cy-d); ctx.lineTo(cx+d,cy+d); ctx.stroke();
+                            ctx.beginPath(); ctx.moveTo(cx+d,cy-d); ctx.lineTo(cx-d,cy+d); ctx.stroke();
+                        }
+                        Component.onCompleted: { requestPaint(); }
+                    }
+                    MouseArea {
+                        id: rtCloseTopMA
+                        anchors.fill: parent
+                        onReleased: { royalTourOverlay.closePlayer(); }
+                    }
+                }
+            }
+
+            // ── Bottom controls bar ───────────────────────────────────
+            Rectangle {
+                id: rtControlsBar
+                anchors.bottom: parent.bottom
+                anchors.left: parent.left
+                anchors.right: parent.right
+                height: Qt.platform.os === "android" ? 72 : 56
+                color: Qt.rgba(0, 0, 0, 0.75)
+
+                property int btnSz: Qt.platform.os === "android" ? 46 : 36
+
+                Row {
+                    anchors.centerIn: parent
+                    spacing: Qt.platform.os === "android" ? 22 : 16
+
+                    // ── STOP ─────────────────────────────────────────
+                    Rectangle {
+                        id: rtStopBtn
+                        width: rtControlsBar.btnSz; height: width; radius: width / 2
+                        color: rtStopMA.pressed ? "#1a0000" : "#0d0000"
+                        border.color: "#cc3333"; border.width: 2
+                        Behavior on color { ColorAnimation { duration: 80 } }
+                        Canvas {
+                            anchors.fill: parent
+                            onPaint: {
+                                var ctx = getContext("2d");
+                                ctx.clearRect(0, 0, width, height);
+                                var s = width * 0.34;
+                                ctx.fillStyle = "#cc3333";
+                                ctx.fillRect(width/2-s/2, height/2-s/2, s, s);
+                            }
+                            Component.onCompleted: { requestPaint(); }
+                        }
+                        MouseArea {
+                            id: rtStopMA; anchors.fill: parent
+                            onReleased: { rtPlayer.stop(); royalTourOverlay.rtState = "idle"; }
+                        }
+                    }
+
+                    // ── PLAY / PAUSE ──────────────────────────────────
+                    Rectangle {
+                        id: rtPlayPauseBtn
+                        width: rtControlsBar.btnSz * 1.28; height: width; radius: width / 2
+                        color: rtPlayPauseMA.pressed ? "#1a0000" : "#0d0000"
+                        border.color: "#ff2222"; border.width: 3
+                        Behavior on color { ColorAnimation { duration: 80 } }
+                        Canvas {
+                            id: rtPlayPauseCanvas
+                            anchors.fill: parent
+                            onPaint: {
+                                var ctx = getContext("2d");
+                                ctx.clearRect(0, 0, width, height);
+                                ctx.fillStyle = "#ff3333";
+                                var playing = rtPlayer.playbackState === MediaPlayer.PlayingState;
+                                var cx = width/2; var cy = height/2;
+                                if (playing) {
+                                    var bw = width*0.11; var bh = height*0.40; var gap = width*0.10;
+                                    ctx.fillRect(cx-gap/2-bw, cy-bh/2, bw, bh);
+                                    ctx.fillRect(cx+gap/2,    cy-bh/2, bw, bh);
+                                } else {
+                                    var tw = width*0.36; var th = height*0.42;
+                                    ctx.beginPath();
+                                    ctx.moveTo(cx-tw/2+width*0.04, cy-th/2);
+                                    ctx.lineTo(cx+tw/2+width*0.04, cy);
+                                    ctx.lineTo(cx-tw/2+width*0.04, cy+th/2);
+                                    ctx.closePath(); ctx.fill();
+                                }
+                            }
+                            Component.onCompleted: { requestPaint(); }
+                            Connections {
+                                target: rtPlayer
+                                onPlaybackStateChanged: { rtPlayPauseCanvas.requestPaint(); }
+                            }
+                        }
+                        MouseArea {
+                            id: rtPlayPauseMA; anchors.fill: parent
+                            onReleased: {
+                                if (rtPlayer.playbackState === MediaPlayer.PlayingState) {
+                                    rtPlayer.pause();
+                                } else {
+                                    rtPlayer.play();
+                                }
+                            }
+                        }
+                    }
+
+                    // ── MUTE ─────────────────────────────────────────
+                    Rectangle {
+                        id: rtMuteBtn
+                        width: rtControlsBar.btnSz; height: width; radius: width / 2
+                        color: rtMuteMA.pressed ? "#1a0000" : "#0d0000"
+                        border.color: "#cc3333"; border.width: 2
+                        Behavior on color { ColorAnimation { duration: 80 } }
+                        Canvas {
+                            id: rtMuteCanvas
+                            anchors.fill: parent
+                            property bool muted: rtPlayer.muted
+                            onMutedChanged: { requestPaint(); }
+                            onPaint: {
+                                var ctx = getContext("2d");
+                                ctx.clearRect(0, 0, width, height);
+                                var cx=width*0.38; var cy=height/2;
+                                var bh=height*0.36; var bw=width*0.20;
+                                ctx.fillStyle="#ff4444";
+                                ctx.beginPath();
+                                ctx.moveTo(cx-bw, cy-bh*0.5);
+                                ctx.lineTo(cx,    cy-bh*0.5);
+                                ctx.lineTo(cx+bw*0.7, cy-bh);
+                                ctx.lineTo(cx+bw*0.7, cy+bh);
+                                ctx.lineTo(cx,    cy+bh*0.5);
+                                ctx.lineTo(cx-bw, cy+bh*0.5);
+                                ctx.closePath(); ctx.fill();
+                                if (!muted) {
+                                    ctx.strokeStyle="#ff4444";
+                                    ctx.lineWidth=width*0.08; ctx.lineCap="round";
+                                    ctx.beginPath(); ctx.arc(cx+bw*0.7,cy,width*0.15,-Math.PI*0.5,Math.PI*0.5); ctx.stroke();
+                                    ctx.beginPath(); ctx.arc(cx+bw*0.7,cy,width*0.26,-Math.PI*0.5,Math.PI*0.5); ctx.stroke();
+                                } else {
+                                    ctx.strokeStyle="#884444";
+                                    ctx.lineWidth=width*0.10; ctx.lineCap="round";
+                                    ctx.beginPath(); ctx.moveTo(cx+bw*1.1,cy-height*0.20); ctx.lineTo(cx+bw*1.8,cy+height*0.20); ctx.stroke();
+                                    ctx.beginPath(); ctx.moveTo(cx+bw*1.8,cy-height*0.20); ctx.lineTo(cx+bw*1.1,cy+height*0.20); ctx.stroke();
+                                }
+                            }
+                            Component.onCompleted: { requestPaint(); }
+                        }
+                        MouseArea {
+                            id: rtMuteMA; anchors.fill: parent
+                            onReleased: { rtPlayer.muted = !rtPlayer.muted; rtMuteCanvas.requestPaint(); }
+                        }
+                    }
+                }
+            }
+        }
+
+        // ════════════════════════════════════════════════════════════════
+        // ── ERROR STATE ──────────────────────────────────────────────
+        // ════════════════════════════════════════════════════════════════
+        Item {
+            anchors.fill: parent
+            visible: royalTourOverlay.rtState === "error"
+
+            Rectangle {
+                anchors.centerIn: parent
+                width: app.width * 0.86
+                height: errCol.implicitHeight + (Qt.platform.os === "android" ? 44 : 34)
+                radius: Qt.platform.os === "android" ? 16 : 12
+                color: "#0d0000"; border.color: "#cc3300"; border.width: 2
+
+                Column {
+                    id: errCol
+                    anchors.centerIn: parent
+                    width: parent.width - (Qt.platform.os === "android" ? 36 : 28)
+                    spacing: Qt.platform.os === "android" ? 14 : 11
+
+                    Text {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        text: "⚠️"
+                        font.pointSize: Qt.platform.os === "android" ? 28 : 22
+                    }
+
+                    Text {
+                        width: parent.width
+                        wrapMode: Text.WordWrap
+                        horizontalAlignment: Text.AlignHCenter
+                        font.bold: true
+                        font.pointSize: Qt.platform.os === "android" ? 13 : 10
+                        color: "#ff5544"
+                        text: langSettings.lang === "sw"
+                              ? "Imeshindwa kupata stream"
+                              : "Could not fetch stream"
+                    }
+
+                    Text {
+                        width: parent.width
+                        wrapMode: Text.WordWrap
+                        horizontalAlignment: Text.AlignHCenter
+                        font.pointSize: Qt.platform.os === "android" ? 11 : 9
+                        color: "#888888"
+                        text: langSettings.lang === "sw"
+                              ? "Servers za Invidious hazikujibu. Jaribu tena au tazama kwenye YouTube moja kwa moja."
+                              : "Invidious servers did not respond. Retry or watch directly on YouTube."
+                    }
+
+                    // Retry
+                    Rectangle {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        width: Math.min(parent.width, Qt.platform.os === "android" ? 220 : 170)
+                        height: Qt.platform.os === "android" ? 52 : 40
+                        radius: height / 2
+                        color: errRetryMA.pressed ? "#331100" : "#220d00"
+                        border.color: "#cc4400"; border.width: 2
+                        Behavior on color { ColorAnimation { duration: 80 } }
+                        Text {
+                            anchors.centerIn: parent
+                            text: langSettings.lang === "sw" ? "↺  Jaribu Tena" : "↺  Retry"
+                            font.bold: true
+                            font.pointSize: Qt.platform.os === "android" ? 13 : 10
+                            color: "#ff7733"
+                        }
+                        MouseArea {
+                            id: errRetryMA
+                            anchors.fill: parent
+                            onReleased: {
+                                royalTourOverlay.hostIndex = 0;
+                                royalTourOverlay.fetchStreamUrl();
+                            }
+                        }
+                    }
+
+                    // Fallback: open YouTube
+                    Rectangle {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        width: Math.min(parent.width, Qt.platform.os === "android" ? 240 : 186)
+                        height: Qt.platform.os === "android" ? 52 : 40
+                        radius: height / 2
+                        color: errYtMA.pressed ? "#991100" : "#cc0000"
+                        border.color: "#ff3333"; border.width: 2
+                        Behavior on color { ColorAnimation { duration: 80 } }
+                        Text {
+                            anchors.centerIn: parent
+                            text: langSettings.lang === "sw" ? "▶  Fungua YouTube" : "▶  Open YouTube"
+                            font.bold: true
+                            font.pointSize: Qt.platform.os === "android" ? 13 : 10
+                            color: "white"
+                        }
+                        MouseArea {
+                            id: errYtMA
+                            anchors.fill: parent
+                            onReleased: {
+                                Qt.openUrlExternally("https://m.youtube.com/watch?v=gjwiVbXTcR8&pp=ygUTdGFuemFuaWEgbG95YWwgdG91cg%3D%3D");
+                                royalTourOverlay.closePlayer();
+                            }
+                        }
+                    }
+
+                    // Close
+                    Rectangle {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        width: Math.min(parent.width * 0.5, Qt.platform.os === "android" ? 160 : 124)
+                        height: Qt.platform.os === "android" ? 44 : 34
+                        radius: height / 2
+                        color: errCloseMA.pressed ? "#180000" : "#0d0000"
+                        border.color: "#553333"; border.width: 1
+                        Behavior on color { ColorAnimation { duration: 80 } }
+                        Text {
+                            anchors.centerIn: parent
+                            text: langSettings.lang === "sw" ? "Funga" : "Close"
+                            font.pointSize: Qt.platform.os === "android" ? 12 : 9
+                            font.bold: true; color: "#885555"
+                        }
+                        MouseArea {
+                            id: errCloseMA
+                            anchors.fill: parent
+                            onReleased: { royalTourOverlay.closePlayer(); }
+                        }
+                    }
+
+                    Item { width: 1; height: 2 }
+                }
+            }
+        }
+
+    }
+    // ══ / ROYAL TOUR VIDEO PLAYER OVERLAY ═══════════════════════════
 
 } // end root Rectangle
