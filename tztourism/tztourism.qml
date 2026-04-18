@@ -4261,7 +4261,7 @@ Rectangle {
                                                                 Text {
                                                                     id: ab8Col
                                                                     width: ab8ColWrap.width - 20
-                                                                    text: langSettings.lang === "sw" ? "Mimi niliwaambia tu... weka bendera kwenye nguzo. Rahisi. Lakini hapana... lazima iwe adventure." : "I told them... put the flag on a pole. Simple. But no... it has to be an adventure."
+                                                                    text: langSettings.lang === "sw" ? "Weka bendera tu, usitufanye tuko kwenye muvi!" : "Just put the flag up; stop making it a movie!"
                                                                     font.pointSize: comicStrip.fsBubbleMsg
                                                                     font.bold: false
                                                                     color: "#111111"; wrapMode: Text.WordWrap
