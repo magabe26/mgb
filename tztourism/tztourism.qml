@@ -23,7 +23,7 @@ Rectangle {
     property bool articleViewVisible: false      // Tanzania article overlay
     property string articleLang: ""             // language for article view
     property real articleFontScale: 1.0         // user-adjustable font size (0.7 – 1.6)
-    property string safariChannelStreamURL: "https://stream-134630.castr.net/5fe35eae8c53540cab83659a/live_31dabe40323511f08b8efff0016f3b67/index.m3u8"
+    property string safariChannelStreamURL: ""
     property int safariChannelMode: 1
 
     Settings {
