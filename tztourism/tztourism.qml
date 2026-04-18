@@ -766,6 +766,13 @@ Rectangle {
             desc_sw: "Pori la ajabu mkoani Mtwara lenye misitu ya Miombo, Mto Ruvuma, na mapango ya kihistoria yaliyotumiwa na wakimbizi wa Msumbiji. Kuna viboko, mamba, na swala."
         }
 
+        ListElement {
+            name_en: "The Art of Henna (Piko)";
+            name_sw: "Sanaa ya Piko (Henna)"
+            imageFile: "./pico-henna.jpg"
+            desc_en: "A beautiful Swahili tradition where intricate floral and geometric patterns are painted on hands and feet using natural henna, often for weddings and festivals."
+            desc_sw: "Utamaduni maridadi wa Kiswahili ambapo michoro ya maua na nakshi huchorwa mikononi na miguuni kwa kutumia piko asilia, mara nyingi wakati wa harusi na sherehe."
+        }
 
         ListElement {
             name_en: "The Culture of Kanga, Zanzibar"; name_sw: "Utamaduni wa Kanga, Zanzibar"
@@ -773,15 +780,6 @@ Rectangle {
             desc_en: "More than just a garment, the Kanga is a symbol of Swahili identity. In Zanzibar, these colorful fabrics are famous for their 'Majina' (proverbs) printed at the bottom, used to communicate subtle messages within the community."
             desc_sw: "Zaidi ya vazi, Kanga ni alama ya utambulisho wa Mswahili. Kule Zanzibar, vitambaa hivi vya rangi hupambwa na 'Majina' (methali) chini yake, ambavyo hutumika kufikisha ujumbe mahususi katika jamii."
         }
-
-        ListElement {
-            name_en: "The Art of Henna (Piko), Zanzibar";
-            name_sw: "Sanaa ya Piko (Henna), Zanzibar"
-            imageFile: "./zanzibar_henna-3.jpg"
-            desc_en: "A beautiful Swahili tradition where intricate floral and geometric patterns are painted on hands and feet using natural henna, often for weddings and festivals."
-            desc_sw: "Utamaduni maridadi wa Kiswahili ambapo michoro ya maua na nakshi huchorwa mikononi na miguuni kwa kutumia piko asilia, mara nyingi wakati wa harusi na sherehe."
-        }
-
 
         ListElement {
             name_en: "Maasai & Kanga Fashion, Iringa"; name_sw: "Ushonaji na Ubunifu, Iringa"
