@@ -4253,7 +4253,7 @@ Rectangle {
                                                                 }
                                                                 Text {
                                                                     width: parent.width
-                                                                    text: langSettings.lang === "sw" ? "(akisimama pembeni)" : "(standing aside, completely calm)"
+                                                                    text: langSettings.lang === "sw" ? "(akisimama pembeni)" : "(standing aside)"
                                                                     font.italic: true
                                                                     font.pointSize: comicStrip.fsBubbleAction
                                                                     color: "#888888"; wrapMode: Text.WordWrap
