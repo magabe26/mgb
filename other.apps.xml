@@ -103,6 +103,7 @@ Pakua aplikesheni zingine hapa
       <BOLD_TEXT>1</BOLD_TEXT>
 </APP>
 
+
 <APP>
       <A HREF="#" />
    </APP>
@@ -155,6 +156,21 @@ Pakua aplikesheni zingine hapa
     <ICON>fa::laptop</ICON>
     <ICON_COLOR>green</ICON_COLOR>
     <BOLD_TEXT>1</BOLD_TEXT>
+</APP>
+
+<APP>
+      <A HREF="#" />
+   </APP>
+
+<APP>
+      <A HREF="#openurl;https://github.com/magabe26/mgb/blob/master/podcasts/Aplikesheni%20za%20matokeo%20na%20Magabe%20Lab.mp4">
+Pakua mazungumzo kuhusu aplikesheni hizi za matokeo
+      </A>
+      <BG_COLOR>white</BG_COLOR>
+      <ICON_COLOR>green</ICON_COLOR>
+      <ICON>fa::download</ICON>
+      <COLOR>#00c000</COLOR>
+      <BOLD_TEXT>1</BOLD_TEXT>
 </APP>
 
 <APP>
