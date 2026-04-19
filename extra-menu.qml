@@ -57,7 +57,7 @@ Rectangle {
         },
 
 {
-            text: "Pakua mazungumzo kuhusu aplikesheni hizi za matokeo",
+            text: "Pakua mazungumzo kuhusu aplikesheni hizi",
             icon: "fa::download",
             cmd1: "#openurl;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/podcasts/Aplikesheni_za_matokeo_za_Magabe_Lab.mp4;",
             cmd2: "",
