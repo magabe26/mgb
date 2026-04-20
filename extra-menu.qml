@@ -57,6 +57,14 @@ Rectangle {
         },
 
 {
+            text: "Kamusi • Dictionary",
+            icon: "fa::book",
+            cmd1: "#openApp;kamusi.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/kamusi/;Tafadhali subiri;dependency.txt;#;2;1;1;100;",
+            cmd2: "",
+            section: "content"
+        },
+
+{
             text: "Pakua mazungumzo kuhusu aplikesheni hizi",
             icon: "fa::download",
             cmd1: "#openurl;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/podcasts/Aplikesheni_za_matokeo_za_Magabe_Lab.mp4;",
