@@ -313,18 +313,35 @@ Rectangle {
                 width: parent.width
                 height: app.headerH - app.pad
 
-                // Nembo / icon
-                Rectangle {
+                // Nembo / icon — glowing book
+                Item {
                     id: logoBox
                     anchors.verticalCenter: parent.verticalCenter
                     anchors.left: parent.left
-                    width: app.headerH * 0.68; height: app.headerH * 0.68
-                    radius: width * 0.22
-                    color: Qt.rgba(0, 0.9, 1, 0.08)
-                    border.color: Qt.rgba(0, 0.9, 1, 0.35); border.width: 1.5
+                    width: app.headerH * 0.80; height: app.headerH * 0.80
+
+                    Rectangle {
+                        anchors.fill: parent
+                        radius: width * 0.24
+                        color: Qt.rgba(0, 0.9, 1, 0.06)
+                        border.color: Qt.rgba(0, 0.9, 1, 0.30); border.width: 1.5
+                    }
+                    // Glow ring
+                    Rectangle {
+                        anchors.centerIn: parent
+                        width: parent.width * 1.15; height: parent.height * 1.15
+                        radius: width * 0.24
+                        color: "transparent"
+                        border.color: Qt.rgba(0, 0.9, 1, 0.10); border.width: 2
+                        SequentialAnimation on opacity {
+                            loops: Animation.Infinite
+                            NumberAnimation { to: 0.2; duration: 1800; easing.type: Easing.InOutSine }
+                            NumberAnimation { to: 1.0; duration: 1800; easing.type: Easing.InOutSine }
+                        }
+                    }
                     Text {
                         anchors.centerIn: parent
-                        text: "📖"; font.pixelSize: Math.round(parent.height * 0.52)
+                        text: "📖"; font.pixelSize: Math.round(parent.height * 0.50)
                     }
                 }
 
@@ -332,30 +349,59 @@ Rectangle {
                 Column {
                     anchors {
                         verticalCenter: parent.verticalCenter
-                        left: logoBox.right; leftMargin: app.pad * 0.8
+                        left: logoBox.right; leftMargin: app.pad * 0.9
                     }
-                    spacing: 2
-                    Text {
-                        text: "KAMUSI"
-                        font.pixelSize: app.fntXl; font.bold: true
-                        font.letterSpacing: 3
-                        color: iqGold
-                        style: Text.Glow; styleColor: Qt.rgba(0,0.9,1,0.35)
-                    }
+                    spacing: 3
+
+                    // KAMUSI title na msumari wa cyan
                     Row {
-                        spacing: 6
-                        Text {
-                            text: "Kiswahili • English"
-                            font.pixelSize: app.fntSm; color: iqTextSec
-                        }
+                        spacing: 8
                         Rectangle {
-                            width: 1; height: 12
-                            color: Qt.rgba(0,0.9,1,0.3)
+                            width: 3; height: titleTxt.font.pixelSize * 0.85
+                            radius: 2
+                            color: iqGold
+                            anchors.verticalCenter: parent.verticalCenter
+                            SequentialAnimation on opacity {
+                                loops: Animation.Infinite
+                                NumberAnimation { to: 0.3; duration: 1200; easing.type: Easing.InOutSine }
+                                NumberAnimation { to: 1.0; duration: 1200; easing.type: Easing.InOutSine }
+                            }
+                        }
+                        Text {
+                            id: titleTxt
+                            text: "KAMUSI"
+                            font.pixelSize: app.fntXl; font.bold: true
+                            font.letterSpacing: 4
+                            color: iqGold
+                            style: Text.Glow; styleColor: Qt.rgba(0,0.9,1,0.40)
+                        }
+                    }
+
+                    // Subtitle row
+                    Row {
+                        spacing: 5
+                        Text {
+                            text: "SW"
+                            font.pixelSize: app.fntSm - 1; font.bold: true
+                            color: Qt.rgba(0, 0.9, 1, 0.9)
                             anchors.verticalCenter: parent.verticalCenter
                         }
                         Text {
-                            text: filteredWords.length + " / " + allWords.length
-                            font.pixelSize: app.fntSm; color: iqTextDim
+                            text: "⇄"
+                            font.pixelSize: app.fntSm - 1
+                            color: Qt.rgba(0, 0.9, 1, 0.45)
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+                        Text {
+                            text: "EN"
+                            font.pixelSize: app.fntSm - 1; font.bold: true
+                            color: Qt.rgba(0.7, 0.95, 1, 0.9)
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+                        Rectangle { width: 1; height: 11; color: Qt.rgba(0,0.9,1,0.25); anchors.verticalCenter: parent.verticalCenter }
+                        Text {
+                            text: filteredWords.length + " / " + allWords.length + " maneno"
+                            font.pixelSize: app.fntSm - 1; color: iqTextDim
                             anchors.verticalCenter: parent.verticalCenter
                         }
                     }
@@ -400,7 +446,7 @@ Rectangle {
                     Behavior on color { ColorAnimation { duration: 80 } }
                     Text {
                         anchors.centerIn: parent
-                        text: "✕"; font.pixelSize: app.fntMd; font.bold: true
+                        text: "X"; font.pixelSize: app.fntMd; font.bold: true
                         color: iqDanger
                     }
                     MouseArea {
@@ -536,31 +582,39 @@ Rectangle {
             width: wordList.width
             height: app.rowH
             color: rowMA.pressed
-                ? Qt.rgba(0,0.9,1,0.10)
-                : (index % 2 === 0 ? Qt.rgba(0,0.9,1,0.03) : "transparent")
+                ? Qt.rgba(0,0.9,1,0.11)
+                : (index % 2 === 0 ? Qt.rgba(0,0.9,1,0.035) : Qt.rgba(0,0,0,0.15))
             Behavior on color { ColorAnimation { duration: 80 } }
 
             // Mstari wa chini (divider)
             Rectangle {
-                anchors { bottom: parent.bottom; left: parent.left; right: parent.right; leftMargin: app.pad; rightMargin: app.pad }
-                height: 1; color: Qt.rgba(0,0.9,1,0.07)
+                anchors { bottom: parent.bottom; left: parent.left; right: parent.right }
+                height: 1; color: Qt.rgba(0,0.9,1,0.06)
+            }
+
+            // Left accent bar (rangi ya POS)
+            Rectangle {
+                anchors { left: parent.left; top: parent.top; bottom: parent.bottom; topMargin: 8; bottomMargin: 8 }
+                width: 3; radius: 2
+                color: app.posColor(word.pos)
+                opacity: 0.7
             }
 
             Row {
                 anchors {
-                    left: parent.left; leftMargin: app.pad
+                    left: parent.left; leftMargin: app.pad + 6
                     right: parent.right; rightMargin: app.pad
                     verticalCenter: parent.verticalCenter
                 }
-                spacing: app.pad * 0.8
+                spacing: app.pad * 0.75
 
                 // Beji ya POS
                 Rectangle {
-                    width: posTag.implicitWidth + 12
-                    height: Math.max(22, app.fntSm + 8)
+                    width: posTag.implicitWidth + 14
+                    height: Math.max(24, app.fntSm + 8)
                     radius: height / 2
-                    color: Qt.rgba(0,0,0,0.3)
-                    border.color: Qt.rgba(app.posColor(word.pos).r, app.posColor(word.pos).g, app.posColor(word.pos).b, 0.4)
+                    color: Qt.rgba(0,0,0,0.35)
+                    border.color: Qt.rgba(app.posColor(word.pos).r, app.posColor(word.pos).g, app.posColor(word.pos).b, 0.45)
                     border.width: 1
                     anchors.verticalCenter: parent.verticalCenter
                     Text {
@@ -575,19 +629,19 @@ Rectangle {
                 // Maneno (Swahili / Kiingereza)
                 Column {
                     anchors.verticalCenter: parent.verticalCenter
-                    spacing: 2
-                    width: parent.width - posTag.implicitWidth - 24 - arrowTxt.implicitWidth - app.pad * 2
+                    spacing: 3
+                    width: parent.width - posTag.implicitWidth - 18 - arrowTxt.implicitWidth - app.pad * 2
 
                     Text {
                         text: app.langMode ? word.en : word.sw
                         font.pixelSize: app.fntMd; font.bold: true
-                        color: app.langMode ? Qt.rgba(0.8,0.95,1,1) : iqGold
+                        color: app.langMode ? Qt.rgba(0.82,0.96,1,1) : iqGold
                         elide: Text.ElideRight; width: parent.width
                     }
                     Text {
                         text: app.langMode ? word.sw : word.en
                         font.pixelSize: app.fntSm
-                        color: iqTextSec
+                        color: iqTextSec; opacity: 0.85
                         elide: Text.ElideRight; width: parent.width
                     }
                 }
@@ -596,7 +650,9 @@ Rectangle {
                 Text {
                     id: arrowTxt
                     anchors.verticalCenter: parent.verticalCenter
-                    text: "›"; font.pixelSize: app.fntLg; color: Qt.rgba(0,0.9,1,0.3)
+                    text: "›"; font.pixelSize: app.fntLg
+                    color: rowMA.pressed ? Qt.rgba(0,0.9,1,0.8) : Qt.rgba(0,0.9,1,0.25)
+                    Behavior on color { ColorAnimation { duration: 80 } }
                 }
             }
 
@@ -797,58 +853,98 @@ Rectangle {
         Rectangle {
             id: detailCard
             anchors.centerIn: parent
-            width: Math.min(app.width - 32, 380)
-            height: detailCol.implicitHeight + app.pad * 3
+            width:  app.width  - app.pad * 2
+            height: Math.min(app.height * 0.90, detailFlick.contentHeight + app.pad * 3)
             radius: app.radius * 1.5
             color: iqCard
             border.color: iqGold; border.width: 2
+            clip: true
 
-            // Mwanga wa glow juu ya kadi
+            // Glow ya juu
             Rectangle {
                 anchors { top: parent.top; left: parent.left; right: parent.right }
-                height: parent.height * 0.5; radius: parent.radius
+                height: parent.height * 0.35; radius: parent.radius
                 gradient: Gradient {
-                    GradientStop { position: 0.0; color: Qt.rgba(0,0.9,1,0.07) }
+                    GradientStop { position: 0.0; color: Qt.rgba(0,0.9,1,0.09) }
+                    GradientStop { position: 1.0; color: "transparent" }
+                }
+            }
+
+            // Mstari wa rangi juu (accent)
+            Rectangle {
+                anchors { top: parent.top; left: parent.left; right: parent.right }
+                height: 3; radius: parent.radius
+                gradient: Gradient {
+                    orientation: Gradient.Horizontal
+                    GradientStop { position: 0.0; color: "transparent" }
+                    GradientStop { position: 0.2; color: iqGold }
+                    GradientStop { position: 0.8; color: iqAccent }
                     GradientStop { position: 1.0; color: "transparent" }
                 }
             }
 
             MouseArea { anchors.fill: parent } // zuia kufunga kwa kubonyeza kadi
 
-            Column {
-                id: detailCol
-                anchors { top: parent.top; left: parent.left; right: parent.right; topMargin: app.pad * 1.5; margins: app.pad * 1.2 }
-                spacing: app.pad * 0.9
-
-                // Neno kuu
-                Text {
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    text: app.currentWord ? app.currentWord.sw : ""
-                    font.pixelSize: app.fntXl; font.bold: true; font.letterSpacing: 1.5
-                    color: iqGold
-                    style: Text.Glow; styleColor: Qt.rgba(0,0.9,1,0.3)
-                    wrapMode: Text.WordWrap; horizontalAlignment: Text.AlignHCenter
-                    width: parent.width
+            Flickable {
+                id: detailFlick
+                anchors { fill: parent; margins: app.pad * 1.2 }
+                contentWidth: width
+                contentHeight: detailCol.implicitHeight + app.pad
+                clip: true
+                ScrollIndicator.vertical: ScrollIndicator {
+                    contentItem: Rectangle { implicitWidth: 3; color: Qt.rgba(0,0.9,1,0.4); radius: 2 }
                 }
 
-                // Tafsiri ya Kiingereza
-                Text {
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    text: app.currentWord ? app.currentWord.en : ""
-                    font.pixelSize: app.fntLg; font.bold: true
-                    color: iqTextSec
-                    wrapMode: Text.WordWrap; horizontalAlignment: Text.AlignHCenter
+            Column {
+                id: detailCol
+                width: detailFlick.width
+                spacing: app.pad * 1.0
+
+                Item { width: 1; height: app.pad * 0.5 }
+
+                // Kikundi cha juu: emoji + neno kuu
+                Column {
                     width: parent.width
+                    spacing: app.pad * 0.4
+                    anchors.horizontalCenter: parent.horizontalCenter
+
+                    // Emoji ya category
+                    Text {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        text: app.currentWord ? (app.catEmoji[app.currentWord.cat] || "📖") : ""
+                        font.pixelSize: app.fntXl * 1.4
+                    }
+
+                    // Neno kuu (Kiswahili)
+                    Text {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        text: app.currentWord ? app.currentWord.sw : ""
+                        font.pixelSize: app.fntXl * 1.15; font.bold: true; font.letterSpacing: 2
+                        color: iqGold
+                        style: Text.Glow; styleColor: Qt.rgba(0,0.9,1,0.35)
+                        wrapMode: Text.WordWrap; horizontalAlignment: Text.AlignHCenter
+                        width: parent.width
+                    }
+
+                    // Tafsiri ya Kiingereza
+                    Text {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        text: app.currentWord ? app.currentWord.en : ""
+                        font.pixelSize: app.fntLg; font.bold: true
+                        color: Qt.rgba(0.82, 0.96, 1, 1)
+                        wrapMode: Text.WordWrap; horizontalAlignment: Text.AlignHCenter
+                        width: parent.width
+                    }
                 }
 
                 // Beji za POS na Kikundi
                 Row {
                     anchors.horizontalCenter: parent.horizontalCenter
-                    spacing: 8
+                    spacing: 10
 
                     Rectangle {
-                        height: Math.max(26, app.fntSm + 10)
-                        width: posDetailLbl.implicitWidth + 16; radius: height / 2
+                        height: Math.max(30, app.fntSm + 14)
+                        width: posDetailLbl.implicitWidth + 20; radius: height / 2
                         color: Qt.rgba(0,0,0,0.4)
                         border.color: app.currentWord ? app.posColor(app.currentWord.pos) : iqTextDim
                         border.width: 1.5
@@ -861,61 +957,87 @@ Rectangle {
                     }
 
                     Rectangle {
-                        height: Math.max(26, app.fntSm + 10)
-                        width: catDetailLbl.implicitWidth + 16; radius: height / 2
+                        height: Math.max(30, app.fntSm + 14)
+                        width: catDetailLbl.implicitWidth + 20; radius: height / 2
                         color: Qt.rgba(0,0,0,0.3)
-                        border.color: Qt.rgba(0,0.9,1,0.25); border.width: 1
+                        border.color: Qt.rgba(0,0.9,1,0.28); border.width: 1.5
                         Text {
                             id: catDetailLbl; anchors.centerIn: parent
                             text: app.currentWord
-                                ? ((app.catEmoji[app.currentWord.cat] || "•") + " " + app.currentWord.cat)
+                                ? ((app.catEmoji[app.currentWord.cat] || "•") + "  " + app.currentWord.cat)
                                 : ""
                             font.pixelSize: app.fntSm; color: iqTextSec
                         }
                     }
                 }
 
-                // Mstari
+                // Mstari wa kati
                 Rectangle {
                     anchors.horizontalCenter: parent.horizontalCenter
-                    width: parent.width * 0.75; height: 1
-                    color: Qt.rgba(0,0.9,1,0.18)
+                    width: parent.width * 0.7; height: 1
+                    gradient: Gradient {
+                        orientation: Gradient.Horizontal
+                        GradientStop { position: 0.0; color: "transparent" }
+                        GradientStop { position: 0.5; color: Qt.rgba(0,0.9,1,0.25) }
+                        GradientStop { position: 1.0; color: "transparent" }
+                    }
                 }
 
-                // Mfano wa sentensi (Kiswahili)
+                // Mfano wa sentensi
                 Column {
                     width: parent.width
-                    spacing: 4
+                    spacing: app.pad * 0.6
                     visible: app.currentWord && app.currentWord.ex_sw && app.currentWord.ex_sw.length > 0
 
-                    Text {
-                        text: "Mfano:"; font.pixelSize: app.fntSm; font.bold: true
-                        color: Qt.rgba(0,0.9,1,0.4); font.letterSpacing: 1
-                    }
-                    Rectangle {
-                        width: parent.width; height: exSwTxt.implicitHeight + 14
-                        radius: app.radius * 0.6
-                        color: Qt.rgba(0,0.9,1,0.04)
-                        border.color: Qt.rgba(0,0.9,1,0.12); border.width: 1
+                    // Label ya mfano
+                    Row {
+                        spacing: 6
+                        Rectangle { width: 3; height: 14; radius: 2; color: iqAccent; anchors.verticalCenter: parent.verticalCenter }
                         Text {
-                            id: exSwTxt
-                            anchors { left: parent.left; right: parent.right; margins: 10; verticalCenter: parent.verticalCenter }
-                            text: app.currentWord ? app.currentWord.ex_sw : ""
-                            font.pixelSize: app.fntSm; color: iqTextSec
-                            wrapMode: Text.WordWrap; font.italic: true
+                            text: "MFANO WA SENTENSI"
+                            font.pixelSize: app.fntSm - 1; font.bold: true; font.letterSpacing: 1.5
+                            color: Qt.rgba(0,0.9,1,0.50)
+                            anchors.verticalCenter: parent.verticalCenter
                         }
                     }
+
+                    // Kiswahili
                     Rectangle {
-                        width: parent.width; height: exEnTxt.implicitHeight + 14
-                        radius: app.radius * 0.6
-                        color: Qt.rgba(0,0.9,1,0.03)
-                        border.color: Qt.rgba(0,0.9,1,0.08); border.width: 1
-                        Text {
-                            id: exEnTxt
-                            anchors { left: parent.left; right: parent.right; margins: 10; verticalCenter: parent.verticalCenter }
-                            text: app.currentWord ? app.currentWord.ex_en : ""
-                            font.pixelSize: app.fntSm; color: Qt.rgba(0.6,0.85,0.85,1)
-                            wrapMode: Text.WordWrap; font.italic: true
+                        width: parent.width; height: exSwTxt.implicitHeight + app.pad * 1.2
+                        radius: app.radius * 0.7
+                        color: Qt.rgba(0,0.9,1,0.05)
+                        border.color: Qt.rgba(0,0.9,1,0.14); border.width: 1
+                        Row {
+                            anchors { left: parent.left; right: parent.right; margins: app.pad; verticalCenter: parent.verticalCenter }
+                            spacing: 8
+                            Text { text: "🇹🇿"; font.pixelSize: app.fntMd; anchors.verticalCenter: parent.verticalCenter }
+                            Text {
+                                id: exSwTxt
+                                text: app.currentWord ? app.currentWord.ex_sw : ""
+                                font.pixelSize: app.fntMd; color: iqTextSec
+                                wrapMode: Text.WordWrap; font.italic: true
+                                width: parent.width - 30
+                            }
+                        }
+                    }
+
+                    // Kiingereza
+                    Rectangle {
+                        width: parent.width; height: exEnTxt.implicitHeight + app.pad * 1.2
+                        radius: app.radius * 0.7
+                        color: Qt.rgba(0,0.6,0.9,0.04)
+                        border.color: Qt.rgba(0,0.9,1,0.09); border.width: 1
+                        Row {
+                            anchors { left: parent.left; right: parent.right; margins: app.pad; verticalCenter: parent.verticalCenter }
+                            spacing: 8
+                            Text { text: "🇬🇧"; font.pixelSize: app.fntMd; anchors.verticalCenter: parent.verticalCenter }
+                            Text {
+                                id: exEnTxt
+                                text: app.currentWord ? app.currentWord.ex_en : ""
+                                font.pixelSize: app.fntMd; color: Qt.rgba(0.65,0.88,0.88,1)
+                                wrapMode: Text.WordWrap; font.italic: true
+                                width: parent.width - 30
+                            }
                         }
                     }
                 }
@@ -923,41 +1045,40 @@ Rectangle {
                 // Vifungo
                 Row {
                     anchors.horizontalCenter: parent.horizontalCenter
-                    spacing: 10
+                    spacing: 12
 
-                    // Rudi
                     Rectangle {
-                        width: Math.max(120, app.width * 0.28); height: app.btnH * 0.88
+                        width: Math.max(130, app.width * 0.32); height: app.btnH
                         radius: height / 2
-                        color: backMA.pressed ? Qt.rgba(0,0.9,1,0.18) : Qt.rgba(0,0.9,1,0.07)
+                        color: backMA.pressed ? Qt.rgba(0,0.9,1,0.20) : Qt.rgba(0,0.9,1,0.08)
                         border.color: iqAccent; border.width: 1.5
                         Behavior on color { ColorAnimation { duration: 80 } }
                         Text {
                             anchors.centerIn: parent; text: "← RUDI"
-                            font.pixelSize: app.fntSm; font.bold: true
+                            font.pixelSize: app.fntMd; font.bold: true
                             color: iqAccent; font.letterSpacing: 1
                         }
                         MouseArea { id: backMA; anchors.fill: parent; onClicked: { app.showDetail = false; } }
                     }
 
-                    // Funga app
                     Rectangle {
-                        width: Math.max(120, app.width * 0.28); height: app.btnH * 0.88
+                        width: Math.max(130, app.width * 0.32); height: app.btnH
                         radius: height / 2
-                        color: detCloseMA.pressed ? Qt.rgba(1,0.2,0.2,0.2) : Qt.rgba(1,0.15,0.15,0.08)
+                        color: detCloseMA.pressed ? Qt.rgba(1,0.2,0.2,0.22) : Qt.rgba(1,0.15,0.15,0.09)
                         border.color: iqDanger; border.width: 1.5
                         Behavior on color { ColorAnimation { duration: 80 } }
                         Text {
                             anchors.centerIn: parent; text: "❌ FUNGA"
-                            font.pixelSize: app.fntSm; font.bold: true
+                            font.pixelSize: app.fntMd; font.bold: true
                             color: iqDanger; font.letterSpacing: 1
                         }
                         MouseArea { id: detCloseMA; anchors.fill: parent; onClicked: { app.close(); } }
                     }
                 }
 
-                Item { width: 1; height: app.pad * 0.3 }
-            }
+                Item { width: 1; height: app.pad }
+            } // Column
+            } // Flickable
         }
 
         // Slide-in animation
