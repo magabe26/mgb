@@ -163,12 +163,12 @@ Pakua aplikesheni zingine hapa
    </APP>
 
 <APP>
-      <A HREF="#openurl;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/podcasts/Aplikesheni_za_matokeo_za_Magabe_Lab.mp4">
-Pakua mazungumzo kuhusu aplikesheni hizi
+       <A HREF="#openApp;kamusi.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/kamusi/;Tafadhali subiri;dependency.txt;#;1;1;1;100;">
+Kamusi • Dictionary 
       </A>
       <BG_COLOR>white</BG_COLOR>
       <ICON_COLOR>green</ICON_COLOR>
-      <ICON>fa::download</ICON>
+      <ICON>fa::book</ICON>
       <COLOR>#00c000</COLOR>
       <BOLD_TEXT>1</BOLD_TEXT>
 </APP>
@@ -178,12 +178,12 @@ Pakua mazungumzo kuhusu aplikesheni hizi
    </APP>
 
 <APP>
-       <A HREF="#openApp;kamusi.qml;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/kamusi/;Tafadhali subiri;dependency.txt;#;1;1;1;100;">
-Kamusi • Dictionary 
+      <A HREF="#openurl;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/podcasts/Aplikesheni_za_matokeo_za_Magabe_Lab.mp4">
+Pakua mazungumzo kuhusu aplikesheni hizi
       </A>
       <BG_COLOR>white</BG_COLOR>
       <ICON_COLOR>green</ICON_COLOR>
-      <ICON>fa::book</ICON>
+      <ICON>fa::download</ICON>
       <COLOR>#00c000</COLOR>
       <BOLD_TEXT>1</BOLD_TEXT>
 </APP>
