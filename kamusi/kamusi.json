@@ -1,0 +1,8966 @@
+[
+  {
+    "id": 994,
+    "sw": "ATM",
+    "en": "ATM",
+    "pos": "noun",
+    "ex_sw": "ATM ni muhimu sana.",
+    "ex_en": "ATM is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 707,
+    "sw": "Afrika",
+    "en": "Africa",
+    "pos": "noun",
+    "ex_sw": "Afrika ni muhimu sana.",
+    "ex_en": "Africa is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 704,
+    "sw": "Afrika Kusini",
+    "en": "South Africa",
+    "pos": "noun",
+    "ex_sw": "Afrika Kusini ni muhimu sana.",
+    "ex_en": "South Africa is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 453,
+    "sw": "Agosti",
+    "en": "August",
+    "pos": "noun",
+    "ex_sw": "Agosti ni muhimu sana.",
+    "ex_en": "August is very important.",
+    "cat": "time"
+  },
+  {
+    "id": 444,
+    "sw": "Alhamisi",
+    "en": "Thursday",
+    "pos": "noun",
+    "ex_sw": "Alhamisi ni muhimu sana.",
+    "ex_en": "Thursday is very important.",
+    "cat": "time"
+  },
+  {
+    "id": 709,
+    "sw": "Amerika",
+    "en": "America",
+    "pos": "noun",
+    "ex_sw": "Amerika ni muhimu sana.",
+    "ex_en": "America is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 449,
+    "sw": "Aprili",
+    "en": "April",
+    "pos": "noun",
+    "ex_sw": "Aprili ni muhimu sana.",
+    "ex_en": "April is very important.",
+    "cat": "time"
+  },
+  {
+    "id": 716,
+    "sw": "Arusha",
+    "en": "Arusha",
+    "pos": "noun",
+    "ex_sw": "Arusha ni muhimu sana.",
+    "ex_en": "Arusha is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 710,
+    "sw": "Asia",
+    "en": "Asia",
+    "pos": "noun",
+    "ex_sw": "Asia ni muhimu sana.",
+    "ex_en": "Asia is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 811,
+    "sw": "Biblia",
+    "en": "The Bible",
+    "pos": "noun",
+    "ex_sw": "Biblia ni muhimu sana.",
+    "ex_en": "The Bible is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 782,
+    "sw": "Bluetooth",
+    "en": "Bluetooth",
+    "pos": "noun",
+    "ex_sw": "Bluetooth ni muhimu sana.",
+    "ex_en": "Bluetooth is very important.",
+    "cat": "technology"
+  },
+  {
+    "id": 701,
+    "sw": "Burundi",
+    "en": "Burundi",
+    "pos": "noun",
+    "ex_sw": "Burundi ni muhimu sana.",
+    "ex_en": "Burundi is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 712,
+    "sw": "Dar es Salaam",
+    "en": "Dar es Salaam",
+    "pos": "noun",
+    "ex_sw": "Dar es Salaam ni muhimu sana.",
+    "ex_en": "Dar es Salaam is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 980,
+    "sw": "Desemba",
+    "en": "December",
+    "pos": "noun",
+    "ex_sw": "Desemba ni muhimu sana.",
+    "ex_en": "December is very important.",
+    "cat": "time"
+  },
+  {
+    "id": 713,
+    "sw": "Dodoma",
+    "en": "Dodoma",
+    "pos": "noun",
+    "ex_sw": "Dodoma ni muhimu sana.",
+    "ex_en": "Dodoma is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 795,
+    "sw": "Eid",
+    "en": "Eid",
+    "pos": "noun",
+    "ex_sw": "Eid ni muhimu sana.",
+    "ex_en": "Eid is very important.",
+    "cat": "religion"
+  },
+  {
+    "id": 702,
+    "sw": "Ethiopia",
+    "en": "Ethiopia",
+    "pos": "noun",
+    "ex_sw": "Ethiopia ni muhimu sana.",
+    "ex_en": "Ethiopia is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 447,
+    "sw": "Februari",
+    "en": "February",
+    "pos": "noun",
+    "ex_sw": "Februari ni muhimu sana.",
+    "ex_en": "February is very important.",
+    "cat": "time"
+  },
+  {
+    "id": 783,
+    "sw": "GPS",
+    "en": "GPS",
+    "pos": "noun",
+    "ex_sw": "GPS ni muhimu sana.",
+    "ex_en": "GPS is very important.",
+    "cat": "technology"
+  },
+  {
+    "id": 706,
+    "sw": "Ghana",
+    "en": "Ghana",
+    "pos": "noun",
+    "ex_sw": "Ghana ni muhimu sana.",
+    "ex_en": "Ghana is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 445,
+    "sw": "Ijumaa",
+    "en": "Friday",
+    "pos": "noun",
+    "ex_sw": "Ijumaa ni muhimu sana.",
+    "ex_en": "Friday is very important.",
+    "cat": "time"
+  },
+  {
+    "id": 720,
+    "sw": "Iringa",
+    "en": "Iringa",
+    "pos": "noun",
+    "ex_sw": "Iringa ni muhimu sana.",
+    "ex_en": "Iringa is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 978,
+    "sw": "Januari",
+    "en": "January",
+    "pos": "noun",
+    "ex_sw": "Januari ni muhimu sana.",
+    "ex_en": "January is very important.",
+    "cat": "time"
+  },
+  {
+    "id": 452,
+    "sw": "Julai",
+    "en": "July",
+    "pos": "noun",
+    "ex_sw": "Julai ni muhimu sana.",
+    "ex_en": "July is very important.",
+    "cat": "time"
+  },
+  {
+    "id": 446,
+    "sw": "Jumamosi",
+    "en": "saturday",
+    "pos": "noun",
+    "ex_sw": "Jumamosi ni muhimu sana.",
+    "ex_en": "saturday is very important.",
+    "cat": "time"
+  },
+  {
+    "id": 442,
+    "sw": "Jumanne",
+    "en": "tuesday",
+    "pos": "noun",
+    "ex_sw": "Jumanne ni muhimu sana.",
+    "ex_en": "tuesday is very important.",
+    "cat": "time"
+  },
+  {
+    "id": 440,
+    "sw": "Jumapili",
+    "en": "sunday",
+    "pos": "noun",
+    "ex_sw": "Jumapili ni muhimu sana.",
+    "ex_en": "sunday is very important.",
+    "cat": "time"
+  },
+  {
+    "id": 443,
+    "sw": "Jumatano",
+    "en": "Wednesday",
+    "pos": "noun",
+    "ex_sw": "Jumatano ni muhimu sana.",
+    "ex_en": "Wednesday is very important.",
+    "cat": "time"
+  },
+  {
+    "id": 441,
+    "sw": "Jumatatu",
+    "en": "on monday",
+    "pos": "noun",
+    "ex_sw": "Jumatatu ni muhimu sana.",
+    "ex_en": "on monday is very important.",
+    "cat": "time"
+  },
+  {
+    "id": 451,
+    "sw": "Juni",
+    "en": "June",
+    "pos": "noun",
+    "ex_sw": "Juni ni muhimu sana.",
+    "ex_en": "June is very important.",
+    "cat": "time"
+  },
+  {
+    "id": 732,
+    "sw": "Kampala",
+    "en": "Kampala",
+    "pos": "noun",
+    "ex_sw": "Kampala ni muhimu sana.",
+    "ex_en": "Kampala is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 698,
+    "sw": "Kenya",
+    "en": "Kenya",
+    "pos": "noun",
+    "ex_sw": "Kenya ni muhimu sana.",
+    "ex_en": "Kenya is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 731,
+    "sw": "Kigali",
+    "en": "Kigali",
+    "pos": "noun",
+    "ex_sw": "Kigali ni muhimu sana.",
+    "ex_en": "Kigali is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 723,
+    "sw": "Kigoma",
+    "en": "Strike",
+    "pos": "noun",
+    "ex_sw": "Kigoma ni muhimu sana.",
+    "ex_en": "Strike is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 796,
+    "sw": "Krismasi",
+    "en": "Christmas",
+    "pos": "noun",
+    "ex_sw": "Krismasi ni muhimu sana.",
+    "ex_en": "Christmas is very important.",
+    "cat": "religion"
+  },
+  {
+    "id": 724,
+    "sw": "Lindi",
+    "en": "Lindi",
+    "pos": "noun",
+    "ex_sw": "Lindi ni muhimu sana.",
+    "ex_en": "Lindi is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 448,
+    "sw": "Machi",
+    "en": "March",
+    "pos": "noun",
+    "ex_sw": "Machi ni muhimu sana.",
+    "ex_en": "March is very important.",
+    "cat": "time"
+  },
+  {
+    "id": 721,
+    "sw": "Mbeya",
+    "en": "Mbeya",
+    "pos": "noun",
+    "ex_sw": "Mbeya ni muhimu sana.",
+    "ex_en": "Mbeya is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 450,
+    "sw": "Mei",
+    "en": "May",
+    "pos": "noun",
+    "ex_sw": "Mei ni muhimu sana.",
+    "ex_en": "May is very important.",
+    "cat": "time"
+  },
+  {
+    "id": 990,
+    "sw": "Misri",
+    "en": "Egypt",
+    "pos": "noun",
+    "ex_sw": "Misri ni muhimu sana.",
+    "ex_en": "Egypt is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 729,
+    "sw": "Mombasa",
+    "en": "Mombasa",
+    "pos": "noun",
+    "ex_sw": "Mombasa ni muhimu sana.",
+    "ex_en": "Mombasa is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 719,
+    "sw": "Morogoro",
+    "en": "Morogoro",
+    "pos": "noun",
+    "ex_sw": "Morogoro ni muhimu sana.",
+    "ex_en": "Morogoro is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 717,
+    "sw": "Moshi",
+    "en": "Smoke",
+    "pos": "noun",
+    "ex_sw": "Moshi ni muhimu sana.",
+    "ex_en": "Smoke is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 725,
+    "sw": "Mtwara",
+    "en": "Mtwara",
+    "pos": "noun",
+    "ex_sw": "Mtwara ni muhimu sana.",
+    "ex_en": "Mtwara is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 791,
+    "sw": "Mungu",
+    "en": "God",
+    "pos": "noun",
+    "ex_sw": "Mungu ni muhimu sana.",
+    "ex_en": "God is very important.",
+    "cat": "religion"
+  },
+  {
+    "id": 726,
+    "sw": "Musoma",
+    "en": "Read it",
+    "pos": "noun",
+    "ex_sw": "Musoma ni muhimu sana.",
+    "ex_en": "Read it is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 715,
+    "sw": "Mwanza",
+    "en": "Mwanza",
+    "pos": "noun",
+    "ex_sw": "Mwanza ni muhimu sana.",
+    "ex_en": "Mwanza is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 730,
+    "sw": "Nairobi",
+    "en": "Nairobi",
+    "pos": "noun",
+    "ex_sw": "Nairobi ni muhimu sana.",
+    "ex_en": "Nairobi is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 705,
+    "sw": "Nigeria",
+    "en": "Nigeria",
+    "pos": "noun",
+    "ex_sw": "Nigeria ni muhimu sana.",
+    "ex_en": "Nigeria is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 979,
+    "sw": "Novemba",
+    "en": "November",
+    "pos": "noun",
+    "ex_sw": "Novemba ni muhimu sana.",
+    "ex_en": "November is very important.",
+    "cat": "time"
+  },
+  {
+    "id": 455,
+    "sw": "Oktoba",
+    "en": "October",
+    "pos": "noun",
+    "ex_sw": "Oktoba ni muhimu sana.",
+    "ex_en": "October is very important.",
+    "cat": "time"
+  },
+  {
+    "id": 812,
+    "sw": "Quran",
+    "en": "Quran",
+    "pos": "noun",
+    "ex_sw": "Quran ni muhimu sana.",
+    "ex_en": "Quran is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 794,
+    "sw": "Ramadhan",
+    "en": "Ramadhan",
+    "pos": "noun",
+    "ex_sw": "Ramadhan ni muhimu sana.",
+    "ex_en": "Ramadhan is very important.",
+    "cat": "religion"
+  },
+  {
+    "id": 700,
+    "sw": "Rwanda",
+    "en": "Rwanda",
+    "pos": "noun",
+    "ex_sw": "Rwanda ni muhimu sana.",
+    "ex_en": "Rwanda is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 454,
+    "sw": "Septemba",
+    "en": "September",
+    "pos": "noun",
+    "ex_sw": "Septemba ni muhimu sana.",
+    "ex_en": "September is very important.",
+    "cat": "time"
+  },
+  {
+    "id": 727,
+    "sw": "Shinyanga",
+    "en": "Shinyanga",
+    "pos": "noun",
+    "ex_sw": "Shinyanga ni muhimu sana.",
+    "ex_en": "Shinyanga is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 728,
+    "sw": "Singida",
+    "en": "I won't",
+    "pos": "noun",
+    "ex_sw": "Singida ni muhimu sana.",
+    "ex_en": "I won't is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 703,
+    "sw": "Somalia",
+    "en": "Somalia",
+    "pos": "noun",
+    "ex_sw": "Somalia ni muhimu sana.",
+    "ex_en": "Somalia is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 722,
+    "sw": "Tabora",
+    "en": "Tabora",
+    "pos": "noun",
+    "ex_sw": "Tabora ni muhimu sana.",
+    "ex_en": "Tabora is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 718,
+    "sw": "Tanga",
+    "en": "Hang around",
+    "pos": "noun",
+    "ex_sw": "Tanga ni muhimu sana.",
+    "ex_en": "Hang around is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 697,
+    "sw": "Tanzania",
+    "en": "Tanzania",
+    "pos": "noun",
+    "ex_sw": "Tanzania ni muhimu sana.",
+    "ex_en": "Tanzania is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 699,
+    "sw": "Uganda",
+    "en": "Uganda",
+    "pos": "noun",
+    "ex_sw": "Uganda ni muhimu sana.",
+    "ex_en": "Uganda is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 708,
+    "sw": "Ulaya",
+    "en": "Europe",
+    "pos": "noun",
+    "ex_sw": "Ulaya ni muhimu sana.",
+    "ex_en": "Europe is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 781,
+    "sw": "WiFi",
+    "en": "Wi-Fi",
+    "pos": "noun",
+    "ex_sw": "WiFi ni muhimu sana.",
+    "ex_en": "Wi-Fi is very important.",
+    "cat": "technology"
+  },
+  {
+    "id": 714,
+    "sw": "Zanzibar",
+    "en": "Zanzibar",
+    "pos": "noun",
+    "ex_sw": "Zanzibar ni muhimu sana.",
+    "ex_en": "Zanzibar is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 414,
+    "sw": "abiria",
+    "en": "passenger",
+    "pos": "noun",
+    "ex_sw": "abiria ni muhimu sana.",
+    "ex_en": "passenger is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 105,
+    "sw": "afya",
+    "en": "healthy",
+    "pos": "noun",
+    "ex_sw": "afya ni muhimu sana.",
+    "ex_en": "healthy is very important.",
+    "cat": "health"
+  },
+  {
+    "id": 871,
+    "sw": "aibu",
+    "en": "shame",
+    "pos": "noun",
+    "ex_sw": "aibu ni muhimu sana.",
+    "ex_en": "shame is very important.",
+    "cat": "emotion"
+  },
+  {
+    "id": 823,
+    "sw": "akaunti",
+    "en": "account",
+    "pos": "noun",
+    "ex_sw": "akaunti ni muhimu sana.",
+    "ex_en": "account is very important.",
+    "cat": "finance"
+  },
+  {
+    "id": 838,
+    "sw": "akiba",
+    "en": "savings",
+    "pos": "noun",
+    "ex_sw": "akiba ni muhimu sana.",
+    "ex_en": "savings is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 955,
+    "sw": "akili",
+    "en": "mind",
+    "pos": "noun",
+    "ex_sw": "akili ni muhimu sana.",
+    "ex_en": "mind is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 784,
+    "sw": "akili bandia",
+    "en": "artificial intelligence",
+    "pos": "noun",
+    "ex_sw": "akili bandia ni muhimu sana.",
+    "ex_en": "artificial intelligence is very important.",
+    "cat": "technology"
+  },
+  {
+    "id": 281,
+    "sw": "alfajiri",
+    "en": "the dawn",
+    "pos": "noun",
+    "ex_sw": "alfajiri ni muhimu sana.",
+    "ex_en": "the dawn is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 803,
+    "sw": "amani",
+    "en": "peace",
+    "pos": "noun",
+    "ex_sw": "amani ni muhimu sana.",
+    "ex_en": "peace is very important.",
+    "cat": "emotion"
+  },
+  {
+    "id": 892,
+    "sw": "anga ya wazi",
+    "en": "clear sky",
+    "pos": "noun",
+    "ex_sw": "anga ya wazi ni muhimu sana.",
+    "ex_en": "clear sky is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 128,
+    "sw": "antibiotiki",
+    "en": "antibiotics",
+    "pos": "noun",
+    "ex_sw": "antibiotiki ni muhimu sana.",
+    "ex_en": "antibiotics is very important.",
+    "cat": "health"
+  },
+  {
+    "id": 763,
+    "sw": "aplikesheni",
+    "en": "application",
+    "pos": "noun",
+    "ex_sw": "aplikesheni ni muhimu sana.",
+    "ex_en": "application is very important.",
+    "cat": "technology"
+  },
+  {
+    "id": 263,
+    "sw": "ardhi",
+    "en": "land",
+    "pos": "noun",
+    "ex_sw": "ardhi ni muhimu sana.",
+    "ex_en": "land is very important.",
+    "cat": "nature"
+  },
+  {
+    "id": 471,
+    "sw": "arobaini",
+    "en": "forty",
+    "pos": "number",
+    "ex_sw": "arobaini ni namba nzuri.",
+    "ex_en": "forty is a good number.",
+    "cat": "general"
+  },
+  {
+    "id": 175,
+    "sw": "asali",
+    "en": "honey",
+    "pos": "noun",
+    "ex_sw": "asali ni muhimu sana.",
+    "ex_en": "honey is very important.",
+    "cat": "food"
+  },
+  {
+    "id": 5,
+    "sw": "asante",
+    "en": "thank you",
+    "pos": "noun",
+    "ex_sw": "asante ni muhimu sana.",
+    "ex_en": "thank you is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 487,
+    "sw": "asilimia",
+    "en": "percentage",
+    "pos": "noun",
+    "ex_sw": "asilimia ni muhimu sana.",
+    "ex_en": "percentage is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 815,
+    "sw": "askofu",
+    "en": "the bishop",
+    "pos": "noun",
+    "ex_sw": "askofu ni muhimu sana.",
+    "ex_en": "the bishop is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 282,
+    "sw": "asubuhi",
+    "en": "in the morning",
+    "pos": "noun",
+    "ex_sw": "asubuhi ni muhimu sana.",
+    "ex_en": "in the morning is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 181,
+    "sw": "avokado",
+    "en": "asparagus",
+    "pos": "noun",
+    "ex_sw": "avokado ni muhimu sana.",
+    "ex_en": "asparagus is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 434,
+    "sw": "baada",
+    "en": "after",
+    "pos": "adverb",
+    "ex_sw": "Anafanya kazi baada.",
+    "ex_en": "He/she works after.",
+    "cat": "general"
+  },
+  {
+    "id": 430,
+    "sw": "baadaye",
+    "en": "later on",
+    "pos": "adverb",
+    "ex_sw": "Anafanya kazi baadaye.",
+    "ex_en": "He/she works later on.",
+    "cat": "general"
+  },
+  {
+    "id": 38,
+    "sw": "baba",
+    "en": "father",
+    "pos": "noun",
+    "ex_sw": "baba ni muhimu sana.",
+    "ex_en": "father is very important.",
+    "cat": "family"
+  },
+  {
+    "id": 46,
+    "sw": "babu",
+    "en": "grandfather",
+    "pos": "noun",
+    "ex_sw": "babu ni muhimu sana.",
+    "ex_en": "grandfather is very important.",
+    "cat": "family"
+  },
+  {
+    "id": 219,
+    "sw": "bafu",
+    "en": "the bathroom",
+    "pos": "noun",
+    "ex_sw": "bafu ni muhimu sana.",
+    "ex_en": "the bathroom is very important.",
+    "cat": "home"
+  },
+  {
+    "id": 269,
+    "sw": "bahari",
+    "en": "the sea",
+    "pos": "noun",
+    "ex_sw": "bahari ni muhimu sana.",
+    "ex_en": "the sea is very important.",
+    "cat": "nature"
+  },
+  {
+    "id": 382,
+    "sw": "baiskeli",
+    "en": "bicycle",
+    "pos": "noun",
+    "ex_sw": "baiskeli ni muhimu sana.",
+    "ex_en": "bicycle is very important.",
+    "cat": "travel"
+  },
+  {
+    "id": 416,
+    "sw": "bajaji",
+    "en": "thug",
+    "pos": "noun",
+    "ex_sw": "bajaji ni muhimu sana.",
+    "ex_en": "thug is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 830,
+    "sw": "bajeti",
+    "en": "budget",
+    "pos": "noun",
+    "ex_sw": "bajeti ni muhimu sana.",
+    "ex_en": "budget is very important.",
+    "cat": "finance"
+  },
+  {
+    "id": 246,
+    "sw": "balbu",
+    "en": "bulb",
+    "pos": "noun",
+    "ex_sw": "balbu ni muhimu sana.",
+    "ex_en": "bulb is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 576,
+    "sw": "balozi",
+    "en": "the ambassador",
+    "pos": "noun",
+    "ex_sw": "balozi ni muhimu sana.",
+    "ex_en": "the ambassador is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 194,
+    "sw": "bamia",
+    "en": "Okra",
+    "pos": "noun",
+    "ex_sw": "bamia ni muhimu sana.",
+    "ex_en": "Okra is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 387,
+    "sw": "bandari",
+    "en": "port",
+    "pos": "noun",
+    "ex_sw": "bandari ni muhimu sana.",
+    "ex_en": "port is very important.",
+    "cat": "travel"
+  },
+  {
+    "id": 533,
+    "sw": "bangili",
+    "en": "bracelet",
+    "pos": "noun",
+    "ex_sw": "bangili ni muhimu sana.",
+    "ex_en": "bracelet is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 975,
+    "sw": "barabara",
+    "en": "road",
+    "pos": "noun",
+    "ex_sw": "barabara ni muhimu sana.",
+    "ex_en": "road is very important.",
+    "cat": "travel"
+  },
+  {
+    "id": 405,
+    "sw": "barabara kuu",
+    "en": "highway",
+    "pos": "noun",
+    "ex_sw": "barabara kuu ni muhimu sana.",
+    "ex_en": "highway is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 800,
+    "sw": "baraka",
+    "en": "blessing",
+    "pos": "noun",
+    "ex_sw": "baraka ni muhimu sana.",
+    "ex_en": "blessing is very important.",
+    "cat": "religion"
+  },
+  {
+    "id": 366,
+    "sw": "baridi",
+    "en": "cold",
+    "pos": "adjective",
+    "ex_sw": "Kitu hicho ni baridi sana.",
+    "ex_en": "That thing is very cold.",
+    "cat": "weather"
+  },
+  {
+    "id": 894,
+    "sw": "baridi kali",
+    "en": "very cold",
+    "pos": "noun",
+    "ex_sw": "baridi kali ni muhimu sana.",
+    "ex_en": "very cold is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 778,
+    "sw": "barua pepe",
+    "en": "email address",
+    "pos": "noun",
+    "ex_sw": "barua pepe ni muhimu sana.",
+    "ex_en": "email address is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 378,
+    "sw": "basi",
+    "en": "then",
+    "pos": "noun",
+    "ex_sw": "basi ni muhimu sana.",
+    "ex_en": "then is very important.",
+    "cat": "travel"
+  },
+  {
+    "id": 324,
+    "sw": "bata",
+    "en": "duck",
+    "pos": "noun",
+    "ex_sw": "bata ni muhimu sana.",
+    "ex_en": "duck is very important.",
+    "cat": "animal"
+  },
+  {
+    "id": 79,
+    "sw": "bega",
+    "en": "shoulder",
+    "pos": "noun",
+    "ex_sw": "bega ni muhimu sana.",
+    "ex_en": "shoulder is very important.",
+    "cat": "body"
+  },
+  {
+    "id": 410,
+    "sw": "begi",
+    "en": "bag",
+    "pos": "noun",
+    "ex_sw": "begi ni muhimu sana.",
+    "ex_en": "bag is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 827,
+    "sw": "bei",
+    "en": "price",
+    "pos": "noun",
+    "ex_sw": "bei ni muhimu sana.",
+    "ex_en": "price is very important.",
+    "cat": "finance"
+  },
+  {
+    "id": 667,
+    "sw": "bei nafuu",
+    "en": "cheap price",
+    "pos": "noun",
+    "ex_sw": "bei nafuu ni muhimu sana.",
+    "ex_en": "cheap price is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 822,
+    "sw": "benki",
+    "en": "bank",
+    "pos": "noun",
+    "ex_sw": "benki ni muhimu sana.",
+    "ex_en": "bank is very important.",
+    "cat": "finance"
+  },
+  {
+    "id": 240,
+    "sw": "beseni",
+    "en": "the tub",
+    "pos": "noun",
+    "ex_sw": "beseni ni muhimu sana.",
+    "ex_en": "the tub is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 767,
+    "sw": "betri",
+    "en": "battery",
+    "pos": "noun",
+    "ex_sw": "betri ni muhimu sana.",
+    "ex_en": "battery is very important.",
+    "cat": "technology"
+  },
+  {
+    "id": 205,
+    "sw": "bia",
+    "en": "beer",
+    "pos": "noun",
+    "ex_sw": "bia ni muhimu sana.",
+    "ex_en": "beer is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 555,
+    "sw": "biashara",
+    "en": "business",
+    "pos": "noun",
+    "ex_sw": "biashara ni muhimu sana.",
+    "ex_en": "business is very important.",
+    "cat": "finance"
+  },
+  {
+    "id": 47,
+    "sw": "bibi",
+    "en": "lady",
+    "pos": "noun",
+    "ex_sw": "bibi ni muhimu sana.",
+    "ex_en": "lady is very important.",
+    "cat": "family"
+  },
+  {
+    "id": 841,
+    "sw": "bidhaa",
+    "en": "product",
+    "pos": "noun",
+    "ex_sw": "bidhaa ni muhimu sana.",
+    "ex_en": "product is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 961,
+    "sw": "bidii",
+    "en": "hard work",
+    "pos": "noun",
+    "ex_sw": "bidii ni muhimu sana.",
+    "ex_en": "hard work is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 195,
+    "sw": "bilinganya",
+    "en": "eggplant",
+    "pos": "noun",
+    "ex_sw": "bilinganya ni muhimu sana.",
+    "ex_en": "eggplant is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 480,
+    "sw": "bilioni",
+    "en": "billion",
+    "pos": "number",
+    "ex_sw": "bilioni ni namba nzuri.",
+    "ex_en": "billion is a good number.",
+    "cat": "general"
+  },
+  {
+    "id": 826,
+    "sw": "bima",
+    "en": "insurance",
+    "pos": "noun",
+    "ex_sw": "bima ni muhimu sana.",
+    "ex_en": "insurance is very important.",
+    "cat": "finance"
+  },
+  {
+    "id": 68,
+    "sw": "binamu",
+    "en": "cousin",
+    "pos": "noun",
+    "ex_sw": "binamu ni muhimu sana.",
+    "ex_en": "cousin is very important.",
+    "cat": "family"
+  },
+  {
+    "id": 41,
+    "sw": "binti",
+    "en": "daughter",
+    "pos": "noun",
+    "ex_sw": "binti ni muhimu sana.",
+    "ex_en": "daughter is very important.",
+    "cat": "family"
+  },
+  {
+    "id": 900,
+    "sw": "biolojia",
+    "en": "biology",
+    "pos": "noun",
+    "ex_sw": "biolojia ni muhimu sana.",
+    "ex_en": "biology is very important.",
+    "cat": "education"
+  },
+  {
+    "id": 200,
+    "sw": "biskuti",
+    "en": "biscuits",
+    "pos": "noun",
+    "ex_sw": "biskuti ni muhimu sana.",
+    "ex_en": "biscuits is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 223,
+    "sw": "blanketi",
+    "en": "blanket",
+    "pos": "noun",
+    "ex_sw": "blanketi ni muhimu sana.",
+    "ex_en": "blanket is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 417,
+    "sw": "bodaboda",
+    "en": "bodaboda",
+    "pos": "noun",
+    "ex_sw": "bodaboda ni muhimu sana.",
+    "ex_en": "bodaboda is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 230,
+    "sw": "bomba",
+    "en": "pipe",
+    "pos": "noun",
+    "ex_sw": "bomba ni muhimu sana.",
+    "ex_en": "pipe is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 267,
+    "sw": "bonde",
+    "en": "valley",
+    "pos": "noun",
+    "ex_sw": "bonde ni muhimu sana.",
+    "ex_en": "valley is very important.",
+    "cat": "nature"
+  },
+  {
+    "id": 14,
+    "sw": "bora",
+    "en": "better",
+    "pos": "noun",
+    "ex_sw": "bora ni muhimu sana.",
+    "ex_en": "better is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 381,
+    "sw": "boti",
+    "en": "boats",
+    "pos": "noun",
+    "ex_sw": "boti ni muhimu sana.",
+    "ex_en": "boats is very important.",
+    "cat": "travel"
+  },
+  {
+    "id": 974,
+    "sw": "buibui",
+    "en": "spider",
+    "pos": "noun",
+    "ex_sw": "buibui ni muhimu sana.",
+    "ex_en": "spider is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 492,
+    "sw": "buluu",
+    "en": "blue",
+    "pos": "adjective",
+    "ex_sw": "Kitu hicho ni buluu sana.",
+    "ex_en": "That thing is very blue.",
+    "cat": "color"
+  },
+  {
+    "id": 352,
+    "sw": "bundi",
+    "en": "owl",
+    "pos": "noun",
+    "ex_sw": "bundi ni muhimu sana.",
+    "ex_en": "owl is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 747,
+    "sw": "bunge",
+    "en": "Parliament",
+    "pos": "noun",
+    "ex_sw": "bunge ni muhimu sana.",
+    "ex_en": "Parliament is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 967,
+    "sw": "bursari",
+    "en": "bursary",
+    "pos": "noun",
+    "ex_sw": "bursari ni muhimu sana.",
+    "ex_en": "bursary is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 36,
+    "sw": "burudani",
+    "en": "entertainment",
+    "pos": "noun",
+    "ex_sw": "burudani ni muhimu sana.",
+    "ex_en": "entertainment is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 233,
+    "sw": "bustani",
+    "en": "garden",
+    "pos": "noun",
+    "ex_sw": "bustani ni muhimu sana.",
+    "ex_en": "garden is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 531,
+    "sw": "buti",
+    "en": "boots",
+    "pos": "noun",
+    "ex_sw": "buti ni muhimu sana.",
+    "ex_en": "boots is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 302,
+    "sw": "bwawa",
+    "en": "the pond",
+    "pos": "noun",
+    "ex_sw": "bwawa ni muhimu sana.",
+    "ex_en": "the pond is very important.",
+    "cat": "nature"
+  },
+  {
+    "id": 660,
+    "sw": "chafu",
+    "en": "dirty",
+    "pos": "adjective",
+    "ex_sw": "Kitu hicho ni chafu sana.",
+    "ex_en": "That thing is very dirty.",
+    "cat": "general"
+  },
+  {
+    "id": 142,
+    "sw": "chai",
+    "en": "tea",
+    "pos": "noun",
+    "ex_sw": "chai ni muhimu sana.",
+    "ex_en": "tea is very important.",
+    "cat": "food"
+  },
+  {
+    "id": 768,
+    "sw": "chaja",
+    "en": "charger",
+    "pos": "noun",
+    "ex_sw": "chaja ni muhimu sana.",
+    "ex_en": "charger is very important.",
+    "cat": "technology"
+  },
+  {
+    "id": 140,
+    "sw": "chakula",
+    "en": "food",
+    "pos": "noun",
+    "ex_sw": "chakula ni muhimu sana.",
+    "ex_en": "food is very important.",
+    "cat": "food"
+  },
+  {
+    "id": 935,
+    "sw": "chama",
+    "en": "party",
+    "pos": "noun",
+    "ex_sw": "chama ni muhimu sana.",
+    "ex_en": "party is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 113,
+    "sw": "chanjo",
+    "en": "coverage",
+    "pos": "noun",
+    "ex_sw": "chanjo ni muhimu sana.",
+    "ex_en": "coverage is very important.",
+    "cat": "health"
+  },
+  {
+    "id": 177,
+    "sw": "chapati",
+    "en": "pancakes",
+    "pos": "noun",
+    "ex_sw": "chapati ni muhimu sana.",
+    "ex_en": "pancakes is very important.",
+    "cat": "food"
+  },
+  {
+    "id": 297,
+    "sw": "chemchemi",
+    "en": "spring",
+    "pos": "noun",
+    "ex_sw": "chemchemi ni muhimu sana.",
+    "ex_en": "spring is very important.",
+    "cat": "nature"
+  },
+  {
+    "id": 860,
+    "sw": "chess",
+    "en": "chess",
+    "pos": "noun",
+    "ex_sw": "chess ni muhimu sana.",
+    "ex_en": "chess is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 966,
+    "sw": "cheti",
+    "en": "certificate",
+    "pos": "noun",
+    "ex_sw": "cheti ni muhimu sana.",
+    "ex_en": "certificate is very important.",
+    "cat": "education"
+  },
+  {
+    "id": 403,
+    "sw": "chini",
+    "en": "below",
+    "pos": "adverb",
+    "ex_sw": "Anafanya kazi chini.",
+    "ex_en": "He/she works below.",
+    "cat": "general"
+  },
+  {
+    "id": 218,
+    "sw": "choo",
+    "en": "toilet",
+    "pos": "noun",
+    "ex_sw": "choo ni muhimu sana.",
+    "ex_en": "toilet is very important.",
+    "cat": "home"
+  },
+  {
+    "id": 331,
+    "sw": "chui",
+    "en": "leopard",
+    "pos": "noun",
+    "ex_sw": "chui ni muhimu sana.",
+    "ex_en": "leopard is very important.",
+    "cat": "animal"
+  },
+  {
+    "id": 875,
+    "sw": "chuki",
+    "en": "hatred",
+    "pos": "noun",
+    "ex_sw": "chuki ni muhimu sana.",
+    "ex_en": "hatred is very important.",
+    "cat": "emotion"
+  },
+  {
+    "id": 216,
+    "sw": "chumba",
+    "en": "the room",
+    "pos": "noun",
+    "ex_sw": "chumba ni muhimu sana.",
+    "ex_en": "the room is very important.",
+    "cat": "home"
+  },
+  {
+    "id": 163,
+    "sw": "chumvi",
+    "en": "salt",
+    "pos": "noun",
+    "ex_sw": "chumvi ni muhimu sana.",
+    "ex_en": "salt is very important.",
+    "cat": "food"
+  },
+  {
+    "id": 252,
+    "sw": "chungu",
+    "en": "pain",
+    "pos": "noun",
+    "ex_sw": "chungu ni muhimu sana.",
+    "ex_en": "pain is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 539,
+    "sw": "chuo",
+    "en": "college",
+    "pos": "noun",
+    "ex_sw": "chuo ni muhimu sana.",
+    "ex_en": "college is very important.",
+    "cat": "work"
+  },
+  {
+    "id": 755,
+    "sw": "chuo kikuu",
+    "en": "university",
+    "pos": "noun",
+    "ex_sw": "chuo kikuu ni muhimu sana.",
+    "ex_en": "university is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 257,
+    "sw": "chupa",
+    "en": "bottle",
+    "pos": "noun",
+    "ex_sw": "chupa ni muhimu sana.",
+    "ex_en": "bottle is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 43,
+    "sw": "dada",
+    "en": "sister",
+    "pos": "noun",
+    "ex_sw": "dada ni muhimu sana.",
+    "ex_en": "sister is very important.",
+    "cat": "family"
+  },
+  {
+    "id": 420,
+    "sw": "dakika",
+    "en": "minutes",
+    "pos": "noun",
+    "ex_sw": "dakika ni muhimu sana.",
+    "ex_en": "minutes is very important.",
+    "cat": "time"
+  },
+  {
+    "id": 108,
+    "sw": "daktari",
+    "en": "doctor",
+    "pos": "noun",
+    "ex_sw": "daktari ni muhimu sana.",
+    "ex_en": "doctor is very important.",
+    "cat": "health"
+  },
+  {
+    "id": 415,
+    "sw": "daladala",
+    "en": "daladala",
+    "pos": "noun",
+    "ex_sw": "daladala ni muhimu sana.",
+    "ex_en": "daladala is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 88,
+    "sw": "damu",
+    "en": "blood",
+    "pos": "noun",
+    "ex_sw": "damu ni muhimu sana.",
+    "ex_en": "blood is very important.",
+    "cat": "body"
+  },
+  {
+    "id": 386,
+    "sw": "daraja",
+    "en": "grade",
+    "pos": "noun",
+    "ex_sw": "daraja ni muhimu sana.",
+    "ex_en": "grade is very important.",
+    "cat": "travel"
+  },
+  {
+    "id": 553,
+    "sw": "darasa",
+    "en": "class",
+    "pos": "noun",
+    "ex_sw": "darasa ni muhimu sana.",
+    "ex_en": "class is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 213,
+    "sw": "dari",
+    "en": "ceiling",
+    "pos": "noun",
+    "ex_sw": "dari ni muhimu sana.",
+    "ex_en": "ceiling is very important.",
+    "cat": "home"
+  },
+  {
+    "id": 774,
+    "sw": "data",
+    "en": "data",
+    "pos": "noun",
+    "ex_sw": "data ni muhimu sana.",
+    "ex_en": "data is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 107,
+    "sw": "dawa",
+    "en": "medicine",
+    "pos": "noun",
+    "ex_sw": "dawa ni muhimu sana.",
+    "ex_en": "medicine is very important.",
+    "cat": "health"
+  },
+  {
+    "id": 133,
+    "sw": "dawa ya maumivu",
+    "en": "pain medicine",
+    "pos": "noun",
+    "ex_sw": "dawa ya maumivu ni muhimu sana.",
+    "ex_en": "pain medicine is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 937,
+    "sw": "demokrasia",
+    "en": "democracy",
+    "pos": "noun",
+    "ex_sw": "demokrasia ni muhimu sana.",
+    "ex_en": "democracy is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 169,
+    "sw": "dengu",
+    "en": "lentils",
+    "pos": "noun",
+    "ex_sw": "dengu ni muhimu sana.",
+    "ex_en": "lentils is very important.",
+    "cat": "food"
+  },
+  {
+    "id": 837,
+    "sw": "deni",
+    "en": "debt",
+    "pos": "noun",
+    "ex_sw": "deni ni muhimu sana.",
+    "ex_en": "debt is very important.",
+    "cat": "finance"
+  },
+  {
+    "id": 805,
+    "sw": "densi",
+    "en": "dance",
+    "pos": "noun",
+    "ex_sw": "densi ni muhimu sana.",
+    "ex_en": "dance is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 411,
+    "sw": "dereva",
+    "en": "the driver",
+    "pos": "noun",
+    "ex_sw": "dereva ni muhimu sana.",
+    "ex_en": "the driver is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 809,
+    "sw": "desturi",
+    "en": "custom",
+    "pos": "noun",
+    "ex_sw": "desturi ni muhimu sana.",
+    "ex_en": "custom is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 501,
+    "sw": "dhahabu",
+    "en": "gold",
+    "pos": "adjective",
+    "ex_sw": "Kitu hicho ni dhahabu sana.",
+    "ex_en": "That thing is very gold.",
+    "cat": "color"
+  },
+  {
+    "id": 682,
+    "sw": "dhaifu",
+    "en": "weak",
+    "pos": "adjective",
+    "ex_sw": "Kitu hicho ni dhaifu sana.",
+    "ex_en": "That thing is very weak.",
+    "cat": "general"
+  },
+  {
+    "id": 801,
+    "sw": "dhambi",
+    "en": "sin",
+    "pos": "noun",
+    "ex_sw": "dhambi ni muhimu sana.",
+    "ex_en": "sin is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 290,
+    "sw": "dhoruba",
+    "en": "storm",
+    "pos": "noun",
+    "ex_sw": "dhoruba ni muhimu sana.",
+    "ex_en": "storm is very important.",
+    "cat": "weather"
+  },
+  {
+    "id": 965,
+    "sw": "diploma",
+    "en": "diploma",
+    "pos": "noun",
+    "ex_sw": "diploma ni muhimu sana.",
+    "ex_en": "diploma is very important.",
+    "cat": "education"
+  },
+  {
+    "id": 211,
+    "sw": "dirisha",
+    "en": "the window",
+    "pos": "noun",
+    "ex_sw": "dirisha ni muhimu sana.",
+    "ex_en": "the window is very important.",
+    "cat": "home"
+  },
+  {
+    "id": 786,
+    "sw": "diski ngumu",
+    "en": "hard disk",
+    "pos": "noun",
+    "ex_sw": "diski ngumu ni muhimu sana.",
+    "ex_en": "hard disk is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 820,
+    "sw": "dola",
+    "en": "dollars",
+    "pos": "noun",
+    "ex_sw": "dola ni muhimu sana.",
+    "ex_en": "dollars is very important.",
+    "cat": "finance"
+  },
+  {
+    "id": 788,
+    "sw": "download",
+    "en": "download",
+    "pos": "noun",
+    "ex_sw": "download ni muhimu sana.",
+    "ex_en": "download is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 799,
+    "sw": "dua",
+    "en": "supplication",
+    "pos": "noun",
+    "ex_sw": "dua ni muhimu sana.",
+    "ex_en": "supplication is very important.",
+    "cat": "religion"
+  },
+  {
+    "id": 741,
+    "sw": "duka",
+    "en": "shop",
+    "pos": "noun",
+    "ex_sw": "duka ni muhimu sana.",
+    "ex_en": "shop is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 332,
+    "sw": "duma",
+    "en": "cheetah",
+    "pos": "noun",
+    "ex_sw": "duma ni muhimu sana.",
+    "ex_en": "cheetah is very important.",
+    "cat": "animal"
+  },
+  {
+    "id": 711,
+    "sw": "dunia",
+    "en": "the world",
+    "pos": "noun",
+    "ex_sw": "dunia ni muhimu sana.",
+    "ex_en": "the world is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 478,
+    "sw": "elfu",
+    "en": "a thousand",
+    "pos": "number",
+    "ex_sw": "elfu ni namba nzuri.",
+    "ex_en": "a thousand is a good number.",
+    "cat": "general"
+  },
+  {
+    "id": 896,
+    "sw": "elimu",
+    "en": "education",
+    "pos": "noun",
+    "ex_sw": "elimu ni muhimu sana.",
+    "ex_en": "education is very important.",
+    "cat": "education"
+  },
+  {
+    "id": 154,
+    "sw": "embe",
+    "en": "mango",
+    "pos": "noun",
+    "ex_sw": "embe ni muhimu sana.",
+    "ex_en": "mango is very important.",
+    "cat": "food"
+  },
+  {
+    "id": 821,
+    "sw": "euro",
+    "en": "euros",
+    "pos": "noun",
+    "ex_sw": "euro ni muhimu sana.",
+    "ex_en": "euros is very important.",
+    "cat": "finance"
+  },
+  {
+    "id": 839,
+    "sw": "faida",
+    "en": "profit",
+    "pos": "noun",
+    "ex_sw": "faida ni muhimu sana.",
+    "ex_en": "profit is very important.",
+    "cat": "finance"
+  },
+  {
+    "id": 775,
+    "sw": "faili",
+    "en": "file",
+    "pos": "noun",
+    "ex_sw": "faili ni muhimu sana.",
+    "ex_en": "file is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 867,
+    "sw": "fainali",
+    "en": "the final",
+    "pos": "noun",
+    "ex_sw": "fainali ni muhimu sana.",
+    "ex_en": "the final is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 901,
+    "sw": "falsafa",
+    "en": "philosophy",
+    "pos": "noun",
+    "ex_sw": "falsafa ni muhimu sana.",
+    "ex_en": "philosophy is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 50,
+    "sw": "familia",
+    "en": "family",
+    "pos": "noun",
+    "ex_sw": "familia ni muhimu sana.",
+    "ex_en": "family is very important.",
+    "cat": "family"
+  },
+  {
+    "id": 315,
+    "sw": "farasi",
+    "en": "a horse",
+    "pos": "noun",
+    "ex_sw": "farasi ni muhimu sana.",
+    "ex_en": "a horse is very important.",
+    "cat": "animal"
+  },
+  {
+    "id": 374,
+    "sw": "faru",
+    "en": "rhinoceros",
+    "pos": "noun",
+    "ex_sw": "faru ni muhimu sana.",
+    "ex_en": "rhinoceros is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 502,
+    "sw": "fedha",
+    "en": "money",
+    "pos": "adjective",
+    "ex_sw": "Kitu hicho ni fedha sana.",
+    "ex_en": "That thing is very money.",
+    "cat": "color"
+  },
+  {
+    "id": 196,
+    "sw": "fenesi",
+    "en": "the fennel",
+    "pos": "noun",
+    "ex_sw": "fenesi ni muhimu sana.",
+    "ex_en": "the fennel is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 189,
+    "sw": "figili",
+    "en": "radish",
+    "pos": "noun",
+    "ex_sw": "figili ni muhimu sana.",
+    "ex_en": "radish is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 96,
+    "sw": "figo",
+    "en": "kidney",
+    "pos": "noun",
+    "ex_sw": "figo ni muhimu sana.",
+    "ex_en": "kidney is very important.",
+    "cat": "body"
+  },
+  {
+    "id": 996,
+    "sw": "filamu",
+    "en": "film",
+    "pos": "noun",
+    "ex_sw": "filamu ni muhimu sana.",
+    "ex_en": "film is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 309,
+    "sw": "fisi",
+    "en": "hyena",
+    "pos": "noun",
+    "ex_sw": "fisi ni muhimu sana.",
+    "ex_en": "hyena is very important.",
+    "cat": "animal"
+  },
+  {
+    "id": 373,
+    "sw": "fisi wa maji",
+    "en": "water hyena",
+    "pos": "noun",
+    "ex_sw": "fisi wa maji ni muhimu sana.",
+    "ex_en": "water hyena is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 898,
+    "sw": "fizikia",
+    "en": "physics",
+    "pos": "noun",
+    "ex_sw": "fizikia ni muhimu sana.",
+    "ex_en": "physics is very important.",
+    "cat": "education"
+  },
+  {
+    "id": 339,
+    "sw": "flamingo",
+    "en": "flamingos",
+    "pos": "noun",
+    "ex_sw": "flamingo ni muhimu sana.",
+    "ex_en": "flamingos is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 776,
+    "sw": "folda",
+    "en": "folder",
+    "pos": "noun",
+    "ex_sw": "folda ni muhimu sana.",
+    "ex_en": "folder is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 406,
+    "sw": "forodha",
+    "en": "customs",
+    "pos": "noun",
+    "ex_sw": "forodha ni muhimu sana.",
+    "ex_en": "customs is very important.",
+    "cat": "travel"
+  },
+  {
+    "id": 227,
+    "sw": "friji",
+    "en": "fridge",
+    "pos": "noun",
+    "ex_sw": "friji ni muhimu sana.",
+    "ex_en": "fridge is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 529,
+    "sw": "fulana",
+    "en": "t-shirt",
+    "pos": "noun",
+    "ex_sw": "fulana ni muhimu sana.",
+    "ex_en": "t-shirt is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 371,
+    "sw": "funza",
+    "en": "worm",
+    "pos": "noun",
+    "ex_sw": "funza ni muhimu sana.",
+    "ex_en": "worm is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 657,
+    "sw": "fupi",
+    "en": "short",
+    "pos": "adjective",
+    "ex_sw": "Kitu hicho ni fupi sana.",
+    "ex_en": "That thing is very short.",
+    "cat": "general"
+  },
+  {
+    "id": 32,
+    "sw": "furaha",
+    "en": "happiness",
+    "pos": "noun",
+    "ex_sw": "furaha ni muhimu sana.",
+    "ex_en": "happiness is very important.",
+    "cat": "emotion"
+  },
+  {
+    "id": 377,
+    "sw": "gari",
+    "en": "car",
+    "pos": "noun",
+    "ex_sw": "gari ni muhimu sana.",
+    "ex_en": "car is very important.",
+    "cat": "travel"
+  },
+  {
+    "id": 510,
+    "sw": "gauni",
+    "en": "gown",
+    "pos": "noun",
+    "ex_sw": "gauni ni muhimu sana.",
+    "ex_en": "gown is very important.",
+    "cat": "clothing"
+  },
+  {
+    "id": 971,
+    "sw": "gesi asilia",
+    "en": "natural gas",
+    "pos": "noun",
+    "ex_sw": "gesi asilia ni muhimu sana.",
+    "ex_en": "natural gas is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 666,
+    "sw": "ghali",
+    "en": "expensive",
+    "pos": "adjective",
+    "ex_sw": "Kitu hicho ni ghali sana.",
+    "ex_en": "That thing is very expensive.",
+    "cat": "general"
+  },
+  {
+    "id": 234,
+    "sw": "ghorofa",
+    "en": "apartment",
+    "pos": "noun",
+    "ex_sw": "ghorofa ni muhimu sana.",
+    "ex_en": "apartment is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 301,
+    "sw": "ghuba",
+    "en": "bay",
+    "pos": "noun",
+    "ex_sw": "ghuba ni muhimu sana.",
+    "ex_en": "bay is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 279,
+    "sw": "giza",
+    "en": "darkness",
+    "pos": "noun",
+    "ex_sw": "giza ni muhimu sana.",
+    "ex_en": "darkness is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 851,
+    "sw": "goli",
+    "en": "goal",
+    "pos": "noun",
+    "ex_sw": "goli ni muhimu sana.",
+    "ex_en": "goal is very important.",
+    "cat": "sport"
+  },
+  {
+    "id": 84,
+    "sw": "goti",
+    "en": "the knee",
+    "pos": "noun",
+    "ex_sw": "goti ni muhimu sana.",
+    "ex_en": "the knee is very important.",
+    "cat": "body"
+  },
+  {
+    "id": 680,
+    "sw": "gumu",
+    "en": "difficult",
+    "pos": "adjective",
+    "ex_sw": "Kitu hicho ni gumu sana.",
+    "ex_en": "That thing is very difficult.",
+    "cat": "general"
+  },
+  {
+    "id": 1,
+    "sw": "habari",
+    "en": "information",
+    "pos": "noun",
+    "ex_sw": "habari ni muhimu sana.",
+    "ex_en": "information is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 939,
+    "sw": "haki",
+    "en": "right",
+    "pos": "noun",
+    "ex_sw": "haki ni muhimu sana.",
+    "ex_en": "right is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 472,
+    "sw": "hamsini",
+    "en": "fifty",
+    "pos": "number",
+    "ex_sw": "hamsini ni namba nzuri.",
+    "ex_en": "fifty is a good number.",
+    "cat": "general"
+  },
+  {
+    "id": 884,
+    "sw": "hamu",
+    "en": "desire",
+    "pos": "noun",
+    "ex_sw": "hamu ni muhimu sana.",
+    "ex_en": "desire is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 397,
+    "sw": "hapa",
+    "en": "here",
+    "pos": "adverb",
+    "ex_sw": "Anafanya kazi hapa.",
+    "ex_en": "He/she works here.",
+    "cat": "general"
+  },
+  {
+    "id": 10,
+    "sw": "hapana",
+    "en": "no",
+    "pos": "noun",
+    "ex_sw": "hapana ni muhimu sana.",
+    "ex_en": "no is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 662,
+    "sw": "haraka",
+    "en": "quickly",
+    "pos": "adverb",
+    "ex_sw": "Anafanya kazi haraka.",
+    "ex_en": "He/she works quickly.",
+    "cat": "general"
+  },
+  {
+    "id": 523,
+    "sw": "hariri",
+    "en": "silk",
+    "pos": "noun",
+    "ex_sw": "hariri ni muhimu sana.",
+    "ex_en": "silk is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 54,
+    "sw": "harusi",
+    "en": "wedding",
+    "pos": "noun",
+    "ex_sw": "harusi ni muhimu sana.",
+    "ex_en": "wedding is very important.",
+    "cat": "family"
+  },
+  {
+    "id": 840,
+    "sw": "hasara",
+    "en": "loss",
+    "pos": "noun",
+    "ex_sw": "hasara ni muhimu sana.",
+    "ex_en": "loss is very important.",
+    "cat": "finance"
+  },
+  {
+    "id": 34,
+    "sw": "hasira",
+    "en": "anger",
+    "pos": "noun",
+    "ex_sw": "hasira ni muhimu sana.",
+    "ex_en": "anger is very important.",
+    "cat": "emotion"
+  },
+  {
+    "id": 745,
+    "sw": "hekalu",
+    "en": "the temple",
+    "pos": "noun",
+    "ex_sw": "hekalu ni muhimu sana.",
+    "ex_en": "the temple is very important.",
+    "cat": "religion"
+  },
+  {
+    "id": 956,
+    "sw": "hekima",
+    "en": "wisdom",
+    "pos": "noun",
+    "ex_sw": "hekima ni muhimu sana.",
+    "ex_en": "wisdom is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 520,
+    "sw": "herini",
+    "en": "happy",
+    "pos": "noun",
+    "ex_sw": "herini ni muhimu sana.",
+    "ex_en": "happy is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 484,
+    "sw": "hesabu",
+    "en": "math",
+    "pos": "noun",
+    "ex_sw": "hesabu ni muhimu sana.",
+    "ex_en": "math is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 20,
+    "sw": "heshima",
+    "en": "respect",
+    "pos": "noun",
+    "ex_sw": "heshima ni muhimu sana.",
+    "ex_en": "respect is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 969,
+    "sw": "hifadhi ya bahari",
+    "en": "sea ​​reserve",
+    "pos": "noun",
+    "ex_sw": "hifadhi ya bahari ni muhimu sana.",
+    "ex_en": "sea ​​reserve is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 929,
+    "sw": "hifadhi ya mazao",
+    "en": "crop storage",
+    "pos": "noun",
+    "ex_sw": "hifadhi ya mazao ni muhimu sana.",
+    "ex_en": "crop storage is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 524,
+    "sw": "hijab",
+    "en": "hijab",
+    "pos": "noun",
+    "ex_sw": "hijab ni muhimu sana.",
+    "ex_en": "hijab is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 836,
+    "sw": "hisa",
+    "en": "shares",
+    "pos": "noun",
+    "ex_sw": "hisa ni muhimu sana.",
+    "ex_en": "shares is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 897,
+    "sw": "hisabati",
+    "en": "mathematics",
+    "pos": "noun",
+    "ex_sw": "hisabati ni muhimu sana.",
+    "ex_en": "mathematics is very important.",
+    "cat": "education"
+  },
+  {
+    "id": 547,
+    "sw": "historia",
+    "en": "history",
+    "pos": "noun",
+    "ex_sw": "historia ni muhimu sana.",
+    "ex_en": "history is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 689,
+    "sw": "hodari",
+    "en": "strong",
+    "pos": "adjective",
+    "ex_sw": "Kitu hicho ni hodari sana.",
+    "ex_en": "That thing is very strong.",
+    "cat": "general"
+  },
+  {
+    "id": 869,
+    "sw": "hofu",
+    "en": "fear",
+    "pos": "noun",
+    "ex_sw": "hofu ni muhimu sana.",
+    "ex_en": "fear is very important.",
+    "cat": "emotion"
+  },
+  {
+    "id": 118,
+    "sw": "homa",
+    "en": "fever",
+    "pos": "noun",
+    "ex_sw": "homa ni muhimu sana.",
+    "ex_en": "fever is very important.",
+    "cat": "health"
+  },
+  {
+    "id": 110,
+    "sw": "hospitali",
+    "en": "hospital",
+    "pos": "noun",
+    "ex_sw": "hospitali ni muhimu sana.",
+    "ex_en": "hospital is very important.",
+    "cat": "health"
+  },
+  {
+    "id": 756,
+    "sw": "hospitali kuu",
+    "en": "the main hospital",
+    "pos": "noun",
+    "ex_sw": "hospitali kuu ni muhimu sana.",
+    "ex_en": "the main hospital is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 750,
+    "sw": "hoteli",
+    "en": "hotel",
+    "pos": "noun",
+    "ex_sw": "hoteli ni muhimu sana.",
+    "ex_en": "hotel is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 993,
+    "sw": "huduma",
+    "en": "services",
+    "pos": "noun",
+    "ex_sw": "huduma ni muhimu sana.",
+    "ex_en": "services is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 2,
+    "sw": "hujambo",
+    "en": "hello",
+    "pos": "noun",
+    "ex_sw": "hujambo ni muhimu sana.",
+    "ex_en": "hello is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 25,
+    "sw": "huruma",
+    "en": "pity",
+    "pos": "noun",
+    "ex_sw": "huruma ni muhimu sana.",
+    "ex_en": "pity is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 33,
+    "sw": "huzuni",
+    "en": "sadness",
+    "pos": "noun",
+    "ex_sw": "huzuni ni muhimu sana.",
+    "ex_en": "sadness is very important.",
+    "cat": "emotion"
+  },
+  {
+    "id": 798,
+    "sw": "ibada",
+    "en": "worship",
+    "pos": "noun",
+    "ex_sw": "ibada ni muhimu sana.",
+    "ex_en": "worship is very important.",
+    "cat": "religion"
+  },
+  {
+    "id": 483,
+    "sw": "idadi",
+    "en": "number",
+    "pos": "noun",
+    "ex_sw": "idadi ni muhimu sana.",
+    "ex_en": "number is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 748,
+    "sw": "ikulu",
+    "en": "palace",
+    "pos": "noun",
+    "ex_sw": "ikulu ni muhimu sana.",
+    "ex_en": "palace is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 185,
+    "sw": "iliki",
+    "en": "Cardamom",
+    "pos": "noun",
+    "ex_sw": "iliki ni muhimu sana.",
+    "ex_en": "Cardamom is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 814,
+    "sw": "imam",
+    "en": "Imam",
+    "pos": "noun",
+    "ex_sw": "imam ni muhimu sana.",
+    "ex_en": "Imam is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 792,
+    "sw": "imani",
+    "en": "faith",
+    "pos": "noun",
+    "ex_sw": "imani ni muhimu sana.",
+    "ex_en": "faith is very important.",
+    "cat": "religion"
+  },
+  {
+    "id": 670,
+    "sw": "imara",
+    "en": "solid",
+    "pos": "adjective",
+    "ex_sw": "Kitu hicho ni imara sana.",
+    "ex_en": "That thing is very solid.",
+    "cat": "general"
+  },
+  {
+    "id": 95,
+    "sw": "ini",
+    "en": "liver",
+    "pos": "noun",
+    "ex_sw": "ini ni muhimu sana.",
+    "ex_en": "liver is very important.",
+    "cat": "body"
+  },
+  {
+    "id": 760,
+    "sw": "intaneti",
+    "en": "internet",
+    "pos": "noun",
+    "ex_sw": "intaneti ni muhimu sana.",
+    "ex_en": "internet is very important.",
+    "cat": "technology"
+  },
+  {
+    "id": 469,
+    "sw": "ishirini",
+    "en": "twenty",
+    "pos": "number",
+    "ex_sw": "ishirini ni namba nzuri.",
+    "ex_en": "twenty is a good number.",
+    "cat": "general"
+  },
+  {
+    "id": 942,
+    "sw": "jaji",
+    "en": "judge",
+    "pos": "noun",
+    "ex_sw": "jaji ni muhimu sana.",
+    "ex_en": "judge is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 64,
+    "sw": "jamaa",
+    "en": "relatives",
+    "pos": "noun",
+    "ex_sw": "jamaa ni muhimu sana.",
+    "ex_en": "relatives is very important.",
+    "cat": "family"
+  },
+  {
+    "id": 3,
+    "sw": "jambo",
+    "en": "matter",
+    "pos": "noun",
+    "ex_sw": "jambo ni muhimu sana.",
+    "ex_en": "matter is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 288,
+    "sw": "jana",
+    "en": "yesterday",
+    "pos": "noun",
+    "ex_sw": "jana ni muhimu sana.",
+    "ex_en": "yesterday is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 365,
+    "sw": "jangwa",
+    "en": "the desert",
+    "pos": "noun",
+    "ex_sw": "jangwa ni muhimu sana.",
+    "ex_en": "the desert is very important.",
+    "cat": "nature"
+  },
+  {
+    "id": 910,
+    "sw": "jaribio",
+    "en": "an experiment",
+    "pos": "noun",
+    "ex_sw": "jaribio ni muhimu sana.",
+    "ex_en": "an experiment is very important.",
+    "cat": "education"
+  },
+  {
+    "id": 690,
+    "sw": "jasiri",
+    "en": "brave",
+    "pos": "adjective",
+    "ex_sw": "Kitu hicho ni jasiri sana.",
+    "ex_en": "That thing is very brave.",
+    "cat": "general"
+  },
+  {
+    "id": 923,
+    "sw": "jembe",
+    "en": "a plow",
+    "pos": "noun",
+    "ex_sw": "jembe ni muhimu sana.",
+    "ex_en": "a plow is very important.",
+    "cat": "agriculture"
+  },
+  {
+    "id": 235,
+    "sw": "jengo",
+    "en": "building",
+    "pos": "noun",
+    "ex_sw": "jengo ni muhimu sana.",
+    "ex_en": "building is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 117,
+    "sw": "jeraha",
+    "en": "injury",
+    "pos": "noun",
+    "ex_sw": "jeraha ni muhimu sana.",
+    "ex_en": "injury is very important.",
+    "cat": "health"
+  },
+  {
+    "id": 73,
+    "sw": "jicho",
+    "en": "the eye",
+    "pos": "noun",
+    "ex_sw": "jicho ni muhimu sana.",
+    "ex_en": "the eye is very important.",
+    "cat": "body"
+  },
+  {
+    "id": 217,
+    "sw": "jikoni",
+    "en": "the kitchen",
+    "pos": "noun",
+    "ex_sw": "jikoni ni muhimu sana.",
+    "ex_en": "the kitchen is very important.",
+    "cat": "home"
+  },
+  {
+    "id": 737,
+    "sw": "jimbo",
+    "en": "state",
+    "pos": "noun",
+    "ex_sw": "jimbo ni muhimu sana.",
+    "ex_en": "state is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 548,
+    "sw": "jiografia",
+    "en": "geography",
+    "pos": "noun",
+    "ex_sw": "jiografia ni muhimu sana.",
+    "ex_en": "geography is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 284,
+    "sw": "jioni",
+    "en": "in the evening",
+    "pos": "noun",
+    "ex_sw": "jioni ni muhimu sana.",
+    "ex_en": "in the evening is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 22,
+    "sw": "jirani",
+    "en": "neighbor",
+    "pos": "noun",
+    "ex_sw": "jirani ni muhimu sana.",
+    "ex_en": "neighbor is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 239,
+    "sw": "jokofu",
+    "en": "refrigerator",
+    "pos": "noun",
+    "ex_sw": "jokofu ni muhimu sana.",
+    "ex_en": "refrigerator is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 278,
+    "sw": "joto",
+    "en": "heat",
+    "pos": "noun",
+    "ex_sw": "joto ni muhimu sana.",
+    "ex_en": "heat is very important.",
+    "cat": "weather"
+  },
+  {
+    "id": 274,
+    "sw": "jua",
+    "en": "the sun",
+    "pos": "noun",
+    "ex_sw": "jua ni muhimu sana.",
+    "ex_en": "the sun is very important.",
+    "cat": "weather"
+  },
+  {
+    "id": 893,
+    "sw": "jua kali",
+    "en": "hot sun",
+    "pos": "noun",
+    "ex_sw": "jua kali ni muhimu sana.",
+    "ex_en": "hot sun is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 960,
+    "sw": "juhudi",
+    "en": "effort",
+    "pos": "noun",
+    "ex_sw": "juhudi ni muhimu sana.",
+    "ex_en": "effort is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 203,
+    "sw": "juisi",
+    "en": "juice",
+    "pos": "noun",
+    "ex_sw": "juisi ni muhimu sana.",
+    "ex_en": "juice is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 485,
+    "sw": "jumla",
+    "en": "total",
+    "pos": "noun",
+    "ex_sw": "jumla ni muhimu sana.",
+    "ex_en": "total is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 402,
+    "sw": "juu",
+    "en": "up",
+    "pos": "adverb",
+    "ex_sw": "Anafanya kazi juu.",
+    "ex_en": "He/she works up.",
+    "cat": "general"
+  },
+  {
+    "id": 436,
+    "sw": "juzi",
+    "en": "the other day",
+    "pos": "noun",
+    "ex_sw": "juzi ni muhimu sana.",
+    "ex_en": "the other day is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 342,
+    "sw": "kaa",
+    "en": "stay",
+    "pos": "noun",
+    "ex_sw": "kaa ni muhimu sana.",
+    "ex_en": "stay is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 226,
+    "sw": "kabati",
+    "en": "closet",
+    "pos": "noun",
+    "ex_sw": "kabati ni muhimu sana.",
+    "ex_en": "closet is very important.",
+    "cat": "home"
+  },
+  {
+    "id": 192,
+    "sw": "kabichi",
+    "en": "cabbage",
+    "pos": "noun",
+    "ex_sw": "kabichi ni muhimu sana.",
+    "ex_en": "cabbage is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 59,
+    "sw": "kabila",
+    "en": "tribe",
+    "pos": "noun",
+    "ex_sw": "kabila ni muhimu sana.",
+    "ex_en": "tribe is very important.",
+    "cat": "family"
+  },
+  {
+    "id": 433,
+    "sw": "kabla",
+    "en": "before",
+    "pos": "adverb",
+    "ex_sw": "Anafanya kazi kabla.",
+    "ex_en": "He/she works before.",
+    "cat": "general"
+  },
+  {
+    "id": 845,
+    "sw": "kadi ya benki",
+    "en": "bank card",
+    "pos": "noun",
+    "ex_sw": "kadi ya benki ni muhimu sana.",
+    "ex_en": "bank card is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 360,
+    "sw": "kahawa",
+    "en": "coffee",
+    "pos": "noun",
+    "ex_sw": "kahawa ni muhimu sana.",
+    "ex_en": "coffee is very important.",
+    "cat": "food"
+  },
+  {
+    "id": 497,
+    "sw": "kahawia",
+    "en": "brown",
+    "pos": "adjective",
+    "ex_sw": "Kitu hicho ni kahawia sana.",
+    "ex_en": "That thing is very brown.",
+    "cat": "color"
+  },
+  {
+    "id": 207,
+    "sw": "kaimati",
+    "en": "kaimit",
+    "pos": "noun",
+    "ex_sw": "kaimati ni muhimu sana.",
+    "ex_en": "kaimit is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 42,
+    "sw": "kaka",
+    "en": "brother",
+    "pos": "noun",
+    "ex_sw": "kaka ni muhimu sana.",
+    "ex_en": "brother is very important.",
+    "cat": "family"
+  },
+  {
+    "id": 543,
+    "sw": "kalamu",
+    "en": "pen",
+    "pos": "noun",
+    "ex_sw": "kalamu ni muhimu sana.",
+    "ex_en": "pen is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 672,
+    "sw": "kali",
+    "en": "strong",
+    "pos": "adjective",
+    "ex_sw": "Kitu hicho ni kali sana.",
+    "ex_en": "That thing is very strong.",
+    "cat": "general"
+  },
+  {
+    "id": 769,
+    "sw": "kamera",
+    "en": "camera",
+    "pos": "noun",
+    "ex_sw": "kamera ni muhimu sana.",
+    "ex_en": "camera is very important.",
+    "cat": "technology"
+  },
+  {
+    "id": 349,
+    "sw": "kanga",
+    "en": "wrap",
+    "pos": "noun",
+    "ex_sw": "kanga ni muhimu sana.",
+    "ex_en": "wrap is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 743,
+    "sw": "kanisa",
+    "en": "the church",
+    "pos": "noun",
+    "ex_sw": "kanisa ni muhimu sana.",
+    "ex_en": "the church is very important.",
+    "cat": "religion"
+  },
+  {
+    "id": 525,
+    "sw": "kanzu",
+    "en": "coat",
+    "pos": "noun",
+    "ex_sw": "kanzu ni muhimu sana.",
+    "ex_en": "coat is very important.",
+    "cat": "clothing"
+  },
+  {
+    "id": 187,
+    "sw": "karafuu",
+    "en": "cloves",
+    "pos": "noun",
+    "ex_sw": "karafuu ni muhimu sana.",
+    "ex_en": "cloves is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 161,
+    "sw": "karanga",
+    "en": "nuts",
+    "pos": "noun",
+    "ex_sw": "karanga ni muhimu sana.",
+    "ex_en": "nuts is very important.",
+    "cat": "food"
+  },
+  {
+    "id": 544,
+    "sw": "karatasi",
+    "en": "paper",
+    "pos": "noun",
+    "ex_sw": "karatasi ni muhimu sana.",
+    "ex_en": "paper is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 4,
+    "sw": "karibu",
+    "en": "almost",
+    "pos": "adverb",
+    "ex_sw": "Anafanya kazi karibu.",
+    "ex_en": "He/she works almost.",
+    "cat": "general"
+  },
+  {
+    "id": 427,
+    "sw": "karne",
+    "en": "century",
+    "pos": "noun",
+    "ex_sw": "karne ni muhimu sana.",
+    "ex_en": "century is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 188,
+    "sw": "karoti",
+    "en": "carrot",
+    "pos": "noun",
+    "ex_sw": "karoti ni muhimu sana.",
+    "ex_en": "carrot is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 392,
+    "sw": "kaskazini",
+    "en": "the north",
+    "pos": "noun",
+    "ex_sw": "kaskazini ni muhimu sana.",
+    "ex_en": "the north is very important.",
+    "cat": "travel"
+  },
+  {
+    "id": 351,
+    "sw": "kasuku",
+    "en": "parrot",
+    "pos": "noun",
+    "ex_sw": "kasuku ni muhimu sana.",
+    "ex_en": "parrot is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 739,
+    "sw": "kata",
+    "en": "cut",
+    "pos": "noun",
+    "ex_sw": "kata ni muhimu sana.",
+    "ex_en": "cut is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 941,
+    "sw": "katiba",
+    "en": "the constitution",
+    "pos": "noun",
+    "ex_sw": "katiba ni muhimu sana.",
+    "ex_en": "the constitution is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 574,
+    "sw": "katibu",
+    "en": "the secretary",
+    "pos": "noun",
+    "ex_sw": "katibu ni muhimu sana.",
+    "ex_en": "the secretary is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 678,
+    "sw": "kavu",
+    "en": "dry",
+    "pos": "adjective",
+    "ex_sw": "Kitu hicho ni kavu sana.",
+    "ex_en": "That thing is very dry.",
+    "cat": "general"
+  },
+  {
+    "id": 536,
+    "sw": "kazi",
+    "en": "work",
+    "pos": "noun",
+    "ex_sw": "kazi ni muhimu sana.",
+    "ex_en": "work is very important.",
+    "cat": "work"
+  },
+  {
+    "id": 199,
+    "sw": "keki",
+    "en": "cake",
+    "pos": "noun",
+    "ex_sw": "keki ni muhimu sana.",
+    "ex_en": "cake is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 899,
+    "sw": "kemia",
+    "en": "chemistry",
+    "pos": "noun",
+    "ex_sw": "kemia ni muhimu sana.",
+    "ex_en": "chemistry is very important.",
+    "cat": "education"
+  },
+  {
+    "id": 287,
+    "sw": "kesho",
+    "en": "tomorrow",
+    "pos": "noun",
+    "ex_sw": "kesho ni muhimu sana.",
+    "ex_en": "tomorrow is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 435,
+    "sw": "kesho kutwa",
+    "en": "all day tomorrow",
+    "pos": "noun",
+    "ex_sw": "kesho kutwa ni muhimu sana.",
+    "ex_en": "all day tomorrow is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 526,
+    "sw": "khanga",
+    "en": "hang",
+    "pos": "noun",
+    "ex_sw": "khanga ni muhimu sana.",
+    "ex_en": "hang is very important.",
+    "cat": "clothing"
+  },
+  {
+    "id": 457,
+    "sw": "kiangazi",
+    "en": "summer",
+    "pos": "noun",
+    "ex_sw": "kiangazi ni muhimu sana.",
+    "ex_en": "summer is very important.",
+    "cat": "weather"
+  },
+  {
+    "id": 362,
+    "sw": "kiazi",
+    "en": "potato",
+    "pos": "noun",
+    "ex_sw": "kiazi ni muhimu sana.",
+    "ex_en": "potato is very important.",
+    "cat": "food"
+  },
+  {
+    "id": 771,
+    "sw": "kibodi",
+    "en": "the keyboard",
+    "pos": "noun",
+    "ex_sw": "kibodi ni muhimu sana.",
+    "ex_en": "the keyboard is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 308,
+    "sw": "kiboko",
+    "en": "hippopotamus",
+    "pos": "noun",
+    "ex_sw": "kiboko ni muhimu sana.",
+    "ex_en": "hippopotamus is very important.",
+    "cat": "animal"
+  },
+  {
+    "id": 873,
+    "sw": "kiburi",
+    "en": "pride",
+    "pos": "noun",
+    "ex_sw": "kiburi ni muhimu sana.",
+    "ex_en": "pride is very important.",
+    "cat": "emotion"
+  },
+  {
+    "id": 355,
+    "sw": "kicheko",
+    "en": "laughter",
+    "pos": "noun",
+    "ex_sw": "kicheko ni muhimu sana.",
+    "ex_en": "laughter is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 71,
+    "sw": "kichwa",
+    "en": "head",
+    "pos": "noun",
+    "ex_sw": "kichwa ni muhimu sana.",
+    "ex_en": "head is very important.",
+    "cat": "body"
+  },
+  {
+    "id": 81,
+    "sw": "kidole",
+    "en": "finger",
+    "pos": "noun",
+    "ex_sw": "kidole ni muhimu sana.",
+    "ex_en": "finger is very important.",
+    "cat": "body"
+  },
+  {
+    "id": 950,
+    "sw": "kifo",
+    "en": "death",
+    "pos": "noun",
+    "ex_sw": "kifo ni muhimu sana.",
+    "ex_en": "death is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 99,
+    "sw": "kifua",
+    "en": "chest",
+    "pos": "noun",
+    "ex_sw": "kifua ni muhimu sana.",
+    "ex_en": "chest is very important.",
+    "cat": "body"
+  },
+  {
+    "id": 121,
+    "sw": "kifua kikuu",
+    "en": "tuberculosis",
+    "pos": "noun",
+    "ex_sw": "kifua kikuu ni muhimu sana.",
+    "ex_en": "tuberculosis is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 493,
+    "sw": "kijani",
+    "en": "green",
+    "pos": "adjective",
+    "ex_sw": "Kitu hicho ni kijani sana.",
+    "ex_en": "That thing is very green.",
+    "cat": "color"
+  },
+  {
+    "id": 734,
+    "sw": "kijiji",
+    "en": "the village",
+    "pos": "noun",
+    "ex_sw": "kijiji ni muhimu sana.",
+    "ex_en": "the village is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 253,
+    "sw": "kijiko",
+    "en": "spoon",
+    "pos": "noun",
+    "ex_sw": "kijiko ni muhimu sana.",
+    "ex_en": "spoon is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 498,
+    "sw": "kijivu",
+    "en": "gray",
+    "pos": "adjective",
+    "ex_sw": "Kitu hicho ni kijivu sana.",
+    "ex_en": "That thing is very gray.",
+    "cat": "color"
+  },
+  {
+    "id": 119,
+    "sw": "kikohozi",
+    "en": "cough",
+    "pos": "noun",
+    "ex_sw": "kikohozi ni muhimu sana.",
+    "ex_en": "cough is very important.",
+    "cat": "health"
+  },
+  {
+    "id": 527,
+    "sw": "kikoi",
+    "en": "keikoi",
+    "pos": "noun",
+    "ex_sw": "kikoi ni muhimu sana.",
+    "ex_en": "keikoi is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 256,
+    "sw": "kikombe",
+    "en": "cup",
+    "pos": "noun",
+    "ex_sw": "kikombe ni muhimu sana.",
+    "ex_en": "cup is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 868,
+    "sw": "kikosi",
+    "en": "squad",
+    "pos": "noun",
+    "ex_sw": "kikosi ni muhimu sana.",
+    "ex_en": "squad is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 291,
+    "sw": "kimbunga",
+    "en": "hurricane",
+    "pos": "noun",
+    "ex_sw": "kimbunga ni muhimu sana.",
+    "ex_en": "hurricane is very important.",
+    "cat": "weather"
+  },
+  {
+    "id": 368,
+    "sw": "kinyonga",
+    "en": "chameleon",
+    "pos": "noun",
+    "ex_sw": "kinyonga ni muhimu sana.",
+    "ex_en": "chameleon is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 348,
+    "sw": "kipanga",
+    "en": "a planer",
+    "pos": "noun",
+    "ex_sw": "kipanga ni muhimu sana.",
+    "ex_en": "a planer is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 327,
+    "sw": "kipepeo",
+    "en": "butterfly",
+    "pos": "noun",
+    "ex_sw": "kipepeo ni muhimu sana.",
+    "ex_en": "butterfly is very important.",
+    "cat": "animal"
+  },
+  {
+    "id": 114,
+    "sw": "kipimo",
+    "en": "measurement",
+    "pos": "noun",
+    "ex_sw": "kipimo ni muhimu sana.",
+    "ex_en": "measurement is very important.",
+    "cat": "health"
+  },
+  {
+    "id": 137,
+    "sw": "kiseyeye",
+    "en": "scurvy",
+    "pos": "noun",
+    "ex_sw": "kiseyeye ni muhimu sana.",
+    "ex_en": "scurvy is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 432,
+    "sw": "kisha",
+    "en": "then",
+    "pos": "adverb",
+    "ex_sw": "Anafanya kazi kisha.",
+    "ex_en": "He/she works then.",
+    "cat": "general"
+  },
+  {
+    "id": 85,
+    "sw": "kisigino",
+    "en": "the heel",
+    "pos": "noun",
+    "ex_sw": "kisigino ni muhimu sana.",
+    "ex_en": "the heel is very important.",
+    "cat": "body"
+  },
+  {
+    "id": 926,
+    "sw": "kisima",
+    "en": "well",
+    "pos": "noun",
+    "ex_sw": "kisima ni muhimu sana.",
+    "ex_en": "well is very important.",
+    "cat": "agriculture"
+  },
+  {
+    "id": 299,
+    "sw": "kisiwa",
+    "en": "the island",
+    "pos": "noun",
+    "ex_sw": "kisiwa ni muhimu sana.",
+    "ex_en": "the island is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 259,
+    "sw": "kisu",
+    "en": "a knife",
+    "pos": "noun",
+    "ex_sw": "kisu ni muhimu sana.",
+    "ex_en": "a knife is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 122,
+    "sw": "kisukari",
+    "en": "diabetes",
+    "pos": "noun",
+    "ex_sw": "kisukari ni muhimu sana.",
+    "ex_en": "diabetes is very important.",
+    "cat": "health"
+  },
+  {
+    "id": 542,
+    "sw": "kitabu",
+    "en": "book",
+    "pos": "noun",
+    "ex_sw": "kitabu ni muhimu sana.",
+    "ex_en": "book is very important.",
+    "cat": "work"
+  },
+  {
+    "id": 522,
+    "sw": "kitambaa",
+    "en": "cloth",
+    "pos": "noun",
+    "ex_sw": "kitambaa ni muhimu sana.",
+    "ex_en": "cloth is very important.",
+    "cat": "clothing"
+  },
+  {
+    "id": 221,
+    "sw": "kitanda",
+    "en": "the bed",
+    "pos": "noun",
+    "ex_sw": "kitanda ni muhimu sana.",
+    "ex_en": "the bed is very important.",
+    "cat": "home"
+  },
+  {
+    "id": 982,
+    "sw": "kitenge",
+    "en": "separate",
+    "pos": "noun",
+    "ex_sw": "kitenge ni muhimu sana.",
+    "ex_en": "separate is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 225,
+    "sw": "kiti",
+    "en": "seat",
+    "pos": "noun",
+    "ex_sw": "kiti ni muhimu sana.",
+    "ex_en": "seat is very important.",
+    "cat": "home"
+  },
+  {
+    "id": 190,
+    "sw": "kitunguu saumu",
+    "en": "garlic",
+    "pos": "noun",
+    "ex_sw": "kitunguu saumu ni muhimu sana.",
+    "ex_en": "garlic is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 882,
+    "sw": "kiu",
+    "en": "thirst",
+    "pos": "noun",
+    "ex_sw": "kiu ni muhimu sana.",
+    "ex_en": "thirst is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 101,
+    "sw": "kiuno",
+    "en": "waist",
+    "pos": "noun",
+    "ex_sw": "kiuno ni muhimu sana.",
+    "ex_en": "waist is very important.",
+    "cat": "body"
+  },
+  {
+    "id": 505,
+    "sw": "kivuli",
+    "en": "shadow",
+    "pos": "noun",
+    "ex_sw": "kivuli ni muhimu sana.",
+    "ex_en": "shadow is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 370,
+    "sw": "kiwavi",
+    "en": "caterpillar",
+    "pos": "noun",
+    "ex_sw": "kiwavi ni muhimu sana.",
+    "ex_en": "caterpillar is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 63,
+    "sw": "kizazi",
+    "en": "generation",
+    "pos": "noun",
+    "ex_sw": "kizazi ni muhimu sana.",
+    "ex_en": "generation is very important.",
+    "cat": "family"
+  },
+  {
+    "id": 127,
+    "sw": "kizunguzungu",
+    "en": "dizziness",
+    "pos": "noun",
+    "ex_sw": "kizunguzungu ni muhimu sana.",
+    "ex_en": "dizziness is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 111,
+    "sw": "kliniki",
+    "en": "clinic",
+    "pos": "noun",
+    "ex_sw": "kliniki ni muhimu sana.",
+    "ex_en": "clinic is very important.",
+    "cat": "health"
+  },
+  {
+    "id": 322,
+    "sw": "kobe",
+    "en": "turtle",
+    "pos": "noun",
+    "ex_sw": "kobe ni muhimu sana.",
+    "ex_en": "turtle is very important.",
+    "cat": "animal"
+  },
+  {
+    "id": 852,
+    "sw": "kocha",
+    "en": "coach",
+    "pos": "noun",
+    "ex_sw": "kocha ni muhimu sana.",
+    "ex_en": "coach is very important.",
+    "cat": "sport"
+  },
+  {
+    "id": 514,
+    "sw": "kofia",
+    "en": "hat",
+    "pos": "noun",
+    "ex_sw": "kofia ni muhimu sana.",
+    "ex_en": "hat is very important.",
+    "cat": "clothing"
+  },
+  {
+    "id": 864,
+    "sw": "kombe",
+    "en": "cup",
+    "pos": "noun",
+    "ex_sw": "kombe ni muhimu sana.",
+    "ex_en": "cup is very important.",
+    "cat": "sport"
+  },
+  {
+    "id": 757,
+    "sw": "kompyuta",
+    "en": "computer",
+    "pos": "noun",
+    "ex_sw": "kompyuta ni muhimu sana.",
+    "ex_en": "computer is very important.",
+    "cat": "technology"
+  },
+  {
+    "id": 313,
+    "sw": "kondoo",
+    "en": "sheep",
+    "pos": "noun",
+    "ex_sw": "kondoo ni muhimu sana.",
+    "ex_en": "sheep is very important.",
+    "cat": "animal"
+  },
+  {
+    "id": 344,
+    "sw": "konokono",
+    "en": "a snail",
+    "pos": "noun",
+    "ex_sw": "konokono ni muhimu sana.",
+    "ex_en": "a snail is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 340,
+    "sw": "korongo",
+    "en": "the canyon",
+    "pos": "noun",
+    "ex_sw": "korongo ni muhimu sana.",
+    "ex_en": "the canyon is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 160,
+    "sw": "korosho",
+    "en": "cashew nuts",
+    "pos": "noun",
+    "ex_sw": "korosho ni muhimu sana.",
+    "ex_en": "cashew nuts is very important.",
+    "cat": "food"
+  },
+  {
+    "id": 511,
+    "sw": "koti",
+    "en": "coat",
+    "pos": "noun",
+    "ex_sw": "koti ni muhimu sana.",
+    "ex_en": "coat is very important.",
+    "cat": "clothing"
+  },
+  {
+    "id": 602,
+    "sw": "kuamini",
+    "en": "to believe",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kuamini kila siku.",
+    "ex_en": "I like to believe every day.",
+    "cat": "general"
+  },
+  {
+    "id": 584,
+    "sw": "kuamka",
+    "en": "wake up",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kuamka kila siku.",
+    "ex_en": "I like to wake up every day.",
+    "cat": "general"
+  },
+  {
+    "id": 591,
+    "sw": "kuandika",
+    "en": "to write",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kuandika kila siku.",
+    "ex_en": "I like to write every day.",
+    "cat": "general"
+  },
+  {
+    "id": 626,
+    "sw": "kubeba",
+    "en": "to carry",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kubeba kila siku.",
+    "ex_en": "I like to carry every day.",
+    "cat": "general"
+  },
+  {
+    "id": 654,
+    "sw": "kubwa",
+    "en": "big",
+    "pos": "adjective",
+    "ex_sw": "Kitu hicho ni kubwa sana.",
+    "ex_en": "That thing is very big.",
+    "cat": "general"
+  },
+  {
+    "id": 651,
+    "sw": "kucheka",
+    "en": "to laugh",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kucheka kila siku.",
+    "ex_en": "I like to laugh every day.",
+    "cat": "general"
+  },
+  {
+    "id": 632,
+    "sw": "kuchemsha",
+    "en": "to boil",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kuchemsha kila siku.",
+    "ex_en": "I like to boil every day.",
+    "cat": "general"
+  },
+  {
+    "id": 592,
+    "sw": "kucheza",
+    "en": "play",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kucheza kila siku.",
+    "ex_en": "I like to play every day.",
+    "cat": "general"
+  },
+  {
+    "id": 987,
+    "sw": "kuchimba",
+    "en": "to dig",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kuchimba kila siku.",
+    "ex_en": "I like to dig every day.",
+    "cat": "general"
+  },
+  {
+    "id": 614,
+    "sw": "kuchora",
+    "en": "drawing",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kuchora kila siku.",
+    "ex_en": "I like to drawing every day.",
+    "cat": "general"
+  },
+  {
+    "id": 596,
+    "sw": "kuchukia",
+    "en": "to hate",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kuchukia kila siku.",
+    "ex_en": "I like to hate every day.",
+    "cat": "general"
+  },
+  {
+    "id": 598,
+    "sw": "kuelewa",
+    "en": "to understand",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kuelewa kila siku.",
+    "ex_en": "I like to understand every day.",
+    "cat": "general"
+  },
+  {
+    "id": 593,
+    "sw": "kufanya",
+    "en": "to do",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kufanya kila siku.",
+    "ex_en": "I like to do every day.",
+    "cat": "general"
+  },
+  {
+    "id": 653,
+    "sw": "kufanya kazi",
+    "en": "to work",
+    "pos": "noun",
+    "ex_sw": "kufanya kazi ni muhimu sana.",
+    "ex_en": "to work is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 601,
+    "sw": "kufikiri",
+    "en": "to think",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kufikiri kila siku.",
+    "ex_en": "I like to think every day.",
+    "cat": "general"
+  },
+  {
+    "id": 232,
+    "sw": "kufuli",
+    "en": "lock",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kufuli kila siku.",
+    "ex_en": "I like to lock every day.",
+    "cat": "general"
+  },
+  {
+    "id": 641,
+    "sw": "kufundisha",
+    "en": "to teach",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kufundisha kila siku.",
+    "ex_en": "I like to teach every day.",
+    "cat": "general"
+  },
+  {
+    "id": 622,
+    "sw": "kufunga",
+    "en": "fast",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kufunga kila siku.",
+    "ex_en": "I like to fast every day.",
+    "cat": "general"
+  },
+  {
+    "id": 621,
+    "sw": "kufungua",
+    "en": "to open",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kufungua kila siku.",
+    "ex_en": "I like to open every day.",
+    "cat": "general"
+  },
+  {
+    "id": 586,
+    "sw": "kugusa",
+    "en": "to touch",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kugusa kila siku.",
+    "ex_en": "I like to touch every day.",
+    "cat": "general"
+  },
+  {
+    "id": 125,
+    "sw": "kuhara",
+    "en": "diarrhea",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kuhara kila siku.",
+    "ex_en": "I like to diarrhea every day.",
+    "cat": "general"
+  },
+  {
+    "id": 645,
+    "sw": "kuhifadhi",
+    "en": "save",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kuhifadhi kila siku.",
+    "ex_en": "I like to save every day.",
+    "cat": "general"
+  },
+  {
+    "id": 613,
+    "sw": "kuimba",
+    "en": "to sing",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kuimba kila siku.",
+    "ex_en": "I like to sing every day.",
+    "cat": "general"
+  },
+  {
+    "id": 619,
+    "sw": "kuingia",
+    "en": "to enter",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kuingia kila siku.",
+    "ex_en": "I like to enter every day.",
+    "cat": "general"
+  },
+  {
+    "id": 578,
+    "sw": "kuja",
+    "en": "to come",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kuja kila siku.",
+    "ex_en": "I like to come every day.",
+    "cat": "general"
+  },
+  {
+    "id": 636,
+    "sw": "kujenga",
+    "en": "to build",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kujenga kila siku.",
+    "ex_en": "I like to build every day.",
+    "cat": "general"
+  },
+  {
+    "id": 611,
+    "sw": "kujibu",
+    "en": "to answer",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kujibu kila siku.",
+    "ex_en": "I like to answer every day.",
+    "cat": "general"
+  },
+  {
+    "id": 642,
+    "sw": "kujifunza",
+    "en": "to learn",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kujifunza kila siku.",
+    "ex_en": "I like to learn every day.",
+    "cat": "general"
+  },
+  {
+    "id": 597,
+    "sw": "kujua",
+    "en": "to know",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kujua kila siku.",
+    "ex_en": "I like to know every day.",
+    "cat": "general"
+  },
+  {
+    "id": 582,
+    "sw": "kukaa",
+    "en": "stay",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kukaa kila siku.",
+    "ex_en": "I like to stay every day.",
+    "cat": "general"
+  },
+  {
+    "id": 631,
+    "sw": "kukaanga",
+    "en": "fried",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kukaanga kila siku.",
+    "ex_en": "I like to fried every day.",
+    "cat": "general"
+  },
+  {
+    "id": 615,
+    "sw": "kukata",
+    "en": "to cut",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kukata kila siku.",
+    "ex_en": "I like to cut every day.",
+    "cat": "general"
+  },
+  {
+    "id": 580,
+    "sw": "kukimbia",
+    "en": "run away",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kukimbia kila siku.",
+    "ex_en": "I like to run away every day.",
+    "cat": "general"
+  },
+  {
+    "id": 149,
+    "sw": "kuku",
+    "en": "chicken",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kuku kila siku.",
+    "ex_en": "I like to chicken every day.",
+    "cat": "food"
+  },
+  {
+    "id": 600,
+    "sw": "kukumbuka",
+    "en": "to remember",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kukumbuka kila siku.",
+    "ex_en": "I like to remember every day.",
+    "cat": "general"
+  },
+  {
+    "id": 583,
+    "sw": "kulala",
+    "en": "to sleep",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kulala kila siku.",
+    "ex_en": "I like to sleep every day.",
+    "cat": "general"
+  },
+  {
+    "id": 399,
+    "sw": "kulia",
+    "en": "cry",
+    "pos": "adverb",
+    "ex_sw": "Anafanya kazi kulia.",
+    "ex_en": "He/she works cry.",
+    "cat": "general"
+  },
+  {
+    "id": 637,
+    "sw": "kulima",
+    "en": "to cultivate",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kulima kila siku.",
+    "ex_en": "I like to cultivate every day.",
+    "cat": "agriculture"
+  },
+  {
+    "id": 646,
+    "sw": "kulinda",
+    "en": "to protect",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kulinda kila siku.",
+    "ex_en": "I like to protect every day.",
+    "cat": "general"
+  },
+  {
+    "id": 606,
+    "sw": "kulipa",
+    "en": "to pay",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kulipa kila siku.",
+    "ex_en": "I like to pay every day.",
+    "cat": "general"
+  },
+  {
+    "id": 787,
+    "sw": "kumbukumbu",
+    "en": "memory",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kumbukumbu kila siku.",
+    "ex_en": "I like to memory every day.",
+    "cat": "general"
+  },
+  {
+    "id": 468,
+    "sw": "kumi",
+    "en": "ten",
+    "pos": "number",
+    "ex_sw": "kumi ni namba nzuri.",
+    "ex_en": "ten is a good number.",
+    "cat": "general"
+  },
+  {
+    "id": 170,
+    "sw": "kunde",
+    "en": "pulse",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kunde kila siku.",
+    "ex_en": "I like to pulse every day.",
+    "cat": "food"
+  },
+  {
+    "id": 607,
+    "sw": "kununua",
+    "en": "to buy",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kununua kila siku.",
+    "ex_en": "I like to buy every day.",
+    "cat": "general"
+  },
+  {
+    "id": 588,
+    "sw": "kunusa",
+    "en": "to smell",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kunusa kila siku.",
+    "ex_en": "I like to smell every day.",
+    "cat": "general"
+  },
+  {
+    "id": 640,
+    "sw": "kunywa",
+    "en": "to drink",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kunywa kila siku.",
+    "ex_en": "I like to drink every day.",
+    "cat": "general"
+  },
+  {
+    "id": 649,
+    "sw": "kuogelea",
+    "en": "to swim",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kuogelea kila siku.",
+    "ex_en": "I like to swim every day.",
+    "cat": "sport"
+  },
+  {
+    "id": 633,
+    "sw": "kuoka",
+    "en": "baking",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kuoka kila siku.",
+    "ex_en": "I like to baking every day.",
+    "cat": "general"
+  },
+  {
+    "id": 644,
+    "sw": "kuokoa",
+    "en": "to save",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kuokoa kila siku.",
+    "ex_en": "I like to save every day.",
+    "cat": "general"
+  },
+  {
+    "id": 610,
+    "sw": "kuomba",
+    "en": "to pray",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kuomba kila siku.",
+    "ex_en": "I like to pray every day.",
+    "cat": "general"
+  },
+  {
+    "id": 985,
+    "sw": "kuona",
+    "en": "to see",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kuona kila siku.",
+    "ex_en": "I like to see every day.",
+    "cat": "general"
+  },
+  {
+    "id": 628,
+    "sw": "kuondoa",
+    "en": "remove",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kuondoa kila siku.",
+    "ex_en": "I like to remove every day.",
+    "cat": "general"
+  },
+  {
+    "id": 587,
+    "sw": "kuonja",
+    "en": "to taste",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kuonja kila siku.",
+    "ex_en": "I like to taste every day.",
+    "cat": "general"
+  },
+  {
+    "id": 629,
+    "sw": "kuosha",
+    "en": "to wash",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kuosha kila siku.",
+    "ex_en": "I like to wash every day.",
+    "cat": "general"
+  },
+  {
+    "id": 986,
+    "sw": "kupanda",
+    "en": "plant",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kupanda kila siku.",
+    "ex_en": "I like to plant every day.",
+    "cat": "general"
+  },
+  {
+    "id": 638,
+    "sw": "kupanda mbegu",
+    "en": "sow the seeds",
+    "pos": "noun",
+    "ex_sw": "kupanda mbegu ni muhimu sana.",
+    "ex_en": "sow the seeds is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 604,
+    "sw": "kupata",
+    "en": "get",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kupata kila siku.",
+    "ex_en": "I like to get every day.",
+    "cat": "general"
+  },
+  {
+    "id": 595,
+    "sw": "kupenda",
+    "en": "to love",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kupenda kila siku.",
+    "ex_en": "I like to love every day.",
+    "cat": "general"
+  },
+  {
+    "id": 650,
+    "sw": "kupiga kelele",
+    "en": "to shout",
+    "pos": "noun",
+    "ex_sw": "kupiga kelele ni muhimu sana.",
+    "ex_en": "to shout is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 623,
+    "sw": "kupiga simu",
+    "en": "to call",
+    "pos": "noun",
+    "ex_sw": "kupiga simu ni muhimu sana.",
+    "ex_en": "to call is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 647,
+    "sw": "kupigana",
+    "en": "to fight",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kupigana kila siku.",
+    "ex_en": "I like to fight every day.",
+    "cat": "general"
+  },
+  {
+    "id": 630,
+    "sw": "kupika",
+    "en": "to cook",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kupika kila siku.",
+    "ex_en": "I like to cook every day.",
+    "cat": "general"
+  },
+  {
+    "id": 625,
+    "sw": "kupokea",
+    "en": "to receive",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kupokea kila siku.",
+    "ex_en": "I like to receive every day.",
+    "cat": "general"
+  },
+  {
+    "id": 603,
+    "sw": "kupoteza",
+    "en": "to lose",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kupoteza kila siku.",
+    "ex_en": "I like to lose every day.",
+    "cat": "general"
+  },
+  {
+    "id": 135,
+    "sw": "kupoteza fahamu",
+    "en": "loss of consciousness",
+    "pos": "noun",
+    "ex_sw": "kupoteza fahamu ni muhimu sana.",
+    "ex_en": "loss of consciousness is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 652,
+    "sw": "kupumzika",
+    "en": "relax",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kupumzika kila siku.",
+    "ex_en": "I like to relax every day.",
+    "cat": "general"
+  },
+  {
+    "id": 934,
+    "sw": "kura",
+    "en": "lot",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kura kila siku.",
+    "ex_en": "I like to lot every day.",
+    "cat": "general"
+  },
+  {
+    "id": 579,
+    "sw": "kurudi",
+    "en": "return",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kurudi kila siku.",
+    "ex_en": "I like to return every day.",
+    "cat": "general"
+  },
+  {
+    "id": 988,
+    "sw": "kuruka",
+    "en": "fly",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kuruka kila siku.",
+    "ex_en": "I like to fly every day.",
+    "cat": "general"
+  },
+  {
+    "id": 599,
+    "sw": "kusahau",
+    "en": "to forget",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kusahau kila siku.",
+    "ex_en": "I like to forget every day.",
+    "cat": "general"
+  },
+  {
+    "id": 609,
+    "sw": "kusaidia",
+    "en": "to help",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kusaidia kila siku.",
+    "ex_en": "I like to help every day.",
+    "cat": "general"
+  },
+  {
+    "id": 648,
+    "sw": "kushinda",
+    "en": "win",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kushinda kila siku.",
+    "ex_en": "I like to win every day.",
+    "cat": "general"
+  },
+  {
+    "id": 850,
+    "sw": "kushindwa",
+    "en": "failure",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kushindwa kila siku.",
+    "ex_en": "I like to failure every day.",
+    "cat": "general"
+  },
+  {
+    "id": 616,
+    "sw": "kushona",
+    "en": "to sew",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kushona kila siku.",
+    "ex_en": "I like to sew every day.",
+    "cat": "general"
+  },
+  {
+    "id": 400,
+    "sw": "kushoto",
+    "en": "left",
+    "pos": "adverb",
+    "ex_sw": "Anafanya kazi kushoto.",
+    "ex_en": "He/she works left.",
+    "cat": "general"
+  },
+  {
+    "id": 617,
+    "sw": "kushuka",
+    "en": "drop off",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kushuka kila siku.",
+    "ex_en": "I like to drop off every day.",
+    "cat": "general"
+  },
+  {
+    "id": 612,
+    "sw": "kushukuru",
+    "en": "to be grateful",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kushukuru kila siku.",
+    "ex_en": "I like to be grateful every day.",
+    "cat": "general"
+  },
+  {
+    "id": 585,
+    "sw": "kusikia",
+    "en": "to hear",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kusikia kila siku.",
+    "ex_en": "I like to hear every day.",
+    "cat": "general"
+  },
+  {
+    "id": 393,
+    "sw": "kusini",
+    "en": "the south",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kusini kila siku.",
+    "ex_en": "I like to the south every day.",
+    "cat": "travel"
+  },
+  {
+    "id": 590,
+    "sw": "kusoma",
+    "en": "reading",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kusoma kila siku.",
+    "ex_en": "I like to reading every day.",
+    "cat": "general"
+  },
+  {
+    "id": 643,
+    "sw": "kutafuta",
+    "en": "to search",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kutafuta kila siku.",
+    "ex_en": "I like to search every day.",
+    "cat": "general"
+  },
+  {
+    "id": 594,
+    "sw": "kutaka",
+    "en": "to want",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kutaka kila siku.",
+    "ex_en": "I like to want every day.",
+    "cat": "general"
+  },
+  {
+    "id": 126,
+    "sw": "kutapika",
+    "en": "vomiting",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kutapika kila siku.",
+    "ex_en": "I like to vomiting every day.",
+    "cat": "general"
+  },
+  {
+    "id": 581,
+    "sw": "kutembea",
+    "en": "to walk",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kutembea kila siku.",
+    "ex_en": "I like to walk every day.",
+    "cat": "general"
+  },
+  {
+    "id": 635,
+    "sw": "kutengeneza",
+    "en": "to make",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kutengeneza kila siku.",
+    "ex_en": "I like to make every day.",
+    "cat": "general"
+  },
+  {
+    "id": 605,
+    "sw": "kutoa",
+    "en": "give",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kutoa kila siku.",
+    "ex_en": "I like to give every day.",
+    "cat": "general"
+  },
+  {
+    "id": 620,
+    "sw": "kutoka",
+    "en": "from",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kutoka kila siku.",
+    "ex_en": "I like to from every day.",
+    "cat": "general"
+  },
+  {
+    "id": 624,
+    "sw": "kutuma",
+    "en": "to send",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kutuma kila siku.",
+    "ex_en": "I like to send every day.",
+    "cat": "general"
+  },
+  {
+    "id": 608,
+    "sw": "kuuza",
+    "en": "to sell",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kuuza kila siku.",
+    "ex_en": "I like to sell every day.",
+    "cat": "general"
+  },
+  {
+    "id": 618,
+    "sw": "kuvuka",
+    "en": "to cross",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kuvuka kila siku.",
+    "ex_en": "I like to cross every day.",
+    "cat": "general"
+  },
+  {
+    "id": 639,
+    "sw": "kuvuna",
+    "en": "harvest",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kuvuna kila siku.",
+    "ex_en": "I like to harvest every day.",
+    "cat": "general"
+  },
+  {
+    "id": 634,
+    "sw": "kuvunja",
+    "en": "to break",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kuvunja kila siku.",
+    "ex_en": "I like to break every day.",
+    "cat": "general"
+  },
+  {
+    "id": 627,
+    "sw": "kuweka",
+    "en": "put",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kuweka kila siku.",
+    "ex_en": "I like to put every day.",
+    "cat": "general"
+  },
+  {
+    "id": 951,
+    "sw": "kuzaliwa",
+    "en": "birth",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kuzaliwa kila siku.",
+    "ex_en": "I like to birth every day.",
+    "cat": "general"
+  },
+  {
+    "id": 589,
+    "sw": "kuzungumza",
+    "en": "to talk",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kuzungumza kila siku.",
+    "ex_en": "I like to talk every day.",
+    "cat": "general"
+  },
+  {
+    "id": 15,
+    "sw": "kwaheri",
+    "en": "goodbye",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kwaheri kila siku.",
+    "ex_en": "I like to goodbye every day.",
+    "cat": "general"
+  },
+  {
+    "id": 577,
+    "sw": "kwenda",
+    "en": "to go",
+    "pos": "verb",
+    "ex_sw": "Ninapenda kwenda kila siku.",
+    "ex_en": "I like to go every day.",
+    "cat": "general"
+  },
+  {
+    "id": 671,
+    "sw": "laini",
+    "en": "smooth",
+    "pos": "adjective",
+    "ex_sw": "Kitu hicho ni laini sana.",
+    "ex_en": "That thing is very smooth.",
+    "cat": "general"
+  },
+  {
+    "id": 404,
+    "sw": "lami",
+    "en": "bitumen",
+    "pos": "noun",
+    "ex_sw": "lami ni muhimu sana.",
+    "ex_en": "bitumen is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 286,
+    "sw": "leo",
+    "en": "today",
+    "pos": "noun",
+    "ex_sw": "leo ni muhimu sana.",
+    "ex_en": "today is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 534,
+    "sw": "leso",
+    "en": "handkerchief",
+    "pos": "noun",
+    "ex_sw": "leso ni muhimu sana.",
+    "ex_en": "handkerchief is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 865,
+    "sw": "ligi",
+    "en": "league",
+    "pos": "noun",
+    "ex_sw": "ligi ni muhimu sana.",
+    "ex_en": "league is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 158,
+    "sw": "limao",
+    "en": "lemon",
+    "pos": "noun",
+    "ex_sw": "limao ni muhimu sana.",
+    "ex_en": "lemon is very important.",
+    "cat": "food"
+  },
+  {
+    "id": 549,
+    "sw": "lugha",
+    "en": "language",
+    "pos": "noun",
+    "ex_sw": "lugha ni muhimu sana.",
+    "ex_en": "language is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 208,
+    "sw": "maandazi",
+    "en": "pastries",
+    "pos": "noun",
+    "ex_sw": "maandazi ni muhimu sana.",
+    "ex_en": "pastries is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 954,
+    "sw": "maarifa",
+    "en": "knowledge",
+    "pos": "noun",
+    "ex_sw": "maarifa ni muhimu sana.",
+    "ex_en": "knowledge is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 895,
+    "sw": "mabadiliko ya hali ya hewa",
+    "en": "climate change",
+    "pos": "noun",
+    "ex_sw": "mabadiliko ya hali ya hewa ni muhimu sana.",
+    "ex_en": "climate change is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 889,
+    "sw": "machozi",
+    "en": "tears",
+    "pos": "noun",
+    "ex_sw": "machozi ni muhimu sana.",
+    "ex_en": "tears is very important.",
+    "cat": "emotion"
+  },
+  {
+    "id": 157,
+    "sw": "machungwa",
+    "en": "orange",
+    "pos": "adjective",
+    "ex_sw": "Kitu hicho ni machungwa sana.",
+    "ex_en": "That thing is very orange.",
+    "cat": "food"
+  },
+  {
+    "id": 970,
+    "sw": "madini",
+    "en": "minerals",
+    "pos": "noun",
+    "ex_sw": "madini ni muhimu sana.",
+    "ex_en": "minerals is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 959,
+    "sw": "mafanikio",
+    "en": "success",
+    "pos": "noun",
+    "ex_sw": "mafanikio ni muhimu sana.",
+    "ex_en": "success is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 296,
+    "sw": "mafuriko",
+    "en": "flood",
+    "pos": "noun",
+    "ex_sw": "mafuriko ni muhimu sana.",
+    "ex_en": "flood is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 164,
+    "sw": "mafuta",
+    "en": "fat",
+    "pos": "noun",
+    "ex_sw": "mafuta ni muhimu sana.",
+    "ex_en": "fat is very important.",
+    "cat": "food"
+  },
+  {
+    "id": 395,
+    "sw": "magharibi",
+    "en": "the west",
+    "pos": "noun",
+    "ex_sw": "magharibi ni muhimu sana.",
+    "ex_en": "the west is very important.",
+    "cat": "travel"
+  },
+  {
+    "id": 746,
+    "sw": "mahakama",
+    "en": "court",
+    "pos": "noun",
+    "ex_sw": "mahakama ni muhimu sana.",
+    "ex_en": "court is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 168,
+    "sw": "maharage",
+    "en": "beans",
+    "pos": "noun",
+    "ex_sw": "maharage ni muhimu sana.",
+    "ex_en": "beans is very important.",
+    "cat": "food"
+  },
+  {
+    "id": 363,
+    "sw": "mahindi",
+    "en": "corn",
+    "pos": "noun",
+    "ex_sw": "mahindi ni muhimu sana.",
+    "ex_en": "corn is very important.",
+    "cat": "food"
+  },
+  {
+    "id": 949,
+    "sw": "maisha",
+    "en": "life",
+    "pos": "noun",
+    "ex_sw": "maisha ni muhimu sana.",
+    "ex_en": "life is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 141,
+    "sw": "maji",
+    "en": "water",
+    "pos": "noun",
+    "ex_sw": "maji ni muhimu sana.",
+    "ex_en": "water is very important.",
+    "cat": "food"
+  },
+  {
+    "id": 554,
+    "sw": "maktaba",
+    "en": "the library",
+    "pos": "noun",
+    "ex_sw": "maktaba ni muhimu sana.",
+    "ex_en": "the library is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 120,
+    "sw": "malaria",
+    "en": "malaria",
+    "pos": "noun",
+    "ex_sw": "malaria ni muhimu sana.",
+    "ex_en": "malaria is very important.",
+    "cat": "health"
+  },
+  {
+    "id": 61,
+    "sw": "malezi",
+    "en": "education",
+    "pos": "noun",
+    "ex_sw": "malezi ni muhimu sana.",
+    "ex_en": "education is very important.",
+    "cat": "family"
+  },
+  {
+    "id": 831,
+    "sw": "malipo",
+    "en": "payment",
+    "pos": "noun",
+    "ex_sw": "malipo ni muhimu sana.",
+    "ex_en": "payment is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 37,
+    "sw": "mama",
+    "en": "mother",
+    "pos": "noun",
+    "ex_sw": "mama ni muhimu sana.",
+    "ex_en": "mother is very important.",
+    "cat": "family"
+  },
+  {
+    "id": 321,
+    "sw": "mamba",
+    "en": "crocodile",
+    "pos": "noun",
+    "ex_sw": "mamba ni muhimu sana.",
+    "ex_en": "crocodile is very important.",
+    "cat": "animal"
+  },
+  {
+    "id": 178,
+    "sw": "mandazi",
+    "en": "mandasi",
+    "pos": "noun",
+    "ex_sw": "mandazi ni muhimu sana.",
+    "ex_en": "mandasi is very important.",
+    "cat": "food"
+  },
+  {
+    "id": 94,
+    "sw": "mapafu",
+    "en": "lungs",
+    "pos": "noun",
+    "ex_sw": "mapafu ni muhimu sana.",
+    "ex_en": "lungs is very important.",
+    "cat": "body"
+  },
+  {
+    "id": 429,
+    "sw": "mapema",
+    "en": "earlier",
+    "pos": "adverb",
+    "ex_sw": "Anafanya kazi mapema.",
+    "ex_en": "He/she works earlier.",
+    "cat": "general"
+  },
+  {
+    "id": 298,
+    "sw": "maporomoko",
+    "en": "the falls",
+    "pos": "noun",
+    "ex_sw": "maporomoko ni muhimu sana.",
+    "ex_en": "the falls is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 18,
+    "sw": "marahaba",
+    "en": "congratulations",
+    "pos": "noun",
+    "ex_sw": "marahaba ni muhimu sana.",
+    "ex_en": "congratulations is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 853,
+    "sw": "mashabiki",
+    "en": "fans",
+    "pos": "noun",
+    "ex_sw": "mashabiki ni muhimu sana.",
+    "ex_en": "fans is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 394,
+    "sw": "mashariki",
+    "en": "the east",
+    "pos": "noun",
+    "ex_sw": "mashariki ni muhimu sana.",
+    "ex_en": "the east is very important.",
+    "cat": "travel"
+  },
+  {
+    "id": 248,
+    "sw": "mashine ya kufulia",
+    "en": "washing machine",
+    "pos": "noun",
+    "ex_sw": "mashine ya kufulia ni muhimu sana.",
+    "ex_en": "washing machine is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 456,
+    "sw": "masika",
+    "en": "spring",
+    "pos": "noun",
+    "ex_sw": "masika ni muhimu sana.",
+    "ex_en": "spring is very important.",
+    "cat": "weather"
+  },
+  {
+    "id": 74,
+    "sw": "masikio",
+    "en": "ears",
+    "pos": "noun",
+    "ex_sw": "masikio ni muhimu sana.",
+    "ex_en": "ears is very important.",
+    "cat": "body"
+  },
+  {
+    "id": 674,
+    "sw": "maskini",
+    "en": "poor",
+    "pos": "adjective",
+    "ex_sw": "Kitu hicho ni maskini sana.",
+    "ex_en": "That thing is very poor.",
+    "cat": "general"
+  },
+  {
+    "id": 115,
+    "sw": "matibabu",
+    "en": "treatment",
+    "pos": "noun",
+    "ex_sw": "matibabu ni muhimu sana.",
+    "ex_en": "treatment is very important.",
+    "cat": "health"
+  },
+  {
+    "id": 886,
+    "sw": "matumaini",
+    "en": "hope",
+    "pos": "noun",
+    "ex_sw": "matumaini ni muhimu sana.",
+    "ex_en": "hope is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 152,
+    "sw": "matunda",
+    "en": "fruits",
+    "pos": "noun",
+    "ex_sw": "matunda ni muhimu sana.",
+    "ex_en": "fruits is very important.",
+    "cat": "food"
+  },
+  {
+    "id": 261,
+    "sw": "maua",
+    "en": "flowers",
+    "pos": "noun",
+    "ex_sw": "maua ni muhimu sana.",
+    "ex_en": "flowers is very important.",
+    "cat": "nature"
+  },
+  {
+    "id": 116,
+    "sw": "maumivu",
+    "en": "pain",
+    "pos": "noun",
+    "ex_sw": "maumivu ni muhimu sana.",
+    "ex_en": "pain is very important.",
+    "cat": "health"
+  },
+  {
+    "id": 919,
+    "sw": "mavuno",
+    "en": "yield",
+    "pos": "noun",
+    "ex_sw": "mavuno ni muhimu sana.",
+    "ex_en": "yield is very important.",
+    "cat": "agriculture"
+  },
+  {
+    "id": 276,
+    "sw": "mawingu",
+    "en": "the clouds",
+    "pos": "noun",
+    "ex_sw": "mawingu ni muhimu sana.",
+    "ex_en": "the clouds is very important.",
+    "cat": "weather"
+  },
+  {
+    "id": 150,
+    "sw": "mayai",
+    "en": "eggs",
+    "pos": "noun",
+    "ex_sw": "mayai ni muhimu sana.",
+    "ex_en": "eggs is very important.",
+    "cat": "food"
+  },
+  {
+    "id": 921,
+    "sw": "mazao",
+    "en": "produce",
+    "pos": "noun",
+    "ex_sw": "mazao ni muhimu sana.",
+    "ex_en": "produce is very important.",
+    "cat": "agriculture"
+  },
+  {
+    "id": 797,
+    "sw": "mazishi",
+    "en": "funeral",
+    "pos": "noun",
+    "ex_sw": "mazishi ni muhimu sana.",
+    "ex_en": "funeral is very important.",
+    "cat": "religion"
+  },
+  {
+    "id": 143,
+    "sw": "maziwa",
+    "en": "milk",
+    "pos": "noun",
+    "ex_sw": "maziwa ni muhimu sana.",
+    "ex_en": "milk is very important.",
+    "cat": "food"
+  },
+  {
+    "id": 396,
+    "sw": "mbali",
+    "en": "away",
+    "pos": "adverb",
+    "ex_sw": "Anafanya kazi mbali.",
+    "ex_en": "He/she works away.",
+    "cat": "general"
+  },
+  {
+    "id": 659,
+    "sw": "mbaya",
+    "en": "bad",
+    "pos": "adjective",
+    "ex_sw": "Kitu hicho ni mbaya sana.",
+    "ex_en": "That thing is very bad.",
+    "cat": "general"
+  },
+  {
+    "id": 916,
+    "sw": "mbegu",
+    "en": "seeds",
+    "pos": "noun",
+    "ex_sw": "mbegu ni muhimu sana.",
+    "ex_en": "seeds is very important.",
+    "cat": "agriculture"
+  },
+  {
+    "id": 401,
+    "sw": "mbele",
+    "en": "ahead",
+    "pos": "adverb",
+    "ex_sw": "Anafanya kazi mbele.",
+    "ex_en": "He/she works ahead.",
+    "cat": "general"
+  },
+  {
+    "id": 460,
+    "sw": "mbili",
+    "en": "two",
+    "pos": "number",
+    "ex_sw": "mbili ni namba nzuri.",
+    "ex_en": "two is a good number.",
+    "cat": "general"
+  },
+  {
+    "id": 858,
+    "sw": "mbio",
+    "en": "race",
+    "pos": "noun",
+    "ex_sw": "mbio ni muhimu sana.",
+    "ex_en": "race is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 151,
+    "sw": "mboga",
+    "en": "vegetables",
+    "pos": "noun",
+    "ex_sw": "mboga ni muhimu sana.",
+    "ex_en": "vegetables is very important.",
+    "cat": "food"
+  },
+  {
+    "id": 928,
+    "sw": "mboji",
+    "en": "compost",
+    "pos": "noun",
+    "ex_sw": "mboji ni muhimu sana.",
+    "ex_en": "compost is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 917,
+    "sw": "mbolea",
+    "en": "fertilizer",
+    "pos": "noun",
+    "ex_sw": "mbolea ni muhimu sana.",
+    "ex_en": "fertilizer is very important.",
+    "cat": "agriculture"
+  },
+  {
+    "id": 347,
+    "sw": "mbu",
+    "en": "mosquitoes",
+    "pos": "noun",
+    "ex_sw": "mbu ni muhimu sana.",
+    "ex_en": "mosquitoes is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 571,
+    "sw": "mbunge",
+    "en": "parliamentarian",
+    "pos": "noun",
+    "ex_sw": "mbunge ni muhimu sana.",
+    "ex_en": "parliamentarian is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 338,
+    "sw": "mbuni",
+    "en": "the ostrich",
+    "pos": "noun",
+    "ex_sw": "mbuni ni muhimu sana.",
+    "ex_en": "the ostrich is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 314,
+    "sw": "mbuzi",
+    "en": "a goat",
+    "pos": "noun",
+    "ex_sw": "mbuzi ni muhimu sana.",
+    "ex_en": "a goat is very important.",
+    "cat": "animal"
+  },
+  {
+    "id": 310,
+    "sw": "mbwa",
+    "en": "dog",
+    "pos": "noun",
+    "ex_sw": "mbwa ni muhimu sana.",
+    "ex_en": "dog is very important.",
+    "cat": "animal"
+  },
+  {
+    "id": 375,
+    "sw": "mbweha",
+    "en": "fox",
+    "pos": "noun",
+    "ex_sw": "mbweha ni muhimu sana.",
+    "ex_en": "fox is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 283,
+    "sw": "mchana",
+    "en": "in the afternoon",
+    "pos": "noun",
+    "ex_sw": "mchana ni muhimu sana.",
+    "ex_en": "in the afternoon is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 264,
+    "sw": "mchanga",
+    "en": "sand",
+    "pos": "adjective",
+    "ex_sw": "Kitu hicho ni mchanga sana.",
+    "ex_en": "That thing is very sand.",
+    "cat": "nature"
+  },
+  {
+    "id": 693,
+    "sw": "mchangamfu",
+    "en": "cheerful",
+    "pos": "adjective",
+    "ex_sw": "Kitu hicho ni mchangamfu sana.",
+    "ex_en": "That thing is very cheerful.",
+    "cat": "general"
+  },
+  {
+    "id": 171,
+    "sw": "mchele",
+    "en": "rice",
+    "pos": "noun",
+    "ex_sw": "mchele ni muhimu sana.",
+    "ex_en": "rice is very important.",
+    "cat": "food"
+  },
+  {
+    "id": 565,
+    "sw": "mchezaji",
+    "en": "player",
+    "pos": "noun",
+    "ex_sw": "mchezaji ni muhimu sana.",
+    "ex_en": "player is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 848,
+    "sw": "mchezo",
+    "en": "game",
+    "pos": "noun",
+    "ex_sw": "mchezo ni muhimu sana.",
+    "ex_en": "game is very important.",
+    "cat": "sport"
+  },
+  {
+    "id": 859,
+    "sw": "mchezo wa bao",
+    "en": "scoring game",
+    "pos": "noun",
+    "ex_sw": "mchezo wa bao ni muhimu sana.",
+    "ex_en": "scoring game is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 992,
+    "sw": "mchezo wa kompyuta",
+    "en": "computer game",
+    "pos": "noun",
+    "ex_sw": "mchezo wa kompyuta ni muhimu sana.",
+    "ex_en": "computer game is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 193,
+    "sw": "mchicha",
+    "en": "spinach",
+    "pos": "noun",
+    "ex_sw": "mchicha ni muhimu sana.",
+    "ex_en": "spinach is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 53,
+    "sw": "mchumba",
+    "en": "fiancee",
+    "pos": "noun",
+    "ex_sw": "mchumba ni muhimu sana.",
+    "ex_en": "fiancee is very important.",
+    "cat": "family"
+  },
+  {
+    "id": 816,
+    "sw": "mchungaji",
+    "en": "shepherd",
+    "pos": "noun",
+    "ex_sw": "mchungaji ni muhimu sana.",
+    "ex_en": "shepherd is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 174,
+    "sw": "mchuzi",
+    "en": "broth",
+    "pos": "noun",
+    "ex_sw": "mchuzi ni muhimu sana.",
+    "ex_en": "broth is very important.",
+    "cat": "food"
+  },
+  {
+    "id": 186,
+    "sw": "mdalasini",
+    "en": "cinnamon",
+    "pos": "noun",
+    "ex_sw": "mdalasini ni muhimu sana.",
+    "ex_en": "cinnamon is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 76,
+    "sw": "mdomo",
+    "en": "mouth",
+    "pos": "noun",
+    "ex_sw": "mdomo ni muhimu sana.",
+    "ex_en": "mouth is very important.",
+    "cat": "body"
+  },
+  {
+    "id": 328,
+    "sw": "mdudu",
+    "en": "bug",
+    "pos": "noun",
+    "ex_sw": "mdudu ni muhimu sana.",
+    "ex_en": "bug is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 866,
+    "sw": "mechi",
+    "en": "match",
+    "pos": "noun",
+    "ex_sw": "mechi ni muhimu sana.",
+    "ex_en": "match is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 862,
+    "sw": "medali",
+    "en": "medal",
+    "pos": "noun",
+    "ex_sw": "medali ni muhimu sana.",
+    "ex_en": "medal is very important.",
+    "cat": "sport"
+  },
+  {
+    "id": 380,
+    "sw": "meli",
+    "en": "ship",
+    "pos": "noun",
+    "ex_sw": "meli ni muhimu sana.",
+    "ex_en": "ship is very important.",
+    "cat": "travel"
+  },
+  {
+    "id": 568,
+    "sw": "meneja",
+    "en": "the manager",
+    "pos": "noun",
+    "ex_sw": "meneja ni muhimu sana.",
+    "ex_en": "the manager is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 356,
+    "sw": "meno",
+    "en": "teeth",
+    "pos": "noun",
+    "ex_sw": "meno ni muhimu sana.",
+    "ex_en": "teeth is very important.",
+    "cat": "body"
+  },
+  {
+    "id": 224,
+    "sw": "meza",
+    "en": "the table",
+    "pos": "noun",
+    "ex_sw": "meza ni muhimu sana.",
+    "ex_en": "the table is very important.",
+    "cat": "home"
+  },
+  {
+    "id": 560,
+    "sw": "mfanyakazi",
+    "en": "employee",
+    "pos": "noun",
+    "ex_sw": "mfanyakazi ni muhimu sana.",
+    "ex_en": "employee is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 927,
+    "sw": "mfereji",
+    "en": "canal",
+    "pos": "noun",
+    "ex_sw": "mfereji ni muhimu sana.",
+    "ex_en": "canal is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 516,
+    "sw": "mfuko",
+    "en": "bag",
+    "pos": "noun",
+    "ex_sw": "mfuko ni muhimu sana.",
+    "ex_en": "bag is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 89,
+    "sw": "mfupa",
+    "en": "bone",
+    "pos": "noun",
+    "ex_sw": "mfupa ni muhimu sana.",
+    "ex_en": "bone is very important.",
+    "cat": "body"
+  },
+  {
+    "id": 676,
+    "sw": "mfupi",
+    "en": "short",
+    "pos": "adjective",
+    "ex_sw": "Kitu hicho ni mfupi sana.",
+    "ex_en": "That thing is very short.",
+    "cat": "general"
+  },
+  {
+    "id": 751,
+    "sw": "mgahawa",
+    "en": "restaurant",
+    "pos": "noun",
+    "ex_sw": "mgahawa ni muhimu sana.",
+    "ex_en": "restaurant is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 23,
+    "sw": "mgeni",
+    "en": "a stranger",
+    "pos": "noun",
+    "ex_sw": "mgeni ni muhimu sana.",
+    "ex_en": "a stranger is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 100,
+    "sw": "mgongo",
+    "en": "back",
+    "pos": "noun",
+    "ex_sw": "mgongo ni muhimu sana.",
+    "ex_en": "back is very important.",
+    "cat": "body"
+  },
+  {
+    "id": 684,
+    "sw": "mgonjwa",
+    "en": "the patient",
+    "pos": "adjective",
+    "ex_sw": "Kitu hicho ni mgonjwa sana.",
+    "ex_en": "That thing is very the patient.",
+    "cat": "general"
+  },
+  {
+    "id": 83,
+    "sw": "mguu",
+    "en": "leg",
+    "pos": "noun",
+    "ex_sw": "mguu ni muhimu sana.",
+    "ex_en": "leg is very important.",
+    "cat": "body"
+  },
+  {
+    "id": 558,
+    "sw": "mhandisi",
+    "en": "an engineer",
+    "pos": "noun",
+    "ex_sw": "mhandisi ni muhimu sana.",
+    "ex_en": "an engineer is very important.",
+    "cat": "work"
+  },
+  {
+    "id": 477,
+    "sw": "mia",
+    "en": "hundred",
+    "pos": "number",
+    "ex_sw": "mia ni namba nzuri.",
+    "ex_en": "hundred is a good number.",
+    "cat": "general"
+  },
+  {
+    "id": 551,
+    "sw": "michezo",
+    "en": "sports",
+    "pos": "noun",
+    "ex_sw": "michezo ni muhimu sana.",
+    "ex_en": "sports is very important.",
+    "cat": "sport"
+  },
+  {
+    "id": 808,
+    "sw": "mila",
+    "en": "tradition",
+    "pos": "noun",
+    "ex_sw": "mila ni muhimu sana.",
+    "ex_en": "tradition is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 479,
+    "sw": "milioni",
+    "en": "million",
+    "pos": "number",
+    "ex_sw": "milioni ni namba nzuri.",
+    "ex_en": "million is a good number.",
+    "cat": "general"
+  },
+  {
+    "id": 359,
+    "sw": "mimba",
+    "en": "pregnancy",
+    "pos": "noun",
+    "ex_sw": "mimba ni muhimu sana.",
+    "ex_en": "pregnancy is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 97,
+    "sw": "mishipa",
+    "en": "veins",
+    "pos": "noun",
+    "ex_sw": "mishipa ni muhimu sana.",
+    "ex_en": "veins is very important.",
+    "cat": "body"
+  },
+  {
+    "id": 779,
+    "sw": "mitandao ya kijamii",
+    "en": "social networks",
+    "pos": "noun",
+    "ex_sw": "mitandao ya kijamii ni muhimu sana.",
+    "ex_en": "social networks is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 521,
+    "sw": "miwani",
+    "en": "glasses",
+    "pos": "noun",
+    "ex_sw": "miwani ni muhimu sana.",
+    "ex_en": "glasses is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 409,
+    "sw": "mizigo",
+    "en": "baggage",
+    "pos": "noun",
+    "ex_sw": "mizigo ni muhimu sana.",
+    "ex_en": "baggage is very important.",
+    "cat": "travel"
+  },
+  {
+    "id": 733,
+    "sw": "mji",
+    "en": "city",
+    "pos": "noun",
+    "ex_sw": "mji ni muhimu sana.",
+    "ex_en": "city is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 736,
+    "sw": "mji mkuu",
+    "en": "capital city",
+    "pos": "noun",
+    "ex_sw": "mji mkuu ni muhimu sana.",
+    "ex_en": "capital city is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 688,
+    "sw": "mjinga",
+    "en": "stupid",
+    "pos": "adjective",
+    "ex_sw": "Kitu hicho ni mjinga sana.",
+    "ex_en": "That thing is very stupid.",
+    "cat": "general"
+  },
+  {
+    "id": 45,
+    "sw": "mjomba",
+    "en": "uncle",
+    "pos": "noun",
+    "ex_sw": "mjomba ni muhimu sana.",
+    "ex_en": "uncle is very important.",
+    "cat": "family"
+  },
+  {
+    "id": 48,
+    "sw": "mjukuu",
+    "en": "grandson",
+    "pos": "noun",
+    "ex_sw": "mjukuu ni muhimu sana.",
+    "ex_en": "grandson is very important.",
+    "cat": "family"
+  },
+  {
+    "id": 369,
+    "sw": "mjusi",
+    "en": "lizard",
+    "pos": "noun",
+    "ex_sw": "mjusi ni muhimu sana.",
+    "ex_en": "lizard is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 70,
+    "sw": "mkamwana",
+    "en": "brother in law",
+    "pos": "noun",
+    "ex_sw": "mkamwana ni muhimu sana.",
+    "ex_en": "brother in law is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 833,
+    "sw": "mkataba",
+    "en": "the contract",
+    "pos": "noun",
+    "ex_sw": "mkataba ni muhimu sana.",
+    "ex_en": "the contract is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 144,
+    "sw": "mkate",
+    "en": "bread",
+    "pos": "noun",
+    "ex_sw": "mkate ni muhimu sana.",
+    "ex_en": "bread is very important.",
+    "cat": "food"
+  },
+  {
+    "id": 52,
+    "sw": "mke",
+    "en": "wife",
+    "pos": "noun",
+    "ex_sw": "mke ni muhimu sana.",
+    "ex_en": "wife is very important.",
+    "cat": "family"
+  },
+  {
+    "id": 515,
+    "sw": "mkoba",
+    "en": "a purse",
+    "pos": "noun",
+    "ex_sw": "mkoba ni muhimu sana.",
+    "ex_en": "a purse is very important.",
+    "cat": "clothing"
+  },
+  {
+    "id": 418,
+    "sw": "mkokoteni",
+    "en": "a cart",
+    "pos": "noun",
+    "ex_sw": "mkokoteni ni muhimu sana.",
+    "ex_en": "a cart is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 80,
+    "sw": "mkono",
+    "en": "hand",
+    "pos": "noun",
+    "ex_sw": "mkono ni muhimu sana.",
+    "ex_en": "hand is very important.",
+    "cat": "body"
+  },
+  {
+    "id": 824,
+    "sw": "mkopo",
+    "en": "loan",
+    "pos": "noun",
+    "ex_sw": "mkopo ni muhimu sana.",
+    "ex_en": "loan is very important.",
+    "cat": "finance"
+  },
+  {
+    "id": 519,
+    "sw": "mkufu",
+    "en": "necklace",
+    "pos": "noun",
+    "ex_sw": "mkufu ni muhimu sana.",
+    "ex_en": "necklace is very important.",
+    "cat": "clothing"
+  },
+  {
+    "id": 563,
+    "sw": "mkulima",
+    "en": "a farmer",
+    "pos": "noun",
+    "ex_sw": "mkulima ni muhimu sana.",
+    "ex_en": "a farmer is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 567,
+    "sw": "mkurugenzi",
+    "en": "the director",
+    "pos": "noun",
+    "ex_sw": "mkurugenzi ni muhimu sana.",
+    "ex_en": "the director is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 69,
+    "sw": "mkwe",
+    "en": "son in law",
+    "pos": "noun",
+    "ex_sw": "mkwe ni muhimu sana.",
+    "ex_en": "son in law is very important.",
+    "cat": "family"
+  },
+  {
+    "id": 364,
+    "sw": "mlango",
+    "en": "the door",
+    "pos": "noun",
+    "ex_sw": "mlango ni muhimu sana.",
+    "ex_en": "the door is very important.",
+    "cat": "home"
+  },
+  {
+    "id": 266,
+    "sw": "mlima",
+    "en": "the mountain",
+    "pos": "noun",
+    "ex_sw": "mlima ni muhimu sana.",
+    "ex_en": "the mountain is very important.",
+    "cat": "nature"
+  },
+  {
+    "id": 562,
+    "sw": "mlinzi",
+    "en": "the guard",
+    "pos": "noun",
+    "ex_sw": "mlinzi ni muhimu sana.",
+    "ex_en": "the guard is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 844,
+    "sw": "mnunuzi",
+    "en": "the buyer",
+    "pos": "noun",
+    "ex_sw": "mnunuzi ni muhimu sana.",
+    "ex_en": "the buyer is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 459,
+    "sw": "moja",
+    "en": "one",
+    "pos": "number",
+    "ex_sw": "moja ni namba nzuri.",
+    "ex_en": "one is a good number.",
+    "cat": "general"
+  },
+  {
+    "id": 677,
+    "sw": "moto",
+    "en": "fire",
+    "pos": "adjective",
+    "ex_sw": "Kitu hicho ni moto sana.",
+    "ex_en": "That thing is very fire.",
+    "cat": "general"
+  },
+  {
+    "id": 86,
+    "sw": "moyo",
+    "en": "the heart",
+    "pos": "noun",
+    "ex_sw": "moyo ni muhimu sana.",
+    "ex_en": "the heart is very important.",
+    "cat": "body"
+  },
+  {
+    "id": 846,
+    "sw": "mpira",
+    "en": "the ball",
+    "pos": "noun",
+    "ex_sw": "mpira ni muhimu sana.",
+    "ex_en": "the ball is very important.",
+    "cat": "sport"
+  },
+  {
+    "id": 857,
+    "sw": "mpira wa kikapu",
+    "en": "basketball",
+    "pos": "noun",
+    "ex_sw": "mpira wa kikapu ni muhimu sana.",
+    "ex_en": "basketball is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 856,
+    "sw": "mpira wa miguu",
+    "en": "football",
+    "pos": "noun",
+    "ex_sw": "mpira wa miguu ni muhimu sana.",
+    "ex_en": "football is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 561,
+    "sw": "mpishi",
+    "en": "the cook",
+    "pos": "noun",
+    "ex_sw": "mpishi ni muhimu sana.",
+    "ex_en": "the cook is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 989,
+    "sw": "mpya",
+    "en": "new",
+    "pos": "adjective",
+    "ex_sw": "Kitu hicho ni mpya sana.",
+    "ex_en": "That thing is very new.",
+    "cat": "general"
+  },
+  {
+    "id": 675,
+    "sw": "mrefu",
+    "en": "tall",
+    "pos": "adjective",
+    "ex_sw": "Kitu hicho ni mrefu sana.",
+    "ex_en": "That thing is very tall.",
+    "cat": "general"
+  },
+  {
+    "id": 575,
+    "sw": "msaidizi",
+    "en": "assistant",
+    "pos": "noun",
+    "ex_sw": "msaidizi ni muhimu sana.",
+    "ex_en": "assistant is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 802,
+    "sw": "msamaha",
+    "en": "forgiveness",
+    "pos": "noun",
+    "ex_sw": "msamaha ni muhimu sana.",
+    "ex_en": "forgiveness is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 984,
+    "sw": "msanii",
+    "en": "an artist",
+    "pos": "noun",
+    "ex_sw": "msanii ni muhimu sana.",
+    "ex_en": "an artist is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 557,
+    "sw": "mshahara",
+    "en": "salary",
+    "pos": "noun",
+    "ex_sw": "mshahara ni muhimu sana.",
+    "ex_en": "salary is very important.",
+    "cat": "work"
+  },
+  {
+    "id": 870,
+    "sw": "mshangao",
+    "en": "surprise",
+    "pos": "noun",
+    "ex_sw": "mshangao ni muhimu sana.",
+    "ex_en": "surprise is very important.",
+    "cat": "emotion"
+  },
+  {
+    "id": 136,
+    "sw": "mshtuko",
+    "en": "shock",
+    "pos": "noun",
+    "ex_sw": "mshtuko ni muhimu sana.",
+    "ex_en": "shock is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 744,
+    "sw": "msikiti",
+    "en": "the mosque",
+    "pos": "noun",
+    "ex_sw": "msikiti ni muhimu sana.",
+    "ex_en": "the mosque is very important.",
+    "cat": "religion"
+  },
+  {
+    "id": 271,
+    "sw": "msitu",
+    "en": "the forest",
+    "pos": "noun",
+    "ex_sw": "msitu ni muhimu sana.",
+    "ex_en": "the forest is very important.",
+    "cat": "nature"
+  },
+  {
+    "id": 303,
+    "sw": "msitu wa mvua",
+    "en": "rain forest",
+    "pos": "noun",
+    "ex_sw": "msitu wa mvua ni muhimu sana.",
+    "ex_en": "rain forest is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 877,
+    "sw": "msongo",
+    "en": "stress",
+    "pos": "noun",
+    "ex_sw": "msongo ni muhimu sana.",
+    "ex_en": "stress is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 91,
+    "sw": "msumari",
+    "en": "nail",
+    "pos": "noun",
+    "ex_sw": "msumari ni muhimu sana.",
+    "ex_en": "nail is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 740,
+    "sw": "mtaa",
+    "en": "street",
+    "pos": "noun",
+    "ex_sw": "mtaa ni muhimu sana.",
+    "ex_en": "street is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 835,
+    "sw": "mtaji",
+    "en": "capital",
+    "pos": "noun",
+    "ex_sw": "mtaji ni muhimu sana.",
+    "ex_en": "capital is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 759,
+    "sw": "mtandao",
+    "en": "internet",
+    "pos": "noun",
+    "ex_sw": "mtandao ni muhimu sana.",
+    "ex_en": "internet is very important.",
+    "cat": "technology"
+  },
+  {
+    "id": 260,
+    "sw": "mti",
+    "en": "a tree",
+    "pos": "noun",
+    "ex_sw": "mti ni muhimu sana.",
+    "ex_en": "a tree is very important.",
+    "cat": "nature"
+  },
+  {
+    "id": 552,
+    "sw": "mtihani",
+    "en": "test",
+    "pos": "noun",
+    "ex_sw": "mtihani ni muhimu sana.",
+    "ex_en": "test is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 222,
+    "sw": "mto",
+    "en": "the river",
+    "pos": "noun",
+    "ex_sw": "mto ni muhimu sana.",
+    "ex_en": "the river is very important.",
+    "cat": "nature"
+  },
+  {
+    "id": 39,
+    "sw": "mtoto",
+    "en": "child",
+    "pos": "noun",
+    "ex_sw": "mtoto ni muhimu sana.",
+    "ex_en": "child is very important.",
+    "cat": "family"
+  },
+  {
+    "id": 692,
+    "sw": "mtulivu",
+    "en": "calm",
+    "pos": "adjective",
+    "ex_sw": "Kitu hicho ni mtulivu sana.",
+    "ex_en": "That thing is very calm.",
+    "cat": "general"
+  },
+  {
+    "id": 426,
+    "sw": "muda",
+    "en": "time",
+    "pos": "noun",
+    "ex_sw": "muda ni muhimu sana.",
+    "ex_en": "time is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 51,
+    "sw": "mume",
+    "en": "husband",
+    "pos": "noun",
+    "ex_sw": "mume ni muhimu sana.",
+    "ex_en": "husband is very important.",
+    "cat": "family"
+  },
+  {
+    "id": 925,
+    "sw": "mundu",
+    "en": "sickle",
+    "pos": "noun",
+    "ex_sw": "mundu ni muhimu sana.",
+    "ex_en": "sickle is very important.",
+    "cat": "agriculture"
+  },
+  {
+    "id": 109,
+    "sw": "muuguzi",
+    "en": "nurse",
+    "pos": "noun",
+    "ex_sw": "muuguzi ni muhimu sana.",
+    "ex_en": "nurse is very important.",
+    "cat": "health"
+  },
+  {
+    "id": 817,
+    "sw": "muumini",
+    "en": "a believer",
+    "pos": "noun",
+    "ex_sw": "muumini ni muhimu sana.",
+    "ex_en": "a believer is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 843,
+    "sw": "muuzaji",
+    "en": "seller",
+    "pos": "noun",
+    "ex_sw": "muuzaji ni muhimu sana.",
+    "ex_en": "seller is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 550,
+    "sw": "muziki",
+    "en": "music",
+    "pos": "noun",
+    "ex_sw": "muziki ni muhimu sana.",
+    "ex_en": "music is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 204,
+    "sw": "mvinyo",
+    "en": "wine",
+    "pos": "noun",
+    "ex_sw": "mvinyo ni muhimu sana.",
+    "ex_en": "wine is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 273,
+    "sw": "mvua",
+    "en": "the rain",
+    "pos": "noun",
+    "ex_sw": "mvua ni muhimu sana.",
+    "ex_en": "the rain is very important.",
+    "cat": "weather"
+  },
+  {
+    "id": 891,
+    "sw": "mvua ya mawe",
+    "en": "hail",
+    "pos": "noun",
+    "ex_sw": "mvua ya mawe ni muhimu sana.",
+    "ex_en": "hail is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 564,
+    "sw": "mvuvi",
+    "en": "fisherman",
+    "pos": "noun",
+    "ex_sw": "mvuvi ni muhimu sana.",
+    "ex_en": "fisherman is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 977,
+    "sw": "mwaka",
+    "en": "year",
+    "pos": "noun",
+    "ex_sw": "mwaka ni muhimu sana.",
+    "ex_en": "year is very important.",
+    "cat": "time"
+  },
+  {
+    "id": 439,
+    "sw": "mwaka ujao",
+    "en": "next year",
+    "pos": "noun",
+    "ex_sw": "mwaka ujao ni muhimu sana.",
+    "ex_en": "next year is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 540,
+    "sw": "mwalimu",
+    "en": "the teacher",
+    "pos": "noun",
+    "ex_sw": "mwalimu ni muhimu sana.",
+    "ex_en": "the teacher is very important.",
+    "cat": "work"
+  },
+  {
+    "id": 265,
+    "sw": "mwamba",
+    "en": "rock",
+    "pos": "noun",
+    "ex_sw": "mwamba ni muhimu sana.",
+    "ex_en": "rock is very important.",
+    "cat": "nature"
+  },
+  {
+    "id": 40,
+    "sw": "mwana",
+    "en": "son",
+    "pos": "noun",
+    "ex_sw": "mwana ni muhimu sana.",
+    "ex_en": "son is very important.",
+    "cat": "family"
+  },
+  {
+    "id": 541,
+    "sw": "mwanafunzi",
+    "en": "student",
+    "pos": "noun",
+    "ex_sw": "mwanafunzi ni muhimu sana.",
+    "ex_en": "student is very important.",
+    "cat": "work"
+  },
+  {
+    "id": 573,
+    "sw": "mwanajeshi",
+    "en": "a soldier",
+    "pos": "noun",
+    "ex_sw": "mwanajeshi ni muhimu sana.",
+    "ex_en": "a soldier is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 559,
+    "sw": "mwanasheria",
+    "en": "a lawyer",
+    "pos": "noun",
+    "ex_sw": "mwanasheria ni muhimu sana.",
+    "ex_en": "a lawyer is very important.",
+    "cat": "work"
+  },
+  {
+    "id": 566,
+    "sw": "mwandishi",
+    "en": "the author",
+    "pos": "noun",
+    "ex_sw": "mwandishi ni muhimu sana.",
+    "ex_en": "the author is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 504,
+    "sw": "mwanga",
+    "en": "light",
+    "pos": "noun",
+    "ex_sw": "mwanga ni muhimu sana.",
+    "ex_en": "light is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 280,
+    "sw": "mwangaza",
+    "en": "brightness",
+    "pos": "noun",
+    "ex_sw": "mwangaza ni muhimu sana.",
+    "ex_en": "brightness is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 834,
+    "sw": "mwekezaji",
+    "en": "the investor",
+    "pos": "noun",
+    "ex_sw": "mwekezaji ni muhimu sana.",
+    "ex_en": "the investor is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 686,
+    "sw": "mwema",
+    "en": "good",
+    "pos": "adjective",
+    "ex_sw": "Kitu hicho ni mwema sana.",
+    "ex_en": "That thing is very good.",
+    "cat": "general"
+  },
+  {
+    "id": 695,
+    "sw": "mwenye furaha",
+    "en": "happy",
+    "pos": "noun",
+    "ex_sw": "mwenye furaha ni muhimu sana.",
+    "ex_en": "happy is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 696,
+    "sw": "mwenye hasira",
+    "en": "angry",
+    "pos": "noun",
+    "ex_sw": "mwenye hasira ni muhimu sana.",
+    "ex_en": "angry is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 694,
+    "sw": "mwenye huzuni",
+    "en": "sad",
+    "pos": "noun",
+    "ex_sw": "mwenye huzuni ni muhimu sana.",
+    "ex_en": "sad is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 669,
+    "sw": "mwepesi",
+    "en": "quick",
+    "pos": "adjective",
+    "ex_sw": "Kitu hicho ni mwepesi sana.",
+    "ex_en": "That thing is very quick.",
+    "cat": "general"
+  },
+  {
+    "id": 687,
+    "sw": "mwerevu",
+    "en": "clever",
+    "pos": "adjective",
+    "ex_sw": "Kitu hicho ni mwerevu sana.",
+    "ex_en": "That thing is very clever.",
+    "cat": "general"
+  },
+  {
+    "id": 424,
+    "sw": "mwezi",
+    "en": "month",
+    "pos": "noun",
+    "ex_sw": "mwezi ni muhimu sana.",
+    "ex_en": "month is very important.",
+    "cat": "time"
+  },
+  {
+    "id": 438,
+    "sw": "mwezi ujao",
+    "en": "next month",
+    "pos": "noun",
+    "ex_sw": "mwezi ujao ni muhimu sana.",
+    "ex_en": "next month is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 258,
+    "sw": "mwiko",
+    "en": "taboo",
+    "pos": "noun",
+    "ex_sw": "mwiko ni muhimu sana.",
+    "ex_en": "taboo is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 92,
+    "sw": "mwili",
+    "en": "the body",
+    "pos": "noun",
+    "ex_sw": "mwili ni muhimu sana.",
+    "ex_en": "the body is very important.",
+    "cat": "body"
+  },
+  {
+    "id": 691,
+    "sw": "mwoga",
+    "en": "coward",
+    "pos": "adjective",
+    "ex_sw": "Kitu hicho ni mwoga sana.",
+    "ex_en": "That thing is very coward.",
+    "cat": "general"
+  },
+  {
+    "id": 66,
+    "sw": "mzaa",
+    "en": "a child",
+    "pos": "noun",
+    "ex_sw": "mzaa ni muhimu sana.",
+    "ex_en": "a child is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 65,
+    "sw": "mzazi",
+    "en": "parent",
+    "pos": "noun",
+    "ex_sw": "mzazi ni muhimu sana.",
+    "ex_en": "parent is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 685,
+    "sw": "mzee",
+    "en": "old man",
+    "pos": "adjective",
+    "ex_sw": "Kitu hicho ni mzee sana.",
+    "ex_en": "That thing is very old man.",
+    "cat": "general"
+  },
+  {
+    "id": 683,
+    "sw": "mzima",
+    "en": "whole",
+    "pos": "adjective",
+    "ex_sw": "Kitu hicho ni mzima sana.",
+    "ex_en": "That thing is very whole.",
+    "cat": "general"
+  },
+  {
+    "id": 668,
+    "sw": "mzito",
+    "en": "heavy",
+    "pos": "adjective",
+    "ex_sw": "Kitu hicho ni mzito sana.",
+    "ex_en": "That thing is very heavy.",
+    "cat": "general"
+  },
+  {
+    "id": 681,
+    "sw": "na nguvu",
+    "en": "and strength",
+    "pos": "noun",
+    "ex_sw": "na nguvu ni muhimu sana.",
+    "ex_en": "and strength is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 909,
+    "sw": "nadharia",
+    "en": "theory",
+    "pos": "noun",
+    "ex_sw": "nadharia ni muhimu sana.",
+    "ex_en": "theory is very important.",
+    "cat": "education"
+  },
+  {
+    "id": 413,
+    "sw": "nahodha",
+    "en": "the captain",
+    "pos": "noun",
+    "ex_sw": "nahodha ni muhimu sana.",
+    "ex_en": "the captain is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 156,
+    "sw": "nanasi",
+    "en": "pineapple",
+    "pos": "noun",
+    "ex_sw": "nanasi ni muhimu sana.",
+    "ex_en": "pineapple is very important.",
+    "cat": "food"
+  },
+  {
+    "id": 466,
+    "sw": "nane",
+    "en": "eight",
+    "pos": "number",
+    "ex_sw": "nane ni namba nzuri.",
+    "ex_en": "eight is a good number.",
+    "cat": "general"
+  },
+  {
+    "id": 735,
+    "sw": "nchi",
+    "en": "the country",
+    "pos": "noun",
+    "ex_sw": "nchi ni muhimu sana.",
+    "ex_en": "the country is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 656,
+    "sw": "ndefu",
+    "en": "long",
+    "pos": "adjective",
+    "ex_sw": "Kitu hicho ni ndefu sana.",
+    "ex_en": "That thing is very long.",
+    "cat": "general"
+  },
+  {
+    "id": 323,
+    "sw": "ndege",
+    "en": "bird",
+    "pos": "noun",
+    "ex_sw": "ndege ni muhimu sana.",
+    "ex_en": "bird is very important.",
+    "cat": "animal"
+  },
+  {
+    "id": 9,
+    "sw": "ndiyo",
+    "en": "yes",
+    "pos": "noun",
+    "ex_sw": "ndiyo ni muhimu sana.",
+    "ex_en": "yes is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 153,
+    "sw": "ndizi",
+    "en": "banana",
+    "pos": "noun",
+    "ex_sw": "ndizi ni muhimu sana.",
+    "ex_en": "banana is very important.",
+    "cat": "food"
+  },
+  {
+    "id": 655,
+    "sw": "ndogo",
+    "en": "small",
+    "pos": "adjective",
+    "ex_sw": "Kitu hicho ni ndogo sana.",
+    "ex_en": "That thing is very small.",
+    "cat": "general"
+  },
+  {
+    "id": 241,
+    "sw": "ndoo",
+    "en": "bucket",
+    "pos": "noun",
+    "ex_sw": "ndoo ni muhimu sana.",
+    "ex_en": "bucket is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 948,
+    "sw": "ndoto",
+    "en": "dream",
+    "pos": "noun",
+    "ex_sw": "ndoto ni muhimu sana.",
+    "ex_en": "dream is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 49,
+    "sw": "ndugu",
+    "en": "brothers",
+    "pos": "noun",
+    "ex_sw": "ndugu ni muhimu sana.",
+    "ex_en": "brothers is very important.",
+    "cat": "family"
+  },
+  {
+    "id": 312,
+    "sw": "ng'ombe",
+    "en": "cow",
+    "pos": "noun",
+    "ex_sw": "ng'ombe ni muhimu sana.",
+    "ex_en": "cow is very important.",
+    "cat": "animal"
+  },
+  {
+    "id": 372,
+    "sw": "nge",
+    "en": "the scorpion",
+    "pos": "noun",
+    "ex_sw": "nge ni muhimu sana.",
+    "ex_en": "the scorpion is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 330,
+    "sw": "ngisi",
+    "en": "squid",
+    "pos": "noun",
+    "ex_sw": "ngisi ni muhimu sana.",
+    "ex_en": "squid is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 804,
+    "sw": "ngoma",
+    "en": "dance",
+    "pos": "noun",
+    "ex_sw": "ngoma ni muhimu sana.",
+    "ex_en": "dance is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 357,
+    "sw": "ngozi",
+    "en": "skin",
+    "pos": "noun",
+    "ex_sw": "ngozi ni muhimu sana.",
+    "ex_en": "skin is very important.",
+    "cat": "body"
+  },
+  {
+    "id": 665,
+    "sw": "ngumu",
+    "en": "difficult",
+    "pos": "adjective",
+    "ex_sw": "Kitu hicho ni ngumu sana.",
+    "ex_en": "That thing is very difficult.",
+    "cat": "general"
+  },
+  {
+    "id": 506,
+    "sw": "nguo",
+    "en": "clothes",
+    "pos": "noun",
+    "ex_sw": "nguo ni muhimu sana.",
+    "ex_en": "clothes is very important.",
+    "cat": "clothing"
+  },
+  {
+    "id": 343,
+    "sw": "nguru",
+    "en": "pig",
+    "pos": "noun",
+    "ex_sw": "nguru ni muhimu sana.",
+    "ex_en": "pig is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 317,
+    "sw": "nguruwe",
+    "en": "pig",
+    "pos": "noun",
+    "ex_sw": "nguruwe ni muhimu sana.",
+    "ex_en": "pig is very important.",
+    "cat": "animal"
+  },
+  {
+    "id": 93,
+    "sw": "nguvu",
+    "en": "strength",
+    "pos": "noun",
+    "ex_sw": "nguvu ni muhimu sana.",
+    "ex_en": "strength is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 973,
+    "sw": "nishati mbadala",
+    "en": "renewable energy",
+    "pos": "noun",
+    "ex_sw": "nishati mbadala ni muhimu sana.",
+    "ex_en": "renewable energy is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 881,
+    "sw": "njaa",
+    "en": "hunger",
+    "pos": "noun",
+    "ex_sw": "njaa ni muhimu sana.",
+    "ex_en": "hunger is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 494,
+    "sw": "njano",
+    "en": "yellow",
+    "pos": "adjective",
+    "ex_sw": "Kitu hicho ni njano sana.",
+    "ex_en": "That thing is very yellow.",
+    "cat": "color"
+  },
+  {
+    "id": 385,
+    "sw": "njia",
+    "en": "way",
+    "pos": "noun",
+    "ex_sw": "njia ni muhimu sana.",
+    "ex_en": "way is very important.",
+    "cat": "travel"
+  },
+  {
+    "id": 325,
+    "sw": "njiwa",
+    "en": "dove",
+    "pos": "noun",
+    "ex_sw": "njiwa ni muhimu sana.",
+    "ex_en": "dove is very important.",
+    "cat": "animal"
+  },
+  {
+    "id": 462,
+    "sw": "nne",
+    "en": "four",
+    "pos": "number",
+    "ex_sw": "nne ni namba nzuri.",
+    "ex_en": "four is a good number.",
+    "cat": "general"
+  },
+  {
+    "id": 376,
+    "sw": "nungunungu",
+    "en": "porcupine",
+    "pos": "noun",
+    "ex_sw": "nungunungu ni muhimu sana.",
+    "ex_en": "porcupine is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 981,
+    "sw": "nusu",
+    "en": "half",
+    "pos": "number",
+    "ex_sw": "nusu ni namba nzuri.",
+    "ex_en": "half is a good number.",
+    "cat": "general"
+  },
+  {
+    "id": 147,
+    "sw": "nyama",
+    "en": "meat",
+    "pos": "noun",
+    "ex_sw": "nyama ni muhimu sana.",
+    "ex_en": "meat is very important.",
+    "cat": "food"
+  },
+  {
+    "id": 180,
+    "sw": "nyama choma",
+    "en": "roast meat",
+    "pos": "noun",
+    "ex_sw": "nyama choma ni muhimu sana.",
+    "ex_en": "roast meat is very important.",
+    "cat": "food"
+  },
+  {
+    "id": 304,
+    "sw": "nyanda za juu",
+    "en": "highlands",
+    "pos": "noun",
+    "ex_sw": "nyanda za juu ni muhimu sana.",
+    "ex_en": "highlands is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 336,
+    "sw": "nyani",
+    "en": "monkeys",
+    "pos": "noun",
+    "ex_sw": "nyani ni muhimu sana.",
+    "ex_en": "monkeys is very important.",
+    "cat": "animal"
+  },
+  {
+    "id": 167,
+    "sw": "nyanya",
+    "en": "grandma",
+    "pos": "noun",
+    "ex_sw": "nyanya ni muhimu sana.",
+    "ex_en": "grandma is very important.",
+    "cat": "food"
+  },
+  {
+    "id": 262,
+    "sw": "nyasi",
+    "en": "grass",
+    "pos": "noun",
+    "ex_sw": "nyasi ni muhimu sana.",
+    "ex_en": "grass is very important.",
+    "cat": "nature"
+  },
+  {
+    "id": 333,
+    "sw": "nyati",
+    "en": "unicorn",
+    "pos": "noun",
+    "ex_sw": "nyati ni muhimu sana.",
+    "ex_en": "unicorn is very important.",
+    "cat": "animal"
+  },
+  {
+    "id": 491,
+    "sw": "nyekundu",
+    "en": "red",
+    "pos": "adjective",
+    "ex_sw": "Kitu hicho ni nyekundu sana.",
+    "ex_en": "That thing is very red.",
+    "cat": "color"
+  },
+  {
+    "id": 495,
+    "sw": "nyeupe",
+    "en": "white",
+    "pos": "adjective",
+    "ex_sw": "Kitu hicho ni nyeupe sana.",
+    "ex_en": "That thing is very white.",
+    "cat": "color"
+  },
+  {
+    "id": 496,
+    "sw": "nyeusi",
+    "en": "black",
+    "pos": "adjective",
+    "ex_sw": "Kitu hicho ni nyeusi sana.",
+    "ex_en": "That thing is very black.",
+    "cat": "color"
+  },
+  {
+    "id": 320,
+    "sw": "nyoka",
+    "en": "snake",
+    "pos": "noun",
+    "ex_sw": "nyoka ni muhimu sana.",
+    "ex_en": "snake is very important.",
+    "cat": "animal"
+  },
+  {
+    "id": 98,
+    "sw": "nyonga",
+    "en": "hips",
+    "pos": "noun",
+    "ex_sw": "nyonga ni muhimu sana.",
+    "ex_en": "hips is very important.",
+    "cat": "body"
+  },
+  {
+    "id": 326,
+    "sw": "nyuki",
+    "en": "bee",
+    "pos": "noun",
+    "ex_sw": "nyuki ni muhimu sana.",
+    "ex_en": "bee is very important.",
+    "cat": "animal"
+  },
+  {
+    "id": 976,
+    "sw": "nyuma",
+    "en": "behind",
+    "pos": "adverb",
+    "ex_sw": "Anafanya kazi nyuma.",
+    "ex_en": "He/she works behind.",
+    "cat": "general"
+  },
+  {
+    "id": 210,
+    "sw": "nyumba",
+    "en": "house",
+    "pos": "noun",
+    "ex_sw": "nyumba ni muhimu sana.",
+    "ex_en": "house is very important.",
+    "cat": "home"
+  },
+  {
+    "id": 90,
+    "sw": "nywele",
+    "en": "hair",
+    "pos": "noun",
+    "ex_sw": "nywele ni muhimu sana.",
+    "ex_en": "hair is very important.",
+    "cat": "body"
+  },
+  {
+    "id": 346,
+    "sw": "nzi",
+    "en": "flies",
+    "pos": "noun",
+    "ex_sw": "nzi ni muhimu sana.",
+    "ex_en": "flies is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 345,
+    "sw": "nzige",
+    "en": "locust",
+    "pos": "noun",
+    "ex_sw": "nzige ni muhimu sana.",
+    "ex_en": "locust is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 658,
+    "sw": "nzuri",
+    "en": "nice",
+    "pos": "adjective",
+    "ex_sw": "Kitu hicho ni nzuri sana.",
+    "ex_en": "That thing is very nice.",
+    "cat": "general"
+  },
+  {
+    "id": 679,
+    "sw": "oevu",
+    "en": "liquid",
+    "pos": "noun",
+    "ex_sw": "oevu ni muhimu sana.",
+    "ex_en": "liquid is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 537,
+    "sw": "ofisi",
+    "en": "office",
+    "pos": "noun",
+    "ex_sw": "ofisi ni muhimu sana.",
+    "ex_en": "office is very important.",
+    "cat": "work"
+  },
+  {
+    "id": 112,
+    "sw": "operesheni",
+    "en": "operation",
+    "pos": "noun",
+    "ex_sw": "operesheni ni muhimu sana.",
+    "ex_en": "operation is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 214,
+    "sw": "paa",
+    "en": "roof",
+    "pos": "noun",
+    "ex_sw": "paa ni muhimu sana.",
+    "ex_en": "roof is very important.",
+    "cat": "home"
+  },
+  {
+    "id": 813,
+    "sw": "padri",
+    "en": "the priest",
+    "pos": "noun",
+    "ex_sw": "padri ni muhimu sana.",
+    "ex_en": "the priest is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 311,
+    "sw": "paka",
+    "en": "cat",
+    "pos": "noun",
+    "ex_sw": "paka ni muhimu sana.",
+    "ex_en": "cat is very important.",
+    "cat": "animal"
+  },
+  {
+    "id": 398,
+    "sw": "pale",
+    "en": "there",
+    "pos": "adverb",
+    "ex_sw": "Anafanya kazi pale.",
+    "ex_en": "He/she works there.",
+    "cat": "general"
+  },
+  {
+    "id": 132,
+    "sw": "pamba",
+    "en": "cotton",
+    "pos": "noun",
+    "ex_sw": "pamba ni muhimu sana.",
+    "ex_en": "cotton is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 31,
+    "sw": "pamoja",
+    "en": "together",
+    "pos": "noun",
+    "ex_sw": "pamoja ni muhimu sana.",
+    "ex_en": "together is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 924,
+    "sw": "panga",
+    "en": "sword",
+    "pos": "noun",
+    "ex_sw": "panga ni muhimu sana.",
+    "ex_en": "sword is very important.",
+    "cat": "agriculture"
+  },
+  {
+    "id": 319,
+    "sw": "panya",
+    "en": "mouse",
+    "pos": "noun",
+    "ex_sw": "panya ni muhimu sana.",
+    "ex_en": "mouse is very important.",
+    "cat": "animal"
+  },
+  {
+    "id": 329,
+    "sw": "papa",
+    "en": "papa",
+    "pos": "noun",
+    "ex_sw": "papa ni muhimu sana.",
+    "ex_en": "papa is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 155,
+    "sw": "papai",
+    "en": "papaya",
+    "pos": "noun",
+    "ex_sw": "papai ni muhimu sana.",
+    "ex_en": "papaya is very important.",
+    "cat": "food"
+  },
+  {
+    "id": 249,
+    "sw": "pasi",
+    "en": "pass",
+    "pos": "noun",
+    "ex_sw": "pasi ni muhimu sana.",
+    "ex_en": "pass is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 407,
+    "sw": "pasipoti",
+    "en": "passport",
+    "pos": "noun",
+    "ex_sw": "pasipoti ni muhimu sana.",
+    "ex_en": "passport is very important.",
+    "cat": "travel"
+  },
+  {
+    "id": 790,
+    "sw": "password",
+    "en": "password",
+    "pos": "noun",
+    "ex_sw": "password ni muhimu sana.",
+    "ex_en": "password is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 244,
+    "sw": "pazia",
+    "en": "curtain",
+    "pos": "noun",
+    "ex_sw": "pazia ni muhimu sana.",
+    "ex_en": "curtain is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 556,
+    "sw": "pesa",
+    "en": "money",
+    "pos": "noun",
+    "ex_sw": "pesa ni muhimu sana.",
+    "ex_en": "money is very important.",
+    "cat": "finance"
+  },
+  {
+    "id": 518,
+    "sw": "pete",
+    "en": "ring",
+    "pos": "noun",
+    "ex_sw": "pete ni muhimu sana.",
+    "ex_en": "ring is very important.",
+    "cat": "clothing"
+  },
+  {
+    "id": 764,
+    "sw": "picha",
+    "en": "picture",
+    "pos": "noun",
+    "ex_sw": "picha ni muhimu sana.",
+    "ex_en": "picture is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 383,
+    "sw": "pikipiki",
+    "en": "motorcycle",
+    "pos": "noun",
+    "ex_sw": "pikipiki ni muhimu sana.",
+    "ex_en": "motorcycle is very important.",
+    "cat": "travel"
+  },
+  {
+    "id": 176,
+    "sw": "pilau",
+    "en": "pilau",
+    "pos": "noun",
+    "ex_sw": "pilau ni muhimu sana.",
+    "ex_en": "pilau is very important.",
+    "cat": "food"
+  },
+  {
+    "id": 165,
+    "sw": "pilipili",
+    "en": "pepper",
+    "pos": "noun",
+    "ex_sw": "pilipili ni muhimu sana.",
+    "ex_en": "pepper is very important.",
+    "cat": "food"
+  },
+  {
+    "id": 201,
+    "sw": "pipi",
+    "en": "candy",
+    "pos": "noun",
+    "ex_sw": "pipi ni muhimu sana.",
+    "ex_en": "candy is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 131,
+    "sw": "plasta",
+    "en": "plaster",
+    "pos": "noun",
+    "ex_sw": "plasta ni muhimu sana.",
+    "ex_en": "plaster is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 8,
+    "sw": "pole",
+    "en": "sorry",
+    "pos": "noun",
+    "ex_sw": "pole ni muhimu sana.",
+    "ex_en": "sorry is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 663,
+    "sw": "polepole",
+    "en": "slowly",
+    "pos": "adverb",
+    "ex_sw": "Anafanya kazi polepole.",
+    "ex_en": "He/she works slowly.",
+    "cat": "general"
+  },
+  {
+    "id": 572,
+    "sw": "polisi",
+    "en": "the police",
+    "pos": "noun",
+    "ex_sw": "polisi ni muhimu sana.",
+    "ex_en": "the police is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 206,
+    "sw": "pombe",
+    "en": "alcohol",
+    "pos": "noun",
+    "ex_sw": "pombe ni muhimu sana.",
+    "ex_en": "alcohol is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 353,
+    "sw": "popo",
+    "en": "bat",
+    "pos": "noun",
+    "ex_sw": "popo ni muhimu sana.",
+    "ex_en": "bat is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 772,
+    "sw": "printa",
+    "en": "printer",
+    "pos": "noun",
+    "ex_sw": "printa ni muhimu sana.",
+    "ex_en": "printer is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 761,
+    "sw": "programu",
+    "en": "program",
+    "pos": "noun",
+    "ex_sw": "programu ni muhimu sana.",
+    "ex_en": "program is very important.",
+    "cat": "technology"
+  },
+  {
+    "id": 75,
+    "sw": "pua",
+    "en": "nose",
+    "pos": "noun",
+    "ex_sw": "pua ni muhimu sana.",
+    "ex_en": "nose is very important.",
+    "cat": "body"
+  },
+  {
+    "id": 316,
+    "sw": "punda",
+    "en": "donkey",
+    "pos": "noun",
+    "ex_sw": "punda ni muhimu sana.",
+    "ex_en": "donkey is very important.",
+    "cat": "animal"
+  },
+  {
+    "id": 489,
+    "sw": "pungufu",
+    "en": "less",
+    "pos": "noun",
+    "ex_sw": "pungufu ni muhimu sana.",
+    "ex_en": "less is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 828,
+    "sw": "punguzo",
+    "en": "discount",
+    "pos": "noun",
+    "ex_sw": "punguzo ni muhimu sana.",
+    "ex_en": "discount is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 270,
+    "sw": "pwani",
+    "en": "the beach",
+    "pos": "noun",
+    "ex_sw": "pwani ni muhimu sana.",
+    "ex_en": "the beach is very important.",
+    "cat": "nature"
+  },
+  {
+    "id": 341,
+    "sw": "pweza",
+    "en": "octopus",
+    "pos": "noun",
+    "ex_sw": "pweza ni muhimu sana.",
+    "ex_en": "octopus is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 277,
+    "sw": "radi",
+    "en": "lightning",
+    "pos": "noun",
+    "ex_sw": "radi ni muhimu sana.",
+    "ex_en": "lightning is very important.",
+    "cat": "weather"
+  },
+  {
+    "id": 21,
+    "sw": "rafiki",
+    "en": "a friend",
+    "pos": "noun",
+    "ex_sw": "rafiki ni muhimu sana.",
+    "ex_en": "a friend is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 664,
+    "sw": "rahisi",
+    "en": "simple",
+    "pos": "adjective",
+    "ex_sw": "Kitu hicho ni rahisi sana.",
+    "ex_en": "That thing is very simple.",
+    "cat": "general"
+  },
+  {
+    "id": 569,
+    "sw": "rais",
+    "en": "the president",
+    "pos": "noun",
+    "ex_sw": "rais ni muhimu sana.",
+    "ex_en": "the president is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 391,
+    "sw": "ramani",
+    "en": "map",
+    "pos": "noun",
+    "ex_sw": "ramani ni muhimu sana.",
+    "ex_en": "map is very important.",
+    "cat": "travel"
+  },
+  {
+    "id": 503,
+    "sw": "rangi",
+    "en": "color",
+    "pos": "noun",
+    "ex_sw": "rangi ni muhimu sana.",
+    "ex_en": "color is very important.",
+    "cat": "color"
+  },
+  {
+    "id": 300,
+    "sw": "rasi",
+    "en": "lagoon",
+    "pos": "noun",
+    "ex_sw": "rasi ni muhimu sana.",
+    "ex_en": "lagoon is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 238,
+    "sw": "redio",
+    "en": "radio",
+    "pos": "noun",
+    "ex_sw": "redio ni muhimu sana.",
+    "ex_en": "radio is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 854,
+    "sw": "riadha",
+    "en": "athletics",
+    "pos": "noun",
+    "ex_sw": "riadha ni muhimu sana.",
+    "ex_en": "athletics is very important.",
+    "cat": "sport"
+  },
+  {
+    "id": 825,
+    "sw": "riba",
+    "en": "interest",
+    "pos": "noun",
+    "ex_sw": "riba ni muhimu sana.",
+    "ex_en": "interest is very important.",
+    "cat": "finance"
+  },
+  {
+    "id": 832,
+    "sw": "risiti",
+    "en": "receipt",
+    "pos": "noun",
+    "ex_sw": "risiti ni muhimu sana.",
+    "ex_en": "receipt is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 481,
+    "sw": "robo",
+    "en": "a quarter",
+    "pos": "number",
+    "ex_sw": "robo ni namba nzuri.",
+    "ex_en": "a quarter is a good number.",
+    "cat": "general"
+  },
+  {
+    "id": 412,
+    "sw": "rubani",
+    "en": "pilot",
+    "pos": "noun",
+    "ex_sw": "rubani ni muhimu sana.",
+    "ex_en": "pilot is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 780,
+    "sw": "runinga",
+    "en": "television",
+    "pos": "noun",
+    "ex_sw": "runinga ni muhimu sana.",
+    "ex_en": "television is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 944,
+    "sw": "rushwa",
+    "en": "corruption",
+    "pos": "noun",
+    "ex_sw": "rushwa ni muhimu sana.",
+    "ex_en": "corruption is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 419,
+    "sw": "saa",
+    "en": "at",
+    "pos": "noun",
+    "ex_sw": "saa ni muhimu sana.",
+    "ex_en": "at is very important.",
+    "cat": "time"
+  },
+  {
+    "id": 465,
+    "sw": "saba",
+    "en": "seven",
+    "pos": "number",
+    "ex_sw": "saba ni namba nzuri.",
+    "ex_en": "seven is a good number.",
+    "cat": "general"
+  },
+  {
+    "id": 474,
+    "sw": "sabini",
+    "en": "seventy",
+    "pos": "number",
+    "ex_sw": "sabini ni namba nzuri.",
+    "ex_en": "seventy is a good number.",
+    "cat": "general"
+  },
+  {
+    "id": 243,
+    "sw": "sabuni",
+    "en": "soap",
+    "pos": "noun",
+    "ex_sw": "sabuni ni muhimu sana.",
+    "ex_en": "soap is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 390,
+    "sw": "safari",
+    "en": "trip",
+    "pos": "noun",
+    "ex_sw": "safari ni muhimu sana.",
+    "ex_en": "trip is very important.",
+    "cat": "travel"
+  },
+  {
+    "id": 13,
+    "sw": "safi",
+    "en": "clean",
+    "pos": "adjective",
+    "ex_sw": "Kitu hicho ni safi sana.",
+    "ex_en": "That thing is very clean.",
+    "cat": "general"
+  },
+  {
+    "id": 255,
+    "sw": "sahani",
+    "en": "plate",
+    "pos": "noun",
+    "ex_sw": "sahani ni muhimu sana.",
+    "ex_en": "plate is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 902,
+    "sw": "saikolojia",
+    "en": "psychology",
+    "pos": "noun",
+    "ex_sw": "saikolojia ni muhimu sana.",
+    "ex_en": "psychology is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 215,
+    "sw": "sakafu",
+    "en": "the floor",
+    "pos": "noun",
+    "ex_sw": "sakafu ni muhimu sana.",
+    "ex_en": "the floor is very important.",
+    "cat": "home"
+  },
+  {
+    "id": 793,
+    "sw": "sala",
+    "en": "prayer",
+    "pos": "noun",
+    "ex_sw": "sala ni muhimu sana.",
+    "ex_en": "prayer is very important.",
+    "cat": "religion"
+  },
+  {
+    "id": 19,
+    "sw": "salamu",
+    "en": "hello",
+    "pos": "noun",
+    "ex_sw": "salamu ni muhimu sana.",
+    "ex_en": "hello is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 7,
+    "sw": "samahani",
+    "en": "I'm sorry",
+    "pos": "noun",
+    "ex_sw": "samahani ni muhimu sana.",
+    "ex_en": "I'm sorry is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 148,
+    "sw": "samaki",
+    "en": "fish",
+    "pos": "noun",
+    "ex_sw": "samaki ni muhimu sana.",
+    "ex_en": "fish is very important.",
+    "cat": "food"
+  },
+  {
+    "id": 179,
+    "sw": "sambusa",
+    "en": "sambusa",
+    "pos": "noun",
+    "ex_sw": "sambusa ni muhimu sana.",
+    "ex_en": "sambusa is very important.",
+    "cat": "food"
+  },
+  {
+    "id": 983,
+    "sw": "sanaa",
+    "en": "art",
+    "pos": "noun",
+    "ex_sw": "sanaa ni muhimu sana.",
+    "ex_en": "art is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 532,
+    "sw": "sandali",
+    "en": "sandals",
+    "pos": "noun",
+    "ex_sw": "sandali ni muhimu sana.",
+    "ex_en": "sandals is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 250,
+    "sw": "sanduku",
+    "en": "box",
+    "pos": "noun",
+    "ex_sw": "sanduku ni muhimu sana.",
+    "ex_en": "box is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 431,
+    "sw": "sasa",
+    "en": "now",
+    "pos": "adverb",
+    "ex_sw": "Anafanya kazi sasa.",
+    "ex_en": "He/she works now.",
+    "cat": "general"
+  },
+  {
+    "id": 991,
+    "sw": "satelaiti",
+    "en": "satellite",
+    "pos": "noun",
+    "ex_sw": "satelaiti ni muhimu sana.",
+    "ex_en": "satellite is very important.",
+    "cat": "technology"
+  },
+  {
+    "id": 766,
+    "sw": "sauti",
+    "en": "sound",
+    "pos": "noun",
+    "ex_sw": "sauti ni muhimu sana.",
+    "ex_en": "sound is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 272,
+    "sw": "savana",
+    "en": "Savannah",
+    "pos": "noun",
+    "ex_sw": "savana ni muhimu sana.",
+    "ex_en": "Savannah is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 11,
+    "sw": "sawa",
+    "en": "okay",
+    "pos": "noun",
+    "ex_sw": "sawa ni muhimu sana.",
+    "ex_en": "okay is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 546,
+    "sw": "sayansi",
+    "en": "science",
+    "pos": "noun",
+    "ex_sw": "sayansi ni muhimu sana.",
+    "ex_en": "science is very important.",
+    "cat": "education"
+  },
+  {
+    "id": 220,
+    "sw": "sebuleni",
+    "en": "in the living room",
+    "pos": "noun",
+    "ex_sw": "sebuleni ni muhimu sana.",
+    "ex_en": "in the living room is very important.",
+    "cat": "home"
+  },
+  {
+    "id": 421,
+    "sw": "sekunde",
+    "en": "seconds",
+    "pos": "noun",
+    "ex_sw": "sekunde ni muhimu sana.",
+    "ex_en": "seconds is very important.",
+    "cat": "time"
+  },
+  {
+    "id": 931,
+    "sw": "serikali",
+    "en": "government",
+    "pos": "noun",
+    "ex_sw": "serikali ni muhimu sana.",
+    "ex_en": "government is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 773,
+    "sw": "seva",
+    "en": "server",
+    "pos": "noun",
+    "ex_sw": "seva ni muhimu sana.",
+    "ex_en": "server is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 964,
+    "sw": "shahada",
+    "en": "degree",
+    "pos": "noun",
+    "ex_sw": "shahada ni muhimu sana.",
+    "ex_en": "degree is very important.",
+    "cat": "education"
+  },
+  {
+    "id": 915,
+    "sw": "shamba",
+    "en": "the farm",
+    "pos": "noun",
+    "ex_sw": "shamba ni muhimu sana.",
+    "ex_en": "the farm is very important.",
+    "cat": "agriculture"
+  },
+  {
+    "id": 44,
+    "sw": "shangazi",
+    "en": "aunt",
+    "pos": "noun",
+    "ex_sw": "shangazi ni muhimu sana.",
+    "ex_en": "aunt is very important.",
+    "cat": "family"
+  },
+  {
+    "id": 507,
+    "sw": "shati",
+    "en": "a shirt",
+    "pos": "noun",
+    "ex_sw": "shati ni muhimu sana.",
+    "ex_en": "a shirt is very important.",
+    "cat": "clothing"
+  },
+  {
+    "id": 103,
+    "sw": "shavu",
+    "en": "cheek",
+    "pos": "noun",
+    "ex_sw": "shavu ni muhimu sana.",
+    "ex_en": "cheek is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 535,
+    "sw": "shela",
+    "en": "shawl",
+    "pos": "noun",
+    "ex_sw": "shela ni muhimu sana.",
+    "ex_en": "shawl is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 806,
+    "sw": "sherehe",
+    "en": "celebration",
+    "pos": "noun",
+    "ex_sw": "sherehe ni muhimu sana.",
+    "ex_en": "celebration is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 905,
+    "sw": "sheria",
+    "en": "the law",
+    "pos": "noun",
+    "ex_sw": "sheria ni muhimu sana.",
+    "ex_en": "the law is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 17,
+    "sw": "shikamoo",
+    "en": "hold on",
+    "pos": "noun",
+    "ex_sw": "shikamoo ni muhimu sana.",
+    "ex_en": "hold on is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 819,
+    "sw": "shilingi",
+    "en": "shilling",
+    "pos": "noun",
+    "ex_sw": "shilingi ni muhimu sana.",
+    "ex_en": "shilling is very important.",
+    "cat": "finance"
+  },
+  {
+    "id": 78,
+    "sw": "shingo",
+    "en": "neck",
+    "pos": "noun",
+    "ex_sw": "shingo ni muhimu sana.",
+    "ex_en": "neck is very important.",
+    "cat": "body"
+  },
+  {
+    "id": 123,
+    "sw": "shinikizo",
+    "en": "pressure",
+    "pos": "noun",
+    "ex_sw": "shinikizo ni muhimu sana.",
+    "ex_en": "pressure is very important.",
+    "cat": "health"
+  },
+  {
+    "id": 538,
+    "sw": "shule",
+    "en": "school",
+    "pos": "noun",
+    "ex_sw": "shule ni muhimu sana.",
+    "ex_en": "school is very important.",
+    "cat": "work"
+  },
+  {
+    "id": 753,
+    "sw": "shule ya msingi",
+    "en": "elementary school",
+    "pos": "noun",
+    "ex_sw": "shule ya msingi ni muhimu sana.",
+    "ex_en": "elementary school is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 754,
+    "sw": "shule ya sekondari",
+    "en": "secondary school",
+    "pos": "noun",
+    "ex_sw": "shule ya sekondari ni muhimu sana.",
+    "ex_en": "secondary school is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 904,
+    "sw": "siasa",
+    "en": "politics",
+    "pos": "noun",
+    "ex_sw": "siasa ni muhimu sana.",
+    "ex_en": "politics is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 490,
+    "sw": "sifuri",
+    "en": "zero",
+    "pos": "number",
+    "ex_sw": "sifuri ni namba nzuri.",
+    "ex_en": "zero is a good number.",
+    "cat": "general"
+  },
+  {
+    "id": 422,
+    "sw": "siku",
+    "en": "day",
+    "pos": "noun",
+    "ex_sw": "siku ni muhimu sana.",
+    "ex_en": "day is very important.",
+    "cat": "time"
+  },
+  {
+    "id": 305,
+    "sw": "simba",
+    "en": "the lion",
+    "pos": "noun",
+    "ex_sw": "simba ni muhimu sana.",
+    "ex_en": "the lion is very important.",
+    "cat": "animal"
+  },
+  {
+    "id": 758,
+    "sw": "simu",
+    "en": "telephone",
+    "pos": "noun",
+    "ex_sw": "simu ni muhimu sana.",
+    "ex_en": "telephone is very important.",
+    "cat": "technology"
+  },
+  {
+    "id": 785,
+    "sw": "simu janja",
+    "en": "smart phone",
+    "pos": "noun",
+    "ex_sw": "simu janja ni muhimu sana.",
+    "ex_en": "smart phone is very important.",
+    "cat": "technology"
+  },
+  {
+    "id": 130,
+    "sw": "sindano",
+    "en": "needle",
+    "pos": "noun",
+    "ex_sw": "sindano ni muhimu sana.",
+    "ex_en": "needle is very important.",
+    "cat": "health"
+  },
+  {
+    "id": 464,
+    "sw": "sita",
+    "en": "six",
+    "pos": "number",
+    "ex_sw": "sita ni namba nzuri.",
+    "ex_en": "six is a good number.",
+    "cat": "general"
+  },
+  {
+    "id": 473,
+    "sw": "sitini",
+    "en": "sixty",
+    "pos": "number",
+    "ex_sw": "sitini ni namba nzuri.",
+    "ex_en": "sixty is a good number.",
+    "cat": "general"
+  },
+  {
+    "id": 509,
+    "sw": "sketi",
+    "en": "a skirt",
+    "pos": "noun",
+    "ex_sw": "sketi ni muhimu sana.",
+    "ex_en": "a skirt is very important.",
+    "cat": "clothing"
+  },
+  {
+    "id": 770,
+    "sw": "skrini",
+    "en": "screen",
+    "pos": "noun",
+    "ex_sw": "skrini ni muhimu sana.",
+    "ex_en": "screen is very important.",
+    "cat": "technology"
+  },
+  {
+    "id": 202,
+    "sw": "soda",
+    "en": "soda",
+    "pos": "noun",
+    "ex_sw": "soda ni muhimu sana.",
+    "ex_en": "soda is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 236,
+    "sw": "sofa",
+    "en": "sofa",
+    "pos": "noun",
+    "ex_sw": "sofa ni muhimu sana.",
+    "ex_en": "sofa is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 742,
+    "sw": "soko",
+    "en": "market",
+    "pos": "noun",
+    "ex_sw": "soko ni muhimu sana.",
+    "ex_en": "market is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 930,
+    "sw": "soko la mazao",
+    "en": "produce market",
+    "pos": "noun",
+    "ex_sw": "soko la mazao ni muhimu sana.",
+    "ex_en": "produce market is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 513,
+    "sw": "soksi",
+    "en": "socks",
+    "pos": "noun",
+    "ex_sw": "soksi ni muhimu sana.",
+    "ex_en": "socks is very important.",
+    "cat": "clothing"
+  },
+  {
+    "id": 337,
+    "sw": "sokwe",
+    "en": "chimpanzee",
+    "pos": "noun",
+    "ex_sw": "sokwe ni muhimu sana.",
+    "ex_en": "chimpanzee is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 545,
+    "sw": "somo",
+    "en": "subject",
+    "pos": "noun",
+    "ex_sw": "somo ni muhimu sana.",
+    "ex_en": "subject is very important.",
+    "cat": "work"
+  },
+  {
+    "id": 191,
+    "sw": "spinachi",
+    "en": "spinach",
+    "pos": "noun",
+    "ex_sw": "spinachi ni muhimu sana.",
+    "ex_en": "spinach is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 879,
+    "sw": "starehe",
+    "en": "comfortable",
+    "pos": "noun",
+    "ex_sw": "starehe ni muhimu sana.",
+    "ex_en": "comfortable is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 389,
+    "sw": "stesheni",
+    "en": "the station",
+    "pos": "noun",
+    "ex_sw": "stesheni ni muhimu sana.",
+    "ex_en": "the station is very important.",
+    "cat": "travel"
+  },
+  {
+    "id": 26,
+    "sw": "subira",
+    "en": "patience",
+    "pos": "noun",
+    "ex_sw": "subira ni muhimu sana.",
+    "ex_en": "patience is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 251,
+    "sw": "sufuria",
+    "en": "pot",
+    "pos": "noun",
+    "ex_sw": "sufuria ni muhimu sana.",
+    "ex_en": "pot is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 162,
+    "sw": "sukari",
+    "en": "sugar",
+    "pos": "noun",
+    "ex_sw": "sukari ni muhimu sana.",
+    "ex_en": "sugar is very important.",
+    "cat": "food"
+  },
+  {
+    "id": 318,
+    "sw": "sungura",
+    "en": "rabbit",
+    "pos": "noun",
+    "ex_sw": "sungura ni muhimu sana.",
+    "ex_en": "rabbit is very important.",
+    "cat": "animal"
+  },
+  {
+    "id": 173,
+    "sw": "supu",
+    "en": "soup",
+    "pos": "noun",
+    "ex_sw": "supu ni muhimu sana.",
+    "ex_en": "soup is very important.",
+    "cat": "food"
+  },
+  {
+    "id": 508,
+    "sw": "suruali",
+    "en": "pants",
+    "pos": "noun",
+    "ex_sw": "suruali ni muhimu sana.",
+    "ex_en": "pants is very important.",
+    "cat": "clothing"
+  },
+  {
+    "id": 528,
+    "sw": "suruali fupi",
+    "en": "short pants",
+    "pos": "noun",
+    "ex_sw": "suruali fupi ni muhimu sana.",
+    "ex_en": "short pants is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 334,
+    "sw": "swala",
+    "en": "the gazelle",
+    "pos": "noun",
+    "ex_sw": "swala ni muhimu sana.",
+    "ex_en": "the gazelle is very important.",
+    "cat": "animal"
+  },
+  {
+    "id": 530,
+    "sw": "swetha",
+    "en": "sweater",
+    "pos": "noun",
+    "ex_sw": "swetha ni muhimu sana.",
+    "ex_en": "sweater is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 247,
+    "sw": "swichi",
+    "en": "switch",
+    "pos": "noun",
+    "ex_sw": "swichi ni muhimu sana.",
+    "ex_en": "switch is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 228,
+    "sw": "taa",
+    "en": "lights",
+    "pos": "noun",
+    "ex_sw": "taa ni muhimu sana.",
+    "ex_en": "lights is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 35,
+    "sw": "tabasamu",
+    "en": "smile",
+    "pos": "noun",
+    "ex_sw": "tabasamu ni muhimu sana.",
+    "ex_en": "smile is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 6,
+    "sw": "tafadhali",
+    "en": "please",
+    "pos": "noun",
+    "ex_sw": "tafadhali ni muhimu sana.",
+    "ex_en": "please is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 878,
+    "sw": "taharuki",
+    "en": "surprise",
+    "pos": "noun",
+    "ex_sw": "taharuki ni muhimu sana.",
+    "ex_en": "surprise is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 367,
+    "sw": "tai",
+    "en": "Eagle",
+    "pos": "noun",
+    "ex_sw": "tai ni muhimu sana.",
+    "ex_en": "Eagle is very important.",
+    "cat": "animal"
+  },
+  {
+    "id": 673,
+    "sw": "tajiri",
+    "en": "rich",
+    "pos": "adjective",
+    "ex_sw": "Kitu hicho ni tajiri sana.",
+    "ex_en": "That thing is very rich.",
+    "cat": "general"
+  },
+  {
+    "id": 55,
+    "sw": "talaka",
+    "en": "divorce",
+    "pos": "noun",
+    "ex_sw": "talaka ni muhimu sana.",
+    "ex_en": "divorce is very important.",
+    "cat": "family"
+  },
+  {
+    "id": 885,
+    "sw": "tamaa",
+    "en": "desire",
+    "pos": "noun",
+    "ex_sw": "tamaa ni muhimu sana.",
+    "ex_en": "desire is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 807,
+    "sw": "tamaduni",
+    "en": "cultures",
+    "pos": "noun",
+    "ex_sw": "tamaduni ni muhimu sana.",
+    "ex_en": "cultures is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 184,
+    "sw": "tangawizi",
+    "en": "ginger",
+    "pos": "noun",
+    "ex_sw": "tangawizi ni muhimu sana.",
+    "ex_en": "ginger is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 463,
+    "sw": "tano",
+    "en": "five",
+    "pos": "number",
+    "ex_sw": "tano ni namba nzuri.",
+    "ex_en": "five is a good number.",
+    "cat": "general"
+  },
+  {
+    "id": 461,
+    "sw": "tatu",
+    "en": "three",
+    "pos": "number",
+    "ex_sw": "tatu ni namba nzuri.",
+    "ex_en": "three is a good number.",
+    "cat": "general"
+  },
+  {
+    "id": 139,
+    "sw": "tauni",
+    "en": "the plague",
+    "pos": "noun",
+    "ex_sw": "tauni ni muhimu sana.",
+    "ex_en": "the plague is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 350,
+    "sw": "tausi",
+    "en": "peacock",
+    "pos": "noun",
+    "ex_sw": "tausi ni muhimu sana.",
+    "ex_en": "peacock is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 102,
+    "sw": "taya",
+    "en": "jaw",
+    "pos": "noun",
+    "ex_sw": "taya ni muhimu sana.",
+    "ex_en": "jaw is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 384,
+    "sw": "teksi",
+    "en": "taxi",
+    "pos": "noun",
+    "ex_sw": "teksi ni muhimu sana.",
+    "ex_en": "taxi is very important.",
+    "cat": "travel"
+  },
+  {
+    "id": 237,
+    "sw": "televisheni",
+    "en": "television",
+    "pos": "noun",
+    "ex_sw": "televisheni ni muhimu sana.",
+    "ex_en": "television is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 129,
+    "sw": "tembe",
+    "en": "the pill",
+    "pos": "noun",
+    "ex_sw": "tembe ni muhimu sana.",
+    "ex_en": "the pill is very important.",
+    "cat": "health"
+  },
+  {
+    "id": 306,
+    "sw": "tembo",
+    "en": "an elephant",
+    "pos": "noun",
+    "ex_sw": "tembo ni muhimu sana.",
+    "ex_en": "an elephant is very important.",
+    "cat": "animal"
+  },
+  {
+    "id": 198,
+    "sw": "tende",
+    "en": "dates",
+    "pos": "noun",
+    "ex_sw": "tende ni muhimu sana.",
+    "ex_en": "dates is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 295,
+    "sw": "tetemeko",
+    "en": "earthquake",
+    "pos": "noun",
+    "ex_sw": "tetemeko ni muhimu sana.",
+    "ex_en": "earthquake is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 470,
+    "sw": "thelathini",
+    "en": "thirty",
+    "pos": "number",
+    "ex_sw": "thelathini ni namba nzuri.",
+    "ex_en": "thirty is a good number.",
+    "cat": "general"
+  },
+  {
+    "id": 289,
+    "sw": "theluji",
+    "en": "snow",
+    "pos": "noun",
+    "ex_sw": "theluji ni muhimu sana.",
+    "ex_en": "snow is very important.",
+    "cat": "weather"
+  },
+  {
+    "id": 482,
+    "sw": "theluthi",
+    "en": "a third",
+    "pos": "number",
+    "ex_sw": "theluthi ni namba nzuri.",
+    "ex_en": "a third is a good number.",
+    "cat": "general"
+  },
+  {
+    "id": 475,
+    "sw": "themanini",
+    "en": "eighty",
+    "pos": "number",
+    "ex_sw": "themanini ni namba nzuri.",
+    "ex_en": "eighty is a good number.",
+    "cat": "general"
+  },
+  {
+    "id": 358,
+    "sw": "thermomita",
+    "en": "thermometer",
+    "pos": "noun",
+    "ex_sw": "thermomita ni muhimu sana.",
+    "ex_en": "thermometer is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 361,
+    "sw": "tikiti",
+    "en": "ticket",
+    "pos": "noun",
+    "ex_sw": "tikiti ni muhimu sana.",
+    "ex_en": "ticket is very important.",
+    "cat": "food"
+  },
+  {
+    "id": 197,
+    "sw": "tikiti maji",
+    "en": "watermelon",
+    "pos": "noun",
+    "ex_sw": "tikiti maji ni muhimu sana.",
+    "ex_en": "watermelon is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 847,
+    "sw": "timu",
+    "en": "the team",
+    "pos": "noun",
+    "ex_sw": "timu ni muhimu sana.",
+    "ex_en": "the team is very important.",
+    "cat": "sport"
+  },
+  {
+    "id": 467,
+    "sw": "tisa",
+    "en": "nine",
+    "pos": "number",
+    "ex_sw": "tisa ni namba nzuri.",
+    "ex_en": "nine is a good number.",
+    "cat": "general"
+  },
+  {
+    "id": 476,
+    "sw": "tisini",
+    "en": "ninety",
+    "pos": "number",
+    "ex_sw": "tisini ni namba nzuri.",
+    "ex_en": "ninety is a good number.",
+    "cat": "general"
+  },
+  {
+    "id": 818,
+    "sw": "tohara",
+    "en": "circumcision",
+    "pos": "noun",
+    "ex_sw": "tohara ni muhimu sana.",
+    "ex_en": "circumcision is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 762,
+    "sw": "tovuti",
+    "en": "website",
+    "pos": "noun",
+    "ex_sw": "tovuti ni muhimu sana.",
+    "ex_en": "website is very important.",
+    "cat": "technology"
+  },
+  {
+    "id": 922,
+    "sw": "trekta",
+    "en": "tractor",
+    "pos": "noun",
+    "ex_sw": "trekta ni muhimu sana.",
+    "ex_en": "tractor is very important.",
+    "cat": "agriculture"
+  },
+  {
+    "id": 379,
+    "sw": "treni",
+    "en": "the train",
+    "pos": "noun",
+    "ex_sw": "treni ni muhimu sana.",
+    "ex_en": "the train is very important.",
+    "cat": "travel"
+  },
+  {
+    "id": 182,
+    "sw": "tufaha",
+    "en": "apple",
+    "pos": "noun",
+    "ex_sw": "tufaha ni muhimu sana.",
+    "ex_en": "apple is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 335,
+    "sw": "tumbili",
+    "en": "monkey",
+    "pos": "noun",
+    "ex_sw": "tumbili ni muhimu sana.",
+    "ex_en": "monkey is very important.",
+    "cat": "animal"
+  },
+  {
+    "id": 82,
+    "sw": "tumbo",
+    "en": "stomach",
+    "pos": "noun",
+    "ex_sw": "tumbo ni muhimu sana.",
+    "ex_en": "stomach is very important.",
+    "cat": "body"
+  },
+  {
+    "id": 159,
+    "sw": "tunda",
+    "en": "the fruit",
+    "pos": "noun",
+    "ex_sw": "tunda ni muhimu sana.",
+    "ex_en": "the fruit is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 16,
+    "sw": "tutaonana",
+    "en": "we will see each other",
+    "pos": "noun",
+    "ex_sw": "tutaonana ni muhimu sana.",
+    "ex_en": "we will see each other is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 863,
+    "sw": "tuzo",
+    "en": "award",
+    "pos": "noun",
+    "ex_sw": "tuzo ni muhimu sana.",
+    "ex_en": "award is very important.",
+    "cat": "sport"
+  },
+  {
+    "id": 307,
+    "sw": "twiga",
+    "en": "giraffe",
+    "pos": "noun",
+    "ex_sw": "twiga ni muhimu sana.",
+    "ex_en": "giraffe is very important.",
+    "cat": "animal"
+  },
+  {
+    "id": 28,
+    "sw": "uaminifu",
+    "en": "honesty",
+    "pos": "noun",
+    "ex_sw": "uaminifu ni muhimu sana.",
+    "ex_en": "honesty is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 87,
+    "sw": "ubongo",
+    "en": "the brain",
+    "pos": "noun",
+    "ex_sw": "ubongo ni muhimu sana.",
+    "ex_en": "the brain is very important.",
+    "cat": "body"
+  },
+  {
+    "id": 958,
+    "sw": "ubunifu",
+    "en": "creativity",
+    "pos": "noun",
+    "ex_sw": "ubunifu ni muhimu sana.",
+    "ex_en": "creativity is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 933,
+    "sw": "uchaguzi",
+    "en": "election",
+    "pos": "noun",
+    "ex_sw": "uchaguzi ni muhimu sana.",
+    "ex_en": "election is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 880,
+    "sw": "uchovu",
+    "en": "fatigue",
+    "pos": "noun",
+    "ex_sw": "uchovu ni muhimu sana.",
+    "ex_en": "fatigue is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 903,
+    "sw": "uchumi",
+    "en": "the economy",
+    "pos": "noun",
+    "ex_sw": "uchumi ni muhimu sana.",
+    "ex_en": "the economy is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 906,
+    "sw": "udaktari",
+    "en": "doctoring",
+    "pos": "noun",
+    "ex_sw": "udaktari ni muhimu sana.",
+    "ex_en": "doctoring is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 242,
+    "sw": "ufagio",
+    "en": "a broom",
+    "pos": "noun",
+    "ex_sw": "ufagio ni muhimu sana.",
+    "ex_en": "a broom is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 943,
+    "sw": "ufisadi",
+    "en": "corruption",
+    "pos": "noun",
+    "ex_sw": "ufisadi ni muhimu sana.",
+    "ex_en": "corruption is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 231,
+    "sw": "ufunguo",
+    "en": "the key",
+    "pos": "noun",
+    "ex_sw": "ufunguo ni muhimu sana.",
+    "ex_en": "the key is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 146,
+    "sw": "ugali",
+    "en": "ugali",
+    "pos": "noun",
+    "ex_sw": "ugali ni muhimu sana.",
+    "ex_en": "ugali is very important.",
+    "cat": "food"
+  },
+  {
+    "id": 106,
+    "sw": "ugonjwa",
+    "en": "illness",
+    "pos": "noun",
+    "ex_sw": "ugonjwa ni muhimu sana.",
+    "ex_en": "illness is very important.",
+    "cat": "health"
+  },
+  {
+    "id": 913,
+    "sw": "ugunduzi",
+    "en": "discovery",
+    "pos": "noun",
+    "ex_sw": "ugunduzi ni muhimu sana.",
+    "ex_en": "discovery is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 907,
+    "sw": "uhandisi",
+    "en": "engineering",
+    "pos": "noun",
+    "ex_sw": "uhandisi ni muhimu sana.",
+    "ex_en": "engineering is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 938,
+    "sw": "uhuru",
+    "en": "freedom",
+    "pos": "noun",
+    "ex_sw": "uhuru ni muhimu sana.",
+    "ex_en": "freedom is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 957,
+    "sw": "ujanja",
+    "en": "cunning",
+    "pos": "noun",
+    "ex_sw": "ujanja ni muhimu sana.",
+    "ex_en": "cunning is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 887,
+    "sw": "ujasiri",
+    "en": "courage",
+    "pos": "noun",
+    "ex_sw": "ujasiri ni muhimu sana.",
+    "ex_en": "courage is very important.",
+    "cat": "emotion"
+  },
+  {
+    "id": 172,
+    "sw": "uji",
+    "en": "porridge",
+    "pos": "noun",
+    "ex_sw": "uji ni muhimu sana.",
+    "ex_en": "porridge is very important.",
+    "cat": "food"
+  },
+  {
+    "id": 777,
+    "sw": "ujumbe",
+    "en": "the message",
+    "pos": "noun",
+    "ex_sw": "ujumbe ni muhimu sana.",
+    "ex_en": "the message is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 292,
+    "sw": "ukame",
+    "en": "drought",
+    "pos": "noun",
+    "ex_sw": "ukame ni muhimu sana.",
+    "ex_en": "drought is very important.",
+    "cat": "weather"
+  },
+  {
+    "id": 517,
+    "sw": "ukanda",
+    "en": "belt",
+    "pos": "noun",
+    "ex_sw": "ukanda ni muhimu sana.",
+    "ex_en": "belt is very important.",
+    "cat": "clothing"
+  },
+  {
+    "id": 24,
+    "sw": "ukarimu",
+    "en": "hospitality",
+    "pos": "noun",
+    "ex_sw": "ukarimu ni muhimu sana.",
+    "ex_en": "hospitality is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 138,
+    "sw": "ukoma",
+    "en": "leprosy",
+    "pos": "noun",
+    "ex_sw": "ukoma ni muhimu sana.",
+    "ex_en": "leprosy is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 58,
+    "sw": "ukoo",
+    "en": "clan",
+    "pos": "noun",
+    "ex_sw": "ukoo ni muhimu sana.",
+    "ex_en": "clan is very important.",
+    "cat": "family"
+  },
+  {
+    "id": 952,
+    "sw": "ukuaji",
+    "en": "growth",
+    "pos": "noun",
+    "ex_sw": "ukuaji ni muhimu sana.",
+    "ex_en": "growth is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 104,
+    "sw": "ukucha",
+    "en": "nail",
+    "pos": "noun",
+    "ex_sw": "ukucha ni muhimu sana.",
+    "ex_en": "nail is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 212,
+    "sw": "ukuta",
+    "en": "the wall",
+    "pos": "noun",
+    "ex_sw": "ukuta ni muhimu sana.",
+    "ex_en": "the wall is very important.",
+    "cat": "home"
+  },
+  {
+    "id": 912,
+    "sw": "ukweli",
+    "en": "the truth",
+    "pos": "noun",
+    "ex_sw": "ukweli ni muhimu sana.",
+    "ex_en": "the truth is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 77,
+    "sw": "ulimi",
+    "en": "tongue",
+    "pos": "noun",
+    "ex_sw": "ulimi ni muhimu sana.",
+    "ex_en": "tongue is very important.",
+    "cat": "body"
+  },
+  {
+    "id": 254,
+    "sw": "uma",
+    "en": "fork",
+    "pos": "noun",
+    "ex_sw": "uma ni muhimu sana.",
+    "ex_en": "fork is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 229,
+    "sw": "umeme",
+    "en": "electricity",
+    "pos": "noun",
+    "ex_sw": "umeme ni muhimu sana.",
+    "ex_en": "electricity is very important.",
+    "cat": "weather"
+  },
+  {
+    "id": 972,
+    "sw": "umeme wa jua",
+    "en": "solar electricity",
+    "pos": "noun",
+    "ex_sw": "umeme wa jua ni muhimu sana.",
+    "ex_en": "solar electricity is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 918,
+    "sw": "umwagiliaji",
+    "en": "irrigation",
+    "pos": "noun",
+    "ex_sw": "umwagiliaji ni muhimu sana.",
+    "ex_en": "irrigation is very important.",
+    "cat": "agriculture"
+  },
+  {
+    "id": 874,
+    "sw": "unyenyekevu",
+    "en": "humility",
+    "pos": "noun",
+    "ex_sw": "unyenyekevu ni muhimu sana.",
+    "ex_en": "humility is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 293,
+    "sw": "unyevu",
+    "en": "humidity",
+    "pos": "noun",
+    "ex_sw": "unyevu ni muhimu sana.",
+    "ex_en": "humidity is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 134,
+    "sw": "upasuaji",
+    "en": "surgery",
+    "pos": "noun",
+    "ex_sw": "upasuaji ni muhimu sana.",
+    "ex_en": "surgery is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 354,
+    "sw": "upendo",
+    "en": "love",
+    "pos": "noun",
+    "ex_sw": "upendo ni muhimu sana.",
+    "ex_en": "love is very important.",
+    "cat": "emotion"
+  },
+  {
+    "id": 275,
+    "sw": "upepo",
+    "en": "the wind",
+    "pos": "noun",
+    "ex_sw": "upepo ni muhimu sana.",
+    "ex_en": "the wind is very important.",
+    "cat": "weather"
+  },
+  {
+    "id": 936,
+    "sw": "upinzani",
+    "en": "opposition",
+    "pos": "noun",
+    "ex_sw": "upinzani ni muhimu sana.",
+    "ex_en": "opposition is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 789,
+    "sw": "upload",
+    "en": "upload",
+    "pos": "noun",
+    "ex_sw": "upload ni muhimu sana.",
+    "ex_en": "upload is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 890,
+    "sw": "upole",
+    "en": "gentleness",
+    "pos": "noun",
+    "ex_sw": "upole ni muhimu sana.",
+    "ex_en": "gentleness is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 29,
+    "sw": "urafiki",
+    "en": "friendship",
+    "pos": "noun",
+    "ex_sw": "urafiki ni muhimu sana.",
+    "ex_en": "friendship is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 62,
+    "sw": "urithi",
+    "en": "inheritance",
+    "pos": "noun",
+    "ex_sw": "urithi ni muhimu sana.",
+    "ex_en": "inheritance is very important.",
+    "cat": "family"
+  },
+  {
+    "id": 968,
+    "sw": "usafi wa mazingira",
+    "en": "environmental sanitation",
+    "pos": "noun",
+    "ex_sw": "usafi wa mazingira ni muhimu sana.",
+    "ex_en": "environmental sanitation is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 911,
+    "sw": "ushahidi",
+    "en": "evidence",
+    "pos": "noun",
+    "ex_sw": "ushahidi ni muhimu sana.",
+    "ex_en": "evidence is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 861,
+    "sw": "ushindani",
+    "en": "competition",
+    "pos": "noun",
+    "ex_sw": "ushindani ni muhimu sana.",
+    "ex_en": "competition is very important.",
+    "cat": "sport"
+  },
+  {
+    "id": 849,
+    "sw": "ushindi",
+    "en": "victory",
+    "pos": "noun",
+    "ex_sw": "ushindi ni muhimu sana.",
+    "ex_en": "victory is very important.",
+    "cat": "sport"
+  },
+  {
+    "id": 30,
+    "sw": "ushirikiano",
+    "en": "cooperation",
+    "pos": "noun",
+    "ex_sw": "ushirikiano ni muhimu sana.",
+    "ex_en": "cooperation is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 829,
+    "sw": "ushuru",
+    "en": "tax",
+    "pos": "noun",
+    "ex_sw": "ushuru ni muhimu sana.",
+    "ex_en": "tax is very important.",
+    "cat": "finance"
+  },
+  {
+    "id": 285,
+    "sw": "usiku",
+    "en": "at night",
+    "pos": "noun",
+    "ex_sw": "usiku ni muhimu sana.",
+    "ex_en": "at night is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 883,
+    "sw": "usingizi",
+    "en": "sleep",
+    "pos": "noun",
+    "ex_sw": "usingizi ni muhimu sana.",
+    "ex_en": "sleep is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 72,
+    "sw": "uso",
+    "en": "face",
+    "pos": "noun",
+    "ex_sw": "uso ni muhimu sana.",
+    "ex_en": "face is very important.",
+    "cat": "body"
+  },
+  {
+    "id": 962,
+    "sw": "ustadi",
+    "en": "skill",
+    "pos": "noun",
+    "ex_sw": "ustadi ni muhimu sana.",
+    "ex_en": "skill is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 908,
+    "sw": "utafiti",
+    "en": "research",
+    "pos": "noun",
+    "ex_sw": "utafiti ni muhimu sana.",
+    "ex_en": "research is very important.",
+    "cat": "education"
+  },
+  {
+    "id": 810,
+    "sw": "utamaduni",
+    "en": "culture",
+    "pos": "noun",
+    "ex_sw": "utamaduni ni muhimu sana.",
+    "ex_en": "culture is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 947,
+    "sw": "utawala bora",
+    "en": "good governance",
+    "pos": "noun",
+    "ex_sw": "utawala bora ni muhimu sana.",
+    "ex_en": "good governance is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 888,
+    "sw": "utulivu",
+    "en": "stability",
+    "pos": "noun",
+    "ex_sw": "utulivu ni muhimu sana.",
+    "ex_en": "stability is very important.",
+    "cat": "emotion"
+  },
+  {
+    "id": 914,
+    "sw": "uvumbuzi",
+    "en": "innovation",
+    "pos": "noun",
+    "ex_sw": "uvumbuzi ni muhimu sana.",
+    "ex_en": "innovation is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 27,
+    "sw": "uvumilivu",
+    "en": "endurance",
+    "pos": "noun",
+    "ex_sw": "uvumilivu ni muhimu sana.",
+    "ex_en": "endurance is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 855,
+    "sw": "uvuvi",
+    "en": "fishing",
+    "pos": "noun",
+    "ex_sw": "uvuvi ni muhimu sana.",
+    "ex_en": "fishing is very important.",
+    "cat": "sport"
+  },
+  {
+    "id": 945,
+    "sw": "uwajibikaji",
+    "en": "accountability",
+    "pos": "noun",
+    "ex_sw": "uwajibikaji ni muhimu sana.",
+    "ex_en": "accountability is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 388,
+    "sw": "uwanja",
+    "en": "the field",
+    "pos": "noun",
+    "ex_sw": "uwanja ni muhimu sana.",
+    "ex_en": "the field is very important.",
+    "cat": "travel"
+  },
+  {
+    "id": 752,
+    "sw": "uwanja wa ndege",
+    "en": "the airport",
+    "pos": "noun",
+    "ex_sw": "uwanja wa ndege ni muhimu sana.",
+    "ex_en": "the airport is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 946,
+    "sw": "uwazi",
+    "en": "clarity",
+    "pos": "noun",
+    "ex_sw": "uwazi ni muhimu sana.",
+    "ex_en": "clarity is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 995,
+    "sw": "uwindaji",
+    "en": "hunting",
+    "pos": "noun",
+    "ex_sw": "uwindaji ni muhimu sana.",
+    "ex_en": "hunting is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 67,
+    "sw": "uzao",
+    "en": "offspring",
+    "pos": "noun",
+    "ex_sw": "uzao ni muhimu sana.",
+    "ex_en": "offspring is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 60,
+    "sw": "uzazi",
+    "en": "reproduction",
+    "pos": "noun",
+    "ex_sw": "uzazi ni muhimu sana.",
+    "ex_en": "reproduction is very important.",
+    "cat": "family"
+  },
+  {
+    "id": 953,
+    "sw": "uzoefu",
+    "en": "experience",
+    "pos": "noun",
+    "ex_sw": "uzoefu ni muhimu sana.",
+    "ex_en": "experience is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 512,
+    "sw": "viatu",
+    "en": "shoes",
+    "pos": "noun",
+    "ex_sw": "viatu ni muhimu sana.",
+    "ex_en": "shoes is very important.",
+    "cat": "clothing"
+  },
+  {
+    "id": 765,
+    "sw": "video",
+    "en": "video",
+    "pos": "noun",
+    "ex_sw": "video ni muhimu sana.",
+    "ex_en": "video is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 124,
+    "sw": "vidonda",
+    "en": "sores",
+    "pos": "noun",
+    "ex_sw": "vidonda ni muhimu sana.",
+    "ex_en": "sores is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 408,
+    "sw": "visa",
+    "en": "Visa",
+    "pos": "noun",
+    "ex_sw": "visa ni muhimu sana.",
+    "ex_en": "Visa is very important.",
+    "cat": "travel"
+  },
+  {
+    "id": 209,
+    "sw": "vitumbua",
+    "en": "snacks",
+    "pos": "noun",
+    "ex_sw": "vitumbua ni muhimu sana.",
+    "ex_en": "snacks is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 166,
+    "sw": "vitunguu",
+    "en": "onions",
+    "pos": "noun",
+    "ex_sw": "vitunguu ni muhimu sana.",
+    "ex_en": "onions is very important.",
+    "cat": "food"
+  },
+  {
+    "id": 12,
+    "sw": "vizuri",
+    "en": "well",
+    "pos": "noun",
+    "ex_sw": "vizuri ni muhimu sana.",
+    "ex_en": "well is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 294,
+    "sw": "volkano",
+    "en": "volcano",
+    "pos": "noun",
+    "ex_sw": "volkano ni muhimu sana.",
+    "ex_en": "volcano is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 458,
+    "sw": "vuli",
+    "en": "autumn",
+    "pos": "noun",
+    "ex_sw": "vuli ni muhimu sana.",
+    "ex_en": "autumn is very important.",
+    "cat": "weather"
+  },
+  {
+    "id": 940,
+    "sw": "wajibu",
+    "en": "responsibility",
+    "pos": "noun",
+    "ex_sw": "wajibu ni muhimu sana.",
+    "ex_en": "responsibility is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 425,
+    "sw": "wakati",
+    "en": "time",
+    "pos": "noun",
+    "ex_sw": "wakati ni muhimu sana.",
+    "ex_en": "time is very important.",
+    "cat": "time"
+  },
+  {
+    "id": 145,
+    "sw": "wali",
+    "en": "rice",
+    "pos": "noun",
+    "ex_sw": "wali ni muhimu sana.",
+    "ex_en": "rice is very important.",
+    "cat": "food"
+  },
+  {
+    "id": 499,
+    "sw": "waridi",
+    "en": "rose",
+    "pos": "adjective",
+    "ex_sw": "Kitu hicho ni waridi sana.",
+    "ex_en": "That thing is very rose.",
+    "cat": "color"
+  },
+  {
+    "id": 876,
+    "sw": "wasiwasi",
+    "en": "anxiety",
+    "pos": "noun",
+    "ex_sw": "wasiwasi ni muhimu sana.",
+    "ex_en": "anxiety is very important.",
+    "cat": "emotion"
+  },
+  {
+    "id": 486,
+    "sw": "wastani",
+    "en": "average",
+    "pos": "noun",
+    "ex_sw": "wastani ni muhimu sana.",
+    "ex_en": "average is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 842,
+    "sw": "wateja",
+    "en": "customers",
+    "pos": "noun",
+    "ex_sw": "wateja ni muhimu sana.",
+    "ex_en": "customers is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 56,
+    "sw": "watoto",
+    "en": "children",
+    "pos": "noun",
+    "ex_sw": "watoto ni muhimu sana.",
+    "ex_en": "children is very important.",
+    "cat": "family"
+  },
+  {
+    "id": 57,
+    "sw": "wazazi",
+    "en": "parents",
+    "pos": "noun",
+    "ex_sw": "wazazi ni muhimu sana.",
+    "ex_en": "parents is very important.",
+    "cat": "family"
+  },
+  {
+    "id": 570,
+    "sw": "waziri",
+    "en": "the minister",
+    "pos": "noun",
+    "ex_sw": "waziri ni muhimu sana.",
+    "ex_en": "the minister is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 932,
+    "sw": "waziri mkuu",
+    "en": "the prime minister",
+    "pos": "noun",
+    "ex_sw": "waziri mkuu ni muhimu sana.",
+    "ex_en": "the prime minister is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 963,
+    "sw": "weledi",
+    "en": "professional",
+    "pos": "noun",
+    "ex_sw": "weledi ni muhimu sana.",
+    "ex_en": "professional is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 423,
+    "sw": "wiki",
+    "en": "week",
+    "pos": "noun",
+    "ex_sw": "wiki ni muhimu sana.",
+    "ex_en": "week is very important.",
+    "cat": "time"
+  },
+  {
+    "id": 437,
+    "sw": "wiki iliyopita",
+    "en": "last week",
+    "pos": "noun",
+    "ex_sw": "wiki iliyopita ni muhimu sana.",
+    "ex_en": "last week is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 738,
+    "sw": "wilaya",
+    "en": "district",
+    "pos": "noun",
+    "ex_sw": "wilaya ni muhimu sana.",
+    "ex_en": "district is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 872,
+    "sw": "wivu",
+    "en": "jealousy",
+    "pos": "noun",
+    "ex_sw": "wivu ni muhimu sana.",
+    "ex_en": "jealousy is very important.",
+    "cat": "emotion"
+  },
+  {
+    "id": 661,
+    "sw": "ya kale",
+    "en": "ancient",
+    "pos": "noun",
+    "ex_sw": "ya kale ni muhimu sana.",
+    "ex_en": "ancient is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 183,
+    "sw": "zabibu",
+    "en": "grapes",
+    "pos": "noun",
+    "ex_sw": "zabibu ni muhimu sana.",
+    "ex_en": "grapes is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 749,
+    "sw": "zahanati",
+    "en": "clinic",
+    "pos": "noun",
+    "ex_sw": "zahanati ni muhimu sana.",
+    "ex_en": "clinic is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 428,
+    "sw": "zamani",
+    "en": "in the past",
+    "pos": "noun",
+    "ex_sw": "zamani ni muhimu sana.",
+    "ex_en": "in the past is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 500,
+    "sw": "zambarau",
+    "en": "purple",
+    "pos": "adjective",
+    "ex_sw": "Kitu hicho ni zambarau sana.",
+    "ex_en": "That thing is very purple.",
+    "cat": "color"
+  },
+  {
+    "id": 920,
+    "sw": "zao",
+    "en": "theirs",
+    "pos": "noun",
+    "ex_sw": "zao ni muhimu sana.",
+    "ex_en": "theirs is very important.",
+    "cat": "agriculture"
+  },
+  {
+    "id": 488,
+    "sw": "ziada",
+    "en": "extra",
+    "pos": "noun",
+    "ex_sw": "ziada ni muhimu sana.",
+    "ex_en": "extra is very important.",
+    "cat": "general"
+  },
+  {
+    "id": 268,
+    "sw": "ziwa",
+    "en": "lake",
+    "pos": "noun",
+    "ex_sw": "ziwa ni muhimu sana.",
+    "ex_en": "lake is very important.",
+    "cat": "nature"
+  },
+  {
+    "id": 245,
+    "sw": "zulia",
+    "en": "carpet",
+    "pos": "noun",
+    "ex_sw": "zulia ni muhimu sana.",
+    "ex_en": "carpet is very important.",
+    "cat": "general"
+  }
+]
