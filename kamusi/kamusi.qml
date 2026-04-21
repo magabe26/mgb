@@ -984,6 +984,7 @@ Rectangle {
                 }
 
                 // Mfano wa sentensi
+/*
                 Column {
                     width: parent.width
                     spacing: app.pad * 0.6
@@ -1041,7 +1042,7 @@ Rectangle {
                         }
                     }
                 }
-
+*/
                 // Vifungo
                 Row {
                     anchors.horizontalCenter: parent.horizontalCenter
