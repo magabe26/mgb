@@ -36,12 +36,6 @@
     "pos": "noun"
   },
   {
-    "id": 994,
-    "sw": "ATM",
-    "en": "ATM",
-    "pos": "noun"
-  },
-  {
     "id": 707,
     "sw": "Afrika",
     "en": "Africa",
@@ -66,21 +60,9 @@
     "pos": "noun"
   },
   {
-    "id": 709,
-    "sw": "Amerika",
-    "en": "America",
-    "pos": "noun"
-  },
-  {
     "id": 449,
     "sw": "Aprili",
     "en": "April",
-    "pos": "noun"
-  },
-  {
-    "id": 716,
-    "sw": "Arusha",
-    "en": "Arusha",
     "pos": "noun"
   },
   {
@@ -96,21 +78,9 @@
     "pos": "noun"
   },
   {
-    "id": 782,
-    "sw": "Bluetooth",
-    "en": "Bluetooth",
-    "pos": "noun"
-  },
-  {
     "id": 701,
     "sw": "Burundi",
     "en": "Burundi",
-    "pos": "noun"
-  },
-  {
-    "id": 712,
-    "sw": "Dar es Salaam",
-    "en": "Dar es Salaam",
     "pos": "noun"
   },
   {
@@ -120,33 +90,9 @@
     "pos": "noun"
   },
   {
-    "id": 713,
-    "sw": "Dodoma",
-    "en": "Dodoma",
-    "pos": "noun"
-  },
-  {
-    "id": 795,
-    "sw": "Eid",
-    "en": "Eid",
-    "pos": "noun"
-  },
-  {
-    "id": 702,
-    "sw": "Ethiopia",
-    "en": "Ethiopia",
-    "pos": "noun"
-  },
-  {
     "id": 447,
     "sw": "Februari",
     "en": "February",
-    "pos": "noun"
-  },
-  {
-    "id": 783,
-    "sw": "GPS",
-    "en": "GPS",
     "pos": "noun"
   },
   {
@@ -216,39 +162,9 @@
     "pos": "noun"
   },
   {
-    "id": 732,
-    "sw": "Kampala",
-    "en": "Kampala",
-    "pos": "noun"
-  },
-  {
-    "id": 698,
-    "sw": "Kenya",
-    "en": "Kenya",
-    "pos": "noun"
-  },
-  {
-    "id": 731,
-    "sw": "Kigali",
-    "en": "Kigali",
-    "pos": "noun"
-  },
-  {
-    "id": 723,
-    "sw": "Kigoma",
-    "en": "Strike",
-    "pos": "noun"
-  },
-  {
     "id": 796,
     "sw": "Krismasi",
     "en": "Christmas",
-    "pos": "noun"
-  },
-  {
-    "id": 724,
-    "sw": "Lindi",
-    "en": "Lindi",
     "pos": "noun"
   },
   {
@@ -312,12 +228,6 @@
     "pos": "noun"
   },
   {
-    "id": 715,
-    "sw": "Mwanza",
-    "en": "Mwanza",
-    "pos": "noun"
-  },
-  {
     "id": 730,
     "sw": "Nairobi",
     "en": "Nairobi",
@@ -342,33 +252,9 @@
     "pos": "noun"
   },
   {
-    "id": 812,
-    "sw": "Quran",
-    "en": "Quran",
-    "pos": "noun"
-  },
-  {
-    "id": 794,
-    "sw": "Ramadhan",
-    "en": "Ramadhan",
-    "pos": "noun"
-  },
-  {
-    "id": 700,
-    "sw": "Rwanda",
-    "en": "Rwanda",
-    "pos": "noun"
-  },
-  {
     "id": 454,
     "sw": "Septemba",
     "en": "September",
-    "pos": "noun"
-  },
-  {
-    "id": 727,
-    "sw": "Shinyanga",
-    "en": "Shinyanga",
     "pos": "noun"
   },
   {
@@ -378,51 +264,9 @@
     "pos": "noun"
   },
   {
-    "id": 703,
-    "sw": "Somalia",
-    "en": "Somalia",
-    "pos": "noun"
-  },
-  {
-    "id": 722,
-    "sw": "Tabora",
-    "en": "Tabora",
-    "pos": "noun"
-  },
-  {
-    "id": 718,
-    "sw": "Tanga",
-    "en": "Hang around",
-    "pos": "noun"
-  },
-  {
-    "id": 697,
-    "sw": "Tanzania",
-    "en": "Tanzania",
-    "pos": "noun"
-  },
-  {
-    "id": 699,
-    "sw": "Uganda",
-    "en": "Uganda",
-    "pos": "noun"
-  },
-  {
     "id": 708,
     "sw": "Ulaya",
     "en": "Europe",
-    "pos": "noun"
-  },
-  {
-    "id": 781,
-    "sw": "WiFi",
-    "en": "Wi-Fi",
-    "pos": "noun"
-  },
-  {
-    "id": 714,
-    "sw": "Zanzibar",
-    "en": "Zanzibar",
     "pos": "noun"
   },
   {
@@ -729,12 +573,6 @@
     "id": 555,
     "sw": "biashara",
     "en": "business",
-    "pos": "noun"
-  },
-  {
-    "id": 47,
-    "sw": "bibi",
-    "en": "lady",
     "pos": "noun"
   },
   {
