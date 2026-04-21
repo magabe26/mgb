@@ -1,5 +1,641 @@
 [
   {
+    "sw": "Taji",
+    "en": "Crown"
+  },
+  {
+    "sw": "Ushonaji",
+    "en": "Tailoring"
+  },
+  {
+    "sw": "Fundi cherehani",
+    "en": "Tailor"
+  },
+  {
+    "sw": "Duka la nguo",
+    "en": "Clothing store"
+  },
+  {
+    "sw": "Mitumba",
+    "en": "Second-hand clothes"
+  },
+  {
+    "sw": "Vazi",
+    "en": "Garment"
+  },
+  {
+    "sw": "Maasai shuka",
+    "en": "Maasai blanket"
+  },
+  {
+    "sw": "Baibui",
+    "en": "Buibui"
+  },
+  {
+    "sw": "Barghashia",
+    "en": "Kofia (Islamic cap)"
+  },
+  {
+    "sw": "Nikabu",
+    "en": "Niqab"
+  },
+  {
+    "sw": "Hijabu",
+    "en": "Hijab"
+  },
+  {
+    "sw": "Kilemba",
+    "en": "Turban"
+  },
+  {
+    "sw": "Nguo za shule",
+    "en": "School uniform"
+  },
+  {
+    "sw": "Nguo za michezo",
+    "en": "Sportswear"
+  },
+  {
+    "sw": "Nguo za kulalia",
+    "en": "Pyjamas"
+  },
+  {
+    "sw": "Sufu",
+    "en": "Wool"
+  },
+  {
+    "sw": "Mashine ya kushona",
+    "en": "Sewing machine"
+  },
+  {
+    "sw": "Uzi",
+    "en": "Thread"
+  },
+  {
+    "sw": "Zipu",
+    "en": "Zipper"
+  },
+  {
+    "sw": "Vifungo",
+    "en": "Buttons"
+  },
+  {
+    "sw": "Sweta",
+    "en": "Sweater"
+  },
+  {
+    "sw": "Koti la mvua",
+    "en": "Raincoat"
+  },
+  {
+    "sw": "Viatu vya ndani",
+    "en": "Slippers"
+  },
+  {
+    "sw": "Sambrela",
+    "en": "Umbrella"
+  },
+  {
+    "sw": "Pochi",
+    "en": "Wallet"
+  },
+  {
+    "sw": "Vipodozi",
+    "en": "Cosmetics"
+  },
+  {
+    "sw": "Dawa ya mbu",
+    "en": "Mosquito repellent"
+  },
+  {
+    "sw": "Kipimajoto",
+    "en": "Thermometer"
+  },
+  {
+    "sw": "Mizani",
+    "en": "Scale"
+  },
+  {
+    "sw": "Spana",
+    "en": "Spanner"
+  },
+  {
+    "sw": "Koleo",
+    "en": "Pliers"
+  },
+  {
+    "sw": "Sura",
+    "en": "Saw"
+  },
+  {
+    "sw": "Bisibisi",
+    "en": "Screwdriver"
+  },
+  {
+    "sw": "Nyundo",
+    "en": "Hammer"
+  },
+  {
+    "sw": "Tochi",
+    "en": "Flashlight"
+  },
+  {
+    "sw": "Kiberiti",
+    "en": "Matches"
+  },
+  {
+    "sw": "Kibatari",
+    "en": "Oil lamp"
+  },
+  {
+    "sw": "Kengele ya mlango",
+    "en": "Doorbell"
+  },
+  {
+    "sw": "Taa ya nje",
+    "en": "Outdoor light"
+  },
+  {
+    "sw": "Gereji",
+    "en": "Garage"
+  },
+  {
+    "sw": "Stoo",
+    "en": "Store room"
+  },
+  {
+    "sw": "Korido",
+    "en": "Corridor/Hallway"
+  },
+  {
+    "sw": "Kitufe cha mlango",
+    "en": "Doorknob"
+  },
+  {
+    "sw": "Mto wa kiti",
+    "en": "Cushion"
+  },
+  {
+    "sw": "Mkeka",
+    "en": "Mat"
+  },
+  {
+    "sw": "Kifuta vumbi",
+    "en": "Duster"
+  },
+  {
+    "sw": "Deki",
+    "en": "Mop"
+  },
+  {
+    "sw": "Kibanio",
+    "en": "Clothespin"
+  },
+  {
+    "sw": "Kamba ya kuanikia",
+    "en": "Clothesline"
+  },
+  {
+    "sw": "Mashine ya kufua",
+    "en": "Washing machine"
+  },
+  {
+    "sw": "Ubao wa kupasishia",
+    "en": "Ironing board"
+  },
+  {
+    "sw": "Brashi ya nywele",
+    "en": "Hairbrush"
+  },
+  {
+    "sw": "Poda",
+    "en": "Powder"
+  },
+  {
+    "sw": "Gusi",
+    "en": "Jug"
+  },
+  {
+    "sw": "Karai",
+    "en": "Basin"
+  },
+  {
+    "sw": "Mtwangio",
+    "en": "Pestle"
+  },
+  {
+    "sw": "Pishi",
+    "en": "Mortar"
+  },
+  {
+    "sw": "Kichujio",
+    "en": "Strainer/Sieve"
+  },
+  {
+    "sw": "Kibaniko cha mkate",
+    "en": "Toaster"
+  },
+  {
+    "sw": "Maikrowevu",
+    "en": "Microwave"
+  },
+  {
+    "sw": "Kabati la jiko",
+    "en": "Kitchen cabinet"
+  },
+  {
+    "sw": "Jiko",
+    "en": "Kitchen"
+  },
+  {
+    "sw": "Meza ya urembo",
+    "en": "Dressing table"
+  },
+  {
+    "sw": "Kikapu cha taka",
+    "en": "Dustbin"
+  },
+  {
+    "sw": "Vase",
+    "en": "Chombo cha maua"
+  },
+  {
+    "sw": "Picha ya ukutani",
+    "en": "Wall painting"
+  },
+  {
+    "sw": "Kabati la vitabu",
+    "en": "Bookshelf"
+  },
+  {
+    "sw": "Meza ya kahawa",
+    "en": "Coffee table"
+  },
+  {
+    "sw": "Sebule",
+    "en": "Living room"
+  },
+  {
+    "sw": "Kitu cha ndani",
+    "en": "Household item"
+  },
+  {
+    "sw": "Vyakula vya mifugo",
+    "en": "Animal feed"
+  },
+  {
+    "sw": "Malisho",
+    "en": "Pasture"
+  },
+  {
+    "sw": "Mfugaji",
+    "en": "Herder/Livestock keeper"
+  },
+  {
+    "sw": "Mvua za kwanza",
+    "en": "First rains"
+  },
+  {
+    "sw": "Plau",
+    "en": "Plough"
+  },
+  {
+    "sw": "Nira",
+    "en": "Yoke"
+  },
+  {
+    "sw": "Rutuba",
+    "en": "Fertility"
+  },
+  {
+    "sw": "Udongo wa mfinyanzi",
+    "en": "Clay soil"
+  },
+  {
+    "sw": "Udongo wa kichanga",
+    "en": "Sandy soil"
+  },
+  {
+    "sw": "Mazao ya biashara",
+    "en": "Cash crops"
+  },
+  {
+    "sw": "Mazao ya chakula",
+    "en": "Food crops"
+  },
+  {
+    "sw": "Gunia",
+    "en": "Sack"
+  },
+  {
+    "sw": "Ghala",
+    "en": "Granary/Silo"
+  },
+  {
+    "sw": "Bomba la kunyunyizia",
+    "en": "Sprayer"
+  },
+  {
+    "sw": "Dawa ya kuua kwekwe",
+    "en": "Herbicide"
+  },
+  {
+    "sw": "Dawa ya kuua wadudu",
+    "en": "Pesticide"
+  },
+  {
+    "sw": "Kipuri",
+    "en": "Spare part"
+  },
+  {
+    "sw": "Sulu",
+    "en": "Pickaxe"
+  },
+  {
+    "sw": "Reki",
+    "en": "Rake"
+  },
+  {
+    "sw": "Kifyekeo",
+    "en": "Slasher"
+  },
+  {
+    "sw": "Kutifua udongo",
+    "en": "Ploughing"
+  },
+  {
+    "sw": "Kupalilia",
+    "en": "Weeding"
+  },
+  {
+    "sw": "Kipindi cha mavuno",
+    "en": "Harvest season"
+  },
+  {
+    "sw": "Kilimo biashara",
+    "en": "Agribusiness"
+  },
+  {
+    "sw": "Kilimo cha mseto",
+    "en": "Intercropping"
+  },
+  {
+    "sw": "Ufugaji wa samaki",
+    "en": "Aquaculture"
+  },
+  {
+    "sw": "Bwawa la samaki",
+    "en": "Fish pond"
+  },
+  {
+    "sw": "Boti ya uvuvi",
+    "en": "Fishing boat"
+  },
+  {
+    "sw": "Mtumbwi",
+    "en": "Canoe"
+  },
+  {
+    "sw": "Wavu",
+    "en": "Fishing net"
+  },
+  {
+    "sw": "Mshipi",
+    "en": "Fishing line"
+  },
+  {
+    "sw": "Ndoano",
+    "en": "Fish hook"
+  },
+  {
+    "sw": "Mtego wa samaki",
+    "en": "Fish trap"
+  },
+  {
+    "sw": "Samaki wa kuchoma",
+    "en": "Grilled fish"
+  },
+  {
+    "sw": "Samaki wa kukaanga",
+    "en": "Fried fish"
+  },
+  {
+    "sw": "Mchuzi wa samaki",
+    "en": "Fish stew"
+  },
+  {
+    "sw": "Jodari",
+    "en": "Tuna"
+  },
+  {
+    "sw": "Samaki nyota",
+    "en": "Starfish"
+  },
+  {
+    "sw": "Samaki msumeno",
+    "en": "Sawfish"
+  },
+  {
+    "sw": "Nguva",
+    "en": "Dugong"
+  },
+  {
+    "sw": "Tasi",
+    "en": "Rabbitfish"
+  },
+  {
+    "sw": "Mwatiko",
+    "en": "Milkfish"
+  },
+  {
+    "sw": "Sulu suli",
+    "en": "Swordfish"
+  },
+  {
+    "sw": "Kibua",
+    "en": "Mackerel"
+  },
+  {
+    "sw": "Changu",
+    "en": "Snapper"
+  },
+  {
+    "sw": "Kolekole",
+    "en": "Kingfish"
+  },
+  {
+    "sw": "Sato",
+    "en": "Tilapia (specific type)"
+  },
+  {
+    "sw": "Perege",
+    "en": "Tilapia"
+  },
+  {
+    "sw": "Kambare",
+    "en": "Catfish"
+  },
+  {
+    "sw": "Dagaa",
+    "en": "Sardines"
+  },
+  {
+    "sw": "Chunusi",
+    "en": "Small fish"
+  },
+  {
+    "sw": "Mifupa ya samaki",
+    "en": "Fish bones"
+  },
+  {
+    "sw": "Mkia",
+    "en": "Tail"
+  },
+  {
+    "sw": "Matamvua",
+    "en": "Gills"
+  },
+  {
+    "sw": "Mageresha",
+    "en": "Scales"
+  },
+  {
+    "sw": "Mapezi",
+    "en": "Fins"
+  },
+  {
+    "sw": "Mpapayi",
+    "en": "Papaya tree"
+  },
+  {
+    "sw": "Mwembe",
+    "en": "Mango tree"
+  },
+  {
+    "sw": "Mkomamanga",
+    "en": "Pomegranate tree"
+  },
+  {
+    "sw": "Mfenesi",
+    "en": "Jackfruit tree"
+  },
+  {
+    "sw": "Mstafeli",
+    "en": "Soursop tree"
+  },
+  {
+    "sw": "Mlimau",
+    "en": "Lemon tree"
+  },
+  {
+    "sw": "Mshubiri",
+    "en": "Aloe vera"
+  },
+  {
+    "sw": "Mlozi",
+    "en": "Almond tree"
+  },
+  {
+    "sw": "Mzaituni",
+    "en": "Olive tree"
+  },
+  {
+    "sw": "Uyoga",
+    "en": "Mushroom"
+  },
+  {
+    "sw": "Mwani",
+    "en": "Seaweed"
+  },
+  {
+    "sw": "Mifunsi",
+    "en": "Bamboo"
+  },
+  {
+    "sw": "Minazi",
+    "en": "Coconut trees"
+  },
+  {
+    "sw": "Michungwa",
+    "en": "Orange trees"
+  },
+  {
+    "sw": "Miembe",
+    "en": "Mango trees"
+  },
+  {
+    "sw": "Miparachichi",
+    "en": "Avocado tree"
+  },
+  {
+    "sw": "Mkakao",
+    "en": "Cacao"
+  },
+  {
+    "sw": "Mkahawa",
+    "en": "Coffee plant"
+  },
+  {
+    "sw": "Mchai",
+    "en": "Tea plant"
+  },
+  {
+    "sw": "Mkonge",
+    "en": "Sisal"
+  },
+  {
+    "sw": "Mboga za majani",
+    "en": "Leafy vegetables"
+  },
+  {
+    "sw": "Mwiba",
+    "en": "Thorn"
+  },
+  {
+    "sw": "Kwekwe",
+    "en": "Weed"
+  },
+  {
+    "sw": "Mmea wa mapambo",
+    "en": "Ornamental plant"
+  },
+  {
+    "sw": "Mmea wa dawa",
+    "en": "Medicinal plant"
+  },
+  {
+    "sw": "Mbuga",
+    "en": "Meadow"
+  },
+  {
+    "sw": "Mti wa matunda",
+    "en": "Fruit tree"
+  },
+  {
+    "sw": "Usanisinuru",
+    "en": "Photosynthesis"
+  },
+  {
+    "sw": "Mwanga wa jua",
+    "en": "Sunlight"
+  },
+  {
+    "sw": "Udongo",
+    "en": "Soil"
+  },
+  {
+    "sw": "Chavua",
+    "en": "Pollen"
+  },
+  {
+    "sw": "Shina",
+    "en": "Stem"
+  },
+  {
+    "sw": "Mmea",
+    "en": "Plant"
+  },
+  {
     "sw": "Kurani",
     "en": "Quran"
   },
