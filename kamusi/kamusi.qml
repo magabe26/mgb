@@ -103,12 +103,94 @@ Rectangle {
     // ── Maneno yote ───────────────────────────────────────────────────────────
     property var allWords: []
 
+    // ── Neno la Siku ──────────────────────────────────────────────────────────
+    property var    wordOfDay:      null
+    property bool   wotdRevealed:   false
+
+    function pickWordOfDay() {
+        if (!allWords || allWords.length === 0) return;
+        // Tumia tarehe ya leo kama mbegu ili neno libadilike kila siku
+        var d = new Date();
+        var seed = d.getFullYear() * 10000 + (d.getMonth() + 1) * 100 + d.getDate();
+        var idx  = seed % allWords.length;
+        wordOfDay    = allWords[idx];
+        wotdRevealed = false;
+    }
+
     // ── Hali ya programu ──────────────────────────────────────────────────────
     property string searchText:  ""
     property int    sortMode:    0
     property var    currentWord: null
     property bool   showDetail:  false
     property bool   langMode:    false
+
+    // ── Quiz Mode ─────────────────────────────────────────────────────────────
+    property bool   showQuiz:       false
+    property var    quizQuestion:   null    // neno linaloulizwa
+    property var    quizChoices:    []      // maneno 4 (pamoja na jibu sahihi)
+    property int    quizAnswered:   -1      // index ya jibu lililobonyezwa (-1 = halijibwa)
+    property bool   quizSwToEn:     true   // true = onyesha SW, jibu EN; false = kinyume
+    property int    quizScore:      0
+    property int    quizTotal:      0
+    property int    quizStreak:     0
+    property int    quizBestStreak: 0
+
+    function quizShuffle(arr) {
+        var a = arr.slice();
+        for (var i = a.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+        }
+        return a;
+    }
+
+    function quizNext() {
+        if (!allWords || allWords.length < 4) return;
+        quizAnswered = -1;
+        // Chagua neno la kuuliza
+        var qIdx = Math.floor(Math.random() * allWords.length);
+        var correct = allWords[qIdx];
+        // Chagua majibu 3 ya uwongo tofauti na jibu sahihi
+        var pool = [];
+        var tries = 0;
+        while (pool.length < 3 && tries < 200) {
+            tries++;
+            var r = Math.floor(Math.random() * allWords.length);
+            if (r === qIdx) continue;
+            var dup = false;
+            for (var k = 0; k < pool.length; k++) {
+                if (pool[k] === r) { dup = true; break; }
+            }
+            if (!dup) pool.push(r);
+        }
+        var choices = [correct];
+        for (var p = 0; p < pool.length; p++) { choices.push(allWords[pool[p]]); }
+        quizQuestion = correct;
+        quizChoices  = quizShuffle(choices);
+    }
+
+    function quizAnswer(idx) {
+        if (quizAnswered !== -1) return;
+        quizAnswered = idx;
+        quizTotal++;
+        if (quizChoices[idx] === quizQuestion) {
+            quizScore++;
+            quizStreak++;
+            if (quizStreak > quizBestStreak) quizBestStreak = quizStreak;
+        } else {
+            quizStreak = 0;
+        }
+    }
+
+    function quizStart() {
+        quizScore      = 0;
+        quizTotal      = 0;
+        quizStreak     = 0;
+        quizBestStreak = 0;
+        quizSwToEn     = true;
+        quizNext();
+        showQuiz = true;
+    }
 
     // ── Hali ya upakuaji ──────────────────────────────────────────────────────
     property bool   isLoading:   false
@@ -127,6 +209,7 @@ Rectangle {
             if (!Array.isArray(parsed) || parsed.length === 0) return false;
             allWords = parsed;
             rebuildFilter();
+            pickWordOfDay();
             return true;
         } catch (e) {
             return false;
@@ -472,11 +555,164 @@ Rectangle {
         }
     }
 
+    // ── NENO LA SIKU ──────────────────────────────────────────────────────────
+    Rectangle {
+        id: wotdCard
+        anchors {
+            top: header.bottom; topMargin: 6
+            left: parent.left; leftMargin: app.pad
+            right: parent.right; rightMargin: app.pad
+        }
+        height: app.wordOfDay ? wotdInner.implicitHeight + app.pad * 1.6 : 0
+        visible: app.wordOfDay !== null
+        radius: app.radius
+        color: Qt.rgba(0, 0.9, 1, 0.055)
+        border.color: Qt.rgba(0, 0.9, 1, 0.28); border.width: 1.5
+        clip: true
+        z: 5
+
+        // Shimmer ya juu
+        Rectangle {
+            anchors { top: parent.top; left: parent.left; right: parent.right }
+            height: 2; radius: parent.radius
+            gradient: Gradient {
+                orientation: Gradient.Horizontal
+                GradientStop { position: 0.0; color: "transparent" }
+                GradientStop { position: 0.35; color: Qt.rgba(0, 0.9, 1, 0.55) }
+                GradientStop { position: 0.65; color: Qt.rgba(0, 0.9, 1, 0.55) }
+                GradientStop { position: 1.0; color: "transparent" }
+            }
+        }
+
+        // Mwanga wa mandharinyuma
+        Rectangle {
+            anchors { top: parent.top; left: parent.left; right: parent.right }
+            height: parent.height * 0.5; radius: parent.radius
+            gradient: Gradient {
+                GradientStop { position: 0.0; color: Qt.rgba(0, 0.9, 1, 0.045) }
+                GradientStop { position: 1.0; color: "transparent" }
+            }
+        }
+
+        Column {
+            id: wotdInner
+            anchors {
+                top: parent.top; topMargin: app.pad * 0.9
+                left: parent.left; leftMargin: app.pad * 1.1
+                right: wotdArrow.left; rightMargin: app.pad * 0.5
+            }
+            spacing: 4
+
+            // Kichwa — lebo "Neno la Siku"
+            Row {
+                spacing: 6
+                Rectangle {
+                    width: 3; height: 11; radius: 2; color: iqGold
+                    anchors.verticalCenter: parent.verticalCenter
+                    SequentialAnimation on opacity {
+                        loops: Animation.Infinite
+                        NumberAnimation { to: 0.25; duration: 900; easing.type: Easing.InOutSine }
+                        NumberAnimation { to: 1.0;  duration: 900; easing.type: Easing.InOutSine }
+                    }
+                }
+                Text {
+                    text: "✨ NENO LA SIKU"
+                    font.pixelSize: app.fntSm - 2; font.bold: true; font.letterSpacing: 2
+                    color: Qt.rgba(0, 0.9, 1, 0.50)
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+            }
+
+            // Neno kuu la Kiswahili
+            Text {
+                text: app.wordOfDay ? app.wordOfDay.sw : ""
+                font.pixelSize: app.fntLg * 1.05; font.bold: true; font.letterSpacing: 1
+                color: iqGold
+                style: Text.Glow; styleColor: Qt.rgba(0, 0.9, 1, 0.30)
+                width: parent.width
+                elide: Text.ElideRight
+            }
+
+            // Tafsiri ya Kiingereza — inafichwa mpaka mtumiaji abonyeze
+            Item {
+                width: parent.width
+                height: enRevealRow.implicitHeight
+
+                Row {
+                    id: enRevealRow
+                    spacing: 6
+
+                    Text {
+                        visible: app.wotdRevealed
+                        text: app.wordOfDay ? app.wordOfDay.en : ""
+                        font.pixelSize: app.fntMd; color: Qt.rgba(0.82, 0.96, 1, 0.92)
+                        elide: Text.ElideRight
+                        width: wotdInner.width - 60
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
+
+                    Rectangle {
+                        visible: !app.wotdRevealed
+                        width: Math.min(160, wotdInner.width - 20)
+                        height: app.fntMd + 4; radius: 4
+                        color: Qt.rgba(0, 0.9, 1, 0.10)
+                        border.color: Qt.rgba(0, 0.9, 1, 0.22); border.width: 1
+                        Text {
+                            anchors.centerIn: parent
+                            text: "Gusa kuona tafsiri"
+                            font.pixelSize: app.fntSm - 2; color: Qt.rgba(0, 0.9, 1, 0.40)
+                            font.italic: true
+                        }
+                    }
+                }
+            }
+
+            // Mfano — inaonekana tu baada ya kufunua
+            Text {
+                visible: app.wotdRevealed && app.wordOfDay && app.wordOfDay.ex_sw
+                text: app.wordOfDay ? ("📝 " + (app.wordOfDay.ex_sw || "")) : ""
+                font.pixelSize: app.fntSm - 1; font.italic: true
+                color: Qt.rgba(0, 0.9, 1, 0.52)
+                width: parent.width; wrapMode: Text.WordWrap
+            }
+
+            Item { width: 1; height: 2 }
+        }
+
+        // Mshale wa kulia / kitufe cha maelezo kamili
+        Text {
+            id: wotdArrow
+            anchors { right: parent.right; rightMargin: app.pad * 0.9; verticalCenter: parent.verticalCenter }
+            text: "›"; font.pixelSize: app.fntXl
+            color: wotdMA.pressed ? Qt.rgba(0, 0.9, 1, 0.9) : Qt.rgba(0, 0.9, 1, 0.30)
+            Behavior on color { ColorAnimation { duration: 80 } }
+        }
+
+        MouseArea {
+            id: wotdMA
+            anchors.fill: parent
+            onClicked: {
+                if (!app.wotdRevealed) {
+                    app.wotdRevealed = true;
+                } else {
+                    app.currentWord = app.wordOfDay;
+                    app.showDetail  = true;
+                }
+            }
+        }
+
+        // Mstari wa kupumzika chini
+        Rectangle {
+            anchors { bottom: parent.bottom; left: parent.left; right: parent.right }
+            height: 1; color: Qt.rgba(0, 0.9, 1, 0.08)
+        }
+    }
+
     // ── ORODHA YA MANENO ──────────────────────────────────────────────────────
     ListView {
         id: wordList
         anchors {
-            top: header.bottom; topMargin: 4
+            top: wotdCard.bottom; topMargin: 4
             left: parent.left; right: parent.right
             bottom: bottomBar.top; bottomMargin: 2
         }
@@ -602,6 +838,28 @@ Rectangle {
                     MouseArea {
                         id: srtMA; anchors.fill: parent
                         onClicked: { app.sortMode = modelData.mode; }
+                    }
+                }
+            }
+
+            // Kitufe cha Quiz
+            Rectangle {
+                height: bottomBar.height * 0.72
+                width: quizBarLbl.implicitWidth + app.pad * 1.6
+                radius: height / 2
+                color: quizBarMA.pressed ? Qt.rgba(1, 0.85, 0, 0.22) : Qt.rgba(1, 0.85, 0, 0.10)
+                border.color: "#ffd700"; border.width: 1
+                Behavior on color { ColorAnimation { duration: 80 } }
+                Text {
+                    id: quizBarLbl; anchors.centerIn: parent
+                    text: "🎯 MCHEZO"
+                    font.pixelSize: app.fntSm; font.bold: true
+                    color: "#ffd700"
+                }
+                MouseArea {
+                    id: quizBarMA; anchors.fill: parent
+                    onClicked: {
+                        if (app.allWords.length >= 4) { app.quizStart(); }
                     }
                 }
             }
@@ -978,6 +1236,341 @@ Rectangle {
             from: 0.88; to: 1.0
             duration: 180; easing.type: Easing.OutBack
             running: app.showDetail
+        }
+    }
+
+    // ─────────────────────────────────────────────────────────────────────────
+    //  QUIZ OVERLAY  (z: 30)
+    // ─────────────────────────────────────────────────────────────────────────
+    Rectangle {
+        id: quizOverlay
+        anchors.fill: parent
+        color: Qt.rgba(0, 0.04, 0.06, 0.96)
+        visible: app.showQuiz
+        opacity: 0
+        z: 30
+
+        // Mandharinyuma ya nyota
+        Canvas {
+            anchors.fill: parent; opacity: 0.18
+            property real t: 0
+            NumberAnimation on t { from: 0; to: 1; duration: 10000; loops: Animation.Infinite }
+            onTChanged: requestPaint()
+            onPaint: {
+                var ctx = getContext("2d"); ctx.clearRect(0, 0, width, height);
+                for (var i = 0; i < 40; i++) {
+                    var x = (i * 211 + 17) % width; var y = (i * 131 + 37) % height;
+                    var a = 0.25 + 0.2 * Math.sin(t * Math.PI * 2 + i * 0.9);
+                    ctx.beginPath(); ctx.arc(x, y, 0.8, 0, Math.PI * 2);
+                    ctx.fillStyle = Qt.rgba(0, 0.9, 1, a); ctx.fill();
+                }
+            }
+        }
+
+        NumberAnimation {
+            id: quizIn
+            target: quizOverlay
+            property: "opacity"
+            from: 0; to: 1; duration: 220; easing.type: Easing.OutCubic
+            running: app.showQuiz
+        }
+
+        // ── Maudhui ya Quiz ───────────────────────────────────────────────────
+        Flickable {
+            anchors { fill: parent; margins: app.pad }
+            contentWidth: width
+            contentHeight: quizMainCol.implicitHeight + app.pad * 2
+            clip: true
+
+            Column {
+                id: quizMainCol
+                width: parent.width
+                spacing: app.pad * 0.8
+
+                // ── Header ya Quiz ────────────────────────────────────────────
+                Item {
+                    width: parent.width; height: app.headerH * 0.85
+
+                    Column {
+                        anchors { left: parent.left; verticalCenter: parent.verticalCenter }
+                        spacing: 4
+
+                        Row {
+                            spacing: 6
+                            Text { text: "🎯"; font.pixelSize: app.fntLg; anchors.verticalCenter: parent.verticalCenter }
+                            Text {
+                                text: "MCHEZO WA KAMUSI"
+                                font.pixelSize: app.fntMd; font.bold: true; font.letterSpacing: 2
+                                color: iqGold; style: Text.Glow; styleColor: Qt.rgba(0, 0.9, 1, 0.30)
+                                anchors.verticalCenter: parent.verticalCenter
+                            }
+                        }
+
+                        // Toggle mwelekeo wa swali
+                        Rectangle {
+                            height: app.btnH * 0.55
+                            width: qDirLbl.implicitWidth + app.pad * 1.2
+                            radius: height / 2
+                            color: qDirMA.pressed ? Qt.rgba(0, 0.9, 1, 0.18) : Qt.rgba(0, 0.9, 1, 0.08)
+                            border.color: Qt.rgba(0, 0.9, 1, 0.35); border.width: 1
+                            Behavior on color { ColorAnimation { duration: 80 } }
+                            Text {
+                                id: qDirLbl; anchors.centerIn: parent
+                                text: app.quizSwToEn ? "SW → EN" : "EN → SW"
+                                font.pixelSize: app.fntSm - 1; font.bold: true; color: iqAccent
+                            }
+                            MouseArea {
+                                id: qDirMA; anchors.fill: parent
+                                onClicked: { app.quizSwToEn = !app.quizSwToEn; app.quizNext(); }
+                            }
+                        }
+                    }
+
+                    // Alama za Score
+                    Column {
+                        anchors { right: qCloseBtn.left; rightMargin: app.pad * 0.7; verticalCenter: parent.verticalCenter }
+                        spacing: 2
+
+                        Text {
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            text: app.quizScore + " / " + app.quizTotal
+                            font.pixelSize: app.fntLg; font.bold: true; color: iqGold
+                        }
+                        Row {
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            spacing: 6
+                            Text {
+                                text: "🔥 " + app.quizStreak
+                                font.pixelSize: app.fntSm
+                                color: app.quizStreak >= 3 ? "#ff9500" : iqTextDim
+                                Behavior on color { ColorAnimation { duration: 200 } }
+                            }
+                            Text { text: "🏆 " + app.quizBestStreak; font.pixelSize: app.fntSm; color: iqTextDim }
+                        }
+                    }
+
+                    // Funga Quiz
+                    Rectangle {
+                        id: qCloseBtn
+                        anchors { right: parent.right; verticalCenter: parent.verticalCenter }
+                        width: app.btnH * 0.80; height: app.btnH * 0.80; radius: height / 2
+                        color: qCloseMA.pressed ? Qt.rgba(1, 0.2, 0.2, 0.25) : Qt.rgba(1, 0.15, 0.15, 0.10)
+                        border.color: iqDanger; border.width: 1.5
+                        Behavior on color { ColorAnimation { duration: 80 } }
+                        Text { anchors.centerIn: parent; text: "X"; font.pixelSize: app.fntMd; font.bold: true; color: iqDanger }
+                        MouseArea { id: qCloseMA; anchors.fill: parent; onClicked: { app.showQuiz = false; } }
+                    }
+                }
+
+                // Mstari wa mgawanyo
+                Rectangle {
+                    width: parent.width; height: 1
+                    gradient: Gradient {
+                        orientation: Gradient.Horizontal
+                        GradientStop { position: 0.0; color: "transparent" }
+                        GradientStop { position: 0.3; color: Qt.rgba(0, 0.9, 1, 0.35) }
+                        GradientStop { position: 0.7; color: Qt.rgba(0, 0.9, 1, 0.35) }
+                        GradientStop { position: 1.0; color: "transparent" }
+                    }
+                }
+
+                // ── Swali Kuu ─────────────────────────────────────────────────
+                Rectangle {
+                    width: parent.width
+                    height: qQuestionCol.implicitHeight + app.pad * 2.2
+                    radius: app.radius * 1.2
+                    color: Qt.rgba(0, 0.9, 1, 0.06)
+                    border.color: Qt.rgba(0, 0.9, 1, 0.25); border.width: 1.5
+
+                    Rectangle {
+                        anchors { top: parent.top; left: parent.left; right: parent.right }
+                        height: 2; radius: parent.radius
+                        gradient: Gradient {
+                            orientation: Gradient.Horizontal
+                            GradientStop { position: 0.0; color: "transparent" }
+                            GradientStop { position: 0.4; color: Qt.rgba(0, 0.9, 1, 0.50) }
+                            GradientStop { position: 0.6; color: Qt.rgba(0, 0.9, 1, 0.50) }
+                            GradientStop { position: 1.0; color: "transparent" }
+                        }
+                    }
+
+                    Column {
+                        id: qQuestionCol
+                        anchors {
+                            top: parent.top; topMargin: app.pad
+                            left: parent.left; right: parent.right
+                        }
+                        spacing: 6
+
+                        Text {
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            text: app.quizSwToEn ? "Tafsiri ya Kiingereza ni nini?" : "Tafsiri ya Kiswahili ni nini?"
+                            font.pixelSize: app.fntSm - 1; color: Qt.rgba(0, 0.9, 1, 0.45); font.letterSpacing: 1
+                        }
+
+                        Text {
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            text: app.quizQuestion
+                                  ? (app.quizSwToEn ? app.quizQuestion.sw : app.quizQuestion.en)
+                                  : ""
+                            font.pixelSize: app.fntXl * 1.05; font.bold: true; font.letterSpacing: 1.5
+                            color: iqGold; style: Text.Glow; styleColor: Qt.rgba(0, 0.9, 1, 0.35)
+                            wrapMode: Text.WordWrap; horizontalAlignment: Text.AlignHCenter
+                            width: parent.width - app.pad * 2
+                        }
+
+                        Text {
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            visible: app.quizQuestion && app.quizQuestion.cat
+                            text: app.quizQuestion ? ("🏷 " + (app.quizQuestion.cat || "")) : ""
+                            font.pixelSize: app.fntSm - 2; color: Qt.rgba(0.7, 0.95, 1, 0.40); font.italic: true
+                        }
+                    }
+                }
+
+                // ── Majibu 4 ─────────────────────────────────────────────────
+                Column {
+                    width: parent.width
+                    spacing: app.pad * 0.65
+
+                    Repeater {
+                        model: 4
+                        delegate: Rectangle {
+                            id: choiceRect
+                            property int  ci:        index
+                            property var  cword:     app.quizChoices.length > ci ? app.quizChoices[ci] : null
+                            property bool isCorrect: cword !== null && cword === app.quizQuestion
+                            property bool isChosen:  app.quizAnswered === ci
+                            property bool answered:  app.quizAnswered !== -1
+
+                            width: parent.width; height: app.btnH * 1.05
+                            radius: app.radius; border.width: 1.8; clip: true
+
+                            color: !answered
+                                   ? (choiceMA.pressed ? Qt.rgba(0, 0.9, 1, 0.14) : Qt.rgba(0, 0.9, 1, 0.055))
+                                   : isCorrect  ? Qt.rgba(0.13, 0.77, 0.37, 0.22)
+                                   : isChosen   ? Qt.rgba(0.94, 0.27, 0.27, 0.20)
+                                   : Qt.rgba(0, 0.9, 1, 0.03)
+
+                            border.color: !answered
+                                          ? (choiceMA.pressed ? Qt.rgba(0, 0.9, 1, 0.60) : Qt.rgba(0, 0.9, 1, 0.20))
+                                          : isCorrect ? "#22c55e"
+                                          : isChosen  ? "#ef4444"
+                                          : Qt.rgba(0, 0.9, 1, 0.10)
+
+                            Behavior on color        { ColorAnimation { duration: 160 } }
+                            Behavior on border.color { ColorAnimation { duration: 160 } }
+
+                            Row {
+                                anchors {
+                                    left: parent.left; leftMargin: app.pad * 0.9
+                                    right: parent.right; rightMargin: app.pad * 0.9
+                                    verticalCenter: parent.verticalCenter
+                                }
+                                spacing: app.pad * 0.7
+
+                                // Badge A B C D
+                                Rectangle {
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    width: app.fntMd + 10; height: app.fntMd + 10; radius: width / 2
+                                    color: !answered          ? Qt.rgba(0, 0.9, 1, 0.10)
+                                           : isCorrect        ? Qt.rgba(0.13, 0.77, 0.37, 0.35)
+                                           : isChosen         ? Qt.rgba(0.94, 0.27, 0.27, 0.30)
+                                           : Qt.rgba(0, 0.9, 1, 0.05)
+                                    Behavior on color { ColorAnimation { duration: 160 } }
+                                    Text {
+                                        anchors.centerIn: parent
+                                        text: ["A","B","C","D"][index]
+                                        font.pixelSize: app.fntSm; font.bold: true
+                                        color: !answered ? iqAccent
+                                               : isCorrect ? "#22c55e"
+                                               : isChosen  ? "#ef4444"
+                                               : iqTextDim
+                                        Behavior on color { ColorAnimation { duration: 160 } }
+                                    }
+                                }
+
+                                // Maandishi ya chaguo
+                                Text {
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    width: parent.width - (app.fntMd + 14) - app.pad * 0.7 - resultIco.implicitWidth - 4
+                                    text: choiceRect.cword
+                                          ? (app.quizSwToEn ? choiceRect.cword.en : choiceRect.cword.sw)
+                                          : ""
+                                    font.pixelSize: app.fntMd
+                                    font.bold: choiceRect.answered && choiceRect.isCorrect
+                                    color: !answered ? iqTextPri
+                                           : isCorrect ? "#22c55e"
+                                           : isChosen  ? "#ef4444"
+                                           : iqTextDim
+                                    wrapMode: Text.WordWrap
+                                    Behavior on color { ColorAnimation { duration: 160 } }
+                                }
+
+                                // Ikoni matokeo
+                                Text {
+                                    id: resultIco
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    visible: choiceRect.answered && (choiceRect.isCorrect || choiceRect.isChosen)
+                                    text: choiceRect.isCorrect ? "✅" : "❌"
+                                    font.pixelSize: app.fntMd
+                                }
+                            }
+
+                            MouseArea {
+                                id: choiceMA; anchors.fill: parent
+                                onClicked: {
+                                    if (!choiceRect.answered && choiceRect.cword !== null) {
+                                        app.quizAnswer(choiceRect.ci);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                // ── Mfano wa jibu + Kitufe cha swali jipya ───────────────────
+                Row {
+                    width: parent.width
+                    spacing: app.pad
+                    layoutDirection: Qt.RightToLeft
+
+                    // Kitufe cha swali jipya
+                    Rectangle {
+                        id: nextBtn
+                        height: app.btnH; width: nextLbl.implicitWidth + app.pad * 2
+                        radius: height / 2
+                        color: nextMA.pressed ? Qt.rgba(0, 0.9, 1, 0.22) : Qt.rgba(0, 0.9, 1, 0.10)
+                        border.color: iqGold; border.width: 1.5
+                        Behavior on color { ColorAnimation { duration: 80 } }
+                        Text {
+                            id: nextLbl; anchors.centerIn: parent
+                            text: app.quizAnswered === -1 ? "Ruka ⏭" : "Jipya ▶"
+                            font.pixelSize: app.fntMd; font.bold: true; color: iqGold
+                        }
+                        MouseArea { id: nextMA; anchors.fill: parent; onClicked: { app.quizNext(); } }
+                    }
+
+                    // Mfano wa sentensi (baada ya kujibu)
+                    Rectangle {
+                        visible: app.quizAnswered !== -1 && app.quizQuestion && app.quizQuestion.ex_sw
+                        height: nextBtn.height
+                        width: parent.width - nextBtn.width - app.pad
+                        radius: app.radius * 0.8
+                        color: Qt.rgba(0, 0.9, 1, 0.05)
+                        border.color: Qt.rgba(0, 0.9, 1, 0.15); border.width: 1
+                        Text {
+                            anchors { fill: parent; margins: app.pad * 0.6 }
+                            text: app.quizQuestion ? ("📝 " + (app.quizQuestion.ex_sw || "")) : ""
+                            font.pixelSize: app.fntSm - 1; font.italic: true
+                            color: Qt.rgba(0, 0.9, 1, 0.55)
+                            wrapMode: Text.WordWrap; verticalAlignment: Text.AlignVCenter
+                        }
+                    }
+                }
+
+                Item { width: 1; height: app.pad * 2 }
+            }
         }
     }
 }
