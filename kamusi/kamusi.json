@@ -1,5 +1,545 @@
 [
   {
+    "sw": "Umasikini",
+    "en": "Poverty"
+  },
+  {
+    "sw": "Mteja",
+    "en": "Customer"
+  },
+  {
+    "sw": "Ununuzi",
+    "en": "Shopping"
+  },
+  {
+    "sw": "Supermarket",
+    "en": "Soko kuu"
+  },
+  {
+    "sw": "Sarafu",
+    "en": "Coins"
+  },
+  {
+    "sw": "Maisha ya kila siku",
+    "en": "Daily life"
+  },
+  {
+    "sw": "Mradi",
+    "en": "Project"
+  },
+  {
+    "sw": "Mtandao",
+    "en": "Internet"
+  },
+  {
+    "sw": "Skena",
+    "en": "Scanner"
+  },
+  {
+    "sw": "Lapotopu",
+    "en": "Laptop"
+  },
+  {
+    "sw": "Vifaa vya ofisi",
+    "en": "Office equipment"
+  },
+  {
+    "sw": "Kila siku",
+    "en": "Every day"
+  },
+  {
+    "sw": "Mustakabali",
+    "en": "Future"
+  },
+  {
+    "sw": "Sasa hivi",
+    "en": "Right now"
+  },
+  {
+    "sw": "Mwaka jana",
+    "en": "Last year"
+  },
+  {
+    "sw": "Wiki hii",
+    "en": "This week"
+  },
+  {
+    "sw": "Dhana za muda",
+    "en": "Time concepts"
+  },
+  {
+    "sw": "Miezi",
+    "en": "Months"
+  },
+  {
+    "sw": "Siku za wiki",
+    "en": "Days of the week"
+  },
+  {
+    "sw": "Kati",
+    "en": "Middle/Between"
+  },
+  {
+    "sw": "Nje",
+    "en": "Outside"
+  },
+  {
+    "sw": "Maelekeo",
+    "en": "Directions"
+  },
+  {
+    "sw": "Sawa na",
+    "en": "Equals"
+  },
+  {
+    "sw": "Gawanya",
+    "en": "Divide"
+  },
+  {
+    "sw": "Zidisha",
+    "en": "Multiply"
+  },
+  {
+    "sw": "Toa",
+    "en": "Minus/Subtract"
+  },
+  {
+    "sw": "Jumlisha",
+    "en": "Plus/Add"
+  },
+  {
+    "sw": "Bilioni moja",
+    "en": "One billion"
+  },
+  {
+    "sw": "Milioni moja",
+    "en": "One million"
+  },
+  {
+    "sw": "Elfu moja",
+    "en": "One thousand"
+  },
+  {
+    "sw": "Mia tano",
+    "en": "Five hundred"
+  },
+  {
+    "sw": "Mia moja",
+    "en": "One hundred"
+  },
+  {
+    "sw": "Nambari",
+    "en": "Numbers"
+  },
+  {
+    "sw": "Koni",
+    "en": "Cone"
+  },
+  {
+    "sw": "Mchemraba",
+    "en": "Cube"
+  },
+  {
+    "sw": "Silinda",
+    "en": "Cylinder"
+  },
+  {
+    "sw": "Piramidi",
+    "en": "Pyramid"
+  },
+  {
+    "sw": "Tufe",
+    "en": "Sphere"
+  },
+  {
+    "sw": "Duara dufu",
+    "en": "Oval"
+  },
+  {
+    "sw": "Pembetatu",
+    "en": "Triangle"
+  },
+  {
+    "sw": "Mraba",
+    "en": "Square"
+  },
+  {
+    "sw": "Mstatili",
+    "en": "Rectangle"
+  },
+  {
+    "sw": "Duara",
+    "en": "Circle"
+  },
+  {
+    "sw": "Maumbo",
+    "en": "Shapes"
+  },
+  {
+    "sw": "Rangi ya wardi",
+    "en": "Pink"
+  },
+  {
+    "sw": "Rangi ya kahawa",
+    "en": "Brown"
+  },
+  {
+    "sw": "Rangi ya machungwa",
+    "en": "Orange"
+  },
+  {
+    "sw": "Urujuani",
+    "en": "Purple"
+  },
+  {
+    "sw": "Ongezeko la joto",
+    "en": "Global warming"
+  },
+  {
+    "sw": "Uchafuzi",
+    "en": "Pollution"
+  },
+  {
+    "sw": "Wadudu",
+    "en": "Insects"
+  },
+  {
+    "sw": "Ndege (kiumbe)",
+    "en": "Birds"
+  },
+  {
+    "sw": "Wanyama",
+    "en": "Animals"
+  },
+  {
+    "sw": "Viumbe hai",
+    "en": "Living organisms"
+  },
+  {
+    "sw": "Kichaka",
+    "en": "Bush"
+  },
+  {
+    "sw": "Nyika",
+    "en": "Savannah"
+  },
+  {
+    "sw": "Tumbaku",
+    "en": "Tobacco"
+  },
+  {
+    "sw": "Kilima",
+    "en": "Hill"
+  },
+  {
+    "sw": "Umeme wa radi",
+    "en": "Lightning"
+  },
+  {
+    "sw": "Tabianchi",
+    "en": "Climate"
+  },
+  {
+    "sw": "Kaboni daioksaidi",
+    "en": "Carbon dioxide"
+  },
+  {
+    "sw": "Heko",
+    "en": "Congratulations"
+  },
+  {
+    "sw": "Asante sana",
+    "en": "Thank you very much"
+  },
+  {
+    "sw": "Tuonane kesho",
+    "en": "See you tomorrow"
+  },
+  {
+    "sw": "Tuonane baadaye",
+    "en": "See you later"
+  },
+  {
+    "sw": "Habari za usiku",
+    "en": "Good night"
+  },
+  {
+    "sw": "Habari za jioni",
+    "en": "Good evening"
+  },
+  {
+    "sw": "Habari za mchana",
+    "en": "Good afternoon"
+  },
+  {
+    "sw": "Habari za asubuhi",
+    "en": "Good morning"
+  },
+  {
+    "sw": "Ndoto njema",
+    "en": "Sweet dreams"
+  },
+  {
+    "sw": "Lala salama",
+    "en": "Sleep well"
+  },
+  {
+    "sw": "Vipi",
+    "en": "How is it?"
+  },
+  {
+    "sw": "Kwema",
+    "en": "Is it well?"
+  },
+  {
+    "sw": "Poa",
+    "en": "Cool (response to Mambo)"
+  },
+  {
+    "sw": "Mambo",
+    "en": "What's up"
+  },
+  {
+    "sw": "Hatujambo",
+    "en": "We are fine"
+  },
+  {
+    "sw": "Hamjambo",
+    "en": "How are you (plural)"
+  },
+  {
+    "sw": "Sijambo",
+    "en": "I am fine"
+  },
+  {
+    "sw": "Njema",
+    "en": "Great"
+  },
+  {
+    "sw": "Salama",
+    "en": "Fine/Safe"
+  },
+  {
+    "sw": "Muda wa safari",
+    "en": "Flight duration"
+  },
+  {
+    "sw": "Barakoa ya oksijeni",
+    "en": "Oxygen mask"
+  },
+  {
+    "sw": "Mshipi wa usalama",
+    "en": "Seatbelt"
+  },
+  {
+    "sw": "Dirisha la ndege",
+    "en": "Cabin window"
+  },
+  {
+    "sw": "Mkia wa ndege",
+    "en": "Tail fin"
+  },
+  {
+    "sw": "Mabawa",
+    "en": "Wings"
+  },
+  {
+    "sw": "Parashuti",
+    "en": "Parachute"
+  },
+  {
+    "sw": "Ndege ya kivita",
+    "en": "Fighter jet"
+  },
+  {
+    "sw": "Helikopta",
+    "en": "Helicopter"
+  },
+  {
+    "sw": "Kadi ya kupandia",
+    "en": "Boarding pass"
+  },
+  {
+    "sw": "Msaidizi wa rubani",
+    "en": "Co-pilot"
+  },
+  {
+    "sw": "Kutua",
+    "en": "Landing"
+  },
+  {
+    "sw": "Njia ya kurukia ndege",
+    "en": "Runway"
+  },
+  {
+    "sw": "Kuegesha gari",
+    "en": "Parking"
+  },
+  {
+    "sw": "Mafuta ya gari",
+    "en": "Fuel/Petrol"
+  },
+  {
+    "sw": "Usukani",
+    "en": "Steering wheel"
+  },
+  {
+    "sw": "Gia",
+    "en": "Gear"
+  },
+  {
+    "sw": "Breki",
+    "en": "Brake"
+  },
+  {
+    "sw": "Injini",
+    "en": "Engine"
+  },
+  {
+    "sw": "Tairi",
+    "en": "Tyre"
+  },
+  {
+    "sw": "Leseni ya udereva",
+    "en": "Driving license"
+  },
+  {
+    "sw": "Bima ya gari",
+    "en": "Car insurance"
+  },
+  {
+    "sw": "Aksidenti",
+    "en": "Accident"
+  },
+  {
+    "sw": "Foleni",
+    "en": "Traffic jam"
+  },
+  {
+    "sw": "Kondakta",
+    "en": "Conductor"
+  },
+  {
+    "sw": "Kituo cha treni",
+    "en": "Railway station"
+  },
+  {
+    "sw": "Kituo cha basi",
+    "en": "Bus station"
+  },
+  {
+    "sw": "Reli",
+    "en": "Railway"
+  },
+  {
+    "sw": "Alama za barabarani",
+    "en": "Traffic signs"
+  },
+  {
+    "sw": "Taa za kuongozea magari",
+    "en": "Traffic lights"
+  },
+  {
+    "sw": "Mzunguko wa barabara",
+    "en": "Roundabout"
+  },
+  {
+    "sw": "Miwani ya tiba",
+    "en": "Prescription glasses"
+  },
+  {
+    "sw": "Daktari wa macho",
+    "en": "Optometrist"
+  },
+  {
+    "sw": "Daktari wa meno",
+    "en": "Dentist"
+  },
+  {
+    "sw": "Ganzi ya meno",
+    "en": "Dental anesthesia"
+  },
+  {
+    "sw": "Ugonjwa wa akili",
+    "en": "Mental illness"
+  },
+  {
+    "sw": "Msongo wa mawazo",
+    "en": "Stress"
+  },
+  {
+    "sw": "Afya ya akili",
+    "en": "Mental health"
+  },
+  {
+    "sw": "Urefu",
+    "en": "Height"
+  },
+  {
+    "sw": "Uzito",
+    "en": "Weight"
+  },
+  {
+    "sw": "Lishe",
+    "en": "Nutrition"
+  },
+  {
+    "sw": "Chumba cha upasuaji",
+    "en": "Operating theater"
+  },
+  {
+    "sw": "Bendeji",
+    "en": "Bandage"
+  },
+  {
+    "sw": "Kuvunjika mfupa",
+    "en": "Fracture"
+  },
+  {
+    "sw": "Kidonda",
+    "en": "Wound"
+  },
+  {
+    "sw": "Maumivu ya tumbo",
+    "en": "Stomach ache"
+  },
+  {
+    "sw": "Kuumwa kichwa",
+    "en": "Headache"
+  },
+  {
+    "sw": "VVU",
+    "en": "HIV"
+  },
+  {
+    "sw": "UKIMWI",
+    "en": "AIDS"
+  },
+  {
+    "sw": "Kichocho",
+    "en": "Bilharzia"
+  },
+  {
+    "sw": "Shinikizo la damu",
+    "en": "Blood pressure"
+  },
+  {
+    "sw": "Kundi la damu",
+    "en": "Blood group"
+  },
+  {
+    "sw": "Sanamu ya mionzi",
+    "en": "X-ray"
+  },
+  {
+    "sw": "Siringi",
+    "en": "Syringe"
+  },
+  {
+    "sw": "Cheti cha daktari",
+    "en": "Prescription"
+  },
+  {
     "sw": "Taji",
     "en": "Crown"
   },
