@@ -1,5 +1,80 @@
 [
   {
+    "sw": "kioo",
+    "en": "mirror",
+    "pos": "noun"
+  },
+  {
+    "sw": "chandarua",
+    "en": "mosquito net",
+    "pos": "noun"
+  },
+  {
+    "sw": "mkoa",
+    "en": "region",
+    "pos": "noun"
+  },
+  {
+    "sw": "malaika",
+    "en": "angel",
+    "pos": "noun"
+  },
+  {
+    "sw": "shetani",
+    "en": "the devil",
+    "pos": "noun"
+  },
+  {
+    "sw": "mfagio",
+    "en": "a broom",
+    "pos": "noun"
+  },
+  {
+    "sw": "meerkat",
+    "en": "meerkat",
+    "pos": "noun"
+  },
+  {
+    "sw": "pundamilia",
+    "en": "zebra",
+    "pos": "noun"
+  },
+  {
+    "sw": "kenge",
+    "en": "tickle",
+    "pos": "noun"
+  },
+  {
+    "sw": "mshumaa",
+    "en": "a candle",
+    "pos": "noun"
+  },
+  {
+    "sw": "kidole gumba",
+    "en": "thumb",
+    "pos": "noun"
+  },
+  {
+    "sw": "magoti",
+    "en": "knees",
+    "pos": "noun"
+  },
+  {
+    "sw": "kichaa",
+    "en": "crazy",
+    "pos": "noun"
+  },
+  {
+    "sw": "uti wa mgongo",
+    "en": "spinal cord",
+    "pos": "noun"
+  },
+  {
+    "sw": "godoro",
+    "en": "mattress",
+    "pos": "noun"
+  },
+  {
     "sw": "maji",
     "en": "water",
     "pos": "noun"
