@@ -100,28 +100,25 @@ Rectangle {
     function ad() { cmd("#showGoogleAd"); }
     function close() { closeIfInsideApp(); closeIfQMLDialogApp(); ad(); }
 
-    // ── Maneno yote — yanajazwa baada ya download/QSettings ──────────────────
+    // ── Maneno yote ───────────────────────────────────────────────────────────
     property var allWords: []
 
     // ── Hali ya programu ──────────────────────────────────────────────────────
-    property string searchText:     ""
-    property string filterPOS:      ""
-    property int    sortMode:       0       // 0=A-Z sw, 1=A-Z en, 2=POS
-    property var    currentWord:    null    // neno lililochaguliwa (detail view)
-    property bool   showDetail:     false
-    property bool   langMode:       false   // false=SW→EN, true=EN→SW
+    property string searchText:  ""
+    property string filterPOS:   ""
+    property int    sortMode:    0
+    property var    currentWord: null
+    property bool   showDetail:  false
+    property bool   langMode:    false
 
     // ── Hali ya upakuaji ──────────────────────────────────────────────────────
-    property bool   isLoading:      false
-    property string loadStatus:     ""     // ujumbe wa hali (loading/error/ok)
+    property bool   isLoading:   false
+    property string loadStatus:  ""
 
-    // ── QSettings key ────────────────────────────────────────────────────────
+    // ── QSettings ────────────────────────────────────────────────────────────
     readonly property string settingsKey: "kamusi_json_cache"
 
-    // ── QSettings object ─────────────────────────────────────────────────────
-    Settings {
-        id: appSettings
-    }
+    Settings { id: appSettings }
 
     // ── Jaza maneno kutoka JSON string ────────────────────────────────────────
     function loadWordsFromJson(jsonStr) {
@@ -171,23 +168,21 @@ Rectangle {
         xhr.send();
     }
 
-    // ── Anzisha: jaribu QSettings kwanza, kisha download ─────────────────────
+    // ── Anzisha ───────────────────────────────────────────────────────────────
     function initKamusi() {
         var cached = appSettings.value(settingsKey, "");
         if (cached && cached.trim().length > 0) {
             var ok = loadWordsFromJson(cached);
             if (ok) {
                 loadStatus = "";
-                // Refresh kimya kimya nyuma ili kupata data mpya
                 downloadWords();
                 return;
             }
         }
-        // Hakuna cache — lazima tudownload
         downloadWords();
     }
 
-    // ── Aina za maneno ───────────────────────────────────────────────────────
+    // ── Aina za maneno ────────────────────────────────────────────────────────
     readonly property var posLabels: {
         "noun": "Nomino", "verb": "Kitenzi", "adjective": "Kivumishi",
         "adverb": "Kielelezo", "number": "Nambari", "": "Zote"
@@ -209,7 +204,6 @@ Rectangle {
             }
             result.push(w);
         }
-        // Panga
         result.sort(function(a, b) {
             if (sortMode === 1) return a.en.localeCompare(b.en);
             if (sortMode === 2) return a.pos.localeCompare(b.pos) || a.sw.localeCompare(b.sw);
@@ -219,9 +213,9 @@ Rectangle {
     }
 
     Component.onCompleted: { initKamusi(); }
-    onSearchTextChanged:    { rebuildFilter(); }
-    onFilterPOSChanged:     { rebuildFilter(); }
-    onSortModeChanged:      { rebuildFilter(); }
+    onSearchTextChanged:   { rebuildFilter(); }
+    onFilterPOSChanged:    { rebuildFilter(); }
+    onSortModeChanged:     { rebuildFilter(); }
 
     function posColor(pos) {
         if (pos === "verb")      return "#22c55e";
@@ -233,7 +227,20 @@ Rectangle {
     }
 
     // ─────────────────────────────────────────────────────────────────────────
-    //  MAIN LAYOUT
+    //  MAIN LAYOUT  (flat — watoto wa moja kwa moja wa app)
+    //
+    //  app
+    //  ├── Canvas          starsBg
+    //  ├── Rectangle       header
+    //  │     ├── Rectangle   bg gradient
+    //  │     ├── Rectangle   bottom divider
+    //  │     ├── Item        headerRow   (logo | title | langToggle | closeBtn)
+    //  │     └── Rectangle   searchBar
+    //  ├── ListView        wordList
+    //  ├── Rectangle       bottomBar
+    //  ├── Item            brandBar
+    //  ├── Rectangle       loading overlay   (z:15)
+    //  └── Rectangle       detailOverlay     (z:20)
     // ─────────────────────────────────────────────────────────────────────────
 
     // ── Mandharinyuma ya nyota ────────────────────────────────────────────────
@@ -247,8 +254,6 @@ Rectangle {
         onPaint: {
             var ctx = getContext("2d");
             ctx.clearRect(0, 0, width, height);
-            var rng = Qt.createQmlObject('import QtQuick 2.14; Item {}', app);
-            // Dots za kudumu - seed-based
             for (var i = 0; i < 60; i++) {
                 var x = ((i * 173 + 29) % width);
                 var y = ((i * 97  + 53) % height);
@@ -266,697 +271,686 @@ Rectangle {
     Rectangle {
         id: header
         anchors { top: parent.top; left: parent.left; right: parent.right }
-        height: app.headerH + searchBar.height + app.pad * 2
+        height: headerRow.height + searchBar.height + app.pad * 2.4
         color: "transparent"
         z: 10
 
-        // Gradient ya chini ya header
+        // Mandharinyuma
         Rectangle {
             anchors.fill: parent
             gradient: Gradient {
-                GradientStop { position: 0.0; color: Qt.rgba(0,0.08,0.08,0.98) }
-                GradientStop { position: 1.0; color: Qt.rgba(2/255,13/255,13/255,0.85) }
+                GradientStop { position: 0.0; color: Qt.rgba(0, 0.08, 0.08, 0.98) }
+                GradientStop { position: 1.0; color: Qt.rgba(2/255, 13/255, 13/255, 0.85) }
             }
         }
 
-        // Mstari wa chini wa header
+        // Mstari wa chini
         Rectangle {
             anchors { bottom: parent.bottom; left: parent.left; right: parent.right }
             height: 1
             gradient: Gradient {
                 orientation: Gradient.Horizontal
                 GradientStop { position: 0.0; color: "transparent" }
-                GradientStop { position: 0.3; color: Qt.rgba(0,0.9,1,0.4) }
-                GradientStop { position: 0.7; color: Qt.rgba(0,0.9,1,0.4) }
+                GradientStop { position: 0.3; color: Qt.rgba(0, 0.9, 1, 0.4) }
+                GradientStop { position: 0.7; color: Qt.rgba(0, 0.9, 1, 0.4) }
                 GradientStop { position: 1.0; color: "transparent" }
             }
         }
 
-        Column {
+        // ── Safu ya kichwa ────────────────────────────────────────────────────
+        Item {
+            id: headerRow
             anchors { top: parent.top; left: parent.left; right: parent.right; margins: app.pad }
-            spacing: app.pad * 0.7
+            height: app.headerH
 
-            // Kichwa cha app + close button
+            // Nembo
             Item {
-                width: parent.width
-                height: app.headerH - app.pad
+                id: logoBox
+                anchors { verticalCenter: parent.verticalCenter; left: parent.left }
+                width: app.headerH * 0.80; height: app.headerH * 0.80
 
-                // Nembo / icon — glowing book
-                Item {
-                    id: logoBox
-                    anchors.verticalCenter: parent.verticalCenter
-                    anchors.left: parent.left
-                    width: app.headerH * 0.80; height: app.headerH * 0.80
-
-                    Rectangle {
-                        anchors.fill: parent
-                        radius: width * 0.24
-                        color: Qt.rgba(0, 0.9, 1, 0.06)
-                        border.color: Qt.rgba(0, 0.9, 1, 0.30); border.width: 1.5
+                Rectangle {
+                    anchors.fill: parent
+                    radius: width * 0.24
+                    color: Qt.rgba(0, 0.9, 1, 0.06)
+                    border.color: Qt.rgba(0, 0.9, 1, 0.30); border.width: 1.5
+                }
+                Rectangle {
+                    anchors.centerIn: parent
+                    width: parent.width * 1.15; height: parent.height * 1.15
+                    radius: width * 0.24
+                    color: "transparent"
+                    border.color: Qt.rgba(0, 0.9, 1, 0.10); border.width: 2
+                    SequentialAnimation on opacity {
+                        loops: Animation.Infinite
+                        NumberAnimation { to: 0.2; duration: 1800; easing.type: Easing.InOutSine }
+                        NumberAnimation { to: 1.0; duration: 1800; easing.type: Easing.InOutSine }
                     }
-                    // Glow ring
+                }
+                Text {
+                    anchors.centerIn: parent
+                    text: "📖"; font.pixelSize: Math.round(parent.height * 0.50)
+                }
+            }
+
+            // Jina la app + takwimu
+            Column {
+                anchors {
+                    verticalCenter: parent.verticalCenter
+                    left: logoBox.right; leftMargin: app.pad * 0.9
+                }
+                spacing: 3
+
+                Row {
+                    spacing: 8
                     Rectangle {
-                        anchors.centerIn: parent
-                        width: parent.width * 1.15; height: parent.height * 1.15
-                        radius: width * 0.24
-                        color: "transparent"
-                        border.color: Qt.rgba(0, 0.9, 1, 0.10); border.width: 2
+                        width: 3; height: titleTxt.font.pixelSize * 0.85
+                        radius: 2; color: iqGold
+                        anchors.verticalCenter: parent.verticalCenter
                         SequentialAnimation on opacity {
                             loops: Animation.Infinite
-                            NumberAnimation { to: 0.2; duration: 1800; easing.type: Easing.InOutSine }
-                            NumberAnimation { to: 1.0; duration: 1800; easing.type: Easing.InOutSine }
+                            NumberAnimation { to: 0.3; duration: 1200; easing.type: Easing.InOutSine }
+                            NumberAnimation { to: 1.0; duration: 1200; easing.type: Easing.InOutSine }
                         }
                     }
                     Text {
-                        anchors.centerIn: parent
-                        text: "📖"; font.pixelSize: Math.round(parent.height * 0.50)
+                        id: titleTxt
+                        text: "KAMUSI"
+                        font.pixelSize: app.fntXl; font.bold: true; font.letterSpacing: 4
+                        color: iqGold
+                        style: Text.Glow; styleColor: Qt.rgba(0, 0.9, 1, 0.40)
                     }
-                }
-
-                // Jina la app
-                Column {
-                    anchors {
-                        verticalCenter: parent.verticalCenter
-                        left: logoBox.right; leftMargin: app.pad * 0.9
-                    }
-                    spacing: 3
-
-                    // KAMUSI title na msumari wa cyan
-                    Row {
-                        spacing: 8
-                        Rectangle {
-                            width: 3; height: titleTxt.font.pixelSize * 0.85
-                            radius: 2
-                            color: iqGold
-                            anchors.verticalCenter: parent.verticalCenter
-                            SequentialAnimation on opacity {
-                                loops: Animation.Infinite
-                                NumberAnimation { to: 0.3; duration: 1200; easing.type: Easing.InOutSine }
-                                NumberAnimation { to: 1.0; duration: 1200; easing.type: Easing.InOutSine }
-                            }
-                        }
-                        Text {
-                            id: titleTxt
-                            text: "KAMUSI"
-                            font.pixelSize: app.fntXl; font.bold: true
-                            font.letterSpacing: 4
-                            color: iqGold
-                            style: Text.Glow; styleColor: Qt.rgba(0,0.9,1,0.40)
-                        }
-                    }
-
-                    // Subtitle row
-                    Row {
-                        spacing: 5
-                        Text {
-                            text: "SW"
-                            font.pixelSize: app.fntSm - 1; font.bold: true
-                            color: Qt.rgba(0, 0.9, 1, 0.9)
-                            anchors.verticalCenter: parent.verticalCenter
-                        }
-                        Text {
-                            text: "⇄"
-                            font.pixelSize: app.fntSm - 1
-                            color: Qt.rgba(0, 0.9, 1, 0.45)
-                            anchors.verticalCenter: parent.verticalCenter
-                        }
-                        Text {
-                            text: "EN"
-                            font.pixelSize: app.fntSm - 1; font.bold: true
-                            color: Qt.rgba(0.7, 0.95, 1, 0.9)
-                            anchors.verticalCenter: parent.verticalCenter
-                        }
-                        Rectangle { width: 1; height: 11; color: Qt.rgba(0,0.9,1,0.25); anchors.verticalCenter: parent.verticalCenter }
-                        Text {
-                            text: filteredWords.length + " / " + allWords.length + " maneno"
-                            font.pixelSize: app.fntSm - 1; color: iqTextDim
-                            anchors.verticalCenter: parent.verticalCenter
-                        }
-                    }
-                }
-
-                // Kitufe cha kubadilisha lugha
-                Rectangle {
-                    id: langToggle
-                    anchors {
-                        verticalCenter: parent.verticalCenter
-                        right: closeBtn.left; rightMargin: app.pad * 0.6
-                    }
-                    width: app.btnH * 1.5; height: app.btnH * 0.72
-                    radius: height / 2
-                    color: langMA.pressed ? Qt.rgba(0,0.9,1,0.15) : Qt.rgba(0,0.9,1,0.07)
-                    border.color: Qt.rgba(0,0.9,1,0.35); border.width: 1
-
-                    Text {
-                        anchors.centerIn: parent
-                        text: app.langMode ? "EN→SW" : "SW→EN"
-                        font.pixelSize: app.fntSm; font.bold: true
-                        color: iqAccent; font.letterSpacing: 0.5
-                    }
-                    MouseArea {
-                        id: langMA; anchors.fill: parent
-                        onClicked: { app.langMode = !app.langMode; }
-                    }
-                    Behavior on color { ColorAnimation { duration: 80 } }
-                }
-
-                // Kitufe cha kufunga (CLOSE)
-                Rectangle {
-                    id: closeBtn
-                    anchors {
-                        verticalCenter: parent.verticalCenter
-                        right: parent.right
-                    }
-                    width: app.btnH * 0.85; height: app.btnH * 0.85
-                    radius: height / 2
-                    color: closeMA2.pressed ? Qt.rgba(1,0.2,0.2,0.25) : Qt.rgba(1,0.15,0.15,0.10)
-                    border.color: iqDanger; border.width: 1.5
-                    Behavior on color { ColorAnimation { duration: 80 } }
-                    Text {
-                        anchors.centerIn: parent
-                        text: "X"; font.pixelSize: app.fntMd; font.bold: true
-                        color: iqDanger
-                    }
-                    MouseArea {
-                        id: closeMA2; anchors.fill: parent
-                        onClicked: { app.close(); }
-                    }
-                }
-            }
-
-            // Kisanduku cha kutafuta
-            Rectangle {
-                id: searchBar
-                width: parent.width
-                height: app.btnH
-                radius: height / 2
-                color: Qt.rgba(0,0.9,1,0.05)
-                border.color: searchField.activeFocus
-                              ? Qt.rgba(0,0.9,1,0.6) : Qt.rgba(0,0.9,1,0.2)
-                border.width: 1.5
-                Behavior on border.color { ColorAnimation { duration: 150 } }
-
-                Text {
-                    anchors { left: parent.left; leftMargin: app.pad * 1.4; verticalCenter: parent.verticalCenter }
-                    text: "🔍"; font.pixelSize: app.fntMd
-                    visible: searchField.text.length === 0
-                    opacity: 0.5
-                }
-
-                TextInput {
-                    id: searchField
-                    anchors {
-                        left: parent.left; leftMargin: app.pad * 3.2
-                        right: clearBtn.left; rightMargin: 4
-                        verticalCenter: parent.verticalCenter
-                    }
-                    text: app.searchText
-                    font.pixelSize: app.fntMd; color: iqTextPri
-                    cursorVisible: activeFocus
-                    onTextChanged: { app.searchText = text; }
-                    clip: true
-                }
-
-                // Futa maandishi
-                Rectangle {
-                    id: clearBtn
-                    anchors { right: parent.right; rightMargin: 8; verticalCenter: parent.verticalCenter }
-                    width: app.btnH * 0.65; height: app.btnH * 0.65
-                    radius: width / 2
-                    visible: app.searchText.length > 0
-                    color: clrMA.pressed ? Qt.rgba(1,1,1,0.15) : Qt.rgba(1,1,1,0.07)
-                    Text {
-                        anchors.centerIn: parent; text: "×"
-                        font.pixelSize: app.fntLg; color: iqTextSec
-                    }
-                    MouseArea { id: clrMA; anchors.fill: parent; onClicked: { searchField.text = ""; app.searchText = ""; } }
-                }
-            }
-        }
-
-        // ── ORODHA YA MANENO ─────────────────────────────────────────────────────
-        ListView {
-            id: wordList
-            anchors {
-                top: header.bottom; topMargin: 4
-                left: parent.left; right: parent.right
-                bottom: bottomBar.top; bottomMargin: 2
-            }
-            model: app.filteredWords
-            spacing: 3
-            clip: true
-            cacheBuffer: 400
-
-            ScrollIndicator.vertical: ScrollIndicator {
-                contentItem: Rectangle {
-                    implicitWidth: 3; color: Qt.rgba(0,0.9,1,0.35); radius: 2
-                }
-            }
-
-            // Kama hakuna matokeo
-            Text {
-                anchors.centerIn: parent
-                visible: app.filteredWords.length === 0
-                text: "Hakuna neno linalolingana\nNo matching word"
-                color: iqTextDim; font.pixelSize: app.fntMd
-                horizontalAlignment: Text.AlignHCenter
-            }
-
-            delegate: Rectangle {
-                id: wordRow
-                property var word: modelData
-                width: wordList.width
-                height: app.rowH
-                color: rowMA.pressed
-                       ? Qt.rgba(0,0.9,1,0.11)
-                       : (index % 2 === 0 ? Qt.rgba(0,0.9,1,0.035) : Qt.rgba(0,0,0,0.15))
-                Behavior on color { ColorAnimation { duration: 80 } }
-
-                // Mstari wa chini (divider)
-                Rectangle {
-                    anchors { bottom: parent.bottom; left: parent.left; right: parent.right }
-                    height: 1; color: Qt.rgba(0,0.9,1,0.06)
-                }
-
-                // Left accent bar (rangi ya POS)
-                Rectangle {
-                    anchors { left: parent.left; top: parent.top; bottom: parent.bottom; topMargin: 8; bottomMargin: 8 }
-                    width: 3; radius: 2
-                    color: app.posColor(word.pos)
-                    opacity: 0.7
                 }
 
                 Row {
-                    anchors {
-                        left: parent.left; leftMargin: app.pad + 6
-                        right: parent.right; rightMargin: app.pad
-                        verticalCenter: parent.verticalCenter
-                    }
-                    spacing: app.pad * 0.75
-
-                    // Beji ya POS
-                    Rectangle {
-                        width: posTag.implicitWidth + 14
-                        height: Math.max(24, app.fntSm + 8)
-                        radius: height / 2
-                        color: Qt.rgba(0,0,0,0.35)
-                        border.color: Qt.rgba(app.posColor(word.pos).r, app.posColor(word.pos).g, app.posColor(word.pos).b, 0.45)
-                        border.width: 1
-                        anchors.verticalCenter: parent.verticalCenter
-                        Text {
-                            id: posTag
-                            anchors.centerIn: parent
-                            text: word.pos.substring(0,3).toUpperCase()
-                            font.pixelSize: app.fntSm - 1; font.bold: true; font.letterSpacing: 1
-                            color: app.posColor(word.pos)
-                        }
-                    }
-
-                    // Maneno (Swahili / Kiingereza)
-                    Column {
-                        anchors.verticalCenter: parent.verticalCenter
-                        spacing: 3
-                        width: parent.width - posTag.implicitWidth - 18 - arrowTxt.implicitWidth - app.pad * 2
-
-                        Text {
-                            text: app.langMode ? word.en : word.sw
-                            font.pixelSize: app.fntMd; font.bold: true
-                            color: app.langMode ? Qt.rgba(0.82,0.96,1,1) : iqGold
-                            elide: Text.ElideRight; width: parent.width
-                        }
-                        Text {
-                            text: app.langMode ? word.sw : word.en
-                            font.pixelSize: app.fntSm
-                            color: iqTextSec; opacity: 0.85
-                            elide: Text.ElideRight; width: parent.width
-                        }
-                    }
-
-                    // Mshale wa detail
+                    spacing: 5
                     Text {
-                        id: arrowTxt
+                        text: "SW"; font.pixelSize: app.fntSm - 1; font.bold: true
+                        color: Qt.rgba(0, 0.9, 1, 0.9)
                         anchors.verticalCenter: parent.verticalCenter
-                        text: "›"; font.pixelSize: app.fntLg
-                        color: rowMA.pressed ? Qt.rgba(0,0.9,1,0.8) : Qt.rgba(0,0.9,1,0.25)
-                        Behavior on color { ColorAnimation { duration: 80 } }
+                    }
+                    Text {
+                        text: "⇄"; font.pixelSize: app.fntSm - 1
+                        color: Qt.rgba(0, 0.9, 1, 0.45)
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
+                    Text {
+                        text: "EN"; font.pixelSize: app.fntSm - 1; font.bold: true
+                        color: Qt.rgba(0.7, 0.95, 1, 0.9)
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
+                    Rectangle {
+                        width: 1; height: 11; color: Qt.rgba(0, 0.9, 1, 0.25)
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
+                    Text {
+                        text: filteredWords.length + " / " + allWords.length + " maneno"
+                        font.pixelSize: app.fntSm - 1; color: iqTextDim
+                        anchors.verticalCenter: parent.verticalCenter
                     }
                 }
+            }
 
+            // Kitufe: badilisha lugha
+            Rectangle {
+                id: langToggle
+                anchors {
+                    verticalCenter: parent.verticalCenter
+                    right: closeBtn.left; rightMargin: app.pad * 0.6
+                }
+                width: app.btnH * 1.5; height: app.btnH * 0.72
+                radius: height / 2
+                color: langMA.pressed ? Qt.rgba(0, 0.9, 1, 0.15) : Qt.rgba(0, 0.9, 1, 0.07)
+                border.color: Qt.rgba(0, 0.9, 1, 0.35); border.width: 1
+                Behavior on color { ColorAnimation { duration: 80 } }
+                Text {
+                    anchors.centerIn: parent
+                    text: app.langMode ? "EN→SW" : "SW→EN"
+                    font.pixelSize: app.fntSm; font.bold: true
+                    color: iqAccent; font.letterSpacing: 0.5
+                }
                 MouseArea {
-                    id: rowMA; anchors.fill: parent
-                    onClicked: { app.currentWord = word; app.showDetail = true; }
+                    id: langMA; anchors.fill: parent
+                    onClicked: { app.langMode = !app.langMode; }
+                }
+            }
+
+            // Kitufe: funga
+            Rectangle {
+                id: closeBtn
+                anchors { verticalCenter: parent.verticalCenter; right: parent.right }
+                width: app.btnH * 0.85; height: app.btnH * 0.85
+                radius: height / 2
+                color: closeMA2.pressed ? Qt.rgba(1, 0.2, 0.2, 0.25) : Qt.rgba(1, 0.15, 0.15, 0.10)
+                border.color: iqDanger; border.width: 1.5
+                Behavior on color { ColorAnimation { duration: 80 } }
+                Text {
+                    anchors.centerIn: parent
+                    text: "X"; font.pixelSize: app.fntMd; font.bold: true
+                    color: iqDanger
+                }
+                MouseArea {
+                    id: closeMA2; anchors.fill: parent
+                    onClicked: { app.close(); }
                 }
             }
         }
 
-        // ── BAR YA CHINI (Sort + Stats) ───────────────────────────────────────────
+        // ── Kisanduku cha kutafuta ─────────────────────────────────────────────
         Rectangle {
-            id: bottomBar
-            anchors { bottom: brandBar.top; left: parent.left; right: parent.right }
-            height: app.btnH * 0.78
-            color: Qt.rgba(0,0.08,0.08,0.97)
+            id: searchBar
+            anchors {
+                top: headerRow.bottom; topMargin: app.pad * 0.7
+                left: parent.left; right: parent.right
+                leftMargin: app.pad; rightMargin: app.pad
+            }
+            height: app.btnH
+            radius: height / 2
+            color: Qt.rgba(0, 0.9, 1, 0.05)
+            border.color: searchField.activeFocus ? Qt.rgba(0, 0.9, 1, 0.6) : Qt.rgba(0, 0.9, 1, 0.2)
+            border.width: 1.5
+            Behavior on border.color { ColorAnimation { duration: 150 } }
+
+            Text {
+                anchors { left: parent.left; leftMargin: app.pad * 1.4; verticalCenter: parent.verticalCenter }
+                text: "🔍"; font.pixelSize: app.fntMd
+                visible: searchField.text.length === 0
+                opacity: 0.5
+            }
+
+            TextInput {
+                id: searchField
+                anchors {
+                    left: parent.left; leftMargin: app.pad * 3.2
+                    right: clearBtn.left; rightMargin: 4
+                    verticalCenter: parent.verticalCenter
+                }
+                text: app.searchText
+                font.pixelSize: app.fntMd; color: iqTextPri
+                cursorVisible: activeFocus
+                onTextChanged: { app.searchText = text; }
+                clip: true
+            }
+
+            Rectangle {
+                id: clearBtn
+                anchors { right: parent.right; rightMargin: 8; verticalCenter: parent.verticalCenter }
+                width: app.btnH * 0.65; height: app.btnH * 0.65
+                radius: width / 2
+                visible: app.searchText.length > 0
+                color: clrMA.pressed ? Qt.rgba(1, 1, 1, 0.15) : Qt.rgba(1, 1, 1, 0.07)
+                Text {
+                    anchors.centerIn: parent; text: "×"
+                    font.pixelSize: app.fntLg; color: iqTextSec
+                }
+                MouseArea {
+                    id: clrMA; anchors.fill: parent
+                    onClicked: { searchField.text = ""; app.searchText = ""; }
+                }
+            }
+        }
+    }
+
+    // ── ORODHA YA MANENO ──────────────────────────────────────────────────────
+    ListView {
+        id: wordList
+        anchors {
+            top: header.bottom; topMargin: 4
+            left: parent.left; right: parent.right
+            bottom: bottomBar.top; bottomMargin: 2
+        }
+        model: app.filteredWords
+        spacing: 3
+        clip: true
+        cacheBuffer: 400
+
+        ScrollIndicator.vertical: ScrollIndicator {
+            contentItem: Rectangle {
+                implicitWidth: 3; color: Qt.rgba(0, 0.9, 1, 0.35); radius: 2
+            }
+        }
+
+        Text {
+            anchors.centerIn: parent
+            visible: app.filteredWords.length === 0 && !app.isLoading
+            text: "Hakuna neno linalolingana\nNo matching word"
+            color: iqTextDim; font.pixelSize: app.fntMd
+            horizontalAlignment: Text.AlignHCenter
+        }
+
+        delegate: Rectangle {
+            id: wordRow
+            property var word: modelData
+            width: wordList.width
+            height: app.rowH
+            color: rowMA.pressed
+                   ? Qt.rgba(0, 0.9, 1, 0.11)
+                   : (index % 2 === 0 ? Qt.rgba(0, 0.9, 1, 0.035) : Qt.rgba(0, 0, 0, 0.15))
+            Behavior on color { ColorAnimation { duration: 80 } }
+
+            Rectangle {
+                anchors { bottom: parent.bottom; left: parent.left; right: parent.right }
+                height: 1; color: Qt.rgba(0, 0.9, 1, 0.06)
+            }
+
+            Rectangle {
+                anchors {
+                    left: parent.left; top: parent.top; bottom: parent.bottom
+                    topMargin: 8; bottomMargin: 8
+                }
+                width: 3; radius: 2
+                color: app.posColor(word.pos)
+                opacity: 0.7
+            }
+
+            Row {
+                anchors {
+                    left: parent.left; leftMargin: app.pad + 6
+                    right: parent.right; rightMargin: app.pad
+                    verticalCenter: parent.verticalCenter
+                }
+                spacing: app.pad * 0.75
+
+                Rectangle {
+                    width: posTag.implicitWidth + 14
+                    height: Math.max(24, app.fntSm + 8)
+                    radius: height / 2
+                    color: Qt.rgba(0, 0, 0, 0.35)
+                    border.color: Qt.rgba(app.posColor(word.pos).r, app.posColor(word.pos).g, app.posColor(word.pos).b, 0.45)
+                    border.width: 1
+                    anchors.verticalCenter: parent.verticalCenter
+                    Text {
+                        id: posTag
+                        anchors.centerIn: parent
+                        text: word.pos.substring(0, 3).toUpperCase()
+                        font.pixelSize: app.fntSm - 1; font.bold: true; font.letterSpacing: 1
+                        color: app.posColor(word.pos)
+                    }
+                }
+
+                Column {
+                    anchors.verticalCenter: parent.verticalCenter
+                    spacing: 3
+                    width: parent.width - posTag.implicitWidth - 18 - arrowTxt.implicitWidth - app.pad * 2
+
+                    Text {
+                        text: app.langMode ? word.en : word.sw
+                        font.pixelSize: app.fntMd; font.bold: true
+                        color: app.langMode ? Qt.rgba(0.82, 0.96, 1, 1) : iqGold
+                        elide: Text.ElideRight; width: parent.width
+                    }
+                    Text {
+                        text: app.langMode ? word.sw : word.en
+                        font.pixelSize: app.fntSm
+                        color: iqTextSec; opacity: 0.85
+                        elide: Text.ElideRight; width: parent.width
+                    }
+                }
+
+                Text {
+                    id: arrowTxt
+                    anchors.verticalCenter: parent.verticalCenter
+                    text: "›"; font.pixelSize: app.fntLg
+                    color: rowMA.pressed ? Qt.rgba(0, 0.9, 1, 0.8) : Qt.rgba(0, 0.9, 1, 0.25)
+                    Behavior on color { ColorAnimation { duration: 80 } }
+                }
+            }
+
+            MouseArea {
+                id: rowMA; anchors.fill: parent
+                onClicked: { app.currentWord = word; app.showDetail = true; }
+            }
+        }
+    }
+
+    // ── BAR YA CHINI ──────────────────────────────────────────────────────────
+    Rectangle {
+        id: bottomBar
+        anchors { bottom: brandBar.top; left: parent.left; right: parent.right }
+        height: app.btnH * 0.78
+        color: Qt.rgba(0, 0.08, 0.08, 0.97)
+
+        Rectangle {
+            anchors { top: parent.top; left: parent.left; right: parent.right }
+            height: 1
+            gradient: Gradient {
+                orientation: Gradient.Horizontal
+                GradientStop { position: 0.0; color: "transparent" }
+                GradientStop { position: 0.4; color: Qt.rgba(0, 0.9, 1, 0.25) }
+                GradientStop { position: 0.6; color: Qt.rgba(0, 0.9, 1, 0.25) }
+                GradientStop { position: 1.0; color: "transparent" }
+            }
+        }
+
+        Row {
+            anchors.centerIn: parent
+            spacing: app.pad * 0.5
+
+            Repeater {
+                model: [
+                    { label: "A-Z SW", mode: 0 },
+                    { label: "A-Z EN", mode: 1 },
+                    { label: "AINA",   mode: 2 }
+                ]
+                delegate: Rectangle {
+                    property bool isActive: app.sortMode === modelData.mode
+                    height: bottomBar.height * 0.72
+                    width: sortLbl.implicitWidth + app.pad * 1.4
+                    radius: height / 2
+                    color: isActive ? Qt.rgba(0, 0.9, 1, 0.15) : (srtMA.pressed ? Qt.rgba(0, 0.9, 1, 0.08) : "transparent")
+                    border.color: isActive ? iqGold : Qt.rgba(0, 0.9, 1, 0.2)
+                    border.width: 1
+                    Behavior on color { ColorAnimation { duration: 80 } }
+                    Text {
+                        id: sortLbl; anchors.centerIn: parent
+                        text: modelData.label; font.pixelSize: app.fntSm; font.bold: isActive
+                        color: isActive ? iqGold : iqTextDim
+                    }
+                    MouseArea {
+                        id: srtMA; anchors.fill: parent
+                        onClicked: { app.sortMode = modelData.mode; }
+                    }
+                }
+            }
+
+            Rectangle {
+                width: 1; height: parent.height * 0.6
+                color: Qt.rgba(0, 0.9, 1, 0.2)
+                anchors.verticalCenter: parent.verticalCenter
+            }
+
+            Repeater {
+                model: [
+                    { label: "ZOTE", pos: "" },
+                    { label: "NOM",  pos: "noun" },
+                    { label: "KIT",  pos: "verb" },
+                    { label: "ADJ",  pos: "adjective" }
+                ]
+                delegate: Rectangle {
+                    property bool isActive: app.filterPOS === modelData.pos
+                    height: bottomBar.height * 0.72
+                    width: posFilterLbl.implicitWidth + app.pad * 1.4
+                    radius: height / 2
+                    color: isActive ? Qt.rgba(0, 0.9, 1, 0.15) : (posMA.pressed ? Qt.rgba(0, 0.9, 1, 0.08) : "transparent")
+                    border.color: isActive ? app.posColor(modelData.pos === "" ? "noun" : modelData.pos) : Qt.rgba(0, 0.9, 1, 0.2)
+                    border.width: 1
+                    Behavior on color { ColorAnimation { duration: 80 } }
+                    Text {
+                        id: posFilterLbl; anchors.centerIn: parent
+                        text: modelData.label; font.pixelSize: app.fntSm; font.bold: isActive
+                        color: isActive ? app.posColor(modelData.pos === "" ? "noun" : modelData.pos) : iqTextDim
+                    }
+                    MouseArea {
+                        id: posMA; anchors.fill: parent
+                        onClicked: { app.filterPOS = modelData.pos; }
+                    }
+                }
+            }
+        }
+    }
+
+    // ── MAGABE LAB BRANDING ───────────────────────────────────────────────────
+    Item {
+        id: brandBar
+        anchors {
+            bottom: parent.bottom
+            bottomMargin: Math.max(6, app.height * 0.010)
+            horizontalCenter: parent.horizontalCenter
+        }
+        width: parent.width; height: 26
+
+        Rectangle {
+            anchors { top: parent.top; horizontalCenter: parent.horizontalCenter }
+            width: 80; height: 1
+            gradient: Gradient {
+                orientation: Gradient.Horizontal
+                GradientStop { position: 0.0; color: "transparent" }
+                GradientStop { position: 0.5; color: Qt.rgba(0, 0.9, 1, 0.2) }
+                GradientStop { position: 1.0; color: "transparent" }
+            }
+        }
+
+        Row {
+            anchors.centerIn: parent
+            spacing: 6
+            Rectangle { width: 3; height: 3; radius: 2; color: iqGold; opacity: 0.5; anchors.verticalCenter: parent.verticalCenter }
+            Text {
+                text: "MAGABE LAB"
+                font.pixelSize: Math.max(10, app.fntSm - 1)
+                font.bold: true; font.letterSpacing: 2.5
+                color: Qt.rgba(0, 0.9, 1, 0.7)
+                anchors.verticalCenter: parent.verticalCenter
+                SequentialAnimation on opacity {
+                    loops: Animation.Infinite
+                    NumberAnimation { to: 0.4; duration: 2200; easing.type: Easing.InOutSine }
+                    NumberAnimation { to: 1.0; duration: 2200; easing.type: Easing.InOutSine }
+                }
+            }
+            Rectangle { width: 3; height: 3; radius: 2; color: iqGold; opacity: 0.5; anchors.verticalCenter: parent.verticalCenter }
+        }
+    }
+
+    // ─────────────────────────────────────────────────────────────────────────
+    //  LOADING / ERROR OVERLAY  (z: 15)
+    // ─────────────────────────────────────────────────────────────────────────
+    Rectangle {
+        anchors.fill: parent
+        color: Qt.rgba(0, 0, 0, 0.75)
+        visible: app.isLoading || (app.allWords.length === 0 && app.loadStatus.length > 0)
+        z: 15
+
+        Column {
+            anchors.centerIn: parent
+            spacing: app.pad
+
+            Rectangle {
+                id: spinner
+                anchors.horizontalCenter: parent.horizontalCenter
+                width: 48; height: 48; radius: 24
+                color: "transparent"
+                border.color: iqGold; border.width: 3
+                visible: app.isLoading
+                Rectangle {
+                    width: 12; height: 12; radius: 6
+                    color: iqGold
+                    anchors { top: parent.top; horizontalCenter: parent.horizontalCenter; topMargin: -5 }
+                }
+                RotationAnimation on rotation {
+                    from: 0; to: 360; duration: 900
+                    loops: Animation.Infinite; running: app.isLoading
+                }
+            }
+
+            Text {
+                anchors.horizontalCenter: parent.horizontalCenter
+                text: app.loadStatus
+                color: app.isLoading ? iqTextSec : iqDanger
+                font.pixelSize: app.fntMd
+                wrapMode: Text.WordWrap
+                horizontalAlignment: Text.AlignHCenter
+                width: Math.min(app.width - 48, 300)
+            }
+
+            Rectangle {
+                anchors.horizontalCenter: parent.horizontalCenter
+                visible: !app.isLoading && app.allWords.length === 0
+                width: retryLbl.implicitWidth + app.pad * 2; height: app.btnH * 0.85
+                radius: height / 2
+                color: retryMA.pressed ? Qt.rgba(0, 0.9, 1, 0.2) : Qt.rgba(0, 0.9, 1, 0.08)
+                border.color: iqAccent; border.width: 1.5
+                Behavior on color { ColorAnimation { duration: 80 } }
+                Text {
+                    id: retryLbl; anchors.centerIn: parent
+                    text: "🔄 Jaribu Tena"
+                    font.pixelSize: app.fntMd; font.bold: true; color: iqAccent
+                }
+                MouseArea { id: retryMA; anchors.fill: parent; onClicked: { app.downloadWords(); } }
+            }
+        }
+    }
+
+    // ─────────────────────────────────────────────────────────────────────────
+    //  DETAIL OVERLAY  (z: 20)
+    // ─────────────────────────────────────────────────────────────────────────
+    Rectangle {
+        id: detailOverlay
+        anchors.fill: parent
+        color: Qt.rgba(0, 0, 0, 0.82)
+        visible: app.showDetail && app.currentWord !== null
+        z: 20
+
+        MouseArea { anchors.fill: parent; onClicked: { app.showDetail = false; } }
+
+        Rectangle {
+            id: detailCard
+            anchors.centerIn: parent
+            width:  app.width  - app.pad * 2
+            height: Math.min(app.height * 0.90, detailFlick.contentHeight + app.pad * 3)
+            radius: app.radius * 1.5
+            color: iqCard
+            border.color: iqGold; border.width: 2
+            clip: true
 
             Rectangle {
                 anchors { top: parent.top; left: parent.left; right: parent.right }
-                height: 1
+                height: parent.height * 0.35; radius: parent.radius
                 gradient: Gradient {
-                    orientation: Gradient.Horizontal
-                    GradientStop { position: 0.0; color: "transparent" }
-                    GradientStop { position: 0.4; color: Qt.rgba(0,0.9,1,0.25) }
-                    GradientStop { position: 0.6; color: Qt.rgba(0,0.9,1,0.25) }
+                    GradientStop { position: 0.0; color: Qt.rgba(0, 0.9, 1, 0.09) }
                     GradientStop { position: 1.0; color: "transparent" }
                 }
             }
 
-            Row {
-                anchors { centerIn: parent }
-                spacing: app.pad * 0.5
-
-                Repeater {
-                    model: [
-                        { label: "A-Z SW", mode: 0 },
-                        { label: "A-Z EN", mode: 1 },
-                        { label: "AINA",   mode: 2 }
-                    ]
-                    delegate: Rectangle {
-                        property bool isActive: app.sortMode === modelData.mode
-                        height: bottomBar.height * 0.72
-                        width: sortLbl.implicitWidth + app.pad * 1.4
-                        radius: height / 2
-                        color: isActive ? Qt.rgba(0,0.9,1,0.15) : (srtMA.pressed ? Qt.rgba(0,0.9,1,0.08) : "transparent")
-                        border.color: isActive ? iqGold : Qt.rgba(0,0.9,1,0.2)
-                        border.width: 1
-                        Behavior on color { ColorAnimation { duration: 80 } }
-                        Text {
-                            id: sortLbl; anchors.centerIn: parent
-                            text: modelData.label; font.pixelSize: app.fntSm; font.bold: isActive
-                            color: isActive ? iqGold : iqTextDim
-                        }
-                        MouseArea { id: srtMA; anchors.fill: parent; onClicked: { app.sortMode = modelData.mode; } }
-                    }
-                }
-
-                Rectangle { width: 1; height: parent.height * 0.6; color: Qt.rgba(0,0.9,1,0.2); anchors.verticalCenter: parent.verticalCenter }
-
-                // Kichujio cha POS
-                Repeater {
-                    model: [
-                        { label: "ZOTE", pos: "" },
-                        { label: "NOM",  pos: "noun" },
-                        { label: "KIT",  pos: "verb" },
-                        { label: "ADJ",  pos: "adjective" }
-                    ]
-                    delegate: Rectangle {
-                        property bool isActive: app.filterPOS === modelData.pos
-                        height: bottomBar.height * 0.72
-                        width: posFilterLbl.implicitWidth + app.pad * 1.4
-                        radius: height / 2
-                        color: isActive ? Qt.rgba(0,0.9,1,0.15) : (posMA.pressed ? Qt.rgba(0,0.9,1,0.08) : "transparent")
-                        border.color: isActive ? app.posColor(modelData.pos === "" ? "noun" : modelData.pos) : Qt.rgba(0,0.9,1,0.2)
-                        border.width: 1
-                        Behavior on color { ColorAnimation { duration: 80 } }
-                        Text {
-                            id: posFilterLbl; anchors.centerIn: parent
-                            text: modelData.label; font.pixelSize: app.fntSm; font.bold: isActive
-                            color: isActive ? app.posColor(modelData.pos === "" ? "noun" : modelData.pos) : iqTextDim
-                        }
-                        MouseArea { id: posMA; anchors.fill: parent; onClicked: { app.filterPOS = modelData.pos; } }
-                    }
-                }
-            }
-        }
-
-        // ── MAGABE LAB BRANDING ───────────────────────────────────────────────────
-        Item {
-            id: brandBar
-            anchors { bottom: parent.bottom; bottomMargin: Math.max(6, app.height * 0.010); horizontalCenter: parent.horizontalCenter }
-            width: parent.width; height: 26
-
             Rectangle {
-                anchors { top: parent.top; horizontalCenter: parent.horizontalCenter }
-                width: 80; height: 1
+                anchors { top: parent.top; left: parent.left; right: parent.right }
+                height: 3; radius: parent.radius
                 gradient: Gradient {
                     orientation: Gradient.Horizontal
                     GradientStop { position: 0.0; color: "transparent" }
-                    GradientStop { position: 0.5; color: Qt.rgba(0,0.9,1,0.2) }
+                    GradientStop { position: 0.2; color: iqGold }
+                    GradientStop { position: 0.8; color: iqAccent }
                     GradientStop { position: 1.0; color: "transparent" }
                 }
             }
 
-            Row {
-                anchors.centerIn: parent
-                spacing: 6
-                Rectangle { width: 3; height: 3; radius: 2; color: iqGold; opacity: 0.5; anchors.verticalCenter: parent.verticalCenter }
-                Text {
-                    text: "MAGABE LAB"
-                    font.pixelSize: Math.max(10, app.fntSm - 1)
-                    font.bold: true; font.letterSpacing: 2.5
-                    color: Qt.rgba(0, 0.9, 1, 0.7)
-                    anchors.verticalCenter: parent.verticalCenter
-                    SequentialAnimation on opacity {
-                        loops: Animation.Infinite
-                        NumberAnimation { to: 0.4; duration: 2200; easing.type: Easing.InOutSine }
-                        NumberAnimation { to: 1.0; duration: 2200; easing.type: Easing.InOutSine }
-                    }
-                }
-                Rectangle { width: 3; height: 3; radius: 2; color: iqGold; opacity: 0.5; anchors.verticalCenter: parent.verticalCenter }
-            }
-        }
+            MouseArea { anchors.fill: parent }
 
-        // ─────────────────────────────────────────────────────────────────────────
-        //  LOADING / ERROR OVERLAY
-        // ─────────────────────────────────────────────────────────────────────────
-        Rectangle {
-            anchors.fill: parent
-            color: Qt.rgba(0,0,0,0.75)
-            visible: app.isLoading || (app.allWords.length === 0 && app.loadStatus.length > 0)
-            z: 15
-
-            Column {
-                anchors.centerIn: parent
-                spacing: app.pad
-
-                // Spinner wa mzunguko
-                Rectangle {
-                    id: spinner
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    width: 48; height: 48; radius: 24
-                    color: "transparent"
-                    border.color: iqGold; border.width: 3
-                    visible: app.isLoading
-                    Rectangle {
-                        width: 12; height: 12; radius: 6
-                        color: iqGold
-                        anchors { top: parent.top; horizontalCenter: parent.horizontalCenter; topMargin: -5 }
-                    }
-                    RotationAnimation on rotation {
-                        from: 0; to: 360; duration: 900
-                        loops: Animation.Infinite; running: app.isLoading
-                    }
-                }
-
-                Text {
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    text: app.loadStatus
-                    color: app.isLoading ? iqTextSec : iqDanger
-                    font.pixelSize: app.fntMd
-                    wrapMode: Text.WordWrap
-                    horizontalAlignment: Text.AlignHCenter
-                    width: Math.min(app.width - 48, 300)
-                }
-
-                // Kitufe cha kujaribu tena (kinaonyesha tu kama kuna hitilafu)
-                Rectangle {
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    visible: !app.isLoading && app.allWords.length === 0
-                    width: retryLbl.implicitWidth + app.pad * 2; height: app.btnH * 0.85
-                    radius: height / 2
-                    color: retryMA.pressed ? Qt.rgba(0,0.9,1,0.2) : Qt.rgba(0,0.9,1,0.08)
-                    border.color: iqAccent; border.width: 1.5
-                    Behavior on color { ColorAnimation { duration: 80 } }
-                    Text {
-                        id: retryLbl; anchors.centerIn: parent
-                        text: "🔄 Jaribu Tena"
-                        font.pixelSize: app.fntMd; font.bold: true; color: iqAccent
-                    }
-                    MouseArea { id: retryMA; anchors.fill: parent; onClicked: { app.downloadWords(); } }
-                }
-            }
-        }
-
-        // ─────────────────────────────────────────────────────────────────────────
-        //  DETAIL OVERLAY — neno lililochaguliwa
-        // ─────────────────────────────────────────────────────────────────────────
-        Rectangle {
-            id: detailOverlay
-            anchors.fill: parent
-            color: Qt.rgba(0, 0, 0, 0.82)
-            visible: app.showDetail && app.currentWord !== null
-            z: 20
-
-            MouseArea { anchors.fill: parent; onClicked: { app.showDetail = false; } }
-
-            Rectangle {
-                id: detailCard
-                anchors.centerIn: parent
-                width:  app.width  - app.pad * 2
-                height: Math.min(app.height * 0.90, detailFlick.contentHeight + app.pad * 3)
-                radius: app.radius * 1.5
-                color: iqCard
-                border.color: iqGold; border.width: 2
+            Flickable {
+                id: detailFlick
+                anchors { fill: parent; margins: app.pad * 1.2 }
+                contentWidth: width
+                contentHeight: detailCol.implicitHeight + app.pad
                 clip: true
-
-                // Glow ya juu
-                Rectangle {
-                    anchors { top: parent.top; left: parent.left; right: parent.right }
-                    height: parent.height * 0.35; radius: parent.radius
-                    gradient: Gradient {
-                        GradientStop { position: 0.0; color: Qt.rgba(0,0.9,1,0.09) }
-                        GradientStop { position: 1.0; color: "transparent" }
-                    }
+                ScrollIndicator.vertical: ScrollIndicator {
+                    contentItem: Rectangle { implicitWidth: 3; color: Qt.rgba(0, 0.9, 1, 0.4); radius: 2 }
                 }
 
-                // Mstari wa rangi juu (accent)
-                Rectangle {
-                    anchors { top: parent.top; left: parent.left; right: parent.right }
-                    height: 3; radius: parent.radius
-                    gradient: Gradient {
-                        orientation: Gradient.Horizontal
-                        GradientStop { position: 0.0; color: "transparent" }
-                        GradientStop { position: 0.2; color: iqGold }
-                        GradientStop { position: 0.8; color: iqAccent }
-                        GradientStop { position: 1.0; color: "transparent" }
-                    }
-                }
+                Column {
+                    id: detailCol
+                    width: detailFlick.width
+                    spacing: app.pad
 
-                MouseArea { anchors.fill: parent } // zuia kufunga kwa kubonyeza kadi
-
-                Flickable {
-                    id: detailFlick
-                    anchors { fill: parent; margins: app.pad * 1.2 }
-                    contentWidth: width
-                    contentHeight: detailCol.implicitHeight + app.pad
-                    clip: true
-                    ScrollIndicator.vertical: ScrollIndicator {
-                        contentItem: Rectangle { implicitWidth: 3; color: Qt.rgba(0,0.9,1,0.4); radius: 2 }
-                    }
+                    Item { width: 1; height: app.pad * 0.5 }
 
                     Column {
-                        id: detailCol
-                        width: detailFlick.width
-                        spacing: app.pad * 1.0
+                        width: parent.width
+                        spacing: app.pad * 0.4
+                        anchors.horizontalCenter: parent.horizontalCenter
 
-                        Item { width: 1; height: app.pad * 0.5 }
-
-                        // Kikundi cha juu: emoji + neno kuu
-                        Column {
+                        Text {
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            text: app.currentWord ? app.currentWord.sw : ""
+                            font.pixelSize: app.fntXl * 1.15; font.bold: true; font.letterSpacing: 2
+                            color: iqGold
+                            style: Text.Glow; styleColor: Qt.rgba(0, 0.9, 1, 0.35)
+                            wrapMode: Text.WordWrap; horizontalAlignment: Text.AlignHCenter
                             width: parent.width
-                            spacing: app.pad * 0.4
-                            anchors.horizontalCenter: parent.horizontalCenter
-
-                            // Neno kuu (Kiswahili)
-                            Text {
-                                anchors.horizontalCenter: parent.horizontalCenter
-                                text: app.currentWord ? app.currentWord.sw : ""
-                                font.pixelSize: app.fntXl * 1.15; font.bold: true; font.letterSpacing: 2
-                                color: iqGold
-                                style: Text.Glow; styleColor: Qt.rgba(0,0.9,1,0.35)
-                                wrapMode: Text.WordWrap; horizontalAlignment: Text.AlignHCenter
-                                width: parent.width
-                            }
-
-                            // Tafsiri ya Kiingereza
-                            Text {
-                                anchors.horizontalCenter: parent.horizontalCenter
-                                text: app.currentWord ? app.currentWord.en : ""
-                                font.pixelSize: app.fntLg; font.bold: true
-                                color: Qt.rgba(0.82, 0.96, 1, 1)
-                                wrapMode: Text.WordWrap; horizontalAlignment: Text.AlignHCenter
-                                width: parent.width
-                            }
                         }
 
-                        // Beji za POS na Kikundi
-                        Row {
+                        Text {
                             anchors.horizontalCenter: parent.horizontalCenter
-                            spacing: 10
-
-                            Rectangle {
-                                height: Math.max(30, app.fntSm + 14)
-                                width: posDetailLbl.implicitWidth + 20; radius: height / 2
-                                color: Qt.rgba(0,0,0,0.4)
-                                border.color: app.currentWord ? app.posColor(app.currentWord.pos) : iqTextDim
-                                border.width: 1.5
-                                Text {
-                                    id: posDetailLbl; anchors.centerIn: parent
-                                    text: app.currentWord ? (app.posLabels[app.currentWord.pos] || app.currentWord.pos) : ""
-                                    font.pixelSize: app.fntSm; font.bold: true
-                                    color: app.currentWord ? app.posColor(app.currentWord.pos) : iqTextDim
-                                }
-                            }
+                            text: app.currentWord ? app.currentWord.en : ""
+                            font.pixelSize: app.fntLg; font.bold: true
+                            color: Qt.rgba(0.82, 0.96, 1, 1)
+                            wrapMode: Text.WordWrap; horizontalAlignment: Text.AlignHCenter
+                            width: parent.width
                         }
+                    }
 
-                        // Mstari wa kati
+                    Row {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        spacing: 10
+
                         Rectangle {
-                            anchors.horizontalCenter: parent.horizontalCenter
-                            width: parent.width * 0.7; height: 1
-                            gradient: Gradient {
-                                orientation: Gradient.Horizontal
-                                GradientStop { position: 0.0; color: "transparent" }
-                                GradientStop { position: 0.5; color: Qt.rgba(0,0.9,1,0.25) }
-                                GradientStop { position: 1.0; color: "transparent" }
+                            height: Math.max(30, app.fntSm + 14)
+                            width: posDetailLbl.implicitWidth + 20; radius: height / 2
+                            color: Qt.rgba(0, 0, 0, 0.4)
+                            border.color: app.currentWord ? app.posColor(app.currentWord.pos) : iqTextDim
+                            border.width: 1.5
+                            Text {
+                                id: posDetailLbl; anchors.centerIn: parent
+                                text: app.currentWord ? (app.posLabels[app.currentWord.pos] || app.currentWord.pos) : ""
+                                font.pixelSize: app.fntSm; font.bold: true
+                                color: app.currentWord ? app.posColor(app.currentWord.pos) : iqTextDim
                             }
                         }
+                    }
 
-                        // Vifungo
-                        Row {
-                            anchors.horizontalCenter: parent.horizontalCenter
-                            spacing: 12
+                    Rectangle {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        width: parent.width * 0.7; height: 1
+                        gradient: Gradient {
+                            orientation: Gradient.Horizontal
+                            GradientStop { position: 0.0; color: "transparent" }
+                            GradientStop { position: 0.5; color: Qt.rgba(0, 0.9, 1, 0.25) }
+                            GradientStop { position: 1.0; color: "transparent" }
+                        }
+                    }
 
-                            Rectangle {
-                                width: Math.max(130, app.width * 0.32); height: app.btnH
-                                radius: height / 2
-                                color: backMA.pressed ? Qt.rgba(0,0.9,1,0.20) : Qt.rgba(0,0.9,1,0.08)
-                                border.color: iqAccent; border.width: 1.5
-                                Behavior on color { ColorAnimation { duration: 80 } }
-                                Text {
-                                    anchors.centerIn: parent; text: "← RUDI"
-                                    font.pixelSize: app.fntMd; font.bold: true
-                                    color: iqAccent; font.letterSpacing: 1
-                                }
-                                MouseArea { id: backMA; anchors.fill: parent; onClicked: { app.showDetail = false; } }
+                    Row {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        spacing: 12
+
+                        Rectangle {
+                            width: Math.max(130, app.width * 0.32); height: app.btnH
+                            radius: height / 2
+                            color: backMA.pressed ? Qt.rgba(0, 0.9, 1, 0.20) : Qt.rgba(0, 0.9, 1, 0.08)
+                            border.color: iqAccent; border.width: 1.5
+                            Behavior on color { ColorAnimation { duration: 80 } }
+                            Text {
+                                anchors.centerIn: parent; text: "← RUDI"
+                                font.pixelSize: app.fntMd; font.bold: true
+                                color: iqAccent; font.letterSpacing: 1
                             }
-
-                            Rectangle {
-                                width: Math.max(130, app.width * 0.32); height: app.btnH
-                                radius: height / 2
-                                color: detCloseMA.pressed ? Qt.rgba(1,0.2,0.2,0.22) : Qt.rgba(1,0.15,0.15,0.09)
-                                border.color: iqDanger; border.width: 1.5
-                                Behavior on color { ColorAnimation { duration: 80 } }
-                                Text {
-                                    anchors.centerIn: parent; text: "❌ FUNGA"
-                                    font.pixelSize: app.fntMd; font.bold: true
-                                    color: iqDanger; font.letterSpacing: 1
-                                }
-                                MouseArea { id: detCloseMA; anchors.fill: parent; onClicked: { app.close(); } }
-                            }
+                            MouseArea { id: backMA; anchors.fill: parent; onClicked: { app.showDetail = false; } }
                         }
 
-                        Item { width: 1; height: app.pad }
-                    } // Column
-                } // Flickable
-            }
+                        Rectangle {
+                            width: Math.max(130, app.width * 0.32); height: app.btnH
+                            radius: height / 2
+                            color: detCloseMA.pressed ? Qt.rgba(1, 0.2, 0.2, 0.22) : Qt.rgba(1, 0.15, 0.15, 0.09)
+                            border.color: iqDanger; border.width: 1.5
+                            Behavior on color { ColorAnimation { duration: 80 } }
+                            Text {
+                                anchors.centerIn: parent; text: "❌ FUNGA"
+                                font.pixelSize: app.fntMd; font.bold: true
+                                color: iqDanger; font.letterSpacing: 1
+                            }
+                            MouseArea { id: detCloseMA; anchors.fill: parent; onClicked: { app.close(); } }
+                        }
+                    }
 
-            // Slide-in animation
-            NumberAnimation {
-                id: detailIn
-                target: detailCard
-                property: "scale"
-                from: 0.88; to: 1.0
-                duration: 180; easing.type: Easing.OutBack
-                running: app.showDetail
+                    Item { width: 1; height: app.pad }
+                }
             }
         }
 
+        NumberAnimation {
+            id: detailIn
+            target: detailCard
+            property: "scale"
+            from: 0.88; to: 1.0
+            duration: 180; easing.type: Easing.OutBack
+            running: app.showDetail
+        }
     }
 }
