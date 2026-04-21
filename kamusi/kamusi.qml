@@ -219,7 +219,7 @@ Rectangle {
 
     function posColor(pos) {
         if (pos === "verb")      return "#22c55e";
-        if (pos === "noun")      return "#00e5ff";
+        if (pos === "noun")      return "#38bdf8";
         if (pos === "adjective") return "#f59e0b";
         if (pos === "adverb")    return "#a78bfa";
         if (pos === "number")    return "#f97316";
