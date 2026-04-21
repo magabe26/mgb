@@ -1,5 +1,1069 @@
 [
   {
+    "sw": "Kufufuka",
+    "en": "Resurrecting"
+  },
+  {
+    "sw": "Kufa",
+    "en": "Dying"
+  },
+  {
+    "sw": "Kuzeeka",
+    "en": "Aging"
+  },
+  {
+    "sw": "Kuishi",
+    "en": "Living"
+  },
+  {
+    "sw": "Kuhama",
+    "en": "Migrating/Moving house"
+  },
+  {
+    "sw": "Kusafiri",
+    "en": "Traveling"
+  },
+  {
+    "sw": "Kuzika",
+    "en": "Burying"
+  },
+  {
+    "sw": "Kuomboleza",
+    "en": "Mourning"
+  },
+  {
+    "sw": "Kujuta",
+    "en": "Regretting"
+  },
+  {
+    "sw": "Kukosoa",
+    "en": "Criticizing"
+  },
+  {
+    "sw": "Kusifu",
+    "en": "Praising"
+  },
+  {
+    "sw": "Kuadhibu",
+    "en": "Punishing"
+  },
+  {
+    "sw": "Kulea",
+    "en": "Nurturing/Parenting"
+  },
+  {
+    "sw": "Kusaidia maskini",
+    "en": "Helping the poor"
+  },
+  {
+    "sw": "Kutoa sadaka",
+    "en": "Giving offering"
+  },
+  {
+    "sw": "Kusali",
+    "en": "Praying"
+  },
+  {
+    "sw": "Kuhubiri",
+    "en": "Preaching"
+  },
+  {
+    "sw": "Kutoa hotuba",
+    "en": "Giving a speech"
+  },
+  {
+    "sw": "Kupiga vigelegele",
+    "en": "Ululating"
+  },
+  {
+    "sw": "Kupiga mluzi",
+    "en": "Whistling"
+  },
+  {
+    "sw": "Kupiga makofi",
+    "en": "Clapping"
+  },
+  {
+    "sw": "Kupiga mbizi",
+    "en": "Diving"
+  },
+  {
+    "sw": "Kuinua taja",
+    "en": "Lifting weights"
+  },
+  {
+    "sw": "Kunyoosha misuli",
+    "en": "Stretching"
+  },
+  {
+    "sw": "Kufanya mazoezi",
+    "en": "Exercising"
+  },
+  {
+    "sw": "Kuvuta sigara",
+    "en": "Smoking"
+  },
+  {
+    "sw": "Kulewa",
+    "en": "Getting drunk"
+  },
+  {
+    "sw": "Kuzinduka",
+    "en": "Regaining consciousness"
+  },
+  {
+    "sw": "Kuzimia",
+    "en": "Fainting"
+  },
+  {
+    "sw": "Kuumia",
+    "en": "Getting hurt"
+  },
+  {
+    "sw": "Kupona",
+    "en": "Healing/Recovering"
+  },
+  {
+    "sw": "Kudhurika",
+    "en": "Being harmed"
+  },
+  {
+    "sw": "Kuiba",
+    "en": "Stealing"
+  },
+  {
+    "sw": "Kusema ukweli",
+    "en": "Telling the truth"
+  },
+  {
+    "sw": "Kudanganya",
+    "en": "Lying"
+  },
+  {
+    "sw": "Kuapa",
+    "en": "Swearing/Taking an oath"
+  },
+  {
+    "sw": "Kuhukumiwa",
+    "en": "Being sentenced"
+  },
+  {
+    "sw": "Kuachiliwa",
+    "en": "Being released"
+  },
+  {
+    "sw": "Kufungwa",
+    "en": "Being imprisoned"
+  },
+  {
+    "sw": "Kukamatwa",
+    "en": "Being arrested"
+  },
+  {
+    "sw": "Kushambulia",
+    "en": "Attacking"
+  },
+  {
+    "sw": "Kutetea",
+    "en": "Defending"
+  },
+  {
+    "sw": "Kupinga",
+    "en": "Opposing"
+  },
+  {
+    "sw": "Kupendekeza",
+    "en": "Suggesting"
+  },
+  {
+    "sw": "Kuchagua",
+    "en": "Choosing"
+  },
+  {
+    "sw": "Kupiga kura",
+    "en": "Voting"
+  },
+  {
+    "sw": "Kutawala",
+    "en": "Ruling"
+  },
+  {
+    "sw": "Kuongoza",
+    "en": "Leading"
+  },
+  {
+    "sw": "Kufuata",
+    "en": "Following"
+  },
+  {
+    "sw": "Kuandamana",
+    "en": "Accompanying/Protesting"
+  },
+  {
+    "sw": "Kukaribisha",
+    "en": "Welcoming"
+  },
+  {
+    "sw": "Kualika",
+    "en": "Inviting"
+  },
+  {
+    "sw": "Kujitolea",
+    "en": "Volunteering"
+  },
+  {
+    "sw": "Kuhusika",
+    "en": "Being involved"
+  },
+  {
+    "sw": "Kushirikiana",
+    "en": "Cooperating"
+  },
+  {
+    "sw": "Kugawana",
+    "en": "Sharing"
+  },
+  {
+    "sw": "Kufuta",
+    "en": "Erasing/Deleting"
+  },
+  {
+    "sw": "Kughairi",
+    "en": "Canceling"
+  },
+  {
+    "sw": "Kuahirisha",
+    "en": "Postponing"
+  },
+  {
+    "sw": "Kusitisha",
+    "en": "Suspending"
+  },
+  {
+    "sw": "Kuendeleza",
+    "en": "Continuing"
+  },
+  {
+    "sw": "Kuanzisha",
+    "en": "Initiating"
+  },
+  {
+    "sw": "Kukamilisha",
+    "en": "Completing"
+  },
+  {
+    "sw": "Kuahi",
+    "en": "Being on time"
+  },
+  {
+    "sw": "Kuharakisha",
+    "en": "Hurrying"
+  },
+  {
+    "sw": "Kungoja",
+    "en": "Waiting"
+  },
+  {
+    "sw": "Kuvumilia",
+    "en": "Being patient"
+  },
+  {
+    "sw": "Kustahimili",
+    "en": "Enduring"
+  },
+  {
+    "sw": "Kushtuka",
+    "en": "Being shocked"
+  },
+  {
+    "sw": "Kushangaa",
+    "en": "Being surprised"
+  },
+  {
+    "sw": "Kuona haya",
+    "en": "Feeling shy"
+  },
+  {
+    "sw": "Kujivunia",
+    "en": "Being proud"
+  },
+  {
+    "sw": "Kujiamini",
+    "en": "Being confident"
+  },
+  {
+    "sw": "Kukata tamaa",
+    "en": "Giving up"
+  },
+  {
+    "sw": "Kukonyeza",
+    "en": "Winking"
+  },
+  {
+    "sw": "Kuashiria",
+    "en": "Gesturing"
+  },
+  {
+    "sw": "Kupunga mkono",
+    "en": "Waving"
+  },
+  {
+    "sw": "Kushika mkono",
+    "en": "Holding hands"
+  },
+  {
+    "sw": "Kukumbatia",
+    "en": "Hugging"
+  },
+  {
+    "sw": "Kupiga ngumi",
+    "en": "Punching"
+  },
+  {
+    "sw": "Kupiga kofi",
+    "en": "Slapping"
+  },
+  {
+    "sw": "Kupiga teke",
+    "en": "Kicking"
+  },
+  {
+    "sw": "Kukanyaga",
+    "en": "Stepping on"
+  },
+  {
+    "sw": "Kupiga chapa",
+    "en": "Printing/Stamping"
+  },
+  {
+    "sw": "Kusaini",
+    "en": "Signing"
+  },
+  {
+    "sw": "Kunukuu",
+    "en": "Quoting"
+  },
+  {
+    "sw": "Kukariri",
+    "en": "Memorizing"
+  },
+  {
+    "sw": "Kutafsiri",
+    "en": "Translating"
+  },
+  {
+    "sw": "Kuelezea",
+    "en": "Explaining"
+  },
+  {
+    "sw": "Kuonya",
+    "en": "Warning"
+  },
+  {
+    "sw": "Kushauri",
+    "en": "Advising"
+  },
+  {
+    "sw": "Kukubali",
+    "en": "Accepting"
+  },
+  {
+    "sw": "Kukataa",
+    "en": "Refusing"
+  },
+  {
+    "sw": "Kupatana",
+    "en": "Agreeing"
+  },
+  {
+    "sw": "Kupamba",
+    "en": "Decorating"
+  },
+  {
+    "sw": "Kuchafua",
+    "en": "Dirtying"
+  },
+  {
+    "sw": "Kusafisha",
+    "en": "Cleaning"
+  },
+  {
+    "sw": "Kuvuruga",
+    "en": "Disorganizing"
+  },
+  {
+    "sw": "Kupanga",
+    "en": "Arranging/Planning"
+  },
+  {
+    "sw": "Kuhesabu",
+    "en": "Counting"
+  },
+  {
+    "sw": "Kupima",
+    "en": "Measuring"
+  },
+  {
+    "sw": "Kukadiria",
+    "en": "Estimating"
+  },
+  {
+    "sw": "Kujumlisha",
+    "en": "Totaling/Adding up"
+  },
+  {
+    "sw": "Kugawa",
+    "en": "Distributing/Dividing"
+  },
+  {
+    "sw": "Kupunguza",
+    "en": "Reducing"
+  },
+  {
+    "sw": "Kuongeza",
+    "en": "Adding"
+  },
+  {
+    "sw": "Kusogeza",
+    "en": "Moving something"
+  },
+  {
+    "sw": "Kuzungusha",
+    "en": "Rotating"
+  },
+  {
+    "sw": "Kufunua",
+    "en": "Uncovering"
+  },
+  {
+    "sw": "Kufunika",
+    "en": "Covering"
+  },
+  {
+    "sw": "Kulaza",
+    "en": "Laying down"
+  },
+  {
+    "sw": "Kuchuchumaa",
+    "en": "Squatting"
+  },
+  {
+    "sw": "Kuinama",
+    "en": "Bending down"
+  },
+  {
+    "sw": "Kupiga magoti",
+    "en": "Kneeling"
+  },
+  {
+    "sw": "Kuinuka",
+    "en": "Rising"
+  },
+  {
+    "sw": "Kuanguka",
+    "en": "Falling"
+  },
+  {
+    "sw": "Kuteleza",
+    "en": "Sliding/Slipping"
+  },
+  {
+    "sw": "Kugonga",
+    "en": "Hitting/Knocking"
+  },
+  {
+    "sw": "Kuuma",
+    "en": "Biting/Hurting"
+  },
+  {
+    "sw": "Kuvimba",
+    "en": "Swelling"
+  },
+  {
+    "sw": "Kutoweka",
+    "en": "Disappearing"
+  },
+  {
+    "sw": "Kuonekana",
+    "en": "Appearing"
+  },
+  {
+    "sw": "Kujificha",
+    "en": "Hiding"
+  },
+  {
+    "sw": "Kugundua",
+    "en": "Discovering"
+  },
+  {
+    "sw": "Kupotea",
+    "en": "Getting lost"
+  },
+  {
+    "sw": "Kutoroka",
+    "en": "Escaping"
+  },
+  {
+    "sw": "Kuwinda",
+    "en": "Hunting"
+  },
+  {
+    "sw": "Kunyatia",
+    "en": "Stalking"
+  },
+  {
+    "sw": "Kuchungulia",
+    "en": "Peeping"
+  },
+  {
+    "sw": "Kulia (simba)",
+    "en": "Roaring (lion)"
+  },
+  {
+    "sw": "Kulia (nguruwe)",
+    "en": "Grunting (pig)"
+  },
+  {
+    "sw": "Kulia (farasi)",
+    "en": "Neighing (horse)"
+  },
+  {
+    "sw": "Kulia (punda)",
+    "en": "Braying (donkey)"
+  },
+  {
+    "sw": "Kulia (jogoo)",
+    "en": "Crowing (rooster)"
+  },
+  {
+    "sw": "Kulia (mbuzi)",
+    "en": "Bleating (goat)"
+  },
+  {
+    "sw": "Kulia (ng'ombe)",
+    "en": "Mooing (cow)"
+  },
+  {
+    "sw": "Kulia (paka)",
+    "en": "Meowing (cat)"
+  },
+  {
+    "sw": "Kubweka",
+    "en": "Barking (dog)"
+  },
+  {
+    "sw": "Kupiga kelele (mnyama)",
+    "en": "Vocalizing"
+  },
+  {
+    "sw": "Kukonda",
+    "en": "Getting thin"
+  },
+  {
+    "sw": "Kunona",
+    "en": "Getting fat"
+  },
+  {
+    "sw": "Kukua",
+    "en": "Growing"
+  },
+  {
+    "sw": "Kuzaa",
+    "en": "Giving birth (for animals)"
+  },
+  {
+    "sw": "Mimba ya mnyama",
+    "en": "Animal pregnancy"
+  },
+  {
+    "sw": "Kupandisha (mnyama)",
+    "en": "Breeding"
+  },
+  {
+    "sw": "Matandiko ya kuku",
+    "en": "Poultry litter"
+  },
+  {
+    "sw": "Kichanja cha nyasi",
+    "en": "Hay rack"
+  },
+  {
+    "sw": "Chapa ya sikioni",
+    "en": "Ear tag"
+  },
+  {
+    "sw": "Mdondo",
+    "en": "Newcastle disease (for chickens)"
+  },
+  {
+    "sw": "Homa ya mapafu",
+    "en": "Contagious pleuropneumonia"
+  },
+  {
+    "sw": "Sotoka",
+    "en": "Rinderpest"
+  },
+  {
+    "sw": "Magonjwa ya wanyama",
+    "en": "Animal diseases"
+  },
+  {
+    "sw": "Afya ya mifugo",
+    "en": "Livestock health"
+  },
+  {
+    "sw": "Uzito wa mnyama",
+    "en": "Animal weight"
+  },
+  {
+    "sw": "Mchinjaji",
+    "en": "Butcher"
+  },
+  {
+    "sw": "Buchari",
+    "en": "Butchery"
+  },
+  {
+    "sw": "Kuchinja",
+    "en": "Slaughtering"
+  },
+  {
+    "sw": "Kupunguza manyoya",
+    "en": "Shearing"
+  },
+  {
+    "sw": "Alama ya moto",
+    "en": "Branding"
+  },
+  {
+    "sw": "Josho",
+    "en": "Cattle dip"
+  },
+  {
+    "sw": "Kuogesha wanyama",
+    "en": "Dipping/Washing animals"
+  },
+  {
+    "sw": "Minyororo",
+    "en": "Chains"
+  },
+  {
+    "sw": "Kamba ya kufungia",
+    "en": "Tethering rope"
+  },
+  {
+    "sw": "Kengele ya shingoni",
+    "en": "Neck bell"
+  },
+  {
+    "sw": "Mbwa mchungaji",
+    "en": "Shepherd dog"
+  },
+  {
+    "sw": "Fimbo ya mchungaji",
+    "en": "Herding stick"
+  },
+  {
+    "sw": "Kundi la wanyama",
+    "en": "Herd/Flock"
+  },
+  {
+    "sw": "Ufugaji wa asili",
+    "en": "Traditional farming"
+  },
+  {
+    "sw": "Ufugaji wa kisasa",
+    "en": "Modern farming"
+  },
+  {
+    "sw": "Mbolea ya samadi",
+    "en": "Manure"
+  },
+  {
+    "sw": "Manyoya",
+    "en": "Feathers/Fur"
+  },
+  {
+    "sw": "Kukamua maziwa",
+    "en": "Milking"
+  },
+  {
+    "sw": "Kuhasi",
+    "en": "Castration"
+  },
+  {
+    "sw": "Chanjo ya wanyama",
+    "en": "Animal vaccine"
+  },
+  {
+    "sw": "Daktari wa wanyama",
+    "en": "Veterinarian"
+  },
+  {
+    "sw": "Dawa ya mifugo",
+    "en": "Veterinary medicine"
+  },
+  {
+    "sw": "Mashudu",
+    "en": "Oil cake feed"
+  },
+  {
+    "sw": "Pumba",
+    "en": "Bran"
+  },
+  {
+    "sw": "Majani",
+    "en": "Grass"
+  },
+  {
+    "sw": "Chakula cha mifugo",
+    "en": "Fodder/Animal feed"
+  },
+  {
+    "sw": "Matandiko",
+    "en": "Bedding for animals"
+  },
+  {
+    "sw": "Zizi la nguruwe",
+    "en": "Pigsty"
+  },
+  {
+    "sw": "Kizimba cha kuku",
+    "en": "Chicken coop"
+  },
+  {
+    "sw": "Zizi la mbuzi",
+    "en": "Goat pen"
+  },
+  {
+    "sw": "Zizi la ng'ombe",
+    "en": "Cow shed"
+  },
+  {
+    "sw": "Sungura wa kufugwa",
+    "en": "Domestic rabbit"
+  },
+  {
+    "sw": "Nyati wa kufugwa",
+    "en": "Water buffalo"
+  },
+  {
+    "sw": "Mwanafarasi",
+    "en": "Foal"
+  },
+  {
+    "sw": "Bata bukini",
+    "en": "Goose"
+  },
+  {
+    "sw": "Bata mzinga",
+    "en": "Turkey"
+  },
+  {
+    "sw": "Mwanapata",
+    "en": "Duckling"
+  },
+  {
+    "sw": "Pata dume",
+    "en": "Drake"
+  },
+  {
+    "sw": "Kinda la kuku",
+    "en": "Chick"
+  },
+  {
+    "sw": "Kuku jike",
+    "en": "Hen"
+  },
+  {
+    "sw": "Jogoo",
+    "en": "Rooster"
+  },
+  {
+    "sw": "Kiguruwe",
+    "en": "Piglet"
+  },
+  {
+    "sw": "Nguruwe jike",
+    "en": "Sow"
+  },
+  {
+    "sw": "Nguruwe dume",
+    "en": "Boar"
+  },
+  {
+    "sw": "Mwanakondoo",
+    "en": "Lamb"
+  },
+  {
+    "sw": "Kondoo dume",
+    "en": "Ram"
+  },
+  {
+    "sw": "Mwanambuzi",
+    "en": "Kid"
+  },
+  {
+    "sw": "Beberu",
+    "en": "Billy goat"
+  },
+  {
+    "sw": "Ndama",
+    "en": "Calf"
+  },
+  {
+    "sw": "Mtamba",
+    "en": "Heifer"
+  },
+  {
+    "sw": "Fahali",
+    "en": "Bull"
+  },
+  {
+    "sw": "Kipaka",
+    "en": "Kitten"
+  },
+  {
+    "sw": "Kumbakumba",
+    "en": "Puppy"
+  },
+  {
+    "sw": "Mbwa wa ulinzi",
+    "en": "Guard dog"
+  },
+  {
+    "sw": "Mbwa wa uwindaji",
+    "en": "Hunting dog"
+  },
+  {
+    "sw": "Kobe wa nyumbani",
+    "en": "Pet tortoise"
+  },
+  {
+    "sw": "Samaki wa kwenye kioo",
+    "en": "Goldfish"
+  },
+  {
+    "sw": "Ndege wa mapambo",
+    "en": "Ornamental bird"
+  },
+  {
+    "sw": "Hamsta",
+    "en": "Hamster"
+  },
+  {
+    "sw": "Kupiga hodi",
+    "en": "Knocking"
+  },
+  {
+    "sw": "Kumshukuru",
+    "en": "Thanking"
+  },
+  {
+    "sw": "Kusamehe",
+    "en": "Forgiving"
+  },
+  {
+    "sw": "Kukasirika",
+    "en": "Getting angry"
+  },
+  {
+    "sw": "Kuhuzunika",
+    "en": "Grieving"
+  },
+  {
+    "sw": "Kufurahia",
+    "en": "Enjoying"
+  },
+  {
+    "sw": "Kuelekeza",
+    "en": "Directing"
+  },
+  {
+    "sw": "Kumuliza",
+    "en": "Asking"
+  },
+  {
+    "sw": "Kuanza",
+    "en": "Starting"
+  },
+  {
+    "sw": "Kujaribu",
+    "en": "Trying"
+  },
+  {
+    "sw": "Kufanikiwa",
+    "en": "Succeeding"
+  },
+  {
+    "sw": "Kuondoka",
+    "en": "Leaving"
+  },
+  {
+    "sw": "Kuwasili",
+    "en": "Arriving"
+  },
+  {
+    "sw": "Kusubiri",
+    "en": "Waiting"
+  },
+  {
+    "sw": "Kupiga picha",
+    "en": "Taking photos"
+  },
+  {
+    "sw": "Kushusha",
+    "en": "Lowering"
+  },
+  {
+    "sw": "Kuvuta",
+    "en": "Pulling"
+  },
+  {
+    "sw": "Kusukuma",
+    "en": "Pushing"
+  },
+  {
+    "sw": "Kuzima",
+    "en": "Switching off"
+  },
+  {
+    "sw": "Kuwasha (moto/taa)",
+    "en": "Switching on"
+  },
+  {
+    "sw": "Kubomoa",
+    "en": "Demolishing"
+  },
+  {
+    "sw": "Kurekebisha",
+    "en": "Repairing"
+  },
+  {
+    "sw": "Kupasua",
+    "en": "Splitting"
+  },
+  {
+    "sw": "Kupanda (mbegu)",
+    "en": "Planting"
+  },
+  {
+    "sw": "Kupanda (mti)",
+    "en": "Climbing"
+  },
+  {
+    "sw": "Kupanda (gari)",
+    "en": "Boarding"
+  },
+  {
+    "sw": "Kuendesha",
+    "en": "Driving"
+  },
+  {
+    "sw": "Kuchukiana",
+    "en": "Hating"
+  },
+  {
+    "sw": "Kupendana",
+    "en": "Loving"
+  },
+  {
+    "sw": "Kugombana",
+    "en": "Quarreling"
+  },
+  {
+    "sw": "Kunong'ona",
+    "en": "Whispering"
+  },
+  {
+    "sw": "Kusikiliza",
+    "en": "Listening"
+  },
+  {
+    "sw": "Kuangalia",
+    "en": "Watching"
+  },
+  {
+    "sw": "Kuota ndoto",
+    "en": "Dreaming"
+  },
+  {
+    "sw": "Kusinzia",
+    "en": "Dosing"
+  },
+  {
+    "sw": "Kupiga miayo",
+    "en": "Yawning"
+  },
+  {
+    "sw": "Kupiga chafya",
+    "en": "Sneezing"
+  },
+  {
+    "sw": "Kukohoa",
+    "en": "Coughing"
+  },
+  {
+    "sw": "Kupumua",
+    "en": "Breathing"
+  },
+  {
+    "sw": "Kudeki",
+    "en": "Mopping"
+  },
+  {
+    "sw": "Kufagia",
+    "en": "Sweeping"
+  },
+  {
+    "sw": "Kupiga pasi",
+    "en": "Ironing"
+  },
+  {
+    "sw": "Kufua",
+    "en": "Washing clothes"
+  },
+  {
+    "sw": "Kuvua nguo",
+    "en": "Undressing"
+  },
+  {
+    "sw": "Kuvaa nguo",
+    "en": "Dressing up"
+  },
+  {
+    "sw": "Kupiga mswaki",
+    "en": "Brushing teeth"
+  },
+  {
+    "sw": "Kunawa mikono",
+    "en": "Washing hands"
+  },
+  {
+    "sw": "Kuoga",
+    "en": "Bathing"
+  },
+  {
+    "sw": "Kucheza densi",
+    "en": "Dancing"
+  },
+  {
+    "sw": "Kuwaza",
+    "en": "Imagining"
+  },
+  {
+    "sw": "Kusimama",
+    "en": "Standing"
+  },
+  {
+    "sw": "Kusema",
+    "en": "Speaking"
+  },
+  {
+    "sw": "Kutabasamu",
+    "en": "Smiling"
+  },
+  {
     "sw": "Umasikini",
     "en": "Poverty"
   },
