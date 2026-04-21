@@ -2,7 +2,7 @@
 //  Copyright 2026 - MagabeLab (Tanzania). All Rights Reserved.
 //  Author: Edwin Magabe
 //  Kamusi ya Kiswahili-Kiingereza | Swahili-English Dictionary
-//  Words: 996
+//  Words: 2768+
 // ─────────────────────────────────────────────────────────────────────────────
 
 import QtQuick 2.14
@@ -284,7 +284,32 @@ Rectangle {
             return a.sw.localeCompare(b.sw);
         });
         filteredWords = result;
+        buildAlphaIndex();
     }
+
+    // ── Alphabet Index ────────────────────────────────────────────────────────
+    // Ramani: herufi → index ya kwanza katika filteredWords
+    property var alphaIndexMap: ({})
+
+    function buildAlphaIndex() {
+        var map = {};
+        for (var i = 0; i < filteredWords.length; i++) {
+            var w = filteredWords[i];
+            var key = langMode ? w.en : w.sw;
+            if (!key || key.length === 0) continue;
+            var ch = key[0].toUpperCase();
+            if (!(ch in map)) map[ch] = i;
+        }
+        alphaIndexMap = map;
+    }
+
+    function jumpToLetter(ch) {
+        if (ch in alphaIndexMap) {
+            wordList.positionViewAtIndex(alphaIndexMap[ch], ListView.Beginning);
+        }
+    }
+
+    onLangModeChanged: { buildAlphaIndex(); }
 
     Component.onCompleted: { initKamusi(); }
     onSearchTextChanged:   { rebuildFilter(); }
@@ -713,7 +738,8 @@ Rectangle {
         id: wordList
         anchors {
             top: wotdCard.bottom; topMargin: 4
-            left: parent.left; right: parent.right
+            left: parent.left
+            right: alphaBar.left; rightMargin: 2
             bottom: bottomBar.top; bottomMargin: 2
         }
         model: app.filteredWords
@@ -789,6 +815,119 @@ Rectangle {
             MouseArea {
                 id: rowMA; anchors.fill: parent
                 onClicked: { app.currentWord = word; app.showDetail = true; }
+            }
+        }
+    }
+
+    // ── ALPHABET INDEX BAR ────────────────────────────────────────────────────
+    Item {
+        id: alphaBar
+        anchors {
+            top: wotdCard.bottom; topMargin: 4
+            right: parent.right; rightMargin: 2
+            bottom: bottomBar.top; bottomMargin: 2
+        }
+        width: Math.max(18, app.shortSide * 0.048)
+        z: 6
+        clip: true
+
+        // herufi za alfabeti
+        property var letters: ["A","B","C","D","E","F","G","H","I","J","K","L","M",
+                               "N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+
+        // Lebo inayoelea inayoonekana wakati wa kugusa
+        property string hoverLetter: ""
+        property bool   hoverVisible: false
+
+        Timer {
+            id: hoverHide; interval: 700; repeat: false
+            onTriggered: { alphaBar.hoverVisible = false; alphaBar.hoverLetter = ""; }
+        }
+
+        Column {
+            anchors { top: parent.top; bottom: parent.bottom; horizontalCenter: parent.horizontalCenter }
+            spacing: 0
+
+            Repeater {
+                model: alphaBar.letters
+                delegate: Item {
+                    id: alphaCell
+                    property string ch: modelData
+                    property bool   hasWords: ch in app.alphaIndexMap
+                    width: alphaBar.width
+                    height: alphaBar.height / alphaBar.letters.length
+
+                    Rectangle {
+                        anchors.centerIn: parent
+                        width: alphaBar.width - 2; height: width; radius: width / 2
+                        color: alphaMA.pressed ? Qt.rgba(0, 0.9, 1, 0.25)
+                               : (alphaCell.hasWords ? Qt.rgba(0, 0.9, 1, 0.06) : "transparent")
+                        Behavior on color { ColorAnimation { duration: 80 } }
+                    }
+
+                    Text {
+                        anchors.centerIn: parent
+                        text: modelData
+                        font.pixelSize: Math.max(8, alphaBar.width * 0.52)
+                        font.bold: alphaCell.hasWords
+                        color: alphaMA.pressed    ? iqGold
+                               : alphaCell.hasWords ? iqAccent
+                               : Qt.rgba(0, 0.9, 1, 0.18)
+                        Behavior on color { ColorAnimation { duration: 80 } }
+                    }
+
+                    MouseArea {
+                        id: alphaMA
+                        anchors.fill: parent
+                        onPressed: {
+                            if (alphaCell.hasWords) {
+                                app.jumpToLetter(alphaCell.ch);
+                                alphaBar.hoverLetter  = alphaCell.ch;
+                                alphaBar.hoverVisible = true;
+                                hoverHide.restart();
+                            }
+                        }
+                        // Drag: ruka bila ku-lift kidole
+                        onPositionChanged: {
+                            if (!pressed) return;
+                            var mapped = mapToItem(alphaBar, mouseX, mouseY);
+                            var idx = Math.floor(mapped.y / (alphaBar.height / alphaBar.letters.length));
+                            idx = Math.max(0, Math.min(alphaBar.letters.length - 1, idx));
+                            var targetCh = alphaBar.letters[idx];
+                            if (targetCh in app.alphaIndexMap) {
+                                app.jumpToLetter(targetCh);
+                                alphaBar.hoverLetter  = targetCh;
+                                alphaBar.hoverVisible = true;
+                                hoverHide.restart();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // Lebo inayoelea (popup ya herufi inayoonekana kushoto)
+        Rectangle {
+            id: alphaPopup
+            visible: alphaBar.hoverVisible && alphaBar.hoverLetter !== ""
+            anchors { right: alphaBar.left; rightMargin: 6; verticalCenter: parent.verticalCenter }
+            width: app.fntXl + 14; height: width; radius: width * 0.22
+            color: iqGoldDim
+            border.color: iqGold; border.width: 1.5
+            z: 20
+
+            Text {
+                anchors.centerIn: parent
+                text: alphaBar.hoverLetter
+                font.pixelSize: app.fntXl * 0.85; font.bold: true
+                color: iqGold
+                style: Text.Glow; styleColor: Qt.rgba(0, 0.9, 1, 0.50)
+            }
+
+            SequentialAnimation on scale {
+                running: alphaBar.hoverVisible
+                NumberAnimation { to: 1.15; duration: 80; easing.type: Easing.OutBack }
+                NumberAnimation { to: 1.00; duration: 80 }
             }
         }
     }
