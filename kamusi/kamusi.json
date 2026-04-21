@@ -1,5 +1,569 @@
 [
   {
+    "sw": "Hifadhi ya taifa",
+    "en": "National park"
+  },
+  {
+    "sw": "Mtalii",
+    "en": "Tourist"
+  },
+  {
+    "sw": "Utalii",
+    "en": "Tourism"
+  },
+  {
+    "sw": "Wanyama pori",
+    "en": "Wildlife"
+  },
+  {
+    "sw": "Misitu",
+    "en": "Forests"
+  },
+  {
+    "sw": "Makaa",
+    "en": "Charcoal/Coal"
+  },
+  {
+    "sw": "Hatari",
+    "en": "Danger"
+  },
+  {
+    "sw": "Ulinzi",
+    "en": "Defense"
+  },
+  {
+    "sw": "Vita",
+    "en": "War"
+  },
+  {
+    "sw": "Mchango",
+    "en": "Contribution"
+  },
+  {
+    "sw": "Ufadhili",
+    "en": "Funding/Sponsorship"
+  },
+  {
+    "sw": "Posho",
+    "en": "Allowance"
+  },
+  {
+    "sw": "Ajira",
+    "en": "Employment"
+  },
+  {
+    "sw": "Uwekezaji",
+    "en": "Investment"
+  },
+  {
+    "sw": "Ankara",
+    "en": "Invoice"
+  },
+  {
+    "sw": "Thamani",
+    "en": "Value"
+  },
+  {
+    "sw": "Kiwango",
+    "en": "Level/Standard"
+  },
+  {
+    "sw": "Ubora",
+    "en": "Quality"
+  },
+  {
+    "sw": "Suluhisho",
+    "en": "Solution"
+  },
+  {
+    "sw": "Changamoto",
+    "en": "Challenges"
+  },
+  {
+    "sw": "Maendeleo",
+    "en": "Progress/Development"
+  },
+  {
+    "sw": "Mabadiliko",
+    "en": "Changes"
+  },
+  {
+    "sw": "Athari",
+    "en": "Impact/Effect"
+  },
+  {
+    "sw": "Mchakato",
+    "en": "Process"
+  },
+  {
+    "sw": "Mfumo",
+    "en": "System"
+  },
+  {
+    "sw": "Utaratibu",
+    "en": "Procedure"
+  },
+  {
+    "sw": "Hiyari",
+    "en": "Optional"
+  },
+  {
+    "sw": "Muhimu",
+    "en": "Important"
+  },
+  {
+    "sw": "Haiwezekani",
+    "en": "Impossible"
+  },
+  {
+    "sw": "Inawezekana",
+    "en": "Possible"
+  },
+  {
+    "sw": "Hakika",
+    "en": "Certainly"
+  },
+  {
+    "sw": "Kamwe",
+    "en": "Never"
+  },
+  {
+    "sw": "Mara nyingi",
+    "en": "Often"
+  },
+  {
+    "sw": "Tarehe",
+    "en": "Date"
+  },
+  {
+    "sw": "Hitimisho",
+    "en": "Conclusion"
+  },
+  {
+    "sw": "Hoja",
+    "en": "Argument/Point"
+  },
+  {
+    "sw": "Mada",
+    "en": "Topic"
+  },
+  {
+    "sw": "Hotuba",
+    "en": "Speech"
+  },
+  {
+    "sw": "Mjadala",
+    "en": "Debate"
+  },
+  {
+    "sw": "Makosa",
+    "en": "Errors/Mistakes"
+  },
+  {
+    "sw": "Kanusho",
+    "en": "Disclaimer/Denial"
+  },
+  {
+    "sw": "Imethibitishwa",
+    "en": "Confirmed"
+  },
+  {
+    "sw": "Wazi",
+    "en": "Public/Open"
+  },
+  {
+    "sw": "Mtangazaji",
+    "en": "Presenter"
+  },
+  {
+    "sw": "Mwandishi wa habari",
+    "en": "Journalist"
+  },
+  {
+    "sw": "Msemaji",
+    "en": "Spokesperson"
+  },
+  {
+    "sw": "Mkutano wa waandishi",
+    "en": "Press conference"
+  },
+  {
+    "sw": "Mahojiano",
+    "en": "Interview"
+  },
+  {
+    "sw": "Uchunguzi",
+    "en": "Investigation"
+  },
+  {
+    "sw": "Malalamiko",
+    "en": "Complaints"
+  },
+  {
+    "sw": "Pendekezo",
+    "en": "Recommendation"
+  },
+  {
+    "sw": "Ufafanuzi",
+    "en": "Explanation"
+  },
+  {
+    "sw": "Mwongozo",
+    "en": "Guide"
+  },
+  {
+    "sw": "Maelekezo",
+    "en": "Instructions"
+  },
+  {
+    "sw": "Tahadhari",
+    "en": "Caution"
+  },
+  {
+    "sw": "Onyo",
+    "en": "Warning"
+  },
+  {
+    "sw": "Ilani",
+    "en": "Notice"
+  },
+  {
+    "sw": "Taarifa",
+    "en": "Information/Report"
+  },
+  {
+    "sw": "Tangazo",
+    "en": "Announcement/Advertisement"
+  },
+  {
+    "sw": "Kutoa taarifa",
+    "en": "Giving information"
+  },
+  {
+    "sw": "Kituo cha polisi",
+    "en": "Police station"
+  },
+  {
+    "sw": "Kituo cha mafuta",
+    "en": "Gas station"
+  },
+  {
+    "sw": "Mita",
+    "en": "Meters"
+  },
+  {
+    "sw": "Kilomita",
+    "en": "Kilometers"
+  },
+  {
+    "sw": "Umbali",
+    "en": "Distance"
+  },
+  {
+    "sw": "Dira",
+    "en": "Compass"
+  },
+  {
+    "sw": "Elekeza",
+    "en": "Direct"
+  },
+  {
+    "sw": "Potea",
+    "en": "Get lost"
+  },
+  {
+    "sw": "Tafuta",
+    "en": "Search/Look for"
+  },
+  {
+    "sw": "Fika",
+    "en": "Arrive"
+  },
+  {
+    "sw": "Inuka",
+    "en": "Go up"
+  },
+  {
+    "sw": "Pita",
+    "en": "Pass by"
+  },
+  {
+    "sw": "Rudi nyuma",
+    "en": "Go back"
+  },
+  {
+    "sw": "Endelea",
+    "en": "Continue"
+  },
+  {
+    "sw": "Simama",
+    "en": "Stop"
+  },
+  {
+    "sw": "Pinda",
+    "en": "Bend/Curve"
+  },
+  {
+    "sw": "Nje ya",
+    "en": "Outside"
+  },
+  {
+    "sw": "Ndani ya",
+    "en": "Inside"
+  },
+  {
+    "sw": "Juu ya",
+    "en": "On top of/Above"
+  },
+  {
+    "sw": "Chini ya",
+    "en": "Under/Below"
+  },
+  {
+    "sw": "Kati ya",
+    "en": "Between"
+  },
+  {
+    "sw": "Mkabala na",
+    "en": "Opposite"
+  },
+  {
+    "sw": "Jirani na",
+    "en": "Near/Next to"
+  },
+  {
+    "sw": "Mtaro",
+    "en": "Ditch/Gutter"
+  },
+  {
+    "sw": "Njia ya mkato",
+    "en": "Shortcut"
+  },
+  {
+    "sw": "Njia panda",
+    "en": "Crossroads/Junction"
+  },
+  {
+    "sw": "Kuelekeza njia",
+    "en": "Giving directions"
+  },
+  {
+    "sw": "Sehemu ya kihistoria",
+    "en": "Historical site"
+  },
+  {
+    "sw": "Maadili",
+    "en": "Ethics/Morals"
+  },
+  {
+    "sw": "Tambiko",
+    "en": "Ritual/Sacrifice"
+  },
+  {
+    "sw": "Sherehe ya mavuno",
+    "en": "Harvest festival"
+  },
+  {
+    "sw": "Maonyesho ya sanaa",
+    "en": "Art exhibition"
+  },
+  {
+    "sw": "Ufinyanzi",
+    "en": "Pottery"
+  },
+  {
+    "sw": "Kinyago",
+    "en": "Mask/Carving"
+  },
+  {
+    "sw": "Sanaa ya uchongaji",
+    "en": "Sculpting"
+  },
+  {
+    "sw": "Sanaa ya uchoraji",
+    "en": "Painting"
+  },
+  {
+    "sw": "Vitendawili",
+    "en": "Riddles"
+  },
+  {
+    "sw": "Miseja",
+    "en": "Idioms"
+  },
+  {
+    "sw": "Methali",
+    "en": "Proverbs"
+  },
+  {
+    "sw": "Simulizi",
+    "en": "Narrative"
+  },
+  {
+    "sw": "Hadithi za kale",
+    "en": "Folklore/Myths"
+  },
+  {
+    "sw": "Mshairi",
+    "en": "Poet"
+  },
+  {
+    "sw": "Shairi",
+    "en": "Poem"
+  },
+  {
+    "sw": "Filimbi ya mwanzi",
+    "en": "Bamboo flute"
+  },
+  {
+    "sw": "Kayamba",
+    "en": "Kayamba (shaker)"
+  },
+  {
+    "sw": "Marimba",
+    "en": "Xylophone/Marimba"
+  },
+  {
+    "sw": "Zeze",
+    "en": "Fiddle/Zeze"
+  },
+  {
+    "sw": "Muziki wa asili",
+    "en": "Folk music"
+  },
+  {
+    "sw": "Ngoma za asili",
+    "en": "Traditional dances"
+  },
+  {
+    "sw": "Chakula cha asili",
+    "en": "Traditional food"
+  },
+  {
+    "sw": "Mavazi ya asili",
+    "en": "Traditional clothing"
+  },
+  {
+    "sw": "Mchezo wa chesi",
+    "en": "Chess"
+  },
+  {
+    "sw": "Mchezo wa karata",
+    "en": "Card game"
+  },
+  {
+    "sw": "Mchezo wa dhumna",
+    "en": "Dominoes"
+  },
+  {
+    "sw": "Kuinua vyuma",
+    "en": "Weightlifting"
+  },
+  {
+    "sw": "Vifaa vya michezo",
+    "en": "Sports equipment"
+  },
+  {
+    "sw": "Mpira wa meza",
+    "en": "Table tennis"
+  },
+  {
+    "sw": "Ulingo",
+    "en": "Ring"
+  },
+  {
+    "sw": "Ngumi",
+    "en": "Boxing"
+  },
+  {
+    "sw": "Mbio za magari",
+    "en": "Car racing"
+  },
+  {
+    "sw": "Kuruka viunzi",
+    "en": "Hurdles"
+  },
+  {
+    "sw": "Kuruka kamba",
+    "en": "Jumping rope"
+  },
+  {
+    "sw": "Mbio za masafa marefu",
+    "en": "Marathon"
+  },
+  {
+    "sw": "Mbio za fupi",
+    "en": "Sprints"
+  },
+  {
+    "sw": "Mwanariadha",
+    "en": "Athlete"
+  },
+  {
+    "sw": "Glavu",
+    "en": "Gloves"
+  },
+  {
+    "sw": "Viatu vya michezo",
+    "en": "Sports shoes/Cleats"
+  },
+  {
+    "sw": "Soksi za mpira",
+    "en": "Sports socks"
+  },
+  {
+    "sw": "Timu ya taifa",
+    "en": "National team"
+  },
+  {
+    "sw": "Kuotea",
+    "en": "Offside"
+  },
+  {
+    "sw": "Faulo",
+    "en": "Foul"
+  },
+  {
+    "sw": "Penalti",
+    "en": "Penalty"
+  },
+  {
+    "sw": "Kona",
+    "en": "Corner kick"
+  },
+  {
+    "sw": "Kupiga shuti",
+    "en": "Shooting"
+  },
+  {
+    "sw": "Kuchenga",
+    "en": "Dribbling"
+  },
+  {
+    "sw": "Kujilinda",
+    "en": "Defending"
+  },
+  {
+    "sw": "Kipindi cha pili",
+    "en": "Second half"
+  },
+  {
+    "sw": "Kipindi cha kwanza",
+    "en": "First half"
+  },
+  {
+    "sw": "Filimbi",
+    "en": "Whistle"
+  },
+  {
+    "sw": "Mshika kibendera",
+    "en": "Linesman"
+  },
+  {
+    "sw": "Mshindi",
+    "en": "Winner"
+  },
+  {
     "sw": "Kufufuka",
     "en": "Resurrecting"
   },
