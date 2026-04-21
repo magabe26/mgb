@@ -1,5 +1,461 @@
 [
   {
+    "sw": "Katikati",
+    "en": "In the middle"
+  },
+  {
+    "sw": "Mwanzoni",
+    "en": "Initially"
+  },
+  {
+    "sw": "Mwishowe",
+    "en": "Finally"
+  },
+  {
+    "sw": "Hapo awali",
+    "en": "Previously"
+  },
+  {
+    "sw": "Kila mwaka",
+    "en": "Annually"
+  },
+  {
+    "sw": "Kila mwezi",
+    "en": "Monthly"
+  },
+  {
+    "sw": "Kila wiki",
+    "en": "Weekly"
+  },
+  {
+    "sw": "Saa kumi na mbili",
+    "en": "Twelve o'clock"
+  },
+  {
+    "sw": "Milele",
+    "en": "Forever"
+  },
+  {
+    "sw": "Muda wa sasa",
+    "en": "Present"
+  },
+  {
+    "sw": "Majira ya vuli",
+    "en": "Short rains"
+  },
+  {
+    "sw": "Majira ya kiangazi",
+    "en": "Dry season"
+  },
+  {
+    "sw": "Majira ya kipupwe",
+    "en": "Cold season"
+  },
+  {
+    "sw": "Majira ya masika",
+    "en": "Spring/Rainy season"
+  },
+  {
+    "sw": "Majira ya baridi",
+    "en": "Winter"
+  },
+  {
+    "sw": "Majira ya joto",
+    "en": "Summer"
+  },
+  {
+    "sw": "Milenia",
+    "en": "Millennium"
+  },
+  {
+    "sw": "Muongo",
+    "en": "Decade"
+  },
+  {
+    "sw": "Kitambaa cha jikoni",
+    "en": "Kitchen towel"
+  },
+  {
+    "sw": "Aproni",
+    "en": "Apron"
+  },
+  {
+    "sw": "Kibaniko",
+    "en": "Toaster"
+  },
+  {
+    "sw": "Jiko la mkaa",
+    "en": "Charcoal stove"
+  },
+  {
+    "sw": "Mwaiko",
+    "en": "Wooden spoon"
+  },
+  {
+    "sw": "Kupakua",
+    "en": "Serving food"
+  },
+  {
+    "sw": "Kusitiri",
+    "en": "Covering"
+  },
+  {
+    "sw": "Kumenya",
+    "en": "Peeling"
+  },
+  {
+    "sw": "Kuponda",
+    "en": "Crushing"
+  },
+  {
+    "sw": "Kusaga",
+    "en": "Grinding"
+  },
+  {
+    "sw": "Kuchoma",
+    "en": "Roasting/Grilling"
+  },
+  {
+    "sw": "Kukaranga",
+    "en": "Frying"
+  },
+  {
+    "sw": "Vuguvugu",
+    "en": "Lukewarm"
+  },
+  {
+    "sw": "Imeungua",
+    "en": "Burnt"
+  },
+  {
+    "sw": "Imeiva",
+    "en": "Ripe/Cooked"
+  },
+  {
+    "sw": "Mbichi",
+    "en": "Raw"
+  },
+  {
+    "sw": "Chumvi nyingi",
+    "en": "Salty"
+  },
+  {
+    "sw": "Ukali",
+    "en": "Spicy/Hot"
+  },
+  {
+    "sw": "Chachu",
+    "en": "Sour"
+  },
+  {
+    "sw": "Ladha",
+    "en": "Flavor/Taste"
+  },
+  {
+    "sw": "Baking poda",
+    "en": "Baking powder"
+  },
+  {
+    "sw": "Hamira",
+    "en": "Yeast"
+  },
+  {
+    "sw": "Siki",
+    "en": "Vinegar"
+  },
+  {
+    "sw": "Manjano",
+    "en": "Turmeric"
+  },
+  {
+    "sw": "Binzari nyembamba",
+    "en": "Cumin"
+  },
+  {
+    "sw": "Bizari",
+    "en": "Spices"
+  },
+  {
+    "sw": "Viatu vya usalama",
+    "en": "Safety boots"
+  },
+  {
+    "sw": "Kofia ngumu",
+    "en": "Hard hat"
+  },
+  {
+    "sw": "Miwani ya kinga",
+    "en": "Safety goggles"
+  },
+  {
+    "sw": "Gesi ya kulehemu",
+    "en": "Welding gas"
+  },
+  {
+    "sw": "Spea",
+    "en": "Spare parts"
+  },
+  {
+    "sw": "Mashine",
+    "en": "Machine"
+  },
+  {
+    "sw": "Karakana",
+    "en": "Workshop"
+  },
+  {
+    "sw": "Ukarabati",
+    "en": "Renovation/Repair"
+  },
+  {
+    "sw": "Mbunifu majengo",
+    "en": "Architect"
+  },
+  {
+    "sw": "Mlehemu",
+    "en": "Welder"
+  },
+  {
+    "sw": "Ulehemu",
+    "en": "Welding"
+  },
+  {
+    "sw": "Mekanika",
+    "en": "Mechanic"
+  },
+  {
+    "sw": "Ufundi mitambo",
+    "en": "Mechanics"
+  },
+  {
+    "sw": "Fundi umeme",
+    "en": "Electrician"
+  },
+  {
+    "sw": "Fundi bomba",
+    "en": "Plumber"
+  },
+  {
+    "sw": "Mwashi",
+    "en": "Mason"
+  },
+  {
+    "sw": "Mseremala",
+    "en": "Carpenter"
+  },
+  {
+    "sw": "Ngalawa",
+    "en": "Canoe builder"
+  },
+  {
+    "sw": "Brashi",
+    "en": "Brush"
+  },
+  {
+    "sw": "Tofali",
+    "en": "Brick"
+  },
+  {
+    "sw": "Parafujo",
+    "en": "Screws"
+  },
+  {
+    "sw": "Misumari",
+    "en": "Nails"
+  },
+  {
+    "sw": "Tape kipimo",
+    "en": "Measuring tape"
+  },
+  {
+    "sw": "Shoka",
+    "en": "Axe"
+  },
+  {
+    "sw": "Msumeno",
+    "en": "Saw"
+  },
+  {
+    "sw": "Mjanja",
+    "en": "Clever/Cunning"
+  },
+  {
+    "sw": "Mwadilifu",
+    "en": "Ethical/Righteous"
+  },
+  {
+    "sw": "Mkali",
+    "en": "Strict/Harsh"
+  },
+  {
+    "sw": "Mpole",
+    "en": "Gentle/Polite"
+  },
+  {
+    "sw": "Serious",
+    "en": "Makini"
+  },
+  {
+    "sw": "Ucheshi",
+    "en": "Humor"
+  },
+  {
+    "sw": "Unyogovu",
+    "en": "Depression"
+  },
+  {
+    "sw": "Upumbavu",
+    "en": "Foolishness"
+  },
+  {
+    "sw": "Uvivu",
+    "en": "Laziness"
+  },
+  {
+    "sw": "Ubinafsi",
+    "en": "Selfishness"
+  },
+  {
+    "sw": "Shtuko",
+    "en": "Shock"
+  },
+  {
+    "sw": "Kukatishwa tamaa",
+    "en": "Disappointment"
+  },
+  {
+    "sw": "Hisia",
+    "en": "Emotions"
+  },
+  {
+    "sw": "Upekuzi",
+    "en": "Search/Inspection"
+  },
+  {
+    "sw": "Dhamana",
+    "en": "Bail/Warranty"
+  },
+  {
+    "sw": "Hati ya kukamatwa",
+    "en": "Warrant"
+  },
+  {
+    "sw": "Sheria ndogo",
+    "en": "By-laws"
+  },
+  {
+    "sw": "Makamu wa rais",
+    "en": "Vice president"
+  },
+  {
+    "sw": "Haki za binadamu",
+    "en": "Human rights"
+  },
+  {
+    "sw": "Mshitakiwa",
+    "en": "Accused/Defendant"
+  },
+  {
+    "sw": "Mwendesha mashtaka",
+    "en": "Prosecutor"
+  },
+  {
+    "sw": "Mifumo",
+    "en": "Systems"
+  },
+  {
+    "sw": "Mkutano wa mtandaoni",
+    "en": "Virtual meeting"
+  },
+  {
+    "sw": "Ujumbe mfupi",
+    "en": "SMS"
+  },
+  {
+    "sw": "Skrini ya kugusa",
+    "en": "Touchscreen"
+  },
+  {
+    "sw": "Mishituko ya umeme",
+    "en": "Electric shocks"
+  },
+  {
+    "sw": "Rauta",
+    "en": "Router"
+  },
+  {
+    "sw": "Modemu",
+    "en": "Modem"
+  },
+  {
+    "sw": "Waya",
+    "en": "Cable/Wire"
+  },
+  {
+    "sw": "Kasi ya mtandao",
+    "en": "Internet speed"
+  },
+  {
+    "sw": "Uandishi wa msimbo",
+    "en": "Coding"
+  },
+  {
+    "sw": "Vifaa vya kompyuta",
+    "en": "Hardware"
+  },
+  {
+    "sw": "Jina la mtumiaji",
+    "en": "Username"
+  },
+  {
+    "sw": "Uzalishaji",
+    "en": "Production"
+  },
+  {
+    "sw": "Ubadilishaji fedha",
+    "en": "Bureau de change"
+  },
+  {
+    "sw": "Mashine ya kutolea pesa",
+    "en": "ATM"
+  },
+  {
+    "sw": "Hundi",
+    "en": "Cheque"
+  },
+  {
+    "sw": "Akaunti ya akiba",
+    "en": "Savings account"
+  },
+  {
+    "sw": "Duka la rejareja",
+    "en": "Retail shop"
+  },
+  {
+    "sw": "Duka la jumla",
+    "en": "Wholesale shop"
+  },
+  {
+    "sw": "Rasilimali",
+    "en": "Resources"
+  },
+  {
+    "sw": "Umaskini",
+    "en": "Poverty"
+  },
+  {
+    "sw": "Zabuni",
+    "en": "Tender"
+  },
+  {
+    "sw": "Denar",
+    "en": "Currency"
+  },
+  {
+    "sw": "Mjasiriamali",
+    "en": "Entrepreneur"
+  },
+  {
     "sw": "Hifadhi ya taifa",
     "en": "National park"
   },
