@@ -1,4 +1,14 @@
 [
+{
+    "id": 997,
+    "sw": "kula",
+    "en": "eat",
+    "pos": "adverb",
+    "ex_sw": "Kula chakula.",
+    "ex_en": "Eat food.",
+    "cat": "food"
+  },
+  
   {
     "id": 994,
     "sw": "ATM",
@@ -17,15 +27,7 @@
     "ex_en": "Africa is very important.",
     "cat": "general"
   },
-  {
-    "id": 704,
-    "sw": "Afrika Kusini",
-    "en": "South Africa",
-    "pos": "noun",
-    "ex_sw": "Afrika Kusini ni muhimu sana.",
-    "ex_en": "South Africa is very important.",
-    "cat": "general"
-  },
+  
   {
     "id": 453,
     "sw": "Agosti",
@@ -62,15 +64,7 @@
     "ex_en": "April is very important.",
     "cat": "time"
   },
-  {
-    "id": 716,
-    "sw": "Arusha",
-    "en": "Arusha",
-    "pos": "noun",
-    "ex_sw": "Arusha ni muhimu sana.",
-    "ex_en": "Arusha is very important.",
-    "cat": "general"
-  },
+  
   {
     "id": 710,
     "sw": "Asia",
@@ -98,24 +92,7 @@
     "ex_en": "Bluetooth is very important.",
     "cat": "technology"
   },
-  {
-    "id": 701,
-    "sw": "Burundi",
-    "en": "Burundi",
-    "pos": "noun",
-    "ex_sw": "Burundi ni muhimu sana.",
-    "ex_en": "Burundi is very important.",
-    "cat": "general"
-  },
-  {
-    "id": 712,
-    "sw": "Dar es Salaam",
-    "en": "Dar es Salaam",
-    "pos": "noun",
-    "ex_sw": "Dar es Salaam ni muhimu sana.",
-    "ex_en": "Dar es Salaam is very important.",
-    "cat": "general"
-  },
+
   {
     "id": 980,
     "sw": "Desemba",
@@ -125,33 +102,7 @@
     "ex_en": "December is very important.",
     "cat": "time"
   },
-  {
-    "id": 713,
-    "sw": "Dodoma",
-    "en": "Dodoma",
-    "pos": "noun",
-    "ex_sw": "Dodoma ni muhimu sana.",
-    "ex_en": "Dodoma is very important.",
-    "cat": "general"
-  },
-  {
-    "id": 795,
-    "sw": "Eid",
-    "en": "Eid",
-    "pos": "noun",
-    "ex_sw": "Eid ni muhimu sana.",
-    "ex_en": "Eid is very important.",
-    "cat": "religion"
-  },
-  {
-    "id": 702,
-    "sw": "Ethiopia",
-    "en": "Ethiopia",
-    "pos": "noun",
-    "ex_sw": "Ethiopia ni muhimu sana.",
-    "ex_en": "Ethiopia is very important.",
-    "cat": "general"
-  },
+  
   {
     "id": 447,
     "sw": "Februari",
@@ -170,15 +121,7 @@
     "ex_en": "GPS is very important.",
     "cat": "technology"
   },
-  {
-    "id": 706,
-    "sw": "Ghana",
-    "en": "Ghana",
-    "pos": "noun",
-    "ex_sw": "Ghana ni muhimu sana.",
-    "ex_en": "Ghana is very important.",
-    "cat": "general"
-  },
+  
   {
     "id": 445,
     "sw": "Ijumaa",
@@ -188,15 +131,7 @@
     "ex_en": "Friday is very important.",
     "cat": "time"
   },
-  {
-    "id": 720,
-    "sw": "Iringa",
-    "en": "Iringa",
-    "pos": "noun",
-    "ex_sw": "Iringa ni muhimu sana.",
-    "ex_en": "Iringa is very important.",
-    "cat": "general"
-  },
+  
   {
     "id": 978,
     "sw": "Januari",
@@ -269,42 +204,7 @@
     "ex_en": "June is very important.",
     "cat": "time"
   },
-  {
-    "id": 732,
-    "sw": "Kampala",
-    "en": "Kampala",
-    "pos": "noun",
-    "ex_sw": "Kampala ni muhimu sana.",
-    "ex_en": "Kampala is very important.",
-    "cat": "general"
-  },
-  {
-    "id": 698,
-    "sw": "Kenya",
-    "en": "Kenya",
-    "pos": "noun",
-    "ex_sw": "Kenya ni muhimu sana.",
-    "ex_en": "Kenya is very important.",
-    "cat": "general"
-  },
-  {
-    "id": 731,
-    "sw": "Kigali",
-    "en": "Kigali",
-    "pos": "noun",
-    "ex_sw": "Kigali ni muhimu sana.",
-    "ex_en": "Kigali is very important.",
-    "cat": "general"
-  },
-  {
-    "id": 723,
-    "sw": "Kigoma",
-    "en": "Strike",
-    "pos": "noun",
-    "ex_sw": "Kigoma ni muhimu sana.",
-    "ex_en": "Strike is very important.",
-    "cat": "general"
-  },
+
   {
     "id": 796,
     "sw": "Krismasi",
@@ -314,15 +214,7 @@
     "ex_en": "Christmas is very important.",
     "cat": "religion"
   },
-  {
-    "id": 724,
-    "sw": "Lindi",
-    "en": "Lindi",
-    "pos": "noun",
-    "ex_sw": "Lindi ni muhimu sana.",
-    "ex_en": "Lindi is very important.",
-    "cat": "general"
-  },
+  
   {
     "id": 448,
     "sw": "Machi",
@@ -332,15 +224,7 @@
     "ex_en": "March is very important.",
     "cat": "time"
   },
-  {
-    "id": 721,
-    "sw": "Mbeya",
-    "en": "Mbeya",
-    "pos": "noun",
-    "ex_sw": "Mbeya ni muhimu sana.",
-    "ex_en": "Mbeya is very important.",
-    "cat": "general"
-  },
+  
   {
     "id": 450,
     "sw": "Mei",
@@ -350,51 +234,17 @@
     "ex_en": "May is very important.",
     "cat": "time"
   },
-  {
-    "id": 990,
-    "sw": "Misri",
-    "en": "Egypt",
-    "pos": "noun",
-    "ex_sw": "Misri ni muhimu sana.",
-    "ex_en": "Egypt is very important.",
-    "cat": "general"
-  },
-  {
-    "id": 729,
-    "sw": "Mombasa",
-    "en": "Mombasa",
-    "pos": "noun",
-    "ex_sw": "Mombasa ni muhimu sana.",
-    "ex_en": "Mombasa is very important.",
-    "cat": "general"
-  },
-  {
-    "id": 719,
-    "sw": "Morogoro",
-    "en": "Morogoro",
-    "pos": "noun",
-    "ex_sw": "Morogoro ni muhimu sana.",
-    "ex_en": "Morogoro is very important.",
-    "cat": "general"
-  },
+  
   {
     "id": 717,
     "sw": "Moshi",
     "en": "Smoke",
     "pos": "noun",
-    "ex_sw": "Moshi ni muhimu sana.",
-    "ex_en": "Smoke is very important.",
+    "ex_sw": "Moshi umetanda",
+    "ex_en": "Smoke is everywhere.",
     "cat": "general"
   },
-  {
-    "id": 725,
-    "sw": "Mtwara",
-    "en": "Mtwara",
-    "pos": "noun",
-    "ex_sw": "Mtwara ni muhimu sana.",
-    "ex_en": "Mtwara is very important.",
-    "cat": "general"
-  },
+  
   {
     "id": 791,
     "sw": "Mungu",
@@ -404,42 +254,7 @@
     "ex_en": "God is very important.",
     "cat": "religion"
   },
-  {
-    "id": 726,
-    "sw": "Musoma",
-    "en": "Read it",
-    "pos": "noun",
-    "ex_sw": "Musoma ni muhimu sana.",
-    "ex_en": "Read it is very important.",
-    "cat": "general"
-  },
-  {
-    "id": 715,
-    "sw": "Mwanza",
-    "en": "Mwanza",
-    "pos": "noun",
-    "ex_sw": "Mwanza ni muhimu sana.",
-    "ex_en": "Mwanza is very important.",
-    "cat": "general"
-  },
-  {
-    "id": 730,
-    "sw": "Nairobi",
-    "en": "Nairobi",
-    "pos": "noun",
-    "ex_sw": "Nairobi ni muhimu sana.",
-    "ex_en": "Nairobi is very important.",
-    "cat": "general"
-  },
-  {
-    "id": 705,
-    "sw": "Nigeria",
-    "en": "Nigeria",
-    "pos": "noun",
-    "ex_sw": "Nigeria ni muhimu sana.",
-    "ex_en": "Nigeria is very important.",
-    "cat": "general"
-  },
+
   {
     "id": 979,
     "sw": "Novemba",
@@ -476,15 +291,7 @@
     "ex_en": "Ramadhan is very important.",
     "cat": "religion"
   },
-  {
-    "id": 700,
-    "sw": "Rwanda",
-    "en": "Rwanda",
-    "pos": "noun",
-    "ex_sw": "Rwanda ni muhimu sana.",
-    "ex_en": "Rwanda is very important.",
-    "cat": "general"
-  },
+  
   {
     "id": 454,
     "sw": "Septemba",
@@ -494,69 +301,7 @@
     "ex_en": "September is very important.",
     "cat": "time"
   },
-  {
-    "id": 727,
-    "sw": "Shinyanga",
-    "en": "Shinyanga",
-    "pos": "noun",
-    "ex_sw": "Shinyanga ni muhimu sana.",
-    "ex_en": "Shinyanga is very important.",
-    "cat": "general"
-  },
-  {
-    "id": 728,
-    "sw": "Singida",
-    "en": "I won't",
-    "pos": "noun",
-    "ex_sw": "Singida ni muhimu sana.",
-    "ex_en": "I won't is very important.",
-    "cat": "general"
-  },
-  {
-    "id": 703,
-    "sw": "Somalia",
-    "en": "Somalia",
-    "pos": "noun",
-    "ex_sw": "Somalia ni muhimu sana.",
-    "ex_en": "Somalia is very important.",
-    "cat": "general"
-  },
-  {
-    "id": 722,
-    "sw": "Tabora",
-    "en": "Tabora",
-    "pos": "noun",
-    "ex_sw": "Tabora ni muhimu sana.",
-    "ex_en": "Tabora is very important.",
-    "cat": "general"
-  },
-  {
-    "id": 718,
-    "sw": "Tanga",
-    "en": "Hang around",
-    "pos": "noun",
-    "ex_sw": "Tanga ni muhimu sana.",
-    "ex_en": "Hang around is very important.",
-    "cat": "general"
-  },
-  {
-    "id": 697,
-    "sw": "Tanzania",
-    "en": "Tanzania",
-    "pos": "noun",
-    "ex_sw": "Tanzania ni muhimu sana.",
-    "ex_en": "Tanzania is very important.",
-    "cat": "general"
-  },
-  {
-    "id": 699,
-    "sw": "Uganda",
-    "en": "Uganda",
-    "pos": "noun",
-    "ex_sw": "Uganda ni muhimu sana.",
-    "ex_en": "Uganda is very important.",
-    "cat": "general"
-  },
+
   {
     "id": 708,
     "sw": "Ulaya",
@@ -575,15 +320,7 @@
     "ex_en": "Wi-Fi is very important.",
     "cat": "technology"
   },
-  {
-    "id": 714,
-    "sw": "Zanzibar",
-    "en": "Zanzibar",
-    "pos": "noun",
-    "ex_sw": "Zanzibar ni muhimu sana.",
-    "ex_en": "Zanzibar is very important.",
-    "cat": "general"
-  },
+  
   {
     "id": 414,
     "sw": "abiria",
