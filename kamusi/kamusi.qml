@@ -909,11 +909,13 @@ Rectangle {
                     anchors.horizontalCenter: parent.horizontalCenter
 
                     // Emoji ya category
+/*
                     Text {
                         anchors.horizontalCenter: parent.horizontalCenter
                         text: app.currentWord ? (app.catEmoji[app.currentWord.cat] || "📖") : ""
                         font.pixelSize: app.fntXl * 1.4
-                    }
+                    } 
+*/
 
                     // Neno kuu (Kiswahili)
                     Text {
