@@ -918,11 +918,6 @@ Rectangle {
 */
 
                     // Neno kuu (Kiswahili)
-                Row {
-                            anchors { left: parent.left; right: parent.right; margins: app.pad; verticalCenter: parent.verticalCenter }
-                            spacing: 8
-                            Text { text: "🇹🇿"; font.pixelSize: app.fntMd; anchors.verticalCenter: parent.verticalCenter }       
-    
                     Text {
                         anchors.horizontalCenter: parent.horizontalCenter
                         text: app.currentWord ? app.currentWord.sw : ""
@@ -932,16 +927,9 @@ Rectangle {
                         wrapMode: Text.WordWrap; horizontalAlignment: Text.AlignHCenter
                         width: parent.width
                     }
-                  }
 
                     // Tafsiri ya Kiingereza
-        Row {
-                            anchors { left: parent.left; right: parent.right; margins: app.pad; verticalCenter: parent.verticalCenter }
-                            spacing: 8
-                            Text { text: "🇬🇧"; font.pixelSize: app.fntMd; anchors.verticalCenter: parent.verticalCenter }       
-    
-                               
-Text {
+                    Text {
                         anchors.horizontalCenter: parent.horizontalCenter
                         text: app.currentWord ? app.currentWord.en : ""
                         font.pixelSize: app.fntLg; font.bold: true
@@ -949,7 +937,6 @@ Text {
                         wrapMode: Text.WordWrap; horizontalAlignment: Text.AlignHCenter
                         width: parent.width
                     }
-}
                 }
 
                 // Beji za POS na Kikundi
