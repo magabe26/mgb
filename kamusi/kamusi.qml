@@ -105,7 +105,6 @@ Rectangle {
 
     // ── Hali ya programu ──────────────────────────────────────────────────────
     property string searchText:  ""
-    property string filterPOS:   ""
     property int    sortMode:    0
     property var    currentWord: null
     property bool   showDetail:  false
@@ -182,12 +181,6 @@ Rectangle {
         downloadWords();
     }
 
-    // ── Aina za maneno ────────────────────────────────────────────────────────
-    readonly property var posLabels: {
-        "noun": "Nomino", "verb": "Kitenzi", "adjective": "Kivumishi",
-        "adverb": "Kielelezo", "number": "Nambari", "": "Zote"
-    }
-
     // ── Maneno yaliyochujwa ───────────────────────────────────────────────────
     property var filteredWords: []
 
@@ -196,7 +189,6 @@ Rectangle {
         var result = [];
         for (var i = 0; i < allWords.length; i++) {
             var w = allWords[i];
-            if (filterPOS !== "" && w.pos !== filterPOS) continue;
             if (q !== "") {
                 var swMatch = w.sw.toLowerCase().indexOf(q) !== -1;
                 var enMatch = w.en.toLowerCase().indexOf(q) !== -1;
@@ -206,7 +198,6 @@ Rectangle {
         }
         result.sort(function(a, b) {
             if (sortMode === 1) return a.en.localeCompare(b.en);
-            if (sortMode === 2) return a.pos.localeCompare(b.pos) || a.sw.localeCompare(b.sw);
             return a.sw.localeCompare(b.sw);
         });
         filteredWords = result;
@@ -214,17 +205,7 @@ Rectangle {
 
     Component.onCompleted: { initKamusi(); }
     onSearchTextChanged:   { rebuildFilter(); }
-    onFilterPOSChanged:    { rebuildFilter(); }
     onSortModeChanged:     { rebuildFilter(); }
-
-    function posColor(pos) {
-        if (pos === "verb")      return "#22c55e";
-        if (pos === "noun")      return "#38bdf8";
-        if (pos === "adjective") return "#f59e0b";
-        if (pos === "adverb")    return "#a78bfa";
-        if (pos === "number")    return "#f97316";
-        return iqTextSec;
-    }
 
     // ─────────────────────────────────────────────────────────────────────────
     //  MAIN LAYOUT  (flat — watoto wa moja kwa moja wa app)
@@ -533,16 +514,6 @@ Rectangle {
                 height: 1; color: Qt.rgba(0, 0.9, 1, 0.06)
             }
 
-            Rectangle {
-                anchors {
-                    left: parent.left; top: parent.top; bottom: parent.bottom
-                    topMargin: 8; bottomMargin: 8
-                }
-                width: 3; radius: 2
-                color: app.posColor(word.pos)
-                opacity: 0.7
-            }
-
             Row {
                 anchors {
                     left: parent.left; leftMargin: app.pad + 6
@@ -551,27 +522,10 @@ Rectangle {
                 }
                 spacing: app.pad * 0.75
 
-                Rectangle {
-                    width: posTag.implicitWidth + 14
-                    height: Math.max(24, app.fntSm + 8)
-                    radius: height / 2
-                    color: Qt.rgba(0, 0, 0, 0.35)
-                    border.color: Qt.rgba(app.posColor(word.pos).r, app.posColor(word.pos).g, app.posColor(word.pos).b, 0.45)
-                    border.width: 1
-                    anchors.verticalCenter: parent.verticalCenter
-                    Text {
-                        id: posTag
-                        anchors.centerIn: parent
-                        text: word.pos.substring(0, 3).toUpperCase()
-                        font.pixelSize: app.fntSm - 1; font.bold: true; font.letterSpacing: 1
-                        color: app.posColor(word.pos)
-                    }
-                }
-
                 Column {
                     anchors.verticalCenter: parent.verticalCenter
                     spacing: 3
-                    width: parent.width - posTag.implicitWidth - 18 - arrowTxt.implicitWidth - app.pad * 2
+                    width: parent.width - arrowTxt.implicitWidth - app.pad * 2
 
                     Text {
                         text: app.langMode ? word.en : word.sw
@@ -629,8 +583,7 @@ Rectangle {
             Repeater {
                 model: [
                     { label: "A-Z SW", mode: 0 },
-                    { label: "A-Z EN", mode: 1 },
-                    { label: "AINA",   mode: 2 }
+                    { label: "A-Z EN", mode: 1 }
                 ]
                 delegate: Rectangle {
                     property bool isActive: app.sortMode === modelData.mode
@@ -649,40 +602,6 @@ Rectangle {
                     MouseArea {
                         id: srtMA; anchors.fill: parent
                         onClicked: { app.sortMode = modelData.mode; }
-                    }
-                }
-            }
-
-            Rectangle {
-                width: 1; height: parent.height * 0.6
-                color: Qt.rgba(0, 0.9, 1, 0.2)
-                anchors.verticalCenter: parent.verticalCenter
-            }
-
-            Repeater {
-                model: [
-                    { label: "ZOTE", pos: "" },
-                    { label: "NOM",  pos: "noun" },
-                    { label: "KIT",  pos: "verb" },
-                    { label: "ADJ",  pos: "adjective" }
-                ]
-                delegate: Rectangle {
-                    property bool isActive: app.filterPOS === modelData.pos
-                    height: bottomBar.height * 0.72
-                    width: posFilterLbl.implicitWidth + app.pad * 1.4
-                    radius: height / 2
-                    color: isActive ? Qt.rgba(0, 0.9, 1, 0.15) : (posMA.pressed ? Qt.rgba(0, 0.9, 1, 0.08) : "transparent")
-                    border.color: isActive ? app.posColor(modelData.pos === "" ? "noun" : modelData.pos) : Qt.rgba(0, 0.9, 1, 0.2)
-                    border.width: 1
-                    Behavior on color { ColorAnimation { duration: 80 } }
-                    Text {
-                        id: posFilterLbl; anchors.centerIn: parent
-                        text: modelData.label; font.pixelSize: app.fntSm; font.bold: isActive
-                        color: isActive ? app.posColor(modelData.pos === "" ? "noun" : modelData.pos) : iqTextDim
-                    }
-                    MouseArea {
-                        id: posMA; anchors.fill: parent
-                        onClicked: { app.filterPOS = modelData.pos; }
                     }
                 }
             }
@@ -928,25 +847,6 @@ Rectangle {
                             color: Qt.rgba(0.82, 0.96, 1, 1)
                             wrapMode: Text.WordWrap; horizontalAlignment: Text.AlignHCenter
                             width: parent.width
-                        }
-                    }
-
-                    Row {
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        spacing: 10
-
-                        Rectangle {
-                            height: Math.max(30, app.fntSm + 14)
-                            width: posDetailLbl.implicitWidth + 20; radius: height / 2
-                            color: Qt.rgba(0, 0, 0, 0.4)
-                            border.color: app.currentWord ? app.posColor(app.currentWord.pos) : iqTextDim
-                            border.width: 1.5
-                            Text {
-                                id: posDetailLbl; anchors.centerIn: parent
-                                text: app.currentWord ? (app.posLabels[app.currentWord.pos] || app.currentWord.pos) : ""
-                                font.pixelSize: app.fntSm; font.bold: true
-                                color: app.currentWord ? app.posColor(app.currentWord.pos) : iqTextDim
-                            }
                         }
                     }
 
