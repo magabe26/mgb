@@ -960,8 +960,9 @@ Rectangle {
             }
         }
 
+        // A-Z chips — kushoto
         Row {
-            anchors.centerIn: parent
+            anchors { left: parent.left; leftMargin: app.pad; verticalCenter: parent.verticalCenter }
             spacing: app.pad * 0.5
 
             Repeater {
@@ -989,26 +990,27 @@ Rectangle {
                     }
                 }
             }
+        }
 
-            // Kitufe cha Quiz
-            Rectangle {
-                height: bottomBar.height * 0.72
-                width: quizBarLbl.implicitWidth + app.pad * 1.6
-                radius: height / 2
-                color: quizBarMA.pressed ? Qt.rgba(1, 0.85, 0, 0.22) : Qt.rgba(1, 0.85, 0, 0.10)
-                border.color: "#ffd700"; border.width: 1
-                Behavior on color { ColorAnimation { duration: 80 } }
-                Text {
-                    id: quizBarLbl; anchors.centerIn: parent
-                    text: "🎯 MCHEZO"
-                    font.pixelSize: app.fntSm; font.bold: true
-                    color: "#ffd700"
-                }
-                MouseArea {
-                    id: quizBarMA; anchors.fill: parent
-                    onClicked: {
-                        if (app.allWords.length >= 4) { app.quizStart(); }
-                    }
+        // Kitufe cha Quiz — kulia
+        Rectangle {
+            anchors { right: parent.right; rightMargin: app.pad; verticalCenter: parent.verticalCenter }
+            height: bottomBar.height * 0.72
+            width: quizBarLbl.implicitWidth + app.pad * 1.6
+            radius: height / 2
+            color: quizBarMA.pressed ? Qt.rgba(1, 0.85, 0, 0.22) : Qt.rgba(1, 0.85, 0, 0.10)
+            border.color: "#ffd700"; border.width: 1
+            Behavior on color { ColorAnimation { duration: 80 } }
+            Text {
+                id: quizBarLbl; anchors.centerIn: parent
+                text: "🎯 MCHEZO"
+                font.pixelSize: app.fntSm; font.bold: true
+                color: "#ffd700"
+            }
+            MouseArea {
+                id: quizBarMA; anchors.fill: parent
+                onClicked: {
+                    if (app.allWords.length >= 4) { app.quizStart(); }
                 }
             }
         }
