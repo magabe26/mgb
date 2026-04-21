@@ -2,7 +2,7 @@
 //  Copyright 2026 - MagabeLab (Tanzania). All Rights Reserved.
 //  Author: Edwin Magabe
 //  Kamusi ya Kiswahili-Kiingereza | Swahili-English Dictionary
-//  Words: 996  |  Categories: 21
+//  Words: 996
 // ─────────────────────────────────────────────────────────────────────────────
 
 import QtQuick 2.14
@@ -105,7 +105,6 @@ Rectangle {
 
     // ── Hali ya programu ──────────────────────────────────────────────────────
     property string searchText:     ""
-    property string filterCategory: "all"
     property string filterPOS:      ""
     property int    sortMode:       0       // 0=A-Z sw, 1=A-Z en, 2=POS
     property var    currentWord:    null    // neno lililochaguliwa (detail view)
@@ -188,19 +187,10 @@ Rectangle {
         downloadWords();
     }
 
-    // ── Orodha ya makundi ─────────────────────────────────────────────────────
-    readonly property var categories: ["all","agriculture","animal","body","clothing","color","education","emotion","family","finance","food","general","health","home","nature","religion","sport","technology","time","travel","weather","work"]
+    // ── Aina za maneno ───────────────────────────────────────────────────────
     readonly property var posLabels: {
         "noun": "Nomino", "verb": "Kitenzi", "adjective": "Kivumishi",
         "adverb": "Kielelezo", "number": "Nambari", "": "Zote"
-    }
-    readonly property var catEmoji: {
-        "all": "📚", "general": "💬", "emotion": "❤️", "family": "👨‍👩‍👧",
-        "body": "🫀", "health": "🏥", "food": "🍲", "home": "🏠",
-        "nature": "🌿", "weather": "🌦️", "animal": "🦁", "travel": "✈️",
-        "time": "🕐", "color": "🎨", "clothing": "👔", "work": "💼",
-        "education": "📖", "sport": "⚽", "finance": "💰",
-        "agriculture": "🌾", "religion": "🕌", "technology": "💻"
     }
 
     // ── Maneno yaliyochujwa ───────────────────────────────────────────────────
@@ -211,7 +201,6 @@ Rectangle {
         var result = [];
         for (var i = 0; i < allWords.length; i++) {
             var w = allWords[i];
-            if (filterCategory !== "all" && w.cat !== filterCategory) continue;
             if (filterPOS !== "" && w.pos !== filterPOS) continue;
             if (q !== "") {
                 var swMatch = w.sw.toLowerCase().indexOf(q) !== -1;
@@ -231,7 +220,6 @@ Rectangle {
 
     Component.onCompleted: { initKamusi(); }
     onSearchTextChanged:    { rebuildFilter(); }
-    onFilterCategoryChanged:{ rebuildFilter(); }
     onFilterPOSChanged:     { rebuildFilter(); }
     onSortModeChanged:      { rebuildFilter(); }
 
@@ -278,7 +266,7 @@ Rectangle {
     Rectangle {
         id: header
         anchors { top: parent.top; left: parent.left; right: parent.right }
-        height: app.headerH + searchBar.height + catBar.height + app.pad * 2
+        height: app.headerH + searchBar.height + app.pad * 2
         color: "transparent"
         z: 10
 
@@ -504,48 +492,6 @@ Rectangle {
                     MouseArea { id: clrMA; anchors.fill: parent; onClicked: { searchField.text = ""; app.searchText = ""; } }
                 }
             }
-
-            // Category filter bar
-            Item {
-                id: catBar
-                width: parent.width
-                height: app.btnH * 0.72
-
-                ListView {
-                    id: catList
-                    anchors.fill: parent
-                    orientation: ListView.Horizontal
-                    spacing: 6
-                    clip: true
-                    model: app.categories
-                    delegate: Rectangle {
-                        property bool isActive: app.filterCategory === modelData
-                        height: catBar.height
-                        width: catLbl.implicitWidth + app.pad * 1.6
-                        radius: height / 2
-                        color: isActive
-                            ? Qt.rgba(0,0.9,1,0.18)
-                            : (catDelegMA.pressed ? Qt.rgba(0,0.9,1,0.10) : Qt.rgba(0,0.9,1,0.04))
-                        border.color: isActive ? iqGold : Qt.rgba(0,0.9,1,0.18)
-                        border.width: isActive ? 1.5 : 1
-                        Behavior on color { ColorAnimation { duration: 100 } }
-
-                        Text {
-                            id: catLbl
-                            anchors.centerIn: parent
-                            text: (app.catEmoji[modelData] || "•") + " " + modelData
-                            font.pixelSize: app.fntSm; font.bold: isActive
-                            color: isActive ? iqGold : iqTextSec
-                        }
-                        MouseArea {
-                            id: catDelegMA; anchors.fill: parent
-                            onClicked: { app.filterCategory = modelData; }
-                        }
-                    }
-                    ScrollIndicator.horizontal: ScrollIndicator {}
-                }
-            }
-        }
     }
 
     // ── ORODHA YA MANENO ─────────────────────────────────────────────────────
@@ -908,15 +854,6 @@ Rectangle {
                     spacing: app.pad * 0.4
                     anchors.horizontalCenter: parent.horizontalCenter
 
-                    // Emoji ya category
-/*
-                    Text {
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        text: app.currentWord ? (app.catEmoji[app.currentWord.cat] || "📖") : ""
-                        font.pixelSize: app.fntXl * 1.4
-                    } 
-*/
-
                     // Neno kuu (Kiswahili)
                     Text {
                         anchors.horizontalCenter: parent.horizontalCenter
@@ -957,20 +894,6 @@ Rectangle {
                             color: app.currentWord ? app.posColor(app.currentWord.pos) : iqTextDim
                         }
                     }
-
-                    Rectangle {
-                        height: Math.max(30, app.fntSm + 14)
-                        width: catDetailLbl.implicitWidth + 20; radius: height / 2
-                        color: Qt.rgba(0,0,0,0.3)
-                        border.color: Qt.rgba(0,0.9,1,0.28); border.width: 1.5
-                        Text {
-                            id: catDetailLbl; anchors.centerIn: parent
-                            text: app.currentWord
-                                ? ((app.catEmoji[app.currentWord.cat] || "•") + "  " + app.currentWord.cat)
-                                : ""
-                            font.pixelSize: app.fntSm; color: iqTextSec
-                        }
-                    }
                 }
 
                 // Mstari wa kati
@@ -985,66 +908,6 @@ Rectangle {
                     }
                 }
 
-                // Mfano wa sentensi
-/*
-                Column {
-                    width: parent.width
-                    spacing: app.pad * 0.6
-                    visible: app.currentWord && app.currentWord.ex_sw && app.currentWord.ex_sw.length > 0
-
-                    // Label ya mfano
-                    Row {
-                        spacing: 6
-                        Rectangle { width: 3; height: 14; radius: 2; color: iqAccent; anchors.verticalCenter: parent.verticalCenter }
-                        Text {
-                            text: "MFANO WA SENTENSI"
-                            font.pixelSize: app.fntSm - 1; font.bold: true; font.letterSpacing: 1.5
-                            color: Qt.rgba(0,0.9,1,0.50)
-                            anchors.verticalCenter: parent.verticalCenter
-                        }
-                    }
-
-                    // Kiswahili
-                    Rectangle {
-                        width: parent.width; height: exSwTxt.implicitHeight + app.pad * 1.2
-                        radius: app.radius * 0.7
-                        color: Qt.rgba(0,0.9,1,0.05)
-                        border.color: Qt.rgba(0,0.9,1,0.14); border.width: 1
-                        Row {
-                            anchors { left: parent.left; right: parent.right; margins: app.pad; verticalCenter: parent.verticalCenter }
-                            spacing: 8
-                            Text { text: "🇹🇿"; font.pixelSize: app.fntMd; anchors.verticalCenter: parent.verticalCenter }
-                            Text {
-                                id: exSwTxt
-                                text: app.currentWord ? app.currentWord.ex_sw : ""
-                                font.pixelSize: app.fntMd; color: iqTextSec
-                                wrapMode: Text.WordWrap; font.italic: true
-                                width: parent.width - 30
-                            }
-                        }
-                    }
-
-                    // Kiingereza
-                    Rectangle {
-                        width: parent.width; height: exEnTxt.implicitHeight + app.pad * 1.2
-                        radius: app.radius * 0.7
-                        color: Qt.rgba(0,0.6,0.9,0.04)
-                        border.color: Qt.rgba(0,0.9,1,0.09); border.width: 1
-                        Row {
-                            anchors { left: parent.left; right: parent.right; margins: app.pad; verticalCenter: parent.verticalCenter }
-                            spacing: 8
-                            Text { text: "🇬🇧"; font.pixelSize: app.fntMd; anchors.verticalCenter: parent.verticalCenter }
-                            Text {
-                                id: exEnTxt
-                                text: app.currentWord ? app.currentWord.ex_en : ""
-                                font.pixelSize: app.fntMd; color: Qt.rgba(0.65,0.88,0.88,1)
-                                wrapMode: Text.WordWrap; font.italic: true
-                                width: parent.width - 30
-                            }
-                        }
-                    }
-                }
-*/
                 // Vifungo
                 Row {
                     anchors.horizontalCenter: parent.horizontalCenter
