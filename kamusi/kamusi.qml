@@ -1172,100 +1172,200 @@ Rectangle {
     }
 
     // ─────────────────────────────────────────────────────────────────────────
-    //  DETAIL OVERLAY  (z: 20)
+    //  DETAIL OVERLAY  (z: 20)  — Bottom Sheet style
     // ─────────────────────────────────────────────────────────────────────────
     Rectangle {
         id: detailOverlay
         anchors.fill: parent
-        color: Qt.rgba(0, 0, 0, 0.82)
+        color: Qt.rgba(0, 0, 0, 0)
         visible: app.showDetail && app.currentWord !== null
         z: 20
 
-        MouseArea { anchors.fill: parent; onClicked: { app.showDetail = false; } }
-
+        // Dimming ya mandharinyuma — inaonekana polepole
         Rectangle {
-            id: detailCard
-            anchors.centerIn: parent
-            width:  app.width  - app.pad * 2
-            height: Math.min(app.height * 0.90, detailFlick.contentHeight + app.pad * 3)
-            radius: app.radius * 1.5
+            anchors.fill: parent
+            color: Qt.rgba(0, 0, 0, 0.75)
+            opacity: detailSheet.sheetOpen ? 1 : 0
+            Behavior on opacity { NumberAnimation { duration: 280 } }
+        }
+
+        MouseArea {
+            anchors { top: parent.top; left: parent.left; right: parent.right; bottom: detailSheet.top }
+            onClicked: { detailSheet.sheetOpen = false; }
+        }
+
+        // ── Bottom Sheet ──────────────────────────────────────────────────────
+        Rectangle {
+            id: detailSheet
+            anchors { left: parent.left; right: parent.right; bottom: parent.bottom }
+            height: Math.min(app.height * 0.88, sheetInnerCol.implicitHeight + heroSection.height + app.pad * 3)
+            radius: app.radius * 2
             color: iqCard
-            border.color: iqGold; border.width: 2
             clip: true
 
-            Rectangle {
-                anchors { top: parent.top; left: parent.left; right: parent.right }
-                height: parent.height * 0.35; radius: parent.radius
-                gradient: Gradient {
-                    GradientStop { position: 0.0; color: Qt.rgba(0, 0.9, 1, 0.09) }
-                    GradientStop { position: 1.0; color: "transparent" }
+            property bool sheetOpen: false
+
+            // Slide-in ya chini kwenda juu
+            transform: Translate {
+                y: detailSheet.sheetOpen ? 0 : detailSheet.height
+                Behavior on y { NumberAnimation { duration: 320; easing.type: Easing.OutCubic } }
+            }
+
+            onSheetOpenChanged: {
+                if (!sheetOpen) {
+                    // Subiri animation imalize kisha ficha overlay
+                    closeTimer.restart();
                 }
             }
 
+            Timer {
+                id: closeTimer; interval: 330; repeat: false
+                onTriggered: { app.showDetail = false; }
+            }
+
+            // ── Hero Section — rangi kulingana na herufi ──────────────────────
             Rectangle {
+                id: heroSection
                 anchors { top: parent.top; left: parent.left; right: parent.right }
-                height: 3; radius: parent.radius
+                height: app.height * 0.22
+                radius: parent.radius
+                clip: true
+
+                // Rangi ya hero inatokana na herufi ya kwanza ya neno
+                property string firstLetter: app.currentWord ? app.currentWord.sw[0].toUpperCase() : "A"
+                property color heroColor: {
+                    var ch = firstLetter;
+                    if      ("ABCD".indexOf(ch) >= 0) return Qt.rgba(0.00, 0.70, 0.80, 1);
+                    else if ("EFGH".indexOf(ch) >= 0) return Qt.rgba(0.10, 0.60, 0.50, 1);
+                    else if ("IJKL".indexOf(ch) >= 0) return Qt.rgba(0.20, 0.50, 0.85, 1);
+                    else if ("MNOP".indexOf(ch) >= 0) return Qt.rgba(0.55, 0.25, 0.85, 1);
+                    else if ("QRST".indexOf(ch) >= 0) return Qt.rgba(0.85, 0.40, 0.10, 1);
+                    else                               return Qt.rgba(0.15, 0.65, 0.55, 1);
+                }
+
                 gradient: Gradient {
-                    orientation: Gradient.Horizontal
-                    GradientStop { position: 0.0; color: "transparent" }
-                    GradientStop { position: 0.2; color: iqGold }
-                    GradientStop { position: 0.8; color: iqAccent }
-                    GradientStop { position: 1.0; color: "transparent" }
+                    GradientStop { position: 0.0; color: Qt.rgba(heroSection.heroColor.r, heroSection.heroColor.g, heroSection.heroColor.b, 0.55) }
+                    GradientStop { position: 1.0; color: Qt.rgba(heroSection.heroColor.r, heroSection.heroColor.g, heroSection.heroColor.b, 0.08) }
+                }
+
+                // Mstari wa shimmer juu
+                Rectangle {
+                    anchors { top: parent.top; left: parent.left; right: parent.right }
+                    height: 3; radius: parent.radius
+                    gradient: Gradient {
+                        orientation: Gradient.Horizontal
+                        GradientStop { position: 0.0; color: "transparent" }
+                        GradientStop { position: 0.3; color: Qt.rgba(heroSection.heroColor.r, heroSection.heroColor.g, heroSection.heroColor.b, 0.9) }
+                        GradientStop { position: 0.7; color: Qt.rgba(heroSection.heroColor.r, heroSection.heroColor.g, heroSection.heroColor.b, 0.9) }
+                        GradientStop { position: 1.0; color: "transparent" }
+                    }
+                }
+
+                // ── Herufi kubwa ya mandharinyuma (watermark) ─────────────────
+                Text {
+                    anchors { right: parent.right; rightMargin: app.pad * 0.5; verticalCenter: parent.verticalCenter }
+                    text: heroSection.firstLetter
+                    font.pixelSize: heroSection.height * 1.1; font.bold: true
+                    color: Qt.rgba(heroSection.heroColor.r, heroSection.heroColor.g, heroSection.heroColor.b, 0.18)
+                    style: Text.Outline
+                    styleColor: Qt.rgba(heroSection.heroColor.r, heroSection.heroColor.g, heroSection.heroColor.b, 0.10)
+                }
+
+                // Drag handle juu ya kadi — mdogo
+                Rectangle {
+                    anchors { top: parent.top; topMargin: app.pad * 0.7; horizontalCenter: parent.horizontalCenter }
+                    width: 36; height: 4; radius: 2
+                    color: Qt.rgba(1, 1, 1, 0.30)
+                }
+
+                // Neno kuu la Kiswahili
+                Column {
+                    anchors {
+                        left: parent.left; leftMargin: app.pad * 1.4
+                        right: parent.right; rightMargin: app.pad * 1.4
+                        bottom: parent.bottom; bottomMargin: app.pad * 1.1
+                    }
+                    spacing: 4
+
+                    Text {
+                        text: app.currentWord ? app.currentWord.sw : ""
+                        font.pixelSize: app.fntXl * 1.1; font.bold: true; font.letterSpacing: 2
+                        color: "#ffffff"
+                        style: Text.Glow
+                        styleColor: Qt.rgba(heroSection.heroColor.r, heroSection.heroColor.g, heroSection.heroColor.b, 0.6)
+                        wrapMode: Text.WordWrap; width: parent.width
+                    }
+
+                    Text {
+                        text: app.currentWord ? app.currentWord.en : ""
+                        font.pixelSize: app.fntLg; font.bold: true
+                        color: Qt.rgba(1, 1, 1, 0.80)
+                        wrapMode: Text.WordWrap; width: parent.width
+                    }
+                }
+
+                // X — funga — juu kulia
+                Rectangle {
+                    anchors { top: parent.top; topMargin: app.pad * 0.8; right: parent.right; rightMargin: app.pad * 0.8 }
+                    width: app.btnH * 0.72; height: width; radius: width / 2
+                    color: xMA.pressed ? Qt.rgba(1, 1, 1, 0.25) : Qt.rgba(1, 1, 1, 0.12)
+                    Behavior on color { ColorAnimation { duration: 80 } }
+                    Text { anchors.centerIn: parent; text: "✕"; font.pixelSize: app.fntMd; font.bold: true; color: "white" }
+                    MouseArea { id: xMA; anchors.fill: parent; onClicked: { detailSheet.sheetOpen = false; } }
                 }
             }
 
-            MouseArea { anchors.fill: parent }
-
+            // ── Maudhui ya chini (scrollable) ─────────────────────────────────
             Flickable {
-                id: detailFlick
-                anchors { fill: parent; margins: app.pad * 1.2 }
+                anchors {
+                    top: heroSection.bottom
+                    left: parent.left; right: parent.right; bottom: parent.bottom
+                    margins: app.pad * 1.2
+                }
                 contentWidth: width
-                contentHeight: detailCol.implicitHeight + app.pad
+                contentHeight: sheetInnerCol.implicitHeight + app.pad
                 clip: true
                 ScrollIndicator.vertical: ScrollIndicator {
                     contentItem: Rectangle { implicitWidth: 3; color: Qt.rgba(0, 0.9, 1, 0.4); radius: 2 }
                 }
 
                 Column {
-                    id: detailCol
-                    width: detailFlick.width
+                    id: sheetInnerCol
+                    width: parent.width
                     spacing: app.pad
 
-                    Item { width: 1; height: app.pad * 0.5 }
+                    Item { width: 1; height: app.pad * 0.3 }
 
-                    Column {
-                        width: parent.width
-                        spacing: app.pad * 0.4
+                    // ── Ornament divider ──────────────────────────────────────
+                    Row {
                         anchors.horizontalCenter: parent.horizontalCenter
+                        spacing: 8
 
-                        Text {
-                            anchors.horizontalCenter: parent.horizontalCenter
-                            text: app.currentWord ? app.currentWord.sw : ""
-                            font.pixelSize: app.fntXl * 1.15; font.bold: true; font.letterSpacing: 2
-                            color: iqGold
-                            style: Text.Glow; styleColor: Qt.rgba(0, 0.9, 1, 0.35)
-                            wrapMode: Text.WordWrap; horizontalAlignment: Text.AlignHCenter
-                            width: parent.width
+                        Rectangle {
+                            width: app.width * 0.18; height: 1
+                            anchors.verticalCenter: parent.verticalCenter
+                            gradient: Gradient {
+                                orientation: Gradient.Horizontal
+                                GradientStop { position: 0.0; color: "transparent" }
+                                GradientStop { position: 1.0; color: Qt.rgba(0, 0.9, 1, 0.35) }
+                            }
                         }
-
-                        Text {
-                            anchors.horizontalCenter: parent.horizontalCenter
-                            text: app.currentWord ? app.currentWord.en : ""
-                            font.pixelSize: app.fntLg; font.bold: true
-                            color: Qt.rgba(0.82, 0.96, 1, 1)
-                            wrapMode: Text.WordWrap; horizontalAlignment: Text.AlignHCenter
-                            width: parent.width
+                        Repeater {
+                            model: 3
+                            Rectangle {
+                                width: 4; height: 4; radius: 2
+                                anchors.verticalCenter: parent.verticalCenter
+                                color: Qt.rgba(0, 0.9, 1, index === 1 ? 0.7 : 0.30)
+                            }
                         }
-                    }
-
-                    Rectangle {
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        width: parent.width * 0.7; height: 1
-                        gradient: Gradient {
-                            orientation: Gradient.Horizontal
-                            GradientStop { position: 0.0; color: "transparent" }
-                            GradientStop { position: 0.5; color: Qt.rgba(0, 0.9, 1, 0.25) }
-                            GradientStop { position: 1.0; color: "transparent" }
+                        Rectangle {
+                            width: app.width * 0.18; height: 1
+                            anchors.verticalCenter: parent.verticalCenter
+                            gradient: Gradient {
+                                orientation: Gradient.Horizontal
+                                GradientStop { position: 0.0; color: Qt.rgba(0, 0.9, 1, 0.35) }
+                                GradientStop { position: 1.0; color: "transparent" }
+                            }
                         }
                     }
 
@@ -1313,7 +1413,6 @@ Rectangle {
 
                     // ── Kategoria ─────────────────────────────────────────────
                     Row {
-                        anchors.horizontalCenter: parent.horizontalCenter
                         spacing: 8
                         visible: app.currentWord && app.currentWord.cat
 
@@ -1330,62 +1429,14 @@ Rectangle {
                         }
                     }
 
-                    Rectangle {
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        width: parent.width * 0.7; height: 1
-                        gradient: Gradient {
-                            orientation: Gradient.Horizontal
-                            GradientStop { position: 0.0; color: "transparent" }
-                            GradientStop { position: 0.5; color: Qt.rgba(0, 0.9, 1, 0.15) }
-                            GradientStop { position: 1.0; color: "transparent" }
-                        }
-                    }
-
-                    Row {
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        spacing: 12
-
-                        Rectangle {
-                            width: Math.max(130, app.width * 0.32); height: app.btnH
-                            radius: height / 2
-                            color: backMA.pressed ? Qt.rgba(0, 0.9, 1, 0.20) : Qt.rgba(0, 0.9, 1, 0.08)
-                            border.color: iqAccent; border.width: 1.5
-                            Behavior on color { ColorAnimation { duration: 80 } }
-                            Text {
-                                anchors.centerIn: parent; text: "← RUDI"
-                                font.pixelSize: app.fntMd; font.bold: true
-                                color: iqAccent; font.letterSpacing: 1
-                            }
-                            MouseArea { id: backMA; anchors.fill: parent; onClicked: { app.showDetail = false; } }
-                        }
-
-                        Rectangle {
-                            width: Math.max(130, app.width * 0.32); height: app.btnH
-                            radius: height / 2
-                            color: detCloseMA.pressed ? Qt.rgba(1, 0.2, 0.2, 0.22) : Qt.rgba(1, 0.15, 0.15, 0.09)
-                            border.color: iqDanger; border.width: 1.5
-                            Behavior on color { ColorAnimation { duration: 80 } }
-                            Text {
-                                anchors.centerIn: parent; text: "❌ FUNGA"
-                                font.pixelSize: app.fntMd; font.bold: true
-                                color: iqDanger; font.letterSpacing: 1
-                            }
-                            MouseArea { id: detCloseMA; anchors.fill: parent; onClicked: { app.close(); } }
-                        }
-                    }
-
-                    Item { width: 1; height: app.pad }
+                    Item { width: 1; height: app.pad * 2 }
                 }
             }
         }
 
-        NumberAnimation {
-            id: detailIn
-            target: detailCard
-            property: "scale"
-            from: 0.88; to: 1.0
-            duration: 180; easing.type: Easing.OutBack
-            running: app.showDetail
+        // Fungua sheet mara inapoonekana
+        onVisibleChanged: {
+            if (visible) { detailSheet.sheetOpen = true; }
         }
     }
 
