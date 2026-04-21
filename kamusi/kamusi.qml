@@ -442,12 +442,21 @@ Rectangle {
                             NumberAnimation { to: 1.0; duration: 1200; easing.type: Easing.InOutSine }
                         }
                     }
-                    Text {
-                        id: titleTxt
-                        text: "KAMUSI"
-                        font.pixelSize: app.fntXl; font.bold: true; font.letterSpacing: 4
-                        color: iqGold
-                        style: Text.Glow; styleColor: Qt.rgba(0, 0.9, 1, 0.40)
+                    Column {
+                        anchors.verticalCenter: parent.verticalCenter
+                        spacing: 0
+                        Text {
+                            id: titleTxt
+                            text: "KAMUSI"
+                            font.pixelSize: app.fntXl; font.bold: true; font.letterSpacing: 4
+                            color: iqGold
+                            style: Text.Glow; styleColor: Qt.rgba(0, 0.9, 1, 0.40)
+                        }
+                        Text {
+                            text: "Dictionary"
+                            font.pixelSize: app.fntSm - 2; font.italic: true; font.letterSpacing: 1
+                            color: Qt.rgba(0, 0.9, 1, 0.40)
+                        }
                     }
                 }
 
