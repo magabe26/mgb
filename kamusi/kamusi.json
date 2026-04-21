@@ -1,5772 +1,4825 @@
 [
   {
-    "id": 1001,
-    "sw": "kifaru",
-    "en": "rhinoceros",
+    "sw": "moto",
+    "en": "fire",
     "pos": "noun"
   },
   {
-    "id": 999,
-    "sw": "twiga",
-    "en": "giraffe",
-    "pos": "noun"
-  },
-  {
-    "id": 998,
-    "sw": "mamba",
-    "en": "crocodile",
-    "pos": "noun"
-  },
-  {
-    "id": 997,
-    "sw": "chui",
-    "en": "leopard",
-    "pos": "noun"
-  },
-  {
-    "id": 996,
-    "sw": "tembo",
-    "en": "an elephant",
-    "pos": "noun"
-  },
-  {
-    "id": 995,
-    "sw": "simba",
-    "en": "the lion",
-    "pos": "noun"
-  },
-  {
-    "id": 707,
-    "sw": "Afrika",
-    "en": "Africa",
-    "pos": "noun"
-  },
-  {
-    "id": 453,
-    "sw": "Agosti",
-    "en": "August",
-    "pos": "noun"
-  },
-  {
-    "id": 444,
-    "sw": "Alhamisi",
-    "en": "Thursday",
-    "pos": "noun"
-  },
-  {
-    "id": 449,
-    "sw": "Aprili",
-    "en": "April",
-    "pos": "noun"
-  },
-  {
-    "id": 710,
-    "sw": "Asia",
-    "en": "Asia",
-    "pos": "noun"
-  },
-  {
-    "id": 811,
-    "sw": "Biblia",
-    "en": "The Bible",
-    "pos": "noun"
-  },
-  {
-    "id": 980,
-    "sw": "Desemba",
-    "en": "December",
-    "pos": "noun"
-  },
-  {
-    "id": 447,
-    "sw": "Februari",
-    "en": "February",
-    "pos": "noun"
-  },
-  {
-    "id": 445,
-    "sw": "Ijumaa",
-    "en": "Friday",
-    "pos": "noun"
-  },
-  {
-    "id": 978,
-    "sw": "Januari",
-    "en": "January",
-    "pos": "noun"
-  },
-  {
-    "id": 452,
-    "sw": "Julai",
-    "en": "July",
-    "pos": "noun"
-  },
-  {
-    "id": 446,
-    "sw": "Jumamosi",
-    "en": "saturday",
-    "pos": "noun"
-  },
-  {
-    "id": 442,
-    "sw": "Jumanne",
-    "en": "tuesday",
-    "pos": "noun"
-  },
-  {
-    "id": 440,
-    "sw": "Jumapili",
-    "en": "sunday",
-    "pos": "noun"
-  },
-  {
-    "id": 443,
-    "sw": "Jumatano",
-    "en": "Wednesday",
-    "pos": "noun"
-  },
-  {
-    "id": 441,
-    "sw": "Jumatatu",
-    "en": "on monday",
-    "pos": "noun"
-  },
-  {
-    "id": 451,
-    "sw": "Juni",
-    "en": "June",
-    "pos": "noun"
-  },
-  {
-    "id": 796,
-    "sw": "Krismasi",
-    "en": "Christmas",
-    "pos": "noun"
-  },
-  {
-    "id": 448,
-    "sw": "Machi",
-    "en": "March",
-    "pos": "noun"
-  },
-  {
-    "id": 450,
-    "sw": "Mei",
-    "en": "May",
-    "pos": "noun"
-  },
-  {
-    "id": 990,
-    "sw": "Misri",
-    "en": "Egypt",
-    "pos": "noun"
-  },
-  {
-    "id": 791,
-    "sw": "Mungu",
-    "en": "God",
-    "pos": "noun"
-  },
-  {
-    "id": 979,
-    "sw": "Novemba",
-    "en": "November",
-    "pos": "noun"
-  },
-  {
-    "id": 455,
-    "sw": "Oktoba",
-    "en": "October",
-    "pos": "noun"
-  },
-  {
-    "id": 454,
-    "sw": "Septemba",
-    "en": "September",
-    "pos": "noun"
-  },
-  {
-    "id": 708,
-    "sw": "Ulaya",
-    "en": "Europe",
-    "pos": "noun"
-  },
-  {
-    "id": 414,
-    "sw": "abiria",
-    "en": "passenger",
-    "pos": "noun"
-  },
-  {
-    "id": 105,
-    "sw": "afya",
-    "en": "healthy",
-    "pos": "noun"
-  },
-  {
-    "id": 871,
-    "sw": "aibu",
-    "en": "shame",
-    "pos": "noun"
-  },
-  {
-    "id": 823,
-    "sw": "akaunti",
-    "en": "account",
-    "pos": "noun"
-  },
-  {
-    "id": 838,
-    "sw": "akiba",
-    "en": "savings",
-    "pos": "noun"
-  },
-  {
-    "id": 955,
-    "sw": "akili",
-    "en": "mind",
-    "pos": "noun"
-  },
-  {
-    "id": 784,
-    "sw": "akili bandia",
-    "en": "artificial intelligence",
-    "pos": "noun"
-  },
-  {
-    "id": 281,
-    "sw": "alfajiri",
-    "en": "the dawn",
-    "pos": "noun"
-  },
-  {
-    "id": 803,
-    "sw": "amani",
-    "en": "peace",
-    "pos": "noun"
-  },
-  {
-    "id": 892,
-    "sw": "anga ya wazi",
-    "en": "clear sky",
-    "pos": "noun"
-  },
-  {
-    "id": 128,
-    "sw": "antibiotiki",
-    "en": "antibiotics",
-    "pos": "noun"
-  },
-  {
-    "id": 763,
-    "sw": "aplikesheni",
-    "en": "application",
-    "pos": "noun"
-  },
-  {
-    "id": 263,
-    "sw": "ardhi",
-    "en": "land",
-    "pos": "noun"
-  },
-  {
-    "id": 471,
-    "sw": "arobaini",
-    "en": "forty",
-    "pos": "number"
-  },
-  {
-    "id": 175,
-    "sw": "asali",
-    "en": "honey",
-    "pos": "noun"
-  },
-  {
-    "id": 5,
-    "sw": "asante",
-    "en": "thank you",
-    "pos": "noun"
-  },
-  {
-    "id": 487,
-    "sw": "asilimia",
-    "en": "percentage",
-    "pos": "noun"
-  },
-  {
-    "id": 815,
-    "sw": "askofu",
-    "en": "the bishop",
-    "pos": "noun"
-  },
-  {
-    "id": 282,
-    "sw": "asubuhi",
-    "en": "in the morning",
-    "pos": "noun"
-  },
-  {
-    "id": 181,
-    "sw": "avokado",
-    "en": "asparagus",
-    "pos": "noun"
-  },
-  {
-    "id": 434,
-    "sw": "baada",
-    "en": "after",
-    "pos": "adverb"
-  },
-  {
-    "id": 430,
-    "sw": "baadaye",
-    "en": "later on",
-    "pos": "adverb"
-  },
-  {
-    "id": 38,
-    "sw": "baba",
-    "en": "father",
-    "pos": "noun"
-  },
-  {
-    "id": 46,
-    "sw": "babu",
-    "en": "grandfather",
-    "pos": "noun"
-  },
-  {
-    "id": 219,
-    "sw": "bafu",
-    "en": "the bathroom",
-    "pos": "noun"
-  },
-  {
-    "id": 269,
-    "sw": "bahari",
-    "en": "the sea",
-    "pos": "noun"
-  },
-  {
-    "id": 382,
-    "sw": "baiskeli",
-    "en": "bicycle",
-    "pos": "noun"
-  },
-  {
-    "id": 416,
-    "sw": "bajaji",
-    "en": "thug",
-    "pos": "noun"
-  },
-  {
-    "id": 830,
-    "sw": "bajeti",
-    "en": "budget",
-    "pos": "noun"
-  },
-  {
-    "id": 246,
-    "sw": "balbu",
-    "en": "bulb",
-    "pos": "noun"
-  },
-  {
-    "id": 576,
-    "sw": "balozi",
-    "en": "the ambassador",
-    "pos": "noun"
-  },
-  {
-    "id": 194,
-    "sw": "bamia",
-    "en": "Okra",
-    "pos": "noun"
-  },
-  {
-    "id": 387,
-    "sw": "bandari",
-    "en": "port",
-    "pos": "noun"
-  },
-  {
-    "id": 533,
-    "sw": "bangili",
-    "en": "bracelet",
-    "pos": "noun"
-  },
-  {
-    "id": 975,
-    "sw": "barabara",
-    "en": "road",
-    "pos": "noun"
-  },
-  {
-    "id": 405,
-    "sw": "barabara kuu",
-    "en": "highway",
-    "pos": "noun"
-  },
-  {
-    "id": 800,
-    "sw": "baraka",
-    "en": "blessing",
-    "pos": "noun"
-  },
-  {
-    "id": 366,
-    "sw": "baridi",
-    "en": "cold",
-    "pos": "adjective"
-  },
-  {
-    "id": 894,
-    "sw": "baridi kali",
-    "en": "very cold",
-    "pos": "noun"
-  },
-  {
-    "id": 778,
-    "sw": "barua pepe",
-    "en": "email address",
-    "pos": "noun"
-  },
-  {
-    "id": 378,
-    "sw": "basi",
-    "en": "then",
-    "pos": "noun"
-  },
-  {
-    "id": 324,
-    "sw": "bata",
-    "en": "duck",
-    "pos": "noun"
-  },
-  {
-    "id": 79,
-    "sw": "bega",
-    "en": "shoulder",
-    "pos": "noun"
-  },
-  {
-    "id": 410,
-    "sw": "begi",
-    "en": "bag",
-    "pos": "noun"
-  },
-  {
-    "id": 827,
-    "sw": "bei",
-    "en": "price",
-    "pos": "noun"
-  },
-  {
-    "id": 667,
-    "sw": "bei nafuu",
-    "en": "cheap price",
-    "pos": "noun"
-  },
-  {
-    "id": 822,
-    "sw": "benki",
-    "en": "bank",
-    "pos": "noun"
-  },
-  {
-    "id": 240,
-    "sw": "beseni",
-    "en": "the tub",
-    "pos": "noun"
-  },
-  {
-    "id": 767,
-    "sw": "betri",
-    "en": "battery",
-    "pos": "noun"
-  },
-  {
-    "id": 205,
-    "sw": "bia",
-    "en": "beer",
-    "pos": "noun"
-  },
-  {
-    "id": 555,
-    "sw": "biashara",
-    "en": "business",
-    "pos": "noun"
-  },
-  {
-    "id": 841,
-    "sw": "bidhaa",
-    "en": "product",
-    "pos": "noun"
-  },
-  {
-    "id": 961,
-    "sw": "bidii",
-    "en": "hard work",
-    "pos": "noun"
-  },
-  {
-    "id": 195,
-    "sw": "bilinganya",
-    "en": "eggplant",
-    "pos": "noun"
-  },
-  {
-    "id": 480,
-    "sw": "bilioni",
-    "en": "billion",
-    "pos": "number"
-  },
-  {
-    "id": 826,
-    "sw": "bima",
-    "en": "insurance",
-    "pos": "noun"
-  },
-  {
-    "id": 68,
-    "sw": "binamu",
-    "en": "cousin",
-    "pos": "noun"
-  },
-  {
-    "id": 41,
-    "sw": "binti",
-    "en": "daughter",
-    "pos": "noun"
-  },
-  {
-    "id": 900,
-    "sw": "biolojia",
-    "en": "biology",
-    "pos": "noun"
-  },
-  {
-    "id": 200,
-    "sw": "biskuti",
-    "en": "biscuits",
-    "pos": "noun"
-  },
-  {
-    "id": 223,
-    "sw": "blanketi",
-    "en": "blanket",
-    "pos": "noun"
-  },
-  {
-    "id": 417,
-    "sw": "bodaboda",
-    "en": "bodaboda",
-    "pos": "noun"
-  },
-  {
-    "id": 230,
-    "sw": "bomba",
-    "en": "pipe",
-    "pos": "noun"
-  },
-  {
-    "id": 267,
-    "sw": "bonde",
-    "en": "valley",
-    "pos": "noun"
-  },
-  {
-    "id": 14,
-    "sw": "bora",
-    "en": "better",
-    "pos": "noun"
-  },
-  {
-    "id": 381,
-    "sw": "boti",
-    "en": "boats",
-    "pos": "noun"
-  },
-  {
-    "id": 974,
-    "sw": "buibui",
-    "en": "spider",
-    "pos": "noun"
-  },
-  {
-    "id": 492,
-    "sw": "buluu",
-    "en": "blue",
-    "pos": "adjective"
-  },
-  {
-    "id": 352,
-    "sw": "bundi",
-    "en": "owl",
-    "pos": "noun"
-  },
-  {
-    "id": 747,
-    "sw": "bunge",
-    "en": "Parliament",
-    "pos": "noun"
-  },
-  {
-    "id": 967,
-    "sw": "bursari",
-    "en": "bursary",
-    "pos": "noun"
-  },
-  {
-    "id": 36,
-    "sw": "burudani",
-    "en": "entertainment",
-    "pos": "noun"
-  },
-  {
-    "id": 233,
-    "sw": "bustani",
-    "en": "garden",
-    "pos": "noun"
-  },
-  {
-    "id": 531,
-    "sw": "buti",
-    "en": "boots",
-    "pos": "noun"
-  },
-  {
-    "id": 302,
-    "sw": "bwawa",
-    "en": "the pond",
-    "pos": "noun"
-  },
-  {
-    "id": 660,
-    "sw": "chafu",
-    "en": "dirty",
-    "pos": "adjective"
-  },
-  {
-    "id": 142,
-    "sw": "chai",
-    "en": "tea",
-    "pos": "noun"
-  },
-  {
-    "id": 768,
-    "sw": "chaja",
-    "en": "charger",
-    "pos": "noun"
-  },
-  {
-    "id": 140,
-    "sw": "chakula",
-    "en": "food",
-    "pos": "noun"
-  },
-  {
-    "id": 935,
-    "sw": "chama",
-    "en": "party",
-    "pos": "noun"
-  },
-  {
-    "id": 113,
-    "sw": "chanjo",
-    "en": "coverage",
-    "pos": "noun"
-  },
-  {
-    "id": 177,
-    "sw": "chapati",
-    "en": "pancakes",
-    "pos": "noun"
-  },
-  {
-    "id": 297,
-    "sw": "chemchemi",
-    "en": "spring",
-    "pos": "noun"
-  },
-  {
-    "id": 860,
-    "sw": "chess",
-    "en": "chess",
-    "pos": "noun"
-  },
-  {
-    "id": 966,
-    "sw": "cheti",
-    "en": "certificate",
-    "pos": "noun"
-  },
-  {
-    "id": 403,
-    "sw": "chini",
-    "en": "below",
-    "pos": "adverb"
-  },
-  {
-    "id": 218,
-    "sw": "choo",
-    "en": "toilet",
-    "pos": "noun"
-  },
-  {
-    "id": 331,
-    "sw": "chui",
-    "en": "leopard",
-    "pos": "noun"
-  },
-  {
-    "id": 875,
-    "sw": "chuki",
-    "en": "hatred",
-    "pos": "noun"
-  },
-  {
-    "id": 216,
-    "sw": "chumba",
-    "en": "the room",
-    "pos": "noun"
-  },
-  {
-    "id": 163,
-    "sw": "chumvi",
-    "en": "salt",
-    "pos": "noun"
-  },
-  {
-    "id": 252,
-    "sw": "chungu",
-    "en": "pain",
-    "pos": "noun"
-  },
-  {
-    "id": 539,
-    "sw": "chuo",
-    "en": "college",
-    "pos": "noun"
-  },
-  {
-    "id": 755,
-    "sw": "chuo kikuu",
-    "en": "university",
-    "pos": "noun"
-  },
-  {
-    "id": 257,
-    "sw": "chupa",
-    "en": "bottle",
-    "pos": "noun"
-  },
-  {
-    "id": 43,
-    "sw": "dada",
-    "en": "sister",
-    "pos": "noun"
-  },
-  {
-    "id": 420,
-    "sw": "dakika",
-    "en": "minutes",
-    "pos": "noun"
-  },
-  {
-    "id": 108,
-    "sw": "daktari",
-    "en": "doctor",
-    "pos": "noun"
-  },
-  {
-    "id": 415,
-    "sw": "daladala",
-    "en": "daladala",
-    "pos": "noun"
-  },
-  {
-    "id": 88,
-    "sw": "damu",
-    "en": "blood",
-    "pos": "noun"
-  },
-  {
-    "id": 386,
-    "sw": "daraja",
-    "en": "grade",
-    "pos": "noun"
-  },
-  {
-    "id": 553,
-    "sw": "darasa",
-    "en": "class",
-    "pos": "noun"
-  },
-  {
-    "id": 213,
-    "sw": "dari",
-    "en": "ceiling",
-    "pos": "noun"
-  },
-  {
-    "id": 774,
-    "sw": "data",
-    "en": "data",
-    "pos": "noun"
-  },
-  {
-    "id": 107,
-    "sw": "dawa",
-    "en": "medicine",
-    "pos": "noun"
-  },
-  {
-    "id": 133,
-    "sw": "dawa ya maumivu",
-    "en": "pain medicine",
-    "pos": "noun"
-  },
-  {
-    "id": 937,
-    "sw": "demokrasia",
-    "en": "democracy",
-    "pos": "noun"
-  },
-  {
-    "id": 169,
-    "sw": "dengu",
-    "en": "lentils",
-    "pos": "noun"
-  },
-  {
-    "id": 837,
-    "sw": "deni",
-    "en": "debt",
-    "pos": "noun"
-  },
-  {
-    "id": 805,
-    "sw": "densi",
-    "en": "dance",
-    "pos": "noun"
-  },
-  {
-    "id": 411,
-    "sw": "dereva",
-    "en": "the driver",
-    "pos": "noun"
-  },
-  {
-    "id": 809,
-    "sw": "desturi",
-    "en": "custom",
-    "pos": "noun"
-  },
-  {
-    "id": 501,
-    "sw": "dhahabu",
-    "en": "gold",
-    "pos": "adjective"
-  },
-  {
-    "id": 682,
-    "sw": "dhaifu",
-    "en": "weak",
-    "pos": "adjective"
-  },
-  {
-    "id": 801,
-    "sw": "dhambi",
-    "en": "sin",
-    "pos": "noun"
-  },
-  {
-    "id": 290,
-    "sw": "dhoruba",
-    "en": "storm",
-    "pos": "noun"
-  },
-  {
-    "id": 965,
-    "sw": "diploma",
-    "en": "diploma",
-    "pos": "noun"
-  },
-  {
-    "id": 211,
-    "sw": "dirisha",
-    "en": "the window",
-    "pos": "noun"
-  },
-  {
-    "id": 786,
-    "sw": "diski ngumu",
-    "en": "hard disk",
-    "pos": "noun"
-  },
-  {
-    "id": 820,
-    "sw": "dola",
-    "en": "dollars",
-    "pos": "noun"
-  },
-  {
-    "id": 788,
-    "sw": "download",
-    "en": "download",
-    "pos": "noun"
-  },
-  {
-    "id": 799,
-    "sw": "dua",
-    "en": "supplication",
-    "pos": "noun"
-  },
-  {
-    "id": 741,
-    "sw": "duka",
-    "en": "shop",
-    "pos": "noun"
-  },
-  {
-    "id": 332,
-    "sw": "duma",
-    "en": "cheetah",
-    "pos": "noun"
-  },
-  {
-    "id": 711,
-    "sw": "dunia",
-    "en": "the world",
-    "pos": "noun"
-  },
-  {
-    "id": 478,
-    "sw": "elfu",
-    "en": "a thousand",
-    "pos": "number"
-  },
-  {
-    "id": 896,
-    "sw": "elimu",
-    "en": "education",
-    "pos": "noun"
-  },
-  {
-    "id": 154,
-    "sw": "embe",
-    "en": "mango",
-    "pos": "noun"
-  },
-  {
-    "id": 821,
-    "sw": "euro",
-    "en": "euros",
-    "pos": "noun"
-  },
-  {
-    "id": 839,
-    "sw": "faida",
-    "en": "profit",
-    "pos": "noun"
-  },
-  {
-    "id": 775,
-    "sw": "faili",
-    "en": "file",
-    "pos": "noun"
-  },
-  {
-    "id": 867,
-    "sw": "fainali",
-    "en": "the final",
-    "pos": "noun"
-  },
-  {
-    "id": 901,
-    "sw": "falsafa",
-    "en": "philosophy",
-    "pos": "noun"
-  },
-  {
-    "id": 50,
-    "sw": "familia",
-    "en": "family",
-    "pos": "noun"
-  },
-  {
-    "id": 315,
-    "sw": "farasi",
-    "en": "a horse",
-    "pos": "noun"
-  },
-  {
-    "id": 374,
-    "sw": "faru",
-    "en": "rhinoceros",
-    "pos": "noun"
-  },
-  {
-    "id": 502,
-    "sw": "fedha",
-    "en": "money",
-    "pos": "adjective"
-  },
-  {
-    "id": 196,
-    "sw": "fenesi",
-    "en": "the fennel",
-    "pos": "noun"
-  },
-  {
-    "id": 189,
-    "sw": "figili",
-    "en": "radish",
-    "pos": "noun"
-  },
-  {
-    "id": 96,
-    "sw": "figo",
-    "en": "kidney",
-    "pos": "noun"
-  },
-  {
-    "id": 996,
-    "sw": "filamu",
-    "en": "film",
-    "pos": "noun"
-  },
-  {
-    "id": 309,
-    "sw": "fisi",
-    "en": "hyena",
-    "pos": "noun"
-  },
-  {
-    "id": 373,
-    "sw": "fisi wa maji",
-    "en": "water hyena",
-    "pos": "noun"
-  },
-  {
-    "id": 898,
-    "sw": "fizikia",
-    "en": "physics",
-    "pos": "noun"
-  },
-  {
-    "id": 339,
-    "sw": "flamingo",
-    "en": "flamingos",
-    "pos": "noun"
-  },
-  {
-    "id": 776,
-    "sw": "folda",
-    "en": "folder",
-    "pos": "noun"
-  },
-  {
-    "id": 406,
-    "sw": "forodha",
-    "en": "customs",
-    "pos": "noun"
-  },
-  {
-    "id": 227,
-    "sw": "friji",
-    "en": "fridge",
-    "pos": "noun"
-  },
-  {
-    "id": 529,
-    "sw": "fulana",
-    "en": "t-shirt",
-    "pos": "noun"
-  },
-  {
-    "id": 371,
-    "sw": "funza",
-    "en": "worm",
-    "pos": "noun"
-  },
-  {
-    "id": 657,
-    "sw": "fupi",
-    "en": "short",
-    "pos": "adjective"
-  },
-  {
-    "id": 32,
-    "sw": "furaha",
-    "en": "happiness",
-    "pos": "noun"
-  },
-  {
-    "id": 377,
-    "sw": "gari",
-    "en": "car",
-    "pos": "noun"
-  },
-  {
-    "id": 510,
-    "sw": "gauni",
-    "en": "gown",
-    "pos": "noun"
-  },
-  {
-    "id": 971,
-    "sw": "gesi asilia",
-    "en": "natural gas",
-    "pos": "noun"
-  },
-  {
-    "id": 666,
-    "sw": "ghali",
-    "en": "expensive",
-    "pos": "adjective"
-  },
-  {
-    "id": 234,
-    "sw": "ghorofa",
-    "en": "apartment",
-    "pos": "noun"
-  },
-  {
-    "id": 301,
-    "sw": "ghuba",
-    "en": "bay",
-    "pos": "noun"
-  },
-  {
-    "id": 279,
-    "sw": "giza",
-    "en": "darkness",
-    "pos": "noun"
-  },
-  {
-    "id": 851,
-    "sw": "goli",
-    "en": "goal",
-    "pos": "noun"
-  },
-  {
-    "id": 84,
-    "sw": "goti",
-    "en": "the knee",
-    "pos": "noun"
-  },
-  {
-    "id": 680,
-    "sw": "gumu",
-    "en": "difficult",
-    "pos": "adjective"
-  },
-  {
-    "id": 1,
-    "sw": "habari",
-    "en": "information",
-    "pos": "noun"
-  },
-  {
-    "id": 939,
-    "sw": "haki",
-    "en": "right",
-    "pos": "noun"
-  },
-  {
-    "id": 472,
-    "sw": "hamsini",
-    "en": "fifty",
-    "pos": "number"
-  },
-  {
-    "id": 884,
-    "sw": "hamu",
-    "en": "desire",
-    "pos": "noun"
-  },
-  {
-    "id": 397,
-    "sw": "hapa",
-    "en": "here",
-    "pos": "adverb"
-  },
-  {
-    "id": 10,
-    "sw": "hapana",
-    "en": "no",
-    "pos": "noun"
-  },
-  {
-    "id": 662,
-    "sw": "haraka",
-    "en": "quickly",
-    "pos": "adverb"
-  },
-  {
-    "id": 523,
-    "sw": "hariri",
-    "en": "silk",
-    "pos": "noun"
-  },
-  {
-    "id": 54,
-    "sw": "harusi",
-    "en": "wedding",
-    "pos": "noun"
-  },
-  {
-    "id": 840,
-    "sw": "hasara",
-    "en": "loss",
-    "pos": "noun"
-  },
-  {
-    "id": 34,
-    "sw": "hasira",
-    "en": "anger",
-    "pos": "noun"
-  },
-  {
-    "id": 745,
-    "sw": "hekalu",
-    "en": "the temple",
-    "pos": "noun"
-  },
-  {
-    "id": 956,
-    "sw": "hekima",
-    "en": "wisdom",
-    "pos": "noun"
-  },
-  {
-    "id": 520,
-    "sw": "herini",
-    "en": "happy",
-    "pos": "noun"
-  },
-  {
-    "id": 484,
-    "sw": "hesabu",
-    "en": "math",
-    "pos": "noun"
-  },
-  {
-    "id": 20,
-    "sw": "heshima",
-    "en": "respect",
-    "pos": "noun"
-  },
-  {
-    "id": 969,
-    "sw": "hifadhi ya bahari",
-    "en": "sea ​​reserve",
-    "pos": "noun"
-  },
-  {
-    "id": 929,
-    "sw": "hifadhi ya mazao",
-    "en": "crop storage",
-    "pos": "noun"
-  },
-  {
-    "id": 524,
-    "sw": "hijab",
-    "en": "hijab",
-    "pos": "noun"
-  },
-  {
-    "id": 836,
-    "sw": "hisa",
-    "en": "shares",
-    "pos": "noun"
-  },
-  {
-    "id": 897,
-    "sw": "hisabati",
-    "en": "mathematics",
-    "pos": "noun"
-  },
-  {
-    "id": 547,
-    "sw": "historia",
-    "en": "history",
-    "pos": "noun"
-  },
-  {
-    "id": 689,
-    "sw": "hodari",
-    "en": "strong",
-    "pos": "adjective"
-  },
-  {
-    "id": 869,
-    "sw": "hofu",
-    "en": "fear",
-    "pos": "noun"
-  },
-  {
-    "id": 118,
-    "sw": "homa",
-    "en": "fever",
-    "pos": "noun"
-  },
-  {
-    "id": 110,
-    "sw": "hospitali",
-    "en": "hospital",
-    "pos": "noun"
-  },
-  {
-    "id": 756,
-    "sw": "hospitali kuu",
-    "en": "the main hospital",
-    "pos": "noun"
-  },
-  {
-    "id": 750,
-    "sw": "hoteli",
-    "en": "hotel",
-    "pos": "noun"
-  },
-  {
-    "id": 993,
-    "sw": "huduma",
-    "en": "services",
-    "pos": "noun"
-  },
-  {
-    "id": 2,
-    "sw": "hujambo",
-    "en": "hello",
-    "pos": "noun"
-  },
-  {
-    "id": 25,
-    "sw": "huruma",
-    "en": "pity",
-    "pos": "noun"
-  },
-  {
-    "id": 33,
-    "sw": "huzuni",
-    "en": "sadness",
-    "pos": "noun"
-  },
-  {
-    "id": 798,
-    "sw": "ibada",
-    "en": "worship",
-    "pos": "noun"
-  },
-  {
-    "id": 483,
-    "sw": "idadi",
-    "en": "number",
-    "pos": "noun"
-  },
-  {
-    "id": 748,
-    "sw": "ikulu",
-    "en": "palace",
-    "pos": "noun"
-  },
-  {
-    "id": 185,
-    "sw": "iliki",
-    "en": "Cardamom",
-    "pos": "noun"
-  },
-  {
-    "id": 814,
-    "sw": "imam",
-    "en": "Imam",
-    "pos": "noun"
-  },
-  {
-    "id": 792,
-    "sw": "imani",
-    "en": "faith",
-    "pos": "noun"
-  },
-  {
-    "id": 670,
-    "sw": "imara",
-    "en": "solid",
-    "pos": "adjective"
-  },
-  {
-    "id": 95,
-    "sw": "ini",
-    "en": "liver",
-    "pos": "noun"
-  },
-  {
-    "id": 760,
-    "sw": "intaneti",
-    "en": "internet",
-    "pos": "noun"
-  },
-  {
-    "id": 469,
-    "sw": "ishirini",
-    "en": "twenty",
-    "pos": "number"
-  },
-  {
-    "id": 942,
-    "sw": "jaji",
-    "en": "judge",
-    "pos": "noun"
-  },
-  {
-    "id": 64,
-    "sw": "jamaa",
-    "en": "relatives",
-    "pos": "noun"
-  },
-  {
-    "id": 3,
-    "sw": "jambo",
-    "en": "matter",
-    "pos": "noun"
-  },
-  {
-    "id": 288,
-    "sw": "jana",
-    "en": "yesterday",
-    "pos": "noun"
-  },
-  {
-    "id": 365,
-    "sw": "jangwa",
-    "en": "the desert",
-    "pos": "noun"
-  },
-  {
-    "id": 910,
-    "sw": "jaribio",
-    "en": "an experiment",
-    "pos": "noun"
-  },
-  {
-    "id": 690,
-    "sw": "jasiri",
-    "en": "brave",
-    "pos": "adjective"
-  },
-  {
-    "id": 923,
-    "sw": "jembe",
-    "en": "a plow",
-    "pos": "noun"
-  },
-  {
-    "id": 235,
-    "sw": "jengo",
-    "en": "building",
-    "pos": "noun"
-  },
-  {
-    "id": 117,
-    "sw": "jeraha",
-    "en": "injury",
-    "pos": "noun"
-  },
-  {
-    "id": 73,
-    "sw": "jicho",
-    "en": "the eye",
-    "pos": "noun"
-  },
-  {
-    "id": 217,
-    "sw": "jikoni",
-    "en": "the kitchen",
-    "pos": "noun"
-  },
-  {
-    "id": 737,
-    "sw": "jimbo",
-    "en": "state",
-    "pos": "noun"
-  },
-  {
-    "id": 548,
-    "sw": "jiografia",
-    "en": "geography",
-    "pos": "noun"
-  },
-  {
-    "id": 284,
-    "sw": "jioni",
-    "en": "in the evening",
-    "pos": "noun"
-  },
-  {
-    "id": 22,
-    "sw": "jirani",
-    "en": "neighbor",
-    "pos": "noun"
-  },
-  {
-    "id": 239,
-    "sw": "jokofu",
-    "en": "refrigerator",
-    "pos": "noun"
-  },
-  {
-    "id": 278,
-    "sw": "joto",
-    "en": "heat",
-    "pos": "noun"
-  },
-  {
-    "id": 274,
-    "sw": "jua",
-    "en": "the sun",
-    "pos": "noun"
-  },
-  {
-    "id": 893,
-    "sw": "jua kali",
-    "en": "hot sun",
-    "pos": "noun"
-  },
-  {
-    "id": 960,
-    "sw": "juhudi",
-    "en": "effort",
-    "pos": "noun"
-  },
-  {
-    "id": 203,
-    "sw": "juisi",
-    "en": "juice",
-    "pos": "noun"
-  },
-  {
-    "id": 485,
-    "sw": "jumla",
-    "en": "total",
-    "pos": "noun"
-  },
-  {
-    "id": 402,
-    "sw": "juu",
-    "en": "up",
-    "pos": "adverb"
-  },
-  {
-    "id": 436,
-    "sw": "juzi",
-    "en": "the other day",
-    "pos": "noun"
-  },
-  {
-    "id": 342,
-    "sw": "kaa",
-    "en": "stay",
-    "pos": "noun"
-  },
-  {
-    "id": 226,
-    "sw": "kabati",
-    "en": "closet",
-    "pos": "noun"
-  },
-  {
-    "id": 192,
-    "sw": "kabichi",
-    "en": "cabbage",
-    "pos": "noun"
-  },
-  {
-    "id": 59,
-    "sw": "kabila",
-    "en": "tribe",
-    "pos": "noun"
-  },
-  {
-    "id": 433,
-    "sw": "kabla",
-    "en": "before",
-    "pos": "adverb"
-  },
-  {
-    "id": 845,
-    "sw": "kadi ya benki",
-    "en": "bank card",
-    "pos": "noun"
-  },
-  {
-    "id": 360,
-    "sw": "kahawa",
-    "en": "coffee",
-    "pos": "noun"
-  },
-  {
-    "id": 497,
-    "sw": "kahawia",
-    "en": "brown",
-    "pos": "adjective"
-  },
-  {
-    "id": 207,
-    "sw": "kaimati",
-    "en": "kaimit",
-    "pos": "noun"
-  },
-  {
-    "id": 42,
-    "sw": "kaka",
-    "en": "brother",
-    "pos": "noun"
-  },
-  {
-    "id": 543,
-    "sw": "kalamu",
-    "en": "pen",
-    "pos": "noun"
-  },
-  {
-    "id": 672,
-    "sw": "kali",
-    "en": "strong",
-    "pos": "adjective"
-  },
-  {
-    "id": 769,
-    "sw": "kamera",
-    "en": "camera",
-    "pos": "noun"
-  },
-  {
-    "id": 349,
-    "sw": "kanga",
-    "en": "wrap",
-    "pos": "noun"
-  },
-  {
-    "id": 743,
-    "sw": "kanisa",
-    "en": "the church",
-    "pos": "noun"
-  },
-  {
-    "id": 525,
-    "sw": "kanzu",
-    "en": "coat",
-    "pos": "noun"
-  },
-  {
-    "id": 187,
-    "sw": "karafuu",
-    "en": "cloves",
-    "pos": "noun"
-  },
-  {
-    "id": 161,
-    "sw": "karanga",
-    "en": "nuts",
-    "pos": "noun"
-  },
-  {
-    "id": 544,
-    "sw": "karatasi",
-    "en": "paper",
-    "pos": "noun"
-  },
-  {
-    "id": 4,
-    "sw": "karibu",
-    "en": "almost",
-    "pos": "adverb"
-  },
-  {
-    "id": 427,
-    "sw": "karne",
-    "en": "century",
-    "pos": "noun"
-  },
-  {
-    "id": 188,
-    "sw": "karoti",
-    "en": "carrot",
-    "pos": "noun"
-  },
-  {
-    "id": 392,
-    "sw": "kaskazini",
-    "en": "the north",
-    "pos": "noun"
-  },
-  {
-    "id": 351,
-    "sw": "kasuku",
-    "en": "parrot",
-    "pos": "noun"
-  },
-  {
-    "id": 739,
-    "sw": "kata",
-    "en": "cut",
-    "pos": "noun"
-  },
-  {
-    "id": 941,
-    "sw": "katiba",
-    "en": "the constitution",
-    "pos": "noun"
-  },
-  {
-    "id": 574,
-    "sw": "katibu",
-    "en": "the secretary",
-    "pos": "noun"
-  },
-  {
-    "id": 678,
-    "sw": "kavu",
-    "en": "dry",
-    "pos": "adjective"
-  },
-  {
-    "id": 536,
-    "sw": "kazi",
-    "en": "work",
-    "pos": "noun"
-  },
-  {
-    "id": 199,
-    "sw": "keki",
-    "en": "cake",
-    "pos": "noun"
-  },
-  {
-    "id": 899,
-    "sw": "kemia",
-    "en": "chemistry",
-    "pos": "noun"
-  },
-  {
-    "id": 287,
-    "sw": "kesho",
-    "en": "tomorrow",
-    "pos": "noun"
-  },
-  {
-    "id": 435,
-    "sw": "kesho kutwa",
-    "en": "all day tomorrow",
-    "pos": "noun"
-  },
-  {
-    "id": 526,
-    "sw": "khanga",
-    "en": "hang",
-    "pos": "noun"
-  },
-  {
-    "id": 457,
-    "sw": "kiangazi",
-    "en": "summer",
-    "pos": "noun"
-  },
-  {
-    "id": 362,
-    "sw": "kiazi",
-    "en": "potato",
-    "pos": "noun"
-  },
-  {
-    "id": 771,
-    "sw": "kibodi",
-    "en": "the keyboard",
-    "pos": "noun"
-  },
-  {
-    "id": 308,
-    "sw": "kiboko",
-    "en": "hippopotamus",
-    "pos": "noun"
-  },
-  {
-    "id": 873,
-    "sw": "kiburi",
-    "en": "pride",
-    "pos": "noun"
-  },
-  {
-    "id": 355,
-    "sw": "kicheko",
-    "en": "laughter",
-    "pos": "noun"
-  },
-  {
-    "id": 71,
-    "sw": "kichwa",
-    "en": "head",
-    "pos": "noun"
-  },
-  {
-    "id": 81,
-    "sw": "kidole",
-    "en": "finger",
-    "pos": "noun"
-  },
-  {
-    "id": 950,
-    "sw": "kifo",
-    "en": "death",
-    "pos": "noun"
-  },
-  {
-    "id": 99,
-    "sw": "kifua",
-    "en": "chest",
-    "pos": "noun"
-  },
-  {
-    "id": 121,
-    "sw": "kifua kikuu",
-    "en": "tuberculosis",
-    "pos": "noun"
-  },
-  {
-    "id": 493,
-    "sw": "kijani",
-    "en": "green",
-    "pos": "adjective"
-  },
-  {
-    "id": 734,
-    "sw": "kijiji",
-    "en": "the village",
-    "pos": "noun"
-  },
-  {
-    "id": 253,
-    "sw": "kijiko",
-    "en": "spoon",
-    "pos": "noun"
-  },
-  {
-    "id": 498,
-    "sw": "kijivu",
-    "en": "gray",
-    "pos": "adjective"
-  },
-  {
-    "id": 119,
-    "sw": "kikohozi",
-    "en": "cough",
-    "pos": "noun"
-  },
-  {
-    "id": 527,
-    "sw": "kikoi",
-    "en": "keikoi",
-    "pos": "noun"
-  },
-  {
-    "id": 256,
-    "sw": "kikombe",
-    "en": "cup",
-    "pos": "noun"
-  },
-  {
-    "id": 868,
-    "sw": "kikosi",
-    "en": "squad",
-    "pos": "noun"
-  },
-  {
-    "id": 291,
-    "sw": "kimbunga",
-    "en": "hurricane",
-    "pos": "noun"
-  },
-  {
-    "id": 368,
-    "sw": "kinyonga",
-    "en": "chameleon",
-    "pos": "noun"
-  },
-  {
-    "id": 348,
-    "sw": "kipanga",
-    "en": "a planer",
-    "pos": "noun"
-  },
-  {
-    "id": 327,
-    "sw": "kipepeo",
-    "en": "butterfly",
-    "pos": "noun"
-  },
-  {
-    "id": 114,
-    "sw": "kipimo",
-    "en": "measurement",
-    "pos": "noun"
-  },
-  {
-    "id": 137,
-    "sw": "kiseyeye",
-    "en": "scurvy",
-    "pos": "noun"
-  },
-  {
-    "id": 432,
-    "sw": "kisha",
-    "en": "then",
-    "pos": "adverb"
-  },
-  {
-    "id": 85,
-    "sw": "kisigino",
-    "en": "the heel",
-    "pos": "noun"
-  },
-  {
-    "id": 926,
-    "sw": "kisima",
-    "en": "well",
-    "pos": "noun"
-  },
-  {
-    "id": 299,
-    "sw": "kisiwa",
-    "en": "the island",
-    "pos": "noun"
-  },
-  {
-    "id": 259,
-    "sw": "kisu",
-    "en": "a knife",
-    "pos": "noun"
-  },
-  {
-    "id": 122,
-    "sw": "kisukari",
-    "en": "diabetes",
-    "pos": "noun"
-  },
-  {
-    "id": 542,
-    "sw": "kitabu",
-    "en": "book",
-    "pos": "noun"
-  },
-  {
-    "id": 522,
-    "sw": "kitambaa",
-    "en": "cloth",
-    "pos": "noun"
-  },
-  {
-    "id": 221,
-    "sw": "kitanda",
-    "en": "the bed",
-    "pos": "noun"
-  },
-  {
-    "id": 982,
-    "sw": "kitenge",
-    "en": "separate",
-    "pos": "noun"
-  },
-  {
-    "id": 225,
-    "sw": "kiti",
-    "en": "seat",
-    "pos": "noun"
-  },
-  {
-    "id": 190,
-    "sw": "kitunguu saumu",
-    "en": "garlic",
-    "pos": "noun"
-  },
-  {
-    "id": 882,
-    "sw": "kiu",
-    "en": "thirst",
-    "pos": "noun"
-  },
-  {
-    "id": 101,
-    "sw": "kiuno",
-    "en": "waist",
-    "pos": "noun"
-  },
-  {
-    "id": 505,
-    "sw": "kivuli",
-    "en": "shadow",
-    "pos": "noun"
-  },
-  {
-    "id": 370,
-    "sw": "kiwavi",
-    "en": "caterpillar",
-    "pos": "noun"
-  },
-  {
-    "id": 63,
-    "sw": "kizazi",
-    "en": "generation",
-    "pos": "noun"
-  },
-  {
-    "id": 127,
-    "sw": "kizunguzungu",
-    "en": "dizziness",
-    "pos": "noun"
-  },
-  {
-    "id": 111,
-    "sw": "kliniki",
-    "en": "clinic",
-    "pos": "noun"
-  },
-  {
-    "id": 322,
-    "sw": "kobe",
-    "en": "turtle",
-    "pos": "noun"
-  },
-  {
-    "id": 852,
-    "sw": "kocha",
-    "en": "coach",
-    "pos": "noun"
-  },
-  {
-    "id": 514,
-    "sw": "kofia",
-    "en": "hat",
-    "pos": "noun"
-  },
-  {
-    "id": 864,
-    "sw": "kombe",
-    "en": "cup",
-    "pos": "noun"
-  },
-  {
-    "id": 757,
-    "sw": "kompyuta",
-    "en": "computer",
-    "pos": "noun"
-  },
-  {
-    "id": 313,
-    "sw": "kondoo",
-    "en": "sheep",
-    "pos": "noun"
-  },
-  {
-    "id": 344,
-    "sw": "konokono",
-    "en": "a snail",
-    "pos": "noun"
-  },
-  {
-    "id": 340,
-    "sw": "korongo",
-    "en": "the canyon",
-    "pos": "noun"
-  },
-  {
-    "id": 160,
-    "sw": "korosho",
-    "en": "cashew nuts",
-    "pos": "noun"
-  },
-  {
-    "id": 511,
-    "sw": "koti",
-    "en": "coat",
-    "pos": "noun"
-  },
-  {
-    "id": 602,
-    "sw": "kuamini",
-    "en": "to believe",
-    "pos": "verb"
-  },
-  {
-    "id": 584,
-    "sw": "kuamka",
-    "en": "wake up",
-    "pos": "verb"
-  },
-  {
-    "id": 591,
-    "sw": "kuandika",
-    "en": "to write",
-    "pos": "verb"
-  },
-  {
-    "id": 626,
-    "sw": "kubeba",
-    "en": "to carry",
-    "pos": "verb"
-  },
-  {
-    "id": 654,
-    "sw": "kubwa",
-    "en": "big",
-    "pos": "adjective"
-  },
-  {
-    "id": 651,
-    "sw": "kucheka",
-    "en": "to laugh",
-    "pos": "verb"
-  },
-  {
-    "id": 632,
-    "sw": "kuchemsha",
-    "en": "to boil",
-    "pos": "verb"
-  },
-  {
-    "id": 592,
-    "sw": "kucheza",
-    "en": "play",
-    "pos": "verb"
-  },
-  {
-    "id": 987,
-    "sw": "kuchimba",
-    "en": "to dig",
-    "pos": "verb"
-  },
-  {
-    "id": 614,
-    "sw": "kuchora",
-    "en": "drawing",
-    "pos": "verb"
-  },
-  {
-    "id": 596,
-    "sw": "kuchukia",
-    "en": "to hate",
-    "pos": "verb"
-  },
-  {
-    "id": 598,
-    "sw": "kuelewa",
-    "en": "to understand",
-    "pos": "verb"
-  },
-  {
-    "id": 593,
-    "sw": "kufanya",
-    "en": "to do",
-    "pos": "verb"
-  },
-  {
-    "id": 653,
-    "sw": "kufanya kazi",
-    "en": "to work",
-    "pos": "noun"
-  },
-  {
-    "id": 601,
-    "sw": "kufikiri",
-    "en": "to think",
-    "pos": "verb"
-  },
-  {
-    "id": 232,
-    "sw": "kufuli",
-    "en": "lock",
-    "pos": "verb"
-  },
-  {
-    "id": 641,
-    "sw": "kufundisha",
-    "en": "to teach",
-    "pos": "verb"
-  },
-  {
-    "id": 622,
-    "sw": "kufunga",
-    "en": "fast",
-    "pos": "verb"
-  },
-  {
-    "id": 621,
-    "sw": "kufungua",
-    "en": "to open",
-    "pos": "verb"
-  },
-  {
-    "id": 586,
-    "sw": "kugusa",
-    "en": "to touch",
-    "pos": "verb"
-  },
-  {
-    "id": 125,
-    "sw": "kuhara",
-    "en": "diarrhea",
-    "pos": "verb"
-  },
-  {
-    "id": 645,
-    "sw": "kuhifadhi",
-    "en": "save",
-    "pos": "verb"
-  },
-  {
-    "id": 613,
-    "sw": "kuimba",
-    "en": "to sing",
-    "pos": "verb"
-  },
-  {
-    "id": 619,
-    "sw": "kuingia",
-    "en": "to enter",
-    "pos": "verb"
-  },
-  {
-    "id": 578,
-    "sw": "kuja",
-    "en": "to come",
-    "pos": "verb"
-  },
-  {
-    "id": 636,
-    "sw": "kujenga",
-    "en": "to build",
-    "pos": "verb"
-  },
-  {
-    "id": 611,
-    "sw": "kujibu",
-    "en": "to answer",
-    "pos": "verb"
-  },
-  {
-    "id": 642,
-    "sw": "kujifunza",
-    "en": "to learn",
-    "pos": "verb"
-  },
-  {
-    "id": 597,
-    "sw": "kujua",
-    "en": "to know",
-    "pos": "verb"
-  },
-  {
-    "id": 582,
-    "sw": "kukaa",
-    "en": "stay",
-    "pos": "verb"
-  },
-  {
-    "id": 631,
-    "sw": "kukaanga",
-    "en": "fried",
-    "pos": "verb"
-  },
-  {
-    "id": 615,
-    "sw": "kukata",
-    "en": "to cut",
-    "pos": "verb"
-  },
-  {
-    "id": 580,
-    "sw": "kukimbia",
-    "en": "run away",
-    "pos": "verb"
-  },
-  {
-    "id": 149,
-    "sw": "kuku",
-    "en": "chicken",
-    "pos": "verb"
-  },
-  {
-    "id": 600,
-    "sw": "kukumbuka",
-    "en": "to remember",
-    "pos": "verb"
-  },
-  {
-    "id": 583,
-    "sw": "kulala",
-    "en": "to sleep",
-    "pos": "verb"
-  },
-  {
-    "id": 399,
-    "sw": "kulia",
-    "en": "cry",
-    "pos": "adverb"
-  },
-  {
-    "id": 637,
-    "sw": "kulima",
-    "en": "to cultivate",
-    "pos": "verb"
-  },
-  {
-    "id": 646,
-    "sw": "kulinda",
-    "en": "to protect",
-    "pos": "verb"
-  },
-  {
-    "id": 606,
-    "sw": "kulipa",
-    "en": "to pay",
-    "pos": "verb"
-  },
-  {
-    "id": 787,
-    "sw": "kumbukumbu",
-    "en": "memory",
-    "pos": "verb"
-  },
-  {
-    "id": 468,
-    "sw": "kumi",
-    "en": "ten",
-    "pos": "number"
-  },
-  {
-    "id": 170,
-    "sw": "kunde",
-    "en": "pulse",
-    "pos": "verb"
-  },
-  {
-    "id": 607,
-    "sw": "kununua",
-    "en": "to buy",
-    "pos": "verb"
-  },
-  {
-    "id": 588,
-    "sw": "kunusa",
-    "en": "to smell",
-    "pos": "verb"
-  },
-  {
-    "id": 640,
-    "sw": "kunywa",
-    "en": "to drink",
-    "pos": "verb"
-  },
-  {
-    "id": 649,
-    "sw": "kuogelea",
-    "en": "to swim",
-    "pos": "verb"
-  },
-  {
-    "id": 633,
-    "sw": "kuoka",
-    "en": "baking",
-    "pos": "verb"
-  },
-  {
-    "id": 644,
-    "sw": "kuokoa",
-    "en": "to save",
-    "pos": "verb"
-  },
-  {
-    "id": 610,
-    "sw": "kuomba",
-    "en": "to pray",
-    "pos": "verb"
-  },
-  {
-    "id": 985,
-    "sw": "kuona",
-    "en": "to see",
-    "pos": "verb"
-  },
-  {
-    "id": 628,
-    "sw": "kuondoa",
-    "en": "remove",
-    "pos": "verb"
-  },
-  {
-    "id": 587,
-    "sw": "kuonja",
-    "en": "to taste",
-    "pos": "verb"
-  },
-  {
-    "id": 629,
-    "sw": "kuosha",
-    "en": "to wash",
-    "pos": "verb"
-  },
-  {
-    "id": 986,
-    "sw": "kupanda",
-    "en": "plant",
-    "pos": "verb"
-  },
-  {
-    "id": 638,
-    "sw": "kupanda mbegu",
-    "en": "sow the seeds",
-    "pos": "noun"
-  },
-  {
-    "id": 604,
-    "sw": "kupata",
-    "en": "get",
-    "pos": "verb"
-  },
-  {
-    "id": 595,
-    "sw": "kupenda",
-    "en": "to love",
-    "pos": "verb"
-  },
-  {
-    "id": 650,
-    "sw": "kupiga kelele",
-    "en": "to shout",
-    "pos": "noun"
-  },
-  {
-    "id": 623,
-    "sw": "kupiga simu",
-    "en": "to call",
-    "pos": "noun"
-  },
-  {
-    "id": 647,
-    "sw": "kupigana",
-    "en": "to fight",
-    "pos": "verb"
-  },
-  {
-    "id": 630,
-    "sw": "kupika",
-    "en": "to cook",
-    "pos": "verb"
-  },
-  {
-    "id": 625,
-    "sw": "kupokea",
-    "en": "to receive",
-    "pos": "verb"
-  },
-  {
-    "id": 603,
-    "sw": "kupoteza",
-    "en": "to lose",
-    "pos": "verb"
-  },
-  {
-    "id": 135,
-    "sw": "kupoteza fahamu",
-    "en": "loss of consciousness",
-    "pos": "noun"
-  },
-  {
-    "id": 652,
-    "sw": "kupumzika",
-    "en": "relax",
-    "pos": "verb"
-  },
-  {
-    "id": 934,
-    "sw": "kura",
-    "en": "lot",
-    "pos": "verb"
-  },
-  {
-    "id": 579,
-    "sw": "kurudi",
-    "en": "return",
-    "pos": "verb"
-  },
-  {
-    "id": 988,
-    "sw": "kuruka",
-    "en": "fly",
-    "pos": "verb"
-  },
-  {
-    "id": 599,
-    "sw": "kusahau",
-    "en": "to forget",
-    "pos": "verb"
-  },
-  {
-    "id": 609,
-    "sw": "kusaidia",
-    "en": "to help",
-    "pos": "verb"
-  },
-  {
-    "id": 648,
-    "sw": "kushinda",
-    "en": "win",
-    "pos": "verb"
-  },
-  {
-    "id": 850,
-    "sw": "kushindwa",
-    "en": "failure",
-    "pos": "verb"
-  },
-  {
-    "id": 616,
-    "sw": "kushona",
-    "en": "to sew",
-    "pos": "verb"
-  },
-  {
-    "id": 400,
-    "sw": "kushoto",
-    "en": "left",
-    "pos": "adverb"
-  },
-  {
-    "id": 617,
-    "sw": "kushuka",
-    "en": "drop off",
-    "pos": "verb"
-  },
-  {
-    "id": 612,
-    "sw": "kushukuru",
-    "en": "to be grateful",
-    "pos": "verb"
-  },
-  {
-    "id": 585,
-    "sw": "kusikia",
-    "en": "to hear",
-    "pos": "verb"
-  },
-  {
-    "id": 393,
-    "sw": "kusini",
-    "en": "the south",
-    "pos": "verb"
-  },
-  {
-    "id": 590,
-    "sw": "kusoma",
-    "en": "reading",
-    "pos": "verb"
-  },
-  {
-    "id": 643,
-    "sw": "kutafuta",
-    "en": "to search",
-    "pos": "verb"
-  },
-  {
-    "id": 594,
-    "sw": "kutaka",
-    "en": "to want",
-    "pos": "verb"
-  },
-  {
-    "id": 126,
-    "sw": "kutapika",
-    "en": "vomiting",
-    "pos": "verb"
-  },
-  {
-    "id": 581,
-    "sw": "kutembea",
-    "en": "to walk",
-    "pos": "verb"
-  },
-  {
-    "id": 635,
-    "sw": "kutengeneza",
-    "en": "to make",
-    "pos": "verb"
-  },
-  {
-    "id": 605,
-    "sw": "kutoa",
-    "en": "give",
-    "pos": "verb"
-  },
-  {
-    "id": 620,
-    "sw": "kutoka",
-    "en": "from",
-    "pos": "verb"
-  },
-  {
-    "id": 624,
-    "sw": "kutuma",
-    "en": "to send",
-    "pos": "verb"
-  },
-  {
-    "id": 608,
-    "sw": "kuuza",
-    "en": "to sell",
-    "pos": "verb"
-  },
-  {
-    "id": 618,
-    "sw": "kuvuka",
-    "en": "to cross",
-    "pos": "verb"
-  },
-  {
-    "id": 639,
-    "sw": "kuvuna",
-    "en": "harvest",
-    "pos": "verb"
-  },
-  {
-    "id": 634,
-    "sw": "kuvunja",
-    "en": "to break",
-    "pos": "verb"
-  },
-  {
-    "id": 627,
-    "sw": "kuweka",
-    "en": "put",
-    "pos": "verb"
-  },
-  {
-    "id": 951,
-    "sw": "kuzaliwa",
-    "en": "birth",
-    "pos": "verb"
-  },
-  {
-    "id": 589,
-    "sw": "kuzungumza",
-    "en": "to talk",
-    "pos": "verb"
-  },
-  {
-    "id": 15,
-    "sw": "kwaheri",
-    "en": "goodbye",
-    "pos": "verb"
-  },
-  {
-    "id": 577,
-    "sw": "kwenda",
-    "en": "to go",
-    "pos": "verb"
-  },
-  {
-    "id": 671,
-    "sw": "laini",
-    "en": "smooth",
-    "pos": "adjective"
-  },
-  {
-    "id": 404,
-    "sw": "lami",
-    "en": "bitumen",
-    "pos": "noun"
-  },
-  {
-    "id": 286,
-    "sw": "leo",
-    "en": "today",
-    "pos": "noun"
-  },
-  {
-    "id": 534,
-    "sw": "leso",
-    "en": "handkerchief",
-    "pos": "noun"
-  },
-  {
-    "id": 865,
-    "sw": "ligi",
-    "en": "league",
-    "pos": "noun"
-  },
-  {
-    "id": 158,
-    "sw": "limao",
-    "en": "lemon",
-    "pos": "noun"
-  },
-  {
-    "id": 549,
-    "sw": "lugha",
-    "en": "language",
-    "pos": "noun"
-  },
-  {
-    "id": 208,
-    "sw": "maandazi",
-    "en": "pastries",
-    "pos": "noun"
-  },
-  {
-    "id": 954,
-    "sw": "maarifa",
-    "en": "knowledge",
-    "pos": "noun"
-  },
-  {
-    "id": 895,
-    "sw": "mabadiliko ya hali ya hewa",
-    "en": "climate change",
-    "pos": "noun"
-  },
-  {
-    "id": 889,
-    "sw": "machozi",
-    "en": "tears",
-    "pos": "noun"
-  },
-  {
-    "id": 157,
-    "sw": "machungwa",
-    "en": "orange",
-    "pos": "adjective"
-  },
-  {
-    "id": 970,
-    "sw": "madini",
-    "en": "minerals",
-    "pos": "noun"
-  },
-  {
-    "id": 959,
-    "sw": "mafanikio",
-    "en": "success",
-    "pos": "noun"
-  },
-  {
-    "id": 296,
-    "sw": "mafuriko",
-    "en": "flood",
-    "pos": "noun"
-  },
-  {
-    "id": 164,
-    "sw": "mafuta",
-    "en": "fat",
-    "pos": "noun"
-  },
-  {
-    "id": 395,
-    "sw": "magharibi",
-    "en": "the west",
-    "pos": "noun"
-  },
-  {
-    "id": 746,
-    "sw": "mahakama",
-    "en": "court",
-    "pos": "noun"
-  },
-  {
-    "id": 168,
-    "sw": "maharage",
-    "en": "beans",
-    "pos": "noun"
-  },
-  {
-    "id": 363,
-    "sw": "mahindi",
-    "en": "corn",
-    "pos": "noun"
-  },
-  {
-    "id": 949,
-    "sw": "maisha",
-    "en": "life",
-    "pos": "noun"
-  },
-  {
-    "id": 141,
     "sw": "maji",
     "en": "water",
     "pos": "noun"
   },
   {
-    "id": 554,
-    "sw": "maktaba",
-    "en": "the library",
+    "sw": "bibi",
+    "en": "grandmother",
     "pos": "noun"
   },
   {
-    "id": 120,
-    "sw": "malaria",
-    "en": "malaria",
+    "sw": "kifaru",
+    "en": "rhinoceros",
     "pos": "noun"
   },
   {
-    "id": 61,
-    "sw": "malezi",
-    "en": "education",
-    "pos": "noun"
-  },
-  {
-    "id": 831,
-    "sw": "malipo",
-    "en": "payment",
-    "pos": "noun"
-  },
-  {
-    "id": 37,
-    "sw": "mama",
-    "en": "mother",
-    "pos": "noun"
-  },
-  {
-    "id": 321,
-    "sw": "mamba",
-    "en": "crocodile",
-    "pos": "noun"
-  },
-  {
-    "id": 178,
-    "sw": "mandazi",
-    "en": "mandasi",
-    "pos": "noun"
-  },
-  {
-    "id": 94,
-    "sw": "mapafu",
-    "en": "lungs",
-    "pos": "noun"
-  },
-  {
-    "id": 429,
-    "sw": "mapema",
-    "en": "earlier",
-    "pos": "adverb"
-  },
-  {
-    "id": 298,
-    "sw": "maporomoko",
-    "en": "the falls",
-    "pos": "noun"
-  },
-  {
-    "id": 18,
-    "sw": "marahaba",
-    "en": "congratulations",
-    "pos": "noun"
-  },
-  {
-    "id": 853,
-    "sw": "mashabiki",
-    "en": "fans",
-    "pos": "noun"
-  },
-  {
-    "id": 394,
-    "sw": "mashariki",
-    "en": "the east",
-    "pos": "noun"
-  },
-  {
-    "id": 248,
-    "sw": "mashine ya kufulia",
-    "en": "washing machine",
-    "pos": "noun"
-  },
-  {
-    "id": 456,
-    "sw": "masika",
-    "en": "spring",
-    "pos": "noun"
-  },
-  {
-    "id": 74,
-    "sw": "masikio",
-    "en": "ears",
-    "pos": "noun"
-  },
-  {
-    "id": 674,
-    "sw": "maskini",
-    "en": "poor",
-    "pos": "adjective"
-  },
-  {
-    "id": 115,
-    "sw": "matibabu",
-    "en": "treatment",
-    "pos": "noun"
-  },
-  {
-    "id": 886,
-    "sw": "matumaini",
-    "en": "hope",
-    "pos": "noun"
-  },
-  {
-    "id": 152,
-    "sw": "matunda",
-    "en": "fruits",
-    "pos": "noun"
-  },
-  {
-    "id": 261,
-    "sw": "maua",
-    "en": "flowers",
-    "pos": "noun"
-  },
-  {
-    "id": 116,
-    "sw": "maumivu",
-    "en": "pain",
-    "pos": "noun"
-  },
-  {
-    "id": 919,
-    "sw": "mavuno",
-    "en": "yield",
-    "pos": "noun"
-  },
-  {
-    "id": 276,
-    "sw": "mawingu",
-    "en": "the clouds",
-    "pos": "noun"
-  },
-  {
-    "id": 150,
-    "sw": "mayai",
-    "en": "eggs",
-    "pos": "noun"
-  },
-  {
-    "id": 921,
-    "sw": "mazao",
-    "en": "produce",
-    "pos": "noun"
-  },
-  {
-    "id": 797,
-    "sw": "mazishi",
-    "en": "funeral",
-    "pos": "noun"
-  },
-  {
-    "id": 143,
-    "sw": "maziwa",
-    "en": "milk",
-    "pos": "noun"
-  },
-  {
-    "id": 396,
-    "sw": "mbali",
-    "en": "away",
-    "pos": "adverb"
-  },
-  {
-    "id": 659,
-    "sw": "mbaya",
-    "en": "bad",
-    "pos": "adjective"
-  },
-  {
-    "id": 916,
-    "sw": "mbegu",
-    "en": "seeds",
-    "pos": "noun"
-  },
-  {
-    "id": 401,
-    "sw": "mbele",
-    "en": "ahead",
-    "pos": "adverb"
-  },
-  {
-    "id": 460,
-    "sw": "mbili",
-    "en": "two",
-    "pos": "number"
-  },
-  {
-    "id": 858,
-    "sw": "mbio",
-    "en": "race",
-    "pos": "noun"
-  },
-  {
-    "id": 151,
-    "sw": "mboga",
-    "en": "vegetables",
-    "pos": "noun"
-  },
-  {
-    "id": 928,
-    "sw": "mboji",
-    "en": "compost",
-    "pos": "noun"
-  },
-  {
-    "id": 917,
-    "sw": "mbolea",
-    "en": "fertilizer",
-    "pos": "noun"
-  },
-  {
-    "id": 347,
-    "sw": "mbu",
-    "en": "mosquitoes",
-    "pos": "noun"
-  },
-  {
-    "id": 571,
-    "sw": "mbunge",
-    "en": "parliamentarian",
-    "pos": "noun"
-  },
-  {
-    "id": 338,
-    "sw": "mbuni",
-    "en": "the ostrich",
-    "pos": "noun"
-  },
-  {
-    "id": 314,
-    "sw": "mbuzi",
-    "en": "a goat",
-    "pos": "noun"
-  },
-  {
-    "id": 310,
-    "sw": "mbwa",
-    "en": "dog",
-    "pos": "noun"
-  },
-  {
-    "id": 375,
-    "sw": "mbweha",
-    "en": "fox",
-    "pos": "noun"
-  },
-  {
-    "id": 283,
-    "sw": "mchana",
-    "en": "in the afternoon",
-    "pos": "noun"
-  },
-  {
-    "id": 264,
-    "sw": "mchanga",
-    "en": "sand",
-    "pos": "adjective"
-  },
-  {
-    "id": 693,
-    "sw": "mchangamfu",
-    "en": "cheerful",
-    "pos": "adjective"
-  },
-  {
-    "id": 171,
-    "sw": "mchele",
-    "en": "rice",
-    "pos": "noun"
-  },
-  {
-    "id": 565,
-    "sw": "mchezaji",
-    "en": "player",
-    "pos": "noun"
-  },
-  {
-    "id": 848,
-    "sw": "mchezo",
-    "en": "game",
-    "pos": "noun"
-  },
-  {
-    "id": 859,
-    "sw": "mchezo wa bao",
-    "en": "scoring game",
-    "pos": "noun"
-  },
-  {
-    "id": 992,
-    "sw": "mchezo wa kompyuta",
-    "en": "computer game",
-    "pos": "noun"
-  },
-  {
-    "id": 193,
-    "sw": "mchicha",
-    "en": "spinach",
-    "pos": "noun"
-  },
-  {
-    "id": 53,
-    "sw": "mchumba",
-    "en": "fiancee",
-    "pos": "noun"
-  },
-  {
-    "id": 816,
-    "sw": "mchungaji",
-    "en": "shepherd",
-    "pos": "noun"
-  },
-  {
-    "id": 174,
-    "sw": "mchuzi",
-    "en": "broth",
-    "pos": "noun"
-  },
-  {
-    "id": 186,
-    "sw": "mdalasini",
-    "en": "cinnamon",
-    "pos": "noun"
-  },
-  {
-    "id": 76,
-    "sw": "mdomo",
-    "en": "mouth",
-    "pos": "noun"
-  },
-  {
-    "id": 328,
-    "sw": "mdudu",
-    "en": "bug",
-    "pos": "noun"
-  },
-  {
-    "id": 866,
-    "sw": "mechi",
-    "en": "match",
-    "pos": "noun"
-  },
-  {
-    "id": 862,
-    "sw": "medali",
-    "en": "medal",
-    "pos": "noun"
-  },
-  {
-    "id": 380,
-    "sw": "meli",
-    "en": "ship",
-    "pos": "noun"
-  },
-  {
-    "id": 568,
-    "sw": "meneja",
-    "en": "the manager",
-    "pos": "noun"
-  },
-  {
-    "id": 356,
-    "sw": "meno",
-    "en": "teeth",
-    "pos": "noun"
-  },
-  {
-    "id": 224,
-    "sw": "meza",
-    "en": "the table",
-    "pos": "noun"
-  },
-  {
-    "id": 560,
-    "sw": "mfanyakazi",
-    "en": "employee",
-    "pos": "noun"
-  },
-  {
-    "id": 927,
-    "sw": "mfereji",
-    "en": "canal",
-    "pos": "noun"
-  },
-  {
-    "id": 516,
-    "sw": "mfuko",
-    "en": "bag",
-    "pos": "noun"
-  },
-  {
-    "id": 89,
-    "sw": "mfupa",
-    "en": "bone",
-    "pos": "noun"
-  },
-  {
-    "id": 676,
-    "sw": "mfupi",
-    "en": "short",
-    "pos": "adjective"
-  },
-  {
-    "id": 751,
-    "sw": "mgahawa",
-    "en": "restaurant",
-    "pos": "noun"
-  },
-  {
-    "id": 23,
-    "sw": "mgeni",
-    "en": "a stranger",
-    "pos": "noun"
-  },
-  {
-    "id": 100,
-    "sw": "mgongo",
-    "en": "back",
-    "pos": "noun"
-  },
-  {
-    "id": 684,
-    "sw": "mgonjwa",
-    "en": "the patient",
-    "pos": "adjective"
-  },
-  {
-    "id": 83,
-    "sw": "mguu",
-    "en": "leg",
-    "pos": "noun"
-  },
-  {
-    "id": 558,
-    "sw": "mhandisi",
-    "en": "an engineer",
-    "pos": "noun"
-  },
-  {
-    "id": 477,
-    "sw": "mia",
-    "en": "hundred",
-    "pos": "number"
-  },
-  {
-    "id": 551,
-    "sw": "michezo",
-    "en": "sports",
-    "pos": "noun"
-  },
-  {
-    "id": 808,
-    "sw": "mila",
-    "en": "tradition",
-    "pos": "noun"
-  },
-  {
-    "id": 479,
-    "sw": "milioni",
-    "en": "million",
-    "pos": "number"
-  },
-  {
-    "id": 359,
-    "sw": "mimba",
-    "en": "pregnancy",
-    "pos": "noun"
-  },
-  {
-    "id": 97,
-    "sw": "mishipa",
-    "en": "veins",
-    "pos": "noun"
-  },
-  {
-    "id": 779,
-    "sw": "mitandao ya kijamii",
-    "en": "social networks",
-    "pos": "noun"
-  },
-  {
-    "id": 521,
-    "sw": "miwani",
-    "en": "glasses",
-    "pos": "noun"
-  },
-  {
-    "id": 409,
-    "sw": "mizigo",
-    "en": "baggage",
-    "pos": "noun"
-  },
-  {
-    "id": 733,
-    "sw": "mji",
-    "en": "city",
-    "pos": "noun"
-  },
-  {
-    "id": 736,
-    "sw": "mji mkuu",
-    "en": "capital city",
-    "pos": "noun"
-  },
-  {
-    "id": 688,
-    "sw": "mjinga",
-    "en": "stupid",
-    "pos": "adjective"
-  },
-  {
-    "id": 45,
-    "sw": "mjomba",
-    "en": "uncle",
-    "pos": "noun"
-  },
-  {
-    "id": 48,
-    "sw": "mjukuu",
-    "en": "grandson",
-    "pos": "noun"
-  },
-  {
-    "id": 369,
-    "sw": "mjusi",
-    "en": "lizard",
-    "pos": "noun"
-  },
-  {
-    "id": 70,
-    "sw": "mkamwana",
-    "en": "brother in law",
-    "pos": "noun"
-  },
-  {
-    "id": 833,
-    "sw": "mkataba",
-    "en": "the contract",
-    "pos": "noun"
-  },
-  {
-    "id": 144,
-    "sw": "mkate",
-    "en": "bread",
-    "pos": "noun"
-  },
-  {
-    "id": 52,
-    "sw": "mke",
-    "en": "wife",
-    "pos": "noun"
-  },
-  {
-    "id": 515,
-    "sw": "mkoba",
-    "en": "a purse",
-    "pos": "noun"
-  },
-  {
-    "id": 418,
-    "sw": "mkokoteni",
-    "en": "a cart",
-    "pos": "noun"
-  },
-  {
-    "id": 80,
-    "sw": "mkono",
-    "en": "hand",
-    "pos": "noun"
-  },
-  {
-    "id": 824,
-    "sw": "mkopo",
-    "en": "loan",
-    "pos": "noun"
-  },
-  {
-    "id": 519,
-    "sw": "mkufu",
-    "en": "necklace",
-    "pos": "noun"
-  },
-  {
-    "id": 563,
-    "sw": "mkulima",
-    "en": "a farmer",
-    "pos": "noun"
-  },
-  {
-    "id": 567,
-    "sw": "mkurugenzi",
-    "en": "the director",
-    "pos": "noun"
-  },
-  {
-    "id": 69,
-    "sw": "mkwe",
-    "en": "son in law",
-    "pos": "noun"
-  },
-  {
-    "id": 364,
-    "sw": "mlango",
-    "en": "the door",
-    "pos": "noun"
-  },
-  {
-    "id": 266,
-    "sw": "mlima",
-    "en": "the mountain",
-    "pos": "noun"
-  },
-  {
-    "id": 562,
-    "sw": "mlinzi",
-    "en": "the guard",
-    "pos": "noun"
-  },
-  {
-    "id": 844,
-    "sw": "mnunuzi",
-    "en": "the buyer",
-    "pos": "noun"
-  },
-  {
-    "id": 459,
-    "sw": "moja",
-    "en": "one",
-    "pos": "number"
-  },
-  {
-    "id": 677,
-    "sw": "moto",
-    "en": "fire",
-    "pos": "adjective"
-  },
-  {
-    "id": 86,
-    "sw": "moyo",
-    "en": "the heart",
-    "pos": "noun"
-  },
-  {
-    "id": 846,
-    "sw": "mpira",
-    "en": "the ball",
-    "pos": "noun"
-  },
-  {
-    "id": 857,
-    "sw": "mpira wa kikapu",
-    "en": "basketball",
-    "pos": "noun"
-  },
-  {
-    "id": 856,
-    "sw": "mpira wa miguu",
-    "en": "football",
-    "pos": "noun"
-  },
-  {
-    "id": 561,
-    "sw": "mpishi",
-    "en": "the cook",
-    "pos": "noun"
-  },
-  {
-    "id": 989,
-    "sw": "mpya",
-    "en": "new",
-    "pos": "adjective"
-  },
-  {
-    "id": 675,
-    "sw": "mrefu",
-    "en": "tall",
-    "pos": "adjective"
-  },
-  {
-    "id": 575,
-    "sw": "msaidizi",
-    "en": "assistant",
-    "pos": "noun"
-  },
-  {
-    "id": 802,
-    "sw": "msamaha",
-    "en": "forgiveness",
-    "pos": "noun"
-  },
-  {
-    "id": 984,
-    "sw": "msanii",
-    "en": "an artist",
-    "pos": "noun"
-  },
-  {
-    "id": 557,
-    "sw": "mshahara",
-    "en": "salary",
-    "pos": "noun"
-  },
-  {
-    "id": 870,
-    "sw": "mshangao",
-    "en": "surprise",
-    "pos": "noun"
-  },
-  {
-    "id": 136,
-    "sw": "mshtuko",
-    "en": "shock",
-    "pos": "noun"
-  },
-  {
-    "id": 744,
-    "sw": "msikiti",
-    "en": "the mosque",
-    "pos": "noun"
-  },
-  {
-    "id": 271,
-    "sw": "msitu",
-    "en": "the forest",
-    "pos": "noun"
-  },
-  {
-    "id": 303,
-    "sw": "msitu wa mvua",
-    "en": "rain forest",
-    "pos": "noun"
-  },
-  {
-    "id": 877,
-    "sw": "msongo",
-    "en": "stress",
-    "pos": "noun"
-  },
-  {
-    "id": 91,
-    "sw": "msumari",
-    "en": "nail",
-    "pos": "noun"
-  },
-  {
-    "id": 740,
-    "sw": "mtaa",
-    "en": "street",
-    "pos": "noun"
-  },
-  {
-    "id": 835,
-    "sw": "mtaji",
-    "en": "capital",
-    "pos": "noun"
-  },
-  {
-    "id": 759,
-    "sw": "mtandao",
-    "en": "internet",
-    "pos": "noun"
-  },
-  {
-    "id": 260,
-    "sw": "mti",
-    "en": "a tree",
-    "pos": "noun"
-  },
-  {
-    "id": 552,
-    "sw": "mtihani",
-    "en": "test",
-    "pos": "noun"
-  },
-  {
-    "id": 222,
-    "sw": "mto",
-    "en": "the river",
-    "pos": "noun"
-  },
-  {
-    "id": 39,
-    "sw": "mtoto",
-    "en": "child",
-    "pos": "noun"
-  },
-  {
-    "id": 692,
-    "sw": "mtulivu",
-    "en": "calm",
-    "pos": "adjective"
-  },
-  {
-    "id": 426,
-    "sw": "muda",
-    "en": "time",
-    "pos": "noun"
-  },
-  {
-    "id": 51,
-    "sw": "mume",
-    "en": "husband",
-    "pos": "noun"
-  },
-  {
-    "id": 925,
-    "sw": "mundu",
-    "en": "sickle",
-    "pos": "noun"
-  },
-  {
-    "id": 109,
-    "sw": "muuguzi",
-    "en": "nurse",
-    "pos": "noun"
-  },
-  {
-    "id": 817,
-    "sw": "muumini",
-    "en": "a believer",
-    "pos": "noun"
-  },
-  {
-    "id": 843,
-    "sw": "muuzaji",
-    "en": "seller",
-    "pos": "noun"
-  },
-  {
-    "id": 550,
-    "sw": "muziki",
-    "en": "music",
-    "pos": "noun"
-  },
-  {
-    "id": 204,
-    "sw": "mvinyo",
-    "en": "wine",
-    "pos": "noun"
-  },
-  {
-    "id": 273,
-    "sw": "mvua",
-    "en": "the rain",
-    "pos": "noun"
-  },
-  {
-    "id": 891,
-    "sw": "mvua ya mawe",
-    "en": "hail",
-    "pos": "noun"
-  },
-  {
-    "id": 564,
-    "sw": "mvuvi",
-    "en": "fisherman",
-    "pos": "noun"
-  },
-  {
-    "id": 977,
-    "sw": "mwaka",
-    "en": "year",
-    "pos": "noun"
-  },
-  {
-    "id": 439,
-    "sw": "mwaka ujao",
-    "en": "next year",
-    "pos": "noun"
-  },
-  {
-    "id": 540,
-    "sw": "mwalimu",
-    "en": "the teacher",
-    "pos": "noun"
-  },
-  {
-    "id": 265,
-    "sw": "mwamba",
-    "en": "rock",
-    "pos": "noun"
-  },
-  {
-    "id": 40,
-    "sw": "mwana",
-    "en": "son",
-    "pos": "noun"
-  },
-  {
-    "id": 541,
-    "sw": "mwanafunzi",
-    "en": "student",
-    "pos": "noun"
-  },
-  {
-    "id": 573,
-    "sw": "mwanajeshi",
-    "en": "a soldier",
-    "pos": "noun"
-  },
-  {
-    "id": 559,
-    "sw": "mwanasheria",
-    "en": "a lawyer",
-    "pos": "noun"
-  },
-  {
-    "id": 566,
-    "sw": "mwandishi",
-    "en": "the author",
-    "pos": "noun"
-  },
-  {
-    "id": 504,
-    "sw": "mwanga",
-    "en": "light",
-    "pos": "noun"
-  },
-  {
-    "id": 280,
-    "sw": "mwangaza",
-    "en": "brightness",
-    "pos": "noun"
-  },
-  {
-    "id": 834,
-    "sw": "mwekezaji",
-    "en": "the investor",
-    "pos": "noun"
-  },
-  {
-    "id": 686,
-    "sw": "mwema",
-    "en": "good",
-    "pos": "adjective"
-  },
-  {
-    "id": 695,
-    "sw": "mwenye furaha",
-    "en": "happy",
-    "pos": "noun"
-  },
-  {
-    "id": 696,
-    "sw": "mwenye hasira",
-    "en": "angry",
-    "pos": "noun"
-  },
-  {
-    "id": 694,
-    "sw": "mwenye huzuni",
-    "en": "sad",
-    "pos": "noun"
-  },
-  {
-    "id": 669,
-    "sw": "mwepesi",
-    "en": "quick",
-    "pos": "adjective"
-  },
-  {
-    "id": 687,
-    "sw": "mwerevu",
-    "en": "clever",
-    "pos": "adjective"
-  },
-  {
-    "id": 424,
-    "sw": "mwezi",
-    "en": "month",
-    "pos": "noun"
-  },
-  {
-    "id": 438,
-    "sw": "mwezi ujao",
-    "en": "next month",
-    "pos": "noun"
-  },
-  {
-    "id": 258,
-    "sw": "mwiko",
-    "en": "taboo",
-    "pos": "noun"
-  },
-  {
-    "id": 92,
-    "sw": "mwili",
-    "en": "the body",
-    "pos": "noun"
-  },
-  {
-    "id": 691,
-    "sw": "mwoga",
-    "en": "coward",
-    "pos": "adjective"
-  },
-  {
-    "id": 66,
-    "sw": "mzaa",
-    "en": "a child",
-    "pos": "noun"
-  },
-  {
-    "id": 65,
-    "sw": "mzazi",
-    "en": "parent",
-    "pos": "noun"
-  },
-  {
-    "id": 685,
-    "sw": "mzee",
-    "en": "old man",
-    "pos": "adjective"
-  },
-  {
-    "id": 683,
-    "sw": "mzima",
-    "en": "whole",
-    "pos": "adjective"
-  },
-  {
-    "id": 668,
-    "sw": "mzito",
-    "en": "heavy",
-    "pos": "adjective"
-  },
-  {
-    "id": 681,
-    "sw": "na nguvu",
-    "en": "and strength",
-    "pos": "noun"
-  },
-  {
-    "id": 909,
-    "sw": "nadharia",
-    "en": "theory",
-    "pos": "noun"
-  },
-  {
-    "id": 413,
-    "sw": "nahodha",
-    "en": "the captain",
-    "pos": "noun"
-  },
-  {
-    "id": 156,
-    "sw": "nanasi",
-    "en": "pineapple",
-    "pos": "noun"
-  },
-  {
-    "id": 466,
-    "sw": "nane",
-    "en": "eight",
-    "pos": "number"
-  },
-  {
-    "id": 735,
-    "sw": "nchi",
-    "en": "the country",
-    "pos": "noun"
-  },
-  {
-    "id": 656,
-    "sw": "ndefu",
-    "en": "long",
-    "pos": "adjective"
-  },
-  {
-    "id": 323,
-    "sw": "ndege",
-    "en": "bird",
-    "pos": "noun"
-  },
-  {
-    "id": 9,
-    "sw": "ndiyo",
-    "en": "yes",
-    "pos": "noun"
-  },
-  {
-    "id": 153,
-    "sw": "ndizi",
-    "en": "banana",
-    "pos": "noun"
-  },
-  {
-    "id": 655,
-    "sw": "ndogo",
-    "en": "small",
-    "pos": "adjective"
-  },
-  {
-    "id": 241,
-    "sw": "ndoo",
-    "en": "bucket",
-    "pos": "noun"
-  },
-  {
-    "id": 948,
-    "sw": "ndoto",
-    "en": "dream",
-    "pos": "noun"
-  },
-  {
-    "id": 49,
-    "sw": "ndugu",
-    "en": "brothers",
-    "pos": "noun"
-  },
-  {
-    "id": 312,
-    "sw": "ng'ombe",
-    "en": "cow",
-    "pos": "noun"
-  },
-  {
-    "id": 372,
-    "sw": "nge",
-    "en": "the scorpion",
-    "pos": "noun"
-  },
-  {
-    "id": 330,
-    "sw": "ngisi",
-    "en": "squid",
-    "pos": "noun"
-  },
-  {
-    "id": 804,
-    "sw": "ngoma",
-    "en": "dance",
-    "pos": "noun"
-  },
-  {
-    "id": 357,
-    "sw": "ngozi",
-    "en": "skin",
-    "pos": "noun"
-  },
-  {
-    "id": 665,
-    "sw": "ngumu",
-    "en": "difficult",
-    "pos": "adjective"
-  },
-  {
-    "id": 506,
-    "sw": "nguo",
-    "en": "clothes",
-    "pos": "noun"
-  },
-  {
-    "id": 343,
-    "sw": "nguru",
-    "en": "pig",
-    "pos": "noun"
-  },
-  {
-    "id": 317,
-    "sw": "nguruwe",
-    "en": "pig",
-    "pos": "noun"
-  },
-  {
-    "id": 93,
-    "sw": "nguvu",
-    "en": "strength",
-    "pos": "noun"
-  },
-  {
-    "id": 973,
-    "sw": "nishati mbadala",
-    "en": "renewable energy",
-    "pos": "noun"
-  },
-  {
-    "id": 881,
-    "sw": "njaa",
-    "en": "hunger",
-    "pos": "noun"
-  },
-  {
-    "id": 494,
-    "sw": "njano",
-    "en": "yellow",
-    "pos": "adjective"
-  },
-  {
-    "id": 385,
-    "sw": "njia",
-    "en": "way",
-    "pos": "noun"
-  },
-  {
-    "id": 325,
-    "sw": "njiwa",
-    "en": "dove",
-    "pos": "noun"
-  },
-  {
-    "id": 462,
-    "sw": "nne",
-    "en": "four",
-    "pos": "number"
-  },
-  {
-    "id": 376,
-    "sw": "nungunungu",
-    "en": "porcupine",
-    "pos": "noun"
-  },
-  {
-    "id": 981,
-    "sw": "nusu",
-    "en": "half",
-    "pos": "number"
-  },
-  {
-    "id": 147,
-    "sw": "nyama",
-    "en": "meat",
-    "pos": "noun"
-  },
-  {
-    "id": 180,
-    "sw": "nyama choma",
-    "en": "roast meat",
-    "pos": "noun"
-  },
-  {
-    "id": 304,
-    "sw": "nyanda za juu",
-    "en": "highlands",
-    "pos": "noun"
-  },
-  {
-    "id": 336,
-    "sw": "nyani",
-    "en": "monkeys",
-    "pos": "noun"
-  },
-  {
-    "id": 167,
-    "sw": "nyanya",
-    "en": "grandma",
-    "pos": "noun"
-  },
-  {
-    "id": 262,
-    "sw": "nyasi",
-    "en": "grass",
-    "pos": "noun"
-  },
-  {
-    "id": 333,
-    "sw": "nyati",
-    "en": "unicorn",
-    "pos": "noun"
-  },
-  {
-    "id": 491,
-    "sw": "nyekundu",
-    "en": "red",
-    "pos": "adjective"
-  },
-  {
-    "id": 495,
-    "sw": "nyeupe",
-    "en": "white",
-    "pos": "adjective"
-  },
-  {
-    "id": 496,
-    "sw": "nyeusi",
-    "en": "black",
-    "pos": "adjective"
-  },
-  {
-    "id": 320,
-    "sw": "nyoka",
-    "en": "snake",
-    "pos": "noun"
-  },
-  {
-    "id": 98,
-    "sw": "nyonga",
-    "en": "hips",
-    "pos": "noun"
-  },
-  {
-    "id": 326,
-    "sw": "nyuki",
-    "en": "bee",
-    "pos": "noun"
-  },
-  {
-    "id": 976,
-    "sw": "nyuma",
-    "en": "behind",
-    "pos": "adverb"
-  },
-  {
-    "id": 210,
-    "sw": "nyumba",
-    "en": "house",
-    "pos": "noun"
-  },
-  {
-    "id": 90,
-    "sw": "nywele",
-    "en": "hair",
-    "pos": "noun"
-  },
-  {
-    "id": 346,
-    "sw": "nzi",
-    "en": "flies",
-    "pos": "noun"
-  },
-  {
-    "id": 345,
-    "sw": "nzige",
-    "en": "locust",
-    "pos": "noun"
-  },
-  {
-    "id": 658,
-    "sw": "nzuri",
-    "en": "nice",
-    "pos": "adjective"
-  },
-  {
-    "id": 679,
-    "sw": "oevu",
-    "en": "liquid",
-    "pos": "noun"
-  },
-  {
-    "id": 537,
-    "sw": "ofisi",
-    "en": "office",
-    "pos": "noun"
-  },
-  {
-    "id": 112,
-    "sw": "operesheni",
-    "en": "operation",
-    "pos": "noun"
-  },
-  {
-    "id": 214,
-    "sw": "paa",
-    "en": "roof",
-    "pos": "noun"
-  },
-  {
-    "id": 813,
-    "sw": "padri",
-    "en": "the priest",
-    "pos": "noun"
-  },
-  {
-    "id": 311,
-    "sw": "paka",
-    "en": "cat",
-    "pos": "noun"
-  },
-  {
-    "id": 398,
-    "sw": "pale",
-    "en": "there",
-    "pos": "adverb"
-  },
-  {
-    "id": 132,
-    "sw": "pamba",
-    "en": "cotton",
-    "pos": "noun"
-  },
-  {
-    "id": 31,
-    "sw": "pamoja",
-    "en": "together",
-    "pos": "noun"
-  },
-  {
-    "id": 924,
-    "sw": "panga",
-    "en": "sword",
-    "pos": "noun"
-  },
-  {
-    "id": 319,
-    "sw": "panya",
-    "en": "mouse",
-    "pos": "noun"
-  },
-  {
-    "id": 329,
-    "sw": "papa",
-    "en": "papa",
-    "pos": "noun"
-  },
-  {
-    "id": 155,
-    "sw": "papai",
-    "en": "papaya",
-    "pos": "noun"
-  },
-  {
-    "id": 249,
-    "sw": "pasi",
-    "en": "pass",
-    "pos": "noun"
-  },
-  {
-    "id": 407,
-    "sw": "pasipoti",
-    "en": "passport",
-    "pos": "noun"
-  },
-  {
-    "id": 790,
-    "sw": "password",
-    "en": "password",
-    "pos": "noun"
-  },
-  {
-    "id": 244,
-    "sw": "pazia",
-    "en": "curtain",
-    "pos": "noun"
-  },
-  {
-    "id": 556,
-    "sw": "pesa",
-    "en": "money",
-    "pos": "noun"
-  },
-  {
-    "id": 518,
-    "sw": "pete",
-    "en": "ring",
-    "pos": "noun"
-  },
-  {
-    "id": 764,
-    "sw": "picha",
-    "en": "picture",
-    "pos": "noun"
-  },
-  {
-    "id": 383,
-    "sw": "pikipiki",
-    "en": "motorcycle",
-    "pos": "noun"
-  },
-  {
-    "id": 176,
-    "sw": "pilau",
-    "en": "pilau",
-    "pos": "noun"
-  },
-  {
-    "id": 165,
-    "sw": "pilipili",
-    "en": "pepper",
-    "pos": "noun"
-  },
-  {
-    "id": 201,
-    "sw": "pipi",
-    "en": "candy",
-    "pos": "noun"
-  },
-  {
-    "id": 131,
-    "sw": "plasta",
-    "en": "plaster",
-    "pos": "noun"
-  },
-  {
-    "id": 8,
-    "sw": "pole",
-    "en": "sorry",
-    "pos": "noun"
-  },
-  {
-    "id": 663,
-    "sw": "polepole",
-    "en": "slowly",
-    "pos": "adverb"
-  },
-  {
-    "id": 572,
-    "sw": "polisi",
-    "en": "the police",
-    "pos": "noun"
-  },
-  {
-    "id": 206,
-    "sw": "pombe",
-    "en": "alcohol",
-    "pos": "noun"
-  },
-  {
-    "id": 353,
-    "sw": "popo",
-    "en": "bat",
-    "pos": "noun"
-  },
-  {
-    "id": 772,
-    "sw": "printa",
-    "en": "printer",
-    "pos": "noun"
-  },
-  {
-    "id": 761,
-    "sw": "programu",
-    "en": "program",
-    "pos": "noun"
-  },
-  {
-    "id": 75,
-    "sw": "pua",
-    "en": "nose",
-    "pos": "noun"
-  },
-  {
-    "id": 316,
-    "sw": "punda",
-    "en": "donkey",
-    "pos": "noun"
-  },
-  {
-    "id": 489,
-    "sw": "pungufu",
-    "en": "less",
-    "pos": "noun"
-  },
-  {
-    "id": 828,
-    "sw": "punguzo",
-    "en": "discount",
-    "pos": "noun"
-  },
-  {
-    "id": 270,
-    "sw": "pwani",
-    "en": "the beach",
-    "pos": "noun"
-  },
-  {
-    "id": 341,
-    "sw": "pweza",
-    "en": "octopus",
-    "pos": "noun"
-  },
-  {
-    "id": 277,
-    "sw": "radi",
-    "en": "lightning",
-    "pos": "noun"
-  },
-  {
-    "id": 21,
-    "sw": "rafiki",
-    "en": "a friend",
-    "pos": "noun"
-  },
-  {
-    "id": 664,
-    "sw": "rahisi",
-    "en": "simple",
-    "pos": "adjective"
-  },
-  {
-    "id": 569,
-    "sw": "rais",
-    "en": "the president",
-    "pos": "noun"
-  },
-  {
-    "id": 391,
-    "sw": "ramani",
-    "en": "map",
-    "pos": "noun"
-  },
-  {
-    "id": 503,
-    "sw": "rangi",
-    "en": "color",
-    "pos": "noun"
-  },
-  {
-    "id": 300,
-    "sw": "rasi",
-    "en": "lagoon",
-    "pos": "noun"
-  },
-  {
-    "id": 238,
-    "sw": "redio",
-    "en": "radio",
-    "pos": "noun"
-  },
-  {
-    "id": 854,
-    "sw": "riadha",
-    "en": "athletics",
-    "pos": "noun"
-  },
-  {
-    "id": 825,
-    "sw": "riba",
-    "en": "interest",
-    "pos": "noun"
-  },
-  {
-    "id": 832,
-    "sw": "risiti",
-    "en": "receipt",
-    "pos": "noun"
-  },
-  {
-    "id": 481,
-    "sw": "robo",
-    "en": "a quarter",
-    "pos": "number"
-  },
-  {
-    "id": 412,
-    "sw": "rubani",
-    "en": "pilot",
-    "pos": "noun"
-  },
-  {
-    "id": 780,
-    "sw": "runinga",
-    "en": "television",
-    "pos": "noun"
-  },
-  {
-    "id": 944,
-    "sw": "rushwa",
-    "en": "corruption",
-    "pos": "noun"
-  },
-  {
-    "id": 419,
-    "sw": "saa",
-    "en": "at",
-    "pos": "noun"
-  },
-  {
-    "id": 465,
-    "sw": "saba",
-    "en": "seven",
-    "pos": "number"
-  },
-  {
-    "id": 474,
-    "sw": "sabini",
-    "en": "seventy",
-    "pos": "number"
-  },
-  {
-    "id": 243,
-    "sw": "sabuni",
-    "en": "soap",
-    "pos": "noun"
-  },
-  {
-    "id": 390,
-    "sw": "safari",
-    "en": "trip",
-    "pos": "noun"
-  },
-  {
-    "id": 13,
-    "sw": "safi",
-    "en": "clean",
-    "pos": "adjective"
-  },
-  {
-    "id": 255,
-    "sw": "sahani",
-    "en": "plate",
-    "pos": "noun"
-  },
-  {
-    "id": 902,
-    "sw": "saikolojia",
-    "en": "psychology",
-    "pos": "noun"
-  },
-  {
-    "id": 215,
-    "sw": "sakafu",
-    "en": "the floor",
-    "pos": "noun"
-  },
-  {
-    "id": 793,
-    "sw": "sala",
-    "en": "prayer",
-    "pos": "noun"
-  },
-  {
-    "id": 19,
-    "sw": "salamu",
-    "en": "hello",
-    "pos": "noun"
-  },
-  {
-    "id": 7,
-    "sw": "samahani",
-    "en": "I'm sorry",
-    "pos": "noun"
-  },
-  {
-    "id": 148,
-    "sw": "samaki",
-    "en": "fish",
-    "pos": "noun"
-  },
-  {
-    "id": 179,
-    "sw": "sambusa",
-    "en": "sambusa",
-    "pos": "noun"
-  },
-  {
-    "id": 983,
-    "sw": "sanaa",
-    "en": "art",
-    "pos": "noun"
-  },
-  {
-    "id": 532,
-    "sw": "sandali",
-    "en": "sandals",
-    "pos": "noun"
-  },
-  {
-    "id": 250,
-    "sw": "sanduku",
-    "en": "box",
-    "pos": "noun"
-  },
-  {
-    "id": 431,
-    "sw": "sasa",
-    "en": "now",
-    "pos": "adverb"
-  },
-  {
-    "id": 991,
-    "sw": "satelaiti",
-    "en": "satellite",
-    "pos": "noun"
-  },
-  {
-    "id": 766,
-    "sw": "sauti",
-    "en": "sound",
-    "pos": "noun"
-  },
-  {
-    "id": 272,
-    "sw": "savana",
-    "en": "Savannah",
-    "pos": "noun"
-  },
-  {
-    "id": 11,
-    "sw": "sawa",
-    "en": "okay",
-    "pos": "noun"
-  },
-  {
-    "id": 546,
-    "sw": "sayansi",
-    "en": "science",
-    "pos": "noun"
-  },
-  {
-    "id": 220,
-    "sw": "sebuleni",
-    "en": "in the living room",
-    "pos": "noun"
-  },
-  {
-    "id": 421,
-    "sw": "sekunde",
-    "en": "seconds",
-    "pos": "noun"
-  },
-  {
-    "id": 931,
-    "sw": "serikali",
-    "en": "government",
-    "pos": "noun"
-  },
-  {
-    "id": 773,
-    "sw": "seva",
-    "en": "server",
-    "pos": "noun"
-  },
-  {
-    "id": 964,
-    "sw": "shahada",
-    "en": "degree",
-    "pos": "noun"
-  },
-  {
-    "id": 915,
-    "sw": "shamba",
-    "en": "the farm",
-    "pos": "noun"
-  },
-  {
-    "id": 44,
-    "sw": "shangazi",
-    "en": "aunt",
-    "pos": "noun"
-  },
-  {
-    "id": 507,
-    "sw": "shati",
-    "en": "a shirt",
-    "pos": "noun"
-  },
-  {
-    "id": 103,
-    "sw": "shavu",
-    "en": "cheek",
-    "pos": "noun"
-  },
-  {
-    "id": 535,
-    "sw": "shela",
-    "en": "shawl",
-    "pos": "noun"
-  },
-  {
-    "id": 806,
-    "sw": "sherehe",
-    "en": "celebration",
-    "pos": "noun"
-  },
-  {
-    "id": 905,
-    "sw": "sheria",
-    "en": "the law",
-    "pos": "noun"
-  },
-  {
-    "id": 17,
-    "sw": "shikamoo",
-    "en": "hold on",
-    "pos": "noun"
-  },
-  {
-    "id": 819,
-    "sw": "shilingi",
-    "en": "shilling",
-    "pos": "noun"
-  },
-  {
-    "id": 78,
-    "sw": "shingo",
-    "en": "neck",
-    "pos": "noun"
-  },
-  {
-    "id": 123,
-    "sw": "shinikizo",
-    "en": "pressure",
-    "pos": "noun"
-  },
-  {
-    "id": 538,
-    "sw": "shule",
-    "en": "school",
-    "pos": "noun"
-  },
-  {
-    "id": 753,
-    "sw": "shule ya msingi",
-    "en": "elementary school",
-    "pos": "noun"
-  },
-  {
-    "id": 754,
-    "sw": "shule ya sekondari",
-    "en": "secondary school",
-    "pos": "noun"
-  },
-  {
-    "id": 904,
-    "sw": "siasa",
-    "en": "politics",
-    "pos": "noun"
-  },
-  {
-    "id": 490,
-    "sw": "sifuri",
-    "en": "zero",
-    "pos": "number"
-  },
-  {
-    "id": 422,
-    "sw": "siku",
-    "en": "day",
-    "pos": "noun"
-  },
-  {
-    "id": 305,
-    "sw": "simba",
-    "en": "the lion",
-    "pos": "noun"
-  },
-  {
-    "id": 758,
-    "sw": "simu",
-    "en": "telephone",
-    "pos": "noun"
-  },
-  {
-    "id": 785,
-    "sw": "simu janja",
-    "en": "smart phone",
-    "pos": "noun"
-  },
-  {
-    "id": 130,
-    "sw": "sindano",
-    "en": "needle",
-    "pos": "noun"
-  },
-  {
-    "id": 464,
-    "sw": "sita",
-    "en": "six",
-    "pos": "number"
-  },
-  {
-    "id": 473,
-    "sw": "sitini",
-    "en": "sixty",
-    "pos": "number"
-  },
-  {
-    "id": 509,
-    "sw": "sketi",
-    "en": "a skirt",
-    "pos": "noun"
-  },
-  {
-    "id": 770,
-    "sw": "skrini",
-    "en": "screen",
-    "pos": "noun"
-  },
-  {
-    "id": 202,
-    "sw": "soda",
-    "en": "soda",
-    "pos": "noun"
-  },
-  {
-    "id": 236,
-    "sw": "sofa",
-    "en": "sofa",
-    "pos": "noun"
-  },
-  {
-    "id": 742,
-    "sw": "soko",
-    "en": "market",
-    "pos": "noun"
-  },
-  {
-    "id": 930,
-    "sw": "soko la mazao",
-    "en": "produce market",
-    "pos": "noun"
-  },
-  {
-    "id": 513,
-    "sw": "soksi",
-    "en": "socks",
-    "pos": "noun"
-  },
-  {
-    "id": 337,
-    "sw": "sokwe",
-    "en": "chimpanzee",
-    "pos": "noun"
-  },
-  {
-    "id": 545,
-    "sw": "somo",
-    "en": "subject",
-    "pos": "noun"
-  },
-  {
-    "id": 191,
-    "sw": "spinachi",
-    "en": "spinach",
-    "pos": "noun"
-  },
-  {
-    "id": 879,
-    "sw": "starehe",
-    "en": "comfortable",
-    "pos": "noun"
-  },
-  {
-    "id": 389,
-    "sw": "stesheni",
-    "en": "the station",
-    "pos": "noun"
-  },
-  {
-    "id": 26,
-    "sw": "subira",
-    "en": "patience",
-    "pos": "noun"
-  },
-  {
-    "id": 251,
-    "sw": "sufuria",
-    "en": "pot",
-    "pos": "noun"
-  },
-  {
-    "id": 162,
-    "sw": "sukari",
-    "en": "sugar",
-    "pos": "noun"
-  },
-  {
-    "id": 318,
-    "sw": "sungura",
-    "en": "rabbit",
-    "pos": "noun"
-  },
-  {
-    "id": 173,
-    "sw": "supu",
-    "en": "soup",
-    "pos": "noun"
-  },
-  {
-    "id": 508,
-    "sw": "suruali",
-    "en": "pants",
-    "pos": "noun"
-  },
-  {
-    "id": 528,
-    "sw": "suruali fupi",
-    "en": "short pants",
-    "pos": "noun"
-  },
-  {
-    "id": 334,
-    "sw": "swala",
-    "en": "the gazelle",
-    "pos": "noun"
-  },
-  {
-    "id": 530,
-    "sw": "swetha",
-    "en": "sweater",
-    "pos": "noun"
-  },
-  {
-    "id": 247,
-    "sw": "swichi",
-    "en": "switch",
-    "pos": "noun"
-  },
-  {
-    "id": 228,
-    "sw": "taa",
-    "en": "lights",
-    "pos": "noun"
-  },
-  {
-    "id": 35,
-    "sw": "tabasamu",
-    "en": "smile",
-    "pos": "noun"
-  },
-  {
-    "id": 6,
-    "sw": "tafadhali",
-    "en": "please",
-    "pos": "noun"
-  },
-  {
-    "id": 878,
-    "sw": "taharuki",
-    "en": "surprise",
-    "pos": "noun"
-  },
-  {
-    "id": 367,
-    "sw": "tai",
-    "en": "Eagle",
-    "pos": "noun"
-  },
-  {
-    "id": 673,
-    "sw": "tajiri",
-    "en": "rich",
-    "pos": "adjective"
-  },
-  {
-    "id": 55,
-    "sw": "talaka",
-    "en": "divorce",
-    "pos": "noun"
-  },
-  {
-    "id": 885,
-    "sw": "tamaa",
-    "en": "desire",
-    "pos": "noun"
-  },
-  {
-    "id": 807,
-    "sw": "tamaduni",
-    "en": "cultures",
-    "pos": "noun"
-  },
-  {
-    "id": 184,
-    "sw": "tangawizi",
-    "en": "ginger",
-    "pos": "noun"
-  },
-  {
-    "id": 463,
-    "sw": "tano",
-    "en": "five",
-    "pos": "number"
-  },
-  {
-    "id": 461,
-    "sw": "tatu",
-    "en": "three",
-    "pos": "number"
-  },
-  {
-    "id": 139,
-    "sw": "tauni",
-    "en": "the plague",
-    "pos": "noun"
-  },
-  {
-    "id": 350,
-    "sw": "tausi",
-    "en": "peacock",
-    "pos": "noun"
-  },
-  {
-    "id": 102,
-    "sw": "taya",
-    "en": "jaw",
-    "pos": "noun"
-  },
-  {
-    "id": 384,
-    "sw": "teksi",
-    "en": "taxi",
-    "pos": "noun"
-  },
-  {
-    "id": 237,
-    "sw": "televisheni",
-    "en": "television",
-    "pos": "noun"
-  },
-  {
-    "id": 129,
-    "sw": "tembe",
-    "en": "the pill",
-    "pos": "noun"
-  },
-  {
-    "id": 306,
-    "sw": "tembo",
-    "en": "an elephant",
-    "pos": "noun"
-  },
-  {
-    "id": 198,
-    "sw": "tende",
-    "en": "dates",
-    "pos": "noun"
-  },
-  {
-    "id": 295,
-    "sw": "tetemeko",
-    "en": "earthquake",
-    "pos": "noun"
-  },
-  {
-    "id": 470,
-    "sw": "thelathini",
-    "en": "thirty",
-    "pos": "number"
-  },
-  {
-    "id": 289,
-    "sw": "theluji",
-    "en": "snow",
-    "pos": "noun"
-  },
-  {
-    "id": 482,
-    "sw": "theluthi",
-    "en": "a third",
-    "pos": "number"
-  },
-  {
-    "id": 475,
-    "sw": "themanini",
-    "en": "eighty",
-    "pos": "number"
-  },
-  {
-    "id": 358,
-    "sw": "thermomita",
-    "en": "thermometer",
-    "pos": "noun"
-  },
-  {
-    "id": 361,
-    "sw": "tikiti",
-    "en": "ticket",
-    "pos": "noun"
-  },
-  {
-    "id": 197,
-    "sw": "tikiti maji",
-    "en": "watermelon",
-    "pos": "noun"
-  },
-  {
-    "id": 847,
-    "sw": "timu",
-    "en": "the team",
-    "pos": "noun"
-  },
-  {
-    "id": 467,
-    "sw": "tisa",
-    "en": "nine",
-    "pos": "number"
-  },
-  {
-    "id": 476,
-    "sw": "tisini",
-    "en": "ninety",
-    "pos": "number"
-  },
-  {
-    "id": 818,
-    "sw": "tohara",
-    "en": "circumcision",
-    "pos": "noun"
-  },
-  {
-    "id": 762,
-    "sw": "tovuti",
-    "en": "website",
-    "pos": "noun"
-  },
-  {
-    "id": 922,
-    "sw": "trekta",
-    "en": "tractor",
-    "pos": "noun"
-  },
-  {
-    "id": 379,
-    "sw": "treni",
-    "en": "the train",
-    "pos": "noun"
-  },
-  {
-    "id": 182,
-    "sw": "tufaha",
-    "en": "apple",
-    "pos": "noun"
-  },
-  {
-    "id": 335,
-    "sw": "tumbili",
-    "en": "monkey",
-    "pos": "noun"
-  },
-  {
-    "id": 82,
-    "sw": "tumbo",
-    "en": "stomach",
-    "pos": "noun"
-  },
-  {
-    "id": 159,
-    "sw": "tunda",
-    "en": "the fruit",
-    "pos": "noun"
-  },
-  {
-    "id": 16,
-    "sw": "tutaonana",
-    "en": "we will see each other",
-    "pos": "noun"
-  },
-  {
-    "id": 863,
-    "sw": "tuzo",
-    "en": "award",
-    "pos": "noun"
-  },
-  {
-    "id": 307,
     "sw": "twiga",
     "en": "giraffe",
     "pos": "noun"
   },
   {
-    "id": 28,
+    "sw": "mamba",
+    "en": "crocodile",
+    "pos": "noun"
+  },
+  {
+    "sw": "chui",
+    "en": "leopard",
+    "pos": "noun"
+  },
+  {
+    "sw": "tembo",
+    "en": "an elephant",
+    "pos": "noun"
+  },
+  {
+    "sw": "simba",
+    "en": "the lion",
+    "pos": "noun"
+  },
+  {
+    "sw": "Afrika",
+    "en": "Africa",
+    "pos": "noun"
+  },
+  {
+    "sw": "Agosti",
+    "en": "August",
+    "pos": "noun"
+  },
+  {
+    "sw": "Alhamisi",
+    "en": "Thursday",
+    "pos": "noun"
+  },
+  {
+    "sw": "Aprili",
+    "en": "April",
+    "pos": "noun"
+  },
+  {
+    "sw": "Asia",
+    "en": "Asia",
+    "pos": "noun"
+  },
+  {
+    "sw": "Biblia",
+    "en": "The Bible",
+    "pos": "noun"
+  },
+  {
+    "sw": "Desemba",
+    "en": "December",
+    "pos": "noun"
+  },
+  {
+    "sw": "Februari",
+    "en": "February",
+    "pos": "noun"
+  },
+  {
+    "sw": "Ijumaa",
+    "en": "Friday",
+    "pos": "noun"
+  },
+  {
+    "sw": "Januari",
+    "en": "January",
+    "pos": "noun"
+  },
+  {
+    "sw": "Julai",
+    "en": "July",
+    "pos": "noun"
+  },
+  {
+    "sw": "Jumamosi",
+    "en": "saturday",
+    "pos": "noun"
+  },
+  {
+    "sw": "Jumanne",
+    "en": "tuesday",
+    "pos": "noun"
+  },
+  {
+    "sw": "Jumapili",
+    "en": "sunday",
+    "pos": "noun"
+  },
+  {
+    "sw": "Jumatano",
+    "en": "Wednesday",
+    "pos": "noun"
+  },
+  {
+    "sw": "Jumatatu",
+    "en": "on monday",
+    "pos": "noun"
+  },
+  {
+    "sw": "Juni",
+    "en": "June",
+    "pos": "noun"
+  },
+  {
+    "sw": "Krismasi",
+    "en": "Christmas",
+    "pos": "noun"
+  },
+  {
+    "sw": "Machi",
+    "en": "March",
+    "pos": "noun"
+  },
+  {
+    "sw": "Mei",
+    "en": "May",
+    "pos": "noun"
+  },
+  {
+    "sw": "Misri",
+    "en": "Egypt",
+    "pos": "noun"
+  },
+  {
+    "sw": "Mungu",
+    "en": "God",
+    "pos": "noun"
+  },
+  {
+    "sw": "Novemba",
+    "en": "November",
+    "pos": "noun"
+  },
+  {
+    "sw": "Oktoba",
+    "en": "October",
+    "pos": "noun"
+  },
+  {
+    "sw": "Septemba",
+    "en": "September",
+    "pos": "noun"
+  },
+  {
+    "sw": "Ulaya",
+    "en": "Europe",
+    "pos": "noun"
+  },
+  {
+    "sw": "abiria",
+    "en": "passenger",
+    "pos": "noun"
+  },
+  {
+    "sw": "afya",
+    "en": "healthy",
+    "pos": "noun"
+  },
+  {
+    "sw": "aibu",
+    "en": "shame",
+    "pos": "noun"
+  },
+  {
+    "sw": "akaunti",
+    "en": "account",
+    "pos": "noun"
+  },
+  {
+    "sw": "akiba",
+    "en": "savings",
+    "pos": "noun"
+  },
+  {
+    "sw": "akili",
+    "en": "mind",
+    "pos": "noun"
+  },
+  {
+    "sw": "akili bandia",
+    "en": "artificial intelligence",
+    "pos": "noun"
+  },
+  {
+    "sw": "alfajiri",
+    "en": "the dawn",
+    "pos": "noun"
+  },
+  {
+    "sw": "amani",
+    "en": "peace",
+    "pos": "noun"
+  },
+  {
+    "sw": "anga ya wazi",
+    "en": "clear sky",
+    "pos": "noun"
+  },
+  {
+    "sw": "antibiotiki",
+    "en": "antibiotics",
+    "pos": "noun"
+  },
+  {
+    "sw": "aplikesheni",
+    "en": "application",
+    "pos": "noun"
+  },
+  {
+    "sw": "ardhi",
+    "en": "land",
+    "pos": "noun"
+  },
+  {
+    "sw": "arobaini",
+    "en": "forty",
+    "pos": "number"
+  },
+  {
+    "sw": "asali",
+    "en": "honey",
+    "pos": "noun"
+  },
+  {
+    "sw": "asante",
+    "en": "thank you",
+    "pos": "noun"
+  },
+  {
+    "sw": "asilimia",
+    "en": "percentage",
+    "pos": "noun"
+  },
+  {
+    "sw": "askofu",
+    "en": "the bishop",
+    "pos": "noun"
+  },
+  {
+    "sw": "asubuhi",
+    "en": "in the morning",
+    "pos": "noun"
+  },
+  {
+    "sw": "avokado",
+    "en": "asparagus",
+    "pos": "noun"
+  },
+  {
+    "sw": "baada",
+    "en": "after",
+    "pos": "adverb"
+  },
+  {
+    "sw": "baadaye",
+    "en": "later on",
+    "pos": "adverb"
+  },
+  {
+    "sw": "baba",
+    "en": "father",
+    "pos": "noun"
+  },
+  {
+    "sw": "babu",
+    "en": "grandfather",
+    "pos": "noun"
+  },
+  {
+    "sw": "bafu",
+    "en": "the bathroom",
+    "pos": "noun"
+  },
+  {
+    "sw": "bahari",
+    "en": "the sea",
+    "pos": "noun"
+  },
+  {
+    "sw": "baiskeli",
+    "en": "bicycle",
+    "pos": "noun"
+  },
+  {
+    "sw": "bajaji",
+    "en": "thug",
+    "pos": "noun"
+  },
+  {
+    "sw": "bajeti",
+    "en": "budget",
+    "pos": "noun"
+  },
+  {
+    "sw": "balbu",
+    "en": "bulb",
+    "pos": "noun"
+  },
+  {
+    "sw": "balozi",
+    "en": "the ambassador",
+    "pos": "noun"
+  },
+  {
+    "sw": "bamia",
+    "en": "Okra",
+    "pos": "noun"
+  },
+  {
+    "sw": "bandari",
+    "en": "port",
+    "pos": "noun"
+  },
+  {
+    "sw": "bangili",
+    "en": "bracelet",
+    "pos": "noun"
+  },
+  {
+    "sw": "barabara",
+    "en": "road",
+    "pos": "noun"
+  },
+  {
+    "sw": "barabara kuu",
+    "en": "highway",
+    "pos": "noun"
+  },
+  {
+    "sw": "baraka",
+    "en": "blessing",
+    "pos": "noun"
+  },
+  {
+    "sw": "baridi",
+    "en": "cold",
+    "pos": "adjective"
+  },
+  {
+    "sw": "baridi kali",
+    "en": "very cold",
+    "pos": "noun"
+  },
+  {
+    "sw": "barua pepe",
+    "en": "email address",
+    "pos": "noun"
+  },
+  {
+    "sw": "basi",
+    "en": "then",
+    "pos": "noun"
+  },
+  {
+    "sw": "bata",
+    "en": "duck",
+    "pos": "noun"
+  },
+  {
+    "sw": "bega",
+    "en": "shoulder",
+    "pos": "noun"
+  },
+  {
+    "sw": "begi",
+    "en": "bag",
+    "pos": "noun"
+  },
+  {
+    "sw": "bei",
+    "en": "price",
+    "pos": "noun"
+  },
+  {
+    "sw": "bei nafuu",
+    "en": "cheap price",
+    "pos": "noun"
+  },
+  {
+    "sw": "benki",
+    "en": "bank",
+    "pos": "noun"
+  },
+  {
+    "sw": "beseni",
+    "en": "the tub",
+    "pos": "noun"
+  },
+  {
+    "sw": "betri",
+    "en": "battery",
+    "pos": "noun"
+  },
+  {
+    "sw": "bia",
+    "en": "beer",
+    "pos": "noun"
+  },
+  {
+    "sw": "biashara",
+    "en": "business",
+    "pos": "noun"
+  },
+  {
+    "sw": "bidhaa",
+    "en": "product",
+    "pos": "noun"
+  },
+  {
+    "sw": "bidii",
+    "en": "hard work",
+    "pos": "noun"
+  },
+  {
+    "sw": "bilinganya",
+    "en": "eggplant",
+    "pos": "noun"
+  },
+  {
+    "sw": "bilioni",
+    "en": "billion",
+    "pos": "number"
+  },
+  {
+    "sw": "bima",
+    "en": "insurance",
+    "pos": "noun"
+  },
+  {
+    "sw": "binamu",
+    "en": "cousin",
+    "pos": "noun"
+  },
+  {
+    "sw": "binti",
+    "en": "daughter",
+    "pos": "noun"
+  },
+  {
+    "sw": "biolojia",
+    "en": "biology",
+    "pos": "noun"
+  },
+  {
+    "sw": "biskuti",
+    "en": "biscuits",
+    "pos": "noun"
+  },
+  {
+    "sw": "blanketi",
+    "en": "blanket",
+    "pos": "noun"
+  },
+  {
+    "sw": "bodaboda",
+    "en": "bodaboda",
+    "pos": "noun"
+  },
+  {
+    "sw": "bomba",
+    "en": "pipe",
+    "pos": "noun"
+  },
+  {
+    "sw": "bonde",
+    "en": "valley",
+    "pos": "noun"
+  },
+  {
+    "sw": "bora",
+    "en": "better",
+    "pos": "noun"
+  },
+  {
+    "sw": "boti",
+    "en": "boats",
+    "pos": "noun"
+  },
+  {
+    "sw": "buibui",
+    "en": "spider",
+    "pos": "noun"
+  },
+  {
+    "sw": "buluu",
+    "en": "blue",
+    "pos": "adjective"
+  },
+  {
+    "sw": "bundi",
+    "en": "owl",
+    "pos": "noun"
+  },
+  {
+    "sw": "bunge",
+    "en": "Parliament",
+    "pos": "noun"
+  },
+  {
+    "sw": "bursari",
+    "en": "bursary",
+    "pos": "noun"
+  },
+  {
+    "sw": "burudani",
+    "en": "entertainment",
+    "pos": "noun"
+  },
+  {
+    "sw": "bustani",
+    "en": "garden",
+    "pos": "noun"
+  },
+  {
+    "sw": "buti",
+    "en": "boots",
+    "pos": "noun"
+  },
+  {
+    "sw": "bwawa",
+    "en": "the pond",
+    "pos": "noun"
+  },
+  {
+    "sw": "chafu",
+    "en": "dirty",
+    "pos": "adjective"
+  },
+  {
+    "sw": "chai",
+    "en": "tea",
+    "pos": "noun"
+  },
+  {
+    "sw": "chaja",
+    "en": "charger",
+    "pos": "noun"
+  },
+  {
+    "sw": "chakula",
+    "en": "food",
+    "pos": "noun"
+  },
+  {
+    "sw": "chama",
+    "en": "party",
+    "pos": "noun"
+  },
+  {
+    "sw": "chanjo",
+    "en": "coverage",
+    "pos": "noun"
+  },
+  {
+    "sw": "chapati",
+    "en": "pancakes",
+    "pos": "noun"
+  },
+  {
+    "sw": "chemchemi",
+    "en": "spring",
+    "pos": "noun"
+  },
+  {
+    "sw": "chess",
+    "en": "chess",
+    "pos": "noun"
+  },
+  {
+    "sw": "cheti",
+    "en": "certificate",
+    "pos": "noun"
+  },
+  {
+    "sw": "chini",
+    "en": "below",
+    "pos": "adverb"
+  },
+  {
+    "sw": "choo",
+    "en": "toilet",
+    "pos": "noun"
+  },
+  {
+    "sw": "chui",
+    "en": "leopard",
+    "pos": "noun"
+  },
+  {
+    "sw": "chuki",
+    "en": "hatred",
+    "pos": "noun"
+  },
+  {
+    "sw": "chumba",
+    "en": "the room",
+    "pos": "noun"
+  },
+  {
+    "sw": "chumvi",
+    "en": "salt",
+    "pos": "noun"
+  },
+  {
+    "sw": "chungu",
+    "en": "pain",
+    "pos": "noun"
+  },
+  {
+    "sw": "chuo",
+    "en": "college",
+    "pos": "noun"
+  },
+  {
+    "sw": "chuo kikuu",
+    "en": "university",
+    "pos": "noun"
+  },
+  {
+    "sw": "chupa",
+    "en": "bottle",
+    "pos": "noun"
+  },
+  {
+    "sw": "dada",
+    "en": "sister",
+    "pos": "noun"
+  },
+  {
+    "sw": "dakika",
+    "en": "minutes",
+    "pos": "noun"
+  },
+  {
+    "sw": "daktari",
+    "en": "doctor",
+    "pos": "noun"
+  },
+  {
+    "sw": "daladala",
+    "en": "daladala",
+    "pos": "noun"
+  },
+  {
+    "sw": "damu",
+    "en": "blood",
+    "pos": "noun"
+  },
+  {
+    "sw": "daraja",
+    "en": "grade",
+    "pos": "noun"
+  },
+  {
+    "sw": "darasa",
+    "en": "class",
+    "pos": "noun"
+  },
+  {
+    "sw": "dari",
+    "en": "ceiling",
+    "pos": "noun"
+  },
+  {
+    "sw": "data",
+    "en": "data",
+    "pos": "noun"
+  },
+  {
+    "sw": "dawa",
+    "en": "medicine",
+    "pos": "noun"
+  },
+  {
+    "sw": "dawa ya maumivu",
+    "en": "pain medicine",
+    "pos": "noun"
+  },
+  {
+    "sw": "demokrasia",
+    "en": "democracy",
+    "pos": "noun"
+  },
+  {
+    "sw": "dengu",
+    "en": "lentils",
+    "pos": "noun"
+  },
+  {
+    "sw": "deni",
+    "en": "debt",
+    "pos": "noun"
+  },
+  {
+    "sw": "densi",
+    "en": "dance",
+    "pos": "noun"
+  },
+  {
+    "sw": "dereva",
+    "en": "the driver",
+    "pos": "noun"
+  },
+  {
+    "sw": "desturi",
+    "en": "custom",
+    "pos": "noun"
+  },
+  {
+    "sw": "dhahabu",
+    "en": "gold",
+    "pos": "adjective"
+  },
+  {
+    "sw": "dhaifu",
+    "en": "weak",
+    "pos": "adjective"
+  },
+  {
+    "sw": "dhambi",
+    "en": "sin",
+    "pos": "noun"
+  },
+  {
+    "sw": "dhoruba",
+    "en": "storm",
+    "pos": "noun"
+  },
+  {
+    "sw": "diploma",
+    "en": "diploma",
+    "pos": "noun"
+  },
+  {
+    "sw": "dirisha",
+    "en": "the window",
+    "pos": "noun"
+  },
+  {
+    "sw": "diski ngumu",
+    "en": "hard disk",
+    "pos": "noun"
+  },
+  {
+    "sw": "dola",
+    "en": "dollars",
+    "pos": "noun"
+  },
+  {
+    "sw": "download",
+    "en": "download",
+    "pos": "noun"
+  },
+  {
+    "sw": "dua",
+    "en": "supplication",
+    "pos": "noun"
+  },
+  {
+    "sw": "duka",
+    "en": "shop",
+    "pos": "noun"
+  },
+  {
+    "sw": "duma",
+    "en": "cheetah",
+    "pos": "noun"
+  },
+  {
+    "sw": "dunia",
+    "en": "the world",
+    "pos": "noun"
+  },
+  {
+    "sw": "elfu",
+    "en": "a thousand",
+    "pos": "number"
+  },
+  {
+    "sw": "elimu",
+    "en": "education",
+    "pos": "noun"
+  },
+  {
+    "sw": "embe",
+    "en": "mango",
+    "pos": "noun"
+  },
+  {
+    "sw": "euro",
+    "en": "euros",
+    "pos": "noun"
+  },
+  {
+    "sw": "faida",
+    "en": "profit",
+    "pos": "noun"
+  },
+  {
+    "sw": "faili",
+    "en": "file",
+    "pos": "noun"
+  },
+  {
+    "sw": "fainali",
+    "en": "the final",
+    "pos": "noun"
+  },
+  {
+    "sw": "falsafa",
+    "en": "philosophy",
+    "pos": "noun"
+  },
+  {
+    "sw": "familia",
+    "en": "family",
+    "pos": "noun"
+  },
+  {
+    "sw": "farasi",
+    "en": "a horse",
+    "pos": "noun"
+  },
+  {
+    "sw": "faru",
+    "en": "rhinoceros",
+    "pos": "noun"
+  },
+  {
+    "sw": "fedha",
+    "en": "money",
+    "pos": "adjective"
+  },
+  {
+    "sw": "fenesi",
+    "en": "the fennel",
+    "pos": "noun"
+  },
+  {
+    "sw": "figili",
+    "en": "radish",
+    "pos": "noun"
+  },
+  {
+    "sw": "figo",
+    "en": "kidney",
+    "pos": "noun"
+  },
+  {
+    "sw": "filamu",
+    "en": "film",
+    "pos": "noun"
+  },
+  {
+    "sw": "fisi",
+    "en": "hyena",
+    "pos": "noun"
+  },
+  {
+    "sw": "fisi wa maji",
+    "en": "water hyena",
+    "pos": "noun"
+  },
+  {
+    "sw": "fizikia",
+    "en": "physics",
+    "pos": "noun"
+  },
+  {
+    "sw": "flamingo",
+    "en": "flamingos",
+    "pos": "noun"
+  },
+  {
+    "sw": "folda",
+    "en": "folder",
+    "pos": "noun"
+  },
+  {
+    "sw": "forodha",
+    "en": "customs",
+    "pos": "noun"
+  },
+  {
+    "sw": "friji",
+    "en": "fridge",
+    "pos": "noun"
+  },
+  {
+    "sw": "fulana",
+    "en": "t-shirt",
+    "pos": "noun"
+  },
+  {
+    "sw": "funza",
+    "en": "worm",
+    "pos": "noun"
+  },
+  {
+    "sw": "fupi",
+    "en": "short",
+    "pos": "adjective"
+  },
+  {
+    "sw": "furaha",
+    "en": "happiness",
+    "pos": "noun"
+  },
+  {
+    "sw": "gari",
+    "en": "car",
+    "pos": "noun"
+  },
+  {
+    "sw": "gauni",
+    "en": "gown",
+    "pos": "noun"
+  },
+  {
+    "sw": "gesi asilia",
+    "en": "natural gas",
+    "pos": "noun"
+  },
+  {
+    "sw": "ghali",
+    "en": "expensive",
+    "pos": "adjective"
+  },
+  {
+    "sw": "ghorofa",
+    "en": "apartment",
+    "pos": "noun"
+  },
+  {
+    "sw": "ghuba",
+    "en": "bay",
+    "pos": "noun"
+  },
+  {
+    "sw": "giza",
+    "en": "darkness",
+    "pos": "noun"
+  },
+  {
+    "sw": "goli",
+    "en": "goal",
+    "pos": "noun"
+  },
+  {
+    "sw": "goti",
+    "en": "the knee",
+    "pos": "noun"
+  },
+  {
+    "sw": "gumu",
+    "en": "difficult",
+    "pos": "adjective"
+  },
+  {
+    "sw": "habari",
+    "en": "information",
+    "pos": "noun"
+  },
+  {
+    "sw": "haki",
+    "en": "right",
+    "pos": "noun"
+  },
+  {
+    "sw": "hamsini",
+    "en": "fifty",
+    "pos": "number"
+  },
+  {
+    "sw": "hamu",
+    "en": "desire",
+    "pos": "noun"
+  },
+  {
+    "sw": "hapa",
+    "en": "here",
+    "pos": "adverb"
+  },
+  {
+    "sw": "hapana",
+    "en": "no",
+    "pos": "noun"
+  },
+  {
+    "sw": "haraka",
+    "en": "quickly",
+    "pos": "adverb"
+  },
+  {
+    "sw": "hariri",
+    "en": "silk",
+    "pos": "noun"
+  },
+  {
+    "sw": "harusi",
+    "en": "wedding",
+    "pos": "noun"
+  },
+  {
+    "sw": "hasara",
+    "en": "loss",
+    "pos": "noun"
+  },
+  {
+    "sw": "hasira",
+    "en": "anger",
+    "pos": "noun"
+  },
+  {
+    "sw": "hekalu",
+    "en": "the temple",
+    "pos": "noun"
+  },
+  {
+    "sw": "hekima",
+    "en": "wisdom",
+    "pos": "noun"
+  },
+  {
+    "sw": "herini",
+    "en": "happy",
+    "pos": "noun"
+  },
+  {
+    "sw": "hesabu",
+    "en": "math",
+    "pos": "noun"
+  },
+  {
+    "sw": "heshima",
+    "en": "respect",
+    "pos": "noun"
+  },
+  {
+    "sw": "hifadhi ya bahari",
+    "en": "sea ​​reserve",
+    "pos": "noun"
+  },
+  {
+    "sw": "hifadhi ya mazao",
+    "en": "crop storage",
+    "pos": "noun"
+  },
+  {
+    "sw": "hijab",
+    "en": "hijab",
+    "pos": "noun"
+  },
+  {
+    "sw": "hisa",
+    "en": "shares",
+    "pos": "noun"
+  },
+  {
+    "sw": "hisabati",
+    "en": "mathematics",
+    "pos": "noun"
+  },
+  {
+    "sw": "historia",
+    "en": "history",
+    "pos": "noun"
+  },
+  {
+    "sw": "hodari",
+    "en": "strong",
+    "pos": "adjective"
+  },
+  {
+    "sw": "hofu",
+    "en": "fear",
+    "pos": "noun"
+  },
+  {
+    "sw": "homa",
+    "en": "fever",
+    "pos": "noun"
+  },
+  {
+    "sw": "hospitali",
+    "en": "hospital",
+    "pos": "noun"
+  },
+  {
+    "sw": "hospitali kuu",
+    "en": "the main hospital",
+    "pos": "noun"
+  },
+  {
+    "sw": "hoteli",
+    "en": "hotel",
+    "pos": "noun"
+  },
+  {
+    "sw": "huduma",
+    "en": "services",
+    "pos": "noun"
+  },
+  {
+    "sw": "hujambo",
+    "en": "hello",
+    "pos": "noun"
+  },
+  {
+    "sw": "huruma",
+    "en": "pity",
+    "pos": "noun"
+  },
+  {
+    "sw": "huzuni",
+    "en": "sadness",
+    "pos": "noun"
+  },
+  {
+    "sw": "ibada",
+    "en": "worship",
+    "pos": "noun"
+  },
+  {
+    "sw": "idadi",
+    "en": "number",
+    "pos": "noun"
+  },
+  {
+    "sw": "ikulu",
+    "en": "palace",
+    "pos": "noun"
+  },
+  {
+    "sw": "iliki",
+    "en": "Cardamom",
+    "pos": "noun"
+  },
+  {
+    "sw": "imam",
+    "en": "Imam",
+    "pos": "noun"
+  },
+  {
+    "sw": "imani",
+    "en": "faith",
+    "pos": "noun"
+  },
+  {
+    "sw": "imara",
+    "en": "solid",
+    "pos": "adjective"
+  },
+  {
+    "sw": "ini",
+    "en": "liver",
+    "pos": "noun"
+  },
+  {
+    "sw": "intaneti",
+    "en": "internet",
+    "pos": "noun"
+  },
+  {
+    "sw": "ishirini",
+    "en": "twenty",
+    "pos": "number"
+  },
+  {
+    "sw": "jaji",
+    "en": "judge",
+    "pos": "noun"
+  },
+  {
+    "sw": "jamaa",
+    "en": "relatives",
+    "pos": "noun"
+  },
+  {
+    "sw": "jambo",
+    "en": "matter",
+    "pos": "noun"
+  },
+  {
+    "sw": "jana",
+    "en": "yesterday",
+    "pos": "noun"
+  },
+  {
+    "sw": "jangwa",
+    "en": "the desert",
+    "pos": "noun"
+  },
+  {
+    "sw": "jaribio",
+    "en": "an experiment",
+    "pos": "noun"
+  },
+  {
+    "sw": "jasiri",
+    "en": "brave",
+    "pos": "adjective"
+  },
+  {
+    "sw": "jembe",
+    "en": "a plow",
+    "pos": "noun"
+  },
+  {
+    "sw": "jengo",
+    "en": "building",
+    "pos": "noun"
+  },
+  {
+    "sw": "jeraha",
+    "en": "injury",
+    "pos": "noun"
+  },
+  {
+    "sw": "jicho",
+    "en": "the eye",
+    "pos": "noun"
+  },
+  {
+    "sw": "jikoni",
+    "en": "the kitchen",
+    "pos": "noun"
+  },
+  {
+    "sw": "jimbo",
+    "en": "state",
+    "pos": "noun"
+  },
+  {
+    "sw": "jiografia",
+    "en": "geography",
+    "pos": "noun"
+  },
+  {
+    "sw": "jioni",
+    "en": "in the evening",
+    "pos": "noun"
+  },
+  {
+    "sw": "jirani",
+    "en": "neighbor",
+    "pos": "noun"
+  },
+  {
+    "sw": "jokofu",
+    "en": "refrigerator",
+    "pos": "noun"
+  },
+  {
+    "sw": "joto",
+    "en": "heat",
+    "pos": "noun"
+  },
+  {
+    "sw": "jua",
+    "en": "the sun",
+    "pos": "noun"
+  },
+  {
+    "sw": "jua kali",
+    "en": "hot sun",
+    "pos": "noun"
+  },
+  {
+    "sw": "juhudi",
+    "en": "effort",
+    "pos": "noun"
+  },
+  {
+    "sw": "juisi",
+    "en": "juice",
+    "pos": "noun"
+  },
+  {
+    "sw": "jumla",
+    "en": "total",
+    "pos": "noun"
+  },
+  {
+    "sw": "juu",
+    "en": "up",
+    "pos": "adverb"
+  },
+  {
+    "sw": "juzi",
+    "en": "the other day",
+    "pos": "noun"
+  },
+  {
+    "sw": "kaa",
+    "en": "stay",
+    "pos": "noun"
+  },
+  {
+    "sw": "kabati",
+    "en": "closet",
+    "pos": "noun"
+  },
+  {
+    "sw": "kabichi",
+    "en": "cabbage",
+    "pos": "noun"
+  },
+  {
+    "sw": "kabila",
+    "en": "tribe",
+    "pos": "noun"
+  },
+  {
+    "sw": "kabla",
+    "en": "before",
+    "pos": "adverb"
+  },
+  {
+    "sw": "kadi ya benki",
+    "en": "bank card",
+    "pos": "noun"
+  },
+  {
+    "sw": "kahawa",
+    "en": "coffee",
+    "pos": "noun"
+  },
+  {
+    "sw": "kahawia",
+    "en": "brown",
+    "pos": "adjective"
+  },
+  {
+    "sw": "kaimati",
+    "en": "kaimit",
+    "pos": "noun"
+  },
+  {
+    "sw": "kaka",
+    "en": "brother",
+    "pos": "noun"
+  },
+  {
+    "sw": "kalamu",
+    "en": "pen",
+    "pos": "noun"
+  },
+  {
+    "sw": "kali",
+    "en": "strong",
+    "pos": "adjective"
+  },
+  {
+    "sw": "kamera",
+    "en": "camera",
+    "pos": "noun"
+  },
+  {
+    "sw": "kanga",
+    "en": "wrap",
+    "pos": "noun"
+  },
+  {
+    "sw": "kanisa",
+    "en": "the church",
+    "pos": "noun"
+  },
+  {
+    "sw": "kanzu",
+    "en": "coat",
+    "pos": "noun"
+  },
+  {
+    "sw": "karafuu",
+    "en": "cloves",
+    "pos": "noun"
+  },
+  {
+    "sw": "karanga",
+    "en": "nuts",
+    "pos": "noun"
+  },
+  {
+    "sw": "karatasi",
+    "en": "paper",
+    "pos": "noun"
+  },
+  {
+    "sw": "karibu",
+    "en": "almost",
+    "pos": "adverb"
+  },
+  {
+    "sw": "karne",
+    "en": "century",
+    "pos": "noun"
+  },
+  {
+    "sw": "karoti",
+    "en": "carrot",
+    "pos": "noun"
+  },
+  {
+    "sw": "kaskazini",
+    "en": "the north",
+    "pos": "noun"
+  },
+  {
+    "sw": "kasuku",
+    "en": "parrot",
+    "pos": "noun"
+  },
+  {
+    "sw": "kata",
+    "en": "cut",
+    "pos": "noun"
+  },
+  {
+    "sw": "katiba",
+    "en": "the constitution",
+    "pos": "noun"
+  },
+  {
+    "sw": "katibu",
+    "en": "the secretary",
+    "pos": "noun"
+  },
+  {
+    "sw": "kavu",
+    "en": "dry",
+    "pos": "adjective"
+  },
+  {
+    "sw": "kazi",
+    "en": "work",
+    "pos": "noun"
+  },
+  {
+    "sw": "keki",
+    "en": "cake",
+    "pos": "noun"
+  },
+  {
+    "sw": "kemia",
+    "en": "chemistry",
+    "pos": "noun"
+  },
+  {
+    "sw": "kesho",
+    "en": "tomorrow",
+    "pos": "noun"
+  },
+  {
+    "sw": "kesho kutwa",
+    "en": "all day tomorrow",
+    "pos": "noun"
+  },
+  {
+    "sw": "khanga",
+    "en": "hang",
+    "pos": "noun"
+  },
+  {
+    "sw": "kiangazi",
+    "en": "summer",
+    "pos": "noun"
+  },
+  {
+    "sw": "kiazi",
+    "en": "potato",
+    "pos": "noun"
+  },
+  {
+    "sw": "kibodi",
+    "en": "the keyboard",
+    "pos": "noun"
+  },
+  {
+    "sw": "kiboko",
+    "en": "hippopotamus",
+    "pos": "noun"
+  },
+  {
+    "sw": "kiburi",
+    "en": "pride",
+    "pos": "noun"
+  },
+  {
+    "sw": "kicheko",
+    "en": "laughter",
+    "pos": "noun"
+  },
+  {
+    "sw": "kichwa",
+    "en": "head",
+    "pos": "noun"
+  },
+  {
+    "sw": "kidole",
+    "en": "finger",
+    "pos": "noun"
+  },
+  {
+    "sw": "kifo",
+    "en": "death",
+    "pos": "noun"
+  },
+  {
+    "sw": "kifua",
+    "en": "chest",
+    "pos": "noun"
+  },
+  {
+    "sw": "kifua kikuu",
+    "en": "tuberculosis",
+    "pos": "noun"
+  },
+  {
+    "sw": "kijani",
+    "en": "green",
+    "pos": "adjective"
+  },
+  {
+    "sw": "kijiji",
+    "en": "the village",
+    "pos": "noun"
+  },
+  {
+    "sw": "kijiko",
+    "en": "spoon",
+    "pos": "noun"
+  },
+  {
+    "sw": "kijivu",
+    "en": "gray",
+    "pos": "adjective"
+  },
+  {
+    "sw": "kikohozi",
+    "en": "cough",
+    "pos": "noun"
+  },
+  {
+    "sw": "kikoi",
+    "en": "keikoi",
+    "pos": "noun"
+  },
+  {
+    "sw": "kikombe",
+    "en": "cup",
+    "pos": "noun"
+  },
+  {
+    "sw": "kikosi",
+    "en": "squad",
+    "pos": "noun"
+  },
+  {
+    "sw": "kimbunga",
+    "en": "hurricane",
+    "pos": "noun"
+  },
+  {
+    "sw": "kinyonga",
+    "en": "chameleon",
+    "pos": "noun"
+  },
+  {
+    "sw": "kipanga",
+    "en": "a planer",
+    "pos": "noun"
+  },
+  {
+    "sw": "kipepeo",
+    "en": "butterfly",
+    "pos": "noun"
+  },
+  {
+    "sw": "kipimo",
+    "en": "measurement",
+    "pos": "noun"
+  },
+  {
+    "sw": "kiseyeye",
+    "en": "scurvy",
+    "pos": "noun"
+  },
+  {
+    "sw": "kisha",
+    "en": "then",
+    "pos": "adverb"
+  },
+  {
+    "sw": "kisigino",
+    "en": "the heel",
+    "pos": "noun"
+  },
+  {
+    "sw": "kisima",
+    "en": "well",
+    "pos": "noun"
+  },
+  {
+    "sw": "kisiwa",
+    "en": "the island",
+    "pos": "noun"
+  },
+  {
+    "sw": "kisu",
+    "en": "a knife",
+    "pos": "noun"
+  },
+  {
+    "sw": "kisukari",
+    "en": "diabetes",
+    "pos": "noun"
+  },
+  {
+    "sw": "kitabu",
+    "en": "book",
+    "pos": "noun"
+  },
+  {
+    "sw": "kitambaa",
+    "en": "cloth",
+    "pos": "noun"
+  },
+  {
+    "sw": "kitanda",
+    "en": "the bed",
+    "pos": "noun"
+  },
+  {
+    "sw": "kitenge",
+    "en": "separate",
+    "pos": "noun"
+  },
+  {
+    "sw": "kiti",
+    "en": "seat",
+    "pos": "noun"
+  },
+  {
+    "sw": "kitunguu saumu",
+    "en": "garlic",
+    "pos": "noun"
+  },
+  {
+    "sw": "kiu",
+    "en": "thirst",
+    "pos": "noun"
+  },
+  {
+    "sw": "kiuno",
+    "en": "waist",
+    "pos": "noun"
+  },
+  {
+    "sw": "kivuli",
+    "en": "shadow",
+    "pos": "noun"
+  },
+  {
+    "sw": "kiwavi",
+    "en": "caterpillar",
+    "pos": "noun"
+  },
+  {
+    "sw": "kizazi",
+    "en": "generation",
+    "pos": "noun"
+  },
+  {
+    "sw": "kizunguzungu",
+    "en": "dizziness",
+    "pos": "noun"
+  },
+  {
+    "sw": "kliniki",
+    "en": "clinic",
+    "pos": "noun"
+  },
+  {
+    "sw": "kobe",
+    "en": "turtle",
+    "pos": "noun"
+  },
+  {
+    "sw": "kocha",
+    "en": "coach",
+    "pos": "noun"
+  },
+  {
+    "sw": "kofia",
+    "en": "hat",
+    "pos": "noun"
+  },
+  {
+    "sw": "kombe",
+    "en": "cup",
+    "pos": "noun"
+  },
+  {
+    "sw": "kompyuta",
+    "en": "computer",
+    "pos": "noun"
+  },
+  {
+    "sw": "kondoo",
+    "en": "sheep",
+    "pos": "noun"
+  },
+  {
+    "sw": "konokono",
+    "en": "a snail",
+    "pos": "noun"
+  },
+  {
+    "sw": "korongo",
+    "en": "the canyon",
+    "pos": "noun"
+  },
+  {
+    "sw": "korosho",
+    "en": "cashew nuts",
+    "pos": "noun"
+  },
+  {
+    "sw": "koti",
+    "en": "coat",
+    "pos": "noun"
+  },
+  {
+    "sw": "kuamini",
+    "en": "to believe",
+    "pos": "verb"
+  },
+  {
+    "sw": "kuamka",
+    "en": "wake up",
+    "pos": "verb"
+  },
+  {
+    "sw": "kuandika",
+    "en": "to write",
+    "pos": "verb"
+  },
+  {
+    "sw": "kubeba",
+    "en": "to carry",
+    "pos": "verb"
+  },
+  {
+    "sw": "kubwa",
+    "en": "big",
+    "pos": "adjective"
+  },
+  {
+    "sw": "kucheka",
+    "en": "to laugh",
+    "pos": "verb"
+  },
+  {
+    "sw": "kuchemsha",
+    "en": "to boil",
+    "pos": "verb"
+  },
+  {
+    "sw": "kucheza",
+    "en": "play",
+    "pos": "verb"
+  },
+  {
+    "sw": "kuchimba",
+    "en": "to dig",
+    "pos": "verb"
+  },
+  {
+    "sw": "kuchora",
+    "en": "drawing",
+    "pos": "verb"
+  },
+  {
+    "sw": "kuchukia",
+    "en": "to hate",
+    "pos": "verb"
+  },
+  {
+    "sw": "kuelewa",
+    "en": "to understand",
+    "pos": "verb"
+  },
+  {
+    "sw": "kufanya",
+    "en": "to do",
+    "pos": "verb"
+  },
+  {
+    "sw": "kufanya kazi",
+    "en": "to work",
+    "pos": "noun"
+  },
+  {
+    "sw": "kufikiri",
+    "en": "to think",
+    "pos": "verb"
+  },
+  {
+    "sw": "kufuli",
+    "en": "lock",
+    "pos": "verb"
+  },
+  {
+    "sw": "kufundisha",
+    "en": "to teach",
+    "pos": "verb"
+  },
+  {
+    "sw": "kufunga",
+    "en": "fast",
+    "pos": "verb"
+  },
+  {
+    "sw": "kufungua",
+    "en": "to open",
+    "pos": "verb"
+  },
+  {
+    "sw": "kugusa",
+    "en": "to touch",
+    "pos": "verb"
+  },
+  {
+    "sw": "kuhara",
+    "en": "diarrhea",
+    "pos": "verb"
+  },
+  {
+    "sw": "kuhifadhi",
+    "en": "save",
+    "pos": "verb"
+  },
+  {
+    "sw": "kuimba",
+    "en": "to sing",
+    "pos": "verb"
+  },
+  {
+    "sw": "kuingia",
+    "en": "to enter",
+    "pos": "verb"
+  },
+  {
+    "sw": "kuja",
+    "en": "to come",
+    "pos": "verb"
+  },
+  {
+    "sw": "kujenga",
+    "en": "to build",
+    "pos": "verb"
+  },
+  {
+    "sw": "kujibu",
+    "en": "to answer",
+    "pos": "verb"
+  },
+  {
+    "sw": "kujifunza",
+    "en": "to learn",
+    "pos": "verb"
+  },
+  {
+    "sw": "kujua",
+    "en": "to know",
+    "pos": "verb"
+  },
+  {
+    "sw": "kukaa",
+    "en": "stay",
+    "pos": "verb"
+  },
+  {
+    "sw": "kukaanga",
+    "en": "fried",
+    "pos": "verb"
+  },
+  {
+    "sw": "kukata",
+    "en": "to cut",
+    "pos": "verb"
+  },
+  {
+    "sw": "kukimbia",
+    "en": "run away",
+    "pos": "verb"
+  },
+  {
+    "sw": "kuku",
+    "en": "chicken",
+    "pos": "verb"
+  },
+  {
+    "sw": "kukumbuka",
+    "en": "to remember",
+    "pos": "verb"
+  },
+  {
+    "sw": "kulala",
+    "en": "to sleep",
+    "pos": "verb"
+  },
+  {
+    "sw": "kulia",
+    "en": "cry",
+    "pos": "adverb"
+  },
+  {
+    "sw": "kulima",
+    "en": "to cultivate",
+    "pos": "verb"
+  },
+  {
+    "sw": "kulinda",
+    "en": "to protect",
+    "pos": "verb"
+  },
+  {
+    "sw": "kulipa",
+    "en": "to pay",
+    "pos": "verb"
+  },
+  {
+    "sw": "kumbukumbu",
+    "en": "memory",
+    "pos": "verb"
+  },
+  {
+    "sw": "kumi",
+    "en": "ten",
+    "pos": "number"
+  },
+  {
+    "sw": "kunde",
+    "en": "pulse",
+    "pos": "verb"
+  },
+  {
+    "sw": "kununua",
+    "en": "to buy",
+    "pos": "verb"
+  },
+  {
+    "sw": "kunusa",
+    "en": "to smell",
+    "pos": "verb"
+  },
+  {
+    "sw": "kunywa",
+    "en": "to drink",
+    "pos": "verb"
+  },
+  {
+    "sw": "kuogelea",
+    "en": "to swim",
+    "pos": "verb"
+  },
+  {
+    "sw": "kuoka",
+    "en": "baking",
+    "pos": "verb"
+  },
+  {
+    "sw": "kuokoa",
+    "en": "to save",
+    "pos": "verb"
+  },
+  {
+    "sw": "kuomba",
+    "en": "to pray",
+    "pos": "verb"
+  },
+  {
+    "sw": "kuona",
+    "en": "to see",
+    "pos": "verb"
+  },
+  {
+    "sw": "kuondoa",
+    "en": "remove",
+    "pos": "verb"
+  },
+  {
+    "sw": "kuonja",
+    "en": "to taste",
+    "pos": "verb"
+  },
+  {
+    "sw": "kuosha",
+    "en": "to wash",
+    "pos": "verb"
+  },
+  {
+    "sw": "kupanda",
+    "en": "plant",
+    "pos": "verb"
+  },
+  {
+    "sw": "kupanda mbegu",
+    "en": "sow the seeds",
+    "pos": "noun"
+  },
+  {
+    "sw": "kupata",
+    "en": "get",
+    "pos": "verb"
+  },
+  {
+    "sw": "kupenda",
+    "en": "to love",
+    "pos": "verb"
+  },
+  {
+    "sw": "kupiga kelele",
+    "en": "to shout",
+    "pos": "noun"
+  },
+  {
+    "sw": "kupiga simu",
+    "en": "to call",
+    "pos": "noun"
+  },
+  {
+    "sw": "kupigana",
+    "en": "to fight",
+    "pos": "verb"
+  },
+  {
+    "sw": "kupika",
+    "en": "to cook",
+    "pos": "verb"
+  },
+  {
+    "sw": "kupokea",
+    "en": "to receive",
+    "pos": "verb"
+  },
+  {
+    "sw": "kupoteza",
+    "en": "to lose",
+    "pos": "verb"
+  },
+  {
+    "sw": "kupoteza fahamu",
+    "en": "loss of consciousness",
+    "pos": "noun"
+  },
+  {
+    "sw": "kupumzika",
+    "en": "relax",
+    "pos": "verb"
+  },
+  {
+    "sw": "kura",
+    "en": "lot",
+    "pos": "verb"
+  },
+  {
+    "sw": "kurudi",
+    "en": "return",
+    "pos": "verb"
+  },
+  {
+    "sw": "kuruka",
+    "en": "fly",
+    "pos": "verb"
+  },
+  {
+    "sw": "kusahau",
+    "en": "to forget",
+    "pos": "verb"
+  },
+  {
+    "sw": "kusaidia",
+    "en": "to help",
+    "pos": "verb"
+  },
+  {
+    "sw": "kushinda",
+    "en": "win",
+    "pos": "verb"
+  },
+  {
+    "sw": "kushindwa",
+    "en": "failure",
+    "pos": "verb"
+  },
+  {
+    "sw": "kushona",
+    "en": "to sew",
+    "pos": "verb"
+  },
+  {
+    "sw": "kushoto",
+    "en": "left",
+    "pos": "adverb"
+  },
+  {
+    "sw": "kushuka",
+    "en": "drop off",
+    "pos": "verb"
+  },
+  {
+    "sw": "kushukuru",
+    "en": "to be grateful",
+    "pos": "verb"
+  },
+  {
+    "sw": "kusikia",
+    "en": "to hear",
+    "pos": "verb"
+  },
+  {
+    "sw": "kusini",
+    "en": "the south",
+    "pos": "verb"
+  },
+  {
+    "sw": "kusoma",
+    "en": "reading",
+    "pos": "verb"
+  },
+  {
+    "sw": "kutafuta",
+    "en": "to search",
+    "pos": "verb"
+  },
+  {
+    "sw": "kutaka",
+    "en": "to want",
+    "pos": "verb"
+  },
+  {
+    "sw": "kutapika",
+    "en": "vomiting",
+    "pos": "verb"
+  },
+  {
+    "sw": "kutembea",
+    "en": "to walk",
+    "pos": "verb"
+  },
+  {
+    "sw": "kutengeneza",
+    "en": "to make",
+    "pos": "verb"
+  },
+  {
+    "sw": "kutoa",
+    "en": "give",
+    "pos": "verb"
+  },
+  {
+    "sw": "kutoka",
+    "en": "from",
+    "pos": "verb"
+  },
+  {
+    "sw": "kutuma",
+    "en": "to send",
+    "pos": "verb"
+  },
+  {
+    "sw": "kuuza",
+    "en": "to sell",
+    "pos": "verb"
+  },
+  {
+    "sw": "kuvuka",
+    "en": "to cross",
+    "pos": "verb"
+  },
+  {
+    "sw": "kuvuna",
+    "en": "harvest",
+    "pos": "verb"
+  },
+  {
+    "sw": "kuvunja",
+    "en": "to break",
+    "pos": "verb"
+  },
+  {
+    "sw": "kuweka",
+    "en": "put",
+    "pos": "verb"
+  },
+  {
+    "sw": "kuzaliwa",
+    "en": "birth",
+    "pos": "verb"
+  },
+  {
+    "sw": "kuzungumza",
+    "en": "to talk",
+    "pos": "verb"
+  },
+  {
+    "sw": "kwaheri",
+    "en": "goodbye",
+    "pos": "verb"
+  },
+  {
+    "sw": "kwenda",
+    "en": "to go",
+    "pos": "verb"
+  },
+  {
+    "sw": "laini",
+    "en": "smooth",
+    "pos": "adjective"
+  },
+  {
+    "sw": "lami",
+    "en": "bitumen",
+    "pos": "noun"
+  },
+  {
+    "sw": "leo",
+    "en": "today",
+    "pos": "noun"
+  },
+  {
+    "sw": "leso",
+    "en": "handkerchief",
+    "pos": "noun"
+  },
+  {
+    "sw": "ligi",
+    "en": "league",
+    "pos": "noun"
+  },
+  {
+    "sw": "limao",
+    "en": "lemon",
+    "pos": "noun"
+  },
+  {
+    "sw": "lugha",
+    "en": "language",
+    "pos": "noun"
+  },
+  {
+    "sw": "maandazi",
+    "en": "pastries",
+    "pos": "noun"
+  },
+  {
+    "sw": "maarifa",
+    "en": "knowledge",
+    "pos": "noun"
+  },
+  {
+    "sw": "mabadiliko ya hali ya hewa",
+    "en": "climate change",
+    "pos": "noun"
+  },
+  {
+    "sw": "machozi",
+    "en": "tears",
+    "pos": "noun"
+  },
+  {
+    "sw": "machungwa",
+    "en": "orange",
+    "pos": "adjective"
+  },
+  {
+    "sw": "madini",
+    "en": "minerals",
+    "pos": "noun"
+  },
+  {
+    "sw": "mafanikio",
+    "en": "success",
+    "pos": "noun"
+  },
+  {
+    "sw": "mafuriko",
+    "en": "flood",
+    "pos": "noun"
+  },
+  {
+    "sw": "mafuta",
+    "en": "fat",
+    "pos": "noun"
+  },
+  {
+    "sw": "magharibi",
+    "en": "the west",
+    "pos": "noun"
+  },
+  {
+    "sw": "mahakama",
+    "en": "court",
+    "pos": "noun"
+  },
+  {
+    "sw": "maharage",
+    "en": "beans",
+    "pos": "noun"
+  },
+  {
+    "sw": "mahindi",
+    "en": "corn",
+    "pos": "noun"
+  },
+  {
+    "sw": "maisha",
+    "en": "life",
+    "pos": "noun"
+  },
+  {
+    "sw": "maji",
+    "en": "water",
+    "pos": "noun"
+  },
+  {
+    "sw": "maktaba",
+    "en": "the library",
+    "pos": "noun"
+  },
+  {
+    "sw": "malaria",
+    "en": "malaria",
+    "pos": "noun"
+  },
+  {
+    "sw": "malezi",
+    "en": "education",
+    "pos": "noun"
+  },
+  {
+    "sw": "malipo",
+    "en": "payment",
+    "pos": "noun"
+  },
+  {
+    "sw": "mama",
+    "en": "mother",
+    "pos": "noun"
+  },
+  {
+    "sw": "mamba",
+    "en": "crocodile",
+    "pos": "noun"
+  },
+  {
+    "sw": "mandazi",
+    "en": "mandasi",
+    "pos": "noun"
+  },
+  {
+    "sw": "mapafu",
+    "en": "lungs",
+    "pos": "noun"
+  },
+  {
+    "sw": "mapema",
+    "en": "earlier",
+    "pos": "adverb"
+  },
+  {
+    "sw": "maporomoko",
+    "en": "the falls",
+    "pos": "noun"
+  },
+  {
+    "sw": "marahaba",
+    "en": "congratulations",
+    "pos": "noun"
+  },
+  {
+    "sw": "mashabiki",
+    "en": "fans",
+    "pos": "noun"
+  },
+  {
+    "sw": "mashariki",
+    "en": "the east",
+    "pos": "noun"
+  },
+  {
+    "sw": "mashine ya kufulia",
+    "en": "washing machine",
+    "pos": "noun"
+  },
+  {
+    "sw": "masika",
+    "en": "spring",
+    "pos": "noun"
+  },
+  {
+    "sw": "masikio",
+    "en": "ears",
+    "pos": "noun"
+  },
+  {
+    "sw": "maskini",
+    "en": "poor",
+    "pos": "adjective"
+  },
+  {
+    "sw": "matibabu",
+    "en": "treatment",
+    "pos": "noun"
+  },
+  {
+    "sw": "matumaini",
+    "en": "hope",
+    "pos": "noun"
+  },
+  {
+    "sw": "matunda",
+    "en": "fruits",
+    "pos": "noun"
+  },
+  {
+    "sw": "maua",
+    "en": "flowers",
+    "pos": "noun"
+  },
+  {
+    "sw": "maumivu",
+    "en": "pain",
+    "pos": "noun"
+  },
+  {
+    "sw": "mavuno",
+    "en": "yield",
+    "pos": "noun"
+  },
+  {
+    "sw": "mawingu",
+    "en": "the clouds",
+    "pos": "noun"
+  },
+  {
+    "sw": "mayai",
+    "en": "eggs",
+    "pos": "noun"
+  },
+  {
+    "sw": "mazao",
+    "en": "produce",
+    "pos": "noun"
+  },
+  {
+    "sw": "mazishi",
+    "en": "funeral",
+    "pos": "noun"
+  },
+  {
+    "sw": "maziwa",
+    "en": "milk",
+    "pos": "noun"
+  },
+  {
+    "sw": "mbali",
+    "en": "away",
+    "pos": "adverb"
+  },
+  {
+    "sw": "mbaya",
+    "en": "bad",
+    "pos": "adjective"
+  },
+  {
+    "sw": "mbegu",
+    "en": "seeds",
+    "pos": "noun"
+  },
+  {
+    "sw": "mbele",
+    "en": "ahead",
+    "pos": "adverb"
+  },
+  {
+    "sw": "mbili",
+    "en": "two",
+    "pos": "number"
+  },
+  {
+    "sw": "mbio",
+    "en": "race",
+    "pos": "noun"
+  },
+  {
+    "sw": "mboga",
+    "en": "vegetables",
+    "pos": "noun"
+  },
+  {
+    "sw": "mboji",
+    "en": "compost",
+    "pos": "noun"
+  },
+  {
+    "sw": "mbolea",
+    "en": "fertilizer",
+    "pos": "noun"
+  },
+  {
+    "sw": "mbu",
+    "en": "mosquitoes",
+    "pos": "noun"
+  },
+  {
+    "sw": "mbunge",
+    "en": "parliamentarian",
+    "pos": "noun"
+  },
+  {
+    "sw": "mbuni",
+    "en": "the ostrich",
+    "pos": "noun"
+  },
+  {
+    "sw": "mbuzi",
+    "en": "a goat",
+    "pos": "noun"
+  },
+  {
+    "sw": "mbwa",
+    "en": "dog",
+    "pos": "noun"
+  },
+  {
+    "sw": "mbweha",
+    "en": "fox",
+    "pos": "noun"
+  },
+  {
+    "sw": "mchana",
+    "en": "in the afternoon",
+    "pos": "noun"
+  },
+  {
+    "sw": "mchanga",
+    "en": "sand",
+    "pos": "adjective"
+  },
+  {
+    "sw": "mchangamfu",
+    "en": "cheerful",
+    "pos": "adjective"
+  },
+  {
+    "sw": "mchele",
+    "en": "rice",
+    "pos": "noun"
+  },
+  {
+    "sw": "mchezaji",
+    "en": "player",
+    "pos": "noun"
+  },
+  {
+    "sw": "mchezo",
+    "en": "game",
+    "pos": "noun"
+  },
+  {
+    "sw": "mchezo wa bao",
+    "en": "scoring game",
+    "pos": "noun"
+  },
+  {
+    "sw": "mchezo wa kompyuta",
+    "en": "computer game",
+    "pos": "noun"
+  },
+  {
+    "sw": "mchicha",
+    "en": "spinach",
+    "pos": "noun"
+  },
+  {
+    "sw": "mchumba",
+    "en": "fiancee",
+    "pos": "noun"
+  },
+  {
+    "sw": "mchungaji",
+    "en": "shepherd",
+    "pos": "noun"
+  },
+  {
+    "sw": "mchuzi",
+    "en": "broth",
+    "pos": "noun"
+  },
+  {
+    "sw": "mdalasini",
+    "en": "cinnamon",
+    "pos": "noun"
+  },
+  {
+    "sw": "mdomo",
+    "en": "mouth",
+    "pos": "noun"
+  },
+  {
+    "sw": "mdudu",
+    "en": "bug",
+    "pos": "noun"
+  },
+  {
+    "sw": "mechi",
+    "en": "match",
+    "pos": "noun"
+  },
+  {
+    "sw": "medali",
+    "en": "medal",
+    "pos": "noun"
+  },
+  {
+    "sw": "meli",
+    "en": "ship",
+    "pos": "noun"
+  },
+  {
+    "sw": "meneja",
+    "en": "the manager",
+    "pos": "noun"
+  },
+  {
+    "sw": "meno",
+    "en": "teeth",
+    "pos": "noun"
+  },
+  {
+    "sw": "meza",
+    "en": "the table",
+    "pos": "noun"
+  },
+  {
+    "sw": "mfanyakazi",
+    "en": "employee",
+    "pos": "noun"
+  },
+  {
+    "sw": "mfereji",
+    "en": "canal",
+    "pos": "noun"
+  },
+  {
+    "sw": "mfuko",
+    "en": "bag",
+    "pos": "noun"
+  },
+  {
+    "sw": "mfupa",
+    "en": "bone",
+    "pos": "noun"
+  },
+  {
+    "sw": "mfupi",
+    "en": "short",
+    "pos": "adjective"
+  },
+  {
+    "sw": "mgahawa",
+    "en": "restaurant",
+    "pos": "noun"
+  },
+  {
+    "sw": "mgeni",
+    "en": "a stranger",
+    "pos": "noun"
+  },
+  {
+    "sw": "mgongo",
+    "en": "back",
+    "pos": "noun"
+  },
+  {
+    "sw": "mgonjwa",
+    "en": "the patient",
+    "pos": "adjective"
+  },
+  {
+    "sw": "mguu",
+    "en": "leg",
+    "pos": "noun"
+  },
+  {
+    "sw": "mhandisi",
+    "en": "an engineer",
+    "pos": "noun"
+  },
+  {
+    "sw": "mia",
+    "en": "hundred",
+    "pos": "number"
+  },
+  {
+    "sw": "michezo",
+    "en": "sports",
+    "pos": "noun"
+  },
+  {
+    "sw": "mila",
+    "en": "tradition",
+    "pos": "noun"
+  },
+  {
+    "sw": "milioni",
+    "en": "million",
+    "pos": "number"
+  },
+  {
+    "sw": "mimba",
+    "en": "pregnancy",
+    "pos": "noun"
+  },
+  {
+    "sw": "mishipa",
+    "en": "veins",
+    "pos": "noun"
+  },
+  {
+    "sw": "mitandao ya kijamii",
+    "en": "social networks",
+    "pos": "noun"
+  },
+  {
+    "sw": "miwani",
+    "en": "glasses",
+    "pos": "noun"
+  },
+  {
+    "sw": "mizigo",
+    "en": "baggage",
+    "pos": "noun"
+  },
+  {
+    "sw": "mji",
+    "en": "city",
+    "pos": "noun"
+  },
+  {
+    "sw": "mji mkuu",
+    "en": "capital city",
+    "pos": "noun"
+  },
+  {
+    "sw": "mjinga",
+    "en": "stupid",
+    "pos": "adjective"
+  },
+  {
+    "sw": "mjomba",
+    "en": "uncle",
+    "pos": "noun"
+  },
+  {
+    "sw": "mjukuu",
+    "en": "grandson",
+    "pos": "noun"
+  },
+  {
+    "sw": "mjusi",
+    "en": "lizard",
+    "pos": "noun"
+  },
+  {
+    "sw": "mkamwana",
+    "en": "brother in law",
+    "pos": "noun"
+  },
+  {
+    "sw": "mkataba",
+    "en": "the contract",
+    "pos": "noun"
+  },
+  {
+    "sw": "mkate",
+    "en": "bread",
+    "pos": "noun"
+  },
+  {
+    "sw": "mke",
+    "en": "wife",
+    "pos": "noun"
+  },
+  {
+    "sw": "mkoba",
+    "en": "a purse",
+    "pos": "noun"
+  },
+  {
+    "sw": "mkokoteni",
+    "en": "a cart",
+    "pos": "noun"
+  },
+  {
+    "sw": "mkono",
+    "en": "hand",
+    "pos": "noun"
+  },
+  {
+    "sw": "mkopo",
+    "en": "loan",
+    "pos": "noun"
+  },
+  {
+    "sw": "mkufu",
+    "en": "necklace",
+    "pos": "noun"
+  },
+  {
+    "sw": "mkulima",
+    "en": "a farmer",
+    "pos": "noun"
+  },
+  {
+    "sw": "mkurugenzi",
+    "en": "the director",
+    "pos": "noun"
+  },
+  {
+    "sw": "mkwe",
+    "en": "son in law",
+    "pos": "noun"
+  },
+  {
+    "sw": "mlango",
+    "en": "the door",
+    "pos": "noun"
+  },
+  {
+    "sw": "mlima",
+    "en": "the mountain",
+    "pos": "noun"
+  },
+  {
+    "sw": "mlinzi",
+    "en": "the guard",
+    "pos": "noun"
+  },
+  {
+    "sw": "mnunuzi",
+    "en": "the buyer",
+    "pos": "noun"
+  },
+  {
+    "sw": "moja",
+    "en": "one",
+    "pos": "number"
+  },
+  {
+    "sw": "moto",
+    "en": "fire",
+    "pos": "adjective"
+  },
+  {
+    "sw": "moyo",
+    "en": "the heart",
+    "pos": "noun"
+  },
+  {
+    "sw": "mpira",
+    "en": "the ball",
+    "pos": "noun"
+  },
+  {
+    "sw": "mpira wa kikapu",
+    "en": "basketball",
+    "pos": "noun"
+  },
+  {
+    "sw": "mpira wa miguu",
+    "en": "football",
+    "pos": "noun"
+  },
+  {
+    "sw": "mpishi",
+    "en": "the cook",
+    "pos": "noun"
+  },
+  {
+    "sw": "mpya",
+    "en": "new",
+    "pos": "adjective"
+  },
+  {
+    "sw": "mrefu",
+    "en": "tall",
+    "pos": "adjective"
+  },
+  {
+    "sw": "msaidizi",
+    "en": "assistant",
+    "pos": "noun"
+  },
+  {
+    "sw": "msamaha",
+    "en": "forgiveness",
+    "pos": "noun"
+  },
+  {
+    "sw": "msanii",
+    "en": "an artist",
+    "pos": "noun"
+  },
+  {
+    "sw": "mshahara",
+    "en": "salary",
+    "pos": "noun"
+  },
+  {
+    "sw": "mshangao",
+    "en": "surprise",
+    "pos": "noun"
+  },
+  {
+    "sw": "mshtuko",
+    "en": "shock",
+    "pos": "noun"
+  },
+  {
+    "sw": "msikiti",
+    "en": "the mosque",
+    "pos": "noun"
+  },
+  {
+    "sw": "msitu",
+    "en": "the forest",
+    "pos": "noun"
+  },
+  {
+    "sw": "msitu wa mvua",
+    "en": "rain forest",
+    "pos": "noun"
+  },
+  {
+    "sw": "msongo",
+    "en": "stress",
+    "pos": "noun"
+  },
+  {
+    "sw": "msumari",
+    "en": "nail",
+    "pos": "noun"
+  },
+  {
+    "sw": "mtaa",
+    "en": "street",
+    "pos": "noun"
+  },
+  {
+    "sw": "mtaji",
+    "en": "capital",
+    "pos": "noun"
+  },
+  {
+    "sw": "mtandao",
+    "en": "internet",
+    "pos": "noun"
+  },
+  {
+    "sw": "mti",
+    "en": "a tree",
+    "pos": "noun"
+  },
+  {
+    "sw": "mtihani",
+    "en": "test",
+    "pos": "noun"
+  },
+  {
+    "sw": "mto",
+    "en": "the river",
+    "pos": "noun"
+  },
+  {
+    "sw": "mtoto",
+    "en": "child",
+    "pos": "noun"
+  },
+  {
+    "sw": "mtulivu",
+    "en": "calm",
+    "pos": "adjective"
+  },
+  {
+    "sw": "muda",
+    "en": "time",
+    "pos": "noun"
+  },
+  {
+    "sw": "mume",
+    "en": "husband",
+    "pos": "noun"
+  },
+  {
+    "sw": "mundu",
+    "en": "sickle",
+    "pos": "noun"
+  },
+  {
+    "sw": "muuguzi",
+    "en": "nurse",
+    "pos": "noun"
+  },
+  {
+    "sw": "muumini",
+    "en": "a believer",
+    "pos": "noun"
+  },
+  {
+    "sw": "muuzaji",
+    "en": "seller",
+    "pos": "noun"
+  },
+  {
+    "sw": "muziki",
+    "en": "music",
+    "pos": "noun"
+  },
+  {
+    "sw": "mvinyo",
+    "en": "wine",
+    "pos": "noun"
+  },
+  {
+    "sw": "mvua",
+    "en": "the rain",
+    "pos": "noun"
+  },
+  {
+    "sw": "mvua ya mawe",
+    "en": "hail",
+    "pos": "noun"
+  },
+  {
+    "sw": "mvuvi",
+    "en": "fisherman",
+    "pos": "noun"
+  },
+  {
+    "sw": "mwaka",
+    "en": "year",
+    "pos": "noun"
+  },
+  {
+    "sw": "mwaka ujao",
+    "en": "next year",
+    "pos": "noun"
+  },
+  {
+    "sw": "mwalimu",
+    "en": "the teacher",
+    "pos": "noun"
+  },
+  {
+    "sw": "mwamba",
+    "en": "rock",
+    "pos": "noun"
+  },
+  {
+    "sw": "mwana",
+    "en": "son",
+    "pos": "noun"
+  },
+  {
+    "sw": "mwanafunzi",
+    "en": "student",
+    "pos": "noun"
+  },
+  {
+    "sw": "mwanajeshi",
+    "en": "a soldier",
+    "pos": "noun"
+  },
+  {
+    "sw": "mwanasheria",
+    "en": "a lawyer",
+    "pos": "noun"
+  },
+  {
+    "sw": "mwandishi",
+    "en": "the author",
+    "pos": "noun"
+  },
+  {
+    "sw": "mwanga",
+    "en": "light",
+    "pos": "noun"
+  },
+  {
+    "sw": "mwangaza",
+    "en": "brightness",
+    "pos": "noun"
+  },
+  {
+    "sw": "mwekezaji",
+    "en": "the investor",
+    "pos": "noun"
+  },
+  {
+    "sw": "mwema",
+    "en": "good",
+    "pos": "adjective"
+  },
+  {
+    "sw": "mwenye furaha",
+    "en": "happy",
+    "pos": "noun"
+  },
+  {
+    "sw": "mwenye hasira",
+    "en": "angry",
+    "pos": "noun"
+  },
+  {
+    "sw": "mwenye huzuni",
+    "en": "sad",
+    "pos": "noun"
+  },
+  {
+    "sw": "mwepesi",
+    "en": "quick",
+    "pos": "adjective"
+  },
+  {
+    "sw": "mwerevu",
+    "en": "clever",
+    "pos": "adjective"
+  },
+  {
+    "sw": "mwezi",
+    "en": "month",
+    "pos": "noun"
+  },
+  {
+    "sw": "mwezi ujao",
+    "en": "next month",
+    "pos": "noun"
+  },
+  {
+    "sw": "mwiko",
+    "en": "taboo",
+    "pos": "noun"
+  },
+  {
+    "sw": "mwili",
+    "en": "the body",
+    "pos": "noun"
+  },
+  {
+    "sw": "mwoga",
+    "en": "coward",
+    "pos": "adjective"
+  },
+  {
+    "sw": "mzaa",
+    "en": "a child",
+    "pos": "noun"
+  },
+  {
+    "sw": "mzazi",
+    "en": "parent",
+    "pos": "noun"
+  },
+  {
+    "sw": "mzee",
+    "en": "old man",
+    "pos": "adjective"
+  },
+  {
+    "sw": "mzima",
+    "en": "whole",
+    "pos": "adjective"
+  },
+  {
+    "sw": "mzito",
+    "en": "heavy",
+    "pos": "adjective"
+  },
+  {
+    "sw": "na nguvu",
+    "en": "and strength",
+    "pos": "noun"
+  },
+  {
+    "sw": "nadharia",
+    "en": "theory",
+    "pos": "noun"
+  },
+  {
+    "sw": "nahodha",
+    "en": "the captain",
+    "pos": "noun"
+  },
+  {
+    "sw": "nanasi",
+    "en": "pineapple",
+    "pos": "noun"
+  },
+  {
+    "sw": "nane",
+    "en": "eight",
+    "pos": "number"
+  },
+  {
+    "sw": "nchi",
+    "en": "the country",
+    "pos": "noun"
+  },
+  {
+    "sw": "ndefu",
+    "en": "long",
+    "pos": "adjective"
+  },
+  {
+    "sw": "ndege",
+    "en": "bird",
+    "pos": "noun"
+  },
+  {
+    "sw": "ndiyo",
+    "en": "yes",
+    "pos": "noun"
+  },
+  {
+    "sw": "ndizi",
+    "en": "banana",
+    "pos": "noun"
+  },
+  {
+    "sw": "ndogo",
+    "en": "small",
+    "pos": "adjective"
+  },
+  {
+    "sw": "ndoo",
+    "en": "bucket",
+    "pos": "noun"
+  },
+  {
+    "sw": "ndoto",
+    "en": "dream",
+    "pos": "noun"
+  },
+  {
+    "sw": "ndugu",
+    "en": "brothers",
+    "pos": "noun"
+  },
+  {
+    "sw": "ng'ombe",
+    "en": "cow",
+    "pos": "noun"
+  },
+  {
+    "sw": "nge",
+    "en": "the scorpion",
+    "pos": "noun"
+  },
+  {
+    "sw": "ngisi",
+    "en": "squid",
+    "pos": "noun"
+  },
+  {
+    "sw": "ngoma",
+    "en": "dance",
+    "pos": "noun"
+  },
+  {
+    "sw": "ngozi",
+    "en": "skin",
+    "pos": "noun"
+  },
+  {
+    "sw": "ngumu",
+    "en": "difficult",
+    "pos": "adjective"
+  },
+  {
+    "sw": "nguo",
+    "en": "clothes",
+    "pos": "noun"
+  },
+  {
+    "sw": "nguru",
+    "en": "pig",
+    "pos": "noun"
+  },
+  {
+    "sw": "nguruwe",
+    "en": "pig",
+    "pos": "noun"
+  },
+  {
+    "sw": "nguvu",
+    "en": "strength",
+    "pos": "noun"
+  },
+  {
+    "sw": "nishati mbadala",
+    "en": "renewable energy",
+    "pos": "noun"
+  },
+  {
+    "sw": "njaa",
+    "en": "hunger",
+    "pos": "noun"
+  },
+  {
+    "sw": "njano",
+    "en": "yellow",
+    "pos": "adjective"
+  },
+  {
+    "sw": "njia",
+    "en": "way",
+    "pos": "noun"
+  },
+  {
+    "sw": "njiwa",
+    "en": "dove",
+    "pos": "noun"
+  },
+  {
+    "sw": "nne",
+    "en": "four",
+    "pos": "number"
+  },
+  {
+    "sw": "nungunungu",
+    "en": "porcupine",
+    "pos": "noun"
+  },
+  {
+    "sw": "nusu",
+    "en": "half",
+    "pos": "number"
+  },
+  {
+    "sw": "nyama",
+    "en": "meat",
+    "pos": "noun"
+  },
+  {
+    "sw": "nyama choma",
+    "en": "roast meat",
+    "pos": "noun"
+  },
+  {
+    "sw": "nyanda za juu",
+    "en": "highlands",
+    "pos": "noun"
+  },
+  {
+    "sw": "nyani",
+    "en": "monkeys",
+    "pos": "noun"
+  },
+  {
+    "sw": "nyanya",
+    "en": "grandma",
+    "pos": "noun"
+  },
+  {
+    "sw": "nyasi",
+    "en": "grass",
+    "pos": "noun"
+  },
+  {
+    "sw": "nyati",
+    "en": "unicorn",
+    "pos": "noun"
+  },
+  {
+    "sw": "nyekundu",
+    "en": "red",
+    "pos": "adjective"
+  },
+  {
+    "sw": "nyeupe",
+    "en": "white",
+    "pos": "adjective"
+  },
+  {
+    "sw": "nyeusi",
+    "en": "black",
+    "pos": "adjective"
+  },
+  {
+    "sw": "nyoka",
+    "en": "snake",
+    "pos": "noun"
+  },
+  {
+    "sw": "nyonga",
+    "en": "hips",
+    "pos": "noun"
+  },
+  {
+    "sw": "nyuki",
+    "en": "bee",
+    "pos": "noun"
+  },
+  {
+    "sw": "nyuma",
+    "en": "behind",
+    "pos": "adverb"
+  },
+  {
+    "sw": "nyumba",
+    "en": "house",
+    "pos": "noun"
+  },
+  {
+    "sw": "nywele",
+    "en": "hair",
+    "pos": "noun"
+  },
+  {
+    "sw": "nzi",
+    "en": "flies",
+    "pos": "noun"
+  },
+  {
+    "sw": "nzige",
+    "en": "locust",
+    "pos": "noun"
+  },
+  {
+    "sw": "nzuri",
+    "en": "nice",
+    "pos": "adjective"
+  },
+  {
+    "sw": "oevu",
+    "en": "liquid",
+    "pos": "noun"
+  },
+  {
+    "sw": "ofisi",
+    "en": "office",
+    "pos": "noun"
+  },
+  {
+    "sw": "operesheni",
+    "en": "operation",
+    "pos": "noun"
+  },
+  {
+    "sw": "paa",
+    "en": "roof",
+    "pos": "noun"
+  },
+  {
+    "sw": "padri",
+    "en": "the priest",
+    "pos": "noun"
+  },
+  {
+    "sw": "paka",
+    "en": "cat",
+    "pos": "noun"
+  },
+  {
+    "sw": "pale",
+    "en": "there",
+    "pos": "adverb"
+  },
+  {
+    "sw": "pamba",
+    "en": "cotton",
+    "pos": "noun"
+  },
+  {
+    "sw": "pamoja",
+    "en": "together",
+    "pos": "noun"
+  },
+  {
+    "sw": "panga",
+    "en": "sword",
+    "pos": "noun"
+  },
+  {
+    "sw": "panya",
+    "en": "mouse",
+    "pos": "noun"
+  },
+  {
+    "sw": "papa",
+    "en": "papa",
+    "pos": "noun"
+  },
+  {
+    "sw": "papai",
+    "en": "papaya",
+    "pos": "noun"
+  },
+  {
+    "sw": "pasi",
+    "en": "pass",
+    "pos": "noun"
+  },
+  {
+    "sw": "pasipoti",
+    "en": "passport",
+    "pos": "noun"
+  },
+  {
+    "sw": "password",
+    "en": "password",
+    "pos": "noun"
+  },
+  {
+    "sw": "pazia",
+    "en": "curtain",
+    "pos": "noun"
+  },
+  {
+    "sw": "pesa",
+    "en": "money",
+    "pos": "noun"
+  },
+  {
+    "sw": "pete",
+    "en": "ring",
+    "pos": "noun"
+  },
+  {
+    "sw": "picha",
+    "en": "picture",
+    "pos": "noun"
+  },
+  {
+    "sw": "pikipiki",
+    "en": "motorcycle",
+    "pos": "noun"
+  },
+  {
+    "sw": "pilau",
+    "en": "pilau",
+    "pos": "noun"
+  },
+  {
+    "sw": "pilipili",
+    "en": "pepper",
+    "pos": "noun"
+  },
+  {
+    "sw": "pipi",
+    "en": "candy",
+    "pos": "noun"
+  },
+  {
+    "sw": "plasta",
+    "en": "plaster",
+    "pos": "noun"
+  },
+  {
+    "sw": "pole",
+    "en": "sorry",
+    "pos": "noun"
+  },
+  {
+    "sw": "polepole",
+    "en": "slowly",
+    "pos": "adverb"
+  },
+  {
+    "sw": "polisi",
+    "en": "the police",
+    "pos": "noun"
+  },
+  {
+    "sw": "pombe",
+    "en": "alcohol",
+    "pos": "noun"
+  },
+  {
+    "sw": "popo",
+    "en": "bat",
+    "pos": "noun"
+  },
+  {
+    "sw": "printa",
+    "en": "printer",
+    "pos": "noun"
+  },
+  {
+    "sw": "programu",
+    "en": "program",
+    "pos": "noun"
+  },
+  {
+    "sw": "pua",
+    "en": "nose",
+    "pos": "noun"
+  },
+  {
+    "sw": "punda",
+    "en": "donkey",
+    "pos": "noun"
+  },
+  {
+    "sw": "pungufu",
+    "en": "less",
+    "pos": "noun"
+  },
+  {
+    "sw": "punguzo",
+    "en": "discount",
+    "pos": "noun"
+  },
+  {
+    "sw": "pwani",
+    "en": "the beach",
+    "pos": "noun"
+  },
+  {
+    "sw": "pweza",
+    "en": "octopus",
+    "pos": "noun"
+  },
+  {
+    "sw": "radi",
+    "en": "lightning",
+    "pos": "noun"
+  },
+  {
+    "sw": "rafiki",
+    "en": "a friend",
+    "pos": "noun"
+  },
+  {
+    "sw": "rahisi",
+    "en": "simple",
+    "pos": "adjective"
+  },
+  {
+    "sw": "rais",
+    "en": "the president",
+    "pos": "noun"
+  },
+  {
+    "sw": "ramani",
+    "en": "map",
+    "pos": "noun"
+  },
+  {
+    "sw": "rangi",
+    "en": "color",
+    "pos": "noun"
+  },
+  {
+    "sw": "rasi",
+    "en": "lagoon",
+    "pos": "noun"
+  },
+  {
+    "sw": "redio",
+    "en": "radio",
+    "pos": "noun"
+  },
+  {
+    "sw": "riadha",
+    "en": "athletics",
+    "pos": "noun"
+  },
+  {
+    "sw": "riba",
+    "en": "interest",
+    "pos": "noun"
+  },
+  {
+    "sw": "risiti",
+    "en": "receipt",
+    "pos": "noun"
+  },
+  {
+    "sw": "robo",
+    "en": "a quarter",
+    "pos": "number"
+  },
+  {
+    "sw": "rubani",
+    "en": "pilot",
+    "pos": "noun"
+  },
+  {
+    "sw": "runinga",
+    "en": "television",
+    "pos": "noun"
+  },
+  {
+    "sw": "rushwa",
+    "en": "corruption",
+    "pos": "noun"
+  },
+  {
+    "sw": "saa",
+    "en": "at",
+    "pos": "noun"
+  },
+  {
+    "sw": "saba",
+    "en": "seven",
+    "pos": "number"
+  },
+  {
+    "sw": "sabini",
+    "en": "seventy",
+    "pos": "number"
+  },
+  {
+    "sw": "sabuni",
+    "en": "soap",
+    "pos": "noun"
+  },
+  {
+    "sw": "safari",
+    "en": "trip",
+    "pos": "noun"
+  },
+  {
+    "sw": "safi",
+    "en": "clean",
+    "pos": "adjective"
+  },
+  {
+    "sw": "sahani",
+    "en": "plate",
+    "pos": "noun"
+  },
+  {
+    "sw": "saikolojia",
+    "en": "psychology",
+    "pos": "noun"
+  },
+  {
+    "sw": "sakafu",
+    "en": "the floor",
+    "pos": "noun"
+  },
+  {
+    "sw": "sala",
+    "en": "prayer",
+    "pos": "noun"
+  },
+  {
+    "sw": "salamu",
+    "en": "hello",
+    "pos": "noun"
+  },
+  {
+    "sw": "samahani",
+    "en": "I'm sorry",
+    "pos": "noun"
+  },
+  {
+    "sw": "samaki",
+    "en": "fish",
+    "pos": "noun"
+  },
+  {
+    "sw": "sambusa",
+    "en": "sambusa",
+    "pos": "noun"
+  },
+  {
+    "sw": "sanaa",
+    "en": "art",
+    "pos": "noun"
+  },
+  {
+    "sw": "sandali",
+    "en": "sandals",
+    "pos": "noun"
+  },
+  {
+    "sw": "sanduku",
+    "en": "box",
+    "pos": "noun"
+  },
+  {
+    "sw": "sasa",
+    "en": "now",
+    "pos": "adverb"
+  },
+  {
+    "sw": "satelaiti",
+    "en": "satellite",
+    "pos": "noun"
+  },
+  {
+    "sw": "sauti",
+    "en": "sound",
+    "pos": "noun"
+  },
+  {
+    "sw": "savana",
+    "en": "Savannah",
+    "pos": "noun"
+  },
+  {
+    "sw": "sawa",
+    "en": "okay",
+    "pos": "noun"
+  },
+  {
+    "sw": "sayansi",
+    "en": "science",
+    "pos": "noun"
+  },
+  {
+    "sw": "sebuleni",
+    "en": "in the living room",
+    "pos": "noun"
+  },
+  {
+    "sw": "sekunde",
+    "en": "seconds",
+    "pos": "noun"
+  },
+  {
+    "sw": "serikali",
+    "en": "government",
+    "pos": "noun"
+  },
+  {
+    "sw": "seva",
+    "en": "server",
+    "pos": "noun"
+  },
+  {
+    "sw": "shahada",
+    "en": "degree",
+    "pos": "noun"
+  },
+  {
+    "sw": "shamba",
+    "en": "the farm",
+    "pos": "noun"
+  },
+  {
+    "sw": "shangazi",
+    "en": "aunt",
+    "pos": "noun"
+  },
+  {
+    "sw": "shati",
+    "en": "a shirt",
+    "pos": "noun"
+  },
+  {
+    "sw": "shavu",
+    "en": "cheek",
+    "pos": "noun"
+  },
+  {
+    "sw": "shela",
+    "en": "shawl",
+    "pos": "noun"
+  },
+  {
+    "sw": "sherehe",
+    "en": "celebration",
+    "pos": "noun"
+  },
+  {
+    "sw": "sheria",
+    "en": "the law",
+    "pos": "noun"
+  },
+  {
+    "sw": "shikamoo",
+    "en": "hold on",
+    "pos": "noun"
+  },
+  {
+    "sw": "shilingi",
+    "en": "shilling",
+    "pos": "noun"
+  },
+  {
+    "sw": "shingo",
+    "en": "neck",
+    "pos": "noun"
+  },
+  {
+    "sw": "shinikizo",
+    "en": "pressure",
+    "pos": "noun"
+  },
+  {
+    "sw": "shule",
+    "en": "school",
+    "pos": "noun"
+  },
+  {
+    "sw": "shule ya msingi",
+    "en": "elementary school",
+    "pos": "noun"
+  },
+  {
+    "sw": "shule ya sekondari",
+    "en": "secondary school",
+    "pos": "noun"
+  },
+  {
+    "sw": "siasa",
+    "en": "politics",
+    "pos": "noun"
+  },
+  {
+    "sw": "sifuri",
+    "en": "zero",
+    "pos": "number"
+  },
+  {
+    "sw": "siku",
+    "en": "day",
+    "pos": "noun"
+  },
+  {
+    "sw": "simba",
+    "en": "the lion",
+    "pos": "noun"
+  },
+  {
+    "sw": "simu",
+    "en": "telephone",
+    "pos": "noun"
+  },
+  {
+    "sw": "simu janja",
+    "en": "smart phone",
+    "pos": "noun"
+  },
+  {
+    "sw": "sindano",
+    "en": "needle",
+    "pos": "noun"
+  },
+  {
+    "sw": "sita",
+    "en": "six",
+    "pos": "number"
+  },
+  {
+    "sw": "sitini",
+    "en": "sixty",
+    "pos": "number"
+  },
+  {
+    "sw": "sketi",
+    "en": "a skirt",
+    "pos": "noun"
+  },
+  {
+    "sw": "skrini",
+    "en": "screen",
+    "pos": "noun"
+  },
+  {
+    "sw": "soda",
+    "en": "soda",
+    "pos": "noun"
+  },
+  {
+    "sw": "sofa",
+    "en": "sofa",
+    "pos": "noun"
+  },
+  {
+    "sw": "soko",
+    "en": "market",
+    "pos": "noun"
+  },
+  {
+    "sw": "soko la mazao",
+    "en": "produce market",
+    "pos": "noun"
+  },
+  {
+    "sw": "soksi",
+    "en": "socks",
+    "pos": "noun"
+  },
+  {
+    "sw": "sokwe",
+    "en": "chimpanzee",
+    "pos": "noun"
+  },
+  {
+    "sw": "somo",
+    "en": "subject",
+    "pos": "noun"
+  },
+  {
+    "sw": "spinachi",
+    "en": "spinach",
+    "pos": "noun"
+  },
+  {
+    "sw": "starehe",
+    "en": "comfortable",
+    "pos": "noun"
+  },
+  {
+    "sw": "stesheni",
+    "en": "the station",
+    "pos": "noun"
+  },
+  {
+    "sw": "subira",
+    "en": "patience",
+    "pos": "noun"
+  },
+  {
+    "sw": "sufuria",
+    "en": "pot",
+    "pos": "noun"
+  },
+  {
+    "sw": "sukari",
+    "en": "sugar",
+    "pos": "noun"
+  },
+  {
+    "sw": "sungura",
+    "en": "rabbit",
+    "pos": "noun"
+  },
+  {
+    "sw": "supu",
+    "en": "soup",
+    "pos": "noun"
+  },
+  {
+    "sw": "suruali",
+    "en": "pants",
+    "pos": "noun"
+  },
+  {
+    "sw": "suruali fupi",
+    "en": "short pants",
+    "pos": "noun"
+  },
+  {
+    "sw": "swala",
+    "en": "the gazelle",
+    "pos": "noun"
+  },
+  {
+    "sw": "swetha",
+    "en": "sweater",
+    "pos": "noun"
+  },
+  {
+    "sw": "swichi",
+    "en": "switch",
+    "pos": "noun"
+  },
+  {
+    "sw": "taa",
+    "en": "lights",
+    "pos": "noun"
+  },
+  {
+    "sw": "tabasamu",
+    "en": "smile",
+    "pos": "noun"
+  },
+  {
+    "sw": "tafadhali",
+    "en": "please",
+    "pos": "noun"
+  },
+  {
+    "sw": "taharuki",
+    "en": "surprise",
+    "pos": "noun"
+  },
+  {
+    "sw": "tai",
+    "en": "Eagle",
+    "pos": "noun"
+  },
+  {
+    "sw": "tajiri",
+    "en": "rich",
+    "pos": "adjective"
+  },
+  {
+    "sw": "talaka",
+    "en": "divorce",
+    "pos": "noun"
+  },
+  {
+    "sw": "tamaa",
+    "en": "desire",
+    "pos": "noun"
+  },
+  {
+    "sw": "tamaduni",
+    "en": "cultures",
+    "pos": "noun"
+  },
+  {
+    "sw": "tangawizi",
+    "en": "ginger",
+    "pos": "noun"
+  },
+  {
+    "sw": "tano",
+    "en": "five",
+    "pos": "number"
+  },
+  {
+    "sw": "tatu",
+    "en": "three",
+    "pos": "number"
+  },
+  {
+    "sw": "tauni",
+    "en": "the plague",
+    "pos": "noun"
+  },
+  {
+    "sw": "tausi",
+    "en": "peacock",
+    "pos": "noun"
+  },
+  {
+    "sw": "taya",
+    "en": "jaw",
+    "pos": "noun"
+  },
+  {
+    "sw": "teksi",
+    "en": "taxi",
+    "pos": "noun"
+  },
+  {
+    "sw": "televisheni",
+    "en": "television",
+    "pos": "noun"
+  },
+  {
+    "sw": "tembe",
+    "en": "the pill",
+    "pos": "noun"
+  },
+  {
+    "sw": "tembo",
+    "en": "an elephant",
+    "pos": "noun"
+  },
+  {
+    "sw": "tende",
+    "en": "dates",
+    "pos": "noun"
+  },
+  {
+    "sw": "tetemeko",
+    "en": "earthquake",
+    "pos": "noun"
+  },
+  {
+    "sw": "thelathini",
+    "en": "thirty",
+    "pos": "number"
+  },
+  {
+    "sw": "theluji",
+    "en": "snow",
+    "pos": "noun"
+  },
+  {
+    "sw": "theluthi",
+    "en": "a third",
+    "pos": "number"
+  },
+  {
+    "sw": "themanini",
+    "en": "eighty",
+    "pos": "number"
+  },
+  {
+    "sw": "thermomita",
+    "en": "thermometer",
+    "pos": "noun"
+  },
+  {
+    "sw": "tikiti",
+    "en": "ticket",
+    "pos": "noun"
+  },
+  {
+    "sw": "tikiti maji",
+    "en": "watermelon",
+    "pos": "noun"
+  },
+  {
+    "sw": "timu",
+    "en": "the team",
+    "pos": "noun"
+  },
+  {
+    "sw": "tisa",
+    "en": "nine",
+    "pos": "number"
+  },
+  {
+    "sw": "tisini",
+    "en": "ninety",
+    "pos": "number"
+  },
+  {
+    "sw": "tohara",
+    "en": "circumcision",
+    "pos": "noun"
+  },
+  {
+    "sw": "tovuti",
+    "en": "website",
+    "pos": "noun"
+  },
+  {
+    "sw": "trekta",
+    "en": "tractor",
+    "pos": "noun"
+  },
+  {
+    "sw": "treni",
+    "en": "the train",
+    "pos": "noun"
+  },
+  {
+    "sw": "tufaha",
+    "en": "apple",
+    "pos": "noun"
+  },
+  {
+    "sw": "tumbili",
+    "en": "monkey",
+    "pos": "noun"
+  },
+  {
+    "sw": "tumbo",
+    "en": "stomach",
+    "pos": "noun"
+  },
+  {
+    "sw": "tunda",
+    "en": "the fruit",
+    "pos": "noun"
+  },
+  {
+    "sw": "tutaonana",
+    "en": "we will see each other",
+    "pos": "noun"
+  },
+  {
+    "sw": "tuzo",
+    "en": "award",
+    "pos": "noun"
+  },
+  {
+    "sw": "twiga",
+    "en": "giraffe",
+    "pos": "noun"
+  },
+  {
     "sw": "uaminifu",
     "en": "honesty",
     "pos": "noun"
   },
   {
-    "id": 87,
     "sw": "ubongo",
     "en": "the brain",
     "pos": "noun"
   },
   {
-    "id": 958,
     "sw": "ubunifu",
     "en": "creativity",
     "pos": "noun"
   },
   {
-    "id": 933,
     "sw": "uchaguzi",
     "en": "election",
     "pos": "noun"
   },
   {
-    "id": 880,
     "sw": "uchovu",
     "en": "fatigue",
     "pos": "noun"
   },
   {
-    "id": 903,
     "sw": "uchumi",
     "en": "the economy",
     "pos": "noun"
   },
   {
-    "id": 906,
     "sw": "udaktari",
     "en": "doctoring",
     "pos": "noun"
   },
   {
-    "id": 242,
     "sw": "ufagio",
     "en": "a broom",
     "pos": "noun"
   },
   {
-    "id": 943,
     "sw": "ufisadi",
     "en": "corruption",
     "pos": "noun"
   },
   {
-    "id": 231,
     "sw": "ufunguo",
     "en": "the key",
     "pos": "noun"
   },
   {
-    "id": 146,
     "sw": "ugali",
     "en": "ugali",
     "pos": "noun"
   },
   {
-    "id": 106,
     "sw": "ugonjwa",
     "en": "illness",
     "pos": "noun"
   },
   {
-    "id": 913,
     "sw": "ugunduzi",
     "en": "discovery",
     "pos": "noun"
   },
   {
-    "id": 907,
     "sw": "uhandisi",
     "en": "engineering",
     "pos": "noun"
   },
   {
-    "id": 938,
     "sw": "uhuru",
     "en": "freedom",
     "pos": "noun"
   },
   {
-    "id": 957,
     "sw": "ujanja",
     "en": "cunning",
     "pos": "noun"
   },
   {
-    "id": 887,
     "sw": "ujasiri",
     "en": "courage",
     "pos": "noun"
   },
   {
-    "id": 172,
     "sw": "uji",
     "en": "porridge",
     "pos": "noun"
   },
   {
-    "id": 777,
     "sw": "ujumbe",
     "en": "the message",
     "pos": "noun"
   },
   {
-    "id": 292,
     "sw": "ukame",
     "en": "drought",
     "pos": "noun"
   },
   {
-    "id": 517,
     "sw": "ukanda",
     "en": "belt",
     "pos": "noun"
   },
   {
-    "id": 24,
     "sw": "ukarimu",
     "en": "hospitality",
     "pos": "noun"
   },
   {
-    "id": 138,
     "sw": "ukoma",
     "en": "leprosy",
     "pos": "noun"
   },
   {
-    "id": 58,
     "sw": "ukoo",
     "en": "clan",
     "pos": "noun"
   },
   {
-    "id": 952,
     "sw": "ukuaji",
     "en": "growth",
     "pos": "noun"
   },
   {
-    "id": 104,
     "sw": "ukucha",
     "en": "nail",
     "pos": "noun"
   },
   {
-    "id": 212,
     "sw": "ukuta",
     "en": "the wall",
     "pos": "noun"
   },
   {
-    "id": 912,
     "sw": "ukweli",
     "en": "the truth",
     "pos": "noun"
   },
   {
-    "id": 77,
     "sw": "ulimi",
     "en": "tongue",
     "pos": "noun"
   },
   {
-    "id": 254,
     "sw": "uma",
     "en": "fork",
     "pos": "noun"
   },
   {
-    "id": 229,
     "sw": "umeme",
     "en": "electricity",
     "pos": "noun"
   },
   {
-    "id": 972,
     "sw": "umeme wa jua",
     "en": "solar electricity",
     "pos": "noun"
   },
   {
-    "id": 918,
     "sw": "umwagiliaji",
     "en": "irrigation",
     "pos": "noun"
   },
   {
-    "id": 874,
     "sw": "unyenyekevu",
     "en": "humility",
     "pos": "noun"
   },
   {
-    "id": 293,
     "sw": "unyevu",
     "en": "humidity",
     "pos": "noun"
   },
   {
-    "id": 134,
     "sw": "upasuaji",
     "en": "surgery",
     "pos": "noun"
   },
   {
-    "id": 354,
     "sw": "upendo",
     "en": "love",
     "pos": "noun"
   },
   {
-    "id": 275,
     "sw": "upepo",
     "en": "the wind",
     "pos": "noun"
   },
   {
-    "id": 936,
     "sw": "upinzani",
     "en": "opposition",
     "pos": "noun"
   },
   {
-    "id": 789,
     "sw": "upload",
     "en": "upload",
     "pos": "noun"
   },
   {
-    "id": 890,
     "sw": "upole",
     "en": "gentleness",
     "pos": "noun"
   },
   {
-    "id": 29,
     "sw": "urafiki",
     "en": "friendship",
     "pos": "noun"
   },
   {
-    "id": 62,
     "sw": "urithi",
     "en": "inheritance",
     "pos": "noun"
   },
   {
-    "id": 968,
     "sw": "usafi wa mazingira",
     "en": "environmental sanitation",
     "pos": "noun"
   },
   {
-    "id": 911,
     "sw": "ushahidi",
     "en": "evidence",
     "pos": "noun"
   },
   {
-    "id": 861,
     "sw": "ushindani",
     "en": "competition",
     "pos": "noun"
   },
   {
-    "id": 849,
     "sw": "ushindi",
     "en": "victory",
     "pos": "noun"
   },
   {
-    "id": 30,
     "sw": "ushirikiano",
     "en": "cooperation",
     "pos": "noun"
   },
   {
-    "id": 829,
     "sw": "ushuru",
     "en": "tax",
     "pos": "noun"
   },
   {
-    "id": 285,
     "sw": "usiku",
     "en": "at night",
     "pos": "noun"
   },
   {
-    "id": 883,
     "sw": "usingizi",
     "en": "sleep",
     "pos": "noun"
   },
   {
-    "id": 72,
     "sw": "uso",
     "en": "face",
     "pos": "noun"
   },
   {
-    "id": 962,
     "sw": "ustadi",
     "en": "skill",
     "pos": "noun"
   },
   {
-    "id": 908,
     "sw": "utafiti",
     "en": "research",
     "pos": "noun"
   },
   {
-    "id": 810,
     "sw": "utamaduni",
     "en": "culture",
     "pos": "noun"
   },
   {
-    "id": 947,
     "sw": "utawala bora",
     "en": "good governance",
     "pos": "noun"
   },
   {
-    "id": 888,
     "sw": "utulivu",
     "en": "stability",
     "pos": "noun"
   },
   {
-    "id": 914,
     "sw": "uvumbuzi",
     "en": "innovation",
     "pos": "noun"
   },
   {
-    "id": 27,
     "sw": "uvumilivu",
     "en": "endurance",
     "pos": "noun"
   },
   {
-    "id": 855,
     "sw": "uvuvi",
     "en": "fishing",
     "pos": "noun"
   },
   {
-    "id": 945,
     "sw": "uwajibikaji",
     "en": "accountability",
     "pos": "noun"
   },
   {
-    "id": 388,
     "sw": "uwanja",
     "en": "the field",
     "pos": "noun"
   },
   {
-    "id": 752,
     "sw": "uwanja wa ndege",
     "en": "the airport",
     "pos": "noun"
   },
   {
-    "id": 946,
     "sw": "uwazi",
     "en": "clarity",
     "pos": "noun"
   },
   {
-    "id": 995,
     "sw": "uwindaji",
     "en": "hunting",
     "pos": "noun"
   },
   {
-    "id": 67,
     "sw": "uzao",
     "en": "offspring",
     "pos": "noun"
   },
   {
-    "id": 60,
     "sw": "uzazi",
     "en": "reproduction",
     "pos": "noun"
   },
   {
-    "id": 953,
     "sw": "uzoefu",
     "en": "experience",
     "pos": "noun"
   },
   {
-    "id": 512,
     "sw": "viatu",
     "en": "shoes",
     "pos": "noun"
   },
   {
-    "id": 765,
     "sw": "video",
     "en": "video",
     "pos": "noun"
   },
   {
-    "id": 124,
     "sw": "vidonda",
     "en": "sores",
     "pos": "noun"
   },
   {
-    "id": 408,
     "sw": "visa",
     "en": "Visa",
     "pos": "noun"
   },
   {
-    "id": 209,
     "sw": "vitumbua",
     "en": "snacks",
     "pos": "noun"
   },
   {
-    "id": 166,
     "sw": "vitunguu",
     "en": "onions",
     "pos": "noun"
   },
   {
-    "id": 12,
     "sw": "vizuri",
     "en": "well",
     "pos": "noun"
   },
   {
-    "id": 294,
     "sw": "volkano",
     "en": "volcano",
     "pos": "noun"
   },
   {
-    "id": 458,
     "sw": "vuli",
     "en": "autumn",
     "pos": "noun"
   },
   {
-    "id": 940,
     "sw": "wajibu",
     "en": "responsibility",
     "pos": "noun"
   },
   {
-    "id": 425,
     "sw": "wakati",
     "en": "time",
     "pos": "noun"
   },
   {
-    "id": 145,
     "sw": "wali",
     "en": "rice",
     "pos": "noun"
   },
   {
-    "id": 499,
     "sw": "waridi",
     "en": "rose",
     "pos": "adjective"
   },
   {
-    "id": 876,
     "sw": "wasiwasi",
     "en": "anxiety",
     "pos": "noun"
   },
   {
-    "id": 486,
     "sw": "wastani",
     "en": "average",
     "pos": "noun"
   },
   {
-    "id": 842,
     "sw": "wateja",
     "en": "customers",
     "pos": "noun"
   },
   {
-    "id": 56,
     "sw": "watoto",
     "en": "children",
     "pos": "noun"
   },
   {
-    "id": 57,
     "sw": "wazazi",
     "en": "parents",
     "pos": "noun"
   },
   {
-    "id": 570,
     "sw": "waziri",
     "en": "the minister",
     "pos": "noun"
   },
   {
-    "id": 932,
     "sw": "waziri mkuu",
     "en": "the prime minister",
     "pos": "noun"
   },
   {
-    "id": 963,
     "sw": "weledi",
     "en": "professional",
     "pos": "noun"
   },
   {
-    "id": 423,
     "sw": "wiki",
     "en": "week",
     "pos": "noun"
   },
   {
-    "id": 437,
     "sw": "wiki iliyopita",
     "en": "last week",
     "pos": "noun"
   },
   {
-    "id": 738,
     "sw": "wilaya",
     "en": "district",
     "pos": "noun"
   },
   {
-    "id": 872,
     "sw": "wivu",
     "en": "jealousy",
     "pos": "noun"
   },
   {
-    "id": 661,
     "sw": "ya kale",
     "en": "ancient",
     "pos": "noun"
   },
   {
-    "id": 183,
     "sw": "zabibu",
     "en": "grapes",
     "pos": "noun"
   },
   {
-    "id": 749,
     "sw": "zahanati",
     "en": "clinic",
     "pos": "noun"
   },
   {
-    "id": 428,
     "sw": "zamani",
     "en": "in the past",
     "pos": "noun"
   },
   {
-    "id": 500,
     "sw": "zambarau",
     "en": "purple",
     "pos": "adjective"
   },
   {
-    "id": 920,
     "sw": "zao",
     "en": "theirs",
     "pos": "noun"
   },
   {
-    "id": 488,
     "sw": "ziada",
     "en": "extra",
     "pos": "noun"
   },
   {
-    "id": 268,
     "sw": "ziwa",
     "en": "lake",
     "pos": "noun"
   },
   {
-    "id": 245,
     "sw": "zulia",
     "en": "carpet",
     "pos": "noun"

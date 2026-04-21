@@ -906,6 +906,78 @@ Rectangle {
                         }
                     }
 
+                    // ── Mfano wa sentensi ─────────────────────────────────────
+                    Column {
+                        width: parent.width
+                        spacing: app.pad * 0.5
+                        visible: app.currentWord && (app.currentWord.ex_sw || app.currentWord.ex_en)
+
+                        Text {
+                            text: "📝 Mfano"
+                            font.pixelSize: app.fntSm - 1; font.bold: true; font.letterSpacing: 1.5
+                            color: Qt.rgba(0, 0.9, 1, 0.45)
+                        }
+
+                        Rectangle {
+                            width: parent.width
+                            height: exCol.implicitHeight + app.pad * 1.2
+                            radius: app.radius * 0.7
+                            color: Qt.rgba(0, 0.9, 1, 0.04)
+                            border.color: Qt.rgba(0, 0.9, 1, 0.12); border.width: 1
+
+                            Column {
+                                id: exCol
+                                anchors { left: parent.left; right: parent.right; verticalCenter: parent.verticalCenter; margins: app.pad * 0.9 }
+                                spacing: 6
+
+                                Text {
+                                    width: parent.width
+                                    visible: app.currentWord && app.currentWord.ex_sw
+                                    text: app.currentWord ? (app.currentWord.ex_sw || "") : ""
+                                    font.pixelSize: app.fntSm; color: iqGold; opacity: 0.9
+                                    wrapMode: Text.WordWrap; font.italic: true
+                                }
+                                Text {
+                                    width: parent.width
+                                    visible: app.currentWord && app.currentWord.ex_en
+                                    text: app.currentWord ? (app.currentWord.ex_en || "") : ""
+                                    font.pixelSize: app.fntSm; color: iqTextSec; opacity: 0.8
+                                    wrapMode: Text.WordWrap; font.italic: true
+                                }
+                            }
+                        }
+                    }
+
+                    // ── Kategoria ─────────────────────────────────────────────
+                    Row {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        spacing: 8
+                        visible: app.currentWord && app.currentWord.cat
+
+                        Text {
+                            text: "🏷"
+                            font.pixelSize: app.fntSm
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+                        Text {
+                            text: app.currentWord ? (app.currentWord.cat || "") : ""
+                            font.pixelSize: app.fntSm; font.bold: true; font.letterSpacing: 1
+                            color: Qt.rgba(0.7, 0.95, 1, 0.55)
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+                    }
+
+                    Rectangle {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        width: parent.width * 0.7; height: 1
+                        gradient: Gradient {
+                            orientation: Gradient.Horizontal
+                            GradientStop { position: 0.0; color: "transparent" }
+                            GradientStop { position: 0.5; color: Qt.rgba(0, 0.9, 1, 0.15) }
+                            GradientStop { position: 1.0; color: "transparent" }
+                        }
+                    }
+
                     Row {
                         anchors.horizontalCenter: parent.horizontalCenter
                         spacing: 12
