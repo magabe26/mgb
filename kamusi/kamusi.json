@@ -2412,10 +2412,6 @@
     "en": "Sea turtle"
   },
   {
-    "sw": "Gorila",
-    "en": "Gorilla"
-  },
-  {
     "sw": "Sokwe mtu",
     "en": "Chimpanzee"
   },
@@ -7981,11 +7977,6 @@
   {
     "sw": "mtaji",
     "en": "capital",
-    "pos": "noun"
-  },
-  {
-    "sw": "mtandao",
-    "en": "internet",
     "pos": "noun"
   },
   {
