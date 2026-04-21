@@ -42,12 +42,6 @@
     "pos": "noun"
   },
   {
-    "id": 704,
-    "sw": "Afrika Kusini",
-    "en": "South Africa",
-    "pos": "noun"
-  },
-  {
     "id": 453,
     "sw": "Agosti",
     "en": "August",
@@ -78,12 +72,6 @@
     "pos": "noun"
   },
   {
-    "id": 701,
-    "sw": "Burundi",
-    "en": "Burundi",
-    "pos": "noun"
-  },
-  {
     "id": 980,
     "sw": "Desemba",
     "en": "December",
@@ -96,21 +84,9 @@
     "pos": "noun"
   },
   {
-    "id": 706,
-    "sw": "Ghana",
-    "en": "Ghana",
-    "pos": "noun"
-  },
-  {
     "id": 445,
     "sw": "Ijumaa",
     "en": "Friday",
-    "pos": "noun"
-  },
-  {
-    "id": 720,
-    "sw": "Iringa",
-    "en": "Iringa",
     "pos": "noun"
   },
   {
@@ -174,12 +150,6 @@
     "pos": "noun"
   },
   {
-    "id": 721,
-    "sw": "Mbeya",
-    "en": "Mbeya",
-    "pos": "noun"
-  },
-  {
     "id": 450,
     "sw": "Mei",
     "en": "May",
@@ -192,51 +162,9 @@
     "pos": "noun"
   },
   {
-    "id": 729,
-    "sw": "Mombasa",
-    "en": "Mombasa",
-    "pos": "noun"
-  },
-  {
-    "id": 719,
-    "sw": "Morogoro",
-    "en": "Morogoro",
-    "pos": "noun"
-  },
-  {
-    "id": 717,
-    "sw": "Moshi",
-    "en": "Smoke",
-    "pos": "noun"
-  },
-  {
-    "id": 725,
-    "sw": "Mtwara",
-    "en": "Mtwara",
-    "pos": "noun"
-  },
-  {
     "id": 791,
     "sw": "Mungu",
     "en": "God",
-    "pos": "noun"
-  },
-  {
-    "id": 726,
-    "sw": "Musoma",
-    "en": "Read it",
-    "pos": "noun"
-  },
-  {
-    "id": 730,
-    "sw": "Nairobi",
-    "en": "Nairobi",
-    "pos": "noun"
-  },
-  {
-    "id": 705,
-    "sw": "Nigeria",
-    "en": "Nigeria",
     "pos": "noun"
   },
   {
@@ -255,12 +183,6 @@
     "id": 454,
     "sw": "Septemba",
     "en": "September",
-    "pos": "noun"
-  },
-  {
-    "id": 728,
-    "sw": "Singida",
-    "en": "I won't",
     "pos": "noun"
   },
   {
