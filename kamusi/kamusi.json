@@ -1,5 +1,221 @@
 [
   {
+    "sw": "Hakuna kitu",
+    "en": "Nothing"
+  },
+  {
+    "sw": "Hakuna mtu",
+    "en": "Nobody"
+  },
+  {
+    "sw": "Chochote",
+    "en": "Anything"
+  },
+  {
+    "sw": "Yeyote",
+    "en": "Anyone"
+  },
+  {
+    "sw": "Kila mahali",
+    "en": "Everywhere"
+  },
+  {
+    "sw": "Popote",
+    "en": "Anywhere"
+  },
+  {
+    "sw": "Gani",
+    "en": "Which"
+  },
+  {
+    "sw": "Kwa nini",
+    "en": "Why"
+  },
+  {
+    "sw": "Kabla ya",
+    "en": "Before"
+  },
+  {
+    "sw": "Baada ya",
+    "en": "After"
+  },
+  {
+    "sw": "Hadi",
+    "en": "Until"
+  },
+  {
+    "sw": "Hivyo",
+    "en": "So"
+  },
+  {
+    "sw": "Kwa sababu",
+    "en": "Because"
+  },
+  {
+    "sw": "Ikiwa",
+    "en": "If"
+  },
+  {
+    "sw": "Lakini",
+    "en": "But"
+  },
+  {
+    "sw": "Au",
+    "en": "Or"
+  },
+  {
+    "sw": "Na",
+    "en": "And"
+  },
+  {
+    "sw": "Kwa",
+    "en": "For"
+  },
+  {
+    "sw": "Dhidi",
+    "en": "Against"
+  },
+  {
+    "sw": "Zaidi",
+    "en": "More"
+  },
+  {
+    "sw": "Kabisa",
+    "en": "Completely"
+  },
+  {
+    "sw": "Kidogo",
+    "en": "Little"
+  },
+  {
+    "sw": "Wachache",
+    "en": "Few"
+  },
+  {
+    "sw": "Wengi",
+    "en": "Many"
+  },
+  {
+    "sw": "Baadhi",
+    "en": "Some"
+  },
+  {
+    "sw": "Hakuna",
+    "en": "None"
+  },
+  {
+    "sw": "Kipande",
+    "en": "Piece"
+  },
+  {
+    "sw": "Siku zote",
+    "en": "Always"
+  },
+  {
+    "sw": "Mara mbili",
+    "en": "Twice"
+  },
+  {
+    "sw": "Mara moja",
+    "en": "Once"
+  },
+  {
+    "sw": "Kitu",
+    "en": "Thing"
+  },
+  {
+    "sw": "Uvumbi",
+    "en": "Dirt"
+  },
+  {
+    "sw": "Barafu",
+    "en": "Ice"
+  },
+  {
+    "sw": "Yai",
+    "en": "Egg"
+  },
+  {
+    "sw": "Viumbe",
+    "en": "Creatures"
+  },
+  {
+    "sw": "Ushirikina",
+    "en": "Superstition"
+  },
+  {
+    "sw": "Maji ya baridi",
+    "en": "Cold water"
+  },
+  {
+    "sw": "Chujio",
+    "en": "Strainer"
+  },
+  {
+    "sw": "Jagi",
+    "en": "Jug"
+  },
+  {
+    "sw": "Pampu",
+    "en": "Pump"
+  },
+  {
+    "sw": "Nguo ya meza",
+    "en": "Tablecloth"
+  },
+  {
+    "sw": "Mkasi",
+    "en": "Scissors"
+  },
+  {
+    "sw": "Mwendelezo",
+    "en": "Process"
+  },
+  {
+    "sw": "Chafya",
+    "en": "Sneeze"
+  },
+  {
+    "sw": "Neva",
+    "en": "Nerve"
+  },
+  {
+    "sw": "Mshipa",
+    "en": "Vein"
+  },
+  {
+    "sw": "Mkaa",
+    "en": "Charcoal"
+  },
+  {
+    "sw": "Bendera",
+    "en": "Flag"
+  },
+  {
+    "sw": "Kumbatio",
+    "en": "Hug"
+  },
+  {
+    "sw": "Kilio",
+    "en": "Cry"
+  },
+  {
+    "sw": "Nyakati",
+    "en": "Seasons"
+  },
+  {
+    "sw": "Imefungwa",
+    "en": "Closed"
+  },
+  {
+    "sw": "Jina",
+    "en": "Name"
+  },
+  {
+    "sw": "Radio",
+    "en": "Radio"
+  },
+  {
     "sw": "Kelele",
     "en": "Noise"
   },
