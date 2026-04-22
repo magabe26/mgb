@@ -1,5 +1,1881 @@
 [
   {
+    "sw": "Urbanization",
+    "en": "Ukuaji wa miji"
+  },
+  {
+    "sw": "Demographics",
+    "en": "Demografia"
+  },
+  {
+    "sw": "Migration",
+    "en": "Uhamiaji"
+  },
+  {
+    "sw": "Globalization",
+    "en": "Utandawazi"
+  },
+  {
+    "sw": "Sanction",
+    "en": "Vikwazo"
+  },
+  {
+    "sw": "Embargo",
+    "en": "Vizuizi vya biashara"
+  },
+  {
+    "sw": "Quota",
+    "en": "Kiwango"
+  },
+  {
+    "sw": "Tariff",
+    "en": "Ushuru"
+  },
+  {
+    "sw": "Taxation",
+    "en": "Utoaji kodi"
+  },
+  {
+    "sw": "Interest rate",
+    "en": "Kiwango cha riba"
+  },
+  {
+    "sw": "Exchange rate",
+    "en": "Kiwango cha ubadilishaji"
+  },
+  {
+    "sw": "Currency",
+    "en": "Sarafu"
+  },
+  {
+    "sw": "Liquidity",
+    "en": "Ukwasi"
+  },
+  {
+    "sw": "Solvency",
+    "en": "Uwezo wa kulipa"
+  },
+  {
+    "sw": "Bankruptcy",
+    "en": "Kufilisika"
+  },
+  {
+    "sw": "Amortization",
+    "en": "Ulipaji deni"
+  },
+  {
+    "sw": "Depreciation",
+    "en": "Mshuko wa thamani"
+  },
+  {
+    "sw": "Appreciation",
+    "en": "Ongezeko la thamani"
+  },
+  {
+    "sw": "Yield",
+    "en": "Mavuno"
+  },
+  {
+    "sw": "Return",
+    "en": "Faida"
+  },
+  {
+    "sw": "Risk",
+    "en": "Hatari"
+  },
+  {
+    "sw": "Portfolio",
+    "en": "Daftari la uwekezaji"
+  },
+  {
+    "sw": "Dividend",
+    "en": "Gawio"
+  },
+  {
+    "sw": "Interest",
+    "en": "Riba"
+  },
+  {
+    "sw": "Debit",
+    "en": "Deni"
+  },
+  {
+    "sw": "Credit",
+    "en": "Mkopo/Karadha"
+  },
+  {
+    "sw": "Capital",
+    "en": "Mtaji"
+  },
+  {
+    "sw": "Budget",
+    "en": "Bajeti"
+  },
+  {
+    "sw": "Economy",
+    "en": "Uchumi"
+  },
+  {
+    "sw": "Market",
+    "en": "Soko"
+  },
+  {
+    "sw": "SME",
+    "en": "Biashara ndogo"
+  },
+  {
+    "sw": "Conglomerate",
+    "en": "Shirika kubwa"
+  },
+  {
+    "sw": "Corporation",
+    "en": "Shirika"
+  },
+  {
+    "sw": "Consortium",
+    "en": "Umoja wa kampuni"
+  },
+  {
+    "sw": "Partnership",
+    "en": "Ushirika"
+  },
+  {
+    "sw": "Alliance",
+    "en": "Muungano"
+  },
+  {
+    "sw": "Agreement",
+    "en": "Makubaliano"
+  },
+  {
+    "sw": "Mediation",
+    "en": "Upatanishi"
+  },
+  {
+    "sw": "Arbitration",
+    "en": "Usuluhishi"
+  },
+  {
+    "sw": "Negotiation",
+    "en": "Mazungumzo"
+  },
+  {
+    "sw": "Union",
+    "en": "Chama cha wafanyakazi"
+  },
+  {
+    "sw": "Labor",
+    "en": "Nguvukazi"
+  },
+  {
+    "sw": "Unemployment",
+    "en": "Ukosefu wa ajira"
+  },
+  {
+    "sw": "Employment",
+    "en": "Ajira"
+  },
+  {
+    "sw": "Services",
+    "en": "Huduma"
+  },
+  {
+    "sw": "Hospitality",
+    "en": "Ukarimu"
+  },
+  {
+    "sw": "Tourism",
+    "en": "Utalii"
+  },
+  {
+    "sw": "Fishing",
+    "en": "Uvuvi"
+  },
+  {
+    "sw": "Mining",
+    "en": "Uchimba madini"
+  },
+  {
+    "sw": "Forestry",
+    "en": "Misitu"
+  },
+  {
+    "sw": "Agriculture",
+    "en": "Kilimo"
+  },
+  {
+    "sw": "Manufacturing",
+    "en": "Uzalishaji"
+  },
+  {
+    "sw": "Industry",
+    "en": "Viwanda"
+  },
+  {
+    "sw": "Trade",
+    "en": "Biashara"
+  },
+  {
+    "sw": "Commerce",
+    "en": "Biashara"
+  },
+  {
+    "sw": "Merchandise",
+    "en": "Bidhaa"
+  },
+  {
+    "sw": "Retail",
+    "en": "Rejareja"
+  },
+  {
+    "sw": "Wholesale",
+    "en": "Jumla"
+  },
+  {
+    "sw": "Distribution",
+    "en": "Usambazaji"
+  },
+  {
+    "sw": "Procurement",
+    "en": "Ununuzi"
+  },
+  {
+    "sw": "Supply chain",
+    "en": "Mnyororo wa ugavi"
+  },
+  {
+    "sw": "Warehouse",
+    "en": "Gala"
+  },
+  {
+    "sw": "Inventory",
+    "en": "Orodha ya mali"
+  },
+  {
+    "sw": "Storage",
+    "en": "Hifadhi"
+  },
+  {
+    "sw": "Logistics",
+    "en": "Lojistiki"
+  },
+  {
+    "sw": "Transportation",
+    "en": "Usafirishaji"
+  },
+  {
+    "sw": "Infrastructure",
+    "en": "Miundombinu"
+  },
+  {
+    "sw": "Resource",
+    "en": "Rasilimali"
+  },
+  {
+    "sw": "Planning",
+    "en": "Upangaji"
+  },
+  {
+    "sw": "Execution",
+    "en": "Utekelezaji"
+  },
+  {
+    "sw": "Operation",
+    "en": "Uendeshaji"
+  },
+  {
+    "sw": "Management",
+    "en": "Usimamizi"
+  },
+  {
+    "sw": "Control",
+    "en": "Udhibiti"
+  },
+  {
+    "sw": "Assurance",
+    "en": "Dhamana"
+  },
+  {
+    "sw": "Performance",
+    "en": "Utendaji"
+  },
+  {
+    "sw": "Evaluation",
+    "en": "Tathmini"
+  },
+  {
+    "sw": "Criteria",
+    "en": "Vigezo"
+  },
+  {
+    "sw": "Requirement",
+    "en": "Sharti"
+  },
+  {
+    "sw": "Guideline",
+    "en": "Mwongozo"
+  },
+  {
+    "sw": "Regulation",
+    "en": "Kanuni"
+  },
+  {
+    "sw": "Protocol",
+    "en": "Itifaki"
+  },
+  {
+    "sw": "Standard",
+    "en": "Kiwango"
+  },
+  {
+    "sw": "Technique",
+    "en": "Ufundi"
+  },
+  {
+    "sw": "Method",
+    "en": "Mbinu"
+  },
+  {
+    "sw": "Process",
+    "en": "Mchakato"
+  },
+  {
+    "sw": "System",
+    "en": "Mfumo"
+  },
+  {
+    "sw": "Mechanism",
+    "en": "Mfumo/Mbinu"
+  },
+  {
+    "sw": "Function",
+    "en": "Kazi"
+  },
+  {
+    "sw": "Structure",
+    "en": "Muundo"
+  },
+  {
+    "sw": "Framework",
+    "en": "Mfumo"
+  },
+  {
+    "sw": "Context",
+    "en": "Muktadha"
+  },
+  {
+    "sw": "Factor",
+    "en": "Kigezo"
+  },
+  {
+    "sw": "Trend",
+    "en": "Mwelekeo"
+  },
+  {
+    "sw": "Impact",
+    "en": "Athari"
+  },
+  {
+    "sw": "Outcome",
+    "en": "Matokeo"
+  },
+  {
+    "sw": "Objective",
+    "en": "Lengo/Kusudi"
+  },
+  {
+    "sw": "Report",
+    "en": "Ripoti"
+  },
+  {
+    "sw": "Review",
+    "en": "Mapitio"
+  },
+  {
+    "sw": "Observation",
+    "en": "Uchunguzi"
+  },
+  {
+    "sw": "Evidence",
+    "en": "Ushahidi"
+  },
+  {
+    "sw": "Theory",
+    "en": "Nadharia"
+  },
+  {
+    "sw": "Survey",
+    "en": "Utafiti/Sura"
+  },
+  {
+    "sw": "Research",
+    "en": "Utafiti"
+  },
+  {
+    "sw": "Branding",
+    "en": "Ujenzi wa chapa"
+  },
+  {
+    "sw": "Marketing",
+    "en": "Masoko"
+  },
+  {
+    "sw": "Social media",
+    "en": "Mitandao ya kijamii"
+  },
+  {
+    "sw": "Public relations",
+    "en": "Mahusiano ya umma"
+  },
+  {
+    "sw": "Advertising",
+    "en": "Matangazo"
+  },
+  {
+    "sw": "Broadcasting",
+    "en": "Utangazaji"
+  },
+  {
+    "sw": "Journalism",
+    "en": "Uandishi wa habari"
+  },
+  {
+    "sw": "Media",
+    "en": "Vyombo vya habari"
+  },
+  {
+    "sw": "Fluency",
+    "en": "Ufasaha"
+  },
+  {
+    "sw": "Interpretation",
+    "en": "Ukalimani"
+  },
+  {
+    "sw": "Translation",
+    "en": "Tafsiri"
+  },
+  {
+    "sw": "Pragmatics",
+    "en": "Pragmatiki"
+  },
+  {
+    "sw": "Morphology",
+    "en": "Mofolojia"
+  },
+  {
+    "sw": "Syntax",
+    "en": "Sintaksia"
+  },
+  {
+    "sw": "Grammar",
+    "en": "Sarufi"
+  },
+  {
+    "sw": "Phonetics",
+    "en": "Fonatiki"
+  },
+  {
+    "sw": "Semantics",
+    "en": "Semantiki"
+  },
+  {
+    "sw": "Linguistics",
+    "en": "Isimu"
+  },
+  {
+    "sw": "Communication",
+    "en": "Mawasiliano"
+  },
+  {
+    "sw": "Inclusion",
+    "en": "Ujumuishi"
+  },
+  {
+    "sw": "Diversity",
+    "en": "Utofauti"
+  },
+  {
+    "sw": "Productivity",
+    "en": "Tija"
+  },
+  {
+    "sw": "Efficiency",
+    "en": "Ufanisi"
+  },
+  {
+    "sw": "Strategy",
+    "en": "Mkakati"
+  },
+  {
+    "sw": "Leadership",
+    "en": "Uongozi"
+  },
+  {
+    "sw": "Conflict of interest",
+    "en": "Mgongano wa maslahi"
+  },
+  {
+    "sw": "Consent",
+    "en": "Idhini"
+  },
+  {
+    "sw": "Privacy",
+    "en": "Faragha"
+  },
+  {
+    "sw": "Trademark",
+    "en": "Alama ya biashara"
+  },
+  {
+    "sw": "Copyright",
+    "en": "Haki miliki"
+  },
+  {
+    "sw": "Patent",
+    "en": "Hati miliki ya uvumbuzi"
+  },
+  {
+    "sw": "Intellectual property",
+    "en": "Miliki ya kiakili"
+  },
+  {
+    "sw": "Title deed",
+    "en": "Hati miliki"
+  },
+  {
+    "sw": "Mortgage",
+    "en": "Mkopo wa nyumba"
+  },
+  {
+    "sw": "Lease",
+    "en": "Pangonchi/Mkataba wa pango"
+  },
+  {
+    "sw": "Landlord",
+    "en": "Mwenye nyumba"
+  },
+  {
+    "sw": "Tenant",
+    "en": "Mpangaji"
+  },
+  {
+    "sw": "Probate",
+    "en": "Uthibitisho wa wosia"
+  },
+  {
+    "sw": "Will",
+    "en": "Wosia"
+  },
+  {
+    "sw": "Contract",
+    "en": "Mkataba"
+  },
+  {
+    "sw": "Tort",
+    "en": "Madai ya hasara"
+  },
+  {
+    "sw": "Negligence",
+    "en": "Uzembe"
+  },
+  {
+    "sw": "Fraud",
+    "en": "Udanganyifu"
+  },
+  {
+    "sw": "Bribery",
+    "en": "Rushwa"
+  },
+  {
+    "sw": "Assault",
+    "en": "Shambulio"
+  },
+  {
+    "sw": "Arson",
+    "en": "Uchomaji moto"
+  },
+  {
+    "sw": "Pardon",
+    "en": "Msamaha"
+  },
+  {
+    "sw": "Acquittal",
+    "en": "Kuachiwa huru"
+  },
+  {
+    "sw": "Sentence",
+    "en": "Hukumu"
+  },
+  {
+    "sw": "Affidavit",
+    "en": "Hati ya kiapo"
+  },
+  {
+    "sw": "Litigation",
+    "en": "Madai ya kisheria"
+  },
+  {
+    "sw": "Defendant",
+    "en": "Mshitakiwa"
+  },
+  {
+    "sw": "Plaintiff",
+    "en": "Mshitaki"
+  },
+  {
+    "sw": "Law",
+    "en": "Sheria"
+  },
+  {
+    "sw": "Corporate",
+    "en": "Kishirika"
+  },
+  {
+    "sw": "Franchise",
+    "en": "Haki ya biashara"
+  },
+  {
+    "sw": "Startup",
+    "en": "Biashara mpya"
+  },
+  {
+    "sw": "Entrepreneur",
+    "en": "Mjasiriamali"
+  },
+  {
+    "sw": "Loss",
+    "en": "Hasara"
+  },
+  {
+    "sw": "Profit",
+    "en": "Faida"
+  },
+  {
+    "sw": "Equity",
+    "en": "Hisa/Usawa"
+  },
+  {
+    "sw": "Asset",
+    "en": "Rasilimali/Mali"
+  },
+  {
+    "sw": "Liability",
+    "en": "Deni/Wajibu"
+  },
+  {
+    "sw": "Bond",
+    "en": "Dhamana"
+  },
+  {
+    "sw": "Stock market",
+    "en": "Soko la hisa"
+  },
+  {
+    "sw": "Investment",
+    "en": "Uwekezaji"
+  },
+  {
+    "sw": "GDP",
+    "en": "Pato la Taifa"
+  },
+  {
+    "sw": "Deflation",
+    "en": "Mshuko wa bei"
+  },
+  {
+    "sw": "Inflation",
+    "en": "Mfumuko wa bei"
+  },
+  {
+    "sw": "Monetary",
+    "en": "Kisarafu"
+  },
+  {
+    "sw": "Fiscal",
+    "en": "Kifedha"
+  },
+  {
+    "sw": "Expenditure",
+    "en": "Matumizi"
+  },
+  {
+    "sw": "Revenue",
+    "en": "Mapato"
+  },
+  {
+    "sw": "Accounting",
+    "en": "Uhasibu"
+  },
+  {
+    "sw": "Audit",
+    "en": "Ukaguzi wa hesabu"
+  },
+  {
+    "sw": "Finance",
+    "en": "Fedha"
+  },
+  {
+    "sw": "Economics",
+    "en": "Uchumi"
+  },
+  {
+    "sw": "Imperialism",
+    "en": "Ubeberu"
+  },
+  {
+    "sw": "Capitalism",
+    "en": "Ubepari"
+  },
+  {
+    "sw": "Socialism",
+    "en": "Ujamaa"
+  },
+  {
+    "sw": "Democracy",
+    "en": "Demokrasia"
+  },
+  {
+    "sw": "Autocracy",
+    "en": "Utawala wa kiimla"
+  },
+  {
+    "sw": "Sovereignty",
+    "en": "Mamlaka kamili"
+  },
+  {
+    "sw": "Embassy",
+    "en": "Ubalozi"
+  },
+  {
+    "sw": "Diplomacy",
+    "en": "Diplomasia"
+  },
+  {
+    "sw": "Constitution",
+    "en": "Katiba"
+  },
+  {
+    "sw": "Legislature",
+    "en": "Bunge"
+  },
+  {
+    "sw": "Judiciary",
+    "en": "Mahakama"
+  },
+  {
+    "sw": "Executive",
+    "en": "Mtendaji"
+  },
+  {
+    "sw": "Legislation",
+    "en": "Sheria/Tungosheria"
+  },
+  {
+    "sw": "Policy",
+    "en": "Sera"
+  },
+  {
+    "sw": "Governance",
+    "en": "Utawala"
+  },
+  {
+    "sw": "Government",
+    "en": "Serikali"
+  },
+  {
+    "sw": "Politics",
+    "en": "Siasa"
+  },
+  {
+    "sw": "Stoicism",
+    "en": "Uvumilivu wa nafsi"
+  },
+  {
+    "sw": "Skepticism",
+    "en": "Mashaka"
+  },
+  {
+    "sw": "Utilitarianism",
+    "en": "Manufaa"
+  },
+  {
+    "sw": "Aesthetics",
+    "en": "Urembo"
+  },
+  {
+    "sw": "Existentialism",
+    "en": "Upoaji"
+  },
+  {
+    "sw": "Epistemology",
+    "en": "Epistemolojia"
+  },
+  {
+    "sw": "Metaphysics",
+    "en": "Metafizikia"
+  },
+  {
+    "sw": "Logic",
+    "en": "Mantiki"
+  },
+  {
+    "sw": "Ethics",
+    "en": "Maadili"
+  },
+  {
+    "sw": "Philosophy",
+    "en": "Falsafa"
+  },
+  {
+    "sw": "Ecosystem",
+    "en": "Mfumo wa ikolojia"
+  },
+  {
+    "sw": "Genetics",
+    "en": "Jenetiki"
+  },
+  {
+    "sw": "Species",
+    "en": "Spishi"
+  },
+  {
+    "sw": "Evolution",
+    "en": "Mageuzi"
+  },
+  {
+    "sw": "Organism",
+    "en": "Kiumbe"
+  },
+  {
+    "sw": "Respiration",
+    "en": "Upumuaji"
+  },
+  {
+    "sw": "Photosynthesis",
+    "en": "Usanishaji mwanga"
+  },
+  {
+    "sw": "Metabolism",
+    "en": "Umetaboli"
+  },
+  {
+    "sw": "Enzyme",
+    "en": "Enzimu"
+  },
+  {
+    "sw": "Protein",
+    "en": "Protini"
+  },
+  {
+    "sw": "DNA",
+    "en": "DNA"
+  },
+  {
+    "sw": "Gene",
+    "en": "Vinaba"
+  },
+  {
+    "sw": "Cell",
+    "en": "Seli"
+  },
+  {
+    "sw": "Biology",
+    "en": "Bailojia"
+  },
+  {
+    "sw": "Quantum",
+    "en": "Kwantamu"
+  },
+  {
+    "sw": "Relativity",
+    "en": "Uhusiano"
+  },
+  {
+    "sw": "Magnetism",
+    "en": "Usumaku"
+  },
+  {
+    "sw": "Heat",
+    "en": "Joto"
+  },
+  {
+    "sw": "Sound",
+    "en": "Sauti"
+  },
+  {
+    "sw": "Light",
+    "en": "Mwanga"
+  },
+  {
+    "sw": "Power",
+    "en": "Uwezo"
+  },
+  {
+    "sw": "Work",
+    "en": "Kazi"
+  },
+  {
+    "sw": "Energy",
+    "en": "Nishati"
+  },
+  {
+    "sw": "Pressure",
+    "en": "Shinikizo"
+  },
+  {
+    "sw": "Density",
+    "en": "Uzito kiasi"
+  },
+  {
+    "sw": "Weight",
+    "en": "Uzito"
+  },
+  {
+    "sw": "Mass",
+    "en": "Masi"
+  },
+  {
+    "sw": "Force",
+    "en": "Nguvu"
+  },
+  {
+    "sw": "Motion",
+    "en": "Mwendo"
+  },
+  {
+    "sw": "Gravity",
+    "en": "Uvutano"
+  },
+  {
+    "sw": "Physics",
+    "en": "Fizikia"
+  },
+  {
+    "sw": "Solid",
+    "en": "Yabisi"
+  },
+  {
+    "sw": "Liquid",
+    "en": "Kimiminika"
+  },
+  {
+    "sw": "Gas",
+    "en": "Gesi"
+  },
+  {
+    "sw": "Concentration",
+    "en": "Mkole"
+  },
+  {
+    "sw": "Solution",
+    "en": "Mbuyu/Mchanganyiko"
+  },
+  {
+    "sw": "Catalyst",
+    "en": "Kichocheo"
+  },
+  {
+    "sw": "Base",
+    "en": "Alkali"
+  },
+  {
+    "sw": "Acid",
+    "en": "Asidi"
+  },
+  {
+    "sw": "Reaction",
+    "en": "Mtikiso wa kikemia"
+  },
+  {
+    "sw": "Compound",
+    "en": "Mchanganyiko"
+  },
+  {
+    "sw": "Element",
+    "en": "Elementi"
+  },
+  {
+    "sw": "Molecule",
+    "en": "Molekyuli"
+  },
+  {
+    "sw": "Atom",
+    "en": "Atomi"
+  },
+  {
+    "sw": "Chemistry",
+    "en": "Kemia"
+  },
+  {
+    "sw": "Biodegradable",
+    "en": "Kinachooza"
+  },
+  {
+    "sw": "Recycling",
+    "en": "Urejelezaji"
+  },
+  {
+    "sw": "Waste management",
+    "en": "Usimamizi wa taka"
+  },
+  {
+    "sw": "Pollution",
+    "en": "Uchafuzi"
+  },
+  {
+    "sw": "Greenhouse effect",
+    "en": "Athari ya kitalu"
+  },
+  {
+    "sw": "Carbon footprint",
+    "en": "Alama ya kaboni"
+  },
+  {
+    "sw": "Climate change",
+    "en": "Mabadiliko ya tabianchi"
+  },
+  {
+    "sw": "Global warming",
+    "en": "Ongezeko la joto"
+  },
+  {
+    "sw": "Fossil fuels",
+    "en": "Mafuta ya kisukuku"
+  },
+  {
+    "sw": "Hydroelectricity",
+    "en": "Umeme wa maji"
+  },
+  {
+    "sw": "Nuclear energy",
+    "en": "Nishati ya nyuklia"
+  },
+  {
+    "sw": "Wind energy",
+    "en": "Nishati ya upepo"
+  },
+  {
+    "sw": "Solar energy",
+    "en": "Nishati ya jua"
+  },
+  {
+    "sw": "Renewable energy",
+    "en": "Nishati mbadala"
+  },
+  {
+    "sw": "Power supply",
+    "en": "Chanzo cha umeme"
+  },
+  {
+    "sw": "Cable",
+    "en": "Waya"
+  },
+  {
+    "sw": "Socket",
+    "en": "Soketi"
+  },
+  {
+    "sw": "Switch",
+    "en": "Swichi"
+  },
+  {
+    "sw": "Fuse",
+    "en": "Fyuzi"
+  },
+  {
+    "sw": "Circuit",
+    "en": "Mzunguko wa umeme"
+  },
+  {
+    "sw": "Capacitor",
+    "en": "Kapasta"
+  },
+  {
+    "sw": "Resistance",
+    "en": "Upinzani"
+  },
+  {
+    "sw": "Current",
+    "en": "Mkondo wa umeme"
+  },
+  {
+    "sw": "Voltage",
+    "en": "Volteji"
+  },
+  {
+    "sw": "Battery",
+    "en": "Betri"
+  },
+  {
+    "sw": "Scanner",
+    "en": "Skana"
+  },
+  {
+    "sw": "Printer",
+    "en": "Printa/Mchapishaji"
+  },
+  {
+    "sw": "Monitor",
+    "en": "Skrini/Monita"
+  },
+  {
+    "sw": "Keyboard",
+    "en": "Kibodi"
+  },
+  {
+    "sw": "Bug",
+    "en": "Hitilafu"
+  },
+  {
+    "sw": "Update",
+    "en": "Sasisho"
+  },
+  {
+    "sw": "Installation",
+    "en": "Ufungaji"
+  },
+  {
+    "sw": "Link",
+    "en": "Kiungo"
+  },
+  {
+    "sw": "Browser",
+    "en": "Vivinjari"
+  },
+  {
+    "sw": "Firewall",
+    "en": "Wigo wa usalama"
+  },
+  {
+    "sw": "Cybersecurity",
+    "en": "Usalama wa mtandao"
+  },
+  {
+    "sw": "Encryption",
+    "en": "Usimbuaji fiche"
+  },
+  {
+    "sw": "Decoding",
+    "en": "Usimbuaji/Utambuzi"
+  },
+  {
+    "sw": "Encoding",
+    "en": "Usimbuaji"
+  },
+  {
+    "sw": "Algorithm",
+    "en": "Aligoridimu/Kanuni"
+  },
+  {
+    "sw": "Processor",
+    "en": "Kichakataji"
+  },
+  {
+    "sw": "Server",
+    "en": "Sava/Mtumishi wa data"
+  },
+  {
+    "sw": "Network",
+    "en": "Mtandao"
+  },
+  {
+    "sw": "Database",
+    "en": "Hifadhidata"
+  },
+  {
+    "sw": "Software",
+    "en": "Programu"
+  },
+  {
+    "sw": "Hardware",
+    "en": "Vifaa gumu"
+  },
+  {
+    "sw": "Innovation",
+    "en": "Ubunifu"
+  },
+  {
+    "sw": "Invention",
+    "en": "Uvumbuzi"
+  },
+  {
+    "sw": "Conclusion",
+    "en": "Hitimisho"
+  },
+  {
+    "sw": "Analysis",
+    "en": "Uchambuzi"
+  },
+  {
+    "sw": "Experiment",
+    "en": "Majaribio"
+  },
+  {
+    "sw": "Laboratory",
+    "en": "Maabara"
+  },
+  {
+    "sw": "Telescope",
+    "en": "Darubini ya mbali"
+  },
+  {
+    "sw": "Microscope",
+    "en": "Darubini kali"
+  },
+  {
+    "sw": "Biodiversity",
+    "en": "Bioanuwai"
+  },
+  {
+    "sw": "Reforestation",
+    "en": "Upandaji miti tena"
+  },
+  {
+    "sw": "Deforestation",
+    "en": "Ukataji misitu"
+  },
+  {
+    "sw": "Renewable",
+    "en": "Inayofanyika upya"
+  },
+  {
+    "sw": "Sustainability",
+    "en": "Uendelevu"
+  },
+  {
+    "sw": "Conservation",
+    "en": "Uhifadhi"
+  },
+  {
+    "sw": "Endangered",
+    "en": "Viumbe vilivyo hatarini"
+  },
+  {
+    "sw": "Extinction",
+    "en": "Kutoweka kwa viumbe"
+  },
+  {
+    "sw": "Habitat",
+    "en": "Makazi ya asili"
+  },
+  {
+    "sw": "Ecology",
+    "en": "Ikolojia"
+  },
+  {
+    "sw": "Alkalinity",
+    "en": "Ualkali"
+  },
+  {
+    "sw": "Acidity",
+    "en": "Uasidi"
+  },
+  {
+    "sw": "Topsoil",
+    "en": "Udongo wa juu"
+  },
+  {
+    "sw": "Subsoil",
+    "en": "Udongo wa chini"
+  },
+  {
+    "sw": "Compost",
+    "en": "Mbolea ya mboji"
+  },
+  {
+    "sw": "Fertilizer",
+    "en": "Mbolea"
+  },
+  {
+    "sw": "Greenhouse",
+    "en": "Kitalu cha kioo"
+  },
+  {
+    "sw": "Orchard",
+    "en": "Shamba la matunda"
+  },
+  {
+    "sw": "Dairy",
+    "en": "Maziwa/Gala la maziwa"
+  },
+  {
+    "sw": "Poultry",
+    "en": "Ufugaji kuku"
+  },
+  {
+    "sw": "Livestock",
+    "en": "Mifugo"
+  },
+  {
+    "sw": "Cultivation",
+    "en": "Kilimo/Palizi"
+  },
+  {
+    "sw": "Sowing",
+    "en": "Kupanda mbegu"
+  },
+  {
+    "sw": "Harvest",
+    "en": "Mavuno"
+  },
+  {
+    "sw": "Irrigation",
+    "en": "Umwagiliaji"
+  },
+  {
+    "sw": "Herbicide",
+    "en": "Dawa ya magugu"
+  },
+  {
+    "sw": "Pesticide",
+    "en": "Dawa ya wadudu"
+  },
+  {
+    "sw": "Lawmower",
+    "en": "Mashine ya kukata nyasi"
+  },
+  {
+    "sw": "Landscaping",
+    "en": "Mapambo ya bustani"
+  },
+  {
+    "sw": "Sewage",
+    "en": "Maji taka"
+  },
+  {
+    "sw": "Drainage",
+    "en": "Mifereji ya maji taka"
+  },
+  {
+    "sw": "Plumbing",
+    "en": "Ufundi bomba"
+  },
+  {
+    "sw": "Ventilation",
+    "en": "Mpitisho wa hewa"
+  },
+  {
+    "sw": "Insulation",
+    "en": "Kizuia joto/baridi"
+  },
+  {
+    "sw": "Roofing",
+    "en": "Upauaji"
+  },
+  {
+    "sw": "Plaster",
+    "en": "Sementi ya ukuta"
+  },
+  {
+    "sw": "Mortar",
+    "en": "Lutoni/Chokaa"
+  },
+  {
+    "sw": "Concrete",
+    "en": "Simiti/Zege"
+  },
+  {
+    "sw": "Granite",
+    "en": "Jiwe gumu"
+  },
+  {
+    "sw": "Marble",
+    "en": "Marmar/Jiwe laini"
+  },
+  {
+    "sw": "Tile",
+    "en": "Kigae"
+  },
+  {
+    "sw": "Flooring",
+    "en": "Sakafu"
+  },
+  {
+    "sw": "Blind",
+    "en": "Pazia la mbao/plastiki"
+  },
+  {
+    "sw": "Curtain",
+    "en": "Pazia"
+  },
+  {
+    "sw": "Chandelier",
+    "en": "Taa ya mapambo"
+  },
+  {
+    "sw": "Cabinetry",
+    "en": "Utengenezaji makabati"
+  },
+  {
+    "sw": "Furniture",
+    "en": "Samani/Mbao"
+  },
+  {
+    "sw": "Upholstery",
+    "en": "Vitambaa vya samani"
+  },
+  {
+    "sw": "Interior design",
+    "en": "Mapambo ya ndani"
+  },
+  {
+    "sw": "Scaffolding",
+    "en": "Mao/Majaara"
+  },
+  {
+    "sw": "Foundation",
+    "en": "Msingi"
+  },
+  {
+    "sw": "Blueprint",
+    "en": "Ramani ya jengo"
+  },
+  {
+    "sw": "Architecture",
+    "en": "Usanifu majengo"
+  },
+  {
+    "sw": "Alumni",
+    "en": "Wahitimu wa zamani"
+  },
+  {
+    "sw": "Graduation",
+    "en": "Mahafali"
+  },
+  {
+    "sw": "Internship",
+    "en": "Mafunzo kwa vitendo"
+  },
+  {
+    "sw": "Scholarship",
+    "en": "Ufadhili wa masomo"
+  },
+  {
+    "sw": "Peer review",
+    "en": "Mapitio ya wenza"
+  },
+  {
+    "sw": "Empirical",
+    "en": "Kuhakikiwa kwa vitendo"
+  },
+  {
+    "sw": "Qualitative",
+    "en": "Kifaifa"
+  },
+  {
+    "sw": "Quantitative",
+    "en": "Kiwango"
+  },
+  {
+    "sw": "Variable",
+    "en": "Kigezo"
+  },
+  {
+    "sw": "Hypothesis",
+    "en": "Nadhairia tete"
+  },
+  {
+    "sw": "Plagiarism",
+    "en": "Wizi wa maandishi"
+  },
+  {
+    "sw": "Citation",
+    "en": "Nukuu ya kitaaluma"
+  },
+  {
+    "sw": "Dissertation",
+    "en": "Tasnifu"
+  },
+  {
+    "sw": "Thesis",
+    "en": "Andiko la utafiti"
+  },
+  {
+    "sw": "Numeracy",
+    "en": "Kujua kuhesabu"
+  },
+  {
+    "sw": "Literacy",
+    "en": "Kujua kusoma na kuandika"
+  },
+  {
+    "sw": "Pedagogy",
+    "en": "Mbinu za ufundishaji"
+  },
+  {
+    "sw": "Syllabus",
+    "en": "Muhtasari wa somo"
+  },
+  {
+    "sw": "Curriculum",
+    "en": "Mtaala"
+  },
+  {
+    "sw": "Academic",
+    "en": "Kitaaluma"
+  },
+  {
+    "sw": "Core",
+    "en": "Kiini cha dunia"
+  },
+  {
+    "sw": "Mantle",
+    "en": "Manto (ndani ya dunia)"
+  },
+  {
+    "sw": "Crust",
+    "en": "Ganda la dunia"
+  },
+  {
+    "sw": "Tectonic plates",
+    "en": "Mabamba ya dunia"
+  },
+  {
+    "sw": "Sediment",
+    "en": "Mashapo"
+  },
+  {
+    "sw": "Erosion",
+    "en": "Mmomonyoko"
+  },
+  {
+    "sw": "Glacier",
+    "en": "Barafu inayotembea"
+  },
+  {
+    "sw": "Delta",
+    "en": "Delta (mdomo wa mto)"
+  },
+  {
+    "sw": "Archipelago",
+    "en": "Vifungu vya visiwa"
+  },
+  {
+    "sw": "Peninsula",
+    "en": "Rasi"
+  },
+  {
+    "sw": "Plateau",
+    "en": "Nyanda za juu"
+  },
+  {
+    "sw": "Hemisphere",
+    "en": "Nusudubaba"
+  },
+  {
+    "sw": "Longitude",
+    "en": "Longitudo"
+  },
+  {
+    "sw": "Latitude",
+    "en": "Latitudo"
+  },
+  {
+    "sw": "Tropics",
+    "en": "Kanda za joto"
+  },
+  {
+    "sw": "Equator",
+    "en": "Ikweta"
+  },
+  {
+    "sw": "Geography",
+    "en": "Jiografia"
+  },
+  {
+    "sw": "Deckhand",
+    "en": "Mfanyakazi wa sitaha"
+  },
+  {
+    "sw": "Life jacket",
+    "en": "Jaketi la uokozi"
+  },
+  {
+    "sw": "Lifeboat",
+    "en": "Boti ya uokozi"
+  },
+  {
+    "sw": "Submarine",
+    "en": "Nambariwani/Nambari yungi"
+  },
+  {
+    "sw": "Shipwreck",
+    "en": "Meli kuzama"
+  },
+  {
+    "sw": "Voyage",
+    "en": "Safari ya majini"
+  },
+  {
+    "sw": "Sail",
+    "en": "Tanga"
+  },
+  {
+    "sw": "Mast",
+    "en": "Mlingoti wa jahazi"
+  },
+  {
+    "sw": "Crew",
+    "en": "Wafanyakazi/Mabaharia"
+  },
+  {
+    "sw": "Logbook",
+    "en": "Kitabu cha safari"
+  },
+  {
+    "sw": "Dock",
+    "en": "Gati"
+  },
+  {
+    "sw": "Harbor",
+    "en": "Bandari"
+  },
+  {
+    "sw": "Lighthouse",
+    "en": "Mnara wa taa"
+  },
+  {
+    "sw": "Cabin",
+    "en": "Chumba cha meli"
+  },
+  {
+    "sw": "Deck",
+    "en": "Deki ya meli"
+  },
+  {
+    "sw": "Anchor",
+    "en": "Nanga"
+  },
+  {
+    "sw": "Vessel",
+    "en": "Chombo/Meli"
+  },
+  {
+    "sw": "Maritime",
+    "en": "Usafiri wa majini"
+  },
+  {
+    "sw": "Jet engine",
+    "en": "Injini ya jeti"
+  },
+  {
+    "sw": "Propeller",
+    "en": "Panga la ndege"
+  },
+  {
+    "sw": "Navigation",
+    "en": "Uongozaji njia"
+  },
+  {
+    "sw": "Parachute",
+    "en": "Mwamvuli wa dharura"
+  },
+  {
+    "sw": "Cargo",
+    "en": "Mizigo"
+  },
+  {
+    "sw": "Airlines",
+    "en": "Mashirika ya ndege"
+  },
+  {
+    "sw": "Immigration",
+    "en": "Uhamiaji"
+  },
+  {
+    "sw": "Customs",
+    "en": "Forodha"
+  },
+  {
+    "sw": "Boarding pass",
+    "en": "Kadi ya kupandia"
+  },
+  {
+    "sw": "Terminal",
+    "en": "Jengo la abiria"
+  },
+  {
+    "sw": "Runway",
+    "en": "Njia ya kurukia"
+  },
+  {
+    "sw": "Hangar",
+    "en": "Gala la ndege"
+  },
+  {
+    "sw": "Turbulence",
+    "en": "Misukosuko ya hewa"
+  },
+  {
+    "sw": "Altitude",
+    "en": "Kimo cha juu"
+  },
+  {
+    "sw": "Landing",
+    "en": "Kutua"
+  },
+  {
+    "sw": "Take-off",
+    "en": "Kuruka/Kupaa"
+  },
+  {
+    "sw": "Landing gear",
+    "en": "Miguu ya ndege"
+  },
+  {
+    "sw": "Cockpit",
+    "en": "Chumba cha rubani"
+  },
+  {
+    "sw": "Fuselage",
+    "en": "Kiwiliwili cha ndege"
+  },
+  {
+    "sw": "Aviation",
+    "en": "Usafiri wa anga"
+  },
+  {
+    "sw": "Dosage",
+    "en": "Kiwango cha dawa"
+  },
+  {
+    "sw": "Clinic",
+    "en": "Zahanati/Kliniki"
+  },
+  {
+    "sw": "Inpatient",
+    "en": "Mgonjwa wa kulazwa"
+  },
+  {
+    "sw": "Outpatient",
+    "en": "Mgonjwa wa nje"
+  },
+  {
+    "sw": "Ward",
+    "en": "Wadi"
+  },
+  {
+    "sw": "Critical condition",
+    "en": "Hali mahututi"
+  },
+  {
+    "sw": "Stable condition",
+    "en": "Hali thabiti"
+  },
+  {
+    "sw": "Acute",
+    "en": "Kali/Ya ghafla"
+  },
+  {
+    "sw": "Chronic",
+    "en": "Sugu"
+  },
+  {
+    "sw": "Antibody",
+    "en": "Kingamwili"
+  },
+  {
+    "sw": "Pathogen",
+    "en": "Kidudu cha ugonjwa"
+  },
+  {
+    "sw": "Infection",
+    "en": "Maambukizi"
+  },
+  {
+    "sw": "Allergy",
+    "en": "Mzio"
+  },
+  {
+    "sw": "Inflammation",
+    "en": "Muwasho/Kuvimba"
+  },
+  {
+    "sw": "Immunity",
+    "en": "Kinga ya mwili"
+  },
+  {
+    "sw": "Vaccination",
+    "en": "Chanjo"
+  },
+  {
+    "sw": "Oncology",
+    "en": "Tiba ya saratani"
+  },
+  {
+    "sw": "Neurology",
+    "en": "Tiba ya mfumo wa neva"
+  },
+  {
+    "sw": "Cardiology",
+    "en": "Tiba ya moyo"
+  },
+  {
+    "sw": "Obstetrics",
+    "en": "Ukungaji/Tiba ya uzazi"
+  },
+  {
+    "sw": "Pediatrics",
+    "en": "Tiba ya watoto"
+  },
+  {
+    "sw": "Pharmacy",
+    "en": "Duka la dawa/Famasi"
+  },
+  {
+    "sw": "Psychiatry",
+    "en": "Tiba ya akili"
+  },
+  {
+    "sw": "Physiotherapy",
+    "en": "Mazoezi tiba"
+  },
+  {
+    "sw": "Ultrasound",
+    "en": "Ultrasaundi/Mwangosauti"
+  },
+  {
+    "sw": "X-ray",
+    "en": "Mionzi/Eksirei"
+  },
+  {
+    "sw": "Biopsy",
+    "en": "Uchunguzi wa tishu"
+  },
+  {
+    "sw": "Prognosis",
+    "en": "Matarajio ya kupona"
+  },
+  {
+    "sw": "Diagnosis",
+    "en": "Utambuzi wa ugonjwa"
+  },
+  {
+    "sw": "Intravenous (IV)",
+    "en": "Njia ya mshipa"
+  },
+  {
+    "sw": "Syringe",
+    "en": "Siringi/Bomba la sindano"
+  },
+  {
+    "sw": "Scalpel",
+    "en": "Kisu cha upasuaji"
+  },
+  {
+    "sw": "Sutures",
+    "en": "Mshono wa kidonda"
+  },
+  {
+    "sw": "Surgery",
+    "en": "Upasuaji"
+  },
+  {
+    "sw": "Anesthesiatist",
+    "en": "Mtaalamu wa nusu kaputi"
+  },
+  {
     "sw": "Tape",
     "en": "Measure"
   },
