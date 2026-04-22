@@ -1,5 +1,593 @@
 [
   {
+    "sw": "Karibuni tena",
+    "en": "Welcome again (plural)"
+  },
+  {
+    "sw": "Likizo njema",
+    "en": "Happy holidays"
+  },
+  {
+    "sw": "Kijitabu",
+    "en": "Notebook"
+  },
+  {
+    "sw": "Kibali",
+    "en": "Permit"
+  },
+  {
+    "sw": "Mpakani",
+    "en": "At the border"
+  },
+  {
+    "sw": "Nchi jirani",
+    "en": "Neighboring country"
+  },
+  {
+    "sw": "Kila mmoja",
+    "en": "Everyone"
+  },
+  {
+    "sw": "Mmoja mmoja",
+    "en": "One by one"
+  },
+  {
+    "sw": "Baya",
+    "en": "Bad/Ugly"
+  },
+  {
+    "sw": "Kipekee",
+    "en": "Unique"
+  },
+  {
+    "sw": "Kisasa",
+    "en": "Modern"
+  },
+  {
+    "sw": "Maisha ya kijijini",
+    "en": "Village life"
+  },
+  {
+    "sw": "Kijiji cha wenyeji",
+    "en": "Local village"
+  },
+  {
+    "sw": "Utalii wa kitamaduni",
+    "en": "Cultural tourism"
+  },
+  {
+    "sw": "Utalii wa kiikolojia",
+    "en": "Ecotourism"
+  },
+  {
+    "sw": "Mazingira safi",
+    "en": "Clean environment"
+  },
+  {
+    "sw": "Usafi",
+    "en": "Cleanliness"
+  },
+  {
+    "sw": "Dustibini",
+    "en": "Trash can"
+  },
+  {
+    "sw": "Takataka",
+    "en": "Trash/Garbage"
+  },
+  {
+    "sw": "Mfuko wa karatasi",
+    "en": "Paper bag"
+  },
+  {
+    "sw": "Mfuko wa plastiki",
+    "en": "Plastic bag"
+  },
+  {
+    "sw": "Deodoranti",
+    "en": "Deodorant"
+  },
+  {
+    "sw": "Perfumu",
+    "en": "Perfume"
+  },
+  {
+    "sw": "Shampoo",
+    "en": "Shampoo"
+  },
+  {
+    "sw": "Sabuni ya maji",
+    "en": "Liquid soap"
+  },
+  {
+    "sw": "Mashine ya kunyoolea",
+    "en": "Shaver/Razor"
+  },
+  {
+    "sw": "Miwani ya kusomea",
+    "en": "Reading glasses"
+  },
+  {
+    "sw": "Kuumwa meno",
+    "en": "Toothache"
+  },
+  {
+    "sw": "Tumbo la kuhara",
+    "en": "Upset stomach"
+  },
+  {
+    "sw": "Magonjwa",
+    "en": "Diseases"
+  },
+  {
+    "sw": "Neti ya mbu",
+    "en": "Mosquito net"
+  },
+  {
+    "sw": "Taa ya tochi",
+    "en": "Flashlight"
+  },
+  {
+    "sw": "Soketi",
+    "en": "Socket"
+  },
+  {
+    "sw": "Adapta",
+    "en": "Adapter"
+  },
+  {
+    "sw": "USB",
+    "en": "Waya wa USB"
+  },
+  {
+    "sw": "Vifaa vya masikioni",
+    "en": "Earphones"
+  },
+  {
+    "sw": "Kata simu",
+    "en": "Hang up"
+  },
+  {
+    "sw": "Pokea simu",
+    "en": "Answer the call"
+  },
+  {
+    "sw": "Piga simu",
+    "en": "Make a call"
+  },
+  {
+    "sw": "Bando la mwezi",
+    "en": "Monthly bundle"
+  },
+  {
+    "sw": "Bando la wiki",
+    "en": "Weekly bundle"
+  },
+  {
+    "sw": "Mtandao wa simu",
+    "en": "Mobile network"
+  },
+  {
+    "sw": "E-mail",
+    "en": "Baruapepe"
+  },
+  {
+    "sw": "Anwani",
+    "en": "Address"
+  },
+  {
+    "sw": "Namba ya simu",
+    "en": "Phone number"
+  },
+  {
+    "sw": "Kitambulisho",
+    "en": "Identification (ID)"
+  },
+  {
+    "sw": "Jaza fomu",
+    "en": "Fill the form"
+  },
+  {
+    "sw": "Hati",
+    "en": "Document"
+  },
+  {
+    "sw": "Nimeshalipa",
+    "en": "I have already paid"
+  },
+  {
+    "sw": "Nitalipa",
+    "en": "I will pay"
+  },
+  {
+    "sw": "Bei ya mwisho?",
+    "en": "Final price?"
+  },
+  {
+    "sw": "Hii ni ghali sana",
+    "en": "This is too expensive"
+  },
+  {
+    "sw": "Punguza bei",
+    "en": "Reduce the price"
+  },
+  {
+    "sw": "Sina pesa",
+    "en": "I have no money"
+  },
+  {
+    "sw": "Nimeshiba",
+    "en": "I am full (food)"
+  },
+  {
+    "sw": "Ninaumwa",
+    "en": "I am sick"
+  },
+  {
+    "sw": "Nimechoka",
+    "en": "I am tired"
+  },
+  {
+    "sw": "Nimefurahi",
+    "en": "I am happy"
+  },
+  {
+    "sw": "Labda baadaye",
+    "en": "Maybe later"
+  },
+  {
+    "sw": "Si kweli",
+    "en": "It is not true"
+  },
+  {
+    "sw": "Ni kweli",
+    "en": "It is true"
+  },
+  {
+    "sw": "Sawa sawa",
+    "en": "Exactly/Correct"
+  },
+  {
+    "sw": "Ipo",
+    "en": "It is there"
+  },
+  {
+    "sw": "Imeisha",
+    "en": "It is finished"
+  },
+  {
+    "sw": "Inatosha",
+    "en": "It is enough"
+  },
+  {
+    "sw": "Lete bili",
+    "en": "Bring the bill"
+  },
+  {
+    "sw": "Naomba maji",
+    "en": "I request water"
+  },
+  {
+    "sw": "Bila pilipili",
+    "en": "Without chili"
+  },
+  {
+    "sw": "Bila sukari",
+    "en": "Without sugar"
+  },
+  {
+    "sw": "Chumvi kidogo",
+    "en": "Less salt"
+  },
+  {
+    "sw": "Nyama ya kuchoma",
+    "en": "Grilled meat"
+  },
+  {
+    "sw": "Wanyama wa kufugwa",
+    "en": "Domestic animals"
+  },
+  {
+    "sw": "Hifadhi ya mazingira",
+    "en": "Nature reserve"
+  },
+  {
+    "sw": "Eneo la ulinzi",
+    "en": "Protected area"
+  },
+  {
+    "sw": "Eneo la hatari",
+    "en": "Danger zone"
+  },
+  {
+    "sw": "Eneo la ujenzi",
+    "en": "Construction area"
+  },
+  {
+    "sw": "Vuta",
+    "en": "Pull"
+  },
+  {
+    "sw": "Sukuma",
+    "en": "Push"
+  },
+  {
+    "sw": "Toka",
+    "en": "Exit"
+  },
+  {
+    "sw": "Ingia",
+    "en": "Enter"
+  },
+  {
+    "sw": "Hairuhusiwi",
+    "en": "Not allowed"
+  },
+  {
+    "sw": "Huvutwi sigara",
+    "en": "No smoking"
+  },
+  {
+    "sw": "Stampu",
+    "en": "Stamps"
+  },
+  {
+    "sw": "Posta",
+    "en": "Post office"
+  },
+  {
+    "sw": "Kituo cha simu",
+    "en": "Call center"
+  },
+  {
+    "sw": "Eneo la wazi",
+    "en": "Open area/Park"
+  },
+  {
+    "sw": "Soko la matunda",
+    "en": "Fruit market"
+  },
+  {
+    "sw": "Soko la samaki",
+    "en": "Fish market"
+  },
+  {
+    "sw": "Mtembea kwa miguu",
+    "en": "Pedestrian"
+  },
+  {
+    "sw": "Vuka barabara",
+    "en": "Cross the road"
+  },
+  {
+    "sw": "Kujaza mafuta",
+    "en": "Refill fuel"
+  },
+  {
+    "sw": "Upepo wa tairi",
+    "en": "Tire pressure"
+  },
+  {
+    "sw": "Gari limeharibika",
+    "en": "The car is broken"
+  },
+  {
+    "sw": "Benzeni",
+    "en": "Petrol"
+  },
+  {
+    "sw": "Mambo ya mjini",
+    "en": "Urban things"
+  },
+  {
+    "sw": "Tayari",
+    "en": "Ready/Already"
+  },
+  {
+    "sw": "Fuo za bahari",
+    "en": "Beach"
+  },
+  {
+    "sw": "Buni",
+    "en": "Ostrich"
+  },
+  {
+    "sw": "Safari ya picha",
+    "en": "Photo safari"
+  },
+  {
+    "sw": "Binocular",
+    "en": "Darubini"
+  },
+  {
+    "sw": "Msaada!",
+    "en": "Help!"
+  },
+  {
+    "sw": "Potelea mbali!",
+    "en": "Get lost!"
+  },
+  {
+    "sw": "Niache!",
+    "en": "Leave me alone!"
+  },
+  {
+    "sw": "Ondoka!",
+    "en": "Go away!"
+  },
+  {
+    "sw": "Simama!",
+    "en": "Stop!"
+  },
+  {
+    "sw": "Kuibiwa",
+    "en": "To be robbed"
+  },
+  {
+    "sw": "Kuumwa na kichwa",
+    "en": "Headache"
+  },
+  {
+    "sw": "Wifii",
+    "en": "Wi-Fi"
+  },
+  {
+    "sw": "Bando",
+    "en": "Data bundle"
+  },
+  {
+    "sw": "Salio",
+    "en": "Airtime/Balance"
+  },
+  {
+    "sw": "Laini ya simu",
+    "en": "SIM card"
+  },
+  {
+    "sw": "Mafuta ya jua",
+    "en": "Sunscreen"
+  },
+  {
+    "sw": "Mashine ya pesa",
+    "en": "ATM"
+  },
+  {
+    "sw": "Pesa/Fedha",
+    "en": "Money"
+  },
+  {
+    "sw": "Chenji",
+    "en": "Change (money)"
+  },
+  {
+    "sw": "Mkate wa mayai",
+    "en": "Omelette/Pancake"
+  },
+  {
+    "sw": "Chipsi",
+    "en": "Fries"
+  },
+  {
+    "sw": "Chakula cha baharini",
+    "en": "Seafood"
+  },
+  {
+    "sw": "Karatasi ya chooni",
+    "en": "Toilet paper"
+  },
+  {
+    "sw": "Fani",
+    "en": "Fan"
+  },
+  {
+    "sw": "Neti/Chandarua",
+    "en": "Mosquito net"
+  },
+  {
+    "sw": "Chumba cha watu wawili",
+    "en": "Double room"
+  },
+  {
+    "sw": "Chumba kimoja",
+    "en": "Single room"
+  },
+  {
+    "sw": "Safari njema",
+    "en": "Safe journey"
+  },
+  {
+    "sw": "Ninatoka...",
+    "en": "I come from..."
+  },
+  {
+    "sw": "Naitwa...",
+    "en": "My name is..."
+  },
+  {
+    "sw": "Unaitwa nani?",
+    "en": "What is your name?"
+  },
+  {
+    "sw": "Wewe ni nani?",
+    "en": "Who are you?"
+  },
+  {
+    "sw": "Hii ni nini?",
+    "en": "What is this?"
+  },
+  {
+    "sw": "Bei gani?",
+    "en": "How much is the price?"
+  },
+  {
+    "sw": "Ngapi...?",
+    "en": "How many/How much...?"
+  },
+  {
+    "sw": "Gani...?",
+    "en": "Which...?"
+  },
+  {
+    "sw": "Kwa nini...?",
+    "en": "Why...?"
+  },
+  {
+    "sw": "Nini...?",
+    "en": "What...?"
+  },
+  {
+    "sw": "Nani...?",
+    "en": "Who...?"
+  },
+  {
+    "sw": "Lini...?",
+    "en": "When...?"
+  },
+  {
+    "sw": "Wapi...?",
+    "en": "Where is...?"
+  },
+  {
+    "sw": "Nataka",
+    "en": "I want"
+  },
+  {
+    "sw": "Nahitaji",
+    "en": "I need"
+  },
+  {
+    "sw": "Nisaidie",
+    "en": "Help me"
+  },
+  {
+    "sw": "Nimeshapotea",
+    "en": "I am lost"
+  },
+  {
+    "sw": "Unajua Kiingereza?",
+    "en": "Do you know English?"
+  },
+  {
+    "sw": "Sema polepole",
+    "en": "Speak slowly"
+  },
+  {
+    "sw": "Rudia tena",
+    "en": "Repeat again"
+  },
+  {
+    "sw": "Unasemaje?",
+    "en": "How do you say?"
+  },
+  {
+    "sw": "Sifahamu",
+    "en": "I don't know/understand"
+  },
+  {
+    "sw": "Sielewi",
+    "en": "I don't understand"
+  },
+  {
     "sw": "Hakuna kitu",
     "en": "Nothing"
   },
