@@ -1285,21 +1285,30 @@ Rectangle {
                         right: parent.right; rightMargin: app.pad * 1.4
                         bottom: parent.bottom; bottomMargin: app.pad * 1.1
                     }
-                    spacing: 4
+                    spacing: 6
 
+                    // Kiswahili — cyan mkali (iqGold)
                     Text {
                         text: app.currentWord ? app.currentWord.sw : ""
                         font.pixelSize: app.fntXl * 1.1; font.bold: true; font.letterSpacing: 2
-                        color: "#ffffff"
+                        color: "#00e5ff"
                         style: Text.Glow
-                        styleColor: Qt.rgba(heroSection.heroColor.r, heroSection.heroColor.g, heroSection.heroColor.b, 0.6)
+                        styleColor: Qt.rgba(0, 0.9, 1, 0.55)
                         wrapMode: Text.WordWrap; width: parent.width
                     }
 
+                    Rectangle {
+                        width: parent.width * 0.35; height: 1
+                        color: Qt.rgba(0, 0.9, 1, 0.25)
+                    }
+
+                    // Kiingereza — cyan hafifu (iqTextSec)
                     Text {
                         text: app.currentWord ? app.currentWord.en : ""
                         font.pixelSize: app.fntLg; font.bold: true
-                        color: Qt.rgba(1, 1, 1, 0.80)
+                        color: "#a0d8d8"
+                        style: Text.Glow
+                        styleColor: Qt.rgba(0, 0.9, 1, 0.18)
                         wrapMode: Text.WordWrap; width: parent.width
                     }
                 }
@@ -1310,7 +1319,7 @@ Rectangle {
                     width: app.btnH * 0.72; height: width; radius: width / 2
                     color: xMA.pressed ? Qt.rgba(1, 1, 1, 0.25) : Qt.rgba(1, 1, 1, 0.12)
                     Behavior on color { ColorAnimation { duration: 80 } }
-                    Text { anchors.centerIn: parent; text: "✕"; font.pixelSize: app.fntMd; font.bold: true; color: "white" }
+                    Text { anchors.centerIn: parent; text: "X"; font.pixelSize: app.fntMd; font.bold: true; color: "white" }
                     MouseArea { id: xMA; anchors.fill: parent; onClicked: { detailSheet.sheetOpen = false; } }
                 }
             }
