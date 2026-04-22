@@ -1,5 +1,2185 @@
 [
   {
+    "sw": "Futurism",
+    "en": "Falsafa ya baadaye"
+  },
+  {
+    "sw": "Funding",
+    "en": "Ufadhili wa fedha"
+  },
+  {
+    "sw": "Fundamentalism",
+    "en": "Ushupavu wa kidini"
+  },
+  {
+    "sw": "Frontier",
+    "en": "Mpaka"
+  },
+  {
+    "sw": "Freedom of speech",
+    "en": "Uhuru wa kusema"
+  },
+  {
+    "sw": "Free market",
+    "en": "Soko huria"
+  },
+  {
+    "sw": "Formalization",
+    "en": "Ufanyaji rasmi"
+  },
+  {
+    "sw": "Forensic",
+    "en": "Uchunguzi wa kisheria/kisayansi"
+  },
+  {
+    "sw": "Foreign aid",
+    "en": "Msaada wa kigeni"
+  },
+  {
+    "sw": "Forecast",
+    "en": "Utabiri"
+  },
+  {
+    "sw": "Folklore",
+    "en": "Hadithi za kale"
+  },
+  {
+    "sw": "Fluctuation",
+    "en": "Kubadilika-badilika"
+  },
+  {
+    "sw": "Fiduciary",
+    "en": "Dhamana ya uaminifu"
+  },
+  {
+    "sw": "Feudalism",
+    "en": "Ukabaila"
+  },
+  {
+    "sw": "Feminism",
+    "en": "Ufeministi"
+  },
+  {
+    "sw": "Federation",
+    "en": "Shirikisho"
+  },
+  {
+    "sw": "Feasibility",
+    "en": "Uwezekano"
+  },
+  {
+    "sw": "Fascism",
+    "en": "Ufashisti"
+  },
+  {
+    "sw": "Famine",
+    "en": "Njaa kuu"
+  },
+  {
+    "sw": "Faction",
+    "en": "Kikundi ndani ya chama"
+  },
+  {
+    "sw": "Facilitator",
+    "en": "Mwezeshaji"
+  },
+  {
+    "sw": "Fabrication",
+    "en": "Uundaji/Udanganyifu"
+  },
+  {
+    "sw": "Extremism",
+    "en": "Ushupavu wa itikadi kali"
+  },
+  {
+    "sw": "Extradition",
+    "en": "Urejeshwaji wa mhalifu"
+  },
+  {
+    "sw": "Expropriation",
+    "en": "Unyakuzi wa mali kwa faida ya umma"
+  },
+  {
+    "sw": "Export",
+    "en": "Mauzo ya nje"
+  },
+  {
+    "sw": "Exploitation",
+    "en": "Unyonyaji"
+  },
+  {
+    "sw": "Expertise",
+    "en": "Utaalamu"
+  },
+  {
+    "sw": "Expatriate",
+    "en": "Mtaalamu anayefanya kazi nje"
+  },
+  {
+    "sw": "Expansion",
+    "en": "Upanuzi"
+  },
+  {
+    "sw": "Exodus",
+    "en": "Uhamaji wa wingi"
+  },
+  {
+    "sw": "Exile",
+    "en": "Uhamishoni"
+  },
+  {
+    "sw": "Excise duty",
+    "en": "Ushuru wa bidhaa"
+  },
+  {
+    "sw": "Eviction",
+    "en": "Ufukuzaji"
+  },
+  {
+    "sw": "Euthanasia",
+    "en": "Kifo cha huruma"
+  },
+  {
+    "sw": "Eugenics",
+    "en": "Sayansi ya kuboresha vizazi"
+  },
+  {
+    "sw": "Etiquette",
+    "en": "Itifaki ya tabia njema"
+  },
+  {
+    "sw": "Ethnicity",
+    "en": "Umakabila"
+  },
+  {
+    "sw": "Equilibrium",
+    "en": "Hali ya usawa"
+  },
+  {
+    "sw": "Equality",
+    "en": "Usawa"
+  },
+  {
+    "sw": "Enforcement",
+    "en": "Usimamizi wa sheria"
+  },
+  {
+    "sw": "Endowment",
+    "en": "Mfuko wa ruzuku"
+  },
+  {
+    "sw": "Enactment",
+    "en": "Uingizaji kwenye sheria"
+  },
+  {
+    "sw": "Empowerment",
+    "en": "Uwezeshaji"
+  },
+  {
+    "sw": "Empathy",
+    "en": "Huruma ya ndani"
+  },
+  {
+    "sw": "Emigration",
+    "en": "Uhamaji nje ya nchi"
+  },
+  {
+    "sw": "Embezzlement",
+    "en": "Ubadhirifu"
+  },
+  {
+    "sw": "Electorate",
+    "en": "Wapiga kura"
+  },
+  {
+    "sw": "Elasticity",
+    "en": "Unyumbufu"
+  },
+  {
+    "sw": "Egalitarianism",
+    "en": "Imani ya usawa kwa wote"
+  },
+  {
+    "sw": "Ecclesiastical",
+    "en": "Kuhusu kanisa"
+  },
+  {
+    "sw": "Dynamics",
+    "en": "Mienendo"
+  },
+  {
+    "sw": "Duopoly",
+    "en": "Soko la watu wawili"
+  },
+  {
+    "sw": "Dumping",
+    "en": "Uuzaji bidhaa kwa bei ya chini sana nje"
+  },
+  {
+    "sw": "Due process",
+    "en": "Mchakato halali wa kisheria"
+  },
+  {
+    "sw": "Draft",
+    "en": "Andiko la awali"
+  },
+  {
+    "sw": "Donor",
+    "en": "Mtoaji/Mfadhili"
+  },
+  {
+    "sw": "Dominance",
+    "en": "Utawala/Nguvu"
+  },
+  {
+    "sw": "Domestic",
+    "en": "Ya ndani"
+  },
+  {
+    "sw": "Domain",
+    "en": "Eneo/Milki"
+  },
+  {
+    "sw": "Dogma",
+    "en": "Imani isiyohojiwa"
+  },
+  {
+    "sw": "Documentation",
+    "en": "Nyaraka"
+  },
+  {
+    "sw": "Doctrine",
+    "en": "Itikadi/Mafundisho"
+  },
+  {
+    "sw": "Divinity",
+    "en": "Uungu"
+  },
+  {
+    "sw": "Distortion",
+    "en": "Upotoshaji"
+  },
+  {
+    "sw": "Dissident",
+    "en": "Mpinzani wa serikali"
+  },
+  {
+    "sw": "Displacement",
+    "en": "Kuhamishwa kwa nguvu"
+  },
+  {
+    "sw": "Disparity",
+    "en": "Tofauti kubwa"
+  },
+  {
+    "sw": "Discrimination",
+    "en": "Ubaguzi"
+  },
+  {
+    "sw": "Discretion",
+    "en": "Hiari/Busara"
+  },
+  {
+    "sw": "Discourse",
+    "en": "Mazungumzo/Andiko"
+  },
+  {
+    "sw": "Disarmament",
+    "en": "Upunguzaji silaha"
+  },
+  {
+    "sw": "Dilemma",
+    "en": "Mtihani wa kuchagua (mambo mawili magumu)"
+  },
+  {
+    "sw": "Dignity",
+    "en": "Utu/Heshima"
+  },
+  {
+    "sw": "Differentiation",
+    "en": "Utofautishaji"
+  },
+  {
+    "sw": "Dictatorship",
+    "en": "Utawala wa kiimla"
+  },
+  {
+    "sw": "Dialect",
+    "en": "Lafudhi"
+  },
+  {
+    "sw": "Development",
+    "en": "Maendeleo"
+  },
+  {
+    "sw": "Devaluation",
+    "en": "Mshuko wa thamani ya sarafu"
+  },
+  {
+    "sw": "Deterrence",
+    "en": "Kuzuia/Kutisha ushambulizi"
+  },
+  {
+    "sw": "Design",
+    "en": "Usanifu"
+  },
+  {
+    "sw": "Derivative",
+    "en": "Kitu kinachotokana na kingine"
+  },
+  {
+    "sw": "Deregulation",
+    "en": "Uondoaji wa udhibiti"
+  },
+  {
+    "sw": "Depletion",
+    "en": "Upungufu"
+  },
+  {
+    "sw": "Denomination",
+    "en": "Madhehebu/Thamani ya sarafu"
+  },
+  {
+    "sw": "Demography",
+    "en": "Elimu ya watu/idadi"
+  },
+  {
+    "sw": "Deficit",
+    "en": "Upungufu wa bajeti"
+  },
+  {
+    "sw": "Decentralization",
+    "en": "Ugatuzi wa madaraka"
+  },
+  {
+    "sw": "Debt",
+    "en": "Deni"
+  },
+  {
+    "sw": "Debenture",
+    "en": "Hati ya deni"
+  },
+  {
+    "sw": "Deadline",
+    "en": "Muda wa mwisho"
+  },
+  {
+    "sw": "Cynicism",
+    "en": "Tabia ya kutilia shaka nia za watu"
+  },
+  {
+    "sw": "Custody",
+    "en": "Ulinzi/Ufungwa"
+  },
+  {
+    "sw": "Curator",
+    "en": "Msimamizi wa makumbusho"
+  },
+  {
+    "sw": "Culmination",
+    "en": "Kilele"
+  },
+  {
+    "sw": "Cult",
+    "en": "Kikundi cha kidini chenye itikadi kali"
+  },
+  {
+    "sw": "Crude oil",
+    "en": "Mafuta ghafi"
+  },
+  {
+    "sw": "Criterion",
+    "en": "Kigezo"
+  },
+  {
+    "sw": "Credentials",
+    "en": "Sifa/Vyeti"
+  },
+  {
+    "sw": "Coup d'état",
+    "en": "Mapinduzi"
+  },
+  {
+    "sw": "Counter-argument",
+    "en": "Hoja ya kupinga"
+  },
+  {
+    "sw": "Cosmopolitan",
+    "en": "Mtu wa ulimwengu wote"
+  },
+  {
+    "sw": "Corruption",
+    "en": "Rushwa"
+  },
+  {
+    "sw": "Correlation",
+    "en": "Uhusiano"
+  },
+  {
+    "sw": "Convention",
+    "en": "Mkataba wa kimataifa/mkutano"
+  },
+  {
+    "sw": "Contingency",
+    "en": "Jambo la dharura/linaloweza kutokea"
+  },
+  {
+    "sw": "Consumerism",
+    "en": "Utumiaji wa bidhaa"
+  },
+  {
+    "sw": "Constituency",
+    "en": "Jimbo la uchaguzi"
+  },
+  {
+    "sw": "Consensus",
+    "en": "Makubaliano ya wote"
+  },
+  {
+    "sw": "Concession",
+    "en": "Kukubali/Kutoa ruhusa"
+  },
+  {
+    "sw": "Compromise",
+    "en": "Kuridhiana"
+  },
+  {
+    "sw": "Communism",
+    "en": "Ukomunisti"
+  },
+  {
+    "sw": "Commodity",
+    "en": "Bidhaa"
+  },
+  {
+    "sw": "Commercialization",
+    "en": "Ufanyaji biashara"
+  },
+  {
+    "sw": "Colonialism",
+    "en": "Ukoloni"
+  },
+  {
+    "sw": "Collective bargaining",
+    "en": "Mazungumzo ya pamoja"
+  },
+  {
+    "sw": "Collateral",
+    "en": "Dhamana ya mkopo"
+  },
+  {
+    "sw": "Collaborator",
+    "en": "Mshiriki"
+  },
+  {
+    "sw": "Cohesion",
+    "en": "Mshikamano"
+  },
+  {
+    "sw": "Cognition",
+    "en": "Utambuzi"
+  },
+  {
+    "sw": "Codification",
+    "en": "Uwekaji wa sheria kwenye maandishi"
+  },
+  {
+    "sw": "Coalition",
+    "en": "Muungano"
+  },
+  {
+    "sw": "Class struggle",
+    "en": "Mapambano ya kitabaka"
+  },
+  {
+    "sw": "Civil war",
+    "en": "Vita vya wenyewe kwa wenyewe"
+  },
+  {
+    "sw": "Civil liberty",
+    "en": "Uhuru wa kiraia"
+  },
+  {
+    "sw": "Civil disobedience",
+    "en": "Uasi wa kiraia"
+  },
+  {
+    "sw": "Check and balance",
+    "en": "Udhibiti na usawa"
+  },
+  {
+    "sw": "Charter",
+    "en": "Hati rasmi"
+  },
+  {
+    "sw": "Charisma",
+    "en": "Karama/Mvuto"
+  },
+  {
+    "sw": "Census",
+    "en": "Sensa"
+  },
+  {
+    "sw": "Censure",
+    "en": "Lawama rasmi"
+  },
+  {
+    "sw": "Cartel",
+    "en": "Muungano wa wafanyabiashara"
+  },
+  {
+    "sw": "Calligraphy",
+    "en": "Sanaa ya mwandishi mzuri"
+  },
+  {
+    "sw": "Cabinet",
+    "en": "Baraza la mawaziri"
+  },
+  {
+    "sw": "By-law",
+    "en": "Sheria ndogo"
+  },
+  {
+    "sw": "Bureaucracy",
+    "en": "Urasimu"
+  },
+  {
+    "sw": "Buffer zone",
+    "en": "Eneo la kizuizi"
+  },
+  {
+    "sw": "Breach of contract",
+    "en": "Uvunjaji wa mkataba"
+  },
+  {
+    "sw": "Brainstorm",
+    "en": "Kuchochea bongo/mawazo"
+  },
+  {
+    "sw": "Boycott",
+    "en": "Mgomo wa kutonunua/kutumia"
+  },
+  {
+    "sw": "Bourgeoisie",
+    "en": "Tabaka la kati/wenye mali"
+  },
+  {
+    "sw": "Boilerplate",
+    "en": "Maandishi ya kawaida/yasiyobadilika"
+  },
+  {
+    "sw": "Blue-collar",
+    "en": "Kazi za mikono"
+  },
+  {
+    "sw": "Blacklist",
+    "en": "Orodha nyeusi"
+  },
+  {
+    "sw": "Bilateral",
+    "en": "Ya pande mbili"
+  },
+  {
+    "sw": "Bias",
+    "en": "Upendeleo"
+  },
+  {
+    "sw": "Belligerent",
+    "en": "Mwenye nia ya vita"
+  },
+  {
+    "sw": "Barter",
+    "en": "Kubadilishana bidhaa"
+  },
+  {
+    "sw": "Ballot",
+    "en": "Kura ya siri"
+  },
+  {
+    "sw": "Balance of power",
+    "en": "Mizani ya nguvu"
+  },
+  {
+    "sw": "Backlash",
+    "en": "Mwitikio mkali"
+  },
+  {
+    "sw": "Avant-garde",
+    "en": "Sanaa ya kisasa/mbele"
+  },
+  {
+    "sw": "Autonomy",
+    "en": "Mamlaka ya ndani"
+  },
+  {
+    "sw": "Automation",
+    "en": "Uendeshaji wa kimitambo"
+  },
+  {
+    "sw": "Authoritarianism",
+    "en": "Utawala wa kiimla"
+  },
+  {
+    "sw": "Authenticity",
+    "en": "Uhalisi"
+  },
+  {
+    "sw": "Atrophy",
+    "en": "Kunyauka kwa kiungo"
+  },
+  {
+    "sw": "Asymmetry",
+    "en": "Kutokuwa na ulinganifu"
+  },
+  {
+    "sw": "Asylum",
+    "en": "Hifadhi ya kisiasa"
+  },
+  {
+    "sw": "Artisan",
+    "en": "Fundi sanifu"
+  },
+  {
+    "sw": "Aristocracy",
+    "en": "Utawala wa tabaka la juu"
+  },
+  {
+    "sw": "Archetype",
+    "en": "Mfano wa asili"
+  },
+  {
+    "sw": "Appellate",
+    "en": "Kuhusu rufaa"
+  },
+  {
+    "sw": "Anthropology",
+    "en": "Elimu ya asili ya mwanadamu"
+  },
+  {
+    "sw": "Antagonism",
+    "en": "Uadui"
+  },
+  {
+    "sw": "Anomaly",
+    "en": "Kitu kisicho cha kawaida"
+  },
+  {
+    "sw": "Annexation",
+    "en": "Unyakuzi wa ardhi"
+  },
+  {
+    "sw": "Anarchy",
+    "en": "Machafuko/Ukosefu wa serikali"
+  },
+  {
+    "sw": "Analogy",
+    "en": "Mfananisho"
+  },
+  {
+    "sw": "Anachronism",
+    "en": "Kitu nje ya wakati wake"
+  },
+  {
+    "sw": "Ambiguity",
+    "en": "Utata"
+  },
+  {
+    "sw": "Academic freedom",
+    "en": "Uhuru wa kitaaluma"
+  },
+  {
+    "sw": "Abstract",
+    "en": "Kifupi cha andiko"
+  },
+  {
+    "sw": "Parallel universe",
+    "en": "Ulimwengu sambamba"
+  },
+  {
+    "sw": "Time travel",
+    "en": "Safari ya muda"
+  },
+  {
+    "sw": "Big Bang",
+    "en": "Mlipuko mkuu"
+  },
+  {
+    "sw": "Cosmology",
+    "en": "Kosmolojia"
+  },
+  {
+    "sw": "Astrophysics",
+    "en": "Fizikia ya anga"
+  },
+  {
+    "sw": "Astrobiology",
+    "en": "Bailojia ya anga"
+  },
+  {
+    "sw": "Exoplanet",
+    "en": "Sayari nje ya mfumo wetu"
+  },
+  {
+    "sw": "Supernova",
+    "en": "Supernova"
+  },
+  {
+    "sw": "Nebula",
+    "en": "Nebula"
+  },
+  {
+    "sw": "Galaxy",
+    "en": "Galaksi"
+  },
+  {
+    "sw": "Black hole",
+    "en": "Tundu nyeusi"
+  },
+  {
+    "sw": "Orbit",
+    "en": "Obiti"
+  },
+  {
+    "sw": "Satellite",
+    "en": "Satelaiti"
+  },
+  {
+    "sw": "Rocketry",
+    "en": "Uhandisi wa roketi"
+  },
+  {
+    "sw": "Spacecraft",
+    "en": "Chombo cha anga"
+  },
+  {
+    "sw": "Space exploration",
+    "en": "Ugunduzi wa anga za mbali"
+  },
+  {
+    "sw": "Stem cell",
+    "en": "Chembehai shina"
+  },
+  {
+    "sw": "Cloning",
+    "en": "Uzalishaji wa nakala hai"
+  },
+  {
+    "sw": "Genetic engineering",
+    "en": "Uhandisi wa vinasaba"
+  },
+  {
+    "sw": "Biotechnology",
+    "en": "Bioteknolojia"
+  },
+  {
+    "sw": "Nanotechnology",
+    "en": "Teknolojia ya nanomita"
+  },
+  {
+    "sw": "Augmented reality",
+    "en": "Uhalisia ulioongezwa"
+  },
+  {
+    "sw": "Virtual reality",
+    "en": "Uhalisia pepe"
+  },
+  {
+    "sw": "Internet of things",
+    "en": "Mtandao wa vitu"
+  },
+  {
+    "sw": "Big data",
+    "en": "Data kubwa"
+  },
+  {
+    "sw": "Cloud computing",
+    "en": "Kompyuta wingu"
+  },
+  {
+    "sw": "Cryptocurrency",
+    "en": "Sarafu ya kidijitali"
+  },
+  {
+    "sw": "Cryptography",
+    "en": "Usimbuaji fiche"
+  },
+  {
+    "sw": "Networking",
+    "en": "Mawasiliano ya mitandao"
+  },
+  {
+    "sw": "Software engineering",
+    "en": "Uhandisi wa programu"
+  },
+  {
+    "sw": "Robotics",
+    "en": "Robotiki"
+  },
+  {
+    "sw": "Machine learning",
+    "en": "Mashine kujifunza"
+  },
+  {
+    "sw": "Artificial intelligence",
+    "en": "Akili mnemba"
+  },
+  {
+    "sw": "Data science",
+    "en": "Sayansi ya data"
+  },
+  {
+    "sw": "Statistics",
+    "en": "Takwimu"
+  },
+  {
+    "sw": "Mathematics",
+    "en": "Hisabati"
+  },
+  {
+    "sw": "Astronomy",
+    "en": "Astronomia"
+  },
+  {
+    "sw": "Oceanography",
+    "en": "Elimu ya bahari"
+  },
+  {
+    "sw": "Meteorology",
+    "en": "Mteolojia"
+  },
+  {
+    "sw": "Geology",
+    "en": "Jiolojia"
+  },
+  {
+    "sw": "Environment",
+    "en": "Mazingira"
+  },
+  {
+    "sw": "Natural resources",
+    "en": "Rasilimali za asili"
+  },
+  {
+    "sw": "Water cycle",
+    "en": "Mzunguko wa maji"
+  },
+  {
+    "sw": "Carbon cycle",
+    "en": "Mzunguko wa kaboni"
+  },
+  {
+    "sw": "Nitrogen cycle",
+    "en": "Mzunguko wa nitrojeni"
+  },
+  {
+    "sw": "Decomposers",
+    "en": "Waozeshaji"
+  },
+  {
+    "sw": "Consumers",
+    "en": "Walaji"
+  },
+  {
+    "sw": "Producers",
+    "en": "Wazalishaji (mimea)"
+  },
+  {
+    "sw": "Trophic level",
+    "en": "Ngazi ya lishe"
+  },
+  {
+    "sw": "Food web",
+    "en": "Utando wa chakula"
+  },
+  {
+    "sw": "Food chain",
+    "en": "Mnyororo wa chakula"
+  },
+  {
+    "sw": "Niche",
+    "en": "Sehemu ya kipekee ya kiumbe"
+  },
+  {
+    "sw": "Genome",
+    "en": "Jenomu"
+  },
+  {
+    "sw": "Specimen",
+    "en": "Sampuli"
+  },
+  {
+    "sw": "Radiology",
+    "en": "Rediolojia"
+  },
+  {
+    "sw": "Orthodontics",
+    "en": "Unyooshaji wa meno"
+  },
+  {
+    "sw": "Dentistry",
+    "en": "Tiba ya meno"
+  },
+  {
+    "sw": "Optometry",
+    "en": "Upimaji macho"
+  },
+  {
+    "sw": "Ophthalmology",
+    "en": "Tiba ya macho"
+  },
+  {
+    "sw": "Dermatology",
+    "en": "Tiba ya ngozi"
+  },
+  {
+    "sw": "Geriatrics",
+    "en": "Tiba ya wazee"
+  },
+  {
+    "sw": "Childbirth",
+    "en": "Uzazi"
+  },
+  {
+    "sw": "Pregnancy",
+    "en": "Ujauzito"
+  },
+  {
+    "sw": "Fertility",
+    "en": "Uwezo wa kuzaa"
+  },
+  {
+    "sw": "Longevity",
+    "en": "Kuishi muda mrefu"
+  },
+  {
+    "sw": "Circadian rhythm",
+    "en": "Mzunguko wa asili wa mwili"
+  },
+  {
+    "sw": "Sleep hygiene",
+    "en": "Usafi wa usingizi"
+  },
+  {
+    "sw": "Meditation",
+    "en": "Tafakuri"
+  },
+  {
+    "sw": "Yoga",
+    "en": "Yoga"
+  },
+  {
+    "sw": "Aerobics",
+    "en": "Erobiki"
+  },
+  {
+    "sw": "Gymnastics",
+    "en": "Mazoezi ya viungo"
+  },
+  {
+    "sw": "Fitness",
+    "en": "Uimara wa mwili"
+  },
+  {
+    "sw": "Dietitian",
+    "en": "Mtaalamu wa chakula tiba"
+  },
+  {
+    "sw": "Nutritionist",
+    "en": "Mtaalamu wa lishe"
+  },
+  {
+    "sw": "Wellness",
+    "en": "Ustawi wa afya"
+  },
+  {
+    "sw": "Recovery",
+    "en": "Kupata nafuu"
+  },
+  {
+    "sw": "Addiction",
+    "en": "Uraibu"
+  },
+  {
+    "sw": "Alzheimer's",
+    "en": "Alzeima"
+  },
+  {
+    "sw": "Dementia",
+    "en": "Ugonjwa wa kupoteza kumbukumbu"
+  },
+  {
+    "sw": "ADHD",
+    "en": "Ugonjwa wa ukosefu wa umakini"
+  },
+  {
+    "sw": "Autism",
+    "en": "Usonji"
+  },
+  {
+    "sw": "Schizophrenia",
+    "en": "Sizofrenia"
+  },
+  {
+    "sw": "Bipolar disorder",
+    "en": "Ugonjwa wa hisia mbili"
+  },
+  {
+    "sw": "Anxiety",
+    "en": "Wasiwasi mkubwa"
+  },
+  {
+    "sw": "Depression",
+    "en": "Unyogovu"
+  },
+  {
+    "sw": "Trauma",
+    "en": "Mshtuko wa kisaikolojia"
+  },
+  {
+    "sw": "Stress management",
+    "en": "Usimamizi wa msongo"
+  },
+  {
+    "sw": "Counseling",
+    "en": "Ushauri nasaha"
+  },
+  {
+    "sw": "Psychology",
+    "en": "Saikolojia"
+  },
+  {
+    "sw": "Mental health",
+    "en": "Afya ya akili"
+  },
+  {
+    "sw": "Occupational therapy",
+    "en": "Tiba ya kazi"
+  },
+  {
+    "sw": "Physiotherapist",
+    "en": "Mtaalamu wa mazoezi tiba"
+  },
+  {
+    "sw": "Therapy",
+    "en": "Tiba (ya mazoezi/kisaikolojia)"
+  },
+  {
+    "sw": "Rehabilitation",
+    "en": "Urekebishaji"
+  },
+  {
+    "sw": "Prevention",
+    "en": "Kinga"
+  },
+  {
+    "sw": "Cure",
+    "en": "Ponyo"
+  },
+  {
+    "sw": "Treatment",
+    "en": "Tiba"
+  },
+  {
+    "sw": "Symptoms",
+    "en": "Dalili"
+  },
+  {
+    "sw": "Contagious",
+    "en": "Inayoambukiza"
+  },
+  {
+    "sw": "Incubation period",
+    "en": "Muda wa kupevuka"
+  },
+  {
+    "sw": "Endemic",
+    "en": "Ugonjwa wa eneo fulani"
+  },
+  {
+    "sw": "Pandemic",
+    "en": "Janga la ulimwengu"
+  },
+  {
+    "sw": "Epidemic",
+    "en": "Mlipuko wa ugonjwa"
+  },
+  {
+    "sw": "Sanitation",
+    "en": "Usafi wa mazingira"
+  },
+  {
+    "sw": "Hygiene",
+    "en": "Usafi"
+  },
+  {
+    "sw": "Sterilization",
+    "en": "Usafishaji wa kuua vijidudu"
+  },
+  {
+    "sw": "Sedative",
+    "en": "Dawa ya kulaza"
+  },
+  {
+    "sw": "Anesthetic",
+    "en": "Dawa ya nusu kaputi"
+  },
+  {
+    "sw": "Analgesic",
+    "en": "Dawa ya maumivu"
+  },
+  {
+    "sw": "Antiviral",
+    "en": "Dawa ya virusi"
+  },
+  {
+    "sw": "Antibiotic",
+    "en": "Antibayotiki"
+  },
+  {
+    "sw": "Vaccine",
+    "en": "Chanjo"
+  },
+  {
+    "sw": "Resuscitation",
+    "en": "Ufufuo"
+  },
+  {
+    "sw": "Coma",
+    "en": "Koma/Potezo la fahamu"
+  },
+  {
+    "sw": "Shock",
+    "en": "Mshtuko"
+  },
+  {
+    "sw": "Hemorrhage",
+    "en": "Kuvuja damu kwa wingi"
+  },
+  {
+    "sw": "Scar",
+    "en": "Nkovu"
+  },
+  {
+    "sw": "Wound",
+    "en": "Kidonda"
+  },
+  {
+    "sw": "Burn",
+    "en": "Unguaji"
+  },
+  {
+    "sw": "Strain",
+    "en": "Mkazo wa misuli"
+  },
+  {
+    "sw": "Sprain",
+    "en": "Kutegeka kwa kano"
+  },
+  {
+    "sw": "Dislocation",
+    "en": "Kuteguka"
+  },
+  {
+    "sw": "Fracture",
+    "en": "Mvunjiko wa mfupa"
+  },
+  {
+    "sw": "Osteoporosis",
+    "en": "Uloekaji wa mifupa"
+  },
+  {
+    "sw": "Arthritis",
+    "en": "Ugonjwa wa viungo"
+  },
+  {
+    "sw": "Seizure",
+    "en": "Kifafa/Degedege"
+  },
+  {
+    "sw": "Stroke",
+    "en": "Kiharusi"
+  },
+  {
+    "sw": "Hypotension",
+    "en": "Shinikizo la chini la damu"
+  },
+  {
+    "sw": "Hypertension",
+    "en": "Shinikizo la juu la damu"
+  },
+  {
+    "sw": "Leukemia",
+    "en": "Saratani ya damu"
+  },
+  {
+    "sw": "Anemia",
+    "en": "Upungufu wa damu"
+  },
+  {
+    "sw": "Hepatitis",
+    "en": "Hepatitisi/Ugonjwa wa ini"
+  },
+  {
+    "sw": "Tuberculosis",
+    "en": "Kifua kikuu"
+  },
+  {
+    "sw": "Bronchitis",
+    "en": "Magonjwa ya njia ya hewa"
+  },
+  {
+    "sw": "Pneumonia",
+    "en": "Nimonia"
+  },
+  {
+    "sw": "Asthma",
+    "en": "Pumu"
+  },
+  {
+    "sw": "Parasite",
+    "en": "Kimelea"
+  },
+  {
+    "sw": "Fungi",
+    "en": "Kuvu"
+  },
+  {
+    "sw": "Virus",
+    "en": "Virusi"
+  },
+  {
+    "sw": "Bacteria",
+    "en": "Bakteria"
+  },
+  {
+    "sw": "Tumor",
+    "en": "Uvimbe"
+  },
+  {
+    "sw": "Cancer",
+    "en": "Saratani"
+  },
+  {
+    "sw": "Diabetes",
+    "en": "Ugonjwa wa sukari"
+  },
+  {
+    "sw": "Glucose",
+    "en": "Glukosi"
+  },
+  {
+    "sw": "Insulin",
+    "en": "Insulini"
+  },
+  {
+    "sw": "Pancreas",
+    "en": "Kongosho"
+  },
+  {
+    "sw": "Adrenal gland",
+    "en": "Tezi ya adrenali"
+  },
+  {
+    "sw": "Thyroid",
+    "en": "Tezi ya tiroidi"
+  },
+  {
+    "sw": "Pituitary gland",
+    "en": "Tezi ya pituitari"
+  },
+  {
+    "sw": "Hypothalamus",
+    "en": "Haipothalamasi"
+  },
+  {
+    "sw": "Cerebellum",
+    "en": "Serebelamu"
+  },
+  {
+    "sw": "Cerebrum",
+    "en": "Serebramu"
+  },
+  {
+    "sw": "Brainstem",
+    "en": "Shina la ubongo"
+  },
+  {
+    "sw": "Synapse",
+    "en": "Sinapsi"
+  },
+  {
+    "sw": "Neuron",
+    "en": "Nyuroni"
+  },
+  {
+    "sw": "Urethra",
+    "en": "Yuretra"
+  },
+  {
+    "sw": "Ureter",
+    "en": "Yureta"
+  },
+  {
+    "sw": "Bladder",
+    "en": "Kibofu cha mkojo"
+  },
+  {
+    "sw": "Kidney",
+    "en": "Figo"
+  },
+  {
+    "sw": "Excretion",
+    "en": "Utoaji taka mwilini"
+  },
+  {
+    "sw": "Absorption",
+    "en": "Ufyonyaji"
+  },
+  {
+    "sw": "Digestion",
+    "en": "Mmeng'enyo"
+  },
+  {
+    "sw": "Fiber",
+    "en": "Nyuzi lishe"
+  },
+  {
+    "sw": "Lipid",
+    "en": "Mafuta"
+  },
+  {
+    "sw": "Carbohydrate",
+    "en": "Wanga"
+  },
+  {
+    "sw": "Mineral",
+    "en": "Madini"
+  },
+  {
+    "sw": "Vitamin",
+    "en": "Vitamini"
+  },
+  {
+    "sw": "Nutrient",
+    "en": "Kirutubisho"
+  },
+  {
+    "sw": "Carbon dioxide",
+    "en": "Kaboni daioksaidi"
+  },
+  {
+    "sw": "Oxygen",
+    "en": "Oksijeni"
+  },
+  {
+    "sw": "Exhalation",
+    "en": "Kutoa pumzi"
+  },
+  {
+    "sw": "Inhalation",
+    "en": "Kuvuta pumzi"
+  },
+  {
+    "sw": "Blood pressure",
+    "en": "Shinikizo la damu"
+  },
+  {
+    "sw": "Pulse",
+    "en": "Mapigo ya moyo"
+  },
+  {
+    "sw": "Valve",
+    "en": "Valvu"
+  },
+  {
+    "sw": "Atrium",
+    "en": "Atria"
+  },
+  {
+    "sw": "Ventricle",
+    "en": "Ventriko"
+  },
+  {
+    "sw": "Aorta",
+    "en": "Aorta"
+  },
+  {
+    "sw": "Capillary",
+    "en": "Kapilari"
+  },
+  {
+    "sw": "Vein",
+    "en": "Vena"
+  },
+  {
+    "sw": "Artery",
+    "en": "Arteri"
+  },
+  {
+    "sw": "Plasma",
+    "en": "Plazma"
+  },
+  {
+    "sw": "Platelet",
+    "en": "Platleti"
+  },
+  {
+    "sw": "Hemoglobin",
+    "en": "Himoglobini"
+  },
+  {
+    "sw": "Antigen",
+    "en": "Antijeni"
+  },
+  {
+    "sw": "Hormone",
+    "en": "Homoni"
+  },
+  {
+    "sw": "Urinary system",
+    "en": "Mfumo wa mkojo"
+  },
+  {
+    "sw": "Reproductive system",
+    "en": "Mfumo wa uzazi"
+  },
+  {
+    "sw": "Muscular system",
+    "en": "Mfumo wa misuli"
+  },
+  {
+    "sw": "Skeletal system",
+    "en": "Mfumo wa mifupa"
+  },
+  {
+    "sw": "Immune system",
+    "en": "Mfumo wa kinga"
+  },
+  {
+    "sw": "Endocrine system",
+    "en": "Mfumo wa homoni"
+  },
+  {
+    "sw": "Nervous system",
+    "en": "Mfumo wa neva"
+  },
+  {
+    "sw": "Digestive system",
+    "en": "Mfumo wa mmeng'enyo wa chakula"
+  },
+  {
+    "sw": "Respiratory system",
+    "en": "Mfumo wa upumuaji"
+  },
+  {
+    "sw": "Circulatory system",
+    "en": "Mfumo wa mzunguko wa damu"
+  },
+  {
+    "sw": "Organ",
+    "en": "Kiungo"
+  },
+  {
+    "sw": "Tissue",
+    "en": "Tishu"
+  },
+  {
+    "sw": "Physiology",
+    "en": "Elimu ya kazi za viungo"
+  },
+  {
+    "sw": "Anatomy",
+    "en": "Anatomia/Elimu ya viungo"
+  },
+  {
+    "sw": "Actuary",
+    "en": "Mtaalamu wa takwimu za bima"
+  },
+  {
+    "sw": "Underwriter",
+    "en": "Mdhamini wa bima"
+  },
+  {
+    "sw": "Beneficiary",
+    "en": "Mnufaika"
+  },
+  {
+    "sw": "Claim",
+    "en": "Dai la bima"
+  },
+  {
+    "sw": "Premium",
+    "en": "Ada ya bima"
+  },
+  {
+    "sw": "Insurance policy",
+    "en": "Mkataba wa bima"
+  },
+  {
+    "sw": "GDP (Gross Domestic Product)",
+    "en": "Pato la Taifa"
+  },
+  {
+    "sw": "Fiscal year",
+    "en": "Mwaka wa fedha"
+  },
+  {
+    "sw": "Commission",
+    "en": "Kamisheni/Ada ya udalali"
+  },
+  {
+    "sw": "Broker",
+    "en": "Dalali"
+  },
+  {
+    "sw": "Cash flow",
+    "en": "Mzunguko wa fedha"
+  },
+  {
+    "sw": "Balance sheet",
+    "en": "Waraka wa mizania"
+  },
+  {
+    "sw": "Statement",
+    "en": "Taarifa ya hesabu"
+  },
+  {
+    "sw": "Receipt",
+    "en": "Stakabadhi"
+  },
+  {
+    "sw": "Invoice",
+    "en": "Ankara"
+  },
+  {
+    "sw": "Consignment",
+    "en": "Shehena"
+  },
+  {
+    "sw": "Parcel",
+    "en": "Kifurushi"
+  },
+  {
+    "sw": "Freight",
+    "en": "Mzigo mkubwa wa kusafirishwa"
+  },
+  {
+    "sw": "Wholesaler",
+    "en": "Muuzaji wa jumla"
+  },
+  {
+    "sw": "Retailer",
+    "en": "Muuzaji wa rejareja"
+  },
+  {
+    "sw": "Boutique",
+    "en": "Duka la nguo za kipekee"
+  },
+  {
+    "sw": "Laundromat",
+    "en": "Dobi wa mashine"
+  },
+  {
+    "sw": "Housekeeping",
+    "en": "Usafi wa vyumba"
+  },
+  {
+    "sw": "Valet",
+    "en": "Mhudumu wa magari/nguo"
+  },
+  {
+    "sw": "Concierge",
+    "en": "Mhudumu wa wageni"
+  },
+  {
+    "sw": "Maître d'",
+    "en": "Msimamizi wa mgahawa"
+  },
+  {
+    "sw": "Sous chef",
+    "en": "Msaidizi wa mpishi mkuu"
+  },
+  {
+    "sw": "Sommelier",
+    "en": "Mtaalamu wa mvinyo"
+  },
+  {
+    "sw": "Napkin",
+    "en": "Kitambaa cha mezani"
+  },
+  {
+    "sw": "Foil",
+    "en": "Karatasi ya alumini"
+  },
+  {
+    "sw": "Cling film",
+    "en": "Plastiki ya kufunika chakula"
+  },
+  {
+    "sw": "Dishwasher",
+    "en": "Mashine ya kuoshea vyombo"
+  },
+  {
+    "sw": "Measuring cup",
+    "en": "Kikombe cha kupimia"
+  },
+  {
+    "sw": "Funnel",
+    "en": "Mrija/Meli"
+  },
+  {
+    "sw": "Scale",
+    "en": "Mizani ya jikoni"
+  },
+  {
+    "sw": "Thermometer",
+    "en": "Kipimajoto"
+  },
+  {
+    "sw": "Pressure cooker",
+    "en": "Sufuria ya shinikizo"
+  },
+  {
+    "sw": "Cutting board",
+    "en": "Ubao wa kukatia"
+  },
+  {
+    "sw": "Rolling pin",
+    "en": "Fimbo ya kusukumia unga"
+  },
+  {
+    "sw": "Peeler",
+    "en": "Kimenyeo"
+  },
+  {
+    "sw": "Grater",
+    "en": "Kikunio"
+  },
+  {
+    "sw": "Colander",
+    "en": "Chujio la matundu makubwa"
+  },
+  {
+    "sw": "Sieve",
+    "en": "Chujio la unga"
+  },
+  {
+    "sw": "Ladle",
+    "en": "Upawa"
+  },
+  {
+    "sw": "Spatula",
+    "en": "Mwiko bapa"
+  },
+  {
+    "sw": "Toaster",
+    "en": "Tosta/Kichoma mkate"
+  },
+  {
+    "sw": "Blender",
+    "en": "Blenda/Mashine ya kusagia"
+  },
+  {
+    "sw": "Stove",
+    "en": "Jiko"
+  },
+  {
+    "sw": "Oven",
+    "en": "Oveni/Tanuri"
+  },
+  {
+    "sw": "Apron",
+    "en": "Aproni/Sidiria ya jikoni"
+  },
+  {
+    "sw": "Utensils",
+    "en": "Vifaa vya matumizi"
+  },
+  {
+    "sw": "Glassware",
+    "en": "Vyombo vya glasi"
+  },
+  {
+    "sw": "Crockery",
+    "en": "Vyombo vya udongo (sahani)"
+  },
+  {
+    "sw": "Cutlery",
+    "en": "Vifaa vya kulia (vijiko/visu)"
+  },
+  {
+    "sw": "Kitchenware",
+    "en": "Vifaa vya jikoni"
+  },
+  {
+    "sw": "Pantry",
+    "en": "Gala la vyakula"
+  },
+  {
+    "sw": "Appetizer",
+    "en": "Kichocheo cha hamu"
+  },
+  {
+    "sw": "Condiment",
+    "en": "Kiungo cha pembeni (mfano kachumbari)"
+  },
+  {
+    "sw": "Beverage",
+    "en": "Kinywaji"
+  },
+  {
+    "sw": "Dessert",
+    "en": "Chakula cha mwisho (tamu)"
+  },
+  {
+    "sw": "Entrée",
+    "en": "Chakula cha kwanza"
+  },
+  {
+    "sw": "À la carte",
+    "en": "Chakula cha kuagiza kwenye menyu"
+  },
+  {
+    "sw": "Buffet",
+    "en": "Chakula cha kujihudumia"
+  },
+  {
+    "sw": "Plating",
+    "en": "Upangaji chakula kwenye sahani"
+  },
+  {
+    "sw": "Glaze",
+    "en": "Upakaji wa kung'arisha chakula"
+  },
+  {
+    "sw": "Infusion",
+    "en": "Maji yenye ladha ya kitu (mfano chai)"
+  },
+  {
+    "sw": "Zest",
+    "en": "Ganda la nje la limao"
+  },
+  {
+    "sw": "Reduction",
+    "en": "Kupunguza mchuzi kwa kuchemsha"
+  },
+  {
+    "sw": "Caramelize",
+    "en": "Kugeuza sukari kuwa rangi ya kahawia"
+  },
+  {
+    "sw": "Tenderize",
+    "en": "Kulainisha nyama"
+  },
+  {
+    "sw": "Fillet",
+    "en": "Nyama/samaki isiyo na mifupa"
+  },
+  {
+    "sw": "Stock",
+    "en": "Mchuzi wa msingi"
+  },
+  {
+    "sw": "Bouillon",
+    "en": "Mchuzi wa nyama/mboga"
+  },
+  {
+    "sw": "Seasoning",
+    "en": "Viungo vya ladha"
+  },
+  {
+    "sw": "Batter",
+    "en": "Unga wa majimaji"
+  },
+  {
+    "sw": "Dough",
+    "en": "Unga uliokandwa"
+  },
+  {
+    "sw": "Yeast",
+    "en": "Hamira"
+  },
+  {
+    "sw": "Fermentation",
+    "en": "Kuchachusha"
+  },
+  {
+    "sw": "Knead",
+    "en": "Kukanda (unga)"
+  },
+  {
+    "sw": "Peel",
+    "en": "Kumenya"
+  },
+  {
+    "sw": "Grate",
+    "en": "Kukuna"
+  },
+  {
+    "sw": "Slice",
+    "en": "Kukata slesi/vipande"
+  },
+  {
+    "sw": "Dice",
+    "en": "Kukata vipande vya mraba"
+  },
+  {
+    "sw": "Mince",
+    "en": "Kusaga/Kukatata"
+  },
+  {
+    "sw": "Whisk",
+    "en": "Kupiga/Kuvuruga (mfano mayai)"
+  },
+  {
+    "sw": "Deep fry",
+    "en": "Kukaanga kwa mafuta mengi"
+  },
+  {
+    "sw": "Steam",
+    "en": "Kupika kwa mvuke"
+  },
+  {
+    "sw": "Bake",
+    "en": "Kuoka"
+  },
+  {
+    "sw": "Roast",
+    "en": "Kuchoma kwenye oveni"
+  },
+  {
+    "sw": "Grill",
+    "en": "Kuchoma kwa mkaa/nuru"
+  },
+  {
+    "sw": "Marinate",
+    "en": "Kuloweka kwenye viungo"
+  },
+  {
+    "sw": "Blanch",
+    "en": "Kuzamisha kwenye maji moto kisha baridi"
+  },
+  {
+    "sw": "Braise",
+    "en": "Kupika nyama kwa mvuke na maji"
+  },
+  {
+    "sw": "Poach",
+    "en": "Kupika kwenye maji moto kidogo"
+  },
+  {
+    "sw": "Simmer",
+    "en": "Kuchemsha taratibu"
+  },
+  {
+    "sw": "Sauté",
+    "en": "Kukaanga kwa mafuta kidogo"
+  },
+  {
+    "sw": "Garnish",
+    "en": "Pambo la chakula"
+  },
+  {
+    "sw": "Cuisine",
+    "en": "Mtindo wa mapishi"
+  },
+  {
+    "sw": "Ingredients",
+    "en": "Viungo/Mahitaji"
+  },
+  {
+    "sw": "Recipe",
+    "en": "Maelekezo ya mapishi"
+  },
+  {
+    "sw": "Culinary",
+    "en": "Sanaa ya mapishi"
+  },
+  {
+    "sw": "Standardization",
+    "en": "Uwekaji viwango"
+  },
+  {
+    "sw": "Quality control",
+    "en": "Udhibiti wa ubora"
+  },
+  {
+    "sw": "Optimization",
+    "en": "Uboreshaji kilele"
+  },
+  {
+    "sw": "Feedback",
+    "en": "Maoni ya mrejesho"
+  },
+  {
+    "sw": "Beta testing",
+    "en": "Majaribio ya awali"
+  },
+  {
+    "sw": "Prototype",
+    "en": "Mfano wa kwanza"
+  },
+  {
+    "sw": "R&D (Research and Development)",
+    "en": "Utafiti na Maendeleo"
+  },
+  {
+    "sw": "Strategist",
+    "en": "Mwanamikakati"
+  },
+  {
+    "sw": "Analyst",
+    "en": "Mchambuzi"
+  },
+  {
+    "sw": "Consultant",
+    "en": "Mshauri wa kitaalamu"
+  },
+  {
+    "sw": "Accountant",
+    "en": "Mhasibu"
+  },
+  {
+    "sw": "Auditor",
+    "en": "Mkaguzi"
+  },
+  {
+    "sw": "Treasurer",
+    "en": "Mhazini"
+  },
+  {
+    "sw": "Secretary",
+    "en": "Katibu"
+  },
+  {
+    "sw": "Chairman",
+    "en": "Mwenyekiti"
+  },
+  {
+    "sw": "Board of directors",
+    "en": "Bodi ya wakurugenzi"
+  },
+  {
+    "sw": "Liaison",
+    "en": "Mratibu"
+  },
+  {
+    "sw": "Subcontractor",
+    "en": "Mkandarasi mdogo"
+  },
+  {
+    "sw": "Contractor",
+    "en": "Mkandarasi"
+  },
+  {
+    "sw": "Tender",
+    "en": "Zabuni"
+  },
+  {
+    "sw": "Vendor",
+    "en": "Muuzaji/Mtoa huduma"
+  },
+  {
+    "sw": "Risk mitigation",
+    "en": "Upunguzaji wa hatari"
+  },
+  {
+    "sw": "Feasibility study",
+    "en": "Utafiti wa uwezekano"
+  },
+  {
+    "sw": "Compliance",
+    "en": "Uzingatiaji sheria"
+  },
+  {
+    "sw": "Corporate governance",
+    "en": "Usimamizi wa kishirika"
+  },
+  {
+    "sw": "Capacity building",
+    "en": "Ujenzi wa uwezo"
+  },
+  {
+    "sw": "KPI (Key Performance Indicator)",
+    "en": "Vipimo vya utendaji"
+  },
+  {
+    "sw": "SOP (Standard Operating Procedure)",
+    "en": "Kanuni za utendaji"
+  },
+  {
+    "sw": "ROI (Return on Investment)",
+    "en": "Mrejesho wa uwekezaji"
+  },
+  {
+    "sw": "Profit margin",
+    "en": "Kiwango cha faida"
+  },
+  {
+    "sw": "Burn rate",
+    "en": "Kasi ya matumizi ya mtaji"
+  },
+  {
+    "sw": "Revenue stream",
+    "en": "Vyanzo vya mapato"
+  },
+  {
+    "sw": "Market penetration",
+    "en": "Kuingia sokoni"
+  },
+  {
+    "sw": "Due diligence",
+    "en": "Uchunguzi wa kina"
+  },
+  {
+    "sw": "Acquisitions",
+    "en": "Ununuzi wa kampuni"
+  },
+  {
+    "sw": "Mergers",
+    "en": "Muungano wa kampuni"
+  },
+  {
+    "sw": "Synergy",
+    "en": "Ushirikiano wenye matokeo makubwa"
+  },
+  {
+    "sw": "Diversification",
+    "en": "Upanuzi wa wigo"
+  },
+  {
+    "sw": "Scalability",
+    "en": "Uwezo wa kukua"
+  },
+  {
+    "sw": "Outsourcing",
+    "en": "Kutumia huduma za nje"
+  },
+  {
+    "sw": "Value chain",
+    "en": "Mnyororo wa thamani"
+  },
+  {
+    "sw": "Competitive advantage",
+    "en": "Faida ya ushindani"
+  },
+  {
+    "sw": "Benchmarking",
+    "en": "Kulinganisha viwango"
+  },
+  {
+    "sw": "Shareholder",
+    "en": "Mwenye hisa"
+  },
+  {
+    "sw": "Stakeholder",
+    "en": "Mdau"
+  },
+  {
+    "sw": "Core values",
+    "en": "Maadili ya msingi"
+  },
+  {
+    "sw": "Mission",
+    "en": "Dhamira"
+  },
+  {
+    "sw": "Vision",
+    "en": "Maono"
+  },
+  {
+    "sw": "Rationalism",
+    "en": "Imani ya akili na mantiki"
+  },
+  {
+    "sw": "Empiricism",
+    "en": "Imani ya uzoefu wa vitendo"
+  },
+  {
+    "sw": "Nihilism",
+    "en": "Imani ya kutokuwepo maana"
+  },
+  {
+    "sw": "Idealism",
+    "en": "Imani ya mawazo"
+  },
+  {
+    "sw": "Materialism",
+    "en": "Imani ya vitu vinavyoonekana"
+  },
+  {
+    "sw": "Dualism",
+    "en": "Imani ya pande mbili"
+  },
+  {
+    "sw": "Dialectic",
+    "en": "Mchakato wa kifikra"
+  },
+  {
+    "sw": "Phenomenology",
+    "en": "Elimu ya uzoefu wa hisia"
+  },
+  {
+    "sw": "Ontology",
+    "en": "Elimu ya uwepo"
+  },
+  {
+    "sw": "Hypothetical",
+    "en": "Ya kufikirika"
+  },
+  {
+    "sw": "Categorical",
+    "en": "Isiyo na masharti"
+  },
+  {
+    "sw": "Contradiction",
+    "en": "Mgongano"
+  },
+  {
+    "sw": "Tautology",
+    "en": "Mkariri wa maana"
+  },
+  {
+    "sw": "Inference",
+    "en": "Hitimisho la kimantiki"
+  },
+  {
+    "sw": "Paradox",
+    "en": "Kinakinyume"
+  },
+  {
+    "sw": "Induction",
+    "en": "Udadisi kuanzia mambo mahususi"
+  },
+  {
+    "sw": "Deduction",
+    "en": "Udadisi kuanzia jumla"
+  },
+  {
+    "sw": "Axiom",
+    "en": "Kanuni isiyopingika"
+  },
+  {
+    "sw": "Soundness",
+    "en": "Uthabiti wa hoja"
+  },
+  {
+    "sw": "Validity",
+    "en": "Uhalali"
+  },
+  {
+    "sw": "Fallacy",
+    "en": "Hoja mpotofu"
+  },
+  {
+    "sw": "Syllogism",
+    "en": "Silojizimu/Hoja mnyororo"
+  },
+  {
+    "sw": "Premise",
+    "en": "Msingi wa hoja"
+  },
+  {
     "sw": "Urbanization",
     "en": "Ukuaji wa miji"
   },
