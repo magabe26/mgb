@@ -1,5 +1,1481 @@
 [
   {
+    "sw": "Kelele",
+    "en": "Noise"
+  },
+  {
+    "sw": "Kufutwa kazi",
+    "en": "Dismissal"
+  },
+  {
+    "sw": "Mchimba madini",
+    "en": "Miner"
+  },
+  {
+    "sw": "Mshonaji",
+    "en": "Tailor"
+  },
+  {
+    "sw": "Mchoraji",
+    "en": "Painter/Illustrator"
+  },
+  {
+    "sw": "Mbunifu",
+    "en": "Designer"
+  },
+  {
+    "sw": "Mjenzi",
+    "en": "Builder"
+  },
+  {
+    "sw": "Fundi",
+    "en": "Technician/Artisan"
+  },
+  {
+    "sw": "Handaki",
+    "en": "Tunnel"
+  },
+  {
+    "sw": "Feri",
+    "en": "Ferry"
+  },
+  {
+    "sw": "Uchafuzi wa mazingira",
+    "en": "Pollution"
+  },
+  {
+    "sw": "Ozoni",
+    "en": "Ozone"
+  },
+  {
+    "sw": "Hiliami",
+    "en": "Helium"
+  },
+  {
+    "sw": "Hidrojeni",
+    "en": "Hydrogen"
+  },
+  {
+    "sw": "Moshi",
+    "en": "Smoke"
+  },
+  {
+    "sw": "Majivu",
+    "en": "Ash"
+  },
+  {
+    "sw": "Lava",
+    "en": "Lava"
+  },
+  {
+    "sw": "Mchapuko",
+    "en": "Acceleration"
+  },
+  {
+    "sw": "Mwangwi",
+    "en": "Echo"
+  },
+  {
+    "sw": "Nguvu ya maji",
+    "en": "Hydropower"
+  },
+  {
+    "sw": "Nguvu ya upepo",
+    "en": "Wind power"
+  },
+  {
+    "sw": "Nguvu ya jua",
+    "en": "Solar power"
+  },
+  {
+    "sw": "Dizeli",
+    "en": "Diesel"
+  },
+  {
+    "sw": "Petroli",
+    "en": "Petrol"
+  },
+  {
+    "sw": "Mafuta ya taa",
+    "en": "Kerosene"
+  },
+  {
+    "sw": "Tanzaniti",
+    "en": "Tanzanite"
+  },
+  {
+    "sw": "Miamba",
+    "en": "Rocks"
+  },
+  {
+    "sw": "Oasisi",
+    "en": "Oasis"
+  },
+  {
+    "sw": "Tundu",
+    "en": "Hole"
+  },
+  {
+    "sw": "Safu ya milima",
+    "en": "Mountain range"
+  },
+  {
+    "sw": "Fuo",
+    "en": "Beach"
+  },
+  {
+    "sw": "Maporomoko ya maji",
+    "en": "Waterfall"
+  },
+  {
+    "sw": "Bahari ya Atlantiki",
+    "en": "Atlantic Ocean"
+  },
+  {
+    "sw": "Bahari ya Pasifiki",
+    "en": "Pacific Ocean"
+  },
+  {
+    "sw": "Bahari ya Hindi",
+    "en": "Indian Ocean"
+  },
+  {
+    "sw": "Mipaka",
+    "en": "Borders"
+  },
+  {
+    "sw": "Jiji",
+    "en": "City"
+  },
+  {
+    "sw": "Kitongoji",
+    "en": "Sub-village"
+  },
+  {
+    "sw": "Bara",
+    "en": "Continent"
+  },
+  {
+    "sw": "Longitudo",
+    "en": "Longitude"
+  },
+  {
+    "sw": "Latitudo",
+    "en": "Latitude"
+  },
+  {
+    "sw": "Mstari wa ikweta",
+    "en": "Equator"
+  },
+  {
+    "sw": "Mshale",
+    "en": "Arrow"
+  },
+  {
+    "sw": "Kusini-Magharibi",
+    "en": "Southwest"
+  },
+  {
+    "sw": "Kaskazini-Mashariki",
+    "en": "Northeast"
+  },
+  {
+    "sw": "Mchoro",
+    "en": "Diagram"
+  },
+  {
+    "sw": "Usanifu",
+    "en": "Design"
+  },
+  {
+    "sw": "Mistari",
+    "en": "Lines"
+  },
+  {
+    "sw": "Nukuu",
+    "en": "Quotes"
+  },
+  {
+    "sw": "Mabano",
+    "en": "Brackets"
+  },
+  {
+    "sw": "Alama ya kushangaa",
+    "en": "Exclamation mark"
+  },
+  {
+    "sw": "Alama ya kuuliza",
+    "en": "Question mark"
+  },
+  {
+    "sw": "Koloni",
+    "en": "Colon"
+  },
+  {
+    "sw": "Semikoloni",
+    "en": "Semicolon"
+  },
+  {
+    "sw": "Mkato",
+    "en": "Comma"
+  },
+  {
+    "sw": "Nukta",
+    "en": "Dot/Period"
+  },
+  {
+    "sw": "Imeoza",
+    "en": "Rotten"
+  },
+  {
+    "sw": "Mateka",
+    "en": "Captive"
+  },
+  {
+    "sw": "Duni",
+    "en": "Inferior"
+  },
+  {
+    "sw": "Mkubwa",
+    "en": "Big"
+  },
+  {
+    "sw": "Mdogo",
+    "en": "Small"
+  },
+  {
+    "sw": "Mcheshi",
+    "en": "Humorous"
+  },
+  {
+    "sw": "Mwenye bidii",
+    "en": "Hardworking"
+  },
+  {
+    "sw": "Mvivu",
+    "en": "Lazy"
+  },
+  {
+    "sw": "Mwenye papara",
+    "en": "Impatient"
+  },
+  {
+    "sw": "Mvumilivu",
+    "en": "Patient"
+  },
+  {
+    "sw": "Mzungumzaji",
+    "en": "Talkative"
+  },
+  {
+    "sw": "Mkimya",
+    "en": "Quiet"
+  },
+  {
+    "sw": "Mshari",
+    "en": "Provocative"
+  },
+  {
+    "sw": "Mwenye kiburi",
+    "en": "Arrogant"
+  },
+  {
+    "sw": "Mpumbavu",
+    "en": "Foolish"
+  },
+  {
+    "sw": "Kidole cha mwisho",
+    "en": "Pinky finger"
+  },
+  {
+    "sw": "Kidole cha pete",
+    "en": "Ring finger"
+  },
+  {
+    "sw": "Kidole cha kati",
+    "en": "Middle finger"
+  },
+  {
+    "sw": "Kidole cha shahada",
+    "en": "Index finger"
+  },
+  {
+    "sw": "Viganja",
+    "en": "Palms"
+  },
+  {
+    "sw": "Kiwiko",
+    "en": "Elbow/Wrist"
+  },
+  {
+    "sw": "Viungio",
+    "en": "Joints"
+  },
+  {
+    "sw": "Mikono",
+    "en": "Arms/Hands"
+  },
+  {
+    "sw": "Visigino",
+    "en": "Heels"
+  },
+  {
+    "sw": "Vidole vya miguu",
+    "en": "Toes"
+  },
+  {
+    "sw": "Miguu",
+    "en": "Legs/Feet"
+  },
+  {
+    "sw": "Mapaja",
+    "en": "Thighs"
+  },
+  {
+    "sw": "Mabega",
+    "en": "Shoulders"
+  },
+  {
+    "sw": "Ngoma ya sikio",
+    "en": "Eardrum"
+  },
+  {
+    "sw": "Nyusi",
+    "en": "Eyebrows"
+  },
+  {
+    "sw": "Fizi",
+    "en": "Gums"
+  },
+  {
+    "sw": "Lulimi",
+    "en": "Uvula"
+  },
+  {
+    "sw": "Tundu la pua",
+    "en": "Nostril"
+  },
+  {
+    "sw": "Vena",
+    "en": "Vein"
+  },
+  {
+    "sw": "Arteri",
+    "en": "Artery"
+  },
+  {
+    "sw": "Anatomia",
+    "en": "Anatomy"
+  },
+  {
+    "sw": "Mlinganyo",
+    "en": "Equation"
+  },
+  {
+    "sw": "Ulinganifu",
+    "en": "Symmetry"
+  },
+  {
+    "sw": "Hajamu",
+    "en": "Volume"
+  },
+  {
+    "sw": "Eneo",
+    "en": "Area"
+  },
+  {
+    "sw": "Kina",
+    "en": "Depth"
+  },
+  {
+    "sw": "Pembe",
+    "en": "Angle"
+  },
+  {
+    "sw": "Nyuzi",
+    "en": "Degrees"
+  },
+  {
+    "sw": "Nusu kipenyo",
+    "en": "Radius"
+  },
+  {
+    "sw": "Kipenyo",
+    "en": "Diameter"
+  },
+  {
+    "sw": "Mzingo",
+    "en": "Circumference"
+  },
+  {
+    "sw": "Kipeo cha pili",
+    "en": "Square root"
+  },
+  {
+    "sw": "Tatu kumi",
+    "en": "Three tenths"
+  },
+  {
+    "sw": "Namba",
+    "en": "Number"
+  },
+  {
+    "sw": "Gimba la anga",
+    "en": "Celestial body"
+  },
+  {
+    "sw": "Miale",
+    "en": "Rays"
+  },
+  {
+    "sw": "Jamii",
+    "en": "Society"
+  },
+  {
+    "sw": "Shujaa",
+    "en": "Hero"
+  },
+  {
+    "sw": "Mshindwa",
+    "en": "Loser"
+  },
+  {
+    "sw": "Mpinzani",
+    "en": "Opponent"
+  },
+  {
+    "sw": "Mfuasi",
+    "en": "Follower"
+  },
+  {
+    "sw": "Adui",
+    "en": "Enemy"
+  },
+  {
+    "sw": "Mtu",
+    "en": "Person"
+  },
+  {
+    "sw": "Mguso",
+    "en": "Touch"
+  },
+  {
+    "sw": "Harufu",
+    "en": "Smell"
+  },
+  {
+    "sw": "Kasi",
+    "en": "Speed"
+  },
+  {
+    "sw": "Upana",
+    "en": "Width"
+  },
+  {
+    "sw": "Kwanza",
+    "en": "First"
+  },
+  {
+    "sw": "Nzito",
+    "en": "Heavy"
+  },
+  {
+    "sw": "Butu",
+    "en": "Blunt"
+  },
+  {
+    "sw": "Kamili",
+    "en": "Complete"
+  },
+  {
+    "sw": "Kurekebishwa",
+    "en": "Fixed"
+  },
+  {
+    "sw": "Kuharibika",
+    "en": "Broken"
+  },
+  {
+    "sw": "Kimataifa",
+    "en": "International"
+  },
+  {
+    "sw": "Kitaifa",
+    "en": "National"
+  },
+  {
+    "sw": "Binafsi",
+    "en": "Private"
+  },
+  {
+    "sw": "Huria",
+    "en": "Liberal"
+  },
+  {
+    "sw": "Rasmi",
+    "en": "Official"
+  },
+  {
+    "sw": "Membamba",
+    "en": "Thin"
+  },
+  {
+    "sw": "Mnene",
+    "en": "Fat"
+  },
+  {
+    "sw": "Msafi",
+    "en": "Clean"
+  },
+  {
+    "sw": "Mchafu",
+    "en": "Dirty"
+  },
+  {
+    "sw": "Mtanashati",
+    "en": "Handsome"
+  },
+  {
+    "sw": "Mrembo",
+    "en": "Beautiful"
+  },
+  {
+    "sw": "Msaliti",
+    "en": "Traitor"
+  },
+  {
+    "sw": "Mwaminifu",
+    "en": "Faithful"
+  },
+  {
+    "sw": "Mchoyo",
+    "en": "Stingy"
+  },
+  {
+    "sw": "Mkarimu",
+    "en": "Generous"
+  },
+  {
+    "sw": "Mnyenyekevu",
+    "en": "Humble"
+  },
+  {
+    "sw": "Pumziko",
+    "en": "Rest"
+  },
+  {
+    "sw": "Makala",
+    "en": "Article"
+  },
+  {
+    "sw": "Maneno",
+    "en": "Words"
+  },
+  {
+    "sw": "Kunguru",
+    "en": "Crow"
+  },
+  {
+    "sw": "Gorila",
+    "en": "Gorilla"
+  },
+  {
+    "sw": "Mchwa",
+    "en": "Termites"
+  },
+  {
+    "sw": "Nta",
+    "en": "Wax"
+  },
+  {
+    "sw": "Matawi",
+    "en": "Branches"
+  },
+  {
+    "sw": "Mizizi",
+    "en": "Roots"
+  },
+  {
+    "sw": "Miti",
+    "en": "Trees"
+  },
+  {
+    "sw": "Mimea",
+    "en": "Plants"
+  },
+  {
+    "sw": "Mtetemeko",
+    "en": "Earthquake"
+  },
+  {
+    "sw": "Chokaa",
+    "en": "Lime"
+  },
+  {
+    "sw": "Mawe",
+    "en": "Stones"
+  },
+  {
+    "sw": "Plastiki",
+    "en": "Plastic"
+  },
+  {
+    "sw": "Alumini",
+    "en": "Aluminum"
+  },
+  {
+    "sw": "Vinasaba",
+    "en": "DNA"
+  },
+  {
+    "sw": "Chembehai",
+    "en": "Cell"
+  },
+  {
+    "sw": "Kuvu",
+    "en": "Fungi"
+  },
+  {
+    "sw": "Tabaka la ozoni",
+    "en": "Ozone layer"
+  },
+  {
+    "sw": "Mabadiliko ya nchi",
+    "en": "Climate change"
+  },
+  {
+    "sw": "Mzunguko wa nitrojeni",
+    "en": "Nitrogen cycle"
+  },
+  {
+    "sw": "Unyevunyevu",
+    "en": "Moisture"
+  },
+  {
+    "sw": "Udongo wa tifutifu",
+    "en": "Loamy soil"
+  },
+  {
+    "sw": "Mmomonyoko",
+    "en": "Erosion"
+  },
+  {
+    "sw": "Sayansi ya udongo",
+    "en": "Soil science"
+  },
+  {
+    "sw": "Safari za anga",
+    "en": "Space travel"
+  },
+  {
+    "sw": "Mvuto wa mwezi",
+    "en": "Tides"
+  },
+  {
+    "sw": "Tundu nyeusi",
+    "en": "Black hole"
+  },
+  {
+    "sw": "Unajimu",
+    "en": "Astronomy"
+  },
+  {
+    "sw": "Muungano",
+    "en": "Alliance"
+  },
+  {
+    "sw": "Vikwazo",
+    "en": "Sanctions"
+  },
+  {
+    "sw": "Msaada wa kibinadamu",
+    "en": "Humanitarian aid"
+  },
+  {
+    "sw": "Ukimbizi",
+    "en": "Refugee status"
+  },
+  {
+    "sw": "Mzozo",
+    "en": "Conflict"
+  },
+  {
+    "sw": "Itifaki",
+    "en": "Protocol"
+  },
+  {
+    "sw": "Hisia za ndani",
+    "en": "Intuition"
+  },
+  {
+    "sw": "Ujifunzaji",
+    "en": "Learning"
+  },
+  {
+    "sw": "Msukumo",
+    "en": "Motivation"
+  },
+  {
+    "sw": "Utu",
+    "en": "Personality"
+  },
+  {
+    "sw": "Hali ya nafsi",
+    "en": "Self-esteem"
+  },
+  {
+    "sw": "Hofu kuu",
+    "en": "Phobia"
+  },
+  {
+    "sw": "Msisimko",
+    "en": "Excitement"
+  },
+  {
+    "sw": "Tiba ya kisaikolojia",
+    "en": "Psychotherapy"
+  },
+  {
+    "sw": "Jenereta",
+    "en": "Generator"
+  },
+  {
+    "sw": "Transfoma",
+    "en": "Transformer"
+  },
+  {
+    "sw": "Vunja nishati",
+    "en": "Voltage"
+  },
+  {
+    "sw": "Mkondo wa umeme",
+    "en": "Electric current"
+  },
+  {
+    "sw": "Umeme tuli",
+    "en": "Static electricity"
+  },
+  {
+    "sw": "Msuguano",
+    "en": "Friction"
+  },
+  {
+    "sw": "Mgandamizo",
+    "en": "Compression"
+  },
+  {
+    "sw": "Mishikamano",
+    "en": "Tension"
+  },
+  {
+    "sw": "Kauzu",
+    "en": "Unfriendly/Serious person (slang)"
+  },
+  {
+    "sw": "Mishemishe",
+    "en": "Hustle/Errands (slang)"
+  },
+  {
+    "sw": "Serebuka",
+    "en": "Dance/Enjoy (slang)"
+  },
+  {
+    "sw": "Kivumbi",
+    "en": "Commotion/Chaos (slang)"
+  },
+  {
+    "sw": "Zali",
+    "en": "Luck (slang)"
+  },
+  {
+    "sw": "Bwege",
+    "en": "Fool (slang)"
+  },
+  {
+    "sw": "Mshamba",
+    "en": "Unrefined/Villager (slang)"
+  },
+  {
+    "sw": "Vyedi",
+    "en": "Good/Cool (slang)"
+  },
+  {
+    "sw": "Mizengwe",
+    "en": "Drama/Complications (slang)"
+  },
+  {
+    "sw": "Machale",
+    "en": "Instinct/Suspicion (slang)"
+  },
+  {
+    "sw": "Bitoz",
+    "en": "Good looking/Flashy guy (slang)"
+  },
+  {
+    "sw": "Ngwamba",
+    "en": "Hardcore/Tough (slang)"
+  },
+  {
+    "sw": "Sela",
+    "en": "Street-smart person (slang)"
+  },
+  {
+    "sw": "Kishua",
+    "en": "Rich/Fancy (slang)"
+  },
+  {
+    "sw": "Mchongo",
+    "en": "Plan/Deal (slang)"
+  },
+  {
+    "sw": "Ndinga",
+    "en": "Car (slang)"
+  },
+  {
+    "sw": "Mitungi",
+    "en": "Alcohol/Drinking (slang)"
+  },
+  {
+    "sw": "Mshua",
+    "en": "Father (slang)"
+  },
+  {
+    "sw": "Demu",
+    "en": "Girl/Girlfriend (slang)"
+  },
+  {
+    "sw": "Mshikaji",
+    "en": "Close friend (slang)"
+  },
+  {
+    "sw": "Tukio",
+    "en": "Event"
+  },
+  {
+    "sw": "Hali",
+    "en": "Circumstance"
+  },
+  {
+    "sw": "Nia",
+    "en": "Intent"
+  },
+  {
+    "sw": "Matarajio",
+    "en": "Expectations"
+  },
+  {
+    "sw": "Mtazamo",
+    "en": "Outlook"
+  },
+  {
+    "sw": "Mwelekeo",
+    "en": "Trend"
+  },
+  {
+    "sw": "Upatanishi",
+    "en": "Mediation"
+  },
+  {
+    "sw": "Suluhu",
+    "en": "Resolution"
+  },
+  {
+    "sw": "Mgogoro",
+    "en": "Crisis"
+  },
+  {
+    "sw": "Kikwazo",
+    "en": "Obstacle"
+  },
+  {
+    "sw": "Mwitikio",
+    "en": "Response"
+  },
+  {
+    "sw": "Udhibiti",
+    "en": "Control"
+  },
+  {
+    "sw": "Uimarishaji",
+    "en": "Fortification"
+  },
+  {
+    "sw": "Uboreshaji",
+    "en": "Enhancement"
+  },
+  {
+    "sw": "Upanuzi",
+    "en": "Expansion"
+  },
+  {
+    "sw": "Utofauti",
+    "en": "Diversity"
+  },
+  {
+    "sw": "Upekee",
+    "en": "Uniqueness"
+  },
+  {
+    "sw": "Umuhimu",
+    "en": "Significance"
+  },
+  {
+    "sw": "Sababu",
+    "en": "Reason"
+  },
+  {
+    "sw": "Udugu",
+    "en": "Brotherhood"
+  },
+  {
+    "sw": "Uadui",
+    "en": "Enmity"
+  },
+  {
+    "sw": "Utukufu",
+    "en": "Glory"
+  },
+  {
+    "sw": "Umaarufu",
+    "en": "Fame"
+  },
+  {
+    "sw": "Ushawishi",
+    "en": "Influence"
+  },
+  {
+    "sw": "Mamlaka",
+    "en": "Authority"
+  },
+  {
+    "sw": "Utaalamu",
+    "en": "Expertise"
+  },
+  {
+    "sw": "Uzamivu",
+    "en": "PhD"
+  },
+  {
+    "sw": "Uzamili",
+    "en": "Master's"
+  },
+  {
+    "sw": "Tathmini",
+    "en": "Assessment"
+  },
+  {
+    "sw": "Kongamano",
+    "en": "Conference"
+  },
+  {
+    "sw": "Semina",
+    "en": "Workshop"
+  },
+  {
+    "sw": "Tahajia",
+    "en": "Spelling"
+  },
+  {
+    "sw": "Ufasaha",
+    "en": "Fluency"
+  },
+  {
+    "sw": "Tafsiri",
+    "en": "Translation"
+  },
+  {
+    "sw": "Maana",
+    "en": "Meaning"
+  },
+  {
+    "sw": "Toni",
+    "en": "Tone"
+  },
+  {
+    "sw": "Maudhui",
+    "en": "Content"
+  },
+  {
+    "sw": "Kichwa cha habari",
+    "en": "Headline"
+  },
+  {
+    "sw": "Ukurasa",
+    "en": "Page"
+  },
+  {
+    "sw": "Mstari",
+    "en": "Line"
+  },
+  {
+    "sw": "Kala",
+    "en": "Script"
+  },
+  {
+    "sw": "Ibara",
+    "en": "Paragraph"
+  },
+  {
+    "sw": "Fungu",
+    "en": "Phrase"
+  },
+  {
+    "sw": "Sentensi",
+    "en": "Sentence"
+  },
+  {
+    "sw": "Kihisishi",
+    "en": "Interjection"
+  },
+  {
+    "sw": "Kihusishi",
+    "en": "Preposition"
+  },
+  {
+    "sw": "Kiunganishi",
+    "en": "Conjunction"
+  },
+  {
+    "sw": "Kielezi",
+    "en": "Adverb"
+  },
+  {
+    "sw": "Nomino",
+    "en": "Noun"
+  },
+  {
+    "sw": "Kitenzi",
+    "en": "Verb"
+  },
+  {
+    "sw": "Kinaya",
+    "en": "Irony"
+  },
+  {
+    "sw": "Kebehi",
+    "en": "Sarcasm"
+  },
+  {
+    "sw": "Wardi",
+    "en": "Pink"
+  },
+  {
+    "sw": "Mviringo",
+    "en": "Round"
+  },
+  {
+    "sw": "Nyembamba",
+    "en": "Thin"
+  },
+  {
+    "sw": "Hasi",
+    "en": "Negative"
+  },
+  {
+    "sw": "Chanya",
+    "en": "Positive"
+  },
+  {
+    "sw": "Kuhakiki",
+    "en": "Critical"
+  },
+  {
+    "sw": "Kuchambua",
+    "en": "Analytical"
+  },
+  {
+    "sw": "Kulinganisha",
+    "en": "Comparative"
+  },
+  {
+    "sw": "Kitakwimu",
+    "en": "Statistical"
+  },
+  {
+    "sw": "Kihisabati",
+    "en": "Mathematical"
+  },
+  {
+    "sw": "Kifizikia",
+    "en": "Physical"
+  },
+  {
+    "sw": "Kikemia",
+    "en": "Chemical"
+  },
+  {
+    "sw": "Kibailojia",
+    "en": "Biological"
+  },
+  {
+    "sw": "Kisaikolojia",
+    "en": "Psychological"
+  },
+  {
+    "sw": "Kifalsafa",
+    "en": "Philosophical"
+  },
+  {
+    "sw": "Kiutamaduni",
+    "en": "Cultural"
+  },
+  {
+    "sw": "Kidini",
+    "en": "Religious"
+  },
+  {
+    "sw": "Kisheria",
+    "en": "Legal"
+  },
+  {
+    "sw": "Kisiasa",
+    "en": "Political"
+  },
+  {
+    "sw": "Kiteknolojia",
+    "en": "Technological"
+  },
+  {
+    "sw": "Kisayansi",
+    "en": "Scientific"
+  },
+  {
+    "sw": "Kijiografia",
+    "en": "Geographical"
+  },
+  {
+    "sw": "Kihistoria",
+    "en": "Historical"
+  },
+  {
+    "sw": "Kiasili",
+    "en": "Natural"
+  },
+  {
+    "sw": "Kiuchumi",
+    "en": "Economic"
+  },
+  {
+    "sw": "Kijamii",
+    "en": "Social"
+  },
+  {
+    "sw": "Kitaaluma",
+    "en": "Professional"
+  },
+  {
+    "sw": "Uendeshaji",
+    "en": "Operational"
+  },
+  {
+    "sw": "Utandawazi",
+    "en": "Globalization"
+  },
+  {
+    "sw": "Mfumuko",
+    "en": "Inflationary"
+  },
+  {
+    "sw": "Madeni",
+    "en": "Liabilities"
+  },
+  {
+    "sw": "Soko la fedha",
+    "en": "Financial market"
+  },
+  {
+    "sw": "Ukaguzi",
+    "en": "Audit"
+  },
+  {
+    "sw": "Uhasibu",
+    "en": "Accounting"
+  },
+  {
+    "sw": "Makubaliano",
+    "en": "Agreement"
+  },
+  {
+    "sw": "Mazungumzo",
+    "en": "Dialogue"
+  },
+  {
+    "sw": "Maridhiano",
+    "en": "Reconciliation"
+  },
+  {
+    "sw": "Mvutano",
+    "en": "Conflict"
+  },
+  {
+    "sw": "Ufumbuzi",
+    "en": "Solution"
+  },
+  {
+    "sw": "Uadilifu",
+    "en": "Integrity"
+  },
+  {
+    "sw": "Mshikamano",
+    "en": "Solidarity"
+  },
+  {
+    "sw": "Kipaji",
+    "en": "Talent"
+  },
+  {
+    "sw": "Kasoro",
+    "en": "Flaw"
+  },
+  {
+    "sw": "Mwenendo",
+    "en": "Conduct"
+  },
+  {
+    "sw": "Uraibu",
+    "en": "Addiction"
+  },
+  {
+    "sw": "Mifumo ya habari",
+    "en": "IT systems"
+  },
+  {
+    "sw": "Uandishi wa habari",
+    "en": "Journalism"
+  },
+  {
+    "sw": "Vyombo vya habari",
+    "en": "Media"
+  },
+  {
+    "sw": "Mifugo",
+    "en": "Livestock"
+  },
+  {
+    "sw": "Ikolojia",
+    "en": "Ecology"
+  },
+  {
+    "sw": "Urais",
+    "en": "Presidency"
+  },
+  {
+    "sw": "Utawala",
+    "en": "Administration"
+  },
+  {
+    "sw": "Usambazaji",
+    "en": "Distribution"
+  },
+  {
+    "sw": "Wingi",
+    "en": "Quantity"
+  },
+  {
+    "sw": "Udhaifu",
+    "en": "Weakness"
+  },
+  {
+    "sw": "Mpangilio",
+    "en": "Structure"
+  },
+  {
+    "sw": "Majaribio",
+    "en": "Experiments"
+  },
+  {
+    "sw": "Uwezekano",
+    "en": "Probability"
+  },
+  {
+    "sw": "Jiometri",
+    "en": "Geometry"
+  },
+  {
+    "sw": "Aljebra",
+    "en": "Algebra"
+  },
+  {
+    "sw": "Mitambo",
+    "en": "Machinery"
+  },
+  {
+    "sw": "Udadisi",
+    "en": "Curiosity"
+  },
+  {
+    "sw": "Ulemavu",
+    "en": "Disability"
+  },
+  {
+    "sw": "Antibioti",
+    "en": "Antibiotics"
+  },
+  {
+    "sw": "Kinga ya mwili",
+    "en": "Immunity"
+  },
+  {
+    "sw": "Homoni",
+    "en": "Hormones"
+  },
+  {
+    "sw": "Mfumo wa neva",
+    "en": "Nervous system"
+  },
+  {
+    "sw": "Mazalia",
+    "en": "Breeding ground"
+  },
+  {
+    "sw": "Spishi",
+    "en": "Species"
+  },
+  {
+    "sw": "Mageuzi",
+    "en": "Evolution"
+  },
+  {
+    "sw": "Vinaba",
+    "en": "Genes"
+  },
+  {
+    "sw": "Seli",
+    "en": "Cell"
+  },
+  {
+    "sw": "Unasaba",
+    "en": "Genetics"
+  },
+  {
+    "sw": "Machafuko",
+    "en": "Chaos"
+  },
+  {
+    "sw": "Kutokuamini",
+    "en": "Skepticism"
+  },
+  {
+    "sw": "Tumaini",
+    "en": "Hope"
+  },
+  {
+    "sw": "Ubeuzi",
+    "en": "Cynicism"
+  },
+  {
+    "sw": "Ubepari",
+    "en": "Capitalism"
+  },
+  {
+    "sw": "Ubeberu",
+    "en": "Imperialism"
+  },
+  {
+    "sw": "Ujamaa",
+    "en": "Socialism/Community"
+  },
+  {
+    "sw": "Uzalendo",
+    "en": "Patriotism"
+  },
+  {
+    "sw": "Hatima",
+    "en": "Destiny/Fate"
+  },
+  {
+    "sw": "Uwepo",
+    "en": "Existence"
+  },
+  {
+    "sw": "Ufahamu",
+    "en": "Consciousness"
+  },
+  {
+    "sw": "Uhalisia",
+    "en": "Reality"
+  },
+  {
+    "sw": "Ukamilifu",
+    "en": "Perfection"
+  },
+  {
+    "sw": "Mantiki",
+    "en": "Logic"
+  },
+  {
+    "sw": "Miale ya jua",
+    "en": "Solar flares"
+  },
+  {
+    "sw": "Kupatwa kwa mwezi",
+    "en": "Lunar eclipse"
+  },
+  {
+    "sw": "Kupatwa kwa jua",
+    "en": "Solar eclipse"
+  },
+  {
+    "sw": "Mwaka wa mwanga",
+    "en": "Light year"
+  },
+  {
+    "sw": "Utupu",
+    "en": "Vacuum"
+  },
+  {
+    "sw": "Darubini",
+    "en": "Telescope"
+  },
+  {
+    "sw": "Mwanaanga",
+    "en": "Astronaut"
+  },
+  {
+    "sw": "Chombo cha anga",
+    "en": "Spacecraft"
+  },
+  {
+    "sw": "Anga za mbali",
+    "en": "Outer space"
+  },
+  {
+    "sw": "Obiti",
+    "en": "Orbit"
+  },
+  {
+    "sw": "Gimba",
+    "en": "Celestial body"
+  },
+  {
+    "sw": "Kimondo",
+    "en": "Meteor"
+  },
+  {
+    "sw": "Nyota mkia",
+    "en": "Comet"
+  },
+  {
+    "sw": "Kiwingu",
+    "en": "Nebula"
+  },
+  {
+    "sw": "Shimo nyeusi",
+    "en": "Black hole"
+  },
+  {
+    "sw": "Njia ya maziwa",
+    "en": "Milky Way"
+  },
+  {
+    "sw": "Galaksi",
+    "en": "Galaxy"
+  },
+  {
+    "sw": "Ulimwengu",
+    "en": "Universe"
+  },
+  {
     "sw": "Katikati",
     "en": "In the middle"
   },
