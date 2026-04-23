@@ -1,5 +1,1313 @@
 [
   {
+    "sw": "Cytotoxicity",
+    "en": "Usumu wa seli"
+  },
+  {
+    "sw": "Curatorial",
+    "en": "Kuhusu usimamizi wa makumbusho"
+  },
+  {
+    "sw": "Cumulative",
+    "en": "Inayozidi kuongezeka"
+  },
+  {
+    "sw": "Craftmanship",
+    "en": "Umahiri wa ufundi wa mikono"
+  },
+  {
+    "sw": "Courageous",
+    "en": "Mwenye ushujaa"
+  },
+  {
+    "sw": "Coupage",
+    "en": "Mchanganyiko wa vinywaji"
+  },
+  {
+    "sw": "Counsel",
+    "en": "Ushauri/Wakili"
+  },
+  {
+    "sw": "Council",
+    "en": "Baraza"
+  },
+  {
+    "sw": "Cosmic",
+    "en": "Kuhusu ulimwengu na anga za mbali"
+  },
+  {
+    "sw": "Cosmetic",
+    "en": "Ya juu juu/Vipodozi"
+  },
+  {
+    "sw": "Corrosion",
+    "en": "Kuliwa kwa metali (kutu)"
+  },
+  {
+    "sw": "Coronary",
+    "en": "Inayohusu mishipa ya moyo"
+  },
+  {
+    "sw": "Conviviality",
+    "en": "Uchangamfu wa kijamii"
+  },
+  {
+    "sw": "Contrition",
+    "en": "Toba ya dhati ya moyo"
+  },
+  {
+    "sw": "Contortion",
+    "en": "Kupinda kwa umbo"
+  },
+  {
+    "sw": "Congenital",
+    "en": "Tatizo la tangu kuzaliwa"
+  },
+  {
+    "sw": "Confounding",
+    "en": "Kutatiza kwa kuchanganya"
+  },
+  {
+    "sw": "Conciseness",
+    "en": "Ufupi wa maelezo"
+  },
+  {
+    "sw": "Compensatory",
+    "en": "Yenye kutoa fidia"
+  },
+  {
+    "sw": "Compaction",
+    "en": "Mgandamizo wa udongo/vitu"
+  },
+  {
+    "sw": "Commotion",
+    "en": "Ghasia na kelele za vurugu"
+  },
+  {
+    "sw": "Commiseration",
+    "en": "Hali ya kuhurumia mwingine"
+  },
+  {
+    "sw": "Colloquialism",
+    "en": "Lugha ya mazungumzo isiyo rasmi"
+  },
+  {
+    "sw": "Coherence",
+    "en": "Mantiki na uwiano wa maelezo"
+  },
+  {
+    "sw": "Coercion",
+    "en": "Kulazimisha kwa kutumia nguvu"
+  },
+  {
+    "sw": "Coastal",
+    "en": "Kuhusu pwani"
+  },
+  {
+    "sw": "Closure",
+    "en": "Hitimisho/Kufungwa"
+  },
+  {
+    "sw": "Climatology",
+    "en": "Sayansi ya hali ya hewa"
+  },
+  {
+    "sw": "Clergy",
+    "en": "Watendaji wa kidini (mapadri/wachungaji)"
+  },
+  {
+    "sw": "Claustrophobia",
+    "en": "Woga wa mahali pafinyu"
+  },
+  {
+    "sw": "Circumvention",
+    "en": "Kukwepa sheria kwa ujanja"
+  },
+  {
+    "sw": "Circumscription",
+    "en": "Kuwekea mipaka ya mamlaka"
+  },
+  {
+    "sw": "Circumnavigation",
+    "en": "Safari ya kuzunguka dunia"
+  },
+  {
+    "sw": "Circulatory",
+    "en": "Inayohusu mzunguko (damu)"
+  },
+  {
+    "sw": "Circuitry",
+    "en": "Mfumo wa mizunguko ya umeme"
+  },
+  {
+    "sw": "Chronometer",
+    "en": "Saa yenye usahihi mkubwa"
+  },
+  {
+    "sw": "Chronological",
+    "en": "Kufuata mpangilio wa muda"
+  },
+  {
+    "sw": "Chromosomal",
+    "en": "Kuhusu kromosomu"
+  },
+  {
+    "sw": "Chromatography",
+    "en": "Mbinu ya kutenganisha mchanganyiko"
+  },
+  {
+    "sw": "Chromatic",
+    "en": "Kuhusu rangi"
+  },
+  {
+    "sw": "Chlorination",
+    "en": "Uwekaji klorini (kwenye maji)"
+  },
+  {
+    "sw": "Checkmate",
+    "en": "Kushindwa kabisa (chess)"
+  },
+  {
+    "sw": "Charitable",
+    "en": "Yenye kutoa misaada"
+  },
+  {
+    "sw": "Characterization",
+    "en": "Uelezaji wa sifa za mhusika"
+  },
+  {
+    "sw": "Chancellery",
+    "en": "Ofisi ya chansela"
+  },
+  {
+    "sw": "Ceremonial",
+    "en": "Ya kisherehe rasmi"
+  },
+  {
+    "sw": "Cerebral",
+    "en": "Inayohusu ubongo/Akili"
+  },
+  {
+    "sw": "Centripetal",
+    "en": "Inayoelekea katikati ya mzunguko"
+  },
+  {
+    "sw": "Centrifugal",
+    "en": "Inayoelekea nje ya mzunguko"
+  },
+  {
+    "sw": "Cellular",
+    "en": "Kuhusu seli"
+  },
+  {
+    "sw": "Celibacy",
+    "en": "Maisha ya kutooa/kuolewa"
+  },
+  {
+    "sw": "Cautionary",
+    "en": "Yenye kutoa onyo"
+  },
+  {
+    "sw": "Cauterization",
+    "en": "Kuchoma kidonda kuzuia damu"
+  },
+  {
+    "sw": "Caustic",
+    "en": "Inayounguza kwa kemikali/Maneno makali"
+  },
+  {
+    "sw": "Catholicism",
+    "en": "Imani ya kanisa Katoliki"
+  },
+  {
+    "sw": "Cathode",
+    "en": "Upande hasi wa umeme"
+  },
+  {
+    "sw": "Catharsis",
+    "en": "Utoaji wa hisia zilizofichika (tibu)"
+  },
+  {
+    "sw": "Catechism",
+    "en": "Mafundisho ya misingi ya dini"
+  },
+  {
+    "sw": "Catalysis",
+    "en": "Uchochezi wa mmenyuko wa kikemia"
+  },
+  {
+    "sw": "Catalogue",
+    "en": "Orodha ya vitu kulingana na mpangilio"
+  },
+  {
+    "sw": "Catabolism",
+    "en": "Mmeng'enyo wa molekuli kutoa nishati"
+  },
+  {
+    "sw": "Casuistry",
+    "en": "Matumizi ya kanuni za maadili kwa ujanja"
+  },
+  {
+    "sw": "Carcinogenic",
+    "en": "Inayosababisha saratani"
+  },
+  {
+    "sw": "Carcinogenesis",
+    "en": "Mchakato wa kutokea kwa saratani"
+  },
+  {
+    "sw": "Carbonization",
+    "en": "Kugeuka kuwa mkaa"
+  },
+  {
+    "sw": "Capsulation",
+    "en": "Kuweka ndani ya kifuniko"
+  },
+  {
+    "sw": "Capillarity",
+    "en": "Uwezo wa maji kupanda kwenye mirija"
+  },
+  {
+    "sw": "Canonization",
+    "en": "Kumtangaza mtu kuwa mtakatifu"
+  },
+  {
+    "sw": "Candidacy",
+    "en": "Hali ya kuwa mgombea"
+  },
+  {
+    "sw": "Canalization",
+    "en": "Uelekezaji wa maji/mawazo"
+  },
+  {
+    "sw": "Campaigning",
+    "en": "Ufanyaji wa harakati za kupata kura"
+  },
+  {
+    "sw": "Camouflage",
+    "en": "Kujificha kwa kufanana na mazingira"
+  },
+  {
+    "sw": "Calorimetry",
+    "en": "Vipimo vya joto"
+  },
+  {
+    "sw": "Callosity",
+    "en": "Ugumu wa ngozi/moyo"
+  },
+  {
+    "sw": "Calibration",
+    "en": "Urekebishaji wa usahihi wa kipimo"
+  },
+  {
+    "sw": "Calculation",
+    "en": "Ukokotoaji wa namba"
+  },
+  {
+    "sw": "Calcification",
+    "en": "Kugeuka kuwa chokaa"
+  },
+  {
+    "sw": "Calamity",
+    "en": "Maafa makubwa"
+  },
+  {
+    "sw": "Cadmium",
+    "en": "Elementi ya metali ya kikemia"
+  },
+  {
+    "sw": "Cacophony",
+    "en": "Sauti mbaya ya kelele zisizopatana"
+  },
+  {
+    "sw": "Byzantine",
+    "en": "Yenye utata na urasimu mwingi"
+  },
+  {
+    "sw": "Bylaw",
+    "en": "Sheria ndogo ya mamlaka ya mtaa"
+  },
+  {
+    "sw": "By-election",
+    "en": "Uchaguzi mdogo"
+  },
+  {
+    "sw": "Bursary",
+    "en": "Msaada wa fedha za masomo"
+  },
+  {
+    "sw": "Buffering",
+    "en": "Uwezo wa kuzuia mabadiliko (pH/data)"
+  },
+  {
+    "sw": "Budgetary",
+    "en": "Kuhusu bajeti ya fedha"
+  },
+  {
+    "sw": "Bubonic",
+    "en": "Kuhusu ugonjwa wa tauni"
+  },
+  {
+    "sw": "Brazenness",
+    "en": "Ujeuri usio na aibu"
+  },
+  {
+    "sw": "Brachytherapy",
+    "en": "Tiba ya mionzi ya karibu"
+  },
+  {
+    "sw": "Bourgeois",
+    "en": "Tabaka la wenye mali"
+  },
+  {
+    "sw": "Boundaries",
+    "en": "Mipaka"
+  },
+  {
+    "sw": "Boreal",
+    "en": "Kuhusu kaskazini mwa dunia"
+  },
+  {
+    "sw": "Bonafide",
+    "en": "Kwa nia njema na ya kweli"
+  },
+  {
+    "sw": "Bolstering",
+    "en": "Kuimarisha kwa msaada"
+  },
+  {
+    "sw": "Bolshevism",
+    "en": "Itikadi ya mapinduzi ya Urusi"
+  },
+  {
+    "sw": "Bohemianism",
+    "en": "Maisha ya kisanii kinyume na mila"
+  },
+  {
+    "sw": "Body politic",
+    "en": "Watu wa taifa kama mwili mmoja"
+  },
+  {
+    "sw": "Blockade",
+    "en": "Vizuizi vya usafiri wa adui"
+  },
+  {
+    "sw": "Blatancy",
+    "en": "Uwazi wa kijeuri"
+  },
+  {
+    "sw": "Blasphemy",
+    "en": "Kukufuru mambo matakatifu"
+  },
+  {
+    "sw": "Bivouac",
+    "en": "Kambi ya muda ya kijeshi"
+  },
+  {
+    "sw": "Bivalve",
+    "en": "Kiumbe mwenye maganda mawili"
+  },
+  {
+    "sw": "Bisexuality",
+    "en": "Mwelekeo wa jinsia mbili"
+  },
+  {
+    "sw": "Birefringence",
+    "en": "Mchepuko wa mwanga mara mbili"
+  },
+  {
+    "sw": "Bipolarity",
+    "en": "Hali ya kuwa na ncha mbili tofauti"
+  },
+  {
+    "sw": "Bipedal",
+    "en": "Inayotembea kwa miguu miwili"
+  },
+  {
+    "sw": "Biosphere",
+    "en": "Sehemu ya dunia yenye uhai"
+  },
+  {
+    "sw": "Bionics",
+    "en": "Matumizi ya mifumo ya kibaolojia kwenye uhandisi"
+  },
+  {
+    "sw": "Biometry",
+    "en": "Vipimo vya takwimu za viumbe"
+  },
+  {
+    "sw": "Biome",
+    "en": "Eneo kubwa la kiikolojia"
+  },
+  {
+    "sw": "Biomass",
+    "en": "Jumla ya mada ya viumbe"
+  },
+  {
+    "sw": "Bioluminescence",
+    "en": "Uwezo wa kiumbe kutoa mwanga"
+  },
+  {
+    "sw": "Biological",
+    "en": "Kuhusu viumbe hai"
+  },
+  {
+    "sw": "Bioinformatics",
+    "en": "Matumizi ya data kwenye biolojia"
+  },
+  {
+    "sw": "Biographical",
+    "en": "Kuhusu wasifu wa mtu"
+  },
+  {
+    "sw": "Biogenesis",
+    "en": "Nadharia kuwa uhai hutoka kwa uhai"
+  },
+  {
+    "sw": "Biofuel",
+    "en": "Nishati ya viumbe"
+  },
+  {
+    "sw": "Bioethics",
+    "en": "Maadili ya utafiti wa viumbe"
+  },
+  {
+    "sw": "Biodegradability",
+    "en": "Uwezo wa kuoza kiasili"
+  },
+  {
+    "sw": "Biochemistry",
+    "en": "Kemia ya viumbe hai"
+  },
+  {
+    "sw": "Biocentrism",
+    "en": "Imani kuwa uhai ni kiini cha ulimwengu"
+  },
+  {
+    "sw": "Bioaccumulation",
+    "en": "Kujikusanya kwa sumu mwilini"
+  },
+  {
+    "sw": "Binary",
+    "en": "Mfumo wa namba mbili (0 na 1)"
+  },
+  {
+    "sw": "Bilingualism",
+    "en": "Uwezo wa lugha mbili"
+  },
+  {
+    "sw": "Biliary",
+    "en": "Kuhusu nyongo"
+  },
+  {
+    "sw": "Bilateralism",
+    "en": "Uhusiano wa nchi mbili"
+  },
+  {
+    "sw": "Bestiality",
+    "en": "Unyama/Kuingilia wanyama"
+  },
+  {
+    "sw": "Bespoke",
+    "en": "Iliyotengenezwa maalum kwa agizo"
+  },
+  {
+    "sw": "Beratement",
+    "en": "Kukemea vikali"
+  },
+  {
+    "sw": "Benefaction",
+    "en": "Tendo la kutoa msaada"
+  },
+  {
+    "sw": "Belated",
+    "en": "Iliyochelewa"
+  },
+  {
+    "sw": "Beholding",
+    "en": "Kuona/Kutazama"
+  },
+  {
+    "sw": "Behemoth",
+    "en": "Kitu au shirika kubwa sana"
+  },
+  {
+    "sw": "Beatification",
+    "en": "Hatua ya kutangazwa mtakatifu"
+  },
+  {
+    "sw": "Bathymetry",
+    "en": "Vipimo vya kina cha bahari"
+  },
+  {
+    "sw": "Baseline",
+    "en": "Kiwango cha msingi cha kuanzia"
+  },
+  {
+    "sw": "Basalt",
+    "en": "Mwamba wa volkano"
+  },
+  {
+    "sw": "Barrister",
+    "en": "Wakili mwandamizi"
+  },
+  {
+    "sw": "Baronage",
+    "en": "Tabaka la mabwana wakubwa"
+  },
+  {
+    "sw": "Bandwidth",
+    "en": "Upana wa mawasiliano ya data"
+  },
+  {
+    "sw": "Banal",
+    "en": "Ya kawaida sana isiyo na msisimko"
+  },
+  {
+    "sw": "Ballistics",
+    "en": "Sayansi ya makombora"
+  },
+  {
+    "sw": "Balistics",
+    "en": "Sayansi ya mienendo ya risasi/makombora"
+  },
+  {
+    "sw": "Bailment",
+    "en": "Ukabidhi wa mali kwa makubaliano"
+  },
+  {
+    "sw": "Badgering",
+    "en": "Kusumbua kwa maswali mfululizo"
+  },
+  {
+    "sw": "Bacteriostatic",
+    "en": "Inayozuia bakteria wasizaliane"
+  },
+  {
+    "sw": "Bacteriology",
+    "en": "Elimu ya bakteria"
+  },
+  {
+    "sw": "Backbencher",
+    "en": "Mbunge asiye na nafasi ya uwaziri"
+  },
+  {
+    "sw": "Baccalaureate",
+    "en": "Shahada ya kwanza ya chuo"
+  },
+  {
+    "sw": "Azimuth",
+    "en": "Pembe ya dira"
+  },
+  {
+    "sw": "Axiology",
+    "en": "Falsafa ya thamani na maadili"
+  },
+  {
+    "sw": "Axial",
+    "en": "Kuhusu mhimili"
+  },
+  {
+    "sw": "Avowal",
+    "en": "Ungamo la wazi"
+  },
+  {
+    "sw": "Avocation",
+    "en": "Kazi ya pembeni (hobi)"
+  },
+  {
+    "sw": "Avarice",
+    "en": "Tamaa mbaya ya mali"
+  },
+  {
+    "sw": "Autonomous",
+    "en": "Inayojitawala"
+  },
+  {
+    "sw": "Autonomic",
+    "en": "Inayojiendesha bila utashi (mfumo wa neva)"
+  },
+  {
+    "sw": "Automaton",
+    "en": "Mashine inayojiendesha (roboti)"
+  },
+  {
+    "sw": "Auspices",
+    "en": "Udhamini/Ulinzi wa mamlaka"
+  },
+  {
+    "sw": "Auscultation",
+    "en": "Kusikiliza mapigo kwa stethoskopu"
+  },
+  {
+    "sw": "Aura",
+    "en": "Hali ya kipekee inayomzunguka mtu"
+  },
+  {
+    "sw": "August",
+    "en": "Tukufu/Yenye heshima kubwa"
+  },
+  {
+    "sw": "Augury",
+    "en": "Utabiri wa ishara"
+  },
+  {
+    "sw": "Auditory",
+    "en": "Inayohusu kusikia"
+  },
+  {
+    "sw": "Audacity",
+    "en": "Ujasiri wa kijeuri"
+  },
+  {
+    "sw": "Atypical",
+    "en": "Isiyo ya kawaida"
+  },
+  {
+    "sw": "Attribution",
+    "en": "Kuhusisha kazi na mtunzi wake"
+  },
+  {
+    "sw": "Atomization",
+    "en": "Uvunjaji wa kitu katika vipande vidogo"
+  },
+  {
+    "sw": "Atoll",
+    "en": "Kisiwa cha matumbawe chenye ziwa katikati"
+  },
+  {
+    "sw": "Atmospheric",
+    "en": "Kuhusu tabaka la hewa"
+  },
+  {
+    "sw": "Atherosclerosis",
+    "en": "Kuziba kwa mishipa ya damu kwa mafuta"
+  },
+  {
+    "sw": "Atheism",
+    "en": "Imani kuwa hakuna Mungu"
+  },
+  {
+    "sw": "Atavism",
+    "en": "Kurudi kwa tabia ya kale ya mababu"
+  },
+  {
+    "sw": "Asynchronous",
+    "en": "Isiyotokea kwa wakati mmoja"
+  },
+  {
+    "sw": "Asymptomatic",
+    "en": "Mgonjwa asiye na dalili"
+  },
+  {
+    "sw": "Astronomical",
+    "en": "Kubwa sana/Kuhusu nyota"
+  },
+  {
+    "sw": "Astronautics",
+    "en": "Sayansi ya safari za anga"
+  },
+  {
+    "sw": "Astrology",
+    "en": "Ubashiri wa nyota"
+  },
+  {
+    "sw": "Astringent",
+    "en": "Inayosinyausha tishu/tindikali"
+  },
+  {
+    "sw": "Astigmatism",
+    "en": "Tatizo la uoni wa macho"
+  },
+  {
+    "sw": "Astatine",
+    "en": "Elementi adimu ya kikemia"
+  },
+  {
+    "sw": "Asphyxiation",
+    "en": "Kukosa hewa (kunaswa koo)"
+  },
+  {
+    "sw": "Aseptic",
+    "en": "Isiyo na vimelea"
+  },
+  {
+    "sw": "Ascription",
+    "en": "Kuhusisha sifa kwa mtu"
+  },
+  {
+    "sw": "Ascetic",
+    "en": "Anayeishi kwa kujinyima anasa"
+  },
+  {
+    "sw": "Ascendance",
+    "en": "Hali ya kuwa na nguvu/utawala"
+  },
+  {
+    "sw": "Artisanal",
+    "en": "Inayotengenezwa kwa mkono"
+  },
+  {
+    "sw": "Artificiality",
+    "en": "Hali ya kutokuwa asili"
+  },
+  {
+    "sw": "Artifact",
+    "en": "Kitu cha kale kilichotengenezwa na binadamu"
+  },
+  {
+    "sw": "Articulate",
+    "en": "Mwenye kuelezea mambo fasaha"
+  },
+  {
+    "sw": "Arteriosclerosis",
+    "en": "Kukauka kwa kuta za mishipa"
+  },
+  {
+    "sw": "Arrears",
+    "en": "Malimbikizo ya madeni"
+  },
+  {
+    "sw": "Arraignment",
+    "en": "Kusomewa mashtaka mahakamani"
+  },
+  {
+    "sw": "Armistice",
+    "en": "Makubaliano ya kusitisha vita"
+  },
+  {
+    "sw": "Ardent",
+    "en": "Mwenye shauku kali"
+  },
+  {
+    "sw": "Archives",
+    "en": "Hifadhi ya nyaraka za kale"
+  },
+  {
+    "sw": "Archaic",
+    "en": "Ya kizamani sana"
+  },
+  {
+    "sw": "Archaeology",
+    "en": "Sayansi ya mabaki ya kale"
+  },
+  {
+    "sw": "Arcane",
+    "en": "Siri inayoeleweka na wachache tu"
+  },
+  {
+    "sw": "Arboretum",
+    "en": "Bustani ya utafiti wa miti"
+  },
+  {
+    "sw": "Arboreal",
+    "en": "Inayoishi mitini"
+  },
+  {
+    "sw": "Arbitrariness",
+    "en": "Tabia ya uholela"
+  },
+  {
+    "sw": "Arbitrage",
+    "en": "Biashara ya tofauti ya bei za masoko"
+  },
+  {
+    "sw": "Aquifer",
+    "en": "Tabaka la ardhi lenye maji"
+  },
+  {
+    "sw": "Aqueduct",
+    "en": "Njia ya maji iliyojengwa"
+  },
+  {
+    "sw": "Aquaculture",
+    "en": "Ufugaji wa viumbe vya majini"
+  },
+  {
+    "sw": "Appropriateness",
+    "en": "Ufaafu wa jambo"
+  },
+  {
+    "sw": "Approbation",
+    "en": "Kukubaliwa rasmi kwa sifa"
+  },
+  {
+    "sw": "Apprenticeship",
+    "en": "Uanagenzi"
+  },
+  {
+    "sw": "Apportionment",
+    "en": "Ugawaji wa viti vya bunge/mali"
+  },
+  {
+    "sw": "Appertaining",
+    "en": "Inayohusika na"
+  },
+  {
+    "sw": "Appendix",
+    "en": "Kiambatisho cha mwisho/Kidole tumbo"
+  },
+  {
+    "sw": "Appendectomy",
+    "en": "Upasuaji wa kidole tumbo"
+  },
+  {
+    "sw": "Appellation",
+    "en": "Jina au cheo"
+  },
+  {
+    "sw": "Appellant",
+    "en": "Mleta rufaa mahakamani"
+  },
+  {
+    "sw": "Apparition",
+    "en": "Mzimu/Tokeo la ajabu"
+  },
+  {
+    "sw": "Apparatus",
+    "en": "Vifaa vya kufanyia kazi fulani"
+  },
+  {
+    "sw": "Apotheosis",
+    "en": "Kilele cha utukufu/Kumfanya mungu"
+  },
+  {
+    "sw": "Apostrophe",
+    "en": "Alama ya kituo cha juu (')"
+  },
+  {
+    "sw": "Apostle",
+    "en": "Mtume"
+  },
+  {
+    "sw": "Apostasy",
+    "en": "Uasi wa imani ya dini"
+  },
+  {
+    "sw": "Apologist",
+    "en": "Mtu anayetetea itikadi fulani"
+  },
+  {
+    "sw": "Apologetic",
+    "en": "Yenye kuomba radhi"
+  },
+  {
+    "sw": "Apogee",
+    "en": "Hatua ya mbali zaidi ya obiti"
+  },
+  {
+    "sw": "Apocryphal",
+    "en": "Hadithi yenye shaka ya ukweli"
+  },
+  {
+    "sw": "Apocalypse",
+    "en": "Maangamizi makuu ya mwisho"
+  },
+  {
+    "sw": "Apiary",
+    "en": "Sehemu ya kufugia nyuki"
+  },
+  {
+    "sw": "Aphorism",
+    "en": "Kauli fupi ya hekima"
+  },
+  {
+    "sw": "Aperture",
+    "en": "Tundu dogo la mwanga"
+  },
+  {
+    "sw": "Antonym",
+    "en": "Neno lenye maana kinyume"
+  },
+  {
+    "sw": "Antivenom",
+    "en": "Dawa ya sumu ya nyoka"
+  },
+  {
+    "sw": "Antitrust",
+    "en": "Sheria inayozuia ukiritimba"
+  },
+  {
+    "sw": "Antisocial",
+    "en": "Inayopinga misingi ya jamii"
+  },
+  {
+    "sw": "Antisepsis",
+    "en": "Uzuiaji wa uozo/maambukizi"
+  },
+  {
+    "sw": "Antiquated",
+    "en": "Yaliyopitwa na wakati"
+  },
+  {
+    "sw": "Antipathy",
+    "en": "Chuki ya asili"
+  },
+  {
+    "sw": "Antinomy",
+    "en": "Mgongano kati ya sheria mbili halali"
+  },
+  {
+    "sw": "Antimatter",
+    "en": "Mada kinyume"
+  },
+  {
+    "sw": "Antihistamine",
+    "en": "Dawa ya mzio"
+  },
+  {
+    "sw": "Antigens",
+    "en": "Vitu vinavyochochea kingamwili"
+  },
+  {
+    "sw": "Anticoagulant",
+    "en": "Dawa ya kuzuia damu kuganda"
+  },
+  {
+    "sw": "Anticlimax",
+    "en": "Tokeo lisilo na msisimko baada ya shauku"
+  },
+  {
+    "sw": "Anticipatory",
+    "en": "Yenye kutarajia tukio"
+  },
+  {
+    "sw": "Antibiogram",
+    "en": "Ramani ya ukinzani wa dawa"
+  },
+  {
+    "sw": "Anthropomorphism",
+    "en": "Kupatia vitu sifa za binadamu"
+  },
+  {
+    "sw": "Anthropoid",
+    "en": "Inayofanana na binadamu"
+  },
+  {
+    "sw": "Anthropocentric",
+    "en": "Inayozingatia mwanadamu kama kiini"
+  },
+  {
+    "sw": "Anthelion",
+    "en": "Mwanga wa duara kuzunguka jua"
+  },
+  {
+    "sw": "Anterior",
+    "en": "Ya mbele"
+  },
+  {
+    "sw": "Antenna",
+    "en": "Eria/Kifaa cha kunasa mawimbi"
+  },
+  {
+    "sw": "Antediluvian",
+    "en": "Ya kale sana (kabla ya gharika)"
+  },
+  {
+    "sw": "Antecedent",
+    "en": "Kitu kilichotangulia kingine"
+  },
+  {
+    "sw": "Anonymity",
+    "en": "Hali ya kutojulikana jina"
+  },
+  {
+    "sw": "Anointed",
+    "en": "Aliyepakwa mafuta (kuteuliwa)"
+  },
+  {
+    "sw": "Anodyne",
+    "en": "Isiyo na madhara/Ya kutuliza"
+  },
+  {
+    "sw": "Anode",
+    "en": "Upande chanya wa umeme"
+  },
+  {
+    "sw": "Annulment",
+    "en": "Ubatilishaji wa mkataba/ndoa"
+  },
+  {
+    "sw": "Annuity",
+    "en": "Malipo ya kila mwaka"
+  },
+  {
+    "sw": "Annihilate",
+    "en": "Kuangamiza kabisa"
+  },
+  {
+    "sw": "Annals",
+    "en": "Kumbukumbu za matukio ya mwaka"
+  },
+  {
+    "sw": "Animism",
+    "en": "Imani kuwa vitu vya asili vina roho"
+  },
+  {
+    "sw": "Anhydrous",
+    "en": "Isiyo na maji"
+  },
+  {
+    "sw": "Angular",
+    "en": "Yenye pembe"
+  },
+  {
+    "sw": "Angiography",
+    "en": "Picha ya mishipa ya damu"
+  },
+  {
+    "sw": "Aneurysm",
+    "en": "Kuvimba kwa mshipa wa damu"
+  },
+  {
+    "sw": "Anecdotal",
+    "en": "Inayotegemea hadithi badala ya utafiti"
+  },
+  {
+    "sw": "Androgynous",
+    "en": "Yenye sifa za kiume na kike"
+  },
+  {
+    "sw": "Ancillary",
+    "en": "Ya msaada wa ziada"
+  },
+  {
+    "sw": "Anchorage",
+    "en": "Sehemu ya kutia nanga"
+  },
+  {
+    "sw": "Ancestral",
+    "en": "Kuhusu mababu"
+  },
+  {
+    "sw": "Anathema",
+    "en": "Kitu kinachochukiwa na kulaaniwa"
+  },
+  {
+    "sw": "Analogous",
+    "en": "Yenye kufanana kwa dhana"
+  },
+  {
+    "sw": "Anagram",
+    "en": "Neno lililoundwa kwa kupanga herufi upya"
+  },
+  {
+    "sw": "Anaesthesia",
+    "en": "Dawa ya nusu kaputi"
+  },
+  {
+    "sw": "Anaemia",
+    "en": "Upungufu wa damu"
+  },
+  {
+    "sw": "Anachronistic",
+    "en": "Kitu kilicho nje ya wakati wake"
+  },
+  {
+    "sw": "Amplification",
+    "en": "Kukudhuza nguvu ya mawimbi"
+  },
+  {
+    "sw": "Amphibian",
+    "en": "Kiumbe wa majini na nchi kavu"
+  },
+  {
+    "sw": "Amortize",
+    "en": "Kulipa deni kwa awamu"
+  },
+  {
+    "sw": "Amorphous",
+    "en": "Isiyo na umbo maalum"
+  },
+  {
+    "sw": "Amnesia",
+    "en": "Tatizo la kupoteza kumbukumbu"
+  },
+  {
+    "sw": "Amenity",
+    "en": "Huduma ya kijamii ya starehe"
+  },
+  {
+    "sw": "Ameliorate",
+    "en": "Kuboresha hali iliyokuwa mbaya"
+  },
+  {
+    "sw": "Ambulatory",
+    "en": "Inayohusu uwezo wa kutembea"
+  },
+  {
+    "sw": "Ambivalence",
+    "en": "Kuwa na hisia mbili zinazopingana"
+  },
+  {
+    "sw": "Ambit",
+    "en": "Wigo wa mamlaka"
+  },
+  {
+    "sw": "Ambiguous",
+    "en": "Yenye utata wa maana mbili"
+  },
+  {
+    "sw": "Amalgam",
+    "en": "Mchanganyiko wa metali/vitu"
+  },
+  {
+    "sw": "Altruistic",
+    "en": "Mwenye roho ya kujitolea"
+  },
+  {
+    "sw": "Almanac",
+    "en": "Kitabu cha taarifa za mwaka"
+  },
+  {
+    "sw": "Alluvium",
+    "en": "Udongo wa kichanga uliowekwa na maji"
+  },
+  {
+    "sw": "Allotment",
+    "en": "Mgawo wa ardhi au hisa"
+  },
+  {
+    "sw": "Alliteration",
+    "en": "Mlingano wa sauti za mwanzo"
+  },
+  {
+    "sw": "Allegory",
+    "en": "Hadithi ya mafumbo yenye maana fiche"
+  },
+  {
+    "sw": "Alkali",
+    "en": "Kemikali ya msingi (kinyume cha asidi)"
+  },
+  {
+    "sw": "Alimony",
+    "en": "Nafaka/Malipo ya talaka kwa mke/mume"
+  },
+  {
+    "sw": "Alimentary",
+    "en": "Kuhusu mfumo wa chakula"
+  },
+  {
+    "sw": "Alienability",
+    "en": "Uwezo wa kuhamisha umiliki wa mali"
+  },
+  {
+    "sw": "Alchemist",
+    "en": "Mwanakemia wa kale (wa dhahabu)"
+  },
+  {
+    "sw": "Airborne",
+    "en": "Inayosafiri kwa hewa"
+  },
+  {
+    "sw": "Agrarian",
+    "en": "Kuhusu ardhi na kilimo"
+  },
+  {
+    "sw": "Agnostic",
+    "en": "Asiyejua kama Mungu yupo"
+  },
+  {
+    "sw": "Aggravated",
+    "en": "Kosa lililoongezewa uzito na ukatili"
+  },
+  {
+    "sw": "Aggrandizement",
+    "en": "Kujikuza kwa mamlaka/mali"
+  },
+  {
+    "sw": "Agape",
+    "en": "Upendo wa kiungu/Mdomo wazi kwa mshangao"
+  },
+  {
+    "sw": "Affray",
+    "en": "Vurugu za hadharani"
+  },
+  {
+    "sw": "Afforestation",
+    "en": "Upandaji miti mahali pasipo na msitu"
+  },
+  {
+    "sw": "Affiliate",
+    "en": "Shirika shiriki"
+  },
+  {
+    "sw": "Affectation",
+    "en": "Tabia ya kuigiza isiyo ya asili"
+  },
+  {
+    "sw": "Affability",
+    "en": "Upole na urafiki wa kuvutia"
+  },
+  {
+    "sw": "Aerodynamics",
+    "en": "Sifa za hewa inavyosogea"
+  },
+  {
+    "sw": "Aeon",
+    "en": "Kipindi kirefu sana cha wakati"
+  },
+  {
+    "sw": "Adversarial",
+    "en": "Mfumo wa ushindani (mahakamani)"
+  },
+  {
+    "sw": "Advantageous",
+    "en": "Yenye faida"
+  },
+  {
+    "sw": "Adumbrate",
+    "en": "Kutoa dokezo la mbali"
+  },
+  {
+    "sw": "Adulation",
+    "en": "Sifa za kupitiliza za kinafiki"
+  },
+  {
+    "sw": "Adroit",
+    "en": "Hodari wa kutumia akili/mikono"
+  },
+  {
+    "sw": "Admixture",
+    "en": "Mchanganyiko wa vitu tofauti"
+  },
+  {
+    "sw": "Adjudication",
+    "en": "Uamuzi wa kisheria wa mgogoro"
+  },
+  {
+    "sw": "Acrophobia",
+    "en": "Woga wa mahali pa juu"
+  },
+  {
+    "sw": "Achromatic",
+    "en": "Isiyo na rangi"
+  },
+  {
+    "sw": "Accretion",
+    "en": "Ukuaji kwa kuongezeka tabaka"
+  },
+  {
+    "sw": "Academician",
+    "en": "Mwanazuoni mbobezi"
+  },
+  {
+    "sw": "Abyssal",
+    "en": "Kuhusu kina kirefu cha bahari"
+  },
+  {
+    "sw": "Abstention",
+    "en": "Kujizuia kupiga kura"
+  },
+  {
+    "sw": "Absolutism",
+    "en": "Utawala wa mamlaka kamili"
+  },
+  {
+    "sw": "Abrogation",
+    "en": "Ufutaji rasmi wa sheria"
+  },
+  {
     "sw": "Gyroscope",
     "en": "Kifaa cha usawa (jairoskopu)"
   },
