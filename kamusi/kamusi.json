@@ -1,6 +1,332 @@
 [
-
-
+  {
+    "sw": "Ulaghai",
+    "en": "Fraud"
+  },
+  {
+    "sw": "Unyang'anyi",
+    "en": "Robbery"
+  },
+  {
+    "sw": "Utekaji",
+    "en": "Kidnapping"
+  },
+  {
+    "sw": "Ugaidi",
+    "en": "Terrorism"
+  },
+  {
+    "sw": "Mkalimani",
+    "en": "Interpreter"
+  },
+  {
+    "sw": "Mtafsiri",
+    "en": "Translator"
+  },
+  {
+    "sw": "Mwanahabari",
+    "en": "Journalist"
+  },
+  {
+    "sw": "Mwigizaji",
+    "en": "Actor"
+  },
+  {
+    "sw": "Nesi",
+    "en": "Nurse"
+  },
+  {
+    "sw": "Mwanasiasa",
+    "en": "Politician"
+  },
+  {
+    "sw": "Mfanyabiashara",
+    "en": "Merchant"
+  },
+  {
+    "sw": "Kibarua",
+    "en": "Laborer"
+  },
+  {
+    "sw": "Mtaalamu",
+    "en": "Expert"
+  },
+  {
+    "sw": "Mshauri",
+    "en": "Consultant"
+  },
+  {
+    "sw": "Wakala",
+    "en": "Agent"
+  },
+  {
+    "sw": "Mjumbe",
+    "en": "Member/Delegate"
+  },
+  {
+    "sw": "Uhodhi",
+    "en": "Monopoly"
+  },
+  {
+    "sw": "Mauzo",
+    "en": "Sales"
+  },
+  {
+    "sw": "Ofa",
+    "en": "Offer"
+  },
+  {
+    "sw": "Faini",
+    "en": "Fine"
+  },
+  {
+    "sw": "Marupurupu",
+    "en": "Benefits/Perks"
+  },
+  {
+    "sw": "Uteuzi",
+    "en": "Appointment/Selection"
+  },
+  {
+    "sw": "Uhamisho",
+    "en": "Transfer/Relocation"
+  },
+  {
+    "sw": "Utaifa",
+    "en": "Nationality"
+  },
+  {
+    "sw": "Utoto",
+    "en": "Childhood"
+  },
+  {
+    "sw": "Uzee",
+    "en": "Old age"
+  },
+  {
+    "sw": "Ujana",
+    "en": "Youth"
+  },
+  {
+    "sw": "Uhai",
+    "en": "Life"
+  },
+  {
+    "sw": "Mfanano",
+    "en": "Similarity"
+  },
+  {
+    "sw": "Mawaa",
+    "en": "Blemish"
+  },
+  {
+    "sw": "Ustawi",
+    "en": "Prosperity/Welfare"
+  },
+  {
+    "sw": "Uwiano",
+    "en": "Ratio/Proportion"
+  },
+  {
+    "sw": "Ujazo",
+    "en": "Volume"
+  },
+  {
+    "sw": "Upande",
+    "en": "Side"
+  },
+  {
+    "sw": "Baadae",
+    "en": "Future"
+  },
+  {
+    "sw": "Uwendawazimu",
+    "en": "Insanity/Madness"
+  },
+  {
+    "sw": "Ujinga",
+    "en": "Ignorance"
+  },
+  {
+    "sw": "Uerevu",
+    "en": "Intelligence"
+  },
+  {
+    "sw": "Kifungo",
+    "en": "Imprisonment"
+  },
+  {
+    "sw": "Mshtakiwa",
+    "en": "Defendant/Accused"
+  },
+  {
+    "sw": "Majeshi",
+    "en": "Armed forces"
+  },
+  {
+    "sw": "Vurugu",
+    "en": "Violence/Chaos"
+  },
+  {
+    "sw": "Unyanuzi",
+    "en": "Exploitation"
+  },
+  {
+    "sw": "Dhuluma",
+    "en": "Oppression/Injustice"
+  },
+  {
+    "sw": "Tamanio",
+    "en": "Desire/Lust"
+  },
+  {
+    "sw": "Msiba",
+    "en": "Bereavement/Calamity"
+  },
+  {
+    "sw": "Kaburi",
+    "en": "Grave/Tomb"
+  },
+  {
+    "sw": "Maiti",
+    "en": "Corpse/Cadaver"
+  },
+  {
+    "sw": "Mauti",
+    "en": "Death/Demise"
+  },
+  {
+    "sw": "Vimelea",
+    "en": "Parasites/Germs"
+  },
+  {
+    "sw": "Mnururisho",
+    "en": "Radiation"
+  },
+  {
+    "sw": "Tufani",
+    "en": "Hurricane/Storm"
+  },
+  {
+    "sw": "Gharika",
+    "en": "Flood/Deluge"
+  },
+  {
+    "sw": "Mlipuko",
+    "en": "Explosion/Eruption"
+  },
+  {
+    "sw": "Mizunguko",
+    "en": "Circuits/Cycles"
+  },
+  {
+    "sw": "Miradi",
+    "en": "Projects"
+  },
+  {
+    "sw": "Uumbaji",
+    "en": "Creation"
+  },
+  {
+    "sw": "Mashetani",
+    "en": "Demons"
+  },
+  {
+    "sw": "Jahanamu",
+    "en": "Hell"
+  },
+  {
+    "sw": "Miujiza",
+    "en": "Miracles"
+  },
+  {
+    "sw": "Unabii",
+    "en": "Prophecy"
+  },
+  {
+    "sw": "Utume",
+    "en": "Mission/Apostleship"
+  },
+  {
+    "sw": "Madhehebu",
+    "en": "Denominations"
+  },
+  {
+    "sw": "Sakramenti",
+    "en": "Sacrament"
+  },
+  {
+    "sw": "Uzuiaji",
+    "en": "Prevention/Deterrence"
+  },
+  {
+    "sw": "Mapendekezo",
+    "en": "Recommendations"
+  },
+  {
+    "sw": "Waraka",
+    "en": "Document/Circular"
+  },
+  {
+    "sw": "Kifungu",
+    "en": "Section/Paragraph"
+  },
+  {
+    "sw": "Itikadi",
+    "en": "Ideology"
+  },
+  {
+    "sw": "Nasaba",
+    "en": "Lineage/Ancestry"
+  },
+  {
+    "sw": "Mirathi",
+    "en": "Inheritance"
+  },
+  {
+    "sw": "Nakisi",
+    "en": "Deficit"
+  },
+  {
+    "sw": "Mizania",
+    "en": "Balance sheet"
+  },
+  {
+    "sw": "Urari",
+    "en": "Balance"
+  },
+  {
+    "sw": "Ukatili",
+    "en": "Cruelty/Brutality"
+  },
+  {
+    "sw": "Ushupavu",
+    "en": "Extremism/Fanaticism"
+  },
+  {
+    "sw": "Uliberali",
+    "en": "Liberalism"
+  },
+  {
+    "sw": "Uhafidhina",
+    "en": "Conservatism"
+  },
+  {
+    "sw": "Udikteta",
+    "en": "Dictatorship"
+  },
+  {
+    "sw": "Ukiukaji",
+    "en": "Violation/Breach"
+  },
+  {
+    "sw": "Uandikishaji",
+    "en": "Enrollment/Registration"
+  },
+  {
+    "sw": "Unyakuzi",
+    "en": "Seizure/Annexation"
+  },
   {
     "en": "Cytotoxicity",
     "sw": "Usumu wa seli"
