@@ -1,5 +1,4881 @@
 [
   {
+    "sw": "Gyroscope",
+    "en": "Kifaa cha usawa (jairoskopu)"
+  },
+  {
+    "sw": "Gynaecology",
+    "en": "Tiba ya wanawake"
+  },
+  {
+    "sw": "Gullibility",
+    "en": "Tabia ya kudanganyika haraka"
+  },
+  {
+    "sw": "Grudgingly",
+    "en": "Kwa kinyongo"
+  },
+  {
+    "sw": "Grotesque",
+    "en": "Ya ajabu na ya kuchukiza"
+  },
+  {
+    "sw": "Gross profit",
+    "en": "Faida ghafi"
+  },
+  {
+    "sw": "Grimace",
+    "en": "Kukunja uso kwa maumivu/chuki"
+  },
+  {
+    "sw": "Grievance",
+    "en": "Malalamiko ya kiofisi"
+  },
+  {
+    "sw": "Gratuity",
+    "en": "Kiinua mgongo"
+  },
+  {
+    "sw": "Gratitude",
+    "en": "Shukrani"
+  },
+  {
+    "sw": "Gratification",
+    "en": "Kuridhika kwa tamaa"
+  },
+  {
+    "sw": "Graphic",
+    "en": "Ya picha/Maelezo ya wazi sana"
+  },
+  {
+    "sw": "Granulation",
+    "en": "Uundaji wa punje ndogo"
+  },
+  {
+    "sw": "Grant",
+    "en": "Ruzuku"
+  },
+  {
+    "sw": "Grandiloquence",
+    "en": "Lugha ya madaha na majivuno"
+  },
+  {
+    "sw": "Grandeur",
+    "en": "Utukufu na ukubwa"
+  },
+  {
+    "sw": "Gradient",
+    "en": "Mwinuko"
+  },
+  {
+    "sw": "Gnosticism",
+    "en": "Imani ya kale ya maarifa ya siri"
+  },
+  {
+    "sw": "Gnarled",
+    "en": "Yenye mafundo (mti/mkono)"
+  },
+  {
+    "sw": "Gluttony",
+    "en": "Ulafi"
+  },
+  {
+    "sw": "Glut",
+    "en": "Wingi wa bidhaa sokoni usiohitajika"
+  },
+  {
+    "sw": "Glossary",
+    "en": "Orodha ya maneno magumu"
+  },
+  {
+    "sw": "Glorification",
+    "en": "Kutukuza"
+  },
+  {
+    "sw": "Gloom",
+    "en": "Huzuni na giza"
+  },
+  {
+    "sw": "Glomerulus",
+    "en": "Fungu la mishipa ya damu (figoni)"
+  },
+  {
+    "sw": "Glimmer",
+    "en": "Mwanga hafifu"
+  },
+  {
+    "sw": "Glibness",
+    "en": "Ufasaha wa maneno bila dhati"
+  },
+  {
+    "sw": "Gleaming",
+    "en": "Yenye kung'aa"
+  },
+  {
+    "sw": "Glazier",
+    "en": "Fundi kioo"
+  },
+  {
+    "sw": "Glaring",
+    "en": "Wazi sana (kosa)"
+  },
+  {
+    "sw": "Glamour",
+    "en": "Uzuri wa kuvutia"
+  },
+  {
+    "sw": "Gladiatorial",
+    "en": "Kuhusu mapambano makali"
+  },
+  {
+    "sw": "Gimmick",
+    "en": "Mbinu ya kuvuta umakini wa biashara"
+  },
+  {
+    "sw": "Gigantic",
+    "en": "Kubwa sana"
+  },
+  {
+    "sw": "Gibberish",
+    "en": "Maneno yasiyo na maana"
+  },
+  {
+    "sw": "Ghoulish",
+    "en": "Yenye kuchukiza (kuhusu vifo)"
+  },
+  {
+    "sw": "Gestulation",
+    "en": "Kutumia ishara za mikono kuongea"
+  },
+  {
+    "sw": "Gestation",
+    "en": "Mimba (kipindi cha tumboni)"
+  },
+  {
+    "sw": "Gerrymandering",
+    "en": "Upangaji wa majimbo kwa upendeleo"
+  },
+  {
+    "sw": "Gerontology",
+    "en": "Sayansi ya uzee"
+  },
+  {
+    "sw": "Germination",
+    "en": "Kuota kwa mbegu"
+  },
+  {
+    "sw": "Geothermal",
+    "en": "Joto la ndani ya ardhi"
+  },
+  {
+    "sw": "Geopolitics",
+    "en": "Siasa za kijiografia"
+  },
+  {
+    "sw": "Genuineness",
+    "en": "Ukweli wa asili"
+  },
+  {
+    "sw": "Gentry",
+    "en": "Watu wa tabaka la kati-juu"
+  },
+  {
+    "sw": "Gentility",
+    "en": "Uungwana wa tabaka la juu"
+  },
+  {
+    "sw": "Genocide",
+    "en": "Mauaji ya kimbari"
+  },
+  {
+    "sw": "Genial",
+    "en": "Mwenye kirafiki na mchangamfu"
+  },
+  {
+    "sw": "Generosity",
+    "en": "Ukarimu"
+  },
+  {
+    "sw": "Generalization",
+    "en": "Ujumlishaji wa mambo"
+  },
+  {
+    "sw": "Genealogy",
+    "en": "Elimu ya asili ya ukoo"
+  },
+  {
+    "sw": "Gazette",
+    "en": "Gazeti la serikali"
+  },
+  {
+    "sw": "Gavel",
+    "en": "Nyundo ya hakimu"
+  },
+  {
+    "sw": "Gauge",
+    "en": "Kipimo cha kiwango"
+  },
+  {
+    "sw": "Gastronomy",
+    "en": "Sanaa ya chakula na mapishi"
+  },
+  {
+    "sw": "Garrulity",
+    "en": "Tabia ya kuongea sana upuuzi"
+  },
+  {
+    "sw": "Garish",
+    "en": "Yenye rangi zinazoumiza macho"
+  },
+  {
+    "sw": "Gape",
+    "en": "Kushangaa kwa mdomo wazi"
+  },
+  {
+    "sw": "Gangrene",
+    "en": "Kuoza kwa nyama mwilini"
+  },
+  {
+    "sw": "Gamut",
+    "en": "Wigo mzima wa kitu"
+  },
+  {
+    "sw": "Gametes",
+    "en": "Seli za uzazi"
+  },
+  {
+    "sw": "Gambit",
+    "en": "Mbinu ya awali ya hatari kwa faida"
+  },
+  {
+    "sw": "Galvanization",
+    "en": "Uchochezi wa watu kuchukua hatua"
+  },
+  {
+    "sw": "Gallantry",
+    "en": "Ujasiri mkuu vitani/Uungwana"
+  },
+  {
+    "sw": "Gainsay",
+    "en": "Kupinga au kukanusha"
+  },
+  {
+    "sw": "Futurity",
+    "en": "Hali ya baadae"
+  },
+  {
+    "sw": "Futile",
+    "en": "Isiyo na faida yoyote"
+  },
+  {
+    "sw": "Fusion",
+    "en": "Muungano wa viini"
+  },
+  {
+    "sw": "Furtive",
+    "en": "Ya siri na ya wizi"
+  },
+  {
+    "sw": "Furtherance",
+    "en": "Maendelezo ya jambo"
+  },
+  {
+    "sw": "Furnishing",
+    "en": "Upambaji samani"
+  },
+  {
+    "sw": "Furlough",
+    "en": "Ruhusa ya muda kwa askari/mfungwa"
+  },
+  {
+    "sw": "Furious",
+    "en": "Mwenye hasira kali"
+  },
+  {
+    "sw": "Fungicide",
+    "en": "Dawa ya kuua kuvu"
+  },
+  {
+    "sw": "Functionality",
+    "en": "Uwezo wa kufanya kazi"
+  },
+  {
+    "sw": "Fulmination",
+    "en": "Mashambulizi makali ya maneno"
+  },
+  {
+    "sw": "Fullerene",
+    "en": "Muundo wa kaboni"
+  },
+  {
+    "sw": "Fulfillment",
+    "en": "Utimilifu"
+  },
+  {
+    "sw": "Fugitive",
+    "en": "Mkimbizi wa sheria"
+  },
+  {
+    "sw": "Frustration",
+    "en": "Kukatishwa tamaa"
+  },
+  {
+    "sw": "Fruitfulness",
+    "en": "Uzaaji matunda/Mafanikio"
+  },
+  {
+    "sw": "Frugality",
+    "en": "Ubana matumizi"
+  },
+  {
+    "sw": "Frivolity",
+    "en": "Upuuzi/Kutokuwa makini"
+  },
+  {
+    "sw": "Friendship",
+    "en": "Urafiki"
+  },
+  {
+    "sw": "Friction",
+    "en": "Msuguano"
+  },
+  {
+    "sw": "Frequency",
+    "en": "Marudio"
+  },
+  {
+    "sw": "Frenzy",
+    "en": "Machafuko ya hasira/furaha ghafla"
+  },
+  {
+    "sw": "Freedom",
+    "en": "Uhuru"
+  },
+  {
+    "sw": "Fraught",
+    "en": "Yenye kujaa (hatari/wasiwasi)"
+  },
+  {
+    "sw": "Fraudulence",
+    "en": "Hali ya udanganyifu"
+  },
+  {
+    "sw": "Fraternity",
+    "en": "Ushirika wa kidugu"
+  },
+  {
+    "sw": "Frankness",
+    "en": "Ukweli mweupe"
+  },
+  {
+    "sw": "Fragmentation",
+    "en": "Kusambaratika katika vipande"
+  },
+  {
+    "sw": "Fragility",
+    "en": "Udhaifu wa kuvunjika haraka"
+  },
+  {
+    "sw": "Foundry",
+    "en": "Kiwanda cha kuyeyusha chuma"
+  },
+  {
+    "sw": "Foundational",
+    "en": "Ya msingi"
+  },
+  {
+    "sw": "Fossilization",
+    "en": "Kugeuka kuwa jiwe/kisukuku"
+  },
+  {
+    "sw": "Forwarding",
+    "en": "Upelekaji mbele"
+  },
+  {
+    "sw": "Forum",
+    "en": "Jukwaa la majadiliano"
+  },
+  {
+    "sw": "Fortuitous",
+    "en": "Tukio la bahati njema"
+  },
+  {
+    "sw": "Fortitude",
+    "en": "Ujasiri wa moyo katika maumivu"
+  },
+  {
+    "sw": "Formulation",
+    "en": "Uundaji wa sera/kanuni"
+  },
+  {
+    "sw": "Formula",
+    "en": "Kanuni"
+  },
+  {
+    "sw": "Formidable",
+    "en": "Inayoogofya kwa ukubwa/ugumu"
+  },
+  {
+    "sw": "Formation",
+    "en": "Uundaji"
+  },
+  {
+    "sw": "Formality",
+    "en": "Utaratibu rasmi"
+  },
+  {
+    "sw": "Formalism",
+    "en": "Ushikaji wa taratibu rasmi tu"
+  },
+  {
+    "sw": "Forgery",
+    "en": "Ughushi/Kugushi saini"
+  },
+  {
+    "sw": "Forfeiture",
+    "en": "Kunyang'anywa mali kama adhabu"
+  },
+  {
+    "sw": "Forethought",
+    "en": "Kufikiria kabla ya kutenda"
+  },
+  {
+    "sw": "Forerunner",
+    "en": "Mtangulizi"
+  },
+  {
+    "sw": "Foreknowledge",
+    "en": "Ufahamu wa kabla"
+  },
+  {
+    "sw": "Foreclosure",
+    "en": "Unyakuzi wa mali kwa deni la mkopo"
+  },
+  {
+    "sw": "Foreboding",
+    "en": "Hisia kuwa jambo baya litatokea"
+  },
+  {
+    "sw": "Forbearance",
+    "en": "Uvumilivu wa kutolipiza kisasi"
+  },
+  {
+    "sw": "Footnote",
+    "en": "Maelezo chini ya ukurasa"
+  },
+  {
+    "sw": "Fondness",
+    "en": "Mapenzi/Kupenda kitu"
+  },
+  {
+    "sw": "Fomentation",
+    "en": "Uchochezi wa fujo"
+  },
+  {
+    "sw": "Folkloric",
+    "en": "Kuhusu hadithi za kale"
+  },
+  {
+    "sw": "Foliage",
+    "en": "Majani ya miti"
+  },
+  {
+    "sw": "Foible",
+    "en": "Kasoro ndogo ya tabia ya mtu"
+  },
+  {
+    "sw": "Focus",
+    "en": "Umakini"
+  },
+  {
+    "sw": "Flux",
+    "en": "Hali ya mabadiliko ya mfululizo"
+  },
+  {
+    "sw": "Fluoridation",
+    "en": "Uwekaji floridi (kwenye maji)"
+  },
+  {
+    "sw": "Fluorescence",
+    "en": "Mwangaza wa kemikali"
+  },
+  {
+    "sw": "Fluidity",
+    "en": "Hali ya majimaji/Kutobadilika"
+  },
+  {
+    "sw": "Floundering",
+    "en": "Kuhangaika bila mafanikio"
+  },
+  {
+    "sw": "Flora",
+    "en": "Mimea ya eneo fulani"
+  },
+  {
+    "sw": "Flirtation",
+    "en": "Utani wa kimapenzi"
+  },
+  {
+    "sw": "Flippancy",
+    "en": "Dharau kwa mambo mazito"
+  },
+  {
+    "sw": "Flimsiness",
+    "en": "Udhaifu wa kitu/hoja"
+  },
+  {
+    "sw": "Flightiness",
+    "en": "Tabia ya kutokuwa makini"
+  },
+  {
+    "sw": "Flexibility",
+    "en": "Unyumbufu"
+  },
+  {
+    "sw": "Fledgling",
+    "en": "Mtu/Biashara changa"
+  },
+  {
+    "sw": "Flaunting",
+    "en": "Kujionyesha kwa dharau"
+  },
+  {
+    "sw": "Flatulence",
+    "en": "Gesi tumboni"
+  },
+  {
+    "sw": "Flammability",
+    "en": "Uwezo wa kuwaka moto"
+  },
+  {
+    "sw": "Flamboyance",
+    "en": "Muonekano wa kuvutia na wa gharama"
+  },
+  {
+    "sw": "Fixation",
+    "en": "Kukwama kwenye wazo moja"
+  },
+  {
+    "sw": "Fissure",
+    "en": "Ufa mrefu mwembamba"
+  },
+  {
+    "sw": "Fission",
+    "en": "Mgawanyiko wa kiini"
+  },
+  {
+    "sw": "Finesse",
+    "en": "Ufundi na werevu wa hali ya juu"
+  },
+  {
+    "sw": "Finality",
+    "en": "Hali ya kuwa mwisho kabisa"
+  },
+  {
+    "sw": "Filibuster",
+    "en": "Kuchelewesha uamuzi kwa hotuba ndefu"
+  },
+  {
+    "sw": "Figurative",
+    "en": "Lugha ya picha/sitiari"
+  },
+  {
+    "sw": "Fidelity",
+    "en": "Uaminifu"
+  },
+  {
+    "sw": "Fiction",
+    "en": "Hadithi za kufikirika"
+  },
+  {
+    "sw": "Fickleness",
+    "en": "Kubadilika badilika kwa msimamo"
+  },
+  {
+    "sw": "Fiasco",
+    "en": "Kufeli kwa aibu mbele ya watu"
+  },
+  {
+    "sw": "Fiance",
+    "en": "Mchumba"
+  },
+  {
+    "sw": "Fetishism",
+    "en": "Imani ya vitu vya kichawi"
+  },
+  {
+    "sw": "Feticide",
+    "en": "Uuaji wa kijusi"
+  },
+  {
+    "sw": "Fervor",
+    "en": "Shauku ya dhati ya moyo"
+  },
+  {
+    "sw": "Fertilization",
+    "en": "Urutubishaji"
+  },
+  {
+    "sw": "Ferocity",
+    "en": "Ukatili mkuu/Ukali"
+  },
+  {
+    "sw": "Femininity",
+    "en": "Sifa za kike"
+  },
+  {
+    "sw": "Fathomable",
+    "en": "Inayoweza kueleweka"
+  },
+  {
+    "sw": "Fatalism",
+    "en": "Imani kuwa hatima haiwezi kubadilishwa"
+  },
+  {
+    "sw": "Fastidiousness",
+    "en": "Umakini wa kupitiliza wa usafi/utaratibu"
+  },
+  {
+    "sw": "Fanaticism",
+    "en": "Ushabiki uliopitiliza"
+  },
+  {
+    "sw": "Falsification",
+    "en": "Ughushi wa taarifa"
+  },
+  {
+    "sw": "Fallibility",
+    "en": "Hali ya kuweza kukosea"
+  },
+  {
+    "sw": "Fahrenheit",
+    "en": "Kipimo cha joto"
+  },
+  {
+    "sw": "Faculty",
+    "en": "Uwezo wa akili/Idara ya chuo"
+  },
+  {
+    "sw": "Factorization",
+    "en": "Ukokotoaji wa vigezo"
+  },
+  {
+    "sw": "Factoid",
+    "en": "Taarifa inayodhaniwa kuwa kweli lakini siyo"
+  },
+  {
+    "sw": "Factionalism",
+    "en": "Tabia ya kuunda makundi ndani ya chama"
+  },
+  {
+    "sw": "Facilitation",
+    "en": "Uwezeshaji"
+  },
+  {
+    "sw": "Eye-witness",
+    "en": "Shahidi wa macho"
+  },
+  {
+    "sw": "Exultation",
+    "en": "Furaha kuu ya ushindi"
+  },
+  {
+    "sw": "Exuberance",
+    "en": "Uchangamfu mkuu wenye nguvu"
+  },
+  {
+    "sw": "Extrovert",
+    "en": "Mtu mchangamfu anayependa watu"
+  },
+  {
+    "sw": "Extravagance",
+    "en": "Ubadhirifu wa fedha"
+  },
+  {
+    "sw": "Extraction",
+    "en": "Utoaji wa kitu ndani ya kingine"
+  },
+  {
+    "sw": "Extortion",
+    "en": "Unyang'anyi kwa vitisho"
+  },
+  {
+    "sw": "Exquisite",
+    "en": "Yenye uzuri wa ajabu"
+  },
+  {
+    "sw": "Expulsion",
+    "en": "Ufukuzaji"
+  },
+  {
+    "sw": "Expedition",
+    "en": "Safari ya utafiti/vita"
+  },
+  {
+    "sw": "Expediency",
+    "en": "Kufanya kitu kwa faida ya haraka (hata kama si sawa)"
+  },
+  {
+    "sw": "Expectancy",
+    "en": "Matarajio"
+  },
+  {
+    "sw": "Expansionism",
+    "en": "Sera ya kupanua ardhi ya nchi"
+  },
+  {
+    "sw": "Exotic",
+    "en": "Kitu cha kigeni chenye kuvutia"
+  },
+  {
+    "sw": "Exorcism",
+    "en": "Utoaji pepo"
+  },
+  {
+    "sw": "Exorbitant",
+    "en": "Bei ya juu sana isiyo na akili"
+  },
+  {
+    "sw": "Exoneration",
+    "en": "Kumuondolea mtu hatia"
+  },
+  {
+    "sw": "Exit",
+    "en": "Tokeo"
+  },
+  {
+    "sw": "Exigency",
+    "en": "Dharura yenye kuhitaji hatua haraka"
+  },
+  {
+    "sw": "Exhumation",
+    "en": "Ufukuaji wa maiti"
+  },
+  {
+    "sw": "Exhortation",
+    "en": "Sisitizo la dhati la himizo"
+  },
+  {
+    "sw": "Exhilaration",
+    "en": "Furaha na uchangamfu mkuu"
+  },
+  {
+    "sw": "Exhibitionism",
+    "en": "Tabia ya kujionyesha sana"
+  },
+  {
+    "sw": "Exhibit",
+    "en": "Kitu kilichoonyeshwa mahakamani/maonyeshoni"
+  },
+  {
+    "sw": "Exhaustion",
+    "en": "Uchovu mkuu"
+  },
+  {
+    "sw": "Exfoliation",
+    "en": "Kumenyuka kwa ngozi"
+  },
+  {
+    "sw": "Exertion",
+    "en": "Bidii ya kutumia nguvu"
+  },
+  {
+    "sw": "Exercise",
+    "en": "Zoezi"
+  },
+  {
+    "sw": "Exemption",
+    "en": "Ruhusa ya kutofanya wajibu"
+  },
+  {
+    "sw": "Exemplar",
+    "en": "Mfano bora wa kuigwa"
+  },
+  {
+    "sw": "Exegesis",
+    "en": "Ufafanuzi wa maandishi (hasa dini)"
+  },
+  {
+    "sw": "Executor",
+    "en": "Mtekelezaji wa wosia"
+  },
+  {
+    "sw": "Execrable",
+    "en": "Mbaya sana na ya kuchukiza"
+  },
+  {
+    "sw": "Excusable",
+    "en": "Yenye kusameheka"
+  },
+  {
+    "sw": "Excursion",
+    "en": "Safari fupi ya matembezi"
+  },
+  {
+    "sw": "Exculpation",
+    "en": "Kuthibitisha mtu hana hatia"
+  },
+  {
+    "sw": "Excrement",
+    "en": "Mavi/Taka ya mwili"
+  },
+  {
+    "sw": "Excommunication",
+    "en": "Kutengwa na kanisa"
+  },
+  {
+    "sw": "Exclusion",
+    "en": "Ubaguzi/Utoaji nje"
+  },
+  {
+    "sw": "Exclamation",
+    "en": "Kishindo cha mshangao"
+  },
+  {
+    "sw": "Excitement",
+    "en": "Msisimko"
+  },
+  {
+    "sw": "Excitability",
+    "en": "Hali ya kusisimka haraka"
+  },
+  {
+    "sw": "Excision",
+    "en": "Upasuaji wa kuondoa kitu"
+  },
+  {
+    "sw": "Exchequer",
+    "en": "Hazina ya taifa"
+  },
+  {
+    "sw": "Exchange",
+    "en": "Ubadilishaji"
+  },
+  {
+    "sw": "Excess",
+    "en": "Ziada"
+  },
+  {
+    "sw": "Excerpt",
+    "en": "Sehemu iliyochukuliwa kutoka andikoni"
+  },
+  {
+    "sw": "Exception",
+    "en": "Kitu cha kipekee/Tofauti"
+  },
+  {
+    "sw": "Excentricity",
+    "en": "Tabia ya kipekee"
+  },
+  {
+    "sw": "Excellence",
+    "en": "Ubora mkuu"
+  },
+  {
+    "sw": "Exasperation",
+    "en": "Hasira ya kukata tamaa"
+  },
+  {
+    "sw": "Exaltation",
+    "en": "Sifa kuu/Hali ya juu"
+  },
+  {
+    "sw": "Exaggeration",
+    "en": "Chuku/Kuzidisha maelezo"
+  },
+  {
+    "sw": "Exacting",
+    "en": "Inayohitaji umakini mkubwa"
+  },
+  {
+    "sw": "Exacerbation",
+    "en": "Kufanya jambo liwe baya zaidi"
+  },
+  {
+    "sw": "Evocation",
+    "en": "Kuamsha kumbukumbu/hisia"
+  },
+  {
+    "sw": "Evidentiary",
+    "en": "Kuhusu ushahidi"
+  },
+  {
+    "sw": "Everlasting",
+    "en": "Ya kudumu milele"
+  },
+  {
+    "sw": "Eventuality",
+    "en": "Tokeo linalowezekana"
+  },
+  {
+    "sw": "Evasive",
+    "en": "Mwenye kukwepa ukweli"
+  },
+  {
+    "sw": "Evasion",
+    "en": "Kukwepa (kodi/wajibu)"
+  },
+  {
+    "sw": "Evangelism",
+    "en": "Uinjilisti"
+  },
+  {
+    "sw": "Evacuation",
+    "en": "Uhamishaji wa dharura"
+  },
+  {
+    "sw": "Euphoria",
+    "en": "Furaha kuu ya muda"
+  },
+  {
+    "sw": "Euphony",
+    "en": "Sauti tamu ya maneno"
+  },
+  {
+    "sw": "Euphemism",
+    "en": "Lugha ya staha kwa mambo mabaya"
+  },
+  {
+    "sw": "Eulogy",
+    "en": "Hotuba ya kumsifu mfu"
+  },
+  {
+    "sw": "Eucharist",
+    "en": "Sakramenti ya meza ya Bwana"
+  },
+  {
+    "sw": "Etymology",
+    "en": "Asili ya maneno"
+  },
+  {
+    "sw": "Ethos",
+    "en": "Roho/Imani ya jamii"
+  },
+  {
+    "sw": "Ethology",
+    "en": "Sayansi ya tabia ya wanyama"
+  },
+  {
+    "sw": "Ethnography",
+    "en": "Uchunguzi wa tamaduni za watu"
+  },
+  {
+    "sw": "Ethnocentrism",
+    "en": "Imani kuwa kabila lako ni bora"
+  },
+  {
+    "sw": "Ethical",
+    "en": "Kimaadili"
+  },
+  {
+    "sw": "Eternity",
+    "en": "Umilele"
+  },
+  {
+    "sw": "Eternal",
+    "en": "Ya milele"
+  },
+  {
+    "sw": "Etching",
+    "en": "Kuchora kwa asidi kwenye chuma"
+  },
+  {
+    "sw": "Estuary",
+    "en": "Mdomo wa mto baharini"
+  },
+  {
+    "sw": "Estrangement",
+    "en": "Utengano wa hisia"
+  },
+  {
+    "sw": "Estimation",
+    "en": "Ukadiriaji"
+  },
+  {
+    "sw": "Esteem",
+    "en": "Heshima makuu"
+  },
+  {
+    "sw": "Estate",
+    "en": "Mali/Eneo la ardhi"
+  },
+  {
+    "sw": "Establishment",
+    "en": "Taasisi/Mamlaka zilizopo"
+  },
+  {
+    "sw": "Essence",
+    "en": "Kiini cha kitu"
+  },
+  {
+    "sw": "Esprit de corps",
+    "en": "Moyo wa mshikamano wa kundi"
+  },
+  {
+    "sw": "Espousal",
+    "en": "Kuunga mkono sera/Ndoa"
+  },
+  {
+    "sw": "Espionage",
+    "en": "Ujasusi"
+  },
+  {
+    "sw": "Esoteric",
+    "en": "Mambo yanayoeleweka na watu wachache"
+  },
+  {
+    "sw": "Esophagus",
+    "en": "Mrija wa chakula"
+  },
+  {
+    "sw": "Escrow",
+    "en": "Dhamana ya fedha kwa mtu wa tatu"
+  },
+  {
+    "sw": "Eschatology",
+    "en": "Imani ya mambo ya mwisho wa dunia"
+  },
+  {
+    "sw": "Escapism",
+    "en": "Kukimbia uhalisia wa maisha"
+  },
+  {
+    "sw": "Escalation",
+    "en": "Ongezeko la nguvu/ukubwa wa ugomvi"
+  },
+  {
+    "sw": "Eruption",
+    "en": "Mlipuko (volkano)"
+  },
+  {
+    "sw": "Erudition",
+    "en": "Elimu ya kina ya vitabu"
+  },
+  {
+    "sw": "Erroneous",
+    "en": "Yenye makosa"
+  },
+  {
+    "sw": "Eroticism",
+    "en": "Hisia za mapenzi"
+  },
+  {
+    "sw": "Erasure",
+    "en": "Ufutaji"
+  },
+  {
+    "sw": "Eradication",
+    "en": "Utoaji kabisa/Uangamizaji"
+  },
+  {
+    "sw": "Equivocation",
+    "en": "Maelezo ya fumbo ya kudanganya"
+  },
+  {
+    "sw": "Equivalence",
+    "en": "Ulinganifu wa thamani"
+  },
+  {
+    "sw": "Equitability",
+    "en": "Usawa na haki"
+  },
+  {
+    "sw": "Equipment",
+    "en": "Vifaa"
+  },
+  {
+    "sw": "Equestrian",
+    "en": "Mwendesha farasi"
+  },
+  {
+    "sw": "Equatorial",
+    "en": "Ya ikweta"
+  },
+  {
+    "sw": "Equation",
+    "en": "Mlinganyo"
+  },
+  {
+    "sw": "Equanimity",
+    "en": "Utulivu wa akili katika matatizo"
+  },
+  {
+    "sw": "Epoch",
+    "en": "Kipindi cha kihistoria"
+  },
+  {
+    "sw": "Epitome",
+    "en": "Mfano bora kabisa"
+  },
+  {
+    "sw": "Epithet",
+    "en": "Jina la sifa la ziada"
+  },
+  {
+    "sw": "Epitaph",
+    "en": "Maandishi ya kaburini"
+  },
+  {
+    "sw": "Episodic",
+    "en": "Inayotokea mara kwa mara kwa vipindi"
+  },
+  {
+    "sw": "Episcopacy",
+    "en": "Utawala wa maaskofu"
+  },
+  {
+    "sw": "Epilogue",
+    "en": "Hitimisho la kitabu/mchezo"
+  },
+  {
+    "sw": "Epilepsy",
+    "en": "Kifafa"
+  },
+  {
+    "sw": "Epigraphy",
+    "en": "Sanaa ya maandishi ya kale kwenye mawe"
+  },
+  {
+    "sw": "Epigram",
+    "en": "Kauli fupi yenye hekima na utani"
+  },
+  {
+    "sw": "Epidemiology",
+    "en": "Elimu ya milipuko ya magonjwa"
+  },
+  {
+    "sw": "Epicurean",
+    "en": "Mwenye kupenda ladha na anasa"
+  },
+  {
+    "sw": "Epicentre",
+    "en": "Kiini cha tetemeko"
+  },
+  {
+    "sw": "Epic",
+    "en": "Shairi refu la kishujaa"
+  },
+  {
+    "sw": "Ephemeral",
+    "en": "Yenye kudumu muda mfupi sana"
+  },
+  {
+    "sw": "Enzymology",
+    "en": "Sayansi ya enzimu"
+  },
+  {
+    "sw": "Envy",
+    "en": "Wivu"
+  },
+  {
+    "sw": "Envoy",
+    "en": "Mjumbe wa kidiplomasia"
+  },
+  {
+    "sw": "Envisage",
+    "en": "Kufikiria hali ya baadae"
+  },
+  {
+    "sw": "Envelopment",
+    "en": "Kufunika kabisa"
+  },
+  {
+    "sw": "Enunciation",
+    "en": "Utamkaji wa wazi wa maneno"
+  },
+  {
+    "sw": "Enumeration",
+    "en": "Kuhesabu moja baada ya kingine"
+  },
+  {
+    "sw": "Entry",
+    "en": "Ingizo"
+  },
+  {
+    "sw": "Entrustment",
+    "en": "Ukabidhi wa madaraka/vitu"
+  },
+  {
+    "sw": "Entropy",
+    "en": "Hali ya machafuko ya mfumo"
+  },
+  {
+    "sw": "Entreaty",
+    "en": "Ombi la unyenyekevu"
+  },
+  {
+    "sw": "Entrapment",
+    "en": "Kutega ili mtu afanye kosa"
+  },
+  {
+    "sw": "Entrance",
+    "en": "Lango"
+  },
+  {
+    "sw": "Entrails",
+    "en": "Matumbo ya ndani"
+  },
+  {
+    "sw": "Entourage",
+    "en": "Wasindikizaji wa mtu muhimu"
+  },
+  {
+    "sw": "Entomology",
+    "en": "Elimu ya wadudu"
+  },
+  {
+    "sw": "Entombment",
+    "en": "Kuzika kaburini"
+  },
+  {
+    "sw": "Entity",
+    "en": "Kitu kinachojitegemea"
+  },
+  {
+    "sw": "Entitlement",
+    "en": "Haki ya kustahili kitu"
+  },
+  {
+    "sw": "Enthusiasm",
+    "en": "Shauku kuu"
+  },
+  {
+    "sw": "Enthrallment",
+    "en": "Kutekwa kwa mvuto mkuu"
+  },
+  {
+    "sw": "Enterprise",
+    "en": "Biashara/Mradi"
+  },
+  {
+    "sw": "Entangle",
+    "en": "Kuvuruga/Kunasa"
+  },
+  {
+    "sw": "Entailment",
+    "en": "Matokeo ya lazima"
+  },
+  {
+    "sw": "Ensnarement",
+    "en": "Kutegwa kwenye mtego"
+  },
+  {
+    "sw": "Enslavement",
+    "en": "Utumwa"
+  },
+  {
+    "sw": "Enshrinement",
+    "en": "Uwekaji katika maandishi matakatifu"
+  },
+  {
+    "sw": "Ensemble",
+    "en": "Kundi la wasanii"
+  },
+  {
+    "sw": "Enrolment",
+    "en": "Uandikishaji shule/chuo"
+  },
+  {
+    "sw": "Enrichment",
+    "en": "Urutubishaji"
+  },
+  {
+    "sw": "Enragement",
+    "en": "Kutia hasira kali"
+  },
+  {
+    "sw": "Enquiry",
+    "en": "Uchunguzi"
+  },
+  {
+    "sw": "Enormity",
+    "en": "Ukubwa wa uovu/jambo"
+  },
+  {
+    "sw": "Ennoblement",
+    "en": "Kupandishwa hadhi ya utukufu"
+  },
+  {
+    "sw": "Enmity",
+    "en": "Uadui"
+  },
+  {
+    "sw": "Enlistment",
+    "en": "Uandikishaji (jeshi)"
+  },
+  {
+    "sw": "Enlightenment",
+    "en": "Kuelimika"
+  },
+  {
+    "sw": "Enlargement",
+    "en": "Upanuzi"
+  },
+  {
+    "sw": "Enjoyment",
+    "en": "Burudani"
+  },
+  {
+    "sw": "Enjoin",
+    "en": "Kuamuru kisheria"
+  },
+  {
+    "sw": "Enigma",
+    "en": "Fumbo la ajabu"
+  },
+  {
+    "sw": "Enhancement",
+    "en": "Uboreshaji"
+  },
+  {
+    "sw": "Engineering",
+    "en": "Uhandisi"
+  },
+  {
+    "sw": "Engendering",
+    "en": "Kusababisha"
+  },
+  {
+    "sw": "Engagement",
+    "en": "Uchumba/Ushiriki"
+  },
+  {
+    "sw": "Enfranchisement",
+    "en": "Haki ya kupiga kura"
+  },
+  {
+    "sw": "Enervating",
+    "en": "Yenye kudhoofisha nguvu"
+  },
+  {
+    "sw": "Energetic",
+    "en": "Mwenye nguvu mbali"
+  },
+  {
+    "sw": "Endurance",
+    "en": "Uvumilivu"
+  },
+  {
+    "sw": "Endorsement",
+    "en": "Uthibitisho/Uungaji mkono"
+  },
+  {
+    "sw": "Encyclopedia",
+    "en": "Kamusi elezo"
+  },
+  {
+    "sw": "Encumbrance",
+    "en": "Kikwazo/Deni kwenye mali"
+  },
+  {
+    "sw": "Encroachment",
+    "en": "Uvamizi wa mipaka"
+  },
+  {
+    "sw": "Encouragement",
+    "en": "Kutia moyo"
+  },
+  {
+    "sw": "Encounter",
+    "en": "Kukutana na/Kukabiliana na"
+  },
+  {
+    "sw": "Encompass",
+    "en": "Kuhusisha mambo mengi"
+  },
+  {
+    "sw": "Encomium",
+    "en": "Sifa kuu kwa maandishi"
+  },
+  {
+    "sw": "Enclosure",
+    "en": "Eneo lililozungushiwa uzio"
+  },
+  {
+    "sw": "Enclave",
+    "en": "Eneo lililozungukwa na nchi nyingine"
+  },
+  {
+    "sw": "Enchantment",
+    "en": "Uchawi/Mvuto wa ajabu"
+  },
+  {
+    "sw": "Encephalitis",
+    "en": "Uvimbe wa ubongo"
+  },
+  {
+    "sw": "Encapsulation",
+    "en": "Kufunika ndani ya kitu"
+  },
+  {
+    "sw": "Emulation",
+    "en": "Kuiga sifa nzuri za mtu"
+  },
+  {
+    "sw": "Empire",
+    "en": "Dola kuu"
+  },
+  {
+    "sw": "Emphasis",
+    "en": "Sisitizo"
+  },
+  {
+    "sw": "Empanelling",
+    "en": "Uteuzi wa wazee wa baraza la mahakama"
+  },
+  {
+    "sw": "Emotion",
+    "en": "Hisia"
+  },
+  {
+    "sw": "Emolument",
+    "en": "Malipo ya kazi (mshahara/posho)"
+  },
+  {
+    "sw": "Emission",
+    "en": "Utoaji wa moshi/mwangaza"
+  },
+  {
+    "sw": "Emissary",
+    "en": "Mjumbe wa siri"
+  },
+  {
+    "sw": "Eminence",
+    "en": "Hadhi ya juu"
+  },
+  {
+    "sw": "Emeritus",
+    "en": "Mstaafu mwenye sifa ya heshima"
+  },
+  {
+    "sw": "Emergence",
+    "en": "Kuibuka"
+  },
+  {
+    "sw": "Emergency",
+    "en": "Dharura"
+  },
+  {
+    "sw": "Emerald",
+    "en": "Zamaradi"
+  },
+  {
+    "sw": "Emendation",
+    "en": "Marekebisho ya andiko"
+  },
+  {
+    "sw": "Embrace",
+    "en": "Kukumbatia/Kukubali jambo"
+  },
+  {
+    "sw": "Embolism",
+    "en": "Kuziba kwa mshipa wa damu"
+  },
+  {
+    "sw": "Embolden",
+    "en": "Kutia moyo wa ushujaa"
+  },
+  {
+    "sw": "Embodiment",
+    "en": "Mfano kamili wa kitu"
+  },
+  {
+    "sw": "Emblem",
+    "en": "Alama ya utambulisho"
+  },
+  {
+    "sw": "Embittered",
+    "en": "Mwenye uchungu moyoni"
+  },
+  {
+    "sw": "Embellishment",
+    "en": "Urembo wa nyongeza"
+  },
+  {
+    "sw": "Embarrassment",
+    "en": "Aibu"
+  },
+  {
+    "sw": "Embarkation",
+    "en": "Kupanda kwenye chombo"
+  },
+  {
+    "sw": "Emancipation",
+    "en": "Ukombozi kutoka utumwani"
+  },
+  {
+    "sw": "Emaciation",
+    "en": "Kukonda sana kwa ugonjwa"
+  },
+  {
+    "sw": "Elusive",
+    "en": "Isiyokamatika/Inayotatiza"
+  },
+  {
+    "sw": "Elucidation",
+    "en": "Ufafanuzi"
+  },
+  {
+    "sw": "Eloquence",
+    "en": "Ufasaha wa lugha"
+  },
+  {
+    "sw": "Elongation",
+    "en": "Urefushaji"
+  },
+  {
+    "sw": "Elocution",
+    "en": "Sanaa ya kuongea fasaha hadharani"
+  },
+  {
+    "sw": "Ellipsis",
+    "en": "Alama ya dondoo (...)"
+  },
+  {
+    "sw": "Elixir",
+    "en": "Dawa ya ajabu ya kuponya kila kitu"
+  },
+  {
+    "sw": "Elite",
+    "en": "Tabaka la watu wa juu"
+  },
+  {
+    "sw": "Elimination",
+    "en": "Uondoaji"
+  },
+  {
+    "sw": "Eligibility",
+    "en": "Sifa ya kustahili"
+  },
+  {
+    "sw": "Elevation",
+    "en": "Kupandishwa juu"
+  },
+  {
+    "sw": "Elementary",
+    "en": "Ya msingi kabisa"
+  },
+  {
+    "sw": "Elegy",
+    "en": "Shairi la maombolezo"
+  },
+  {
+    "sw": "Elegance",
+    "en": "Umaridadi wa hali ya juu"
+  },
+  {
+    "sw": "Eleemosynary",
+    "en": "Ya kutoa misaada"
+  },
+  {
+    "sw": "Electrocardiogram",
+    "en": "Vipimo vya mapigo ya moyo"
+  },
+  {
+    "sw": "Electrification",
+    "en": "Uingizaji umeme"
+  },
+  {
+    "sw": "Electoral",
+    "en": "Ya uchaguzi"
+  },
+  {
+    "sw": "Elated",
+    "en": "Mwenye furaha kuu"
+  },
+  {
+    "sw": "Elaboration",
+    "en": "Ufafanuzi wa kina"
+  },
+  {
+    "sw": "Ejection",
+    "en": "Ufukuzaji/Urushaji nje"
+  },
+  {
+    "sw": "Ejaculation",
+    "en": "Utoaji wa ghafla"
+  },
+  {
+    "sw": "Egress",
+    "en": "Njia ya kutokea"
+  },
+  {
+    "sw": "Egregious",
+    "en": "Mbaya sana kupita kiasi"
+  },
+  {
+    "sw": "Egoism",
+    "en": "Ubinafsi mkuu"
+  },
+  {
+    "sw": "Egocentric",
+    "en": "Mwenye kujijali mwenyewe tu"
+  },
+  {
+    "sw": "Effusion",
+    "en": "Utoaji wa hisia/majimaji kwa wingi"
+  },
+  {
+    "sw": "Effrontery",
+    "en": "Jeuri isiyo na aibu"
+  },
+  {
+    "sw": "Effort",
+    "en": "Juhudi"
+  },
+  {
+    "sw": "Effluence",
+    "en": "Utiririkaji nje"
+  },
+  {
+    "sw": "Effigy",
+    "en": "Sanamu ya mfano wa mtu"
+  },
+  {
+    "sw": "Efficacy",
+    "en": "Uwezo wa kuleta matokeo"
+  },
+  {
+    "sw": "Effervescent",
+    "en": "Yenye povu/uchangamfu"
+  },
+  {
+    "sw": "Effectiveness",
+    "en": "Ufanisi"
+  },
+  {
+    "sw": "Effacement",
+    "en": "Ufutaji wa picha/kumbukumbu"
+  },
+  {
+    "sw": "Educational",
+    "en": "Ya kielimu"
+  },
+  {
+    "sw": "Editorial",
+    "en": "Tahariri"
+  },
+  {
+    "sw": "Editor",
+    "en": "Mhariri"
+  },
+  {
+    "sw": "Edition",
+    "en": "Toleo la kitabu"
+  },
+  {
+    "sw": "Edification",
+    "en": "Uboreshaji wa kiroho/maadili"
+  },
+  {
+    "sw": "Edifice",
+    "en": "Jengo kubwa la kifahari"
+  },
+  {
+    "sw": "Edict",
+    "en": "Amri rasmi ya mtawala"
+  },
+  {
+    "sw": "Eddy",
+    "en": "Mzunguko mdogo wa maji/upepo"
+  },
+  {
+    "sw": "Ecumenical",
+    "en": "Inayohusu umoja wa makanisa"
+  },
+  {
+    "sw": "Ecstasy",
+    "en": "Furaha iliyopitiliza"
+  },
+  {
+    "sw": "Economical",
+    "en": "Isiyotumia gharama kubwa"
+  },
+  {
+    "sw": "Eclipse",
+    "en": "Kupatwa kwa jua/mwezi"
+  },
+  {
+    "sw": "Eclectic",
+    "en": "Inayokusanya mambo mazuri kutoka vyanzo tofauti"
+  },
+  {
+    "sw": "Echo",
+    "en": "Mwangwi"
+  },
+  {
+    "sw": "Echelon",
+    "en": "Ngazi ya madaraka"
+  },
+  {
+    "sw": "Eccentricity",
+    "en": "Tabia ya kipekee ya ajabu"
+  },
+  {
+    "sw": "Ebullience",
+    "en": "Uchangamfu uliopitiliza"
+  },
+  {
+    "sw": "Ebb",
+    "en": "Kupungua kwa maji ya bahari/nguvu"
+  },
+  {
+    "sw": "Earshot",
+    "en": "Umbali wa kuweza kusikia"
+  },
+  {
+    "sw": "Earnestness",
+    "en": "Umakini wa dhati"
+  },
+  {
+    "sw": "Eagerness",
+    "en": "Shauku"
+  },
+  {
+    "sw": "Dyslexia",
+    "en": "Tatizo la kusoma"
+  },
+  {
+    "sw": "Dysfunction",
+    "en": "Hali ya kutofanya kazi vizuri"
+  },
+  {
+    "sw": "Dysentery",
+    "en": "Tumbo la kuhara damu"
+  },
+  {
+    "sw": "Dynasty",
+    "en": "Utawala wa ukoo"
+  },
+  {
+    "sw": "Dynamism",
+    "en": "Uchangamfu mkuu"
+  },
+  {
+    "sw": "Dynamic",
+    "en": "Yenye mabadiliko na nguvu"
+  },
+  {
+    "sw": "Dwindling",
+    "en": "Inayopungua taratibu"
+  },
+  {
+    "sw": "Duress",
+    "en": "Kulazimishwa kwa vitisho"
+  },
+  {
+    "sw": "Durability",
+    "en": "Uthabiti wa kudumu"
+  },
+  {
+    "sw": "Duplicity",
+    "en": "Ujanja wa pande mbili"
+  },
+  {
+    "sw": "Duel",
+    "en": "Mapambano ya watu wawili"
+  },
+  {
+    "sw": "Ductility",
+    "en": "Uwezo wa kutanuliwa"
+  },
+  {
+    "sw": "Dubious",
+    "en": "Yenye kutiliwa shaka"
+  },
+  {
+    "sw": "Drudgery",
+    "en": "Kazi ngumu ya kuchosha"
+  },
+  {
+    "sw": "Drowsiness",
+    "en": "Usingizi wa kisinzia"
+  },
+  {
+    "sw": "Drought",
+    "en": "Ukame"
+  },
+  {
+    "sw": "Drollery",
+    "en": "Utani wa kuchekesha"
+  },
+  {
+    "sw": "Dribble",
+    "en": "Kutiririka kidogo kidogo"
+  },
+  {
+    "sw": "Drench",
+    "en": "Kulowesha kabisa"
+  },
+  {
+    "sw": "Dredging",
+    "en": "Kuchimba mchanga mtoni"
+  },
+  {
+    "sw": "Dread",
+    "en": "Uoga mkuu"
+  },
+  {
+    "sw": "Drawback",
+    "en": "Hasara/Kikwazo"
+  },
+  {
+    "sw": "Drastic",
+    "en": "Ya ghafla na kali"
+  },
+  {
+    "sw": "Dramatic",
+    "en": "Ya kusisimua sana"
+  },
+  {
+    "sw": "Draconian",
+    "en": "Sheria kali sana"
+  },
+  {
+    "sw": "Drafting",
+    "en": "Uandishi wa awali"
+  },
+  {
+    "sw": "Doyen",
+    "en": "Kiongozi mzoefu wa kundi"
+  },
+  {
+    "sw": "Dowry",
+    "en": "Mahari"
+  },
+  {
+    "sw": "Doughty",
+    "en": "Jasiri na hodari"
+  },
+  {
+    "sw": "Doubt",
+    "en": "Mashaka"
+  },
+  {
+    "sw": "Double standard",
+    "en": "Viwango viwili vya hukumu"
+  },
+  {
+    "sw": "Doting",
+    "en": "Mwenye mapenzi ya kupitiliza"
+  },
+  {
+    "sw": "Dossier",
+    "en": "Mkusanyiko wa nyaraka za mtu"
+  },
+  {
+    "sw": "Dormant",
+    "en": "Iliyolala/Isiyotenda sasa"
+  },
+  {
+    "sw": "Donation",
+    "en": "Msaada"
+  },
+  {
+    "sw": "Dominion",
+    "en": "Milki ya utawala"
+  },
+  {
+    "sw": "Domicile",
+    "en": "Makazi ya kudumu"
+  },
+  {
+    "sw": "Domesticated",
+    "en": "Mnyama wa kufugwa"
+  },
+  {
+    "sw": "Dole",
+    "en": "Msaada wa fedha kwa wasio na kazi"
+  },
+  {
+    "sw": "Doldrums",
+    "en": "Hali ya kutosogea/Kusuasua"
+  },
+  {
+    "sw": "Dogmatic",
+    "en": "Mwenye msimamo mkali wa kutohojiwa"
+  },
+  {
+    "sw": "Documentary",
+    "en": "Filamu ya ukweli"
+  },
+  {
+    "sw": "Doctrinaire",
+    "en": "Mwenye kufuata itikadi bila kunyumbulika"
+  },
+  {
+    "sw": "Doctorate",
+    "en": "Shahada ya uzamivu"
+  },
+  {
+    "sw": "Docking",
+    "en": "Kuegesha meli"
+  },
+  {
+    "sw": "Docility",
+    "en": "Utiifu wa upole"
+  },
+  {
+    "sw": "Divulge",
+    "en": "Kutoa siri"
+  },
+  {
+    "sw": "Divisiveness",
+    "en": "Tabia ya kuleta mgawanyiko"
+  },
+  {
+    "sw": "Divine",
+    "en": "Ya kiungu"
+  },
+  {
+    "sw": "Divination",
+    "en": "Ramli/Ubashiri wa siri"
+  },
+  {
+    "sw": "Divestment",
+    "en": "Uondoaji wa uwekezaji"
+  },
+  {
+    "sw": "Divergence",
+    "en": "Kutofautiana kwa mwelekeo"
+  },
+  {
+    "sw": "Diurnal",
+    "en": "Ya mchana"
+  },
+  {
+    "sw": "Disturbance",
+    "en": "Usumbufu"
+  },
+  {
+    "sw": "Distrust",
+    "en": "Kutoamini"
+  },
+  {
+    "sw": "District",
+    "en": "Wilaya"
+  },
+  {
+    "sw": "Distributive",
+    "en": "Ya kugawa"
+  },
+  {
+    "sw": "Distress",
+    "en": "Huzuni kuu/Hatari"
+  },
+  {
+    "sw": "Distraction",
+    "en": "Kivuruga umakini"
+  },
+  {
+    "sw": "Distinction",
+    "en": "Tofauti/Sifa ya pekee"
+  },
+  {
+    "sw": "Dissuade",
+    "en": "Kushawishi mtu asifanye jambo"
+  },
+  {
+    "sw": "Dissonance",
+    "en": "Kutopatana kwa sauti/mawazo"
+  },
+  {
+    "sw": "Dissolution",
+    "en": "Uvunjaji wa muungano/bunge"
+  },
+  {
+    "sw": "Dissociation",
+    "en": "Kujitenga na kundi"
+  },
+  {
+    "sw": "Dissipation",
+    "en": "Ubadhirifu/Usambaaji"
+  },
+  {
+    "sw": "Dissimulation",
+    "en": "Ufichaji wa nia ya kweli"
+  },
+  {
+    "sw": "Dissimilarity",
+    "en": "Kutofanana"
+  },
+  {
+    "sw": "Dissension",
+    "en": "Kutofautiana kifikra"
+  },
+  {
+    "sw": "Dissemination",
+    "en": "Usambazaji wa habari"
+  },
+  {
+    "sw": "Dissection",
+    "en": "Upasuaji wa uchambuzi"
+  },
+  {
+    "sw": "Dissatisfaction",
+    "en": "Kutoridhika"
+  },
+  {
+    "sw": "Disruption",
+    "en": "Usumbufu wa mfumo"
+  },
+  {
+    "sw": "Disrepute",
+    "en": "Sifa mbaya"
+  },
+  {
+    "sw": "Disrepair",
+    "en": "Hali ya kuharibika"
+  },
+  {
+    "sw": "Disregard",
+    "en": "Kupuuza"
+  },
+  {
+    "sw": "Disquiet",
+    "en": "Wasiwasi"
+  },
+  {
+    "sw": "Disqualification",
+    "en": "Kuondolewa sifa"
+  },
+  {
+    "sw": "Disputation",
+    "en": "Mjadala wa kitaaluma"
+  },
+  {
+    "sw": "Disputant",
+    "en": "Mwenye kubishana"
+  },
+  {
+    "sw": "Disproportionate",
+    "en": "Isiyolingana"
+  },
+  {
+    "sw": "Disposition",
+    "en": "Tabia ya asili ya mtu"
+  },
+  {
+    "sw": "Disposal",
+    "en": "Uondoaji wa taka"
+  },
+  {
+    "sw": "Disposable",
+    "en": "Inayoweza kutupwa baada ya kutumia"
+  },
+  {
+    "sw": "Displeasure",
+    "en": "Kutoridhika"
+  },
+  {
+    "sw": "Display",
+    "en": "Onyesho"
+  },
+  {
+    "sw": "Dispersal",
+    "en": "Usambazaji wa watu/vitu"
+  },
+  {
+    "sw": "Dispensation",
+    "en": "Mgawo maalum/Ruhusa ya kipekee"
+  },
+  {
+    "sw": "Dispensary",
+    "en": "Zahanati"
+  },
+  {
+    "sw": "Dispel",
+    "en": "Kuondoa (shaka/wasiwasi)"
+  },
+  {
+    "sw": "Dispatch",
+    "en": "Upelekaji wa ujumbe/mizigo"
+  },
+  {
+    "sw": "Dispassionate",
+    "en": "Bila upendeleo wa hisia"
+  },
+  {
+    "sw": "Disparagement",
+    "en": "Kushusha thamani ya mtu"
+  },
+  {
+    "sw": "Disorientation",
+    "en": "Kuchanganyikiwa uelekeo"
+  },
+  {
+    "sw": "Disorder",
+    "en": "Machafuko"
+  },
+  {
+    "sw": "Disobedience",
+    "en": "Uasi"
+  },
+  {
+    "sw": "Dismissal",
+    "en": "Ufukuzaji/Kukataa hoja"
+  },
+  {
+    "sw": "Dismay",
+    "en": "Mshtuko wa huzuni"
+  },
+  {
+    "sw": "Dismantling",
+    "en": "Kubomoa vifaa"
+  },
+  {
+    "sw": "Dismal",
+    "en": "Yenye huzuni na giza"
+  },
+  {
+    "sw": "Dislocate",
+    "en": "Kuteguka kwa kiungo"
+  },
+  {
+    "sw": "Disjunction",
+    "en": "Kutengana"
+  },
+  {
+    "sw": "Disinterested",
+    "en": "Asiyependelea upande"
+  },
+  {
+    "sw": "Disintegration",
+    "en": "Kusambaratika"
+  },
+  {
+    "sw": "Disingenuous",
+    "en": "Si mkweli (janja)"
+  },
+  {
+    "sw": "Disinfectant",
+    "en": "Dawa ya kuua vijidudu"
+  },
+  {
+    "sw": "Disinclination",
+    "en": "Kutokuwa na nia ya kufanya kitu"
+  },
+  {
+    "sw": "Disincentive",
+    "en": "Kitu kinachokatisha tamaa"
+  },
+  {
+    "sw": "Disillusionment",
+    "en": "Kupata ukweli unaoumiza"
+  },
+  {
+    "sw": "Disguise",
+    "en": "Kujificha/Kubadili muonekano"
+  },
+  {
+    "sw": "Disgrace",
+    "en": "Aibu kuu"
+  },
+  {
+    "sw": "Disfigurement",
+    "en": "Uharibifu wa muonekano"
+  },
+  {
+    "sw": "Disenfranchisement",
+    "en": "Kunyang'anywa haki ya kura"
+  },
+  {
+    "sw": "Disenchantment",
+    "en": "Kuvunjika moyo/Kupoteza matumaini"
+  },
+  {
+    "sw": "Disembark",
+    "en": "Kushuka kwenye chombo"
+  },
+  {
+    "sw": "Disdain",
+    "en": "Dharau kubwa"
+  },
+  {
+    "sw": "Discursiveness",
+    "en": "Maelezo ya kuzunguka huku na kule"
+  },
+  {
+    "sw": "Discrepancy",
+    "en": "Tofauti isiyoelezeka"
+  },
+  {
+    "sw": "Discount",
+    "en": "Punguzo"
+  },
+  {
+    "sw": "Discord",
+    "en": "Kutoelewana"
+  },
+  {
+    "sw": "Discontinuity",
+    "en": "Kukosekana kwa mwendelezo"
+  },
+  {
+    "sw": "Disconcerting",
+    "en": "Yenye kuleta wasiwasi"
+  },
+  {
+    "sw": "Discomfort",
+    "en": "Kutojisikia vizuri"
+  },
+  {
+    "sw": "Discoloration",
+    "en": "Kubadilika rangi"
+  },
+  {
+    "sw": "Disclosure",
+    "en": "Uwekaji wazi wa siri"
+  },
+  {
+    "sw": "Disclaimer",
+    "en": "Kukanusha wajibu"
+  },
+  {
+    "sw": "Discipline",
+    "en": "Nidhamu"
+  },
+  {
+    "sw": "Disciple",
+    "en": "Mfuasi"
+  },
+  {
+    "sw": "Discharge",
+    "en": "Kuruhusiwa kuondoka/Utoaji taka"
+  },
+  {
+    "sw": "Discernment",
+    "en": "Uwezo wa kutambua ukweli"
+  },
+  {
+    "sw": "Disbursement",
+    "en": "Utoaji fedha kutoka mfukoni"
+  },
+  {
+    "sw": "Disavowal",
+    "en": "Kukataa kuhusika na jambo"
+  },
+  {
+    "sw": "Disaster",
+    "en": "Maafa"
+  },
+  {
+    "sw": "Disarray",
+    "en": "Machafuko/Ukosefu wa mpango"
+  },
+  {
+    "sw": "Disaffection",
+    "en": "Kutoridhika na serikali"
+  },
+  {
+    "sw": "Disadvantaged",
+    "en": "Wenye mazingira magumu"
+  },
+  {
+    "sw": "Disability",
+    "en": "Ulemavu"
+  },
+  {
+    "sw": "Directorate",
+    "en": "Idara ya mkurugenzi"
+  },
+  {
+    "sw": "Dire",
+    "en": "Mbaya sana na ya hatari"
+  },
+  {
+    "sw": "Diminution",
+    "en": "Upungufu wa thamani/ukubwa"
+  },
+  {
+    "sw": "Dimension",
+    "en": "Vipimo/Ukubwa wa jambo"
+  },
+  {
+    "sw": "Dilution",
+    "en": "Kupunguza ukali kwa kuongeza maji"
+  },
+  {
+    "sw": "Diligence",
+    "en": "Bidii ya umakini"
+  },
+  {
+    "sw": "Dilatory",
+    "en": "Mwenye kuchelewesha mambo"
+  },
+  {
+    "sw": "Dilation",
+    "en": "Upanuzi"
+  },
+  {
+    "sw": "Dilapidation",
+    "en": "Hali ya uchakavu wa jengo"
+  },
+  {
+    "sw": "Digress",
+    "en": "Kuhama mada"
+  },
+  {
+    "sw": "Digest",
+    "en": "Mkusanyiko wa taarifa"
+  },
+  {
+    "sw": "Diffusion",
+    "en": "Usambaaji"
+  },
+  {
+    "sw": "Diffidence",
+    "en": "Kutojiamini"
+  },
+  {
+    "sw": "Differential",
+    "en": "Tofauti ya kiwango"
+  },
+  {
+    "sw": "Dietetics",
+    "en": "Sayansi ya chakula"
+  },
+  {
+    "sw": "Didactic",
+    "en": "Yenye lengo la kufundisha maadili"
+  },
+  {
+    "sw": "Dictum",
+    "en": "Kauli rasmi ya kitaalamu"
+  },
+  {
+    "sw": "Dictionary",
+    "en": "Kamusi"
+  },
+  {
+    "sw": "Diction",
+    "en": "Uchaguzi wa maneno"
+  },
+  {
+    "sw": "Dichotomy",
+    "en": "Mgawanyiko wa pande mbili tofauti"
+  },
+  {
+    "sw": "Diatribe",
+    "en": "Mashambulizi makali ya maneno"
+  },
+  {
+    "sw": "Diaspora",
+    "en": "Watu wanaoishi nje ya nchi yao"
+  },
+  {
+    "sw": "Diarrhea",
+    "en": "Kuhara"
+  },
+  {
+    "sw": "Diarchy",
+    "en": "Utawala wa watu wawili"
+  },
+  {
+    "sw": "Diaphanous",
+    "en": "Yenye kuonyesha upande wa pili"
+  },
+  {
+    "sw": "Diameter",
+    "en": "Kipenyo cha duara"
+  },
+  {
+    "sw": "Dialogue",
+    "en": "Mazungumzo"
+  },
+  {
+    "sw": "Diagram",
+    "en": "Mchoro wa maelezo"
+  },
+  {
+    "sw": "Diagonal",
+    "en": "Mstari wa mlazo"
+  },
+  {
+    "sw": "Dexterity",
+    "en": "Uhodari wa kutumia mikono/akili"
+  },
+  {
+    "sw": "Devotion",
+    "en": "Utii/Mapenzi makuu"
+  },
+  {
+    "sw": "Devolution",
+    "en": "Ugatuzi wa mamlaka"
+  },
+  {
+    "sw": "Devious",
+    "en": "Mjanja wa uovu/Si mnyofu"
+  },
+  {
+    "sw": "Devils advocate",
+    "en": "Kupinga hoja ili kuijaribu"
+  },
+  {
+    "sw": "Device",
+    "en": "Kifaa/Mbinu"
+  },
+  {
+    "sw": "Deviation",
+    "en": "Mkengeuko"
+  },
+  {
+    "sw": "Devastation",
+    "en": "Uharibifu mkuu"
+  },
+  {
+    "sw": "Detrimental",
+    "en": "Yenye kuleta madhara"
+  },
+  {
+    "sw": "Detraction",
+    "en": "Kupunguza sifa ya mtu"
+  },
+  {
+    "sw": "Detour",
+    "en": "Njia ya mzunguko"
+  },
+  {
+    "sw": "Detestation",
+    "en": "Chuki kali"
+  },
+  {
+    "sw": "Determinism",
+    "en": "Imani kuwa kila kitu kimepangwa"
+  },
+  {
+    "sw": "Deterioration",
+    "en": "Kuzidi kuwa mbaya"
+  },
+  {
+    "sw": "Detention",
+    "en": "Kifungo cha muda"
+  },
+  {
+    "sw": "Detection",
+    "en": "Utambuzi wa kitu kilichojificha"
+  },
+  {
+    "sw": "Detainment",
+    "en": "Uwekaji kizuizini"
+  },
+  {
+    "sw": "Detail",
+    "en": "Maelezo ya ndani"
+  },
+  {
+    "sw": "Detachment",
+    "en": "Hali ya kujitenga"
+  },
+  {
+    "sw": "Desultory",
+    "en": "Ya kiholela bila mpango"
+  },
+  {
+    "sw": "Destruction",
+    "en": "Uharibifu"
+  },
+  {
+    "sw": "Destitution",
+    "en": "Umaskini uliokithiri"
+  },
+  {
+    "sw": "Destination",
+    "en": "Sehemu unayoelekea"
+  },
+  {
+    "sw": "Despotism",
+    "en": "Udikteta wa kiimla"
+  },
+  {
+    "sw": "Despondency",
+    "en": "Huzuni kali ya kukata tamaa"
+  },
+  {
+    "sw": "Despair",
+    "en": "Kukata tamaa"
+  },
+  {
+    "sw": "Desolation",
+    "en": "Hali ya upweke na uharibifu"
+  },
+  {
+    "sw": "Desire",
+    "en": "Hamu/Matamanio"
+  },
+  {
+    "sw": "Designation",
+    "en": "Cheo rasmi/Jina"
+  },
+  {
+    "sw": "Desertification",
+    "en": "Ugeukaji kuwa jangwa"
+  },
+  {
+    "sw": "Desent",
+    "en": "Hali ya kushuka"
+  },
+  {
+    "sw": "Desecration",
+    "en": "Uharibifu wa kitu takatifu"
+  },
+  {
+    "sw": "Description",
+    "en": "Maelezo"
+  },
+  {
+    "sw": "Descendant",
+    "en": "Mzawa wa ukoo fulani"
+  },
+  {
+    "sw": "Desalination",
+    "en": "Uondoaji chumvi kwenye maji"
+  },
+  {
+    "sw": "Derogatory",
+    "en": "Yenye kudhalilisha"
+  },
+  {
+    "sw": "Derivation",
+    "en": "Asili ya kitu"
+  },
+  {
+    "sw": "Dereliction",
+    "en": "Utelekezaji wa wajibu"
+  },
+  {
+    "sw": "Deputy",
+    "en": "Naibu"
+  },
+  {
+    "sw": "Depth",
+    "en": "Kina"
+  },
+  {
+    "sw": "Deprivation",
+    "en": "Kunyimwa mahitaji muhimu"
+  },
+  {
+    "sw": "Depravity",
+    "en": "Uovu uliokithiri"
+  },
+  {
+    "sw": "Depository",
+    "en": "Sehemu ya kuhifadhia"
+  },
+  {
+    "sw": "Deposition",
+    "en": "Utoaji ushahidi wa kiapo"
+  },
+  {
+    "sw": "Deportation",
+    "en": "Ufukuzaji nchini"
+  },
+  {
+    "sw": "Deployment",
+    "en": "Upelekaji (wa majeshi/vifaa)"
+  },
+  {
+    "sw": "Deplorable",
+    "en": "Ya kusikitisha na kulaaniwa"
+  },
+  {
+    "sw": "Depict",
+    "en": "Kuelezea/Kuonyesha kwa picha"
+  },
+  {
+    "sw": "Dependability",
+    "en": "Uaminifu wa kutegemewa"
+  },
+  {
+    "sw": "Departure",
+    "en": "Ondoko"
+  },
+  {
+    "sw": "Department",
+    "en": "Idara"
+  },
+  {
+    "sw": "Denunciation",
+    "en": "Hukumu rasmi hadharani"
+  },
+  {
+    "sw": "Denouncement",
+    "en": "Kulaani hadharani"
+  },
+  {
+    "sw": "Denominational",
+    "en": "Kuhusu madhehebu"
+  },
+  {
+    "sw": "Denial",
+    "en": "Kukataa"
+  },
+  {
+    "sw": "Demurrage",
+    "en": "Ada ya kuchelewesha shehena"
+  },
+  {
+    "sw": "Demote",
+    "en": "Kushusha cheo"
+  },
+  {
+    "sw": "Demoralization",
+    "en": "Kuvunja moyo"
+  },
+  {
+    "sw": "Demolition",
+    "en": "Ubomoaji"
+  },
+  {
+    "sw": "Demerit",
+    "en": "Kasoro/Sifa mbaya"
+  },
+  {
+    "sw": "Demeanor",
+    "en": "Tabia ya nje ya mtu"
+  },
+  {
+    "sw": "Demarcation",
+    "en": "Uainishaji wa mipaka"
+  },
+  {
+    "sw": "Demand",
+    "en": "Mahitaji"
+  },
+  {
+    "sw": "Demagogue",
+    "en": "Kiongozi mchochezi"
+  },
+  {
+    "sw": "Delusion",
+    "en": "Ndoto/Kujidanganya"
+  },
+  {
+    "sw": "Deluge",
+    "en": "Gharika kuu la maji"
+  },
+  {
+    "sw": "Deliverance",
+    "en": "Ukombozi/Uokozi"
+  },
+  {
+    "sw": "Delirium",
+    "en": "Kuchanganyikiwa akili kwa muda"
+  },
+  {
+    "sw": "Delinquency",
+    "en": "Uhalifu (hasa wa vijana)"
+  },
+  {
+    "sw": "Delineation",
+    "en": "Uelezeaji wa kina wa mipaka"
+  },
+  {
+    "sw": "Delicacy",
+    "en": "Chakula adimu/Ulaini"
+  },
+  {
+    "sw": "Deliberation",
+    "en": "Mashauriano ya kina"
+  },
+  {
+    "sw": "Deleterious",
+    "en": "Yenye madhara"
+  },
+  {
+    "sw": "Delegation",
+    "en": "Uwakilishi/Ukabidhi madaraka"
+  },
+  {
+    "sw": "Dejected",
+    "en": "Mwenye huzuni kuu"
+  },
+  {
+    "sw": "Deity",
+    "en": "Mungu"
+  },
+  {
+    "sw": "Deism",
+    "en": "Imani ya Mungu aliyekaa kando"
+  },
+  {
+    "sw": "Deification",
+    "en": "Kumfanya mtu kuwa mungu"
+  },
+  {
+    "sw": "Dehydration",
+    "en": "Upungufu wa maji mwilini"
+  },
+  {
+    "sw": "Dehumanization",
+    "en": "Kunyang'anya ubinadamu"
+  },
+  {
+    "sw": "Degree",
+    "en": "Shahada/Kiwango"
+  },
+  {
+    "sw": "Degradation",
+    "en": "Kushusha hadhi/Uharibifu wa ardhi"
+  },
+  {
+    "sw": "Degeneration",
+    "en": "Kuporomoka kwa ubora"
+  },
+  {
+    "sw": "Defunct",
+    "en": "Isiyofanya kazi/iliyokufa"
+  },
+  {
+    "sw": "Deftness",
+    "en": "Uhodari wa haraka wa mikono"
+  },
+  {
+    "sw": "Defray",
+    "en": "Kulipia gharama"
+  },
+  {
+    "sw": "Deformation",
+    "en": "Uharibifu wa umbo"
+  },
+  {
+    "sw": "Deflection",
+    "en": "Kukengeusha"
+  },
+  {
+    "sw": "Deficiency",
+    "en": "Upungufu"
+  },
+  {
+    "sw": "Defiance",
+    "en": "Ukaidi"
+  },
+  {
+    "sw": "Deference",
+    "en": "Heshima ya unyenyekevu"
+  },
+  {
+    "sw": "Defence",
+    "en": "Ulinzi/Utetezi"
+  },
+  {
+    "sw": "Defector",
+    "en": "Aliyeasi na kujiunga upande mwingine"
+  },
+  {
+    "sw": "Defect",
+    "en": "Kasoro/Kuasi upande wako"
+  },
+  {
+    "sw": "Defeatism",
+    "en": "Mtazamo wa kukubali kushindwa"
+  },
+  {
+    "sw": "Default",
+    "en": "Kushindwa kulipa/Hali ya kawaida"
+  },
+  {
+    "sw": "Defamation",
+    "en": "Kusingizia na kuharibu jina"
+  },
+  {
+    "sw": "Deem",
+    "en": "Kuzingatia/Kuona kuwa"
+  },
+  {
+    "sw": "Deed",
+    "en": "Tendo/Hati miliki"
+  },
+  {
+    "sw": "Deduce",
+    "en": "Kuhitimisha kwa mantiki"
+  },
+  {
+    "sw": "Dedication",
+    "en": "Ujitoleaji"
+  },
+  {
+    "sw": "Decrement",
+    "en": "Upungufu"
+  },
+  {
+    "sw": "Decree",
+    "en": "Amri ya kiserikali/mtawala"
+  },
+  {
+    "sw": "Decoy",
+    "en": "Mtego wa kuvuta kitu"
+  },
+  {
+    "sw": "Decorum",
+    "en": "Adabu na heshima"
+  },
+  {
+    "sw": "Decompression",
+    "en": "Kupunguza shinikizo"
+  },
+  {
+    "sw": "Decomposition",
+    "en": "Kuoza"
+  },
+  {
+    "sw": "Decommission",
+    "en": "Kuondoa katika utendaji"
+  },
+  {
+    "sw": "Decline",
+    "en": "Kushuka/Kukataa"
+  },
+  {
+    "sw": "Declaration",
+    "en": "Tangazo rasmi"
+  },
+  {
+    "sw": "Decision-making",
+    "en": "Ufanyaji uamuzi"
+  },
+  {
+    "sw": "Decipher",
+    "en": "Kutambua maana ya fumbo"
+  },
+  {
+    "sw": "Decimation",
+    "en": "Mauaji ya sehemu kubwa ya idadi"
+  },
+  {
+    "sw": "Decibel",
+    "en": "Kipimo cha sauti"
+  },
+  {
+    "sw": "Deception",
+    "en": "Udanganyifu"
+  },
+  {
+    "sw": "Decadence",
+    "en": "Kuporomoka kwa maadili"
+  },
+  {
+    "sw": "Decade",
+    "en": "Muongo (miaka 10)"
+  },
+  {
+    "sw": "Debut",
+    "en": "Onyesho la kwanza"
+  },
+  {
+    "sw": "Debunk",
+    "en": "Kuthibitisha uongo wa jambo"
+  },
+  {
+    "sw": "Debris",
+    "en": "Mabaki ya uharibifu"
+  },
+  {
+    "sw": "Debonair",
+    "en": "Mwenye mvuto na maridadi"
+  },
+  {
+    "sw": "Debilitating",
+    "en": "Yenye kudhoofisha"
+  },
+  {
+    "sw": "Debatable",
+    "en": "Inayoweza kubishaniwa"
+  },
+  {
+    "sw": "Debasement",
+    "en": "Kupunguza thamani/hadhi"
+  },
+  {
+    "sw": "Debacle",
+    "en": "Kufeli kwa aibu"
+  },
+  {
+    "sw": "Dearth",
+    "en": "Upungufu mkubwa wa kitu"
+  },
+  {
+    "sw": "Dealership",
+    "en": "Uwakala wa biashara"
+  },
+  {
+    "sw": "Damages",
+    "en": "Fidia ya hasara"
+  },
+  {
+    "sw": "Cytology",
+    "en": "Sayansi ya seli"
+  },
+  {
+    "sw": "Cybernetics",
+    "en": "Sayansi ya mifumo ya udhibiti"
+  },
+  {
+    "sw": "Customary",
+    "en": "Kulingana na mila"
+  },
+  {
+    "sw": "Cursory",
+    "en": "Ya haraka bila umakini"
+  },
+  {
+    "sw": "Curiosity",
+    "en": "Udadisi"
+  },
+  {
+    "sw": "Curfew",
+    "en": "Amri ya kutotoka nje"
+  },
+  {
+    "sw": "Cupidity",
+    "en": "Tamaa ya mali"
+  },
+  {
+    "sw": "Cumulatively",
+    "en": "Kwa kujikusanya"
+  },
+  {
+    "sw": "Cultural",
+    "en": "Ya kitamaduni"
+  },
+  {
+    "sw": "Culpability",
+    "en": "Hatia"
+  },
+  {
+    "sw": "Cryptic",
+    "en": "Fumbo/Siri"
+  },
+  {
+    "sw": "Crusade",
+    "en": "Harakati kali"
+  },
+  {
+    "sw": "Crumble",
+    "en": "Kuporomoka kidogo kidogo"
+  },
+  {
+    "sw": "Crude",
+    "en": "Ghafi/Isiyo na ustaarabu"
+  },
+  {
+    "sw": "Crucial",
+    "en": "Muhimu sana"
+  },
+  {
+    "sw": "Critique",
+    "en": "Uchambuzi wa kina"
+  },
+  {
+    "sw": "Criticism",
+    "en": "Uhakiki/Lawama"
+  },
+  {
+    "sw": "Crescendo",
+    "en": "Ongezeko la sauti/nguvu"
+  },
+  {
+    "sw": "Creed",
+    "en": "Imani rasmi ya kidini"
+  },
+  {
+    "sw": "Creditor",
+    "en": "Mkopeshaji"
+  },
+  {
+    "sw": "Credibility",
+    "en": "Kuaminika"
+  },
+  {
+    "sw": "Credence",
+    "en": "Kuamini jambo"
+  },
+  {
+    "sw": "Craftsmanship",
+    "en": "Ufundi wa mikono"
+  },
+  {
+    "sw": "Cowardice",
+    "en": "Uoga"
+  },
+  {
+    "sw": "Covert",
+    "en": "Siri/Isiyo wazi"
+  },
+  {
+    "sw": "Covenant",
+    "en": "Agano rasmi"
+  },
+  {
+    "sw": "Courier",
+    "en": "Mjumbe wa mizigo"
+  },
+  {
+    "sw": "Courage",
+    "en": "Ujasiri"
+  },
+  {
+    "sw": "Counterpoint",
+    "en": "Sauti mbadala ya muziki"
+  },
+  {
+    "sw": "Countenance",
+    "en": "Uso/Uvumilivu"
+  },
+  {
+    "sw": "Counterpart",
+    "en": "Mwenzako wa upande mwingine"
+  },
+  {
+    "sw": "Countermand",
+    "en": "Kufuta amri ya awali"
+  },
+  {
+    "sw": "Counterfeit",
+    "en": "Bandia"
+  },
+  {
+    "sw": "Cosmetics",
+    "en": "Vipodozi"
+  },
+  {
+    "sw": "Corrosive",
+    "en": "Yenye kuliwa (asidi)"
+  },
+  {
+    "sw": "Corroboration",
+    "en": "Uthibitisho wa ziada"
+  },
+  {
+    "sw": "Corollary",
+    "en": "Tokeo la kimantiki"
+  },
+  {
+    "sw": "Copious",
+    "en": "Nyingi sana"
+  },
+  {
+    "sw": "Coordination",
+    "en": "Uratibu"
+  },
+  {
+    "sw": "Cooperation",
+    "en": "Ushirikiano"
+  },
+  {
+    "sw": "Convocation",
+    "en": "Mkutano wa wahitimu"
+  },
+  {
+    "sw": "Convivial",
+    "en": "Yenye uchangamfu wa kijamii"
+  },
+  {
+    "sw": "Conviction",
+    "en": "Imani thabiti/Kupatikana na hatia"
+  },
+  {
+    "sw": "Conveyance",
+    "en": "Usafirishaji/Uhamishaji wa mali"
+  },
+  {
+    "sw": "Convex",
+    "en": "Inayochomoza nje (kioo)"
+  },
+  {
+    "sw": "Conversion",
+    "en": "Ubadilishaji"
+  },
+  {
+    "sw": "Conversation",
+    "en": "Mazungumzo"
+  },
+  {
+    "sw": "Convergence",
+    "en": "Kukutana sehemu moja"
+  },
+  {
+    "sw": "Convection",
+    "en": "Uhamishaji wa joto"
+  },
+  {
+    "sw": "Conundrum",
+    "en": "Fumbo gumu"
+  },
+  {
+    "sw": "Controversial",
+    "en": "Inayoleta ubishi"
+  },
+  {
+    "sw": "Contrivance",
+    "en": "Kitu kilichoundwa kwa ujanja"
+  },
+  {
+    "sw": "Contrite",
+    "en": "Mwenye toba ya dhati"
+  },
+  {
+    "sw": "Contribution",
+    "en": "Mchango"
+  },
+  {
+    "sw": "Contravention",
+    "en": "Ukiukaji wa sheria"
+  },
+  {
+    "sw": "Contraindication",
+    "en": "Kitu kinachozuia matumizi ya dawa"
+  },
+  {
+    "sw": "Contraception",
+    "en": "Uzazi wa mpango"
+  },
+  {
+    "sw": "Contraband",
+    "en": "Bidhaa za magendo"
+  },
+  {
+    "sw": "Contour",
+    "en": "Mstari wa umbo"
+  },
+  {
+    "sw": "Continuity",
+    "en": "Mwendelezo"
+  },
+  {
+    "sw": "Contiguity",
+    "en": "Ukaribu wa kushikana"
+  },
+  {
+    "sw": "Contention",
+    "en": "Bishano"
+  },
+  {
+    "sw": "Contempt",
+    "en": "Dharau (hasa kwa mahakama)"
+  },
+  {
+    "sw": "Contemporary",
+    "en": "Wa kisasa/Wa wakati mmoja"
+  },
+  {
+    "sw": "Contemplation",
+    "en": "Tafakuri ya kina"
+  },
+  {
+    "sw": "Contamination",
+    "en": "Uchafuzi"
+  },
+  {
+    "sw": "Containment",
+    "en": "Udhibiti wa jambo lisisambae"
+  },
+  {
+    "sw": "Contagion",
+    "en": "Maambukizi ya haraka"
+  },
+  {
+    "sw": "Consumption",
+    "en": "Matumizi"
+  },
+  {
+    "sw": "Consultation",
+    "en": "Ushauri"
+  },
+  {
+    "sw": "Consulate",
+    "en": "Ubalozi mdogo"
+  },
+  {
+    "sw": "Construction",
+    "en": "Ujenzi"
+  },
+  {
+    "sw": "Constraint",
+    "en": "Kizuizi"
+  },
+  {
+    "sw": "Conspiracy",
+    "en": "Njama za siri"
+  },
+  {
+    "sw": "Conspicuous",
+    "en": "Inayoonekana wazi"
+  },
+  {
+    "sw": "Consonance",
+    "en": "Mlingano wa konsonanti"
+  },
+  {
+    "sw": "Consolidated",
+    "en": "Yenye kuunganishwa"
+  },
+  {
+    "sw": "Consolation",
+    "en": "Faraja"
+  },
+  {
+    "sw": "Consistency",
+    "en": "Uthabiti"
+  },
+  {
+    "sw": "Conservatism",
+    "en": "Uhafidhina (kupinga mabadiliko)"
+  },
+  {
+    "sw": "Consequence",
+    "en": "Matokeo"
+  },
+  {
+    "sw": "Consecration",
+    "en": "Uwekaji wakfu"
+  },
+  {
+    "sw": "Conscription",
+    "en": "Uandikishaji wa lazima jeshini"
+  },
+  {
+    "sw": "Conscientious",
+    "en": "Mwenye kufanya kazi kwa umakini"
+  },
+  {
+    "sw": "Conscience",
+    "en": "Dhamira ya ndani"
+  },
+  {
+    "sw": "Connotation",
+    "en": "Maana ya fumbo ya neno"
+  },
+  {
+    "sw": "Connoisseur",
+    "en": "Mtaalamu wa sanaa/ladha"
+  },
+  {
+    "sw": "Connivance",
+    "en": "Njama za kuruhusu uovu"
+  },
+  {
+    "sw": "Connectivity",
+    "en": "Uunganishaji"
+  },
+  {
+    "sw": "Conjunction",
+    "en": "Kiunganishi"
+  },
+  {
+    "sw": "Conjugal",
+    "en": "Kuhusu ndoa"
+  },
+  {
+    "sw": "Conjecture",
+    "en": "Kukisia bila ushahidi"
+  },
+  {
+    "sw": "Congruence",
+    "en": "Mlingano wa kijiometri/mawazo"
+  },
+  {
+    "sw": "Congress",
+    "en": "Bunge (mfano Marekani)"
+  },
+  {
+    "sw": "Congregation",
+    "en": "Kusanyiko (hasa kanisani)"
+  },
+  {
+    "sw": "Confusion",
+    "en": "Kuchanganyikiwa"
+  },
+  {
+    "sw": "Confrontation",
+    "en": "Kukabiliana"
+  },
+  {
+    "sw": "Confound",
+    "en": "Kutatiza"
+  },
+  {
+    "sw": "Conformity",
+    "en": "Kufuata mkumbo/kanuni"
+  },
+  {
+    "sw": "Conflict",
+    "en": "Mgogoro"
+  },
+  {
+    "sw": "Confiscation",
+    "en": "Unyakuzi wa mali"
+  },
+  {
+    "sw": "Confirmation",
+    "en": "Uthibitisho"
+  },
+  {
+    "sw": "Confinement",
+    "en": "Ufungwa/Kifungo"
+  },
+  {
+    "sw": "Configuration",
+    "en": "Mpangilio wa mfumo"
+  },
+  {
+    "sw": "Confidentiality",
+    "en": "Siri"
+  },
+  {
+    "sw": "Confidence",
+    "en": "Kujiamini"
+  },
+  {
+    "sw": "Confidant",
+    "en": "Rafiki wa siri"
+  },
+  {
+    "sw": "Confession",
+    "en": "Ungamo"
+  },
+  {
+    "sw": "Conference",
+    "en": "Mkutano"
+  },
+  {
+    "sw": "Conduit",
+    "en": "Njia ya kupitishia (maji/habari)"
+  },
+  {
+    "sw": "Conductivity",
+    "en": "Uwezo wa kupitisha (umeme/joto)"
+  },
+  {
+    "sw": "Condonation",
+    "en": "Msamaha wa kimyakimya"
+  },
+  {
+    "sw": "Condolence",
+    "en": "Rambirambi"
+  },
+  {
+    "sw": "Conditionality",
+    "en": "Masharti"
+  },
+  {
+    "sw": "Condescension",
+    "en": "Dharau kwa walio chini"
+  },
+  {
+    "sw": "Condensation",
+    "en": "Mvuke kugeuka maji"
+  },
+  {
+    "sw": "Condemnation",
+    "en": "Hukumu/Laana"
+  },
+  {
+    "sw": "Concurrence",
+    "en": "Makubaliano"
+  },
+  {
+    "sw": "Concord",
+    "en": "Maelewano"
+  },
+  {
+    "sw": "Concomitant",
+    "en": "Inayoandamana na"
+  },
+  {
+    "sw": "Conclusive",
+    "en": "Yenye kutoa uamuzi wa mwisho"
+  },
+  {
+    "sw": "Conclave",
+    "en": "Mkutano wa siri"
+  },
+  {
+    "sw": "Concise",
+    "en": "Fupi na yenye maana"
+  },
+  {
+    "sw": "Conciliation",
+    "en": "Upatanishi"
+  },
+  {
+    "sw": "Concealment",
+    "en": "Ufichaji"
+  },
+  {
+    "sw": "Comrade",
+    "en": "Mwanachama mwenzako"
+  },
+  {
+    "sw": "Computation",
+    "en": "Ukokotoaji"
+  },
+  {
+    "sw": "Compulsory",
+    "en": "Lazima"
+  },
+  {
+    "sw": "Compulsion",
+    "en": "Shurutisho la ndani"
+  },
+  {
+    "sw": "Compression",
+    "en": "Mgandamizo"
+  },
+  {
+    "sw": "Comprehensive",
+    "en": "Yenye mambo yote"
+  },
+  {
+    "sw": "Comprehension",
+    "en": "Uelewa"
+  },
+  {
+    "sw": "Composure",
+    "en": "Utulivu wa nafsi"
+  },
+  {
+    "sw": "Component",
+    "en": "Sehemu ya mashine/kitu"
+  },
+  {
+    "sw": "Complicity",
+    "en": "Ushiriki katika uovu"
+  },
+  {
+    "sw": "Complication",
+    "en": "Matatizo/Utata"
+  },
+  {
+    "sw": "Complementary",
+    "en": "Inayokamilishana"
+  },
+  {
+    "sw": "Complacency",
+    "en": "Kujiridhisha kinyume na ukweli"
+  },
+  {
+    "sw": "Compilation",
+    "en": "Mkusanyiko"
+  },
+  {
+    "sw": "Competition",
+    "en": "Ushindani"
+  },
+  {
+    "sw": "Competence",
+    "en": "Umahiri"
+  },
+  {
+    "sw": "Compensation",
+    "en": "Fidia"
+  },
+  {
+    "sw": "Compendium",
+    "en": "Mkusanyiko wa maelezo"
+  },
+  {
+    "sw": "Compelling",
+    "en": "Inayolazimisha kukubalika"
+  },
+  {
+    "sw": "Compatibility",
+    "en": "Ulinganifu wa kufanya kazi pamoja"
+  },
+  {
+    "sw": "Compassion",
+    "en": "Huruma ya dhati"
+  },
+  {
+    "sw": "Comparison",
+    "en": "Ulinganifu"
+  },
+  {
+    "sw": "Compact",
+    "en": "Ndogo na madhubuti/Mkataba"
+  },
+  {
+    "sw": "Commute",
+    "en": "Kusafiri kwenda kazini/Kupunguza adhabu"
+  },
+  {
+    "sw": "Communion",
+    "en": "Ushirika mkuu"
+  },
+  {
+    "sw": "Communal",
+    "en": "Ya jamii nzima"
+  },
+  {
+    "sw": "Commonwealth",
+    "en": "Jumuiya ya madola"
+  },
+  {
+    "sw": "Common law",
+    "en": "Sheria za mazoea"
+  },
+  {
+    "sw": "Commitment",
+    "en": "Ujitoleaji/Ahadi"
+  },
+  {
+    "sw": "Commissary",
+    "en": "Msimamizi wa chakula"
+  },
+  {
+    "sw": "Commentary",
+    "en": "Maelezo/Uchambuzi"
+  },
+  {
+    "sw": "Commensurate",
+    "en": "Inayolingana na"
+  },
+  {
+    "sw": "Commendable",
+    "en": "Yenye kusifiwa"
+  },
+  {
+    "sw": "Commencement",
+    "en": "Mwanzo/Mahafali"
+  },
+  {
+    "sw": "Commemoration",
+    "en": "Ukumbusho wa kihistoria"
+  },
+  {
+    "sw": "Combustion",
+    "en": "Uwakaji"
+  },
+  {
+    "sw": "Combination",
+    "en": "Mchanganyiko"
+  },
+  {
+    "sw": "Combatant",
+    "en": "Mpiganaji"
+  },
+  {
+    "sw": "Comatose",
+    "en": "Aliyepoteza fahamu (koma)"
+  },
+  {
+    "sw": "Colossal",
+    "en": "Kubwa sana"
+  },
+  {
+    "sw": "Colonization",
+    "en": "Ukoloni"
+  },
+  {
+    "sw": "Collusion",
+    "en": "Njama za siri"
+  },
+  {
+    "sw": "Colloquial",
+    "en": "Lugha ya mitaani/isiyo rasmi"
+  },
+  {
+    "sw": "Collective",
+    "en": "Ya pamoja"
+  },
+  {
+    "sw": "Collapse",
+    "en": "Kuporomoka"
+  },
+  {
+    "sw": "Collage",
+    "en": "Sanaa ya picha mchanganyiko"
+  },
+  {
+    "sw": "Collaboration",
+    "en": "Ushirikiano"
+  },
+  {
+    "sw": "Coincidence",
+    "en": "Tukio la kushtukiza kwa pamoja"
+  },
+  {
+    "sw": "Cohort",
+    "en": "Kikundi cha watu wenye sifa moja"
+  },
+  {
+    "sw": "Coherent",
+    "en": "Yenye mantiki na inayoeleweka"
+  },
+  {
+    "sw": "Cognizance",
+    "en": "Ufahamu wa jambo"
+  },
+  {
+    "sw": "Coexistence",
+    "en": "Kuishi pamoja"
+  },
+  {
+    "sw": "Coarse",
+    "en": "Mbaya/Yenye kukwaruza"
+  },
+  {
+    "sw": "Coagulation",
+    "en": "Kuganda kwa damu"
+  },
+  {
+    "sw": "Clout",
+    "en": "Nguvu ya ushawishi"
+  },
+  {
+    "sw": "Clinical",
+    "en": "Kuhusu tiba/Bila hisia"
+  },
+  {
+    "sw": "Climax",
+    "en": "Kilele cha hadithi/tukio"
+  },
+  {
+    "sw": "Clientele",
+    "en": "Wateja wa duka/ofisi"
+  },
+  {
+    "sw": "Cliché",
+    "en": "Maneno yaliyochuja kwa kutumika sana"
+  },
+  {
+    "sw": "Clerical",
+    "en": "Kuhusu kazi za ofisi"
+  },
+  {
+    "sw": "Clemency",
+    "en": "Huruma ya mtawala/jaji"
+  },
+  {
+    "sw": "Clause",
+    "en": "Kifungu cha mkataba/sheria"
+  },
+  {
+    "sw": "Classification",
+    "en": "Uainishaji"
+  },
+  {
+    "sw": "Clarity",
+    "en": "Uwazi"
+  },
+  {
+    "sw": "Clarification",
+    "en": "Ufafanuzi"
+  },
+  {
+    "sw": "Clandestine",
+    "en": "Ya siri (mara nyingi haramu)"
+  },
+  {
+    "sw": "Clamor",
+    "en": "Kelele za umma/Madai makali"
+  },
+  {
+    "sw": "Clairvoyance",
+    "en": "Uwezo wa kuona mambo yajayo"
+  },
+  {
+    "sw": "Claimant",
+    "en": "Mdai"
+  },
+  {
+    "sw": "Civilization",
+    "en": "Ustaarabu"
+  },
+  {
+    "sw": "Civil service",
+    "en": "Utumishi wa umma"
+  },
+  {
+    "sw": "Citizenry",
+    "en": "Wananchi kwa ujumla"
+  },
+  {
+    "sw": "Circumvent",
+    "en": "Kukwepa sheria/kikwazo"
+  },
+  {
+    "sw": "Circumstantial",
+    "en": "Inayotegemea mazingira"
+  },
+  {
+    "sw": "Circumspect",
+    "en": "Mwangalifu sana"
+  },
+  {
+    "sw": "Circumscribe",
+    "en": "Kuwekea mipaka"
+  },
+  {
+    "sw": "Circumnavigate",
+    "en": "Kuzunguka dunia"
+  },
+  {
+    "sw": "Circumlocution",
+    "en": "Maelezo ya kuzunguka"
+  },
+  {
+    "sw": "Circumference",
+    "en": "Mzunguko wa duara"
+  },
+  {
+    "sw": "Circulation",
+    "en": "Mzunguko wa damu/habari"
+  },
+  {
+    "sw": "Circuitous",
+    "en": "Njia ya kuzunguka"
+  },
+  {
+    "sw": "Circadian",
+    "en": "Mzunguko wa saa 24"
+  },
+  {
+    "sw": "Cipher",
+    "en": "Namba za siri/Fumbo"
+  },
+  {
+    "sw": "Chronology",
+    "en": "Mpangilio wa muda"
+  },
+  {
+    "sw": "Chronicle",
+    "en": "Kumbukumbu ya matukio kulingana na wakati"
+  },
+  {
+    "sw": "Choreography",
+    "en": "Mpangilio wa densi"
+  },
+  {
+    "sw": "Cholesterol",
+    "en": "Mafuta mwilini"
+  },
+  {
+    "sw": "Chivalry",
+    "en": "Uungwana (hasa kwa wanawake)"
+  },
+  {
+    "sw": "Chieftain",
+    "en": "Kiongozi wa kabila"
+  },
+  {
+    "sw": "Chiding",
+    "en": "Kukemea"
+  },
+  {
+    "sw": "Chicanery",
+    "en": "Ujanja wa udanganyifu"
+  },
+  {
+    "sw": "Cherish",
+    "en": "Kuthamini kwa dhati"
+  },
+  {
+    "sw": "Chemotherapy",
+    "en": "Tiba ya kemikali (saratani)"
+  },
+  {
+    "sw": "Chemical",
+    "en": "Kikemia"
+  },
+  {
+    "sw": "Checks and balances",
+    "en": "Udhibiti na usawa"
+  },
+  {
+    "sw": "Chauvinism",
+    "en": "Uzalendo wa kupitiliza/Ubaguzi wa kijinsia"
+  },
+  {
+    "sw": "Chattel",
+    "en": "Mali isiyohamishika"
+  },
+  {
+    "sw": "Chastity",
+    "en": "Usafi wa tabia/maadili"
+  },
+  {
+    "sw": "Chassis",
+    "en": "Kiwiliwili cha gari"
+  },
+  {
+    "sw": "Chasm",
+    "en": "Ufa mkubwa"
+  },
+  {
+    "sw": "Charity",
+    "en": "Sadaka/Msaada"
+  },
+  {
+    "sw": "Character",
+    "en": "Tabia/Mhusika"
+  },
+  {
+    "sw": "Chaos",
+    "en": "Machafuko"
+  },
+  {
+    "sw": "Chancellor",
+    "en": "Chansela/Mkuu wa chuo"
+  },
+  {
+    "sw": "Chamber",
+    "en": "Chumba/Idara"
+  },
+  {
+    "sw": "Challenge",
+    "en": "Changamoto"
+  },
+  {
+    "sw": "Chagrin",
+    "en": "Hali ya kusononeka"
+  },
+  {
+    "sw": "Cessation",
+    "en": "Kukoma kwa jambo"
+  },
+  {
+    "sw": "Certification",
+    "en": "Uthibitishaji"
+  },
+  {
+    "sw": "Certificate",
+    "en": "Cheti"
+  },
+  {
+    "sw": "Certainty",
+    "en": "Uhakika"
+  },
+  {
+    "sw": "Ceremony",
+    "en": "Sherehe rasmi"
+  },
+  {
+    "sw": "Centrifuge",
+    "en": "Mashine ya kuzungusha kwa kasi"
+  },
+  {
+    "sw": "Centralization",
+    "en": "Uwekaji madaraka sehemu moja"
+  },
+  {
+    "sw": "Centenary",
+    "en": "Maadhimisho ya miaka 100"
+  },
+  {
+    "sw": "Censorship",
+    "en": "Udhibiti wa habari"
+  },
+  {
+    "sw": "Celestial",
+    "en": "Ya mbinguni/anga"
+  },
+  {
+    "sw": "Celebrity",
+    "en": "Mtu maarufu"
+  },
+  {
+    "sw": "Ceded",
+    "en": "Iliyotolewa (ardhi/haki)"
+  },
+  {
+    "sw": "Ceasefire",
+    "en": "Usitishaji mapigano"
+  },
+  {
+    "sw": "Cavern",
+    "en": "Pango kubwa"
+  },
+  {
+    "sw": "Caveat",
+    "en": "Tahadhari/Onyo la masharti"
+  },
+  {
+    "sw": "Cavalry",
+    "en": "Jeshi la farasi"
+  },
+  {
+    "sw": "Cavalier",
+    "en": "Kutojali/Dharau"
+  },
+  {
+    "sw": "Caution",
+    "en": "Tahadhari"
+  },
+  {
+    "sw": "Causality",
+    "en": "Uhusiano wa kisababishi"
+  },
+  {
+    "sw": "Caucus",
+    "en": "Kikundi cha wajumbe wa chama"
+  },
+  {
+    "sw": "Cathedral",
+    "en": "Kanisa kuu"
+  },
+  {
+    "sw": "Categorization",
+    "en": "Uainishaji"
+  },
+  {
+    "sw": "Catastrophe",
+    "en": "Janga kuu"
+  },
+  {
+    "sw": "Casualty",
+    "en": "Mhanga wa ajali/vita"
+  },
+  {
+    "sw": "Castigation",
+    "en": "Kukemea vikali"
+  },
+  {
+    "sw": "Case study",
+    "en": "Utafiti wa kisa kimoja"
+  },
+  {
+    "sw": "Cascade",
+    "en": "Maporomoko ya mfululizo"
+  },
+  {
+    "sw": "Cartography",
+    "en": "Sanaa ya kuchora ramani"
+  },
+  {
+    "sw": "Carnivore",
+    "en": "Mla nyama"
+  },
+  {
+    "sw": "Carnage",
+    "en": "Mauaji makuu"
+  },
+  {
+    "sw": "Caricature",
+    "en": "Picha ya utani/kuchora vibaya"
+  },
+  {
+    "sw": "Cardiovascular",
+    "en": "Kuhusu moyo na mishipa"
+  },
+  {
+    "sw": "Carcinogen",
+    "en": "Kitu kinachosababisha saratani"
+  },
+  {
+    "sw": "Captivity",
+    "en": "Ufungwa"
+  },
+  {
+    "sw": "Caption",
+    "en": "Maelezo chini ya picha"
+  },
+  {
+    "sw": "Caprice",
+    "en": "Mabadiliko ya ghafla ya mawazo"
+  },
+  {
+    "sw": "Capitulation",
+    "en": "Kusalimu amri"
+  },
+  {
+    "sw": "Capacity",
+    "en": "Uwezo wa ujazo"
+  },
+  {
+    "sw": "Capacitance",
+    "en": "Uwezo wa kuhifadhi umeme"
+  },
+  {
+    "sw": "Capability",
+    "en": "Uwezo"
+  },
+  {
+    "sw": "Canvassing",
+    "en": "Kutafuta kura/maoni"
+  },
+  {
+    "sw": "Cant",
+    "en": "Maneno ya kinafiki"
+  },
+  {
+    "sw": "Canopy",
+    "en": "Paa la majani au kitambaa"
+  },
+  {
+    "sw": "Canon",
+    "en": "Kanuni za kidini au kisanaa"
+  },
+  {
+    "sw": "Canine",
+    "en": "Kuhusu mbwa/Meno ya mbele"
+  },
+  {
+    "sw": "Candor",
+    "en": "Ukweli mweupe"
+  },
+  {
+    "sw": "Candidate",
+    "en": "Mgombea"
+  },
+  {
+    "sw": "Candid",
+    "en": "Mkweli na wazi"
+  },
+  {
+    "sw": "Cancellation",
+    "en": "Ufutaji"
+  },
+  {
+    "sw": "Canal",
+    "en": "Mfereji wa maji"
+  },
+  {
+    "sw": "Campaign",
+    "en": "Kampeni"
+  },
+  {
+    "sw": "Camaraderie",
+    "en": "Ushirika wa kirafiki"
+  },
+  {
+    "sw": "Calumny",
+    "en": "Kusingizia kwa nia mbaya"
+  },
+  {
+    "sw": "Callous",
+    "en": "Mwenye moyo mgumu"
+  },
+  {
+    "sw": "Caliber",
+    "en": "Ubora wa uwezo wa mtu"
+  },
+  {
+    "sw": "Cadence",
+    "en": "Mdundo wa sauti"
+  },
+  {
+    "sw": "Cadaver",
+    "en": "Maiti ya kufanyia utafiti"
+  },
+  {
+    "sw": "Cache",
+    "en": "Akiba iliyofichwa ya data/vitu"
+  },
+  {
+    "sw": "Cabal",
+    "en": "Kikundi cha siri cha njama"
+  },
+  {
+    "sw": "Burnout",
+    "en": "Uchovu wa kupindukia wa kazi"
+  },
+  {
+    "sw": "Burgeoning",
+    "en": "Inayokua kwa kasi"
+  },
+  {
+    "sw": "Burglary",
+    "en": "Wizi wa kuvunja"
+  },
+  {
+    "sw": "Bureau",
+    "en": "Ofisi/Idara"
+  },
+  {
+    "sw": "Budgeting",
+    "en": "Upangaji bajeti"
+  },
+  {
+    "sw": "Bubble",
+    "en": "Kipindi cha soko bandia"
+  },
+  {
+    "sw": "Brutality",
+    "en": "Unyama"
+  },
+  {
+    "sw": "Brunt",
+    "en": "Nguvu kuu ya pigo"
+  },
+  {
+    "sw": "Brokerage",
+    "en": "Udalali"
+  },
+  {
+    "sw": "Brochure",
+    "en": "Kipeperushi cha maelezo"
+  },
+  {
+    "sw": "Brittle",
+    "en": "Yenye kuvunjika haraka"
+  },
+  {
+    "sw": "Brisk",
+    "en": "Ya haraka na yenye nguvu"
+  },
+  {
+    "sw": "Brim",
+    "en": "Ukingo wa juu"
+  },
+  {
+    "sw": "Brilliance",
+    "en": "Uerevu mkuu"
+  },
+  {
+    "sw": "Briefing",
+    "en": "Maelezo mafupi"
+  },
+  {
+    "sw": "Bribe",
+    "en": "Rushwa"
+  },
+  {
+    "sw": "Brevity",
+    "en": "Ufupi wa maelezo"
+  },
+  {
+    "sw": "Breakthrough",
+    "en": "Ugunduzi mkubwa"
+  },
+  {
+    "sw": "Breadth",
+    "en": "Upana wa upeo"
+  },
+  {
+    "sw": "Breach",
+    "en": "Uvunjaji wa sheria"
+  },
+  {
+    "sw": "Brazen",
+    "en": "Isiyo na aibu"
+  },
+  {
+    "sw": "Bravado",
+    "en": "Ujasiri wa kujionyesha"
+  },
+  {
+    "sw": "Brainstorming",
+    "en": "Kuchochea mawazo"
+  },
+  {
+    "sw": "Bracket",
+    "en": "Mabano"
+  },
+  {
+    "sw": "Bracing",
+    "en": "Yenye kuburudisha"
+  },
+  {
+    "sw": "Bountiful",
+    "en": "Yenye wingi"
+  },
+  {
+    "sw": "Boundless",
+    "en": "Isiyo na mipaka"
+  },
+  {
+    "sw": "Bottom line",
+    "en": "Hitimisho/Faida halisi"
+  },
+  {
+    "sw": "Botany",
+    "en": "Elimu ya mimea"
+  },
+  {
+    "sw": "Borderline",
+    "en": "Mpaka/Kwenye mstari"
+  },
+  {
+    "sw": "Bootleg",
+    "en": "Bidhaa haramu"
+  },
+  {
+    "sw": "Boost",
+    "en": "Kupandisha juu"
+  },
+  {
+    "sw": "Boom",
+    "en": "Ukuaji wa haraka wa uchumi"
+  },
+  {
+    "sw": "Bookkeeping",
+    "en": "Uwekaji wa vitabu vya fedha"
+  },
+  {
+    "sw": "Bonus",
+    "en": "Nyongeza ya malipo"
+  },
+  {
+    "sw": "Bondage",
+    "en": "Utumwa"
+  },
+  {
+    "sw": "Bombardment",
+    "en": "Mashambulizi ya mfululizo"
+  },
+  {
+    "sw": "Bolster",
+    "en": "Kuimarisha"
+  },
+  {
+    "sw": "Boisterous",
+    "en": "Mwenye kelele na uchangamfu"
+  },
+  {
+    "sw": "Bohemian",
+    "en": "Mtu anayeishi kinyume na mila"
+  },
+  {
+    "sw": "Bodyguard",
+    "en": "Mlinzi wa mwili"
+  },
+  {
+    "sw": "Blunder",
+    "en": "Kosa kubwa"
+  },
+  {
+    "sw": "Blight",
+    "en": "Ugonjwa wa mimea/Kiharibifu"
+  },
+  {
+    "sw": "Blemish",
+    "en": "Kasoro/Mawaa"
+  },
+  {
+    "sw": "Bleak",
+    "en": "Isiyo na matumaini"
+  },
+  {
+    "sw": "Blatant",
+    "en": "Wazi kwa njia mbaya"
+  },
+  {
+    "sw": "Blackmail",
+    "en": "Kutishia ili kupata kitu"
+  },
+  {
+    "sw": "Bizarre",
+    "en": "Ya ajabu sana"
+  },
+  {
+    "sw": "Bipartisan",
+    "en": "Yenye kuhusisha vyama viwili"
+  },
+  {
+    "sw": "Biometrics",
+    "en": "Vipimo vya mwili"
+  },
+  {
+    "sw": "Biography",
+    "en": "Wasifu"
+  },
+  {
+    "sw": "Bill of exchange",
+    "en": "Hati ya malipo"
+  },
+  {
+    "sw": "Bilingual",
+    "en": "Anayejua lugha mbili"
+  },
+  {
+    "sw": "Bicentennial",
+    "en": "Maadhimisho ya miaka 200"
+  },
+  {
+    "sw": "Bibliography",
+    "en": "Orodha ya vitabu"
+  },
+  {
+    "sw": "Bewilderment",
+    "en": "Mshangao mkuu"
+  },
+  {
+    "sw": "Betrayal",
+    "en": "Usaliti"
+  },
+  {
+    "sw": "Bestowal",
+    "en": "Utoaji wa zawadi/tuzo"
+  },
+  {
+    "sw": "Besiege",
+    "en": "Kuzingira"
+  },
+  {
+    "sw": "Berserk",
+    "en": "Wazimu wa ghafla"
+  },
+  {
+    "sw": "Bereavement",
+    "en": "Hali ya msiba"
+  },
+  {
+    "sw": "Berate",
+    "en": "Kukemea vikali"
+  },
+  {
+    "sw": "Bequeath",
+    "en": "Kurithisha kwa wosia"
+  },
+  {
+    "sw": "Benign",
+    "en": "Isiyo na madhara"
+  },
+  {
+    "sw": "Benevolence",
+    "en": "Wema mkuu"
+  },
+  {
+    "sw": "Benefactor",
+    "en": "Mhisani"
+  },
+  {
+    "sw": "Benediction",
+    "en": "Baraka"
+  },
+  {
+    "sw": "Benchmark",
+    "en": "Kiwango cha kulinganishia"
+  },
+  {
+    "sw": "Bellicose",
+    "en": "Mwenye nia ya kupigana"
+  },
+  {
+    "sw": "Beleaguered",
+    "en": "Aliyezungukwa na matatizo"
+  },
+  {
+    "sw": "Beholden",
+    "en": "Mwenye fadhila kwa mwingine"
+  },
+  {
+    "sw": "Beguile",
+    "en": "Kudanganya kwa mvuto"
+  },
+  {
+    "sw": "Bedlam",
+    "en": "Machafuko makuu"
+  },
+  {
+    "sw": "Bearish",
+    "en": "Mwelekeo wa soko kushuka"
+  },
+  {
+    "sw": "Beacon",
+    "en": "Mnara wa mwanga"
+  },
+  {
+    "sw": "Bashful",
+    "en": "Mwenye aibu sana"
+  },
+  {
+    "sw": "Base rate",
+    "en": "Kiwango cha msingi"
+  },
+  {
+    "sw": "Barrage",
+    "en": "Mashambulizi mengi kwa mpigo"
+  },
+  {
+    "sw": "Baron",
+    "en": "Matajiri wakubwa"
+  },
+  {
+    "sw": "Barometer",
+    "en": "Kipimo cha shinikizo"
+  },
+  {
+    "sw": "Barbarian",
+    "en": "Mtu asiye na ustaarabu"
+  },
+  {
+    "sw": "Banter",
+    "en": "Utani wa kirafiki"
+  },
+  {
+    "sw": "Banishment",
+    "en": "Ufukuzaji nchini"
+  },
+  {
+    "sw": "Bailiff",
+    "en": "Mlinzi wa mahakama"
+  },
+  {
+    "sw": "Baffle",
+    "en": "Kutatiza kabisa"
+  },
+  {
+    "sw": "Badger",
+    "en": "Kusumbua mara kwa mara"
+  },
+  {
+    "sw": "Backlog",
+    "en": "Kazi zilizolimbikizwa"
+  },
+  {
+    "sw": "Aversion",
+    "en": "Chuki ya asili"
+  },
+  {
+    "sw": "Availability",
+    "en": "Upatikanaji"
+  },
+  {
+    "sw": "Auxiliary",
+    "en": "Ya msaada wa ziada"
+  },
+  {
+    "sw": "Autopsy",
+    "en": "Uchunguzi wa maiti"
+  },
+  {
+    "sw": "Autobiography",
+    "en": "Tawasifu"
+  },
+  {
+    "sw": "Authorization",
+    "en": "Idhini"
+  },
+  {
+    "sw": "Authoritative",
+    "en": "Yenye mamlaka"
+  },
+  {
+    "sw": "Authentic",
+    "en": "Halisi"
+  },
+  {
+    "sw": "Austerity",
+    "en": "Hali ya kubana matumizi"
+  },
+  {
+    "sw": "Auspicious",
+    "en": "Yenye ishara ya heri"
+  },
+  {
+    "sw": "Augmentation",
+    "en": "Ongezeko"
+  },
+  {
+    "sw": "Audacious",
+    "en": "Jasiri kupita kiasi"
+  },
+  {
+    "sw": "Attrition",
+    "en": "Upungufu wa taratibu"
+  },
+  {
+    "sw": "Attribute",
+    "en": "Sifa/Tabia ya kitu"
+  },
+  {
+    "sw": "Attitude",
+    "en": "Mtazamo/Tabia"
+  },
+  {
+    "sw": "Attestation",
+    "en": "Ushuhuda rasmi"
+  },
+  {
+    "sw": "Attenuation",
+    "en": "Upunguzaji nguvu"
+  },
+  {
+    "sw": "Attainment",
+    "en": "Ufanikishaji"
+  },
+  {
+    "sw": "Atrocity",
+    "en": "Ukatili wa kutisha"
+  },
+  {
+    "sw": "Asteroid",
+    "en": "Sayari ndogo"
+  },
+  {
+    "sw": "Assumption",
+    "en": "Dhana/Mawazo"
+  },
+  {
+    "sw": "Assonance",
+    "en": "Mlingano wa irabu"
+  },
+  {
+    "sw": "Association",
+    "en": "Chama/Ushirika"
+  },
+  {
+    "sw": "Assistance",
+    "en": "Msaada"
+  },
+  {
+    "sw": "Assimilation",
+    "en": "Uingilifu wa kitamaduni"
+  },
+  {
+    "sw": "Assiduous",
+    "en": "Mwenye bidii ya ajabu"
+  },
+  {
+    "sw": "Assessment",
+    "en": "Tathmini"
+  },
+  {
+    "sw": "Assertion",
+    "en": "Kauli ya kishujaa"
+  },
+  {
+    "sw": "Aspiration",
+    "en": "Matamanio makuu"
+  },
+  {
+    "sw": "Asceticism",
+    "en": "Maisha ya kujinyima"
+  },
+  {
+    "sw": "Ascertain",
+    "en": "Kuhakikisha"
+  },
+  {
+    "sw": "Articulation",
+    "en": "Utamkaji fasaha"
+  },
+  {
+    "sw": "Arrogance",
+    "en": "Kiburi"
+  },
+  {
+    "sw": "Arduous",
+    "en": "Ngumu sana"
+  },
+  {
+    "sw": "Ardor",
+    "en": "Mshawasha mkuu"
+  },
+  {
+    "sw": "Archive",
+    "en": "Kumbukumbu za kale"
+  },
+  {
+    "sw": "Archeology",
+    "en": "Elimu ya kale"
+  },
+  {
+    "sw": "Arbitrary",
+    "en": "Ya kiholela/Bila mpango"
+  },
+  {
+    "sw": "Aptitude",
+    "en": "Uwezo wa asili"
+  },
+  {
+    "sw": "Approximation",
+    "en": "Ukadirio"
+  },
+  {
+    "sw": "Appropriation",
+    "en": "Tengengeo la fedha kwa kazi fulani"
+  },
+  {
+    "sw": "Apprehension",
+    "en": "Wasiwasi/Kukamata"
+  },
+  {
+    "sw": "Appraisal",
+    "en": "Tathmini ya thamani"
+  },
+  {
+    "sw": "Application",
+    "en": "Ombi/Maombi"
+  },
+  {
+    "sw": "Appendage",
+    "en": "Kiungo cha nyongeza"
+  },
+  {
+    "sw": "Appeasement",
+    "en": "Kuridhisha ili kutuliza"
+  },
+  {
+    "sw": "Apex",
+    "en": "Kilele cha juu kabisa"
+  },
+  {
+    "sw": "Apathy",
+    "en": "Kutojali/Ubaridi wa moyo"
+  },
+  {
+    "sw": "Antithesis",
+    "en": "Kinyume kabisa"
+  },
+  {
+    "sw": "Antidote",
+    "en": "Dawa ya sumu"
+  },
+  {
+    "sw": "Anticipation",
+    "en": "Matarajio"
+  },
+  {
+    "sw": "Annotation",
+    "en": "Maelezo ya pembeni"
+  },
+  {
+    "sw": "Annihilation",
+    "en": "Uharibifu kabisa"
+  },
+  {
+    "sw": "Annex",
+    "en": "Kiambatanisho/Chumba cha ziada"
+  },
+  {
+    "sw": "Animosity",
+    "en": "Uhasama wa dhati"
+  },
+  {
+    "sw": "Anguish",
+    "en": "Maumivu makali ya moyo"
+  },
+  {
+    "sw": "Anecdote",
+    "en": "Hadithi fupi ya kweli"
+  },
+  {
+    "sw": "Ancestry",
+    "en": "Nasaba ya kale"
+  },
+  {
+    "sw": "Anarchism",
+    "en": "Imani ya kutokuwa na utawala"
+  },
+  {
+    "sw": "Amplify",
+    "en": "Kukudhuza/Kuongeza nguvu"
+  },
+  {
+    "sw": "Amnesty",
+    "en": "Msamaha wa jumla"
+  },
+  {
+    "sw": "Amicable",
+    "en": "Yenye urafiki"
+  },
+  {
+    "sw": "Amendment",
+    "en": "Marekebisho ya sheria"
+  },
+  {
+    "sw": "Amenable",
+    "en": "Mwenye kufuata maelekezo"
+  },
+  {
+    "sw": "Amelioration",
+    "en": "Uboreshaji wa hali mbaya"
+  },
+  {
+    "sw": "Ambiance",
+    "en": "Mazingira/Hali ya mahali"
+  },
+  {
+    "sw": "Ambassador",
+    "en": "Balozi"
+  },
+  {
+    "sw": "Amalgamation",
+    "en": "Muungano wa vitu tofauti"
+  },
+  {
+    "sw": "Altruism",
+    "en": "Wema usio na ubinafsi"
+  },
+  {
+    "sw": "Altercation",
+    "en": "Ugomvi wa maneno"
+  },
+  {
+    "sw": "Allusion",
+    "en": "Dokezo la fumbo"
+  },
+  {
+    "sw": "Allocation",
+    "en": "Mgawo"
+  },
+  {
+    "sw": "Allegiance",
+    "en": "Utiifu"
+  },
+  {
+    "sw": "Allegation",
+    "en": "Tuhuma"
+  },
+  {
+    "sw": "Alignment",
+    "en": "Mlingano wa kimkakati"
+  },
+  {
+    "sw": "Alienation",
+    "en": "Utengano/Kujihisi mgeni"
+  },
+  {
+    "sw": "Alacrity",
+    "en": "Uchangamfu wa haraka"
+  },
+  {
+    "sw": "Agnosticism",
+    "en": "Kutilia shaka uwepo wa Mungu"
+  },
+  {
+    "sw": "Agitation",
+    "en": "Hali ya wasiwasi/uchochezi"
+  },
+  {
+    "sw": "Aggregate",
+    "en": "Jumla kuu"
+  },
+  {
+    "sw": "Aggravation",
+    "en": "Uchochezi wa hali mbaya"
+  },
+  {
+    "sw": "Agenda",
+    "en": "Ratiba ya mambo"
+  },
+  {
+    "sw": "Affluence",
+    "en": "Utajiri mkuu"
+  },
+  {
+    "sw": "Affirmation",
+    "en": "Uthibitisho wa dhati"
+  },
+  {
+    "sw": "Affinity",
+    "en": "Mvuto wa asili"
+  },
+  {
+    "sw": "Affiliation",
+    "en": "Uhusiano wa kiofisi"
+  },
+  {
+    "sw": "Aeronautics",
+    "en": "Uhandisi wa anga"
+  },
+  {
+    "sw": "Advocacy",
+    "en": "Utetezi"
+  },
+  {
+    "sw": "Adversity",
+    "en": "Mateso/Shida"
+  },
+  {
+    "sw": "Adulteration",
+    "en": "Uchafuzi wa kitu"
+  },
+  {
+    "sw": "Adoption",
+    "en": "Uasili/Kuchukua kama chako"
+  },
+  {
+    "sw": "Admonish",
+    "en": "Kuonya kwa upole"
+  },
+  {
+    "sw": "Adjudicate",
+    "en": "Kutoa uamuzi wa kisheria"
+  },
+  {
+    "sw": "Adjourn",
+    "en": "Kuahairisha"
+  },
+  {
+    "sw": "Adherence",
+    "en": "Ushikaji wa kanuni"
+  },
+  {
+    "sw": "Adequacy",
+    "en": "Uutoshelevu"
+  },
+  {
+    "sw": "Addendum",
+    "en": "Nyongeza ya andiko"
+  },
+  {
+    "sw": "Adaptation",
+    "en": "Marekebisho/Uzoeshaji"
+  },
+  {
+    "sw": "Activism",
+    "en": "Harakati"
+  },
+  {
+    "sw": "Acrimony",
+    "en": "Ukali wa maneno"
+  },
+  {
+    "sw": "Acquisition",
+    "en": "Upatikanaji/Ununuzi"
+  },
+  {
+    "sw": "Acquiesce",
+    "en": "Kukubali bila kupinga"
+  },
+  {
+    "sw": "Accuracy",
+    "en": "Usahihi"
+  },
+  {
+    "sw": "Accumulate",
+    "en": "Kukusanya kidogo kidogo"
+  },
+  {
+    "sw": "Accreditation",
+    "en": "Uthibitishaji wa viwango"
+  },
+  {
+    "sw": "Accountability",
+    "en": "Uwajibikaji"
+  },
+  {
+    "sw": "Accordance",
+    "en": "Kufuatana na"
+  },
+  {
+    "sw": "Accomplice",
+    "en": "Mshiriki wa uhalifu"
+  },
+  {
+    "sw": "Accommodate",
+    "en": "Kupatia nafasi/Kustahimili"
+  },
+  {
+    "sw": "Acclaim",
+    "en": "Sifa kuu"
+  },
+  {
+    "sw": "Accessibility",
+    "en": "Ufikikaji"
+  },
+  {
+    "sw": "Accelerate",
+    "en": "Kuongeza kasi"
+  },
+  {
+    "sw": "Abundance",
+    "en": "Wingi wa kupitiliza"
+  },
+  {
+    "sw": "Abstinence",
+    "en": "Kujizuia"
+  },
+  {
+    "sw": "Abrasive",
+    "en": "Inayokwaruza/Yenye ukali"
+  },
+  {
     "sw": "Futurism",
     "en": "Falsafa ya baadaye"
   },
