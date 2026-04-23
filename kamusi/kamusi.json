@@ -10592,10 +10592,6 @@
     "en": "Range"
   },
   {
-    "sw": "Mahari",
-    "en": "Dowry"
-  },
-  {
     "sw": "Ugomvi",
     "en": "Quarrel"
   },
@@ -10726,10 +10722,6 @@
   {
     "sw": "Taa ya tochi",
     "en": "Flashlight"
-  },
-  {
-    "sw": "Soketi",
-    "en": "Socket"
   },
   {
     "sw": "Adapta",
@@ -11476,10 +11468,6 @@
     "en": "Acceleration"
   },
   {
-    "sw": "Mwangwi",
-    "en": "Echo"
-  },
-  {
     "sw": "Nguvu ya maji",
     "en": "Hydropower"
   },
@@ -11560,14 +11548,6 @@
     "en": "Continent"
   },
   {
-    "sw": "Longitudo",
-    "en": "Longitude"
-  },
-  {
-    "sw": "Latitudo",
-    "en": "Latitude"
-  },
-  {
     "sw": "Mstari wa ikweta",
     "en": "Equator"
   },
@@ -11586,10 +11566,6 @@
   {
     "sw": "Mchoro",
     "en": "Diagram"
-  },
-  {
-    "sw": "Usanifu",
-    "en": "Design"
   },
   {
     "sw": "Mistari",
@@ -11760,20 +11736,8 @@
     "en": "Nostril"
   },
   {
-    "sw": "Vena",
-    "en": "Vein"
-  },
-  {
-    "sw": "Arteri",
-    "en": "Artery"
-  },
-  {
     "sw": "Anatomia",
     "en": "Anatomy"
-  },
-  {
-    "sw": "Mlinganyo",
-    "en": "Equation"
   },
   {
     "sw": "Ulinganifu",
@@ -11786,10 +11750,6 @@
   {
     "sw": "Eneo",
     "en": "Area"
-  },
-  {
-    "sw": "Kina",
-    "en": "Depth"
   },
   {
     "sw": "Pembe",
@@ -12036,10 +11996,6 @@
     "en": "Cell"
   },
   {
-    "sw": "Kuvu",
-    "en": "Fungi"
-  },
-  {
     "sw": "Tabaka la ozoni",
     "en": "Ozone layer"
   },
@@ -12048,20 +12004,12 @@
     "en": "Climate change"
   },
   {
-    "sw": "Mzunguko wa nitrojeni",
-    "en": "Nitrogen cycle"
-  },
-  {
     "sw": "Unyevunyevu",
     "en": "Moisture"
   },
   {
     "sw": "Udongo wa tifutifu",
     "en": "Loamy soil"
-  },
-  {
-    "sw": "Mmomonyoko",
-    "en": "Erosion"
   },
   {
     "sw": "Sayansi ya udongo",
@@ -12076,16 +12024,8 @@
     "en": "Tides"
   },
   {
-    "sw": "Tundu nyeusi",
-    "en": "Black hole"
-  },
-  {
     "sw": "Unajimu",
     "en": "Astronomy"
-  },
-  {
-    "sw": "Muungano",
-    "en": "Alliance"
   },
   {
     "sw": "Vikwazo",
@@ -12102,10 +12042,6 @@
   {
     "sw": "Mzozo",
     "en": "Conflict"
-  },
-  {
-    "sw": "Itifaki",
-    "en": "Protocol"
   },
   {
     "sw": "Hisia za ndani",
@@ -12132,10 +12068,6 @@
     "en": "Phobia"
   },
   {
-    "sw": "Msisimko",
-    "en": "Excitement"
-  },
-  {
     "sw": "Tiba ya kisaikolojia",
     "en": "Psychotherapy"
   },
@@ -12158,14 +12090,6 @@
   {
     "sw": "Umeme tuli",
     "en": "Static electricity"
-  },
-  {
-    "sw": "Msuguano",
-    "en": "Friction"
-  },
-  {
-    "sw": "Mgandamizo",
-    "en": "Compression"
   },
   {
     "sw": "Mishikamano",
@@ -12272,14 +12196,6 @@
     "en": "Outlook"
   },
   {
-    "sw": "Mwelekeo",
-    "en": "Trend"
-  },
-  {
-    "sw": "Upatanishi",
-    "en": "Mediation"
-  },
-  {
     "sw": "Suluhu",
     "en": "Resolution"
   },
@@ -12296,24 +12212,8 @@
     "en": "Response"
   },
   {
-    "sw": "Udhibiti",
-    "en": "Control"
-  },
-  {
     "sw": "Uimarishaji",
     "en": "Fortification"
-  },
-  {
-    "sw": "Uboreshaji",
-    "en": "Enhancement"
-  },
-  {
-    "sw": "Upanuzi",
-    "en": "Expansion"
-  },
-  {
-    "sw": "Utofauti",
-    "en": "Diversity"
   },
   {
     "sw": "Upekee",
@@ -12332,10 +12232,6 @@
     "en": "Brotherhood"
   },
   {
-    "sw": "Uadui",
-    "en": "Enmity"
-  },
-  {
     "sw": "Utukufu",
     "en": "Glory"
   },
@@ -12352,20 +12248,12 @@
     "en": "Authority"
   },
   {
-    "sw": "Utaalamu",
-    "en": "Expertise"
-  },
-  {
     "sw": "Uzamivu",
     "en": "PhD"
   },
   {
     "sw": "Uzamili",
     "en": "Master's"
-  },
-  {
-    "sw": "Tathmini",
-    "en": "Assessment"
   },
   {
     "sw": "Kongamano",
@@ -12378,14 +12266,6 @@
   {
     "sw": "Tahajia",
     "en": "Spelling"
-  },
-  {
-    "sw": "Ufasaha",
-    "en": "Fluency"
-  },
-  {
-    "sw": "Tafsiri",
-    "en": "Translation"
   },
   {
     "sw": "Maana",
@@ -12434,10 +12314,6 @@
   {
     "sw": "Kihusishi",
     "en": "Preposition"
-  },
-  {
-    "sw": "Kiunganishi",
-    "en": "Conjunction"
   },
   {
     "sw": "Kielezi",
@@ -12504,10 +12380,6 @@
     "en": "Physical"
   },
   {
-    "sw": "Kikemia",
-    "en": "Chemical"
-  },
-  {
     "sw": "Kibailojia",
     "en": "Biological"
   },
@@ -12572,10 +12444,6 @@
     "en": "Operational"
   },
   {
-    "sw": "Utandawazi",
-    "en": "Globalization"
-  },
-  {
     "sw": "Mfumuko",
     "en": "Inflationary"
   },
@@ -12590,18 +12458,6 @@
   {
     "sw": "Ukaguzi",
     "en": "Audit"
-  },
-  {
-    "sw": "Uhasibu",
-    "en": "Accounting"
-  },
-  {
-    "sw": "Makubaliano",
-    "en": "Agreement"
-  },
-  {
-    "sw": "Mazungumzo",
-    "en": "Dialogue"
   },
   {
     "sw": "Maridhiano",
@@ -12636,28 +12492,8 @@
     "en": "Conduct"
   },
   {
-    "sw": "Uraibu",
-    "en": "Addiction"
-  },
-  {
     "sw": "Mifumo ya habari",
     "en": "IT systems"
-  },
-  {
-    "sw": "Uandishi wa habari",
-    "en": "Journalism"
-  },
-  {
-    "sw": "Vyombo vya habari",
-    "en": "Media"
-  },
-  {
-    "sw": "Mifugo",
-    "en": "Livestock"
-  },
-  {
-    "sw": "Ikolojia",
-    "en": "Ecology"
   },
   {
     "sw": "Urais",
@@ -12666,10 +12502,6 @@
   {
     "sw": "Utawala",
     "en": "Administration"
-  },
-  {
-    "sw": "Usambazaji",
-    "en": "Distribution"
   },
   {
     "sw": "Wingi",
@@ -12704,56 +12536,24 @@
     "en": "Machinery"
   },
   {
-    "sw": "Udadisi",
-    "en": "Curiosity"
-  },
-  {
-    "sw": "Ulemavu",
-    "en": "Disability"
-  },
-  {
     "sw": "Antibioti",
     "en": "Antibiotics"
-  },
-  {
-    "sw": "Kinga ya mwili",
-    "en": "Immunity"
   },
   {
     "sw": "Homoni",
     "en": "Hormones"
   },
   {
-    "sw": "Mfumo wa neva",
-    "en": "Nervous system"
-  },
-  {
     "sw": "Mazalia",
     "en": "Breeding ground"
-  },
-  {
-    "sw": "Spishi",
-    "en": "Species"
-  },
-  {
-    "sw": "Mageuzi",
-    "en": "Evolution"
   },
   {
     "sw": "Vinaba",
     "en": "Genes"
   },
   {
-    "sw": "Seli",
-    "en": "Cell"
-  },
-  {
     "sw": "Unasaba",
     "en": "Genetics"
-  },
-  {
-    "sw": "Machafuko",
-    "en": "Chaos"
   },
   {
     "sw": "Kutokuamini",
@@ -12766,14 +12566,6 @@
   {
     "sw": "Ubeuzi",
     "en": "Cynicism"
-  },
-  {
-    "sw": "Ubepari",
-    "en": "Capitalism"
-  },
-  {
-    "sw": "Ubeberu",
-    "en": "Imperialism"
   },
   {
     "sw": "Ujamaa",
@@ -12804,10 +12596,6 @@
     "en": "Perfection"
   },
   {
-    "sw": "Mantiki",
-    "en": "Logic"
-  },
-  {
     "sw": "Miale ya jua",
     "en": "Solar flares"
   },
@@ -12836,16 +12624,8 @@
     "en": "Astronaut"
   },
   {
-    "sw": "Chombo cha anga",
-    "en": "Spacecraft"
-  },
-  {
     "sw": "Anga za mbali",
     "en": "Outer space"
-  },
-  {
-    "sw": "Obiti",
-    "en": "Orbit"
   },
   {
     "sw": "Gimba",
@@ -12870,10 +12650,6 @@
   {
     "sw": "Njia ya maziwa",
     "en": "Milky Way"
-  },
-  {
-    "sw": "Galaksi",
-    "en": "Galaxy"
   },
   {
     "sw": "Ulimwengu",
@@ -13036,10 +12812,6 @@
     "en": "Baking powder"
   },
   {
-    "sw": "Hamira",
-    "en": "Yeast"
-  },
-  {
     "sw": "Siki",
     "en": "Vinegar"
   },
@@ -13178,10 +12950,6 @@
   {
     "sw": "Ucheshi",
     "en": "Humor"
-  },
-  {
-    "sw": "Unyogovu",
-    "en": "Depression"
   },
   {
     "sw": "Upumbavu",
@@ -13324,16 +13092,8 @@
     "en": "Poverty"
   },
   {
-    "sw": "Zabuni",
-    "en": "Tender"
-  },
-  {
     "sw": "Denar",
     "en": "Currency"
-  },
-  {
-    "sw": "Mjasiriamali",
-    "en": "Entrepreneur"
   },
   {
     "sw": "Hifadhi ya taifa",
@@ -13342,10 +13102,6 @@
   {
     "sw": "Mtalii",
     "en": "Tourist"
-  },
-  {
-    "sw": "Utalii",
-    "en": "Tourism"
   },
   {
     "sw": "Wanyama pori",
@@ -13372,28 +13128,12 @@
     "en": "War"
   },
   {
-    "sw": "Mchango",
-    "en": "Contribution"
-  },
-  {
     "sw": "Ufadhili",
     "en": "Funding/Sponsorship"
   },
   {
     "sw": "Posho",
     "en": "Allowance"
-  },
-  {
-    "sw": "Ajira",
-    "en": "Employment"
-  },
-  {
-    "sw": "Uwekezaji",
-    "en": "Investment"
-  },
-  {
-    "sw": "Ankara",
-    "en": "Invoice"
   },
   {
     "sw": "Thamani",
@@ -13426,14 +13166,6 @@
   {
     "sw": "Athari",
     "en": "Impact/Effect"
-  },
-  {
-    "sw": "Mchakato",
-    "en": "Process"
-  },
-  {
-    "sw": "Mfumo",
-    "en": "System"
   },
   {
     "sw": "Utaratibu",
@@ -13470,10 +13202,6 @@
   {
     "sw": "Tarehe",
     "en": "Date"
-  },
-  {
-    "sw": "Hitimisho",
-    "en": "Conclusion"
   },
   {
     "sw": "Hoja",
@@ -13550,10 +13278,6 @@
   {
     "sw": "Maelekezo",
     "en": "Instructions"
-  },
-  {
-    "sw": "Tahadhari",
-    "en": "Caution"
   },
   {
     "sw": "Onyo",
@@ -15156,14 +14880,6 @@
     "en": "Purple"
   },
   {
-    "sw": "Ongezeko la joto",
-    "en": "Global warming"
-  },
-  {
-    "sw": "Uchafuzi",
-    "en": "Pollution"
-  },
-  {
     "sw": "Wadudu",
     "en": "Insects"
   },
@@ -15202,10 +14918,6 @@
   {
     "sw": "Tabianchi",
     "en": "Climate"
-  },
-  {
-    "sw": "Kaboni daioksaidi",
-    "en": "Carbon dioxide"
   },
   {
     "sw": "Heko",
@@ -15320,16 +15032,8 @@
     "en": "Helicopter"
   },
   {
-    "sw": "Kadi ya kupandia",
-    "en": "Boarding pass"
-  },
-  {
     "sw": "Msaidizi wa rubani",
     "en": "Co-pilot"
-  },
-  {
-    "sw": "Kutua",
-    "en": "Landing"
   },
   {
     "sw": "Njia ya kurukia ndege",
@@ -15428,16 +15132,8 @@
     "en": "Stress"
   },
   {
-    "sw": "Afya ya akili",
-    "en": "Mental health"
-  },
-  {
     "sw": "Urefu",
     "en": "Height"
-  },
-  {
-    "sw": "Uzito",
-    "en": "Weight"
   },
   {
     "sw": "Lishe",
@@ -15454,10 +15150,6 @@
   {
     "sw": "Kuvunjika mfupa",
     "en": "Fracture"
-  },
-  {
-    "sw": "Kidonda",
-    "en": "Wound"
   },
   {
     "sw": "Maumivu ya tumbo",
@@ -15478,10 +15170,6 @@
   {
     "sw": "Kichocho",
     "en": "Bilharzia"
-  },
-  {
-    "sw": "Shinikizo la damu",
-    "en": "Blood pressure"
   },
   {
     "sw": "Kundi la damu",
@@ -15600,16 +15288,8 @@
     "en": "Wallet"
   },
   {
-    "sw": "Vipodozi",
-    "en": "Cosmetics"
-  },
-  {
     "sw": "Dawa ya mbu",
     "en": "Mosquito repellent"
-  },
-  {
-    "sw": "Kipimajoto",
-    "en": "Thermometer"
   },
   {
     "sw": "Mizani",
@@ -16168,10 +15848,6 @@
     "en": "Social life"
   },
   {
-    "sw": "Shukrani",
-    "en": "Gratitude"
-  },
-  {
     "sw": "Woga",
     "en": "Fear"
   },
@@ -16362,10 +16038,6 @@
   {
     "sw": "Sahihi",
     "en": "Signature"
-  },
-  {
-    "sw": "Kifurushi",
-    "en": "Parcel"
   },
   {
     "sw": "Ofisi ya posta",
@@ -16788,10 +16460,6 @@
     "en": "Drinking water"
   },
   {
-    "sw": "Nyuzi lishe",
-    "en": "Fiber"
-  },
-  {
     "sw": "Wanga",
     "en": "Carbohydrates"
   },
@@ -16818,10 +16486,6 @@
   {
     "sw": "Shambulio la moyo",
     "en": "Heart attack"
-  },
-  {
-    "sw": "Kiharusi",
-    "en": "Stroke"
   },
   {
     "sw": "Mvilio wa damu",
@@ -16852,36 +16516,12 @@
     "en": "Flu"
   },
   {
-    "sw": "Saratani",
-    "en": "Cancer"
-  },
-  {
-    "sw": "Shinikizo la juu la damu",
-    "en": "Hypertension"
-  },
-  {
-    "sw": "Pumu",
-    "en": "Asthma"
-  },
-  {
-    "sw": "Mzio",
-    "en": "Allergy"
-  },
-  {
     "sw": "Prescription",
     "en": "Cheti cha daktari"
   },
   {
     "sw": "Utambuzi",
     "en": "Diagnosis"
-  },
-  {
-    "sw": "Dalili",
-    "en": "Symptoms"
-  },
-  {
-    "sw": "Maambukizi",
-    "en": "Infection"
   },
   {
     "sw": "Tiba",
@@ -16892,16 +16532,8 @@
     "en": "Health center"
   },
   {
-    "sw": "Wadi",
-    "en": "Ward"
-  },
-  {
     "sw": "Mgonjwa wa ndani",
     "en": "Inpatient"
-  },
-  {
-    "sw": "Mgonjwa wa nje",
-    "en": "Outpatient"
   },
   {
     "sw": "Muda wa kupona",
@@ -17028,10 +16660,6 @@
     "en": "Electrical work"
   },
   {
-    "sw": "Ufundi bomba",
-    "en": "Plumbing"
-  },
-  {
     "sw": "Ufundi sanifu",
     "en": "Technician"
   },
@@ -17104,14 +16732,6 @@
     "en": "Photographer"
   },
   {
-    "sw": "Tawasifu",
-    "en": "Autobiography"
-  },
-  {
-    "sw": "Wasifu",
-    "en": "Biography"
-  },
-  {
     "sw": "Uchongaji",
     "en": "Sculpting"
   },
@@ -17130,10 +16750,6 @@
   {
     "sw": "Marekebisho",
     "en": "Amendments"
-  },
-  {
-    "sw": "Sera",
-    "en": "Policy"
   },
   {
     "sw": "Azimio",
@@ -17160,10 +16776,6 @@
     "en": "Councilor"
   },
   {
-    "sw": "Baraza la mawaziri",
-    "en": "Cabinet"
-  },
-  {
     "sw": "Mkuu wa nchi",
     "en": "Head of state"
   },
@@ -17178,10 +16790,6 @@
   {
     "sw": "Upigaji kura",
     "en": "Voting"
-  },
-  {
-    "sw": "Kampeni",
-    "en": "Campaign"
   },
   {
     "sw": "Chama cha siasa",
@@ -17200,24 +16808,12 @@
     "en": "Treaty"
   },
   {
-    "sw": "Ubalozi",
-    "en": "Embassy"
-  },
-  {
-    "sw": "Diplomasia",
-    "en": "Diplomacy"
-  },
-  {
     "sw": "Misaada ya kibinadamu",
     "en": "Humanitarian aid"
   },
   {
     "sw": "Mkimbizi",
     "en": "Refugee"
-  },
-  {
-    "sw": "Uhamiaji",
-    "en": "Migration"
   },
   {
     "sw": "Utawala wa sheria",
@@ -17228,28 +16824,12 @@
     "en": "Freedom of speech"
   },
   {
-    "sw": "Ubaguzi",
-    "en": "Discrimination"
-  },
-  {
     "sw": "Unyanyasaji",
     "en": "Harassment"
   },
   {
     "sw": "Hati miliki",
     "en": "Patent"
-  },
-  {
-    "sw": "Alama ya biashara",
-    "en": "Trademark"
-  },
-  {
-    "sw": "Haki miliki",
-    "en": "Copyright"
-  },
-  {
-    "sw": "Udanganyifu",
-    "en": "Fraud"
   },
   {
     "sw": "Mauaji",
@@ -17296,16 +16876,8 @@
     "en": "Constitutional law"
   },
   {
-    "sw": "Nishati ya nyuklia",
-    "en": "Nuclear energy"
-  },
-  {
     "sw": "Makaa ya mawe",
     "en": "Coal"
-  },
-  {
-    "sw": "Mafuta ghafi",
-    "en": "Crude oil"
   },
   {
     "sw": "Zumaridi",
@@ -17356,10 +16928,6 @@
     "en": "Toxic waste"
   },
   {
-    "sw": "Urejelezaji",
-    "en": "Recycling"
-  },
-  {
     "sw": "Taka",
     "en": "Waste"
   },
@@ -17384,18 +16952,6 @@
     "en": "Natural habitat"
   },
   {
-    "sw": "Mfumo wa ikolojia",
-    "en": "Ecosystem"
-  },
-  {
-    "sw": "Bioanuwai",
-    "en": "Biodiversity"
-  },
-  {
-    "sw": "Uhifadhi",
-    "en": "Conservation"
-  },
-  {
     "sw": "Gesi ya ukaa",
     "en": "Carbon dioxide"
   },
@@ -17404,28 +16960,12 @@
     "en": "Global warming"
   },
   {
-    "sw": "Uendelevu",
-    "en": "Sustainability"
-  },
-  {
-    "sw": "Tija",
-    "en": "Productivity"
-  },
-  {
-    "sw": "Ufanisi",
-    "en": "Efficiency"
-  },
-  {
     "sw": "Uajibikaji",
     "en": "Accountability"
   },
   {
     "sw": "Maadili ya biashara",
     "en": "Business ethics"
-  },
-  {
-    "sw": "Maono",
-    "en": "Vision"
   },
   {
     "sw": "Kiongozi",
@@ -17464,24 +17004,12 @@
     "en": "Inventory"
   },
   {
-    "sw": "Gala",
-    "en": "Warehouse"
-  },
-  {
     "sw": "Logistiki",
     "en": "Logistics"
   },
   {
-    "sw": "Mnyororo wa ugavi",
-    "en": "Supply chain"
-  },
-  {
     "sw": "Uuzaji",
     "en": "Marketing"
-  },
-  {
-    "sw": "Matangazo",
-    "en": "Advertising"
   },
   {
     "sw": "Chapa",
@@ -17512,20 +17040,12 @@
     "en": "Pension"
   },
   {
-    "sw": "Kufilisika",
-    "en": "Bankruptcy"
-  },
-  {
     "sw": "Utoaji pesa",
     "en": "Withdrawal"
   },
   {
     "sw": "Amana",
     "en": "Deposit"
-  },
-  {
-    "sw": "Matumizi",
-    "en": "Expenditure"
   },
   {
     "sw": "Ruzuku",
@@ -17544,36 +17064,12 @@
     "en": "International trade"
   },
   {
-    "sw": "Soko la hisa",
-    "en": "Stock market"
-  },
-  {
-    "sw": "Pato la taifa",
-    "en": "GDP"
-  },
-  {
-    "sw": "Mfumuko wa bei",
-    "en": "Inflation"
-  },
-  {
     "sw": "Sarafu ya kidijiti",
     "en": "Cryptocurrency"
   },
   {
     "sw": "Blockchain",
     "en": "Mnyororo wa vitalu"
-  },
-  {
-    "sw": "Uhalisia ulioongezwa",
-    "en": "Augmented reality"
-  },
-  {
-    "sw": "Uhalisia pepe",
-    "en": "Virtual reality"
-  },
-  {
-    "sw": "Robotiki",
-    "en": "Robotics"
   },
   {
     "sw": "Sensa",
@@ -17588,10 +17084,6 @@
     "en": "Circuit"
   },
   {
-    "sw": "Mawasiliano",
-    "en": "Communication"
-  },
-  {
     "sw": "Analogi",
     "en": "Analog"
   },
@@ -17600,16 +17092,8 @@
     "en": "Digital"
   },
   {
-    "sw": "Uchambuzi",
-    "en": "Analysis"
-  },
-  {
     "sw": "Mdukuzi",
     "en": "Hacker"
-  },
-  {
-    "sw": "Hitilafu",
-    "en": "Bug"
   },
   {
     "sw": "Msimbo",
@@ -17630,18 +17114,6 @@
   {
     "sw": "Kipanya",
     "en": "Mouse"
-  },
-  {
-    "sw": "Kichakataji",
-    "en": "Processor"
-  },
-  {
-    "sw": "Usalama wa mtandao",
-    "en": "Cybersecurity"
-  },
-  {
-    "sw": "Hifadhidata",
-    "en": "Database"
   },
   {
     "sw": "Pakia",
@@ -17940,24 +17412,8 @@
     "en": "Rhino"
   },
   {
-    "sw": "Nishati ya upepo",
-    "en": "Wind energy"
-  },
-  {
-    "sw": "Nishati ya jua",
-    "en": "Solar energy"
-  },
-  {
-    "sw": "Akili mnemba",
-    "en": "Artificial Intelligence"
-  },
-  {
     "sw": "Roboti",
     "en": "Robot"
-  },
-  {
-    "sw": "Mabadiliko ya tabianchi",
-    "en": "Climate change"
   },
   {
     "sw": "Mtetemeko wa ardhi",
@@ -17982,10 +17438,6 @@
   {
     "sw": "Nitrojeni",
     "en": "Nitrogen"
-  },
-  {
-    "sw": "Oksijeni",
-    "en": "Oxygen"
   },
   {
     "sw": "Elements",
@@ -18078,10 +17530,6 @@
   {
     "sw": "Unyanyuaji vyuma",
     "en": "Weightlifting"
-  },
-  {
-    "sw": "Mazoezi ya viungo",
-    "en": "Gymnastics"
   },
   {
     "sw": "Sarakasi",
@@ -18180,10 +17628,6 @@
     "en": "Bladder"
   },
   {
-    "sw": "Kongosho",
-    "en": "Pancreas"
-  },
-  {
     "sw": "Bandama",
     "en": "Spleen"
   },
@@ -18244,10 +17688,6 @@
     "en": "Publisher"
   },
   {
-    "sw": "Mhariri",
-    "en": "Editor"
-  },
-  {
     "sw": "Tamthilia",
     "en": "Play"
   },
@@ -18270,10 +17710,6 @@
   {
     "sw": "Msamiati",
     "en": "Vocabulary"
-  },
-  {
-    "sw": "Sarufi",
-    "en": "Grammar"
   },
   {
     "sw": "Uandishi",
@@ -18400,14 +17836,6 @@
     "en": "Frog"
   },
   {
-    "sw": "Kimiminika",
-    "en": "Liquid"
-  },
-  {
-    "sw": "Gesi",
-    "en": "Gas"
-  },
-  {
     "sw": "Mvuke",
     "en": "Vapour"
   },
@@ -18420,32 +17848,12 @@
     "en": "Technology"
   },
   {
-    "sw": "Mazingira",
-    "en": "Environment"
-  },
-  {
-    "sw": "Bakteria",
-    "en": "Bacteria"
-  },
-  {
-    "sw": "Virusi",
-    "en": "Virus"
-  },
-  {
     "sw": "Selo",
     "en": "Cell"
   },
   {
-    "sw": "Uvutano",
-    "en": "Gravity"
-  },
-  {
     "sw": "Hadubini",
     "en": "Microscope"
-  },
-  {
-    "sw": "Maabara",
-    "en": "Laboratory"
   },
   {
     "sw": "Kemikali",
@@ -18454,10 +17862,6 @@
   {
     "sw": "Sayari",
     "en": "Planet"
-  },
-  {
-    "sw": "Nishati",
-    "en": "Energy"
   },
   {
     "sw": "Molekuli",
@@ -18572,10 +17976,6 @@
     "en": "Primary education"
   },
   {
-    "sw": "Mtaala",
-    "en": "Curriculum"
-  },
-  {
     "sw": "Kalamu ya risasi",
     "en": "Pencil"
   },
@@ -18668,11 +18068,6 @@
     "pos": "noun"
   },
   {
-    "sw": "Dharura",
-    "en": "Emergency",
-    "pos": "noun"
-  },
-  {
     "sw": "Utabiri",
     "en": "Prophecy/Prediction",
     "pos": "noun"
@@ -18728,11 +18123,6 @@
     "pos": "noun"
   },
   {
-    "sw": "Nidhamu",
-    "en": "Discipline",
-    "pos": "noun"
-  },
-  {
     "sw": "Kiwanda",
     "en": "Factory",
     "pos": "noun"
@@ -18778,16 +18168,6 @@
     "pos": "noun"
   },
   {
-    "sw": "Takwimu",
-    "en": "Statistics",
-    "pos": "noun"
-  },
-  {
-    "sw": "Mkakati",
-    "en": "Strategy",
-    "pos": "noun"
-  },
-  {
     "sw": "Manufaa",
     "en": "Benefits",
     "pos": "noun"
@@ -18820,11 +18200,6 @@
   {
     "sw": "Utajiri",
     "en": "Wealth",
-    "pos": "noun"
-  },
-  {
-    "sw": "Uongozi",
-    "en": "Leadership",
     "pos": "noun"
   },
   {
@@ -19035,11 +18410,6 @@
   {
     "sw": "Mwanzo",
     "en": "Beginning",
-    "pos": "noun"
-  },
-  {
-    "sw": "Uelewa",
-    "en": "Comprehension",
     "pos": "noun"
   },
   {
@@ -20788,11 +20158,6 @@
     "pos": "noun"
   },
   {
-    "sw": "bajeti",
-    "en": "budget",
-    "pos": "noun"
-  },
-  {
     "sw": "balbu",
     "en": "bulb",
     "pos": "noun"
@@ -20885,11 +20250,6 @@
   {
     "sw": "beseni",
     "en": "the tub",
-    "pos": "noun"
-  },
-  {
-    "sw": "betri",
-    "en": "battery",
     "pos": "noun"
   },
   {
@@ -21068,11 +20428,6 @@
     "pos": "noun"
   },
   {
-    "sw": "cheti",
-    "en": "certificate",
-    "pos": "noun"
-  },
-  {
     "sw": "chini",
     "en": "below",
     "pos": "adverb"
@@ -21080,11 +20435,6 @@
   {
     "sw": "choo",
     "en": "toilet",
-    "pos": "noun"
-  },
-  {
-    "sw": "chui",
-    "en": "leopard",
     "pos": "noun"
   },
   {
@@ -21178,18 +20528,8 @@
     "pos": "noun"
   },
   {
-    "sw": "demokrasia",
-    "en": "democracy",
-    "pos": "noun"
-  },
-  {
     "sw": "dengu",
     "en": "lentils",
-    "pos": "noun"
-  },
-  {
-    "sw": "deni",
-    "en": "debt",
     "pos": "noun"
   },
   {
@@ -21293,11 +20633,6 @@
     "pos": "noun"
   },
   {
-    "sw": "faida",
-    "en": "profit",
-    "pos": "noun"
-  },
-  {
     "sw": "faili",
     "en": "file",
     "pos": "noun"
@@ -21305,11 +20640,6 @@
   {
     "sw": "fainali",
     "en": "the final",
-    "pos": "noun"
-  },
-  {
-    "sw": "falsafa",
-    "en": "philosophy",
     "pos": "noun"
   },
   {
@@ -21343,11 +20673,6 @@
     "pos": "noun"
   },
   {
-    "sw": "figo",
-    "en": "kidney",
-    "pos": "noun"
-  },
-  {
     "sw": "filamu",
     "en": "film",
     "pos": "noun"
@@ -21363,11 +20688,6 @@
     "pos": "noun"
   },
   {
-    "sw": "fizikia",
-    "en": "physics",
-    "pos": "noun"
-  },
-  {
     "sw": "flamingo",
     "en": "flamingos",
     "pos": "noun"
@@ -21375,11 +20695,6 @@
   {
     "sw": "folda",
     "en": "folder",
-    "pos": "noun"
-  },
-  {
-    "sw": "forodha",
-    "en": "customs",
     "pos": "noun"
   },
   {
@@ -21503,11 +20818,6 @@
     "pos": "noun"
   },
   {
-    "sw": "hasara",
-    "en": "loss",
-    "pos": "noun"
-  },
-  {
     "sw": "hasira",
     "en": "anger",
     "pos": "noun"
@@ -21558,11 +20868,6 @@
     "pos": "noun"
   },
   {
-    "sw": "hisabati",
-    "en": "mathematics",
-    "pos": "noun"
-  },
-  {
     "sw": "historia",
     "en": "history",
     "pos": "noun"
@@ -21595,11 +20900,6 @@
   {
     "sw": "hoteli",
     "en": "hotel",
-    "pos": "noun"
-  },
-  {
-    "sw": "huduma",
-    "en": "services",
     "pos": "noun"
   },
   {
@@ -21733,11 +21033,6 @@
     "pos": "noun"
   },
   {
-    "sw": "jiografia",
-    "en": "geography",
-    "pos": "noun"
-  },
-  {
     "sw": "jioni",
     "en": "in the evening",
     "pos": "noun"
@@ -21753,11 +21048,6 @@
     "pos": "noun"
   },
   {
-    "sw": "joto",
-    "en": "heat",
-    "pos": "noun"
-  },
-  {
     "sw": "jua",
     "en": "the sun",
     "pos": "noun"
@@ -21765,11 +21055,6 @@
   {
     "sw": "jua kali",
     "en": "hot sun",
-    "pos": "noun"
-  },
-  {
-    "sw": "juhudi",
-    "en": "effort",
     "pos": "noun"
   },
   {
@@ -21933,18 +21218,8 @@
     "pos": "adjective"
   },
   {
-    "sw": "kazi",
-    "en": "work",
-    "pos": "noun"
-  },
-  {
     "sw": "keki",
     "en": "cake",
-    "pos": "noun"
-  },
-  {
-    "sw": "kemia",
-    "en": "chemistry",
     "pos": "noun"
   },
   {
@@ -22010,11 +21285,6 @@
   {
     "sw": "kifua",
     "en": "chest",
-    "pos": "noun"
-  },
-  {
-    "sw": "kifua kikuu",
-    "en": "tuberculosis",
     "pos": "noun"
   },
   {
@@ -22330,11 +21600,6 @@
   {
     "sw": "kugusa",
     "en": "to touch",
-    "pos": "verb"
-  },
-  {
-    "sw": "kuhara",
-    "en": "diarrhea",
     "pos": "verb"
   },
   {
@@ -22823,11 +22088,6 @@
     "pos": "noun"
   },
   {
-    "sw": "maji",
-    "en": "water",
-    "pos": "noun"
-  },
-  {
     "sw": "maktaba",
     "en": "the library",
     "pos": "noun"
@@ -22850,11 +22110,6 @@
   {
     "sw": "mama",
     "en": "mother",
-    "pos": "noun"
-  },
-  {
-    "sw": "mamba",
-    "en": "crocodile",
     "pos": "noun"
   },
   {
@@ -22938,11 +22193,6 @@
     "pos": "noun"
   },
   {
-    "sw": "mavuno",
-    "en": "yield",
-    "pos": "noun"
-  },
-  {
     "sw": "mawingu",
     "en": "the clouds",
     "pos": "noun"
@@ -23005,11 +22255,6 @@
   {
     "sw": "mboji",
     "en": "compost",
-    "pos": "noun"
-  },
-  {
-    "sw": "mbolea",
-    "en": "fertilizer",
     "pos": "noun"
   },
   {
@@ -23428,11 +22673,6 @@
     "pos": "noun"
   },
   {
-    "sw": "mshtuko",
-    "en": "shock",
-    "pos": "noun"
-  },
-  {
     "sw": "msikiti",
     "en": "the mosque",
     "pos": "noun"
@@ -23460,11 +22700,6 @@
   {
     "sw": "mtaa",
     "en": "street",
-    "pos": "noun"
-  },
-  {
-    "sw": "mtaji",
-    "en": "capital",
     "pos": "noun"
   },
   {
@@ -23593,11 +22828,6 @@
     "pos": "noun"
   },
   {
-    "sw": "mwanga",
-    "en": "light",
-    "pos": "noun"
-  },
-  {
     "sw": "mwangaza",
     "en": "brightness",
     "pos": "noun"
@@ -23690,11 +22920,6 @@
   {
     "sw": "na nguvu",
     "en": "and strength",
-    "pos": "noun"
-  },
-  {
-    "sw": "nadharia",
-    "en": "theory",
     "pos": "noun"
   },
   {
@@ -23805,11 +23030,6 @@
   {
     "sw": "nguvu",
     "en": "strength",
-    "pos": "noun"
-  },
-  {
-    "sw": "nishati mbadala",
-    "en": "renewable energy",
     "pos": "noun"
   },
   {
@@ -24023,11 +23243,6 @@
     "pos": "noun"
   },
   {
-    "sw": "pazia",
-    "en": "curtain",
-    "pos": "noun"
-  },
-  {
     "sw": "pesa",
     "en": "money",
     "pos": "noun"
@@ -24118,11 +23333,6 @@
     "pos": "noun"
   },
   {
-    "sw": "punguzo",
-    "en": "discount",
-    "pos": "noun"
-  },
-  {
     "sw": "pwani",
     "en": "the beach",
     "pos": "noun"
@@ -24178,11 +23388,6 @@
     "pos": "noun"
   },
   {
-    "sw": "riba",
-    "en": "interest",
-    "pos": "noun"
-  },
-  {
     "sw": "risiti",
     "en": "receipt",
     "pos": "noun"
@@ -24200,11 +23405,6 @@
   {
     "sw": "runinga",
     "en": "television",
-    "pos": "noun"
-  },
-  {
-    "sw": "rushwa",
-    "en": "corruption",
     "pos": "noun"
   },
   {
@@ -24240,11 +23440,6 @@
   {
     "sw": "sahani",
     "en": "plate",
-    "pos": "noun"
-  },
-  {
-    "sw": "saikolojia",
-    "en": "psychology",
     "pos": "noun"
   },
   {
@@ -24298,16 +23493,6 @@
     "pos": "adverb"
   },
   {
-    "sw": "satelaiti",
-    "en": "satellite",
-    "pos": "noun"
-  },
-  {
-    "sw": "sauti",
-    "en": "sound",
-    "pos": "noun"
-  },
-  {
     "sw": "savana",
     "en": "Savannah",
     "pos": "noun"
@@ -24330,11 +23515,6 @@
   {
     "sw": "sekunde",
     "en": "seconds",
-    "pos": "noun"
-  },
-  {
-    "sw": "serikali",
-    "en": "government",
     "pos": "noun"
   },
   {
@@ -24398,11 +23578,6 @@
     "pos": "noun"
   },
   {
-    "sw": "shinikizo",
-    "en": "pressure",
-    "pos": "noun"
-  },
-  {
     "sw": "shule",
     "en": "school",
     "pos": "noun"
@@ -24418,11 +23593,6 @@
     "pos": "noun"
   },
   {
-    "sw": "siasa",
-    "en": "politics",
-    "pos": "noun"
-  },
-  {
     "sw": "sifuri",
     "en": "zero",
     "pos": "number"
@@ -24430,11 +23600,6 @@
   {
     "sw": "siku",
     "en": "day",
-    "pos": "noun"
-  },
-  {
-    "sw": "simba",
-    "en": "the lion",
     "pos": "noun"
   },
   {
@@ -24480,11 +23645,6 @@
   {
     "sw": "sofa",
     "en": "sofa",
-    "pos": "noun"
-  },
-  {
-    "sw": "soko",
-    "en": "market",
     "pos": "noun"
   },
   {
@@ -24565,11 +23725,6 @@
   {
     "sw": "swetha",
     "en": "sweater",
-    "pos": "noun"
-  },
-  {
-    "sw": "swichi",
-    "en": "switch",
     "pos": "noun"
   },
   {
@@ -24660,11 +23815,6 @@
   {
     "sw": "tembe",
     "en": "the pill",
-    "pos": "noun"
-  },
-  {
-    "sw": "tembo",
-    "en": "an elephant",
     "pos": "noun"
   },
   {
@@ -24778,11 +23928,6 @@
     "pos": "noun"
   },
   {
-    "sw": "twiga",
-    "en": "giraffe",
-    "pos": "noun"
-  },
-  {
     "sw": "uaminifu",
     "en": "honesty",
     "pos": "noun"
@@ -24848,23 +23993,8 @@
     "pos": "noun"
   },
   {
-    "sw": "uhandisi",
-    "en": "engineering",
-    "pos": "noun"
-  },
-  {
-    "sw": "uhuru",
-    "en": "freedom",
-    "pos": "noun"
-  },
-  {
     "sw": "ujanja",
     "en": "cunning",
-    "pos": "noun"
-  },
-  {
-    "sw": "ujasiri",
-    "en": "courage",
     "pos": "noun"
   },
   {
@@ -24878,18 +24008,8 @@
     "pos": "noun"
   },
   {
-    "sw": "ukame",
-    "en": "drought",
-    "pos": "noun"
-  },
-  {
     "sw": "ukanda",
     "en": "belt",
-    "pos": "noun"
-  },
-  {
-    "sw": "ukarimu",
-    "en": "hospitality",
     "pos": "noun"
   },
   {
@@ -24943,11 +24063,6 @@
     "pos": "noun"
   },
   {
-    "sw": "umwagiliaji",
-    "en": "irrigation",
-    "pos": "noun"
-  },
-  {
     "sw": "unyenyekevu",
     "en": "humility",
     "pos": "noun"
@@ -24955,11 +24070,6 @@
   {
     "sw": "unyevu",
     "en": "humidity",
-    "pos": "noun"
-  },
-  {
-    "sw": "upasuaji",
-    "en": "surgery",
     "pos": "noun"
   },
   {
@@ -24988,11 +24098,6 @@
     "pos": "noun"
   },
   {
-    "sw": "urafiki",
-    "en": "friendship",
-    "pos": "noun"
-  },
-  {
     "sw": "urithi",
     "en": "inheritance",
     "pos": "noun"
@@ -25003,23 +24108,8 @@
     "pos": "noun"
   },
   {
-    "sw": "ushahidi",
-    "en": "evidence",
-    "pos": "noun"
-  },
-  {
-    "sw": "ushindani",
-    "en": "competition",
-    "pos": "noun"
-  },
-  {
     "sw": "ushindi",
     "en": "victory",
-    "pos": "noun"
-  },
-  {
-    "sw": "ushirikiano",
-    "en": "cooperation",
     "pos": "noun"
   },
   {
@@ -25048,11 +24138,6 @@
     "pos": "noun"
   },
   {
-    "sw": "utafiti",
-    "en": "research",
-    "pos": "noun"
-  },
-  {
     "sw": "utamaduni",
     "en": "culture",
     "pos": "noun"
@@ -25073,21 +24158,6 @@
     "pos": "noun"
   },
   {
-    "sw": "uvumilivu",
-    "en": "endurance",
-    "pos": "noun"
-  },
-  {
-    "sw": "uvuvi",
-    "en": "fishing",
-    "pos": "noun"
-  },
-  {
-    "sw": "uwajibikaji",
-    "en": "accountability",
-    "pos": "noun"
-  },
-  {
     "sw": "uwanja",
     "en": "the field",
     "pos": "noun"
@@ -25095,11 +24165,6 @@
   {
     "sw": "uwanja wa ndege",
     "en": "the airport",
-    "pos": "noun"
-  },
-  {
-    "sw": "uwazi",
-    "en": "clarity",
     "pos": "noun"
   },
   {
@@ -25235,11 +24300,6 @@
   {
     "sw": "wiki iliyopita",
     "en": "last week",
-    "pos": "noun"
-  },
-  {
-    "sw": "wilaya",
-    "en": "district",
     "pos": "noun"
   },
   {
