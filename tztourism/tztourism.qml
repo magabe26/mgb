@@ -283,15 +283,14 @@ Rectangle {
             desc_sw: "Mlima mrefu zaidi Afrika na volkano iliyolala. Changamoto lakini yenye thawabu kwa wapandaji wajasiri."
         }
 
-        ListElement {
-            name_en: "Mikumi National Park"; name_sw: "Hifadhi ya Taifa ya Mikumi"
-            imageFile: "./mikumi.jpg"
-            desc_en: "Escape the city! It's an easy drive: dar mpaka moro and beyond. See giraffes, lions, elephants, zebras, and wildebeest. The wild awaits!"
-            desc_sw: "Toroka jiji! Ni safari rahisi: dar mpaka moro na kuendelea. Tazama twiga, simba, tembo, punda milia, na nyumbu. Pori linakusubiri!"
+      ListElement {
+            name_en: "Zanzibar (Stone Town & Beaches)"; name_sw: "Zanzibar (Mji Mkongwe na Fukwe)"
+            imageFile: "./zanzibar_st2.jpg"
+            desc_en: "Historic Stone Town, spice farms, and pristine beaches make Zanzibar a unique cultural and relaxation hub."
+            desc_sw: "Mji Mkongwe wa kihistoria, mashamba ya viungo, na fukwe safi hufanya Zanzibar kuwa kitovu cha kipekee cha utamaduni na mapumziko."
         }
 
-
-        ListElement {
+    ListElement {
             name_en: "Ngorongoro Conservation Area"; name_sw: "Mamlaka ya Hifadhi ya Ngorongoro"
             imageFile: "./ngorongoro.jpg"
             desc_en: "Home to the Ngorongoro Crater, a large volcanic caldera teeming with diverse wildlife."
@@ -299,12 +298,13 @@ Rectangle {
         }
 
         ListElement {
-            name_en: "Kitulo National Park"; name_sw: "Hifadhi ya Taifa ya Kitulo"
-            imageFile: "./kitulo.jpg"
-            desc_en: "Known as the 'Garden of God', this unique montane grassland is famous for its spectacular seasonal wildflower displays."
-            desc_sw: "Inajulikana kama 'Bustani ya Mungu', nyanda hii ya kipekee ya milimani ni maarufu kwa maonyesho yake mazuri ya maua ya porini ya msimu."
-        }
+            name_en: "Mikumi National Park"; name_sw: "Hifadhi ya Taifa ya Mikumi"
+            imageFile: "./mikumi.jpg"
+            desc_en: "Escape the city! It's an easy drive: dar mpaka moro and beyond. See giraffes, lions, elephants, zebras, and wildebeest. The wild awaits!"
+            desc_sw: "Toroka jiji! Ni safari rahisi: dar mpaka moro na kuendelea. Tazama twiga, simba, tembo, punda milia, na nyumbu. Pori linakusubiri!"
+        }      
 
+    
         ListElement {
             name_en: "Serengeti National Park"; name_sw: "Hifadhi ya Taifa ya Serengeti"
             imageFile: "./serengeti.jpg"
@@ -312,13 +312,12 @@ Rectangle {
             desc_sw: "Nyanda pana, maarufu kwa uhamaji mkuu wa nyumbu kila mwaka, inayotoa uzoefu wa safari usio na kifani."
         }
 
-        ListElement {
-            name_en: "Zanzibar (Stone Town & Beaches)"; name_sw: "Zanzibar (Mji Mkongwe na Fukwe)"
-            imageFile: "./zanzibar_st2.jpg"
-            desc_en: "Historic Stone Town, spice farms, and pristine beaches make Zanzibar a unique cultural and relaxation hub."
-            desc_sw: "Mji Mkongwe wa kihistoria, mashamba ya viungo, na fukwe safi hufanya Zanzibar kuwa kitovu cha kipekee cha utamaduni na mapumziko."
+ListElement {
+            name_en: "Kizimkazi Dolphin Safari"; name_sw: "Utalii wa Pomboo Kizimkazi"
+            imageFile: "./kizimkazi-d.jpeg"
+            desc_en: "Dive into the blue waters of Kizimkazi, Zanzibar. Experience the thrill of swimming with wild dolphins in their natural habitat and visit historical mosques."
+            desc_sw: "Zama kwenye maji ya bluu ya Kizimkazi, Zanzibar. Shuhudia msisimko wa kuogelea na pomboo katika mazingira yao ya asili na utembelee misikiti ya kihistoria."
         }
-
 
         ListElement {
             name_en: "Tarangire National Park"; name_sw: "Hifadhi ya Taifa ya Tarangire"
@@ -326,15 +325,7 @@ Rectangle {
             desc_en: "Known for its large elephant herds, iconic baobab trees, and diverse birdlife."
             desc_sw: "Inajulikana kwa makundi makubwa ya tembo, miti ya mibuyu ya kipekee, na aina mbalimbali za ndege."
         }
-
-
-        ListElement {
-            name_en: "Bodaboda & Bajaji Transport, Tanzania"
-            name_sw: "Usafiri wa Bodaboda na Bajaji, Tanzania"
-            imageFile: "./bodaboda_bajaji.jpg"
-            desc_en: "The most iconic and efficient way to navigate Tanzanian streets. Experience the city like a local with Bajaji for a breezy ride or Bodaboda to beat the traffic."
-            desc_sw: "Njia maarufu na bora ya kuzunguka mitaa ya Tanzania. Ishi kama mzawa kwa kutumia Bajaji kufurahia upepo mwanana au Bodaboda kuwahi unakokwenda bila kukwama kwenye foleni."
-        }
+    
 
         ListElement {
             name_en: "Lake Victoria"; name_sw: "Ziwa Victoria"
@@ -373,18 +364,19 @@ Rectangle {
         }
 
         ListElement {
-            name_en: "Kizimkazi Dolphin Safari"; name_sw: "Utalii wa Pomboo Kizimkazi"
-            imageFile: "./kizimkazi-d.jpeg"
-            desc_en: "Dive into the blue waters of Kizimkazi, Zanzibar. Experience the thrill of swimming with wild dolphins in their natural habitat and visit historical mosques."
-            desc_sw: "Zama kwenye maji ya bluu ya Kizimkazi, Zanzibar. Shuhudia msisimko wa kuogelea na pomboo katika mazingira yao ya asili na utembelee misikiti ya kihistoria."
-        }
-
-        ListElement {
             name_en: "Katavi National Park"; name_sw: "Hifadhi ya Taifa ya Katavi"
             imageFile: "./katavi.jpg"
             desc_en: "A remote and wild park known for large concentrations of game during the dry season."
             desc_sw: "Hifadhi ya mbali na pori inayojulikana kwa mikusanyiko mikubwa ya wanyama wakati wa kiangazi."
         }
+
+ListElement {
+            name_en: "Kitulo National Park"; name_sw: "Hifadhi ya Taifa ya Kitulo"
+            imageFile: "./kitulo.jpg"
+            desc_en: "Known as the 'Garden of God', this unique montane grassland is famous for its spectacular seasonal wildflower displays."
+            desc_sw: "Inajulikana kama 'Bustani ya Mungu', nyanda hii ya kipekee ya milimani ni maarufu kwa maonyesho yake mazuri ya maua ya porini ya msimu."
+        }
+
 
         ListElement {
             name_en: "Rubya Forest, Ukerewe"; name_sw: "Msitu wa Rubya, Ukerewe"
@@ -786,6 +778,14 @@ Rectangle {
             imageFile: "./iringa_fashion_crafts.jpeg"
             desc_en: "Iringa has become a hub for creative fusion, where artisans blend traditional Maasai 'Shukas' and Kanga fabrics to sew modern outfits and stylish handbags. This craftsmanship preserves heritage while empowering local women."
             desc_sw: "Mkoa wa Iringa umekuwa kitovu cha ubunifu, ambapo mafundi huunganisha Mashuka ya Kimasai na vitambaa vya Kanga kushona mavazi ya kisasa na mikoba ya kijanja. Ufundi huu unalinda urithi wetu na kuziinua akina mama."
+        }
+
+ListElement {
+            name_en: "Bodaboda & Bajaji Transport, Tanzania"
+            name_sw: "Usafiri wa Bodaboda na Bajaji, Tanzania"
+            imageFile: "./bodaboda_bajaji.jpg"
+            desc_en: "The most iconic and efficient way to navigate Tanzanian streets. Experience the city like a local with Bajaji for a breezy ride or Bodaboda to beat the traffic."
+            desc_sw: "Njia maarufu na bora ya kuzunguka mitaa ya Tanzania. Ishi kama mzawa kwa kutumia Bajaji kufurahia upepo mwanana au Bodaboda kuwahi unakokwenda bila kukwama kwenye foleni."
         }
 
         ListElement {
