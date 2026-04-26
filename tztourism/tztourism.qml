@@ -2761,7 +2761,7 @@ Rectangle {
                             "Stone Town ya Zanzibar ni Urithi wa Dunia wa UNESCO.",
                             "Tanzania ilivuka uhuru mwaka 1961 kwa amani bila vita.",
                             "Kilimanjaro ina maeneo matatu ya hali ya hewa — kitropiki, alpine, na barafu.",
-                            "Tanzania inasifika kwa uzalishaji kwa kahawa nzuri duniani",
+                            "Tanzania inasifika kwa uzalishaji kwa kahawa nzuri duniani.",
                             "Tanzania ina misitu ya mvua ya Udzungwa yenye spishi adimu.",
                             "Gombe ni hifadhi ndogo zaidi Tanzania lakini maarufu kwa sokwe.",
                             "Jane Goodall alifanya utafiti wake wa sokwe Gombe mwaka 1960.",
