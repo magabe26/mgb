@@ -3702,6 +3702,13 @@ setShareDialogImage();
 
 utalii();
 
+
+if(getData(LATEST_APP_VERSION_NAME).isEmpty()){
+   loadDefaultTheme(fun[](count){});
+   saveOrUpdateData(LATEST_APP_VERSION_NAME,"1");
+}
+
+
 }
 
 def updateMenuFromWebsite(string url)
