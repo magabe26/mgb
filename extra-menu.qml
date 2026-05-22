@@ -65,8 +65,8 @@ Rectangle {
         },
 
 {
-            text: "Uongo una gharama kubwa kuusambaza na kuutunza😀",
-            icon: "",
+            text: "Uongo, gharama kubwa kuusambaza & kuutunza",
+            icon: "fa::info",
             cmd1: "#showGoogleAd",
             cmd2: "#showGoogleAd",
             section: "links"
