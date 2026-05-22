@@ -65,10 +65,10 @@ Rectangle {
         },
 
 {
-            text: "",
-            icon: "",
-            cmd1: "",
-            cmd2: "",
+            text: "Uongo una gharama kubwa kuusambaza na kuutunza😀, Angalia Tangazo",
+            icon: "fa::gamepad",
+            cmd1: "#showGoogleAd",
+            cmd2: "#showGoogleAd",
             section: "links"
         },
         
