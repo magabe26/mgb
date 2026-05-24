@@ -3110,16 +3110,6 @@ ListElement {
                                 body_en: "Nane Nane (8-8) celebrates Tanzania's farmers. Over 65% of Tanzanians depend on agriculture. Agricultural shows are held nationwide, showcasing crops, modern technology, and livestock."
                             },
                             {
-                                m: 7, d: 25,
-                                icon: "⚔️", color: "#1a0a0a", accent: "#cc6600",
-                                label_sw: "Vita Fupi Zaidi — Anglo-Zanzibar 1896",
-                                label_en: "Shortest War in History — 1896",
-                                title_sw: "27 Agosti 1896 — Vita vya Anglo-Zanzibar",
-                                title_en: "August 27, 1896 — Anglo-Zanzibar War",
-                                body_sw: "Vita vya Anglo-Zanzibar vilidumu dakika 38 tu — vita vifupi zaidi katika historia ya dunia. Meli za Uingereza zilipiga makombora ikulu ya Zanzibar baada ya Sultan mpya Khalid bin Barghash kukataa kushuka madarakani. Sultan alikimbilia ubalozi wa Ujerumani.",
-                                body_en: "The Anglo-Zanzibar War lasted just 38 minutes — the shortest war in recorded history. British warships shelled Zanzibar's palace after new Sultan Khalid bin Barghash refused to stand down. The sultan fled to the German consulate."
-                            },
-                            {
                                 m: 9, d: 14,
                                 icon: "🌟", color: "#1a1200", accent: "#ddaa00",
                                 label_sw: "Siku ya Nyerere",
