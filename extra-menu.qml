@@ -65,11 +65,11 @@ Rectangle {
         },
 
 {
-            text: "Uongo, gharama kubwa kuusambaza & kuutunza",
-            icon: "fa::info",
-            cmd1: "#showGoogleAd",
-            cmd2: "#showGoogleAd",
-            section: "links"
+            text: "",
+            icon: "",
+            cmd1: "",
+            cmd2: "",
+            section: ""
         },
         
 
