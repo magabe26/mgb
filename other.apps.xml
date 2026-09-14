@@ -196,6 +196,15 @@ Kamusi • Dictionary
    </APP>
 
 <APP>
+     <A HREF="#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Ads/hide-navigation-buttons.jpg;#showGoogleAd;0.9;0.8;500">Kama vitufe vya chini havionekani (Samsung)</A>
+     <COLOR>#00c000</COLOR>
+     <BG_COLOR>white</BG_COLOR>
+     <ICON>fa::info</ICON>  
+     <ICON_COLOR>green</ICON_COLOR>
+     <BOLD_TEXT>1</BOLD_TEXT> 
+</APP>
+
+<APP>
       <A HREF="#" />
    </APP>
 
