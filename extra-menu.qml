@@ -65,11 +65,11 @@ Rectangle {
         },
 
 {
-            text: "",
-            icon: "",
-            cmd1: "",
+            text: "Kama vitufe vya chini havionekani (Samsung)",
+            icon: "fa::info",
+            cmd1: "#imageDialog;https://raw.githubusercontent.com/magabe26/mgb/refs/heads/master/Ads/hide-navigation-buttons.jpg;#showGoogleAd;1;0.8;500",
             cmd2: "",
-            section: ""
+            section: "links"
         },
         
 
