@@ -789,11 +789,15 @@ Rectangle {
                 unseen = frogScene.allPhrases.slice();
             }
             var greetings = [
-                        "Habari " + name + "! 😊",
-                        "Karibu " + name + "! 🐸",
-                        name + ", tujifunze pamoja! 📚",
-                        name + ", wewe ni programu inayokua! 💻"
-                    ];
+                "Habari za wakati huu, " + name + "! Mimi naitwa Edwin Magabe, ni furaha yangu kukukaribisha. ✨",  
+                "Karibu sana " + name + ". Bila kuwa na kikomo, nimewekeza ubunifu wangu wote ili kukuletea programu hii bora! 💡", 
+                "Mpendwa " + name + ", katika safari ya maisha, huenda ukakutana na changamoto kutoka kwa baadhi ya watu. 📖",
+                "Wanaweza kutumia rasilimali zao kupinga mafanikio yako, na wakati mwingine ukakosa sapoti unayostahili. 🛡️",
+                "Hata hivyo, " + name + ", tafadhali usikubali kabisa kukata tamaa;wapuuze na usonge mbele kwa ujasiri! 🚀",
+                "Tuna nafasi kubwa ya kujifunza na kukua pamoja kila siku, " + name + ". 🤝",
+                "Asante kwa kuwa pamoja nami, " + name + ". Tujifunze pamoja! 🌟"
+               ];
+
             return greetings.concat(shufflePhrases(unseen));
         }
 
