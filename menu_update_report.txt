@@ -1,0 +1,43 @@
+RIPOTI YA KUSASISHA MENU ZA NECTA
+Imeendeshwa: 2026-10-13 11:36:55 UTC | 2026-10-13 14:36:55 EAT
+Jumla: 8 | Imesasishwa: 0 | Hakuna mabadiliko: 0 | Imefeli: 8
+
+[sfna] IMEFELI
+  ukurasa : https://www.necta.go.tz/results/view/sfna
+  faili   : std4_menu.xml  (https://github.com/magabe26/mgb/blob/master/std4_menu.xml)
+  kosa    : fetch failed
+
+[psle] IMEFELI
+  ukurasa : https://www.necta.go.tz/results/view/psle
+  faili   : necta.primary.std7.xml  (https://github.com/magabe26/mgb/blob/master/necta.primary.std7.xml)
+  kosa    : fetch failed
+
+[ftna] IMEFELI
+  ukurasa : https://www.necta.go.tz/results/view/ftna
+  faili   : Form_2_Menu.xml  (https://github.com/magabe26/mgb/blob/master/Form_2_Menu.xml)
+  kosa    : fetch failed
+
+[csee] IMEFELI
+  ukurasa : https://www.necta.go.tz/results/view/csee
+  faili   : Form_4_menu.xml  (https://github.com/magabe26/mgb/blob/master/Form_4_menu.xml)
+  kosa    : fetch failed
+
+[acsee] IMEFELI
+  ukurasa : https://www.necta.go.tz/results/view/acsee
+  faili   : Form_6_menu.xml  (https://github.com/magabe26/mgb/blob/master/Form_6_menu.xml)
+  kosa    : fetch failed
+
+[gatce] IMEFELI
+  ukurasa : https://www.necta.go.tz/results/view/gatce
+  faili   : gatce_menu.xml  (https://github.com/magabe26/mgb/blob/master/gatce_menu.xml)
+  kosa    : fetch failed
+
+[dsee] IMEFELI
+  ukurasa : https://www.necta.go.tz/results/view/dsee
+  faili   : dsee_menu.xml  (https://github.com/magabe26/mgb/blob/master/dsee_menu.xml)
+  kosa    : fetch failed
+
+[gatscce] IMEFELI
+  ukurasa : https://www.necta.go.tz/results/view/gatscce
+  faili   : gatscce_menu.xml  (https://github.com/magabe26/mgb/blob/master/gatscce_menu.xml)
+  kosa    : fetch failed
