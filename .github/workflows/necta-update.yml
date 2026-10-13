@@ -30,7 +30,7 @@ jobs:
 
       # Orodha ya kurasa na mafaili (resultsFiles) iko juu ya scripts/update-necta.js
       - name: Sasisha menu za NECTA
-        run: node .github/workflows/scripts/update-necta.js
+        run: node --dns-result-order=ipv4first .github/workflows/scripts/update-necta.js
 
       # Inaendeshwa tu kama hatua ya juu imefeli: inaonyesha mtandao kati ya GitHub na NECTA
       # (DNS, muunganisho, cheti cha TLS). Unaweza kuifuta baada ya tatizo kuisha.
