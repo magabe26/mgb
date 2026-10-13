@@ -1,11 +1,5 @@
 #!/usr/bin/env node
-/**
- * Kwa kila { ResultsType, GithubFile } kwenye resultsFiles:
- *   1. inasoma ukurasa https://www.necta.go.tz/results/view/{ResultsType}
- *   2. inatoa links za matokeo (http...htm zenye mwaka) kwa QSimpleParser
- *   3. inaongeza kwenye {GithubFile} miaka ambayo bado haipo (mwaka mpya juu)
- * Mwishoni inaandika ripoti kwenye menu_update_report.txt.
- */
+
 'use strict';
 
 const fs = require('fs');
