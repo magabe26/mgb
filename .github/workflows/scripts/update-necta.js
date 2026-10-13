@@ -107,9 +107,28 @@ function addLinkToMenuXML(year, link, xml) {
   return xml.slice(0, last.end()) + between + block + xml.slice(last.end());
 }
 
+/**
+ * Maelezo kamili ya kosa la fetch. "fetch failed" peke yake haitoshi: sababu halisi
+ * (ETIMEDOUT, ECONNRESET, ENOTFOUND, UNABLE_TO_VERIFY_LEAF_SIGNATURE...) iko kwenye
+ * `cause`, na Node ikijaribu anwani kadhaa (IPv4/IPv6) kila moja iko kwenye `cause.errors`.
+ */
+function describe(e) {
+  const parts = [e.message];
+  const cause = e.cause;
+  if (cause) {
+    if (cause.code) parts.push(cause.code);
+    if (cause.message && cause.message !== e.message) parts.push(cause.message);
+    for (const sub of cause.errors || []) {
+      const where = sub.address ? sub.address + (sub.port ? ':' + sub.port : '') : '';
+      parts.push([sub.code, where, sub.message].filter(Boolean).join(' '));
+    }
+  }
+  return parts.join(' | ');
+}
+
 /** Inapakua ukurasa (majaribio 3). */
 async function get(url) {
-  let error;
+  let why = '';
   for (let attempt = 1; attempt <= 3; attempt++) {
     try {
       const res = await fetch(url, {
@@ -119,13 +138,12 @@ async function get(url) {
       if (!res.ok) throw new Error('HTTP ' + res.status);
       return await res.text();
     } catch (e) {
-      error = e;
-      const why = e.cause && e.cause.message ? e.message + ' (' + e.cause.message + ')' : e.message;
+      why = describe(e);
       console.error('  jaribio ' + attempt + ' limeshindwa: ' + why);
       if (attempt < 3) await new Promise((r) => setTimeout(r, 5000 * attempt));
     }
   }
-  throw error;
+  throw new Error('kupakua ukurasa kumeshindwa: ' + why);
 }
 
 /** Inasasisha faili moja. Inarudisha { links, added }. */
