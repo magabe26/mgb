@@ -30,7 +30,7 @@ jobs:
 
       # Orodha ya kurasa na mafaili (resultsFiles) iko juu ya scripts/update-necta.js
       - name: Sasisha menu za NECTA
-        run: node scripts/update-necta.js
+        run: node .github/workflows/scripts/update-necta.js
 
       - name: Hifadhi mabadiliko (XML na ripoti)
         if: always()           # ripoti ihifadhiwe hata kama kuna kilichofeli
