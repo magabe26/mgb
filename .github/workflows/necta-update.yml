@@ -32,6 +32,16 @@ jobs:
       - name: Sasisha menu za NECTA
         run: node .github/workflows/scripts/update-necta.js
 
+      # Inaendeshwa tu kama hatua ya juu imefeli: inaonyesha mtandao kati ya GitHub na NECTA
+      # (DNS, muunganisho, cheti cha TLS). Unaweza kuifuta baada ya tatizo kuisha.
+      - name: Uchunguzi wa mtandao (ikifeli tu)
+        if: failure()
+        continue-on-error: true
+        run: |
+          echo "--- DNS ---";  getent ahosts www.necta.go.tz || echo "DNS imeshindwa"
+          echo "--- curl (IPv4) ---"; curl -4 -sS -v -m 20 -o /dev/null https://www.necta.go.tz/results/view/psle 2>&1 | head -40 || true
+          echo "--- curl (IPv6) ---"; curl -6 -sS -v -m 10 -o /dev/null https://www.necta.go.tz/results/view/psle 2>&1 | head -15 || true
+
       - name: Hifadhi mabadiliko (XML na ripoti)
         if: always()           # ripoti ihifadhiwe hata kama kuna kilichofeli
         run: |
