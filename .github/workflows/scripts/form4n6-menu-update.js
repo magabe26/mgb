@@ -11,7 +11,7 @@ const digit = QSP.digit;
 
 const NECTA_PAGE = 'https://www.necta.go.tz/results/view/'; // + ResultsType
 const GITHUB_FILE = 'https://github.com/magabe26/mgb/blob/master/'; // + GithubFile
-const REPORT_FILE = 'menu_update_report.txt';
+const REPORT_FILE = 'form4n6_menu_update_report.txt';
 const CONFIG_FILE = 'auto-menu-update.config'; // 0 = hakuna kilichofeli, 1 = kuna kilichofeli
 const ENTRY_TAG = 'RESULTS'; // <RESULTS><A HREF="...">2025</A></RESULTS>
 
