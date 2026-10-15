@@ -1,6 +1,6 @@
 RIPOTI YA KUSASISHA MENU ZA NECTA
-Imeendeshwa: 2026-10-15 12:32:46 UTC | 2026-10-15 15:32:46 EAT
-Jumla: 8 | Imesasishwa: 1 | Hakuna mabadiliko: 7 | Imefeli: 0
+Imeendeshwa: 2026-10-15 19:29:00 UTC | 2026-10-15 22:29:00 EAT
+Jumla: 8 | Imesasishwa: 0 | Hakuna mabadiliko: 8 | Imefeli: 0
 
 [sfna] HAKUNA MABADILIKO
   ukurasa : https://www.necta.go.tz/results/view/sfna
@@ -17,11 +17,10 @@ Jumla: 8 | Imesasishwa: 1 | Hakuna mabadiliko: 7 | Imefeli: 0
   faili   : Form_2_Menu.xml  (https://github.com/magabe26/mgb/blob/master/Form_2_Menu.xml)
   links   : 3  (miaka: 2025, 2024, 2023)
 
-[csee] IMESASISHWA
+[csee] HAKUNA MABADILIKO
   ukurasa : https://www.necta.go.tz/results/view/csee
   faili   : Form_4_menu.xml  (https://github.com/magabe26/mgb/blob/master/Form_4_menu.xml)
   links   : 3  (miaka: 2025, 2024, 2023)
-  imebadilishwa: https://matokeo.necta.go.tz/results/2025/csee/index.htm  ->  https://onlinesys.necta.go.tz/results/2025/csee/index.htm
 
 [acsee] HAKUNA MABADILIKO
   ukurasa : https://www.necta.go.tz/results/view/acsee
