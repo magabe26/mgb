@@ -7,7 +7,7 @@ on:
     #   "*/30 * * * *"   kila dakika 30   (kiwango cha chini cha GitHub ni dakika 5)
     #   "0 */2 * * *"    kila saa 2
     #   "0 5 * * *"      kila siku saa 5:00 UTC (= saa 8:00 asubuhi Tanzania)
-    - cron: "26 * * * *"
+    - cron: "58 * * * *"
   workflow_dispatch:           # pia unaweza kuiendesha mwenyewe: Actions > Run workflow
 
 permissions:
