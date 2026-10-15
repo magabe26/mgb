@@ -1,11 +1,12 @@
 RIPOTI YA KUSASISHA MENU ZA NECTA
-Imeendeshwa: 2026-10-15 12:11:46 UTC | 2026-10-15 15:11:46 EAT
-Jumla: 2 | Imesasishwa: 0 | Hakuna mabadiliko: 2 | Imefeli: 0
+Imeendeshwa: 2026-10-15 12:31:09 UTC | 2026-10-15 15:31:09 EAT
+Jumla: 2 | Imesasishwa: 1 | Hakuna mabadiliko: 1 | Imefeli: 0
 
-[csee] HAKUNA MABADILIKO
+[csee] IMESASISHWA
   ukurasa : https://www.necta.go.tz/results/view/csee
   faili   : mgb2_6.xml  (https://github.com/magabe26/mgb/blob/master/mgb2_6.xml)
   links   : 3  (miaka: 2025, 2024, 2023)
+  imebadilishwa: https://matokeo.necta.go.tz/results/2025/csee/index.htm  ->  https://onlinesys.necta.go.tz/results/2025/csee/index.htm
 
 [acsee] HAKUNA MABADILIKO
   ukurasa : https://www.necta.go.tz/results/view/acsee
