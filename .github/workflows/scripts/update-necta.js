@@ -12,6 +12,7 @@ const digit = QSP.digit;
 const NECTA_PAGE = 'https://www.necta.go.tz/results/view/'; // + ResultsType
 const GITHUB_FILE = 'https://github.com/magabe26/mgb/blob/master/'; // + GithubFile
 const REPORT_FILE = 'menu_update_report.txt';
+const CONFIG_FILE = 'auto-menu-update.config'; // 0 = hakuna kilichofeli, 1 = kuna kilichofeli
 const ENTRY_TAG = 'RESULTS'; // <RESULTS><A HREF="...">2025</A></RESULTS>
 
 const resultsFiles = [
@@ -228,13 +229,35 @@ function buildReport(results, when) {
   return lines.join('\n');
 }
 
+/** Inaandika 0 au 1 kwenye config. Inaandika tu kama thamani imebadilika. */
+function writeConfig(failed) {
+  const value = failed ? '1' : '0';
+  let eol = '';
+  try {
+    const current = fs.readFileSync(CONFIG_FILE, 'utf8');
+    if (current.trim() === value) return;                 // hakuna mabadiliko
+    eol = current.endsWith('\r\n') ? '\r\n' : current.endsWith('\n') ? '\n' : '';
+  } catch (e) { /* faili halipo, litaundwa */ }
+  fs.writeFileSync(CONFIG_FILE, value + eol);
+  console.log('[config] ' + CONFIG_FILE + ' = ' + value);
+}
+
 async function main() {
   const startedAt = new Date();
-  const results = await run(SOURCES);
-  const report = buildReport(results, startedAt);
-  fs.writeFileSync(REPORT_FILE, report);
-  console.log('\n' + report);
-  process.exit(results.some((r) => r.status === 'IMEFELI') ? 1 : 0);
+  let results = [];
+  let failed = true; // ikitokea kosa lisilotarajiwa, tunaweka 1
+  try {
+    results = await run(SOURCES);
+    failed = results.some((r) => r.status === 'IMEFELI');
+    const report = buildReport(results, startedAt);
+    fs.writeFileSync(REPORT_FILE, report);
+    console.log('\n' + report);
+  } catch (e) {
+    console.error('KOSA LISILOTARAJIWA: ' + (e && e.stack || e));
+  } finally {
+    writeConfig(failed);
+  }
+  process.exit(failed ? 1 : 0);
 }
 
 if (require.main === module) main();
