@@ -78,13 +78,15 @@ function isKind(link, kind) {
 }
 
 /**
- * Inaongeza link kwenye XML, mwaka mpya juu. Muundo wa kipengele na mgawanyo
+ * Inaongeza link kwenye XML (mwaka mpya juu) au kusasisha href ya mwaka uliopo. Muundo wa kipengele na mgawanyo
  * kati ya vipengele (mistari tupu, nafasi) vinanakiliwa kutoka kwenye faili lenyewe.
- * Kama mwaka tayari upo kwenye XML (hata kwa host tofauti), haiongezwi tena.
+ * Kama mwaka tayari upo (hata kwa host tofauti) na link yake ni tofauti na ya NECTA, href ya zamani
+ * inabadilishwa kuwa mpya (lebo na muundo vinabaki); kama ni ile ile, hakuna kinachobadilika.
+ * Inarudisha { xml, action, previous } ambapo action ni 'added', 'updated' au 'same'.
  * Kama `kind` imetolewa, vipengele vya aina hiyo tu ndivyo vinavyotumika (kuiga muundo,
  * kukagua mwaka, na kuchagua mahali pa kuingiza), kwa faili lenye makundi kadhaa.
  */
-function addLinkToMenuXML(year, link, xml, kind) {
+function upsertLinkInMenuXML(year, link, xml, kind) {
   const entries = entryParser.allMatches(xml)
     .filter((e) => isKind(linkParser.firstStringMatch(e.value()), kind));
   if (entries.length === 0) {
@@ -92,7 +94,19 @@ function addLinkToMenuXML(year, link, xml, kind) {
   }
 
   const yearOf = (entry) => getYear(linkParser.firstStringMatch(entry.value()));
-  if (entries.some((e) => yearOf(e) === year)) return xml;
+  // Mwaka huu tayari upo. Link ile ile: hakuna cha kufanya. Link tofauti (NECTA wamebadilisha):
+  // href ya zamani inabadilishwa kuwa mpya, kila kitu kingine cha kipengele kinabaki.
+  const current = entries.find((e) => yearOf(e) === year);
+  if (current) {
+    const currentLink = linkParser.firstStringMatch(current.value());
+    if (currentLink === link) return { xml, action: 'same' };
+    const replaced = linkParser.replaceInMapped(current.value(), () => link, 0, 1);
+    return {
+      xml: xml.slice(0, current.start()) + replaced + xml.slice(current.end()),
+      action: 'updated',
+      previous: currentLink
+    };
+  }
 
   const template = entries[0].value();
   const templateLink = linkParser.firstStringMatch(template);
@@ -112,10 +126,15 @@ function addLinkToMenuXML(year, link, xml, kind) {
   const older = entries.find((e) => yearOf(e) < year);
   if (older) {
     const at = older.start();
-    return xml.slice(0, at) + block + between + xml.slice(at);
+    return { xml: xml.slice(0, at) + block + between + xml.slice(at), action: 'added' };
   }
   const last = entries[entries.length - 1];
-  return xml.slice(0, last.end()) + between + block + xml.slice(last.end());
+  return { xml: xml.slice(0, last.end()) + between + block + xml.slice(last.end()), action: 'added' };
+}
+
+/** Inarudisha XML tu. Kwa maelezo kamili (added/updated/same) tumia upsertLinkInMenuXML. */
+function addLinkToMenuXML(year, link, xml, kind) {
+  return upsertLinkInMenuXML(year, link, xml, kind).xml;
 }
 
 /**
@@ -157,7 +176,7 @@ async function get(url) {
   throw new Error('kupakua ukurasa kumeshindwa: ' + why);
 }
 
-/** Inasasisha faili moja. Inarudisha { links, added }. */
+/** Inasasisha faili moja. Inarudisha { links, added, updated }. */
 async function update({ url, file, kind }) {
   if (!url || !file) throw new Error('kila chanzo kinahitaji url na file');
   if (!fs.existsSync(file)) throw new Error('faili ' + file + ' halipo kwenye repo');
@@ -167,14 +186,21 @@ async function update({ url, file, kind }) {
   let output = original;
   const links = [];
   const added = [];
+  const updated = [];
+  const seen = new Set(); // link ya kwanza ya kila mwaka kwenye ukurasa ndiyo inayotumika
 
   linkParser.replaceInMapped(html, (link) => {
     const year = getYear(link);
     if (year !== 0 && isKind(link, kind)) {
       links.push(link);
-      const before = output;
-      output = addLinkToMenuXML(year, link, output, kind);
-      if (output !== before) added.push(link);
+      // Ukurasa ukiorodhesha links mbili za mwaka mmoja, ya pili ingebadilisha ya kwanza
+      // na kurudisha nyuma kila saa; tunachukua ya kwanza tu.
+      if (seen.has(year)) return link;
+      seen.add(year);
+      const done = upsertLinkInMenuXML(year, link, output, kind);
+      output = done.xml;
+      if (done.action === 'added') added.push(link);
+      if (done.action === 'updated') updated.push({ from: done.previous, to: link });
     }
     return link;
   }, 0, -1);
@@ -183,26 +209,28 @@ async function update({ url, file, kind }) {
     throw new Error('hakuna link ya matokeo (http...htm zenye mwaka' + (kind ? ' na /' + kind + '/' : '') + ') kwenye ukurasa');
   }
   if (output !== original) fs.writeFileSync(file, output);
-  return { links, added };
+  return { links, added, updated };
 }
 
 /** Inaendesha vyanzo vyote kimoja baada ya kingine; kimoja kikifeli vingine vinaendelea. */
 async function run(sources) {
   const results = [];
   for (const source of sources) {
-    const result = { name: source.name || source.file, url: source.url, file: source.file, links: [], added: [] };
+    const result = { name: source.name || source.file, url: source.url, file: source.file, links: [], added: [], updated: [] };
     console.log('[' + result.name + '] ' + source.url + '  ->  ' + source.file);
     try {
       const done = await update(source);
       result.links = done.links;
       result.added = done.added;
-      result.status = done.added.length ? 'IMESASISHWA' : 'HAKUNA MABADILIKO';
+      result.updated = done.updated;
+      result.status = (done.added.length || done.updated.length) ? 'IMESASISHWA' : 'HAKUNA MABADILIKO';
     } catch (e) {
       result.status = 'IMEFELI';
       result.error = e.message;
       console.error('  ERROR: ' + e.message);
     }
     for (const link of result.added) console.log('  + ' + link);
+    for (const u of result.updated) console.log('  ~ ' + u.from + '  ->  ' + u.to);
     results.push(result);
   }
   return results;
@@ -235,6 +263,7 @@ function buildReport(results, when) {
       const years = r.links.map(getYear).join(', ');
       lines.push('  links   : ' + r.links.length + (years ? '  (miaka: ' + years + ')' : ''));
       for (const link of r.added) lines.push('  imeongezwa: ' + link);
+      for (const u of r.updated) lines.push('  imebadilishwa: ' + u.from + '  ->  ' + u.to);
     }
     lines.push('');
   }
@@ -274,4 +303,4 @@ async function main() {
 
 if (require.main === module) main();
 
-module.exports = { run, buildReport, getYear, addLinkToMenuXML, SOURCES };
+module.exports = { run, buildReport, getYear, addLinkToMenuXML, upsertLinkInMenuXML, SOURCES };
