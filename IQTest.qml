@@ -322,7 +322,6 @@ Rectangle {
         ListElement { q: "Mshindi wa kwanza wa medali ya Olimpiki kwa Tanzania alikuwa nani?"; a: "Filbert Bayi"; b: "Suleiman Nyambui"; c: "Samson Ramadhani"; d: "Juma Ikangaa"; correct: "Suleiman Nyambui"; cat: "SP"; diff: 2 }
         ListElement { q: "Klabu ya Yanga SC ilianzishwa mwaka gani?"; a: "1935"; b: "1938"; c: "1940"; d: "1932"; correct: "1935"; cat: "SP"; diff: 1 }
         ListElement { q: "Uwanja wa Kaitaba unapatikana mkoa gani?"; a: "Mwanza"; b: "Kagera"; c: "Mara"; d: "Shinyanga"; correct: "Kagera"; cat: "SP"; diff: 1 }
-        ListElement { q: "Ni mwanamuziki gani wa Tanzania alishinda tuzo ya BET (Best International Act)?"; a: "Diamond Platnumz"; b: "Rayvanny"; c: "Alikiba"; d: "Harmonize"; correct: "Rayvanny"; cat: "BUR"; diff: 2 }
         ListElement { q: "Shirikisho la Mpira wa Miguu Tanzania linajulikana kwa kifupi kama?"; a: "TFF"; b: "FAT"; c: "BMT"; d: "DRFA"; correct: "TFF"; cat: "SP"; diff: 1 }
         ListElement { q: "Mchezo wa asili wa 'Bao' unachezwa na watu wangapi kwa wakati mmoja?"; a: "3"; b: "2"; c: "4"; d: "1"; correct: "2"; cat: "SP"; diff: 2 }
 
@@ -387,7 +386,6 @@ Rectangle {
 
         // MZIKI WA TANZANIA
         ListElement { q: "Aina ya muziki wa asili nchini Tanzania unaotumia ala ya zeze na ilali unaitwa?"; a: "Bongo Fleva"; b: "Mchiriku"; c: "Taarab"; d: "Dansi"; correct: "Taarab"; cat: "BUR"; diff: 2 }
-        ListElement { q: "Mwanamuziki gani anafahamika kama 'Mfalme wa Taarab' nchini Tanzania?"; a: "Mzee Yusuf"; b: "Diamond Platnumz"; c: "Alikiba"; d: "Moni Centrozone"; correct: "Mzee Yusuf"; cat: "BUR"; diff: 2 }
         ListElement { q: "Wimbo wa Taifa wa Tanzania unaitwa?"; a: "Tanzania Nakupenda"; b: "Mungu Ibariki Afrika"; c: "Tanzania Tanzania"; d: "Uzendo wa Taifa"; correct: "Mungu Ibariki Afrika"; cat: "UR"; diff: 2 }
         ListElement { q: "Ni mwanamuziki gani aliyeasisi mtindo wa 'Zuku' nchini Tanzania?"; a: "Marijani Rajab"; b: "Bi Kidude"; c: "Hukwe Zawose"; d: "Remmy Ongala"; correct: "Bi Kidude"; cat: "BUR"; diff: 2 }
         ListElement { q: "Tuzo kubwa za muziki duniani ambazo wasanii wa TZ hupania kushinda nchini Marekani ni?"; a: "Grammy"; b: "Kili Awards"; c: "BET"; d: "MTV"; correct: "Grammy"; cat: "BUR"; diff: 2 }
@@ -683,13 +681,11 @@ Rectangle {
         ListElement { q: "Kitendawili: Anatembea kwa miguu minne asubuhi, miwili mchana, na mitatu jioni."; a: "Binadamu"; b: "Kobe"; c: "Mzee"; d: "Mtoto"; correct: "Binadamu"; cat: "V"; diff: 1 }
 
         //music
-        ListElement { q: "Msanii gani wa Tanzania alikuwa wa kwanza kushinda tuzo ya BET (Viewer's Choice Best New International Act)?"; a: "Diamond Platnumz"; b: "Rayvanny"; c: "Harmonize"; d: "Ali Kiba"; correct: "Rayvanny"; cat: "BUR"; diff: 2 }
 
         ListElement { q: "Kundi la vichekesho lililojizolea umaarufu mkubwa nchini Tanzania kuanzia miaka ya 2000 linaitwa?"; a: "Orijino Komedi"; b: "Vituko Show"; c: "Mizengwe"; d: "Ze Komedi"; correct: "Orijino Komedi"; cat: "BUR"; diff: 2 }
 
         ListElement { q: "Marehemu Steven Kanumba alikuwa mwigizaji maarufu aliyejulikana pia kwa jina lipi la kisanii?"; a: "The Great"; b: "The King"; c: "Director"; d: "Chairman"; correct: "The Great"; cat: "BUR"; diff: 2 }
 
-        ListElement { q: "Msanii wa kike wa Bongo Flava anayeshikilia rekodi ya kutazamwa zaidi (Most Viewed) YouTube ni?"; a: "Nandy"; b: "Zuchu"; c: "Shilole"; d: "Maua Sama"; correct: "Zuchu"; cat: "BUR"; diff: 2 }
 
         ListElement { q: "Mchekeshaji gani nchini Tanzania anajulikana kwa mtindo wake wa kuvaa kama mwanamke na kutumia jina la 'Mkude Simba'?"; a: "Joti"; b: "Kitale"; c: "Mpoki"; d: "Mwijaku"; correct: "Kitale"; cat: "BUR"; diff: 1 }
 
@@ -701,11 +697,9 @@ Rectangle {
 
         ListElement { q: "Msanii gani wa vichekesho anayesifika kwa uwezo wa kuigiza sauti za viongozi mbalimbali na watu maarufu?"; a: "Mpoki"; b: "Joti"; c: "Ebitoke"; d: "Bwakila"; correct: "Joti"; cat: "BUR"; diff: 2 }
 
-        ListElement { q: "Lebo ya muziki inayomilikiwa na Diamond Platnumz inaitwa?"; a: "WCB Wasafi"; b: "Konde Gang"; c: "Kings Music"; d: "Next Level"; correct: "WCB Wasafi"; cat: "BUR"; diff: 2 }
 
         ListElement { q: "Marehemu ambae alikuwa mwigizaji nguli wa maigizo ya runinga na kiongozi wa kundi la Kaole Sanaa Group ni?"; a: "Mzee Small"; b: "Mzee Majuto"; c: "Sajuki"; d: "Steve Kanumba"; correct: "Mzee Majuto"; cat: "BUR"; diff: 2 }
 
-        ListElement { q: "Wimbo wa 'Number One' uliomtangaza Diamond Platnumz kimataifa alimshirikisha msanii gani kutoka Nigeria?"; a: "Davido"; b: "Wizkid"; c: "Burna Boy"; d: "P-Square"; correct: "Davido"; cat: "BUR"; diff: 2 }
 
         ListElement { q: "Mchekeshaji Coy Mzero anajulikana zaidi kupitia jukwaa gani la vichekesho nchini?"; a: "Cheka Tu"; b: "Comedy Knights"; c: "Stand Up Tanzania"; d: "Funny Fellas"; correct: "Cheka Tu"; cat: "BUR"; diff: 2 }
 
@@ -1109,15 +1103,8 @@ Rectangle {
         // ═══════════════════════════════════════════════════
 
         // BONGO FLAVA & WASANII WA KISASA
-        ListElement { q: "Diamond Platnumz alizaliwa jina gani la kweli?"; a: "Nasibu Abdul Juma"; b: "Abdul Diamond Platnumz"; c: "Juma Diamond Naseeb"; d: "Naseeb Abdul Juma"; correct: "Nasebu Abdul Juma"; cat: "BUR"; diff: 2 }
-        ListElement { q: "Msanii wa Bongo Flava anayejulikana kama 'Simba wa Bongo' ni?"; a: "Diamond Platnumz"; b: "Professor Jay"; c: "Mr. Blue"; d: "Juma Nature"; correct: "Mr. Blue"; cat: "BUR"; diff: 3 }
-        ListElement { q: "Konde Gang ni lebo ya muziki inayomilikiwa na nani?"; a: "Diamond Platnumz"; b: "Harmonize"; c: "Rayvanny"; d: "Alikiba"; correct: "Harmonize"; cat: "BUR"; diff: 2 }
-        ListElement { q: "Msanii wa kwanza wa Tanzania kupata platinum YouTube ni?"; a: "Rayvanny"; b: "Zuchu"; c: "Diamond Platnumz"; d: "Alikiba"; correct: "Diamond Platnumz"; cat: "BUR"; diff: 2 }
-        ListElement { q: "Zuchu ni msanii anayeshirikiana na lebo gani?"; a: "Konde Gang"; b: "Kings Music"; c: "WCB Wasafi"; d: "Zoom Extra"; correct: "WCB Wasafi"; cat: "BUR"; diff: 1 }
         ListElement { q: "Msanii Marioo anajulikana zaidi kwa mtindo gani wa muziki?"; a: "Taarab"; b: "Bongo Flava/Afropop"; c: "Gospel"; d: "Dansi"; correct: "Bongo Flava/Afropop"; cat: "BUR"; diff: 2 }
         ListElement { q: "Jina la kweli la msanii Harmonize ni?"; a: "Rajab Abdul Kahali"; b: "Khadija Kopa"; c: "Juma Harmonize"; d: "Abdul Rajab"; correct: "Rajab Abdul Kahali"; cat: "BUR"; diff: 2 }
-        ListElement { q: "Msanii wa kike aliyejulikana kama 'Queen of Bongo' ni?"; a: "Zuchu"; b: "Lady Jaydee"; c: "Nandy"; d: "Shilole"; correct: "Lady Jaydee"; cat: "BUR"; diff: 2 }
-        ListElement { q: "Wimbo wa 'Sugua' uliofanya msanii gani mashuhuri zaidi?"; a: "Diamond Platnumz"; b: "Rayvanny"; c: "Zuchu"; d: "Harmonize"; correct: "Rayvanny"; cat: "BUR"; diff: 2 }
         ListElement { q: "Professor Jay anajulikana zaidi kwa aina gani ya muziki?"; a: "Taarab"; b: "Gospel"; c: "Bongo Flava/Hip hop"; d: "Dansi"; correct: "Bongo Flava/Hip hop"; cat: "BUR"; diff: 1 }
 
         // TAARAB & MUZIKI WA ASILI
@@ -1129,21 +1116,18 @@ Rectangle {
         ListElement { q: "Hukwe Zawose alijulikana duniani kwa kucheza ala gani ya asili?"; a: "Zeze na Ilimba"; b: "Ngoma ya Bongo"; c: "Kinanda"; d: "Gitaa la umeme"; correct: "Zeze na Ilimba"; cat: "BUR"; diff: 2 }
         ListElement { q: "Muziki wa 'Chakacha' ni ngoma ya asili ya watu wa?"; a: "Wachagga"; b: "Wamasai"; c: "Waswahili wa pwani"; d: "Wasukuma"; correct: "Waswahili wa pwani"; cat: "BUR"; diff: 2 }
         ListElement { q: "Aina ya muziki wa dansi uliokuwa maarufu miaka ya 1960-80 Tanzania unaitwa?"; a: "Bongo Flava"; b: "Muziki wa Dansi (Tanzania Jazz)"; c: "Gospel"; d: "Hip hop"; correct: "Muziki wa Dansi (Tanzania Jazz)"; cat: "BUR"; diff: 2 }
-        ListElement { q: "Kikundi cha muziki wa dansi kilichokuwa mashuhuri sana Tanzania miaka ya 70-80 ni?"; a: "WCB Wasafi"; b: "OTTU Jazz Band"; c: "Diamond Orchestra"; d: "Kings Music"; correct: "OTTU Jazz Band"; cat: "BUR"; diff: 3 }
         ListElement { q: "Remmy Ongala (Omari Ramadhan) alijulikana kimataifa kwa aina gani ya muziki?"; a: "Taarab"; b: "Soukous/Dansi ya Tanzania"; c: "Gospel"; d: "Bongo Flava"; correct: "Soukous/Dansi ya Tanzania"; cat: "BUR"; diff: 3 }
 
         // GOSPEL & INJILI
-        ListElement { q: "Msanii wa kwanza wa Tanzania kushinda tuzo ya Kili Music Awards ni?"; a: "Diamond Platnumz"; b: "Rose Muhando"; c: "Professor Jay"; d: "Ali Kiba"; correct: "Diamond Platnumz"; cat: "BUR"; diff: 3 }
-        ListElement { q: "Msanii maarufu wa muziki wa gospel Tanzania anayejulikana kama 'Mama Gospel' ni?"; a: "Rose Muhando"; b: "Zuchu"; c: "Nandy"; d: "Lady Jaydee"; correct: "Rose Muhando"; cat: "BUR"; diff: 1 }
         ListElement { q: "Msanii wa gospel Bahati Bukuku anajulikana zaidi kwa wimbo gani?"; a: "Mungu Baba"; b: "Yesu ni Bwana"; c: "Nikiwa Mbali"; d: "Sitolia"; correct: "Nikiwa Mbali"; cat: "BUR"; diff: 2 }
-        ListElement { q: "Kikundi cha gospel kilichojulikana sana Tanzania miaka ya 2000 ni?"; a: "Sauti Sol"; b: "Muungano National Choir"; c: "WCB Wasafi"; d: "Kings Music"; correct: "Muungano National Choir"; cat: "BUR"; diff: 2 }
+        ListElement { q: "Kikundi cha gospel kilichojulikana sana Tanzania miaka ya 2000 ni?"; a: "Sauti Sol"; b: "Muungano National Choir"; c: "Next Level"; d: "Kings Music"; correct: "Muungano National Choir"; cat: "BUR"; diff: 2 }
         ListElement { q: "Msanii wa gospel Judith Babirye anatoka nchi gani lakini maarufu Tanzania?"; a: "Kenya"; b: "Uganda"; c: "Rwanda"; d: "Burundi"; correct: "Uganda"; cat: "BUR"; diff: 2 }
 
         // HISTORIA YA MUZIKI WA TZ
         ListElement { q: "Kikundi cha kwanza cha muziki wa kisasa kuanzishwa Tanzania kilichoitwa 'Dar es Salaam Jazz Band' kilianzishwa lini?"; a: "Miaka ya 1940"; b: "Miaka ya 1960"; c: "Miaka ya 1980"; d: "Miaka ya 2000"; correct: "Miaka ya 1940"; cat: "BUR"; diff: 3 }
         ListElement { q: "TOT (Tanzania One Theatre) ilijulikana zaidi kwa aina gani ya sanaa?"; a: "Muziki wa dansi na maigizo"; b: "Bongo Flava"; c: "Taarab tu"; d: "Hip hop"; correct: "Muziki wa dansi na maigizo"; cat: "BUR"; diff: 2 }
         ListElement { q: "Msanii Mbaraka Mwinshehe alijulikana kwa aina gani ya muziki?"; a: "Taarab"; b: "Chakacha na Dansi"; c: "Gospel"; d: "Hip hop"; correct: "Chakacha na Dansi"; cat: "BUR"; diff: 3 }
-        ListElement { q: "Tamasha kubwa la muziki Tanzania linalofanyika Dar es Salaam linaitwa?"; a: "Sauti za Busara"; b: "Fiesta"; c: "Karibu New Music Tanzania"; d: "Wasafi Festival"; correct: "Wasafi Festival"; cat: "BUR"; diff: 2 }
+        ListElement { q: "Tamasha kubwa la muziki Tanzania linalofanyika Dar es Salaam linaitwa?"; a: "Sauti za Busara"; b: "Bagamoyo Arts Festival"; c: "Karibu New Music Tanzania"; d: "Serengeti Fiesta"; correct: "Serengeti Fiesta"; cat: "BUR"; diff: 2 }
         ListElement { q: "Tamasha la 'Sauti za Busara' linafanyika kila mwaka wapi?"; a: "Dar es Salaam"; b: "Arusha"; c: "Zanzibar"; d: "Mwanza"; correct: "Zanzibar"; cat: "BUR"; diff: 2 }
 
         // WASANII WENGINE MAARUFU
@@ -1154,7 +1138,6 @@ Rectangle {
         ListElement { q: "Kikundi cha muziki kilichojumuisha wasanii Juma Nature na Afande Sele kilikuwa?"; a: "P-Square TZ"; b: "X Plastaz"; c: "TMK"; d: "East African Bashment Crew"; correct: "X Plastaz"; cat: "BUR"; diff: 3 }
         ListElement { q: "Msanii Shilole anajulikana zaidi kwa?"; a: "Muziki wa taarab na nyimbo za mapenzi"; b: "Gospel"; c: "Dansi ya zamani"; d: "Hip hop"; correct: "Muziki wa taarab na nyimbo za mapenzi"; cat: "BUR"; diff: 2 }
         ListElement { q: "Wasanii wa Tanzania walioshinda tuzo ya AFRIMA (All Africa Music Awards) ni wengi — tuzo hizi hufanyika nchi gani?"; a: "Tanzania"; b: "Nigeria"; c: "Afrika Kusini"; d: "Kenya"; correct: "Nigeria"; cat: "BUR"; diff: 3 }
-        ListElement { q: "Msanii wa kike anayejulikana kwa jina 'Lulu' katika muziki ni nani?"; a: "Zuchu"; b: "Nandy"; c: "Elizabeth Michael"; d: "Shilole"; correct: "Elizabeth Michael"; cat: "BUR"; diff: 2 }
         ListElement { q: "Ala ya 'Tinde' inayopigwa kwa mikono ni ala ya asili ya kabila gani Tanzania?"; a: "Wachagga"; b: "Wagogo"; c: "Wamasai"; d: "Wasukuma"; correct: "Wagogo"; cat: "BUR"; diff: 3 }
         ListElement { q: "Msanii Ommy Dimpoz anajulikana kwa ushirikiano wake maarufu na msanii gani wa kimataifa?"; a: "Davido"; b: "Wizkid"; c: "P-Square"; d: "Don Jazzy"; correct: "P-Square"; cat: "BUR"; diff: 3 }
         ListElement { q: "Neno 'Bongo Flava' linamaanisha nini hasa?"; a: "Muziki wa Tanzania wenye ladha ya hapa"; b: "Muziki wa dansi tu"; c: "Muziki wa gospel"; d: "Muziki wa watoto"; correct: "Muziki wa Tanzania wenye ladha ya hapa"; cat: "BUR"; diff: 1 }
