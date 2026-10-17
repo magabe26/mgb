@@ -4257,9 +4257,9 @@ def beforeDisplayMenuPage(string xml) {
 
 //output = getMenuHolidayAd(output);
 
-output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/hide-navigation-buttons.jpg", "#", 1,0.6, "bottom");
-
- output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/hadithi_matokeo_la7.gif", "#", 1, 0.4, "top");
+output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/hadithi_matokeo_la7.gif", "#", 1, 0.4, "top");
+output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/Ads/hide-navigation-buttons-2.gif", "#", 1,0.4, "bottom");
+ 
   // output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/natengeneza.gif", "#emailUs", w, 0.3, "middle");
   // output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/std4b.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.darasa.la.nne", w, 0.16, "bottom");
   // output = putAdsToMenu(output, "https://raw.githubusercontent.com/magabe26/mgb/master/qt.gif", "#openurl;https://play.google.com/store/apps/details?id=com.magabelab.matokeo.ya.qt", w, 0.16, "bottom");
