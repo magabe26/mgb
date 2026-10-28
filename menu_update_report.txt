@@ -1,43 +1,43 @@
 RIPOTI YA KUSASISHA MENU ZA NECTA
-Imeendeshwa: 2026-10-27 22:40:27 UTC | 2026-10-28 01:40:27 EAT
-Jumla: 8 | Imesasishwa: 0 | Hakuna mabadiliko: 0 | Imefeli: 8
+Imeendeshwa: 2026-10-28 01:49:59 UTC | 2026-10-28 04:49:59 EAT
+Jumla: 8 | Imesasishwa: 0 | Hakuna mabadiliko: 8 | Imefeli: 0
 
-[sfna] IMEFELI
+[sfna] HAKUNA MABADILIKO
   ukurasa : https://www.necta.go.tz/results/view/sfna
   faili   : std4_menu.xml  (https://github.com/magabe26/mgb/blob/master/std4_menu.xml)
-  kosa    : kupakua ukurasa kumeshindwa: fetch failed | ETIMEDOUT | ETIMEDOUT 102.219.28.10:443 connect ETIMEDOUT 102.219.28.10:443 | ENETUNREACH 2001:43fc:2000:10::1:443 connect ENETUNREACH 2001:43fc:2000:10::1:443 - Local (:::0)
+  links   : 3  (miaka: 2025, 2024, 2023)
 
-[psle] IMEFELI
+[psle] HAKUNA MABADILIKO
   ukurasa : https://www.necta.go.tz/results/view/psle
   faili   : necta.primary.std7.xml  (https://github.com/magabe26/mgb/blob/master/necta.primary.std7.xml)
-  kosa    : kupakua ukurasa kumeshindwa: fetch failed | ETIMEDOUT | ETIMEDOUT 102.219.28.10:443 connect ETIMEDOUT 102.219.28.10:443 | ENETUNREACH 2001:43fc:2000:10::1:443 connect ENETUNREACH 2001:43fc:2000:10::1:443 - Local (:::0)
+  links   : 3  (miaka: 2025, 2024, 2023)
 
-[ftna] IMEFELI
+[ftna] HAKUNA MABADILIKO
   ukurasa : https://www.necta.go.tz/results/view/ftna
   faili   : Form_2_Menu.xml  (https://github.com/magabe26/mgb/blob/master/Form_2_Menu.xml)
-  kosa    : kupakua ukurasa kumeshindwa: fetch failed | ETIMEDOUT | ETIMEDOUT 102.219.28.10:443 connect ETIMEDOUT 102.219.28.10:443 | ENETUNREACH 2001:43fc:2000:10::1:443 connect ENETUNREACH 2001:43fc:2000:10::1:443 - Local (:::0)
+  links   : 3  (miaka: 2025, 2024, 2023)
 
-[csee] IMEFELI
+[csee] HAKUNA MABADILIKO
   ukurasa : https://www.necta.go.tz/results/view/csee
   faili   : Form_4_menu.xml  (https://github.com/magabe26/mgb/blob/master/Form_4_menu.xml)
-  kosa    : kupakua ukurasa kumeshindwa: fetch failed | ETIMEDOUT | ETIMEDOUT 102.219.28.10:443 connect ETIMEDOUT 102.219.28.10:443 | ENETUNREACH 2001:43fc:2000:10::1:443 connect ENETUNREACH 2001:43fc:2000:10::1:443 - Local (:::0)
+  links   : 3  (miaka: 2025, 2024, 2023)
 
-[acsee] IMEFELI
+[acsee] HAKUNA MABADILIKO
   ukurasa : https://www.necta.go.tz/results/view/acsee
   faili   : Form_6_menu.xml  (https://github.com/magabe26/mgb/blob/master/Form_6_menu.xml)
-  kosa    : kupakua ukurasa kumeshindwa: fetch failed | ETIMEDOUT | ETIMEDOUT 102.219.28.10:443 connect ETIMEDOUT 102.219.28.10:443 | ENETUNREACH 2001:43fc:2000:10::1:443 connect ENETUNREACH 2001:43fc:2000:10::1:443 - Local (:::0)
+  links   : 3  (miaka: 2026, 2025, 2024)
 
-[gatce] IMEFELI
+[gatce] HAKUNA MABADILIKO
   ukurasa : https://www.necta.go.tz/results/view/gatce
   faili   : gatce_menu.xml  (https://github.com/magabe26/mgb/blob/master/gatce_menu.xml)
-  kosa    : kupakua ukurasa kumeshindwa: fetch failed | ETIMEDOUT | ETIMEDOUT 102.219.28.10:443 connect ETIMEDOUT 102.219.28.10:443 | ENETUNREACH 2001:43fc:2000:10::1:443 connect ENETUNREACH 2001:43fc:2000:10::1:443 - Local (:::0)
+  links   : 3  (miaka: 2026, 2025, 2024)
 
-[dsee] IMEFELI
+[dsee] HAKUNA MABADILIKO
   ukurasa : https://www.necta.go.tz/results/view/dsee
   faili   : dsee_menu.xml  (https://github.com/magabe26/mgb/blob/master/dsee_menu.xml)
-  kosa    : kupakua ukurasa kumeshindwa: fetch failed | ETIMEDOUT | ETIMEDOUT 102.219.28.10:443 connect ETIMEDOUT 102.219.28.10:443 | ENETUNREACH 2001:43fc:2000:10::1:443 connect ENETUNREACH 2001:43fc:2000:10::1:443 - Local (:::0)
+  links   : 3  (miaka: 2026, 2025, 2024)
 
-[gatscce] IMEFELI
+[gatscce] HAKUNA MABADILIKO
   ukurasa : https://www.necta.go.tz/results/view/gatscce
   faili   : gatscce_menu.xml  (https://github.com/magabe26/mgb/blob/master/gatscce_menu.xml)
-  kosa    : kupakua ukurasa kumeshindwa: fetch failed | ETIMEDOUT | ETIMEDOUT 102.219.28.10:443 connect ETIMEDOUT 102.219.28.10:443 | ENETUNREACH 2001:43fc:2000:10::1:443 connect ENETUNREACH 2001:43fc:2000:10::1:443 - Local (:::0)
+  links   : 3  (miaka: 2025, 2024, 2023)
