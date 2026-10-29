@@ -1,11 +1,11 @@
 RIPOTI YA KUSASISHA MENU ZA NECTA
-Imeendeshwa: 2026-10-29 03:39:36 UTC | 2026-10-29 06:39:36 EAT
-Jumla: 2 | Imesasishwa: 0 | Hakuna mabadiliko: 0 | Imefeli: 2
+Imeendeshwa: 2026-10-29 10:35:56 UTC | 2026-10-29 13:35:56 EAT
+Jumla: 2 | Imesasishwa: 0 | Hakuna mabadiliko: 1 | Imefeli: 1
 
-[csee] IMEFELI
+[csee] HAKUNA MABADILIKO
   ukurasa : https://www.necta.go.tz/results/view/csee
   faili   : mgb2_6.xml  (https://github.com/magabe26/mgb/blob/master/mgb2_6.xml)
-  kosa    : kupakua ukurasa kumeshindwa: fetch failed | ETIMEDOUT | ETIMEDOUT 102.219.28.10:443 connect ETIMEDOUT 102.219.28.10:443 | ENETUNREACH 2001:43fc:2000:10::1:443 connect ENETUNREACH 2001:43fc:2000:10::1:443 - Local (:::0)
+  links   : 3  (miaka: 2025, 2024, 2023)
 
 [acsee] IMEFELI
   ukurasa : https://www.necta.go.tz/results/view/acsee
