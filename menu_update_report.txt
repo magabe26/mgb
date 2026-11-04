@@ -1,17 +1,16 @@
 RIPOTI YA KUSASISHA MENU ZA NECTA
-Imeendeshwa: 2026-11-03 23:44:02 UTC | 2026-11-04 02:44:02 EAT
-Jumla: 8 | Imesasishwa: 1 | Hakuna mabadiliko: 7 | Imefeli: 0
+Imeendeshwa: 2026-11-04 03:24:21 UTC | 2026-11-04 06:24:21 EAT
+Jumla: 8 | Imesasishwa: 0 | Hakuna mabadiliko: 8 | Imefeli: 0
 
 [sfna] HAKUNA MABADILIKO
   ukurasa : https://www.necta.go.tz/results/view/sfna
   faili   : std4_menu.xml  (https://github.com/magabe26/mgb/blob/master/std4_menu.xml)
   links   : 3  (miaka: 2025, 2024, 2023)
 
-[psle] IMESASISHWA
+[psle] HAKUNA MABADILIKO
   ukurasa : https://www.necta.go.tz/results/view/psle
   faili   : necta.primary.std7.xml  (https://github.com/magabe26/mgb/blob/master/necta.primary.std7.xml)
   links   : 3  (miaka: 2026, 2025, 2024)
-  imeongezwa: https://matokeo.necta.go.tz/results/2026/psle/psle.htm
 
 [ftna] HAKUNA MABADILIKO
   ukurasa : https://www.necta.go.tz/results/view/ftna
